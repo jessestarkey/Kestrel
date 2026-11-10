@@ -73,7 +73,7 @@ There is no anonymous or general-public access. IL5 holds controlled unclassifie
 
 ## How KESTREL exercises the SABER
 
-| Pillar | Domain | Why KESTREL needs it |
+| Pillar | Focus Area | Why KESTREL needs it |
 | :--- | :--- | :--- |
 | Protect | Identity | DoD users, coalition partners with external PKI, workload and pipeline identities, an agentic mission-planning assistant, and privileged operators with OT maintenance-window access. |
 | Protect | Device and Infrastructure | Cloud workloads, on-premises servers, HSMs, ground control stations, and the aircraft themselves. |
