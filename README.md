@@ -10,14 +10,13 @@ The SABER is a framework: it defines outcomes, activities, control mappings, and
 
 ## The system
 
-KESTREL is a hybrid ISR (intelligence, surveillance, and reconnaissance) analytics platform. A fleet of unmanned aircraft collects sensor data and runs onboard detection models. A cloud and on-premises backend trains and improves those models, manages the mission data, and serves applications to operators, analysts, and coalition partners.
+KESTREL is a hybrid ISR (intelligence, surveillance, and reconnaissance) analytics platform. A fleet of unmanned aircraft collects sensor data and runs onboard detection models. An IL5 cloud and on-premises backend trains and improves those models, manages the mission data, and serves applications to operators, analysts, and coalition partners.
 
 | Segment | What it hosts |
 | :--- | :--- |
 | **IL5 development and test** | CI/CD pipelines, the model training cluster, experimentation environments. Not reachable from outside the program. |
 | **IL5 production** | The externally accessible applications: the analyst portal, the partner API, the LLM analyst assistant with retrieval over mission reports, and the feedback endpoints that supply retraining data. |
 | **On-premises mission data center** | The authoritative mission data lake, PKI and HSMs, the identity provider, and the security operations center. |
-| **Classified enclave** | Disconnected copies of the analyst tools and models, received through a cross-domain solution on a periodic baseline release cycle. It is a separate system with its own authorization boundary. |
 | **UAS fleet** | Aircraft, ground control stations, and launch and recovery equipment (OT/ICS), each aircraft running an onboard detection model and contributing federated model updates. |
 
 ```mermaid
@@ -50,9 +49,6 @@ flowchart LR
         GCS --- UAS
     end
 
-    CDS{{"Cross-domain solution"}}
-    CLASS["Classified enclave<br/>disconnected tools and models"]
-
     ANL --> PROD
     PART --> PROD
     OPS --> GCS
@@ -60,7 +56,6 @@ flowchart LR
     UAS -->|"sensor data, federated updates"| LAKE
     LAKE --> DEV
     DEV -->|"certified models, baseline release"| GCS
-    DEV -->|"CtF, periodic baseline"| CDS --> CLASS
 ```
 
 ### Users
@@ -77,27 +72,27 @@ There is no anonymous or general-public access. IL5 holds controlled unclassifie
 | :--- | :--- | :--- |
 | Protect | Identity | DoD users, coalition partners with external PKI, workload and pipeline identities, an agentic mission-planning assistant, and privileged operators with OT maintenance-window access. |
 | Protect | Device and Infrastructure | Cloud workloads, on-premises servers, HSMs, ground control stations, and the aircraft themselves. |
-| Protect | Network and Environment | Segmentation between dev/test and production, an externally exposed production boundary, cross-domain transfer, and OT network isolation. |
-| Protect | Application | The analyst portal and partner API, shipped continuously through Certification to Field to IL5 and as periodic baselines to the classified enclave. |
+| Protect | Network and Environment | Segmentation between dev/test and production, an externally exposed production boundary, the hybrid circuit to the data center, and OT network isolation. |
+| Protect | Application | The analyst portal and partner API, shipped continuously through Certification to Field to IL5 production. |
 | Protect | Artificial Intelligence | The full model lifecycle: training, Continuous Training from analyst feedback and federated fleet updates, cloud and edge serving, RAG, a vendor-hosted foundation model, an agentic assistant, and safety-critical AI on aircraft. |
 | Protect | Data | Mission data classification, provenance, and lineage, key management, and incidental PII captured in imagery. |
-| Operate | Detection, Response, Recovery | An externally exposed production environment and a fielded fleet give the SOC real telemetry, real incidents, and real recovery requirements across five deployment types. |
-| Manage | Governance, Risk, Compliance | One authorizing official, two authorization packages for one program, risk acceptance at the certification gate, and continuous monitoring spanning cloud, on-premises, hybrid, air-gapped, and OT environments. |
+| Operate | Detection, Response, Recovery | An externally exposed production environment and a fielded fleet give the SOC real telemetry, real incidents, and real recovery requirements across four deployment types. |
+| Manage | Governance, Risk, Compliance | One authorization package at IL5, risk acceptance at the certification gate, and continuous monitoring spanning cloud, on-premises, hybrid, and OT environments. |
 
 Two parts of the SABER are especially well exercised:
 
-- **Both release cadences.** IL5 production receives continuous per-build releases, while the classified enclave and the aircraft receive periodic baselines. Both pass through the same Certification to Field gate, which is the case that gate was designed to cover.
+- **Both release cadences.** IL5 production receives continuous per-build releases, while the aircraft receive periodic baselines. Both pass through the same Certification to Field gate, which is the case that gate was designed to cover.
 - **Continuous Training as a real loop.** Analyst corrections and federated fleet updates flow back into retraining, so the feedback authentication, skew detection, and drift monitoring outcomes all have real inputs to act on.
 
 ### Tailored out
 
-Enterprise email and collaboration remain outside the SABER's scope and are not modeled here. Any other outcome KESTREL does not need is tailored out in the SADD with its reason recorded, rather than silently omitted.
+Enterprise email and collaboration remain outside the SABER's scope and are not modeled here. KESTREL also stops at IL5, so classified operations, cross domain transfer, and air-gapped environments are not modeled. Any other outcome KESTREL does not need is tailored out in the SADD with its reason recorded, rather than silently omitted.
 
 ## Planned contents
 
 The repository will grow along the same path a PMO ISSE follows:
 
-1. **System description** ([01-system-description.md](01-system-description.md)): authorization boundaries, components, data flows, users, and interconnections.
+1. **System description** ([01-system-description.md](01-system-description.md)): authorization boundary, components, data flows, users, and interconnections.
 2. **Security categorization:** FIPS 199 and CNSSI 1253 categorization and the resulting control baseline.
 3. **Tailoring and SADD:** which SABER outcomes apply, which are tailored out and why, and the populated metadata for KESTREL's environments.
 4. **Implementation Plan:** epics, stories, and tasks derived from the tailored outcomes, ready to load into an issue tracker.
