@@ -11,8 +11,8 @@ This document is KESTREL's RMF Step 2 (Select), built from the SABER's CCSD temp
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| CCSD Version | 1.0 |
-| Date | 2026-10-02 |
+| CCSD Version | 1.1 (draft, in SCA review). Version 1.0 is the approved version. |
+| Date | 2026-11-11 |
 | Prepared By | KESTREL PMO ISSE |
 | Reviewed By | Security Control Assessor (SCA) |
 | Approved By | KESTREL Authorizing Official (AO) |
@@ -27,12 +27,13 @@ This document is KESTREL's RMF Step 2 (Select), built from the SABER's CCSD temp
 | 0.1 | 2026-08-14 | KESTREL PMO ISSE | Initial draft for SCA review |
 | 0.2 | 2026-09-11 | KESTREL PMO ISSE | Dispositioned SCA comments and added the OT overlay |
 | 1.0 | 2026-10-02 | KESTREL PMO ISSE | Approved by the AO, with tailoring action 3 modified |
+| 1.1 | 2026-11-11 | KESTREL PMO ISSE | Added the performer interconnection, recorded source code held on performer laptops, moved the foundation model inside the boundary as a cloud-hosted service, recorded each mission team's ownership of its payload vendor's collection, and added service desk records as row 18, for SCA review |
 
 ---
 
 ## Purpose and Scope
 
-This CCSD lists the information types KESTREL processes, stores, and transmits, and assigns each a provisional impact value. It also proposes the control selection and tailoring that follow from them, for SCA review and AO approval. It covers the one KESTREL authorization boundary: the IL5 development and test environment, IL5 production, the on-premises mission data center, and the UAS fleet. The IL6 classified enclave that KESTREL exchanges data with is a separate system with its own CCSD, and this document covers only what crosses into or out of KESTREL. It is submitted to the KESTREL AO under DoD RMF.
+This CCSD lists the information types KESTREL processes, stores, and transmits, and assigns each a provisional impact value. It also proposes the control selection and tailoring that follow from them, for SCA review and AO approval. It covers the one KESTREL authorization boundary: the IL5 cloud's hub and ten spokes, the on-premises mission data center, and the UAS fleet. The IL6 classified enclave that KESTREL exchanges data with is a separate system with its own CCSD, and this document covers only what crosses into or out of KESTREL. It is submitted to the KESTREL AO under DoD RMF.
 
 ---
 
@@ -44,11 +45,11 @@ Information enters or leaves the boundary through seven interconnections, each a
 
 - **The UAS fleet's RF datalinks** bring in sensor recordings, telemetry, and federated model updates, and carry flight commands out.
 - **The partner API** releases detections and reports to coalition partner systems.
-- **The Boundary Cloud Access Point** carries every analyst and partner session into IL5 production.
-- **The vendor-hosted foundation model** receives prompts that carry excerpts of mission reports.
+- **The Boundary Cloud Access Point** carries every analyst and partner session into the DMZ.
 - **The cyber defense service provider** receives security telemetry and incident reports.
 - **The enterprise cross domain solution** carries baselines low to high into the IL6 enclave, and released analyst reports and model corrections high to low out of it.
 - **DoD PKI and External Certificate Authorities** supply the trust anchors for user and partner credentials.
+- **The performer's enterprise network and laptops** carry source code to and from the development environment, and display-only administration sessions into the admin VDI pool.
 
 ---
 
@@ -62,23 +63,24 @@ KESTREL transits no information on behalf of another party. Every type it carrie
 
 | # | Information Type | NIST SP 800-60 / CNSSI 1253 Identifier | Source | Owner | Where Held Inside the Boundary | Notes |
 |---|---|---|---|---|---|---|
-| 1 | Raw sensor collection | D.3, Intelligence Collection | Aircraft sensor payloads, over the datalinks | KESTREL mission owner | Aircraft storage, ground control stations, mission data lake, backup and archive | Includes incidental imagery of people, the program's only PII outside its user records |
+| 1 | Raw sensor collection | D.3, Intelligence Collection | Aircraft sensor payloads, over the datalinks | KESTREL mission owner, with Mission Team 1 holding EO/IR and Mission Team 2 holding RF collection | Aircraft storage, ground control stations, each mission team's data lake zone, backup and archive | Includes incidental imagery of people, the program's only PII outside its user records. Each payload vendor's data rights confine its raw collection to its own team's zone |
 | 2 | Processed sensor products and detections | D.3, Intelligence Processing | Onboard and cloud detection models | KESTREL mission owner | Mission data lake, detection model serving, analyst portal | |
-| 3 | Analyst reports and corrections | D.3, Intelligence Analysis and Production | Analysts, and released products from the IL6 enclave through the cross domain solution | KESTREL mission owner | Mission data lake, mission report index, feedback endpoints | Report excerpts also travel in prompts to the vendor-hosted foundation model, which holds them under no-retention terms |
+| 3 | Analyst reports and corrections | D.3, Intelligence Analysis and Production | Analysts, and released products from the IL6 enclave through the cross domain solution | KESTREL mission owner | Mission data lake, mission report index, feedback endpoints | Report excerpts also travel in prompts to the foundation model the cloud provider hosts inside the boundary, with provider-side prompt logging disabled |
 | 4 | Released intelligence to partners | D.3, Intelligence Dissemination | Analysts, through the partner API | KESTREL mission owner, with foreign disclosure approval | Partner API, mission data lake | Only products approved for release to each partner nation |
 | 5 | Collection requests and mission plans | D.3, Intelligence Planning | Analysts, operators, and the mission-planning agent | KESTREL operations lead | Mission-planning agent, mission data lake | Agent drafts take effect only after an operator approves them |
 | 6 | UAS command and control | D.1, Operational Defense | Ground control stations | KESTREL operations lead | Ground control stations, aircraft, command and payload datalinks | Flight commands, telemetry, and loaded flight plans |
-| 7 | Model training data | D.20.1, Research and Development (closest match) | Mission data lake, analyst corrections, federated updates from the aircraft | KESTREL AI lead | Mission data lake, training cluster, federated learning aggregator | No catalog type covers training corpora, so the closest type is used and its values are raised in Section 3 |
+| 7 | Model training data | D.20.1, Research and Development (closest match) | Mission data lake, analyst corrections, federated updates from the aircraft | KESTREL AI lead | Mission data lake, training cluster, federated learning aggregator | No catalog type covers training corpora, so the closest type is used and its values are raised in Section 3. It never leaves the boundary, since data scientists work only inside the experimentation workspaces |
 | 8 | Trained models and model lineage | C.3.5.1, System Development (closest match) | Training cluster | KESTREL AI lead | Artifact and model registry, detection model serving, aircraft | Includes the edge models loaded onto the aircraft and the models sent to the IL6 enclave |
-| 9 | Source code, infrastructure as code, and pipeline definitions | C.3.5.1, System Development | Developers and ML engineers | KESTREL engineering lead | Source repository and CI/CD pipeline | |
-| 10 | Signed releases and baselines | C.3.5.2, Lifecycle/Change Management | CI/CD pipeline | KESTREL engineering lead | Artifact and model registry, IL5 production, ground control stations | Includes the periodic baselines sent low to high to the IL6 enclave |
+| 9 | Source code, infrastructure as code, and pipeline definitions | C.3.5.1, System Development | Developers and ML engineers | KESTREL engineering lead | Source repository and CI/CD pipeline | Developers also keep clones on performer laptops outside the boundary, protected under the performer's CMMC Level 2 controls and the interconnection agreement |
+| 10 | Signed releases and baselines | C.3.5.2, Lifecycle/Change Management | CI/CD pipeline | KESTREL engineering lead | Artifact and model registry, every prod spoke, ground control stations | Includes the periodic baselines sent low to high to the IL6 enclave |
 | 11 | Configuration baselines and infrastructure state | C.3.5.4, IT Infrastructure Maintenance | Platform administrators and the pipeline | KESTREL engineering lead | Source repository, cloud control planes, data center management systems | |
 | 12 | Credentials and security configuration | C.3.5.5, Information Security | Identity provider, privileged access platform, secrets vaults | KESTREL ISSM | Secrets vaults, privileged access platform, identity provider | User, workload, and pipeline credentials and the security settings that govern them |
 | 13 | Command link and root signing key material | C.3.5.5, Information Security | PKI and HSMs | KESTREL ISSM | HSMs, and the datalink crypto modules in the aircraft and ground control stations | Generated in the HSMs and loaded into the datalink modules with a key loader. It never enters the IL5 cloud. |
-| 14 | Security telemetry and audit records | C.3.5.8, System and Network Monitoring | Every KESTREL segment | KESTREL ISSM | Security operations center, backup and archive | Also sent to the cyber defense service provider |
+| 14 | Security telemetry and audit records | C.3.5.8, System and Network Monitoring | Every KESTREL segment | KESTREL ISSM | Security monitoring platform, backup and archive | Also sent to the cyber defense service provider, whose analysts also read it in place through the CSSP host pool |
 | 15 | User identity and authentication records | C.2.8.9, Personal Identity and Authentication | Users and DoD PKI or External Certificate Authority credentials | KESTREL ISSM | Identity provider and directory | |
 | 16 | Fleet and ground equipment maintenance records | C.3.1.1, Facilities, Fleet, and Equipment Management | OT maintainers and vendor support | KESTREL operations lead | Mission data center, ground control stations | |
 | 17 | Backup and archive copies | C.3.5.6, Record Retention | Mission data lake, registries, and configuration | KESTREL ISSM | Backup and archive | Held under retention lock and a longer retention rule than the live copies |
+| 18 | Service desk records | C.3.1.2, Help Desk Services | Users, IT Operations, and the Security Team | KESTREL IT Operations lead | Service desk platform | Tickets, access requests and approvals, and change records |
 
 The Data focus area's Data Discovery, Labeling, and Classification (`DA-1.1`) checks this list against what is actually stored. A discovery result with no row here is a finding against this document.
 
@@ -109,6 +111,7 @@ Values follow the FIPS 199 levels as qualified by CNSSI 1253. The mission types 
 | 15 | User identity and authentication records | Moderate | Moderate | Moderate | M/M/M | Matches catalog. |
 | 16 | Fleet and ground equipment maintenance records | Moderate | Moderate | Low | L/L/L | Together, the records show how many aircraft can fly, which raises confidentiality. A false record can return an unready aircraft to flight, which raises integrity. |
 | 17 | Backup and archive copies | Moderate | Moderate | Moderate | L/L/L | The copies hold rows 1 to 12 but never the row 13 keys, which stay in the HSMs, so confidentiality follows rows 1 to 12. The contingency plan's recovery objectives depend on the copies being intact and reachable, which raises integrity and availability. |
+| 18 | Service desk records | Moderate | Moderate | Low | L/L/L | Tickets describe incidents and vulnerabilities, which raises confidentiality. Access approvals recorded here drive provisioning, so an altered record could grant access, which raises integrity. |
 
 ---
 
@@ -120,7 +123,7 @@ Values follow the FIPS 199 levels as qualified by CNSSI 1253. The mission types 
 |---|---|---|
 | Confidentiality | High | High-water mark, set by row 13 alone |
 | Integrity | High | High-water mark, set by rows 6, 8, 10, and 13 |
-| Availability | Moderate | High-water mark of rows 1 to 17 |
+| Availability | Moderate | High-water mark of rows 1 to 18 |
 
 **AO concurrence:** 2026-08-28, KESTREL AO memorandum concurring in the categorization.
 
@@ -148,7 +151,7 @@ KESTREL is a national security system, so its controls are selected per objectiv
 | Privacy Overlay (Low / Moderate / High) | Yes, Low | The only PII outside user records is incidental imagery of people in raw collection. KESTREL never indexes or retrieves it by person, which keeps the tier at Low. |
 | Space Platform Overlay | No | The aircraft are not space platforms. |
 | Cross Domain Solution (CDS) Overlay | No | The overlay applies to the cross domain solution itself, which the enterprise provider owns and authorizes. KESTREL's side of the connection falls under Cross Domain Solution (CDS) Transfer Procedures (`NE-2.10`) and the interconnection agreement. |
-| Cloud Computing Overlay | Yes | Applies to IL5 development and test and IL5 production. |
+| Cloud Computing Overlay | Yes | Applies to every IL5 spoke and the cloud hub. |
 | DoD Cloud Computing SRG Impact-Level Requirements | IL5 | Adds separation from non-DoD tenants, connection through the Boundary Cloud Access Point, cyber defense service provider alignment, and data location in the United States. KESTREL's High integrity is why its cloud provider holds an IL5 provisional authorization built on a High baseline, so the provider's integrity controls can be inherited. The one High confidentiality type, the row 13 key material, is held on premises and in the fleet, never in the IL5 cloud, so no cloud-hosted type exceeds Moderate confidentiality. |
 | NIST SP 800-82 Rev. 3 OT Overlay | Yes | Applies to the UAS fleet, whose aircraft, ground control stations, and launch equipment are OT. It adds safety-driven guidance to controls such as AC-11 and SI-2, which Section 7 relies on. |
 | DoD AI Cybersecurity Risk Management Tailoring Guide | Yes, as tailoring guidance | Applies to the detection models, the LLM analyst assistant, and the mission-planning agent. It informs tailoring rather than adding a control set of its own. |
@@ -163,9 +166,9 @@ KESTREL is a national security system, so its controls are selected per objectiv
 |---|---|---|---|---|---|---|
 | 1 | SI-8 | Removed | KESTREL runs no email service. Analysts use the parent organization's enterprise email, which sits outside the boundary and carries its own SI-8 implementation. | `NE-3.6` drops out of the SADD | Concur. Confirm in the SSP that no KESTREL component sends or receives mail. | Approved |
 | 2 | AC-11 | Scoped | Session lock does not apply to ground control stations while an aircraft is airborne, because a locked station during flight is a safety hazard. Operators stay at the station, and the station sits in a controlled operating area. AC-11 still applies to every other KESTREL device and to the stations on the ground. | `ID-2.6` (Device Lock, `ID-2.6.7`) | Concur, with the physical control documented in the SSP as the compensating measure. | Approved |
-| 3 | SI-2 | Compensating control | The payload processing workstation runs an operating system its vendor no longer patches, and the payload vendor certifies its conversion software only on that system. It runs isolated in the OT zone with application allow-listing, and reaches the data lake through a single firewalled conduit. | `DI-4.8`, `DI-3.5` (Compensating Control Baseline Definition, `DI-3.5.2`) | Concur, but the measure has no end date. | Modified: approved until the replacement workstation fields, and no later than 2027-09-30 |
+| 3 | SI-2 | Compensating control | The payload processing workstation runs an operating system its vendor no longer patches, and Payload Vendor A certifies its conversion software only on that system. It runs isolated in the OT zone with application allow-listing, and reaches the data lake through a single firewalled conduit. | `DI-4.8`, `DI-3.5` (Compensating Control Baseline Definition, `DI-3.5.2`) | Concur, but the measure has no end date. | Modified: approved until the replacement workstation fields, and no later than 2027-09-30 |
 | 4 | SR-11(3) | Added | Ground control stations and aircraft avionics include parts bought through vendor service channels. A periodic rescan for counterfeit components covers parts that enter after initial receipt. The enhancement is in no NIST baseline. | `GV-3.4` | Concur. | Approved |
-| 5 | SA-9(5) | Added | The SRG's IL5 requirements and the foundation model vendor's terms both turn on where data is processed. Selecting the control makes the location a recorded parameter, namely United States regions within each provider's IL5 authorization. | `AP-2.9`, `AI-8.3` | Concur. | Approved |
+| 5 | SA-9(5) | Added | The SRG's IL5 requirements and the hosted model service's terms both turn on where data is processed. Selecting the control makes the location a recorded parameter, namely United States regions within the cloud provider's IL5 authorization. Version 1.1 narrows the parameter to that one provider, since the foundation model is now one of its hosted services. | `AP-2.9`, `AI-8.3` | Concur. | Approved |
 
 **Organization-defined parameters:** recorded in the parameter table kept with the SCTM. The parameters this CCSD sets directly are the SA-9(5) location above and the AC-11 exception window, namely while an aircraft under that station's control is airborne.
 
@@ -186,6 +189,8 @@ This notional example does not reproduce the per-family control counts a real CC
 **SCA Review:** Security Control Assessor, 2026-09-04, with comments dispositioned in Section 7
 
 **AO Approval:** KESTREL Authorizing Official, 2026-10-02, approved version 1.0
+
+**Version 1.1:** drafted 2026-11-11 for the new performer interconnection and the retired foundation model vendor interconnection, both revision triggers under Periodic Review and Revision. It changes no impact value and no control selection, and it awaits SCA review and AO approval.
 
 ---
 
