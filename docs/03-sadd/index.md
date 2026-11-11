@@ -203,7 +203,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 | Operate | [RS: Response](09-response.md) | 20 / 0 | 60 | Written |
 | Operate | [RC: Recovery](10-recovery.md) | 16 / 0 | 41 | Written |
 | Manage | [GV: Governance](11-governance.md) | 33 / 0 | 116 | Written |
-| Manage | RK: Risk | 14 / 0 | 44 | Pending |
+| Manage | [RK: Risk](12-risk.md) | 14 / 0 | 44 | Written |
 | Manage | CO: Compliance | 10 / 0 | 33 | Pending |
 
 Three outcomes drop out across the whole framework by decision rather than footprint. Device Compliance (`DI-4.1`) drops because KESTREL owns no laptops, desktops, or mobile devices. Unidirectional Gateways (`NE-2.9`) drops because the ground segment conduit carries traffic both ways. Native Email Messaging Service (`NE-3.6`) drops because KESTREL runs no email service and the AO approved removing SI-8.
@@ -224,7 +224,7 @@ This table rolls up the External Dependencies field from every written focus are
 | IL6 enclave owner | NE-2.10, AI-7.4, RS-3.5 | Release review for every high-to-low product, and joint handling of any spill traced to one | IL6 enclave program |
 | DISA PPSM program | NE-2.12 | The PPSM registry and Category Assurance List | DISA |
 | Penetration testing provider | NE-1.5, AP-3.5, AI-5.7, AI-6.3, GV-5.6 | Independent tests of the whole system, its external paths, and its segmentation, and an AI red team for new use cases and foundation model changes, as a check on the design | Provider, under each engagement's rules of engagement |
-| Cyber defense service provider | ID-4.1, ID-4.2, DI-1.4, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7, AP-5.6, AI-9.4, DE-1.1, DE-1.2, DE-1.3, DE-1.4, DE-3.1, DE-3.2, RS-1.2, RS-1.3, RS-1.5, RS-1.6, RS-1.7, RS-3.1, RS-3.2, RS-4.1, GV-3.1, GV-5.6, GV-5.12 | Analysts in the CSSP host pool with read access and pre-approved containment playbooks, forwarded telemetry, IAVM relay, threat intelligence, signatures, external exposure reports, purple team participation, its own retained copy of security telemetry, round-the-clock triage, directives, and reporting to the DoD reporting chain | CSSP, under its service agreement |
+| Cyber defense service provider | ID-4.1, ID-4.2, DI-1.4, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7, AP-5.6, AI-9.4, DE-1.1, DE-1.2, DE-1.3, DE-1.4, DE-3.1, DE-3.2, RS-1.2, RS-1.3, RS-1.5, RS-1.6, RS-1.7, RS-3.1, RS-3.2, RS-4.1, GV-3.1, GV-5.6, GV-5.12, RK-2.1, RK-2.2, RK-2.3 | Analysts in the CSSP host pool with read access and pre-approved containment playbooks, forwarded telemetry, IAVM relay, threat intelligence, signatures, external exposure reports, purple team participation, its own retained copy of security telemetry, round-the-clock triage, directives, and reporting to the DoD reporting chain | CSSP, under its service agreement |
 | Performer laptops and device management | ID-2.5, ID-4.2, NE-2.7, AP-2.1, AP-2.4, AI-3.4, RS-1.6, GV-2.3, GV-3.2, GV-5.6 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
 | Parent organization's and performer's personnel systems | ID-1.8 | Departure signals that trigger deprovisioning | Parent organization and performer |
 | PSO's physical access control systems | ID-1.10 | Badge events at the data center and operating sites | PSO |
@@ -233,6 +233,8 @@ This table rolls up the External Dependencies field from every written focus are
 | Second circuit provider | RC-3.4 | A second dedicated circuit on a separate path to the cloud | Circuit provider |
 | Parent organization's enterprise services | GV-1.1, GV-2.3 | Enterprise security policy KESTREL's policy sits beneath, and phishing exercises on its email systems | Parent organization |
 | DoW CIO, DoD, and NIST AI guidance | GV-1.6, GV-4.5 | The zero trust reference architecture and target, and the AI frameworks and directives KESTREL maps to | DoW CIO, DoD, and NIST |
+| Security Control Assessor | RK-1.5, RK-1.6, RK-1.7 | Independent assessment, and the Security Assessment Plan, SAR, and RAR | SCA, for the AO |
+| DoD intelligence producers and DC3's DIB Cybersecurity program | RK-2.1, RK-2.2, RK-2.3 | Threat intelligence, and indicator sharing on the performer's side | DoD and DC3 |
 | DoD authoritative time service | DE-3.4 | Reference the data center's time servers check against | DoD |
 | Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7, DI-2.4, DI-3.4, DI-3.5, DI-4.8, DI-4.9, NE-2.8, NE-2.11, NE-3.9, AP-2.6, AP-2.12, AI-8.12, DA-1.2, DA-3.1, DA-3.2, DA-3.4, RC-1.4, GV-3.1, GV-3.2, GV-3.3, GV-3.4 | Devices that accept program-issued identities, support under agreement, hardening guidance, firmware and patch validation, datalink crypto modules, documented command sets, the payload vendors' certified conversion software, SBOMs for every delivery, the aircraft's onboard trusted execution environment, the datalink crypto modules and their post-quantum roadmap, and the data rights terms the vendor attributes encode | Each vendor |
 | Public package indexes and image sources | AP-2.7, AP-2.14, AI-4.6 | Third-party packages and the upstream images the hardened bases derive from, reached only through the package mirror | Each index's maintainers |
