@@ -194,7 +194,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 | Pillar | Focus Area | Outcomes In / Out | Activities | Status |
 |---|---|---|---|---|
 | Protect | [ID: Identity](02-identity.md) | 32 / 0 | 140 | Written |
-| Protect | DI: Device and Infrastructure | 28 / 1 | 105 | Pending |
+| Protect | [DI: Device and Infrastructure](03-device-and-infrastructure.md) | 28 / 1 | 105 | Written |
 | Protect | NE: Network and Environment | 29 / 1 | 129 | Pending |
 | Protect | AP: Application | 55 / 0 | 150 | Pending |
 | Protect | AI: Artificial Intelligence | 79 / 0 | 181 | Pending |

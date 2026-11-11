@@ -36,7 +36,7 @@ PROSE = {
 DESIGN = set()
 
 MANUAL_OUT = {
-    'DI-4.1': "Out of scope. KESTREL owns no laptops, desktops, or mobile devices. Users reach it from the parent organization's managed devices, whose compliance the enterprise enforces.",
+    'DI-4.1': "Out of scope. KESTREL owns no laptops, desktops, or mobile devices. Performers reach it from their own CMMC Level 2 laptops and the program office from the parent organization's managed devices, and each owner enforces its own devices' compliance.",
     'NE-3.6': 'Out of scope. KESTREL runs no email service, and the AO approved removing SI-8 (CCSD tailoring action 1).',
 }
 PILLAR = {'02': 'Protect', '03': 'Protect', '04': 'Protect', '05': 'Protect', '06': 'Protect', '07': 'Protect',
