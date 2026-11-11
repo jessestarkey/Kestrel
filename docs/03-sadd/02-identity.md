@@ -107,7 +107,7 @@
 
 ### ID-1.2: External PKI Trust and Sponsorship
 
-**Design Intent:** Admit coalition partners on External Certificate Authority or federated partner PKI credentials, each under a named KESTREL sponsor. Partner identities map only to partner API roles, and every external credential is revocation-checked at each session. The trust list names each of the five partner nations' issuing authorities, and adding a partner is a CCSD revision trigger.
+**Design Intent:** Admit coalition partners on External Certificate Authority or federated partner PKI credentials, each under a named KESTREL sponsor. Partner identities map only to partner API roles, and every external credential is revocation-checked at each session. The trust list names each partner nation's issuing authorities, and adding a partner nation is a CCSD revision trigger.
 
 **NIST Control Mapping:**
 
@@ -345,7 +345,7 @@
 
 ### ID-1.6: Third-Party Application and SaaS Access Governance
 
-**Design Intent:** KESTREL admits no third-party OAuth or SaaS application to its identities by default. The foundation model is a service the cloud provider hosts inside KESTREL's tenant, so it receives no delegated user access and is not a third-party application in this outcome's sense. Discovery runs against IL5 production egress to catch any other service in use.
+**Design Intent:** KESTREL admits no third-party OAuth or SaaS application to its identities by default. A foundation model the cloud provider hosts inside KESTREL's tenant receives no delegated user access, so it is not a third-party application in this outcome's sense. Discovery runs against IL5 production egress to catch any other service in use.
 
 **NIST Control Mapping:**
 
@@ -387,7 +387,7 @@
 
 ### ID-1.7: Identities and Entitlements Lifecycle
 
-**Design Intent:** Build entitlements as bundles for each user role in the system description, scoped to the team that role belongs to. Imagery analysts get Mission Team 1's raw collection and detections, signals analysts get Mission Team 2's, and both get the shared reports. IT Operations provisions accounts, but the approval comes from the requester's product owner or team lead, so no one approves and provisions the same access. The operator bundle includes approving the mission-planning agent's drafts, so that approval is an entitlement that can be reviewed rather than a feature anyone can reach.
+**Design Intent:** Build entitlements as bundles for each user role in the system description, scoped to the team that role belongs to. Analysts get their own mission team's raw collection and detections, and every team gets the shared reports. IT Operations provisions accounts, but the approval comes from the requester's product owner or team lead, so no one approves and provisions the same access. Approving an AI agent's actions is an entitlement in the bundle of the role that approves them, so each approval can be reviewed rather than reached by anyone. Today that is the operator bundle, which approves the mission-planning agent's drafts.
 
 **NIST Control Mapping:**
 
@@ -850,7 +850,7 @@
 
 ### ID-2.3: Single Sign on (SSO)
 
-**Design Intent:** Federate the analyst portal, the partner API, the LLM analyst assistant, and the administrative consoles behind the identity provider. One sign-on covers the portal and assistant, while administrative consoles require their own fresh authentication.
+**Design Intent:** Federate every user-facing application and administrative console behind the identity provider, from the analyst portal and the LLM analyst assistant to the partner API. One sign-on covers the mission applications, while administrative consoles require their own fresh authentication.
 
 **NIST Control Mapping:**
 
@@ -904,7 +904,7 @@
 
 ### ID-2.4: Non-Privileged Access Control
 
-**Design Intent:** Define the non-privileged roles once in the identity provider, and default every new identity to no access. Team membership is part of every role, so an analyst in one mission team cannot reach the other team's payload vendor data. Partners see only products released to their own nation.
+**Design Intent:** Define the non-privileged roles once in the identity provider, and default every new identity to no access. Team membership is part of every role, so an analyst in one mission team cannot reach another team's payload vendor data. Partners see only products released to their own nation.
 
 **NIST Control Mapping:**
 
@@ -1285,7 +1285,7 @@
 
 ### ID-3.3: AI Agent Identities
 
-**Design Intent:** Register the mission-planning agent as its own identity, with credentials scoped to reading mission data and drafting plans. It can reach no tool that tasks an aircraft, so an operator's approval stays the only path from a draft to a flight.
+**Design Intent:** Register every AI agent as its own identity, scoped to the data and tools its approved use case needs. No agent identity can reach a tool that tasks an aircraft or changes a system without a named human role approving the action first. The mission-planning agent is the first, scoped to reading mission data and drafting plans, so an operator's approval stays the only path from a draft to a flight.
 
 **NIST Control Mapping:**
 
@@ -2125,7 +2125,7 @@
 
 ### ID-5.1: Account Management Plan (AMP)
 
-**Design Intent:** Write one AMP covering every KESTREL identity population, including partners, the mission-planning agent, and OT devices. It records the assurance levels, the role bundles, the maintenance-window rules, and the ground control station session lock exception.
+**Design Intent:** Write one AMP covering every KESTREL identity population, including partners, AI agents, and OT devices. It records the assurance levels, the role bundles, the maintenance-window rules, and the ground control station session lock exception.
 
 **NIST Control Mapping:**
 

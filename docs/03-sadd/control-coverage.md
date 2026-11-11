@@ -33,7 +33,6 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | AC-4(12) | Partial | NE-2.10 | Protect / Network and Environment |
 | AC-4(15) | Partial | NE-2.10 | Protect / Network and Environment |
 | AC-4(17) | Partial | NE-2.10 | Protect / Network and Environment |
-| AC-4(21) | Partial | NE-2.9 | Protect / Network and Environment |
 | AC-4(26) | Partial | NE-2.10 | Protect / Network and Environment |
 | AC-4(31) | Partial | NE-2.10 | Protect / Network and Environment |
 | AC-5 | Partial | AP-4.3, DA-3.6 | Protect / Application, Protect / Data |

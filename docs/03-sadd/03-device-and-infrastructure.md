@@ -6,7 +6,7 @@
 
 ### DI-1.1: Asset Inventory and Discovery
 
-**Design Intent:** The service desk platform's configuration management database is KESTREL's one asset inventory. The cloud provider's resource inventory feeds it for every spoke, and agents and the SDN controller feed it for the data center, so nothing depends on manual entry. Every spoke is its own subscription under KESTREL's tenant, and a subscription created outside the landing zone raises an alert. License tracking covers the payload vendors' conversion software, the service desk platform, and the foundation model's terms of use.
+**Design Intent:** The service desk platform's configuration management database is KESTREL's one asset inventory. The cloud provider's resource inventory feeds it for every spoke, and agents and the SDN controller feed it for the data center, so nothing depends on manual entry. Every spoke is its own subscription under KESTREL's tenant, and a subscription created outside the landing zone raises an alert. License tracking covers every licensed product and model, such as each payload vendor's conversion software, the service desk platform, and each foundation model's terms of use.
 
 **NIST Control Mapping:**
 
@@ -558,7 +558,7 @@
 
 ### DI-3.2: Secure Compute Baselines
 
-**Design Intent:** One VDI golden image serves both host pools, and each pool adds only its own tools. Virtual machine images cover the experimentation workspaces, the signals conversion server, and the data center's servers. Container base images are hardened and minimal, built from the package mirror, and rebuilt rather than patched in place. Every managed Kubernetes cluster shares one baseline, whether it is a dev, test, stage, prod, or training cluster. BMC hardening applies to the data center's physical servers.
+**Design Intent:** One VDI golden image serves every host pool, and each pool adds only its own tools. Virtual machine images cover the experimentation workspaces, the payload vendors' conversion servers, and the data center's other servers. Container base images are hardened and minimal, built from the package mirror, and rebuilt rather than patched in place. Every managed Kubernetes cluster shares one baseline, whether it is a dev, test, stage, prod, or training cluster. BMC hardening applies to the data center's physical servers.
 
 **NIST Control Mapping:**
 
@@ -635,7 +635,7 @@
 
 ### DI-3.3: Secure Storage Baselines
 
-**Design Intent:** The portal database and every cloud storage service disable public access, accept connections only from private endpoints in their own spoke, and send access logs to the security monitoring platform. On premises, each data lake zone's access policy admits only its own team's workloads, the Data Team, and the ML training zone where F18 allows. The backup repository is reachable only from the backup service.
+**Design Intent:** Every cloud database and storage service disables public access, accepts connections only from private endpoints in its own spoke, and sends access logs to the security monitoring platform. On premises, each data lake zone's access policy admits only its own team's workloads, the Data Team, and the ML training zone where F18 allows. The backup repository is reachable only from the backup service.
 
 **NIST Control Mapping:**
 
@@ -698,7 +698,7 @@
 
 ### DI-3.4: Secure Platform Services and Application Baselines
 
-**Design Intent:** Platform service baselines cover the spoke secrets vaults, the feedback endpoints' queues and functions, the portal database service, and the foundation model deployment. The foundation model's baseline requires a private endpoint and provider-side prompt logging disabled. Application baselines cover how the mission teams' applications are hosted, along with the service desk platform and Payload Vendor B's conversion software, which follow their vendors' guidance.
+**Design Intent:** Platform service baselines cover every managed service, such as the spoke secrets vaults, the feedback endpoints' queues and functions, the database services, and each foundation model deployment. Every foundation model deployment's baseline requires a private endpoint and provider-side prompt logging disabled. Application baselines cover how the mission teams' applications are hosted, and COTS products such as the service desk platform and the payload vendors' conversion software follow their vendors' guidance.
 
 **NIST Control Mapping:**
 
@@ -917,7 +917,7 @@
 
 ### DI-4.5: Storage Configuration Monitoring
 
-**Design Intent:** Cloud configuration checks watch the portal database and every cloud storage service for public access, disabled logging, or a loosened resource firewall. On premises, each data lake zone's access policy is compared against its baseline, so access that crosses the vendor split is caught. Findings feed a storage compliance dashboard.
+**Design Intent:** Cloud configuration checks watch every cloud database and storage service for public access, disabled logging, or a loosened resource firewall. On premises, each data lake zone's access policy is compared against its baseline, so access that crosses the vendor split is caught. Findings feed a storage compliance dashboard.
 
 **NIST Control Mapping:**
 
@@ -958,7 +958,7 @@
 
 ### DI-4.6: Platform Services and Application Configuration Monitoring
 
-**Design Intent:** Cloud configuration checks watch every platform service against its baseline. The checks with the highest priority are a re-enabled public endpoint and the foundation model's provider-side prompt logging being turned back on. The same checks cover how each application is hosted, and findings appear on the platform and application compliance dashboard.
+**Design Intent:** Cloud configuration checks watch every platform service against its baseline. The checks with the highest priority are a re-enabled public endpoint and provider-side prompt logging turned back on for any foundation model deployment. The same checks cover how each application is hosted, and findings appear on the platform and application compliance dashboard.
 
 **NIST Control Mapping:**
 
@@ -1153,7 +1153,7 @@
 
 ### DI-4.9: Unpatchable/Legacy Asset Compensating Controls
 
-**Design Intent:** The payload processing workstation is KESTREL's one unpatchable asset. It sits in its own OT zone segment, and a single conduit carries its converted recordings to Mission Team 1's data lake zone and nothing else. The data center hub's intrusion prevention signatures shield its known vulnerabilities at that conduit. The passive sensors and the security monitoring platform watch it under tighter alert thresholds than the rest of the fleet.
+**Design Intent:** Any asset that cannot be patched gets its own segment, intrusion prevention at its only path, and tighter monitoring. The payload processing workstation is the only one today. It sits in its own OT zone segment, and a single conduit carries its converted recordings to Mission Team 1's data lake zone and nothing else. The data center hub's intrusion prevention signatures shield its known vulnerabilities at that conduit. The passive sensors and the security monitoring platform watch it under tighter alert thresholds than the rest of the fleet.
 
 **NIST Control Mapping:**
 

@@ -195,7 +195,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 |---|---|---|---|---|
 | Protect | [ID: Identity](02-identity.md) | 32 / 0 | 140 | Written |
 | Protect | [DI: Device and Infrastructure](03-device-and-infrastructure.md) | 28 / 1 | 105 | Written |
-| Protect | NE: Network and Environment | 29 / 1 | 129 | Pending |
+| Protect | [NE: Network and Environment](04-network-and-environment.md) | 28 / 2 | 124 | Written |
 | Protect | AP: Application | 55 / 0 | 150 | Pending |
 | Protect | AI: Artificial Intelligence | 79 / 0 | 181 | Pending |
 | Protect | DA: Data | 27 / 0 | 81 | Pending |
@@ -206,7 +206,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 | Manage | RK: Risk | 14 / 0 | 44 | Pending |
 | Manage | CO: Compliance | 10 / 0 | 33 | Pending |
 
-Two outcomes drop out across the whole framework. Device Compliance (`DI-4.1`) drops because KESTREL owns no laptops, desktops, or mobile devices. Native Email Messaging Service (`NE-3.6`) drops because KESTREL runs no email service and the AO approved removing SI-8.
+Three outcomes drop out across the whole framework by decision rather than footprint. Device Compliance (`DI-4.1`) drops because KESTREL owns no laptops, desktops, or mobile devices. Unidirectional Gateways (`NE-2.9`) drops because the ground segment conduit carries traffic both ways. Native Email Messaging Service (`NE-3.6`) drops because KESTREL runs no email service and the AO approved removing SI-8.
 
 ---
 
@@ -218,19 +218,23 @@ This table rolls up the External Dependencies field from every written focus are
 |---|---|---|---|
 | DoD PKI | ID-1.1, ID-1.2, ID-2.1, ID-2.2 | Proofing through CAC issuance, user certificates, and revocation status | DoD PKI |
 | External Certificate Authorities and partner PKIs | ID-1.2, ID-2.1, ID-2.2 | Partner certificates and assertions, and their revocation status | Each issuing authority, under the partner memoranda of agreement |
-| IL5 cloud provider | ID-3.1 | Native workload identity, inherited under the provisional authorization | Cloud provider |
-| Boundary Cloud Access Point | ID-2.5 | Network-origin signal for inbound sessions | DoD |
-| Cyber defense service provider | ID-4.2 | Analysts who reach the security monitoring platform through the CSSP host pool, read only | CSSP, under its service agreement |
-| Performer laptops and device management | ID-2.5, ID-4.2 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
+| IL5 cloud provider | ID-3.1, DI-1.1, DI-2.4, DI-3.1, DI-3.2, DI-3.4, DI-4.6, DI-4.8, NE-1.2, NE-2.1 to NE-2.6, NE-3.3, NE-3.4, NE-3.5 | Native workload identity, resource inventory and configuration state, physical hosts and network devices, platform patching, private endpoints and the circuit's cloud side, firewall, DDoS, WAF, and DNS services, inherited under the provisional authorization | Cloud provider |
+| Boundary Cloud Access Point | ID-2.5, NE-2.5, NE-2.13 | The only inbound path, its network-origin signal, and upstream filtering | DoD |
+| Enterprise cross domain service provider | NE-2.10 | The cross domain solution, its product selection, and its accreditation | Cross domain service provider, under the interconnection agreement |
+| IL6 enclave owner | NE-2.10 | Release review for every high-to-low product | IL6 enclave program |
+| DISA PPSM program | NE-2.12 | The PPSM registry and Category Assurance List | DISA |
+| Penetration testing provider | NE-1.5 | Independent tests of segmentation and exfiltration paths | Provider, under each engagement's rules of engagement |
+| Cyber defense service provider | ID-4.2, DI-1.4, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7 | Read-only analysts in the CSSP host pool, forwarded telemetry, IAVM relay, threat intelligence, signatures, and external exposure reports | CSSP, under its service agreement |
+| Performer laptops and device management | ID-2.5, ID-4.2, NE-2.7 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
 | Parent organization's and performer's personnel systems | ID-1.8 | Departure signals that trigger deprovisioning | Parent organization and performer |
 | PSO's physical access control systems | ID-1.10 | Badge events at the data center and operating sites | PSO |
-| Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7 | Devices that accept program-issued identities, and support sessions under agreement | Each vendor |
+| Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7, DI-2.4, DI-3.4, DI-3.5, DI-4.8, DI-4.9, NE-2.8, NE-2.11, NE-3.9 | Devices that accept program-issued identities, support under agreement, hardening guidance, firmware and patch validation, datalink crypto modules, documented command sets, and the payload vendors' certified conversion software | Each vendor |
 
 ---
 
 ## 7. Control Mapping Coverage Summary
 
-The coverage table is generated from every in-scope outcome's NIST Control Mapping and lives in [control-coverage.md](control-coverage.md). It covers all twelve focus areas already, since the mappings are carried from the SABER. KESTREL's in-scope outcomes claim 492 controls and enhancements.
+The coverage table is generated from every in-scope outcome's NIST Control Mapping and lives in [control-coverage.md](control-coverage.md). It covers all twelve focus areas already, since the mappings are carried from the SABER. KESTREL's in-scope outcomes claim 491 controls and enhancements.
 
 ---
 
@@ -240,7 +244,7 @@ The coverage table is generated from every in-scope outcome's NIST Control Mappi
 |---|---|---|
 | ID: Identity | 32 | 1 |
 | DI: Device and Infrastructure | 26 | 4 |
-| NE: Network and Environment | 33 | 1 |
+| NE: Network and Environment | 32 | 1 |
 | AP: Application | 79 | 6 |
 | AI: Artificial Intelligence | 93 | 2 |
 | DA: Data | 23 | 2 |
@@ -250,7 +254,7 @@ The coverage table is generated from every in-scope outcome's NIST Control Mappi
 | GV: Governance | 3 | 1 |
 | RK: Risk | 2 | 1 |
 | CO: Compliance | 3 | 1 |
-| **Total** | **320** | **25** |
+| **Total** | **319** | **25** |
 
 **Automate:** automation concentrates where KESTREL releases things, namely the build pipeline, Certification to Field, and the model lifecycle. These are the gates every release to production, the aircraft, and the IL6 enclave must pass.
 
