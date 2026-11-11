@@ -131,12 +131,14 @@ This table rolls up the External Dependencies field from every written focus are
 | Enterprise cross domain service provider | NE-2.10 | The cross domain solution, its product selection, and its accreditation | Cross domain service provider, under the interconnection agreement |
 | IL6 enclave owner | NE-2.10 | Release review for every high-to-low product | IL6 enclave program |
 | DISA PPSM program | NE-2.12 | The PPSM registry and Category Assurance List | DISA |
-| Penetration testing provider | NE-1.5 | Independent tests of segmentation and exfiltration paths | Provider, under each engagement's rules of engagement |
-| Cyber defense service provider | ID-4.2, DI-1.4, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7 | Read-only analysts in the CSSP host pool, forwarded telemetry, IAVM relay, threat intelligence, signatures, and external exposure reports | CSSP, under its service agreement |
-| Performer laptops and device management | ID-2.5, ID-4.2, NE-2.7 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
+| Penetration testing provider | NE-1.5, AP-3.5 | Independent tests of the whole system, its external paths, and its segmentation, as a check on the design | Provider, under each engagement's rules of engagement |
+| Cyber defense service provider | ID-4.2, DI-1.4, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7, AP-5.6 | Read-only analysts in the CSSP host pool, forwarded telemetry, IAVM relay, threat intelligence, signatures, and external exposure reports | CSSP, under its service agreement |
+| Performer laptops and device management | ID-2.5, ID-4.2, NE-2.7, AP-2.1, AP-2.4 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
 | Parent organization's and performer's personnel systems | ID-1.8 | Departure signals that trigger deprovisioning | Parent organization and performer |
 | PSO's physical access control systems | ID-1.10 | Badge events at the data center and operating sites | PSO |
-| Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7, DI-2.4, DI-3.4, DI-3.5, DI-4.8, DI-4.9, NE-2.8, NE-2.11, NE-3.9 | Devices that accept program-issued identities, support under agreement, hardening guidance, firmware and patch validation, datalink crypto modules, documented command sets, and the payload vendors' certified conversion software | Each vendor |
+| Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7, DI-2.4, DI-3.4, DI-3.5, DI-4.8, DI-4.9, NE-2.8, NE-2.11, NE-3.9, AP-2.6, AP-2.12 | Devices that accept program-issued identities, support under agreement, hardening guidance, firmware and patch validation, datalink crypto modules, documented command sets, the payload vendors' certified conversion software, and SBOMs for every delivery | Each vendor |
+| Public package indexes and image sources | AP-2.7, AP-2.14 | Third-party packages and the upstream images the hardened bases derive from, reached only through the package mirror | Each index's maintainers |
+| DoD Vulnerability Disclosure Program | AP-5.10 | Researcher reports against KESTREL's internet-reachable endpoints | DoD Cyber Crime Center |
 
 ---
 
