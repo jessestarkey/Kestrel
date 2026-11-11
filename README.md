@@ -14,9 +14,11 @@ KESTREL is a hybrid ISR (intelligence, surveillance, and reconnaissance) analyti
 
 | Segment | What it hosts |
 | :--- | :--- |
-| **IL5 development and test** | CI/CD pipelines, the model training cluster, experimentation environments. Not reachable from outside the program. |
-| **IL5 production** | The externally accessible applications: the analyst portal, the partner API, the LLM analyst assistant with retrieval over mission reports, and the feedback endpoints that supply retraining data. |
-| **On-premises mission data center** | The authoritative mission data lake, PKI and HSMs, the identity provider, and the security operations center. |
+| **IL5 platform spokes** | The shared CI/CD pipeline, artifact and model registry, package mirror, and DNS, with a dev/test spoke for testing platform changes. |
+| **IL5 ML spokes** | Model training and experimentation in dev/test, and every model serving endpoint, including the CSP-hosted foundation model, in prod. |
+| **IL5 mission team spokes** | A dev/test and a prod spoke for each mission team. Mission Team 1 handles EO/IR imagery from Payload Vendor A and runs the analyst portal and the LLM analyst assistant. Mission Team 2 handles RF signals from Payload Vendor B and runs the signals workbench, the partner API, and the mission-planning agent. |
+| **IL5 DMZ and VDI spokes** | Everything users reach first, namely edge services, the identity-aware access proxy for the performer's CMMC Level 2 laptops, the VDI brokers, and the cross domain gateway, plus the platform team's admin desktops. |
+| **On-premises mission data center** | The authoritative mission data lake, PKI and HSMs, the identity provider, and the security monitoring platform the Security Team and the CSSP work from. |
 | **UAS fleet** | Aircraft, ground control stations, and launch and recovery equipment (OT/ICS), each aircraft running an onboard detection model and contributing federated model updates. |
 
 ```mermaid
@@ -39,7 +41,7 @@ flowchart LR
         direction TB
         LAKE["Mission data lake"]
         PKI["PKI, HSMs, identity provider"]
-        SOC["Security operations center"]
+        SOC["Security monitoring platform"]
     end
 
     subgraph FLEET["UAS Fleet (OT/ICS)"]
@@ -77,11 +79,11 @@ There is no anonymous or general-public access. IL5 holds controlled unclassifie
 | :--- | :--- | :--- |
 | Protect | Identity | DoD users, coalition partners with external PKI, workload and pipeline identities, an agentic mission-planning assistant, and privileged operators with OT maintenance-window access. |
 | Protect | Device and Infrastructure | Cloud workloads, on-premises servers, HSMs, ground control stations, and the aircraft themselves. |
-| Protect | Network and Environment | Segmentation between dev/test and production, an externally exposed production boundary, the hybrid circuit to the data center, two-way cross domain transfer, and OT network isolation. |
+| Protect | Network and Environment | Hub-and-spoke segmentation between teams and between dev/test and prod, an externally exposed production boundary, the hybrid circuit to the data center, two-way cross domain transfer, and OT network isolation. |
 | Protect | Application | The analyst portal and partner API, shipped continuously through Certification to Field to IL5 production and as periodic baselines to the IL6 enclave. |
-| Protect | Artificial Intelligence | The full model lifecycle: training, Continuous Training from analyst feedback and federated fleet updates, cloud and edge serving, RAG, a vendor-hosted foundation model, an agentic assistant, and safety-critical AI on aircraft. |
+| Protect | Artificial Intelligence | The full model lifecycle: training, Continuous Training from analyst feedback and federated fleet updates, cloud and edge serving, RAG, a cloud-hosted foundation model, an agentic assistant, and safety-critical AI on aircraft. |
 | Protect | Data | Mission data classification, provenance, and lineage, key management, and incidental PII captured in imagery. |
-| Operate | Detection, Response, Recovery | An externally exposed production environment and a fielded fleet give the SOC real telemetry, real incidents, and real recovery requirements across four deployment types. |
+| Operate | Detection, Response, Recovery | An externally exposed production environment and a fielded fleet give the Security Team and its CSSP real telemetry, real incidents, and real recovery requirements across four deployment types. |
 | Manage | Governance, Risk, Compliance | One authorization package at IL5, risk acceptance at the certification gate, and continuous monitoring spanning cloud, on-premises, hybrid, and OT environments. |
 
 Two parts of the SABER are especially well exercised:
@@ -99,11 +101,11 @@ The repository will grow along the same path a PMO ISSE follows. The authorizati
 
 1. **System description** ([docs/01-system-description.md](docs/01-system-description.md)): authorization boundary, components, data flows, users, and interconnections.
 2. **Categorization and control selection** ([docs/02-ccsd.md](docs/02-ccsd.md)): information types, impact values, overlays, and tailoring, in the CCSD.
-3. **Tailoring and SADD:** which SABER outcomes apply, which are tailored out and why, and the populated metadata for KESTREL's environments.
+3. **SADD** ([docs/03-sadd/](docs/03-sadd/index.md)): which SABER outcomes apply, which drop out and why, and the design intent for each, one file per focus area.
 4. **Implementation Plan:** epics, stories, and tasks derived from the tailored outcomes, ready to load into an issue tracker.
 5. **Plan-type deliverables** (`docs/plans/`): KESTREL-specific instances of the SABER's governing plans (AMP, CMP, KMP, IRP, CP, AISP, and others) where a worked example is useful.
 
-The system description and CCSD are written. The rest follow in order.
+The system description and CCSD are written, and the SADD is in progress. The rest follow in order.
 
 Three more folders will hold the material that shows the design built, not just documented:
 
@@ -111,10 +113,8 @@ Three more folders will hold the material that shows the design built, not just 
 - **`iac/`** holds infrastructure as code, such as Terraform, Kubernetes manifests, and policy as code, that implements SABER outcomes.
 - **`src/`** holds code examples, such as pipeline security gates and model serving controls.
 
-Each folder appears when its first file does.
+Each folder appears when its first file does. A fourth folder, **`tools/`**, holds the scripts that generate parts of the documents, such as the [SADD build](tools/sadd/README.md).
 
 ## Relationship to the SABER
 
 KESTREL is built against **SABER v1.3**, maintained in the separate [saber-framework](https://github.com/jessestarkey/saber-framework) repository. When this repository cites a SABER outcome or activity, it uses the SABER's own ID and name (for example, `AI-6.5: Deployment Risk Threshold Evaluation`). If the SABER changes, this repository records which version it was last aligned to rather than silently drifting.
-
-As in the SABER itself, mapping KESTREL's design to NIST SP 800-53 controls reflects design intent, not compliance evidence. Implementation narratives, assessment results, and control status would live in a program's separately maintained requirements traceability artifact, which a notional system does not have.
