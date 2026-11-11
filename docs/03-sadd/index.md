@@ -199,7 +199,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 | Protect | [AP: Application](05-application.md) | 55 / 0 | 150 | Written |
 | Protect | [AI: Artificial Intelligence](06-artificial-intelligence.md) | 79 / 0 | 181 | Written |
 | Protect | [DA: Data](07-data.md) | 27 / 0 | 81 | Written |
-| Operate | DE: Detection | 21 / 0 | 97 | Pending |
+| Operate | [DE: Detection](08-detection.md) | 21 / 0 | 97 | Written |
 | Operate | RS: Response | 20 / 0 | 60 | Pending |
 | Operate | RC: Recovery | 16 / 0 | 41 | Pending |
 | Manage | GV: Governance | 33 / 0 | 116 | Pending |
@@ -218,16 +218,18 @@ This table rolls up the External Dependencies field from every written focus are
 |---|---|---|---|
 | DoD PKI | ID-1.1, ID-1.2, ID-2.1, ID-2.2, DA-3.7 | Proofing through CAC issuance, user certificates, and revocation status | DoD PKI |
 | External Certificate Authorities and partner PKIs | ID-1.2, ID-2.1, ID-2.2, DA-3.7 | Partner certificates and assertions, and their revocation status | Each issuing authority, under the partner memoranda of agreement |
-| IL5 cloud provider | ID-3.1, DI-1.1, DI-2.4, DI-3.1, DI-3.2, DI-3.4, DI-4.6, DI-4.8, NE-1.2, NE-2.1 to NE-2.6, NE-3.3, NE-3.4, NE-3.5, AI-1.3, AI-1.5, AI-8.3, AI-8.9, AI-9.9, DA-1.4, DA-2.4, DA-2.5, DA-3.3, DA-3.5, DA-3.11, DA-3.12 | Native workload identity, resource inventory and configuration state, physical hosts and network devices, platform patching, private endpoints and the circuit's cloud side, firewall, DDoS, WAF, and DNS services, the hosted foundation models with their content filters, and the HSM-backed key management service, inherited under the provisional authorization | Cloud provider |
+| IL5 cloud provider | ID-3.1, DI-1.1, DI-2.4, DI-3.1, DI-3.2, DI-3.4, DI-4.6, DI-4.8, NE-1.2, NE-2.1 to NE-2.6, NE-3.3, NE-3.4, NE-3.5, AI-1.3, AI-1.5, AI-8.3, AI-8.9, AI-9.9, DA-1.4, DA-2.4, DA-2.5, DA-3.3, DA-3.5, DA-3.11, DA-3.12, DE-1.1, DE-2.1, DE-3.1, DE-3.4 | Native workload identity, resource inventory and configuration state, physical hosts and network devices, platform patching, private endpoints and the circuit's cloud side, firewall, DDoS, WAF, and DNS services, the hosted foundation models with their content filters, the HSM-backed key management service, native detection and control-plane logging, and time service, inherited under the provisional authorization | Cloud provider |
 | Boundary Cloud Access Point | ID-2.5, NE-2.5, NE-2.13 | The only inbound path, its network-origin signal, and upstream filtering | DoD |
 | Enterprise cross domain service provider | NE-2.10 | The cross domain solution, its product selection, and its accreditation | Cross domain service provider, under the interconnection agreement |
 | IL6 enclave owner | NE-2.10, AI-7.4 | Release review for every high-to-low product | IL6 enclave program |
 | DISA PPSM program | NE-2.12 | The PPSM registry and Category Assurance List | DISA |
 | Penetration testing provider | NE-1.5, AP-3.5, AI-5.7, AI-6.3 | Independent tests of the whole system, its external paths, and its segmentation, and an AI red team for new use cases and foundation model changes, as a check on the design | Provider, under each engagement's rules of engagement |
-| Cyber defense service provider | ID-4.2, DI-1.4, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7, AP-5.6, AI-9.4 | Read-only analysts in the CSSP host pool, forwarded telemetry, IAVM relay, threat intelligence, signatures, and external exposure reports | CSSP, under its service agreement |
+| Cyber defense service provider | ID-4.2, DI-1.4, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7, AP-5.6, AI-9.4, DE-1.2, DE-1.3, DE-1.4, DE-3.1, DE-3.2 | Read-only analysts in the CSSP host pool, forwarded telemetry, IAVM relay, threat intelligence, signatures, external exposure reports, purple team participation, and its own retained copy of security telemetry | CSSP, under its service agreement |
 | Performer laptops and device management | ID-2.5, ID-4.2, NE-2.7, AP-2.1, AP-2.4, AI-3.4 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
 | Parent organization's and performer's personnel systems | ID-1.8 | Departure signals that trigger deprovisioning | Parent organization and performer |
 | PSO's physical access control systems | ID-1.10 | Badge events at the data center and operating sites | PSO |
+| PSO's insider threat program | DE-1.6, DE-1.9 | Receives insider threat referrals and owns every case | PSO |
+| DoD authoritative time service | DE-3.4 | Reference the data center's time servers check against | DoD |
 | Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7, DI-2.4, DI-3.4, DI-3.5, DI-4.8, DI-4.9, NE-2.8, NE-2.11, NE-3.9, AP-2.6, AP-2.12, AI-8.12, DA-1.2, DA-3.1, DA-3.2, DA-3.4 | Devices that accept program-issued identities, support under agreement, hardening guidance, firmware and patch validation, datalink crypto modules, documented command sets, the payload vendors' certified conversion software, SBOMs for every delivery, the aircraft's onboard trusted execution environment, the datalink crypto modules and their post-quantum roadmap, and the data rights terms the vendor attributes encode | Each vendor |
 | Public package indexes and image sources | AP-2.7, AP-2.14, AI-4.6 | Third-party packages and the upstream images the hardened bases derive from, reached only through the package mirror | Each index's maintainers |
 | Pretrained model and foundation model publishers | AI-1.3, AI-1.5, AI-4.7, AI-8.3 | Pretrained checkpoints with their signatures or digests, and the foundation model versions the cloud provider serves | Each publisher |
