@@ -20,9 +20,9 @@ KESTREL is one system inside one authorization boundary, authorized under DoD RM
 | :--- | :--- | :--- |
 | The IL5 development and test environment, the IL5 production environment, the on-premises mission data center, and the UAS fleet | Controlled unclassified information and unclassified national security information, at IL5 | Commercial cloud at IL5, a program-owned data center, and fielded aircraft with their ground equipment |
 
-KESTREL operates at IL5 only. It has no classified segment, so it needs no cross domain solution and no second authorization boundary.
+KESTREL itself operates at IL5. It also exchanges data with a SECRET enclave at IL6 through a two-way enterprise cross domain solution. That enclave is a separate system with its own boundary and authorization package, and this example covers only KESTREL's side of the connection.
 
-The diagram below shows the boundary and the services KESTREL inherits from or depends on outside it.
+The diagram below shows the boundary, the services KESTREL inherits from or depends on outside it, and the two paths to and from the IL6 enclave.
 
 ```mermaid
 flowchart LR
@@ -52,6 +52,11 @@ flowchart LR
     CSP -.->|"inherited controls"| DEV
     CSP -.->|"inherited controls"| PROD
     DC -->|"security telemetry"| CSSP
+
+    CDS{{"Enterprise cross domain solution"}}
+    CLASS["IL6 classified enclave<br/>separate system, not modeled"]
+    PROD -->|"periodic baseline, low to high"| CDS --> CLASS
+    CLASS -->|"released products, high to low"| CDS --> PROD
 ```
 
 KESTREL inherits physical, environmental, and infrastructure controls from its cloud provider's DoD Provisional Authorization at IL5. It also inherits boundary protection from the Boundary Cloud Access Point that fronts the IL5 environment, which Authorized Cloud Access Point Integration (`NE-2.13`) covers. Finally, it receives cyber defense services from a cyber defense service provider, aligned under Cyber Defense Service Provider Alignment (`RS-1.7`).
@@ -134,6 +139,10 @@ The table lists every flow that crosses a segment or boundary. Flows inside a si
 | F9 | LLM analyst assistant | Vendor-hosted foundation model | Prompts with retrieved report excerpts, and responses | Authorization boundary | Private connectivity to the vendor's IL5 environment, no-retention terms |
 | F10 | All KESTREL segments | Security operations center | Logs and security telemetry | Segment | Encrypted log forwarding over the dedicated circuit |
 | F11 | Security operations center | Cyber defense service provider | Security telemetry and incident reports | Authorization boundary | Feed and reporting terms in the service agreement |
+| F12 | IL5 production | IL6 classified enclave | Periodic baselines of applications, models, and reference data | Authorization boundary, low to high | Enterprise cross domain solution |
+| F13 | IL6 classified enclave | IL5 production | Analyst reports and model corrections approved for release at IL5 | Authorization boundary, high to low | Enterprise cross domain solution, release review on the high side |
+
+Flows F12 and F13 are KESTREL's only connections to a classified system, and both pass through an enterprise cross domain solution operated by a DoD cross domain service provider. Each baseline going low to high passes Certification to Field first. Each product coming high to low passes the enclave's own release review before transfer, and KESTREL treats what arrives as untrusted input to its feedback endpoints. Cross Domain Solution (CDS) Transfer Procedures (`NE-2.10`) govern how KESTREL uses it, and an agreement under System Interconnection Agreements (ISA/MOU/MOA) (`GV-5.6`) covers both directions.
 
 ## Users and Roles
 
@@ -166,6 +175,7 @@ Coalition partners authenticate with External Certificate Authority or federated
 | Boundary Cloud Access Point | IL5 production | DoD cloud access boundary for all inbound user traffic |
 | Cyber defense service provider | Security operations center | Service agreement dividing detection and response responsibilities |
 | Foundation model vendor | LLM analyst assistant | IL5 authorization of the vendor's service and data governance terms |
+| Enterprise cross domain service provider | IL5 production | Interconnection agreement covering both transfer directions |
 | Coalition partner systems | Partner API | Memoranda of agreement with each partner nation |
 | DoD PKI and External Certificate Authorities | Identity provider | Trust anchors for user and partner credentials |
 
@@ -174,5 +184,5 @@ Coalition partners authenticate with External Certificate Authority or federated
 - **Enterprise email and collaboration** come from the parent organization's enterprise services and stay outside the boundary. The SABER does not cover them either.
 - **Airworthiness** is certified through a separate process. KESTREL's authorization covers the cybersecurity of the aircraft and ground systems, not their flight safety.
 - **Personnel and physical security** belong to the program's PSO. KESTREL describes how it relies on them, not how they are run.
-- **Classified operations** are out of scope. A SECRET extension at IL6 would be a separate system with its own boundary, CCSD, and authorization package, and this example does not model one.
+- **The IL6 enclave** is out of scope beyond flows F12 and F13. It has its own boundary, CCSD, and authorization package, and its release review belongs to it, not to KESTREL.
 - **Scale figures** such as twelve aircraft and about 300 analysts are illustrative. They exist to make sizing decisions concrete, not to describe a real fleet.

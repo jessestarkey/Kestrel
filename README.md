@@ -49,6 +49,9 @@ flowchart LR
         GCS --- UAS
     end
 
+    CDS{{"Cross-domain solution"}}
+    CLASS["Classified enclave<br/>disconnected tools and models"]
+
     ANL --> PROD
     PART --> PROD
     OPS --> GCS
@@ -56,6 +59,8 @@ flowchart LR
     UAS -->|"sensor data, federated updates"| LAKE
     LAKE --> DEV
     DEV -->|"certified models, baseline release"| GCS
+    PROD -->|"CtF, periodic baseline"| CDS --> CLASS
+    CLASS -->|"released products, high to low"| CDS --> PROD
 ```
 
 ### Users
@@ -72,8 +77,8 @@ There is no anonymous or general-public access. IL5 holds controlled unclassifie
 | :--- | :--- | :--- |
 | Protect | Identity | DoD users, coalition partners with external PKI, workload and pipeline identities, an agentic mission-planning assistant, and privileged operators with OT maintenance-window access. |
 | Protect | Device and Infrastructure | Cloud workloads, on-premises servers, HSMs, ground control stations, and the aircraft themselves. |
-| Protect | Network and Environment | Segmentation between dev/test and production, an externally exposed production boundary, the hybrid circuit to the data center, and OT network isolation. |
-| Protect | Application | The analyst portal and partner API, shipped continuously through Certification to Field to IL5 production. |
+| Protect | Network and Environment | Segmentation between dev/test and production, an externally exposed production boundary, the hybrid circuit to the data center, two-way cross domain transfer, and OT network isolation. |
+| Protect | Application | The analyst portal and partner API, shipped continuously through Certification to Field to IL5 production and as periodic baselines to the IL6 enclave. |
 | Protect | Artificial Intelligence | The full model lifecycle: training, Continuous Training from analyst feedback and federated fleet updates, cloud and edge serving, RAG, a vendor-hosted foundation model, an agentic assistant, and safety-critical AI on aircraft. |
 | Protect | Data | Mission data classification, provenance, and lineage, key management, and incidental PII captured in imagery. |
 | Operate | Detection, Response, Recovery | An externally exposed production environment and a fielded fleet give the SOC real telemetry, real incidents, and real recovery requirements across four deployment types. |
@@ -81,12 +86,12 @@ There is no anonymous or general-public access. IL5 holds controlled unclassifie
 
 Two parts of the SABER are especially well exercised:
 
-- **Both release cadences.** IL5 production receives continuous per-build releases, while the aircraft receive periodic baselines. Both pass through the same Certification to Field gate, which is the case that gate was designed to cover.
+- **Both release cadences.** IL5 production receives continuous per-build releases, while the aircraft and the IL6 enclave receive periodic baselines. Both pass through the same Certification to Field gate, which is the case that gate was designed to cover.
 - **Continuous Training as a real loop.** Analyst corrections and federated fleet updates flow back into retraining, so the feedback authentication, skew detection, and drift monitoring outcomes all have real inputs to act on.
 
 ### Tailored out
 
-Enterprise email and collaboration remain outside the SABER's scope and are not modeled here. KESTREL also stops at IL5, so classified operations, cross domain transfer, and air-gapped environments are not modeled. Any other outcome KESTREL does not need is tailored out in the SADD with its reason recorded, rather than silently omitted.
+Enterprise email and collaboration remain outside the SABER's scope and are not modeled here. KESTREL also stops at IL5. It exchanges data with an IL6 enclave through a two-way cross domain solution, but that enclave is a separate system and its design is not modeled. Any other outcome KESTREL does not need is tailored out in the SADD with its reason recorded, rather than silently omitted.
 
 ## Planned contents
 
