@@ -11,10 +11,10 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SADD Version | 0.1 |
+| SADD Version | 0.2 |
 | Date | 2026-11-11 |
 | Prepared By | KESTREL PMO ISSE |
-| Approved By | Pending. The KESTREL AO approves the SADD once every focus area is written. |
+| Approved By | Pending. Version 0.2 is submitted to the KESTREL AO for approval as version 1.0. |
 | Classification / Handling | CUI |
 | Security Categorization | Confidentiality High, Integrity High, Availability Moderate (see Section 2) |
 
@@ -23,6 +23,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Version | Date | Author | Description of Changes |
 |---|---|---|---|
 | 0.1 | 2026-11-11 | KESTREL PMO ISSE | Initial draft with the document-wide sections and the Identity focus area |
+| 0.2 | 2026-11-11 | KESTREL PMO ISSE | Wrote the remaining eleven focus areas, for AO approval |
 
 ---
 
@@ -204,7 +205,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 | Operate | [RC: Recovery](10-recovery.md) | 16 / 0 | 41 | Written |
 | Manage | [GV: Governance](11-governance.md) | 33 / 0 | 116 | Written |
 | Manage | [RK: Risk](12-risk.md) | 14 / 0 | 44 | Written |
-| Manage | CO: Compliance | 10 / 0 | 33 | Pending |
+| Manage | [CO: Compliance](13-compliance.md) | 10 / 0 | 33 | Written |
 
 Three outcomes drop out across the whole framework by decision rather than footprint. Device Compliance (`DI-4.1`) drops because KESTREL owns no laptops, desktops, or mobile devices. Unidirectional Gateways (`NE-2.9`) drops because the ground segment conduit carries traffic both ways. Native Email Messaging Service (`NE-3.6`) drops because KESTREL runs no email service and the AO approved removing SI-8.
 
@@ -212,7 +213,7 @@ Three outcomes drop out across the whole framework by decision rather than footp
 
 ## 6. External System and Service Dependencies
 
-This table rolls up the External Dependencies field from every written focus area, and it grows as each focus area is written.
+This table rolls up the External Dependencies field from every focus area.
 
 | Dependency | Depended On By (Outcome ID(s)) | Nature of Dependency | Owning Party |
 |---|---|---|---|
@@ -233,8 +234,11 @@ This table rolls up the External Dependencies field from every written focus are
 | Second circuit provider | RC-3.4 | A second dedicated circuit on a separate path to the cloud | Circuit provider |
 | Parent organization's enterprise services | GV-1.1, GV-2.3 | Enterprise security policy KESTREL's policy sits beneath, and phishing exercises on its email systems | Parent organization |
 | DoW CIO, DoD, and NIST AI guidance | GV-1.6, GV-4.5 | The zero trust reference architecture and target, and the AI frameworks and directives KESTREL maps to | DoW CIO, DoD, and NIST |
-| Security Control Assessor | RK-1.5, RK-1.6, RK-1.7 | Independent assessment, and the Security Assessment Plan, SAR, and RAR | SCA, for the AO |
+| Security Control Assessor | RK-1.5, RK-1.6, RK-1.7, CO-2.2 | Independent assessment, and the Security Assessment Plan, SAR, and RAR | SCA, for the AO |
 | DoD intelligence producers and DC3's DIB Cybersecurity program | RK-2.1, RK-2.2, RK-2.3 | Threat intelligence, and indicator sharing on the performer's side | DoD and DC3 |
+| Requirement issuers and DISA's STIG and SCAP content | CO-1.1, CO-1.2 | The statutes, regulations, and issuances binding KESTREL, and the baselines its scans evaluate against | DoD, OMB, and DISA |
+| External auditors and inspectors | CO-3.2 | Audits and inspections by inspectors general, GAO, cyber readiness inspectors, DCMA, and DIBCAC | Each auditing body |
+| DoD component privacy office | CO-4.1, CO-4.2 | Oversight of the privacy program and approval of each privacy impact assessment | DoD component |
 | DoD authoritative time service | DE-3.4 | Reference the data center's time servers check against | DoD |
 | Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7, DI-2.4, DI-3.4, DI-3.5, DI-4.8, DI-4.9, NE-2.8, NE-2.11, NE-3.9, AP-2.6, AP-2.12, AI-8.12, DA-1.2, DA-3.1, DA-3.2, DA-3.4, RC-1.4, GV-3.1, GV-3.2, GV-3.3, GV-3.4 | Devices that accept program-issued identities, support under agreement, hardening guidance, firmware and patch validation, datalink crypto modules, documented command sets, the payload vendors' certified conversion software, SBOMs for every delivery, the aircraft's onboard trusted execution environment, the datalink crypto modules and their post-quantum roadmap, and the data rights terms the vendor attributes encode | Each vendor |
 | Public package indexes and image sources | AP-2.7, AP-2.14, AI-4.6 | Third-party packages and the upstream images the hardened bases derive from, reached only through the package mirror | Each index's maintainers |
@@ -278,7 +282,7 @@ The coverage table is generated from every in-scope outcome's NIST Control Mappi
 
 | Control ID | Gap Description | Resolution | Status |
 |---|---|---|---|
-| PE family | Only PE-2 and PE-3 are claimed, both partially, by physical and logical access correlation (`ID-1.10`). | Addressed outside the SABER's scope. The PSO owns physical security, and the IL5 cloud segments inherit it from the cloud provider. | Closed |
+| PE family | Only PE-2 and PE-3 are claimed, both partially, by physical and logical access correlation (`ID-1.10`). | Addressed outside the SABER's scope. The PSO owns physical security, the IL5 cloud segments inherit it from the cloud provider, and the alternate site inherits it from the parent organization's facility. | Closed |
 | PS family | Only PS-7 is claimed, partially, by vendor support access (`ID-4.7`). | Addressed outside the SABER's scope. The PSO owns personnel security. | Closed |
 | Full selection check | This register is checked against the claims in Section 7. The check against every control in the CNSSI 1253 selection waits for the SCTM's per-control list. | Re-run when the SCTM is built from Section 7. | Open |
 
@@ -288,7 +292,7 @@ SI-8 is not a gap. The AO removed it in CCSD tailoring action 1, and its one own
 
 ## 10. Approval and Periodic Review
 
-**Approved By:** Pending. The KESTREL AO approves version 1.0 once every focus area is written.
+**Approved By:** Pending. Version 0.2 is submitted to the KESTREL AO for approval as version 1.0.
 
 **Review Cadence:** Annually, and whenever a revision trigger below occurs.
 

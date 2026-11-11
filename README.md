@@ -106,7 +106,7 @@ The repository will grow along the same path a PMO ISSE follows. The authorizati
 4. **Implementation Plan:** epics, stories, and tasks derived from the tailored outcomes, ready to load into an issue tracker.
 5. **Plan-type deliverables** (`docs/plans/`): KESTREL-specific instances of the SABER's governing plans (AMP, CMP, KMP, IRP, CP, AISP, and others) where a worked example is useful.
 
-The system description and CCSD are written, and the SADD is in progress. The rest follow in order.
+The system description, CCSD, and SADD are written. The rest follow in order.
 
 Three more folders will hold the material that shows the design built, not just documented:
 
