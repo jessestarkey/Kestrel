@@ -19,6 +19,7 @@ KESTREL is a hybrid ISR (intelligence, surveillance, and reconnaissance) analyti
 | **IL5 mission team spokes** | A dev/test and a prod spoke for each mission team. Mission Team 1 handles EO/IR imagery from Payload Vendor A and runs the analyst portal and the LLM analyst assistant. Mission Team 2 handles RF signals from Payload Vendor B and runs the signals workbench, the partner API, and the mission-planning agent. |
 | **IL5 DMZ and VDI spokes** | Everything users reach first, namely edge services, the identity-aware access proxy for the performer's CMMC Level 2 laptops, the VDI brokers, and the cross domain gateway, plus the platform team's admin desktops. |
 | **On-premises mission data center** | The authoritative mission data lake, PKI and HSMs, the identity provider, and the security monitoring platform the Security Team and the CSSP work from. |
+| **Alternate site** | A warm standby of identity and the PKI, a second HSM, and backup copies, in a parent organization facility. |
 | **UAS fleet** | Aircraft, ground control stations, and launch and recovery equipment (OT/ICS), each aircraft running an onboard detection model and contributing federated model updates. |
 
 ```mermaid

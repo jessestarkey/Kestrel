@@ -1630,7 +1630,7 @@
 
 ### ID-4.1: Privileged Access Control
 
-**Design Intent:** Define privileged roles for each administrative surface, namely the cloud hub, each spoke, the cluster control planes, the data center, the PKI and HSMs, and the ground segment. A team's administrators can administer only that team's spokes, and Tier 0 roles go only to the Platform Team's named Tier 0 administrators. The Security Team and the CSSP get read and audit roles, never the administrative roles they check. No single role spans the HSMs and the cloud tenants, and the cloud tenant-owner roles are separate from day-to-day cloud administration so they can be held to the privileged access workstations.
+**Design Intent:** Define privileged roles for each administrative surface, namely the cloud hub, each spoke, the cluster control planes, the data center, the PKI and HSMs, and the ground segment. A team's administrators can administer only that team's spokes, and Tier 0 roles go only to the Platform Team's named Tier 0 administrators. The Security Team and the CSSP get read and audit roles, never the administrative roles they check. The CSSP's only action right is running the pre-approved containment playbooks. No single role spans the HSMs and the cloud tenants, and the cloud tenant-owner roles are separate from day-to-day cloud administration so they can be held to the privileged access workstations.
 
 **NIST Control Mapping:**
 
@@ -1684,7 +1684,7 @@
 
 ### ID-4.2: Privileged Access Workstations and Administrative Tiering
 
-**Design Intent:** Administer Tier 0, which holds the identity provider, PKI, and HSMs, only from the physical privileged access workstations in the mission data center. The cloud tenant-owner roles, which can change a tenant's own security and identity settings, are restricted to the same workstations. Other Tier 1 work runs from the Platform Team's host pool in the VDI spoke, reached from performer laptops. The CSSP's analysts get their own host pool, which reaches only the security monitoring platform and grants no administrative access. Developers hold no privileged roles, so they need neither path.
+**Design Intent:** Administer Tier 0, which holds the identity provider, PKI, and HSMs, only from the physical privileged access workstations in the mission data center. The cloud tenant-owner roles, which can change a tenant's own security and identity settings, are restricted to the same workstations. Other Tier 1 work runs from the Platform Team's host pool in the VDI spoke, reached from performer laptops. The CSSP's analysts get their own host pool. It reads the security monitoring platform and the cloud's native threat protection and runs the pre-approved containment playbooks, but grants no administrative access. Developers hold no privileged roles, so they need neither path.
 
 **NIST Control Mapping:**
 

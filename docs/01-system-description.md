@@ -18,7 +18,7 @@ KESTREL is one system inside one authorization boundary, authorized under DoD RM
 
 | Boundary | Classification | Hosting |
 | :--- | :--- | :--- |
-| The IL5 cloud's hub and ten spokes, the on-premises mission data center, and the UAS fleet | Controlled unclassified information and unclassified national security information, at IL5 | Commercial cloud at IL5, a program-owned data center, and fielded aircraft with their ground equipment |
+| The IL5 cloud's hub and ten spokes, the on-premises mission data center and its alternate site, and the UAS fleet | Controlled unclassified information and unclassified national security information, at IL5 | Commercial cloud at IL5, a program-owned data center, program-owned equipment at an alternate site in a parent organization facility, and fielded aircraft with their ground equipment |
 
 KESTREL itself operates at IL5. It also exchanges data with a SECRET enclave at IL6 through a two-way enterprise cross domain solution. That enclave is a separate system with its own boundary and authorization package, and this example covers only KESTREL's side of the connection.
 
@@ -37,7 +37,7 @@ The government's program office directs KESTREL, eight performer teams build and
 | **ML Team** | Performer | Every model KESTREL trains or hosts, namely the detection models in the cloud and on the aircraft, the embedding model, and the deployment of the CSP-hosted foundation model. It exposes each model to the mission teams as an endpoint and produces the evidence each model's Certification to Field needs. It reads only the ML training zone. |
 | **Mission Team 1** | Performer | Electro-optical and infrared (EO/IR) imagery and full-motion video from Payload Vendor A, along with the analyst portal, the LLM analyst assistant, and the mission report index. |
 | **Mission Team 2** | Performer | Radio frequency (RF) signals from Payload Vendor B, along with the signals workbench, the partner API, and the mission-planning agent. |
-| **Cyber defense service provider (CSSP)** | External | Around-the-clock monitoring, triage, threat intelligence, and incident handling, delivered remotely under its service agreement. |
+| **Cyber defense service provider (CSSP)** | External | Around-the-clock monitoring, triage, threat intelligence, and incident handling, delivered remotely under its service agreement. It contains incidents that cannot wait for the Security Team by running pre-approved playbooks, but holds no administrative role. |
 | **Penetration testers** | External | Independent testing under rules of engagement, at least annually for the whole system, every six months for the DMZ and other paths reachable from outside, and after any major change such as a new spoke, interconnection, or external API. Fleet systems are tested on spares or a simulator, never on live aircraft. |
 | **Security Control Assessor (SCA)** | External | Independent assessment of KESTREL's controls for the AO. |
 
@@ -90,8 +90,10 @@ flowchart LR
             DC["Data lake zones, identity,<br/>PKI, security monitoring"]
             DCHUB --- DC
         end
+        ALT["Alternate site<br/>warm standby identity and PKI,<br/>backup copies"]
         FLEET["UAS fleet<br/>aircraft, ground control, launch and recovery"]
         CHUB <-->|"dedicated circuit"| DCHUB
+        CHUB <-->|"second dedicated circuit"| ALT
         FLEET <-->|"ground segment conduit"| DCHUB
     end
 
@@ -109,7 +111,7 @@ flowchart LR
 
 KESTREL inherits physical, environmental, and infrastructure controls from its cloud provider's DoD Provisional Authorization at IL5. It also inherits boundary protection from the Boundary Cloud Access Point that fronts the IL5 environment, which Authorized Cloud Access Point Integration (`NE-2.13`) covers. Finally, it receives cyber defense services from a cyber defense service provider, aligned under Cyber Defense Service Provider Alignment (`RS-1.7`).
 
-KESTREL's network is hub and spoke, with one hub in the IL5 cloud and one in the mission data center, joined by the dedicated circuit. The cloud hub has ten spokes:
+KESTREL's network is hub and spoke, with one hub in the IL5 cloud and one in the mission data center, joined by the dedicated circuit. A second circuit on a separate path joins the cloud hub to the alternate site. The cloud hub has ten spokes:
 
 | Spoke | Team | Holds |
 | :--- | :--- | :--- |
@@ -126,7 +128,7 @@ KESTREL's network is hub and spoke, with one hub in the IL5 cloud and one in the
 
 Each hub is a next-generation firewall that inspects all traffic between spokes, both east-west and north-south. It also inspects traffic arriving from the other side of the circuit and traffic leaving the boundary from its side. The cloud hub is therefore sized for east-west load, such as the mission teams' calls to ML Prod's model endpoints. Its rules deny all traffic from any dev/test spoke to any prod spoke, so the shared pipeline's release path through Certification to Field is the only way a change reaches production. They also deny traffic between the two mission teams' spokes, which keeps each payload vendor's data within its own team.
 
-Every flow between the cloud and the data center crosses exactly one inspection point in each direction, and each side keeps enforcing its policy if the circuit fails. Both hubs run one rule base, defined once as policy as code and deployed to each. Each side also runs its own DNS resolvers, which forward names for the other side across the circuit, so a circuit failure leaves local resolution working. Each spoke has its own secrets vault. Provider-managed services disable public access and accept traffic only from private endpoints in their own spoke, which their resource firewalls enforce. The ground segment conduit stays a separate boundary, so the data center hub sits on the IT side of it rather than replacing it. Between the two sits an IT/OT DMZ, where recordings and model packages are staged so no session spans IT and OT.
+Every flow between the cloud and the data center crosses exactly one inspection point in each direction, and each side keeps enforcing its policy if the circuit fails. Both hubs and the alternate site's firewall run one rule base, defined once as policy as code and deployed to each. Each side also runs its own DNS resolvers, which forward names for the other side across the circuit, so a circuit failure leaves local resolution working. Each spoke has its own secrets vault. Provider-managed services disable public access and accept traffic only from private endpoints in their own spoke, which their resource firewalls enforce. The ground segment conduit stays a separate boundary, so the data center hub sits on the IT side of it rather than replacing it. Between the two sits an IT/OT DMZ, where recordings and model packages are staged so no session spans IT and OT.
 
 ## Components
 
@@ -153,7 +155,7 @@ This spoke holds everything users and outside systems reach first. It holds no m
 
 | Component | What it does | Deployment Type | Affected Components |
 | :--- | :--- | :--- | :--- |
-| VDI host pools | Hardened desktops with one host pool and its own access roles per team or party. The platform pool serves Tier 1 administration, with privileged elevation only inside the session. The CSSP pool gives the CSSP's analysts read access to the security monitoring platform and nothing else | Cloud | Virtual Desktop Infrastructure (VDI) |
+| VDI host pools | Hardened desktops with one host pool and its own access roles per team or party. The platform pool serves Tier 1 administration, with privileged elevation only inside the session. The CSSP pool gives the CSSP's analysts read access to the security monitoring platform and the cloud's native threat protection, and lets them run the pre-approved containment playbooks, with no administrative access | Cloud | Virtual Desktop Infrastructure (VDI) |
 
 The desktops block clipboard, drive, and USB redirection, and they reach only management endpoints. A compromised laptop therefore sees the session's display but never holds its credentials or tokens. Two host pools exist today, one for the Platform Team and one for the CSSP. A mission or ML team gets one if it takes on running its own production spoke.
 
@@ -218,6 +220,20 @@ This segment holds the authoritative mission data and the services every other s
 | SDN fabric and controller | Routes and segments traffic between the data center's services under one controller, with segments matching the cloud's teams, and exports flow telemetry to the security monitoring platform | On-Premises | Routing/Switching Fabric, Segmentation Policy, Network Telemetry/Monitoring Platform |
 | Data center DNS | Resolves names for the data center and the ground segment, integrated with the directory, and filters outbound lookups | On-Premises | DNS Infrastructure |
 
+### Alternate Site
+
+The alternate site keeps identity, the PKI, and the backups alive if the mission data center is lost. KESTREL owns and operates its equipment in a parent organization facility, which provides space, power, and physical security under a facility agreement. It reaches the cloud over its own circuit and the data center through the cloud hub, so losing either the data center or the first circuit leaves it connected.
+
+| Component | What it does | Deployment Type | Affected Components |
+| :--- | :--- | :--- | :--- |
+| Standby identity provider and directory | A warm replica of the identity provider that takes over authentication if the data center is lost | On-Premises, Hybrid | Directory/Platform Core Infrastructure, Human Authentication |
+| Standby PKI and HSM | A standby issuing certificate authority and a second HSM holding backups of the program's keys | On-Premises | PKI/Certificate Authority, Cryptographic Hardware/HSM |
+| Backup copy repository | Immutable copies of the data center's backups under the same retention lock | On-Premises | Backup/Archive Repository |
+| Alternate site firewall | Inspects all traffic to and from the site under the hubs' shared rule base | On-Premises, Hybrid | Network Firewall, Intrusion Detection/Prevention System (IDPS) |
+| Second cloud interconnect | Carries the site's traffic to the IL5 environment over a dedicated circuit on a separate path | Hybrid | Private Connectivity/Dedicated Circuit |
+
+The cloud spokes recover differently. They are rebuilt in the cloud provider's second IL5 region from infrastructure as code and from backup copies kept there in immutable storage.
+
 ### UAS Fleet
 
 This segment flies the missions. It is the Cyber-Physical System (OT/ICS) part of KESTREL, and a fault here can cost an aircraft rather than a record.
@@ -256,14 +272,16 @@ The table lists every flow that crosses a spoke, segment, or boundary. Flows ins
 | F14 | Performer laptops | Platform Prod and ML Dev/Test | Source code pushes and pulls, CI results, and experimentation sessions | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, identity-aware proxy with CAC and device posture, protected branches with second-person review |
 | F15 | Performer laptops | Admin VDI host pools | Remote desktop display and input only | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, VDI brokers with CAC and device posture, no redirection, recorded sessions |
 | F16 | Mission team prod spokes | ML Prod | Inference requests to the detection and embedding models, and responses | Spoke to spoke | Cloud hub inspection, workload identity, mutual TLS |
-| F17 | CSSP analysts | Security monitoring platform | Remote desktop display and input, with read access to the monitoring platform | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, VDI brokers with CAC, CSSP host pool, data center hub inspection, recorded sessions |
+| F17 | CSSP analysts | Security monitoring platform | Remote desktop display and input, with read access to the monitoring platform and the cloud's native threat protection, and pre-approved containment playbooks | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, VDI brokers with CAC, CSSP host pool, data center hub inspection, recorded sessions |
 | F18 | Mission team data lake zones | ML training zone | Data each zone's owner has released for training | Data lake zone | Data Team curation only, release approval from the zone's owner, payload vendor terms, dataset provenance record |
+| F19 | Mission data center | Alternate site | Directory replication, PKI and key backups, and backup copies | Site to site | Dedicated circuits through the cloud hub, inspection at both hubs and the site firewall, TLS |
+| F20 | Mission data center | Cloud provider's second IL5 region | Backup copies for immutable storage | On-premises to cloud | Dedicated circuit, cloud hub inspection, TLS, retention lock |
 
 Flows F12 and F13 are KESTREL's only connections to a classified system, and both pass through an enterprise cross domain solution operated by a DoD cross domain service provider. Each baseline going low to high passes Certification to Field first. Each product coming high to low passes the enclave's own release review before transfer, and KESTREL treats what arrives as untrusted input to its feedback endpoints. Cross Domain Solution (CDS) Transfer Procedures (`NE-2.10`) govern how KESTREL uses it, and an agreement under System Interconnection Agreements (ISA/MOU/MOA) (`GV-5.6`) covers both directions.
 
 Flows F14 and F15 bring the performer's people in from laptops KESTREL does not own. Source code leaves the boundary in F14, since developers keep clones on their laptops, and the performer's CMMC Level 2 controls protect it there. Mission data never does, because data scientists work inside the experimentation workspaces. A compromised laptop still cannot change what KESTREL releases, since every change needs a second person's review, builds run only on in-cloud runners, and nothing ships without Certification to Field and a signature from the HSMs.
 
-Flow F17 adds a path into KESTREL for the CSSP's analysts alongside the telemetry they already receive in F11. Their host pool reaches only the security monitoring platform, read only, so the CSSP can investigate in place without holding any administrative access.
+Flow F17 adds a path into KESTREL for the CSSP's analysts alongside the telemetry they already receive in F11. Their host pool reads the security monitoring platform and the cloud's native threat protection, so they can investigate in place. It also lets them run the pre-approved containment playbooks when an incident cannot wait for the Security Team. These isolate a host, disable an account and revoke its tokens, suspend a workload or AI agent identity, or block an indicator at the hubs. Every playbook run pages the Security Team at once and is reviewed by the next business day. The CSSP holds no administrative role and cannot act on fleet systems.
 
 Flow F18 is the only path from a mission team's zone into the ML training zone. The Data Team carries it out, and each zone's intelligence mission lead approves what may be released for training.
 
@@ -286,7 +304,7 @@ Flows F9 and F16 are where the mission teams' AI use cases meet the ML team's mo
 | IT Operations staff | The service desk, account provisioning through the identity provider's workflows, and scheduled operations through the pipeline and the privileged access platform |
 | Data engineers and stewards | The Data Team's ingest pipelines, conversion hosts, catalog, and the curation path into the ML training zone |
 | Program Office staff | Pipeline approvals and Certification to Field evidence for the PMO ISSE, backlogs for product owners, and release approvals for the foreign disclosure officer, all from the parent organization's managed devices |
-| CSSP analysts | The CSSP host pool in the VDI spoke, with read access to the security monitoring platform |
+| CSSP analysts | The CSSP host pool in the VDI spoke, with read access to the security monitoring platform and the cloud's native threat protection, and the pre-approved containment playbooks |
 | Penetration testers | Time-bound accounts for each engagement, scoped by its rules of engagement |
 | OT maintainers and vendor support | Ground control stations and launch equipment during scheduled maintenance windows, with vendor sessions brokered and recorded |
 
@@ -303,14 +321,15 @@ Coalition partners authenticate with External Certificate Authority or federated
 
 | Party | Connects to | Basis |
 | :--- | :--- | :--- |
-| IL5 cloud provider | Every IL5 spoke and the cloud hub, including the hosted foundation model service | DoD Provisional Authorization at IL5, with a customer responsibility matrix |
+| IL5 cloud provider | Every IL5 spoke and the cloud hub, including the hosted foundation model service and the second IL5 region used for recovery | DoD Provisional Authorization at IL5, with a customer responsibility matrix |
 | Boundary Cloud Access Point | DMZ, through the cloud hub | DoD cloud access boundary for all inbound user traffic |
-| Cyber defense service provider | Security monitoring platform, by forwarded telemetry and through the CSSP host pool | Service agreement dividing detection and response responsibilities, including the terms for its analysts' VDI access |
+| Cyber defense service provider | Security monitoring platform, by forwarded telemetry and through the CSSP host pool | Service agreement dividing detection and response responsibilities, including the terms for its analysts' VDI access and containment playbooks |
 | Enterprise cross domain service provider | Cross domain transfer gateway in the DMZ | Interconnection agreement covering both transfer directions |
 | Coalition partner systems | Partner API in Mission Team 2 Prod | Memoranda of agreement with each partner nation |
 | Performer enterprise network and laptops | Identity-aware access proxy and VDI brokers in the DMZ | Interconnection agreement with the performer, which attests CMMC Level 2 for the laptops and governs source code held on them |
 | DoD PKI and External Certificate Authorities | Identity provider | Trust anchors for user and partner credentials |
 | Penetration testing provider | Systems named in each engagement's rules of engagement | Contract and rules of engagement for each test |
+| Parent organization facility | Alternate site | Facility agreement covering space, power, physical security, and who may activate the site |
 
 ## Assumptions and Exclusions
 

@@ -27,13 +27,13 @@ This document is KESTREL's RMF Step 2 (Select), built from the SABER's CCSD temp
 | 0.1 | 2026-08-14 | KESTREL PMO ISSE | Initial draft for SCA review |
 | 0.2 | 2026-09-11 | KESTREL PMO ISSE | Dispositioned SCA comments and added the OT overlay |
 | 1.0 | 2026-10-02 | KESTREL PMO ISSE | Approved by the AO, with tailoring action 3 modified |
-| 1.1 | 2026-11-11 | KESTREL PMO ISSE | Added the performer interconnection, recorded source code held on performer laptops, moved the foundation model inside the boundary as a cloud-hosted service, recorded each mission team's ownership of its payload vendor's collection, and added service desk records as row 18, for SCA review |
+| 1.1 | 2026-11-11 | KESTREL PMO ISSE | Added the performer interconnection, recorded source code held on performer laptops, moved the foundation model inside the boundary as a cloud-hosted service, recorded each mission team's ownership of its payload vendor's collection, added service desk records as row 18, added the alternate site to the boundary, and gave the CSSP pre-approved containment playbooks, for SCA review |
 
 ---
 
 ## Purpose and Scope
 
-This CCSD lists the information types KESTREL processes, stores, and transmits, and assigns each a provisional impact value. It also proposes the control selection and tailoring that follow from them, for SCA review and AO approval. It covers the one KESTREL authorization boundary: the IL5 cloud's hub and ten spokes, the on-premises mission data center, and the UAS fleet. The IL6 classified enclave that KESTREL exchanges data with is a separate system with its own CCSD, and this document covers only what crosses into or out of KESTREL. It is submitted to the KESTREL AO under DoD RMF.
+This CCSD lists the information types KESTREL processes, stores, and transmits, and assigns each a provisional impact value. It also proposes the control selection and tailoring that follow from them, for SCA review and AO approval. It covers the one KESTREL authorization boundary: the IL5 cloud's hub and ten spokes, the on-premises mission data center and its alternate site, and the UAS fleet. The IL6 classified enclave that KESTREL exchanges data with is a separate system with its own CCSD, and this document covers only what crosses into or out of KESTREL. It is submitted to the KESTREL AO under DoD RMF.
 
 ---
 
@@ -46,7 +46,7 @@ Information enters or leaves the boundary through seven interconnections, each a
 - **The UAS fleet's RF datalinks** bring in sensor recordings, telemetry, and federated model updates, and carry flight commands out.
 - **The partner API** releases detections and reports to coalition partner systems.
 - **The Boundary Cloud Access Point** carries every analyst and partner session into the DMZ.
-- **The cyber defense service provider** receives security telemetry and incident reports.
+- **The cyber defense service provider** receives security telemetry and incident reports, and its analysts run pre-approved containment playbooks through their host pool.
 - **The enterprise cross domain solution** carries baselines low to high into the IL6 enclave, and released analyst reports and model corrections high to low out of it.
 - **DoD PKI and External Certificate Authorities** supply the trust anchors for user and partner credentials.
 - **The performer's enterprise network and laptops** carry source code to and from the development environment, and display-only administration sessions into the admin VDI pool.

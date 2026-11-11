@@ -58,7 +58,7 @@
 
 ### RS-1.2: Incident Response Team Structure and Training
 
-**Design Intent:** The ISSM leads every incident, with the ISSOs and security analysts as the hands-on responders. The Platform Team, IT Operations, and Fleet Operations act on their own systems at the ISSM's direction. For a model incident, the ML team owns the model and the mission team owns the use case, and both join the response. Every responder trains on KESTREL's own tools and runbooks each year, and the AO funds the CSSP and tooling through the program budget.
+**Design Intent:** The ISSM leads every incident, with the ISSOs and security analysts as the hands-on responders. The CSSP contains what cannot wait for the on-call analyst, using the pre-approved playbooks. The Platform Team, IT Operations, and Fleet Operations act on their own systems at the ISSM's direction. For a model incident, the ML team owns the model and the mission team owns the use case, and both join the response. Every responder trains on KESTREL's own tools and runbooks each year, and the AO funds the CSSP and tooling through the program budget.
 
 **NIST Control Mapping:**
 
@@ -325,7 +325,7 @@
 
 ### RS-1.7: Cyber Defense Service Provider Alignment
 
-**Design Intent:** The CSSP's service agreement divides the work. The CSSP monitors around the clock, triages, and supplies threat intelligence. The Security Team carries out every response action inside KESTREL. The security monitoring platform forwards all telemetry to the CSSP, and the CSSP's analysts read it in place through their host pool. The ISSM receives the CSSP's directives and advisories and tracks each one to completion.
+**Design Intent:** The CSSP's service agreement divides the work. The CSSP monitors around the clock, triages, and supplies threat intelligence. The CSSP runs the pre-approved containment playbooks when an incident cannot wait for the Security Team, and the Security Team carries out every other response action inside KESTREL. The security monitoring platform forwards all telemetry to the CSSP. The CSSP's analysts also read that telemetry and the cloud's native threat protection in place through their host pool. The ISSM receives the CSSP's directives and advisories and tracks each one to completion.
 
 **NIST Control Mapping:**
 
@@ -668,7 +668,7 @@
 
 ### RS-3.1: SOAR Capabilities
 
-**Design Intent:** Playbooks in the security monitoring platform run the program's decided responses as code and update the service desk record at each step. Actions that disrupt production need a Security Team approval inside the playbook. Fully automatic actions are limited to what Endpoint Response allows, namely isolating a host outside production.
+**Design Intent:** Playbooks in the security monitoring platform run the program's decided responses as code and update the service desk record at each step. Actions that disrupt production need a Security Team approval inside the playbook. Fully automatic actions are limited to what Endpoint Response allows, namely isolating a host outside production. The CSSP may run the containment playbooks from its host pool, and each run pages the Security Team's on-call at once. The Security Team reviews or reverses each run by the next business day.
 
 **NIST Control Mapping:**
 
@@ -679,7 +679,7 @@
 
 **Affected Components:** Compute, Identity Platform, Network Infrastructure, Device/Workstation, Security Information and Event Management (SIEM) Platform, Self-Hosted Third-Party Application (COTS)
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The CSSP, whose containment role its service agreement defines.
 
 **Security Impact:** Moderate
 
@@ -720,7 +720,7 @@
 
 ### RS-3.2: Automated Containment and Isolation Procedures
 
-**Design Intent:** Network containment moves a workload into a quarantine policy at the cloud hub, or into the SDN fabric's quarantine segment in the data center. Identity containment disables the account, revokes its sessions and tokens, and suspends any workload or AI agent identity. Both run from playbooks, with the Security Team approving before either touches production.
+**Design Intent:** Network containment moves a workload into a quarantine policy at the cloud hub, or into the SDN fabric's quarantine segment in the data center. Identity containment disables the account, revokes its sessions and tokens, and suspends any workload or AI agent identity. Both run from playbooks, and the Security Team approves before either touches production. The CSSP may run them on its own authority when an incident cannot wait for the Security Team. Neither the Security Team's playbooks nor the CSSP's may touch fleet systems.
 
 **NIST Control Mapping:**
 
@@ -734,7 +734,7 @@
 
 **Affected Components:** Segmentation Policy, Network Firewall, DNS Infrastructure, Identity Lifecycle and Governance, Human Authentication, Privileged Access Management, Compute, Device/Workstation, Application/API
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The CSSP, whose containment role its service agreement defines.
 
 **Security Impact:** High
 
