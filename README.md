@@ -95,15 +95,23 @@ Enterprise email and collaboration remain outside the SABER's scope and are not 
 
 ## Planned contents
 
-The repository will grow along the same path a PMO ISSE follows:
+The repository will grow along the same path a PMO ISSE follows. The authorization and design documents live in `docs/`, numbered in the order they are written:
 
-1. **System description** ([01-system-description.md](01-system-description.md)): authorization boundary, components, data flows, users, and interconnections.
+1. **System description** ([docs/01-system-description.md](docs/01-system-description.md)): authorization boundary, components, data flows, users, and interconnections.
 2. **Security categorization:** FIPS 199 and CNSSI 1253 categorization and the resulting control baseline.
 3. **Tailoring and SADD:** which SABER outcomes apply, which are tailored out and why, and the populated metadata for KESTREL's environments.
 4. **Implementation Plan:** epics, stories, and tasks derived from the tailored outcomes, ready to load into an issue tracker.
-5. **Plan-type deliverables:** KESTREL-specific instances of the SABER's governing plans (AMP, CMP, KMP, IRP, CP, AISP, and others) where a worked example is useful.
+5. **Plan-type deliverables** (`docs/plans/`): KESTREL-specific instances of the SABER's governing plans (AMP, CMP, KMP, IRP, CP, AISP, and others) where a worked example is useful.
 
 The system description is written. The rest follow in order.
+
+Three more folders will hold the material that shows the design built, not just documented:
+
+- **`threat-models/`** holds threat models for KESTREL's components and data flows, along with any modeling tool files.
+- **`iac/`** holds infrastructure as code, such as Terraform, Kubernetes manifests, and policy as code, that implements SABER outcomes.
+- **`src/`** holds code examples, such as pipeline security gates and model serving controls.
+
+Each folder appears when its first file does.
 
 ## Relationship to the SABER
 
