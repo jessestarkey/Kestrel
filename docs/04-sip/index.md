@@ -96,6 +96,8 @@ KESTREL's issue tracker is Jira Software Data Center in Platform Prod. GitLab me
 
 **Metadata field carry-over:** each of the seven activity-level fields in Section 4 becomes a Jira custom field on the sub-task, namely Control Type, Cross-Cutting Discipline, Maturity Model, ConMon Activity, Level of Effort, Cost, and Time Estimation. Each story and sub-task carries its phase as a Jira fix version, and each story carries its Accountable Team in the Jira team field, so the plan's sequence is the tracker's sequence. The import is generated from this plan's records, so no one transcribes it by hand.
 
+**Done and continuous controls.** A story or sub-task is Done once the control is built, accepted, its evidence filed, and the SSP updated. That holds for continuous and periodic controls too, since the card tracks implementing the control, not operating it. From then on, a continuous control's state lives in the security monitoring platform and the continuous monitoring dashboards. A periodic control, such as a quarterly access review, gets its own small issue each cycle on the cadence the continuous monitoring plan sets, linked to the control's sub-task and closed with that cycle's evidence. Each card's ConMon Activity field shows which kind it is, and a saved board view of Done items that are not One-Time lists the controls now in operation.
+
 ---
 
 ## 6. Contracting and Procurement Cross-References

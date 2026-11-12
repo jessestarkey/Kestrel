@@ -406,7 +406,7 @@ This repository shows a PMO ISSE applying the [SABER](https://github.com/jessest
 | Confluence Data Center | This repository's wiki | Governing plans and runbooks the stories point to |
 | GitLab Ultimate | This repository's code and docs | Source, infrastructure as code, and the configuration-controlled documents |
 
-The project's six statuses stand in for a Jira workflow, namely Backlog for later phases, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between issues show sequencing inside the plan, so the Blocked status is kept for outside parties.
+The project's six statuses stand in for a Jira workflow, namely Backlog for later phases, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between issues show sequencing inside the plan, so the Blocked status is kept for outside parties. Done means a control is built, accepted, and evidenced, including continuous and periodic controls. After that, continuous controls run in the monitoring tools, and each periodic control gets a small issue per cycle, such as each quarter's access review. The ConMon Activity field shows which kind a card is.
 
 Only the Identity focus area is loaded. Every issue is generated from the plan's records by `tools/github/issues.py`, so the tracker and the documents always agree. Phases are milestones, standing in for Jira fix versions.
 """
