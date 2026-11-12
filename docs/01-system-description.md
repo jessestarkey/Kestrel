@@ -248,7 +248,7 @@ This segment flies the missions. It is the Cyber-Physical System (OT/ICS) part o
 | IT/OT DMZ | Stages recordings leaving the ground segment and certified model packages entering it, between the ground segment firewall and the data center hub | Cyber-Physical System (OT/ICS), On-Premises | OT/ICS Zone-Conduit Segmentation (IEC 62443), Virtual Machine/Server |
 | Payload processing workstation | Converts Payload Vendor A's raw EO/IR recordings into the lake's format, and runs an operating system its vendor no longer supports | Cyber-Physical System (OT/ICS) | Legacy IT (Unpatchable, Non-Industrial) |
 
-The payload processing workstation stays in service until its replacement fields, because Payload Vendor A certifies its conversion software only on that operating system. It runs under compensating controls in the meantime, which Secure OT/Legacy Device Baselines (`DI-3.5`) covers. Payload Vendor B's software runs on a supported server in the data center instead.
+The payload processing workstation stays in service until its replacement fields, because Payload Vendor A certifies its conversion software only on that operating system. The replacement is due by 2027-09-30, before the fleet integrates. If it slips, the workstation connects only under the compensating controls of Secure OT/Legacy Device Baselines (`DI-3.5`), after the AO re-dates CCSD tailoring action 3. Payload Vendor B's software runs on a supported server in the data center instead.
 
 ## Data Flows
 
@@ -276,6 +276,7 @@ The table lists every flow that crosses a spoke, segment, or boundary. Flows ins
 | F18 | Mission team data lake zones | ML training zone | Data each zone's owner has released for training | Data lake zone | Data Team curation only, release approval from the zone's owner, payload vendor terms, dataset provenance record |
 | F19 | Mission data center | Alternate site | Directory replication, PKI and key backups, and backup copies | Site to site | Dedicated circuits through the cloud hub, inspection at both hubs and the site firewall, TLS |
 | F20 | Mission data center | Cloud provider's second IL5 region | Backup copies for immutable storage | On-premises to cloud | Dedicated circuit, cloud hub inspection, TLS, retention lock |
+| F21 | Data center, alternate site, and IT/OT DMZ servers | Cloud management and endpoint protection services | Server inventory, policy state, and endpoint telemetry, and the policy sent back | On-premises to cloud | Dedicated circuits, private endpoints, cloud hub inspection, TLS |
 
 Flows F12 and F13 are KESTREL's only connections to a classified system, and both pass through an enterprise cross domain solution operated by a DoD cross domain service provider. Each baseline going low to high passes Certification to Field first. Each product coming high to low passes the enclave's own release review before transfer, and KESTREL treats what arrives as untrusted input to its feedback endpoints. Cross Domain Solution (CDS) Transfer Procedures (`NE-2.10`) govern how KESTREL uses it, and an agreement under System Interconnection Agreements (ISA/MOU/MOA) (`GV-5.6`) covers both directions.
 

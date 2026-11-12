@@ -234,7 +234,7 @@ This table rolls up the External Dependencies field from every focus area.
 | Parent organization's and performer's personnel systems | ID-1.8 | Departure signals that trigger deprovisioning | Parent organization and performer |
 | PSO's physical access control systems | ID-1.10 | Badge events at the data center and each operating site | PSO |
 | PSO's insider threat program | DE-1.6, DE-1.9, RS-3.5 | Receives insider threat referrals and spill reports, and owns every case | PSO |
-| Parent organization's alternate site | ID-1.10, RC-2.3, RC-3.3, RC-3.4, GV-5.6, GV-5.12 | The warm standby for the data center's Tier 1 services, a second HSM, a copy of the backups, and badge events from the facility's access control system | Parent organization, under a facility agreement |
+| Parent organization's alternate site | ID-1.10, DI-2.1, RC-2.3, RC-3.3, RC-3.4, GV-5.6, GV-5.12 | The warm standby for the data center's Tier 1 services, a second HSM, a copy of the backups, and badge events from the facility's access control system | Parent organization, under a facility agreement |
 | Second circuit provider | RC-3.4 | A second dedicated circuit on a separate path to the cloud | Circuit provider |
 | Parent organization's enterprise services | GV-1.1, GV-2.3 | Enterprise security policy KESTREL's policy sits beneath, and phishing exercises on its email systems | Parent organization |
 | DoW CIO, DoD, and NIST AI guidance | GV-1.6, GV-4.5 | The zero trust reference architecture and target, and the AI frameworks and directives KESTREL maps to | DoW CIO, DoD, and NIST |

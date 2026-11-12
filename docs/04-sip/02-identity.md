@@ -18,7 +18,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -50,7 +50,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -85,7 +85,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -112,7 +112,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -141,7 +141,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references)
 
@@ -168,11 +168,11 @@
 
 **Dependencies:** ID-1.3
 
-**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY27 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -201,7 +201,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -231,7 +231,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C21](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -259,11 +259,11 @@
 
 **Dependencies:** ID-1.3, ID-1.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -273,12 +273,14 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| ID-1.9.1: Access Review Scope and Objectives | 1 | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| ID-1.9.2: Access Review Assignments | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| ID-1.9.3: Access Review Setup | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| ID-1.9.4: Access Review Evaluations | 1 | Process | None | Level 1 | Periodic (Quarterly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-| ID-1.9.5: Access Review Outcome Actions | 1 | Process | None | Level 1 | Periodic (Quarterly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| ID-1.9.1: Access Review Scope and Objectives | 2 (pinned) | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| ID-1.9.2: Access Review Assignments | 2 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| ID-1.9.3: Access Review Setup | 2 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| ID-1.9.4: Access Review Evaluations | 2 (pinned) | Process | None | Level 1 | Periodic (Quarterly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| ID-1.9.5: Access Review Outcome Actions | 2 (pinned) | Process | None | Level 1 | Periodic (Quarterly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | ID-1.9.6: Automated Access Review Campaign Generation and Reminders | 2 | Technical | Automate | Level 2 | Periodic (Quarterly) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** ID-1.9.1, ID-1.9.2, ID-1.9.3, ID-1.9.4, and ID-1.9.5: The first access review follows a quarter of live accounts, so it starts in Phase 2.
 
 ### ID-1.10: Physical and Logical Access Convergence
 
@@ -290,11 +292,11 @@
 
 **Dependencies:** DE-3.1, the PSO physical access control system
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -327,7 +329,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references)
 
@@ -362,7 +364,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -396,7 +398,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -410,7 +412,7 @@
 | ID-2.3.2: SSO Configuration | 1 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-2.3.3: SSO Protocol Configuration Hardening | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** ID-2.3.1: Built in when the platform is created, since retrofitting it later costs far more. Every application joins single sign-on at intake, and Phase 1 deploys the first ones. ID-2.3.2: Built in when the platform is created, since retrofitting it later costs far more. Every application joins single sign-on at intake, and Phase 1 deploys the first ones.
+**Pinned:** ID-2.3.1 and ID-2.3.2: Built in when the platform is created, since retrofitting it later costs far more. Every application joins single sign-on at intake, and Phase 1 deploys the first ones.
 
 ### ID-2.4: Non-Privileged Access Control
 
@@ -426,7 +428,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -458,7 +460,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C22](index.md#6-contracting-and-procurement-cross-references)
 
@@ -471,7 +473,7 @@
 | ID-2.5.1: Adaptive, Risk-Based Access Tool Deployment | 1 (pinned) | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-2.5.2: Adaptive, Risk-Based Access Policy Definition | 1 (pinned) | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** ID-2.5.1: KESTREL's design depends on it from the first build, since performer laptops are admitted only on a device posture check. ID-2.5.2: KESTREL's design depends on it from the first build, since performer laptops are admitted only on a device posture check.
+**Pinned:** ID-2.5.1 and ID-2.5.2: KESTREL's design depends on it from the first build, since performer laptops are admitted only on a device posture check.
 
 ### ID-2.6: Continuous Authentication
 
@@ -487,7 +489,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -522,7 +524,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -551,7 +553,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -566,9 +568,9 @@
 | ID-3.2.3: Certificate-Based Credentials | 1 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-3.2.4: Client Secret Fallback | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-3.2.5: Service Account Code Authentication Integration | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| ID-3.2.6: Non-Person Entity Account Recertification | 1 | Process | None | Level 1 | Periodic (Semi-Annual) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| ID-3.2.6: Non-Person Entity Account Recertification | 2 (pinned) | Process | None | Level 1 | Periodic (Semi-Annual) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 
-**Pinned:** ID-3.2.3: Certificate credentials are the preferred method, so they must exist before the client-secret fallback that starts in Phase 1.
+**Pinned:** ID-3.2.3: Certificate credentials are the preferred method, so they must exist before the client-secret fallback that starts in Phase 1. ID-3.2.6: The first access review follows a quarter of live accounts, so it starts in Phase 2.
 
 ### ID-3.3: AI Agent Identities
 
@@ -584,7 +586,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -613,11 +615,11 @@
 
 **Dependencies:** ID-1.3, DA-3.3, DA-3.7, DA-3.8
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -641,11 +643,11 @@
 
 **Dependencies:** AP-2.4, NE-3.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C29](index.md#6-contracting-and-procurement-cross-references)
 
@@ -672,7 +674,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
@@ -697,11 +699,11 @@
 
 **Dependencies:** DA-3.7, NE-1.6
 
-**Funding Line:** FY27 and FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C26](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -735,7 +737,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -763,7 +765,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references)
 
@@ -794,7 +796,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -809,7 +811,7 @@
 | ID-4.3.3: Activation Workflows | 1 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-4.3.4: Automatic Expiration | 1 (pinned) | Technical | Automate | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** ID-4.3.3: KESTREL's design depends on it from the first build, since no privilege is standing. ID-4.3.4: KESTREL's design depends on it from the first build, since no privilege is standing.
+**Pinned:** ID-4.3.3 and ID-4.3.4: KESTREL's design depends on it from the first build, since no privilege is standing.
 
 ### ID-4.4: Privileged Credential Vaulting and Session Brokering
 
@@ -825,7 +827,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
@@ -856,7 +858,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -888,7 +890,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C24](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -924,7 +926,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -951,11 +953,11 @@
 
 **Dependencies:** The SADD's Identity design decisions
 
-**Funding Line:** FY27 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -967,7 +969,9 @@
 |---|---|---|---|---|---|---|---|---|
 | ID-5.1.1: AMP Development and Authoring | 1 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | ID-5.1.2: AMP Review and Approval | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| ID-5.1.3: AMP Periodic Review and Revision | 1 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| ID-5.1.3: AMP Periodic Review and Revision | 2 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** ID-5.1.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.
 
 ### ID-5.2: AMP Compliance Verification
 
@@ -979,11 +983,11 @@
 
 **Dependencies:** ID-5.1, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 

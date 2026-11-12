@@ -40,13 +40,14 @@ CONTRACTS = {
     'C29': ('Tenable Attack Surface Management and GitGuardian public monitoring', f'{STD}', 'Standard Security Clause Library', 'Open'),
     'C30': ('Blancco Drive Eraser', f'{STD}', 'Standard Security Clause Library', 'Open'),
     'C31': ('CSSP service agreement amendment for containment playbooks', 'Containment role and playbook terms', 'New clause needed (CSSP containment role)', 'Open'),
+    'C32': ('Trellix Application Control for the legacy payload processing workstation', f'{STD}, support for the workstation operating system', 'Standard Security Clause Library', 'Option, exercised only if the replacement workstation slips'),
 }
 
 GOV = 'Government-furnished'
 OSS = 'Open source'
+SRC = 'Source-available'  # free to use under its license, but not open source
 PRODUCTS = {
     # Microsoft Azure Government (C01)
-    'mlz': ('Mission Landing Zone (Terraform) on Azure Government', 'C01'),
     'azpolicy': ('Azure Policy', 'C01'),
     'resgraph': ('Azure Resource Graph', 'C01'),
     'entra': ('Microsoft Entra ID', 'C01'),
@@ -88,6 +89,7 @@ PRODUCTS = {
     'aum': ('Azure Update Manager', 'C01'),
     'mconfig': ('Azure Machine Configuration', 'C01'),
     'trustedlaunch': ('Azure Trusted Launch', 'C01'),
+    'arc': ('Azure Arc-enabled servers', 'C01'),
     'azsql': ('Azure SQL Database', 'C01'),
     # Microsoft 365 DoD and Windows (C02)
     'mde': ('Microsoft Defender for Endpoint', 'C02'),
@@ -99,6 +101,7 @@ PRODUCTS = {
     'gmsa': ('group Managed Service Accounts', 'C02'),
     'mecm': ('Microsoft Configuration Manager', 'C02'),
     'laps': ('Windows LAPS', 'C02'),
+    'wfw': ('Windows Defender Firewall', 'C02'),
     'mdca': ('Microsoft Defender for Cloud Apps', 'C02'),
     'win11': ('Windows 11 Enterprise, hardened to the DISA STIG', 'C02'),
     'purviewmip': ('Microsoft Purview Information Protection', 'C02'),
@@ -133,7 +136,7 @@ PRODUCTS = {
     'psm': ('CyberArk Privileged Session Manager', 'C07'),
     'panvm': ('Palo Alto Networks VM-Series', 'C08'),
     'panpa': ('Palo Alto Networks PA-Series', 'C08'),
-    'panorama': ('Panorama with the Terraform PAN-OS provider', 'C08'),
+    'panorama': ('Panorama with the PAN-OS provider for OpenTofu', 'C08'),
     'panatp': ('Palo Alto Advanced Threat Prevention', 'C08'),
     'panurl': ('Palo Alto Advanced URL Filtering', 'C08'),
     'aci': ('Cisco ACI and APIC', 'C09'),
@@ -153,6 +156,7 @@ PRODUCTS = {
     'rhel': ('Red Hat Enterprise Linux', 'C21'),
     'ansible': ('Ansible Automation Platform', 'C21'),
     'fapolicyd': ('fapolicyd on Red Hat Enterprise Linux', 'C21'),
+    'firewalld': ('firewalld on Red Hat Enterprise Linux', 'C21'),
     'pomerium': ('Pomerium Enterprise', 'C22'),
     'bastille': ('Bastille Enterprise', 'C23'),
     'yubikey': ('YubiKey 5 FIPS Series', 'C24'),
@@ -166,6 +170,7 @@ PRODUCTS = {
     'gitguardian': ('GitGuardian public monitoring', 'C29'),
     'blancco': ('Blancco Drive Eraser', 'C30'),
     'csspplay': ('Splunk SOAR containment playbooks under the CSSP agreement', 'C31'),
+    'trellix': ('Trellix Application Control', 'C32'),
     # Government-furnished
     'acas': ('Tenable Security Center (ACAS)', GOV),
     'scap': ('DISA SCAP Compliance Checker and STIG Viewer', GOV),
@@ -183,8 +188,8 @@ PRODUCTS = {
     'dd2930': ('DD Form 2930', GOV),
     'cpr': ('CAC PIN reset workstations', GOV),
     # Open source
-    'terraform': ('Terraform', OSS),
-    'packer': ('Packer', OSS),
+    'opentofu': ('OpenTofu', OSS),
+    'mlz': ("the Platform Team's landing zone modules, derived from Mission Landing Zone", OSS),
     'cosign': ('Sigstore Cosign', OSS),
     'ratify': ('Ratify', OSS),
     'opa': ('Open Policy Agent (Gatekeeper and Conftest)', OSS),
@@ -214,6 +219,8 @@ PRODUCTS = {
     'sonarlint': ('SonarQube for IDE', OSS),
     'certmanager': ('cert-manager', OSS),
     'kubebench': ('kube-bench', OSS),
+    # Source-available
+    'packer': ('Packer', SRC),
 }
 
 

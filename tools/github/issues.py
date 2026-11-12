@@ -29,10 +29,10 @@ FILES = {'ID': ('02', 'identity'), 'DI': ('03', 'device-and-infrastructure'), 'N
          'DE': ('08', 'detection'), 'RS': ('09', 'response'), 'RC': ('10', 'recovery'),
          'GV': ('11', 'governance'), 'RK': ('12', 'risk'), 'CO': ('13', 'compliance')}
 # Target dates for sub-tasks. Phase 3 work is due two months before the ATO decision, for SCA assessment.
-TARGET = {1: '2027-06-30', 2: '2027-12-31', 3: '2028-04-30', 4: '2028-12-31'}
-PHASE_START = {1: '2027-01-01', 2: '2027-07-01', 3: '2028-01-01', 4: '2028-07-01'}
-PHASES = {1: ('Phase 1: Foundation', '2027-06-30'), 2: ('Phase 2: Protect and Operate', '2027-12-31'),
-          3: ('Phase 3: Mission, AI, and Fleet', '2028-06-30'), 4: ('Phase 4: Maturity', '2028-12-31')}
+TARGET = {1: '2027-09-30', 2: '2028-03-31', 3: '2028-07-31', 4: '2029-03-31'}
+PHASE_START = {1: '2027-01-01', 2: '2027-10-01', 3: '2028-04-01', 4: '2028-10-01'}
+PHASES = {1: ('Phase 1: Foundation', '2027-09-30'), 2: ('Phase 2: Protect and Operate', '2028-03-31'),
+          3: ('Phase 3: Mission, AI, and Fleet', '2028-09-30'), 4: ('Phase 4: Maturity', '2029-03-31')}
 def note(kind):
     return (f'> **Notional system.** KESTREL is fictional. This issue stands in for {kind} in a self-hosted Jira, '
             'generated from the Security Implementation Plan.')
@@ -130,10 +130,19 @@ def build_plan(code):
             if oid in WIKI:
                 t, page = WIKI[oid]
                 lines += ['', f'**Wiki:** [{t}](https://github.com/{OWNER}/{NAME}/wiki/{page})']
-            lines += ['', '**Done when** every sub-task is closed and the SSP records what was built against this outcome.']
+            m = re.search(r'with work through Phase (\d)', f.get('Rollout Phase', ''))
+            last = int(m.group(1)) if m else phase
+            acts_last = max(x['phase'] for x in r['rows'].values() if x['phase'])
+            if last > acts_last:
+                # The record runs past its last activity, as with a slice that waits for the fleet,
+                # so the story stays open until that phase even once its sub-tasks close.
+                lines += ['', f'**Done when** every sub-task is closed, the Phase {last} work in the tailoring above is delivered, '
+                              'and the SSP records what was built against this outcome.']
+            else:
+                lines += ['', '**Done when** every sub-task is closed and the SSP records what was built against this outcome.']
             if r['pinned']:
                 lines += ['', f"**Pinned activities:** {r['pinned']}"]
-            issues.append({'key': oid, 'type': 'story', 'parent': cid, 'phase': phase,
+            issues.append({'key': oid, 'type': 'story', 'parent': cid, 'phase': phase, 'last': last,
                            'deps': re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+)?)\b', f.get('Dependencies', '')),
                            'external': external(f.get('Dependencies', '')),
                            'title': f'{oid}: {ot}', 'body': '\n'.join(lines) + '\n',
@@ -225,7 +234,13 @@ def apply(code, issues):
         if n not in have:
             api('POST', f'{repo}/labels', {'name': n, 'color': c})
     # Milestones
-    ms = {m['title']: m['number'] for m in api('GET', f'{repo}/milestones?state=all&per_page=100')}
+    have_ms = api('GET', f'{repo}/milestones?state=all&per_page=100')
+    ms = {m['title']: m['number'] for m in have_ms}
+    for m in have_ms:
+        due = dict(PHASES.values()).get(m['title'])
+        if due and (m['due_on'] or '')[:10] != due:
+            api('PATCH', f"{repo}/milestones/{m['number']}", {'due_on': f'{due}T23:59:59Z'})
+            print(f"  milestone {m['title']} due {due}")
     for p, (t, due) in PHASES.items():
         if t not in ms:
             ms[t] = api('POST', f'{repo}/milestones', {'title': t, 'due_on': f'{due}T23:59:59Z',
@@ -269,7 +284,7 @@ def external(deps):
 # The project's workflow, standing in for a Jira workflow.
 STATUSES = [
     ('Backlog', 'GRAY', 'Scheduled for a later phase, or waiting on another story in the plan'),
-    ('Ready', 'BLUE', 'In the current phase, and every story it is blocked by is Done'),
+    ('Ready', 'BLUE', 'In the current phase, with the work it is blocked by Done up to its phase'),
     ('In Progress', 'YELLOW', 'Being built'),
     ('Blocked', 'RED', 'Waiting on something outside the team, such as a contract, an AO decision, or an outside dependency'),
     ('In Review', 'PURPLE', 'Built and awaiting acceptance by the product owner, the PMO ISSE, or the Configuration Control Board'),
@@ -278,12 +293,37 @@ STATUSES = [
 CURRENT_PHASE = 1
 
 
-def starting_status(it, by_key, done):
+def met(ref, phase, by_key, kids, done):
+    """Whether a dependency's work up to a phase is Done.
+
+    A story that runs across phases, such as one whose dashboard comes a phase later,
+    satisfies a dependent once its sub-tasks up to the dependent's phase are Done. A
+    capability counts as every story in it. A dependency outside the focus area being
+    loaded always counts as met here, since the plan's schedule already orders it.
+    """
+    if ref not in by_key:
+        return True
+    todo, due = [ref], []
+    while todo:
+        k = todo.pop()
+        it = by_key[k]
+        if kids.get(k):
+            todo += kids[k]
+            # A story whose work runs to a later phase is itself due once that phase arrives.
+            if it['type'] == 'story' and it.get('last', 0) <= phase:
+                due.append(k)
+        elif (it['phase'] or 0) <= phase:
+            due.append(k)
+    return all(k in done for k in due) if due else ref in done
+
+
+def starting_status(it, by_key, done, kids=None):
     """The status the plan implies before anyone has worked the item.
 
-    A dependency counts as met once its story is Done. One in a focus area not yet
-    loaded on GitHub counts as met, since the plan's schedule already orders it.
+    A story and its sub-tasks wait in Backlog until every dependency is met. A sub-task
+    is judged at its own phase, so a later slice waits for the work due by then.
     """
+    kids = kids if kids is not None else {}
     if it.get('state') == 'closed':
         return None
     if not it['phase']:
@@ -293,7 +333,7 @@ def starting_status(it, by_key, done):
     story = it if it['type'] == 'story' else by_key.get(it['parent']) if it['type'] == 'sub-task' else None
     if story and story.get('external'):
         return 'Blocked'
-    if story and any(ref in by_key and ref not in done for ref in story.get('deps', [])):
+    if story and not all(met(ref, it['phase'], by_key, kids, done) for ref in story.get('deps', [])):
         return 'Backlog'
     return 'Ready'
 
@@ -324,9 +364,13 @@ def workflow(issues, st, save):
         after = items['pageInfo']['endCursor']
     by_key = {it['key']: it for it in issues}
     done = {it['key'] for it in issues if current.get(st['items'][it['key']]) == 'Done' or it.get('state') == 'closed'}
+    kids = {}
+    for it in issues:
+        if it['parent'] and it.get('state') != 'closed':
+            kids.setdefault(it['parent'], []).append(it['key'])
     last = st.setdefault('status', {}); changed = 0
     for it in issues:
-        item = st['items'][it['key']]; cur = current.get(item); want = starting_status(it, by_key, done)
+        item = st['items'][it['key']]; cur = current.get(item); want = starting_status(it, by_key, done, kids)
         moved_by_hand = cur not in (None, last.get(it['key']))
         if moved_by_hand or cur == want:
             continue
@@ -415,7 +459,7 @@ This repository shows a PMO ISSE applying the [SABER](https://github.com/jessest
 | Confluence Data Center | This repository's wiki | Governing plans and runbooks the stories point to |
 | GitLab Ultimate | This repository's code and docs | Source, infrastructure as code, and the configuration-controlled documents |
 
-The project's six statuses stand in for a Jira workflow, namely Backlog for later phases and for work waiting on another story, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between stories show sequencing inside the plan. A story and its sub-tasks stay in Backlog until every story it is blocked by is Done, and the generator then moves them to Ready. The Blocked status is kept for outside parties. Done means a control is built, accepted, and evidenced, including continuous and periodic controls. After that, continuous controls run in the monitoring tools, and each periodic control gets a small issue per cycle, such as each quarter's access review. The ConMon Activity field shows which kind a card is.
+The project's six statuses stand in for a Jira workflow, namely Backlog for later phases and for work waiting on another story, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between stories show sequencing inside the plan. A story and its sub-tasks stay in Backlog until the stories it is blocked by are Done up to its phase, and the generator then moves them to Ready. The Blocked status is kept for outside parties. Done means a control is built, accepted, and evidenced, including continuous and periodic controls. After that, continuous controls run in the monitoring tools, and each periodic control gets a small issue per cycle, such as each quarter's access review. The ConMon Activity field shows which kind a card is.
 
 Only the Identity focus area is loaded. Every issue is generated from the plan's records by `tools/github/issues.py`, so the tracker and the documents always agree. Phases are milestones, standing in for Jira fix versions.
 """
@@ -511,17 +555,23 @@ def project(code, issues, st, save):
             time.sleep(0.3)
         st['fields_set'].append(key); st.setdefault('dates_set', []).append(key); save()
         print(f"  project item {key}")
-    # Items loaded before Start Date existed get both dates set here.
+    # Dates are set again whenever the plan's dates move, as when a phase is lengthened.
     done = st.setdefault('dates_set', [])
+    vals = st.setdefault('date_values', {})
     for it in issues:
-        if it['key'] in done or 'Start Date' not in it.get('fields', {}):
+        if 'Start Date' not in it.get('fields', {}):
             continue
+        want = [it['fields'][k] for k in DATES]
+        if it['key'] in done and vals.get(it['key']) == want:
+            continue
+        vals[it['key']] = want
         for k in DATES:
             graphql('mutation($p:ID!,$i:ID!,$f:ID!,$v:ProjectV2FieldValue!){updateProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f,value:$v}){projectV2Item{id}}}',
                     p=pid, i=st['items'][it['key']], f=fields[k]['id'], v={'date': it['fields'][k]})
             time.sleep(0.3)
-        done.append(it['key']); save()
-        print(f"  dates {it['key']}")
+        if it['key'] not in done:
+            done.append(it['key'])
+        save(); print(f"  dates {it['key']}")
     print(f"project items {len(st['items'])}, with fields {len(st['fields_set'])}, with dates {len(done)}")
 
 

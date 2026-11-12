@@ -126,7 +126,7 @@ The system description, CCSD, SADD, and Security Implementation Plan are written
 Three more folders will hold the material that shows the design built, not just documented:
 
 - **`threat-models/`** holds threat models for KESTREL's components and data flows, along with any modeling tool files.
-- **`iac/`** holds infrastructure as code, such as Terraform, Kubernetes manifests, and policy as code, that implements SABER outcomes.
+- **`iac/`** holds infrastructure as code, such as OpenTofu, Kubernetes manifests, and policy as code, that implements SABER outcomes.
 - **`src/`** holds code examples, such as pipeline security gates and model serving controls.
 
 Each folder appears when its first file does. A fourth folder, **`tools/`**, holds the scripts that generate parts of the documents, such as the [SADD build](tools/sadd/README.md).

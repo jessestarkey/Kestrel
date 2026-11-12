@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE)); sys.path.insert(0, HERE)
 import saberlib as S
 from saberlib import REPO, PILLAR, parse, scope
-from catalog import PRODUCTS, CONTRACTS, GOV, OSS
+from catalog import PRODUCTS, CONTRACTS, GOV, OSS, SRC
 from selections import CAP, OUT, PINS, NA, RERATE, ONE, SHARED, STRICT, EXCEPT
 
 ap = argparse.ArgumentParser()
@@ -25,19 +25,23 @@ SADD = '../03-sadd'
 
 # Phase -> (name, start, end, funding status)
 PHASES = {
-    1: ('Foundation', '2027-01-01', '2027-06-30', 'Funded (FY27 base)'),
-    2: ('Protect and Operate', '2027-07-01', '2027-12-31', 'Funded (FY27 and FY28 base)'),
-    3: ('Mission, AI, and Fleet', '2028-01-01', '2028-06-30', 'Pending approval (FY28 RDT&E and O&M)'),
-    4: ('Maturity', '2028-07-01', '2028-12-31', 'Unfunded (FY28 and FY29 requests)'),
+    1: ('Foundation', '2027-01-01', '2027-09-30', 'Funded (FY27 base)'),
+    2: ('Protect and Operate', '2027-10-01', '2028-03-31', 'Funded (FY28 base)'),
+    3: ('Mission, AI, and Fleet', '2028-04-01', '2028-09-30', 'Pending approval (FY28 RDT&E and O&M)'),
+    4: ('Maturity', '2028-10-01', '2029-03-31', 'Unfunded (FY29 request)'),
 }
 # Fiscal years each phase spans. The federal fiscal year starts on 1 October.
-FY = {1: ['FY27'], 2: ['FY27', 'FY28'], 3: ['FY28'], 4: ['FY28', 'FY29']}
+FY = {1: ['FY27'], 2: ['FY28'], 3: ['FY28'], 4: ['FY29']}
 # Work due by the ATO decision must be ready two months early, so the SCA can assess it.
-ASSESS_READY = '2028-04-30'
+ASSESS_READY = '2028-07-31'
 SEC6 = 'index.md#6-contracting-and-procurement-cross-references'
 
 
-def funding(team, fys):
+def series(xs):
+    return xs[0] if len(xs) == 1 else f'{xs[0]} and {xs[1]}' if len(xs) == 2 else ', '.join(xs[:-1]) + ', and ' + xs[-1]
+
+
+def funding(team, fys, phases):
     if 'SCA' in team or team.startswith('Program Office'):
         line = 'program management'
     elif team.startswith('Fleet Operations'):
@@ -48,25 +52,27 @@ def funding(team, fys):
         line = 'RDT&E, mission and ML'
     else:
         line = 'O&M, platform and security operations'
-    return f"{' and '.join(fys)} {line}"
+    return f"{series(fys)} {line}" + (', with the Phase 4 share unfunded' if 4 in phases else '')
 
 
 def contracting(keys):
-    ids, gov, oss = [], False, False
+    ids, gov, oss, src = [], False, False, False
     for k in keys:
         c = PRODUCTS[k][1]
         if c == GOV:
             gov = True
         elif c == OSS:
             oss = True
+        elif c == SRC:
+            src = True
         elif c not in ids:
             ids.append(c)
     parts = [f'[{c}]({SEC6})' for c in ids]
-    extra = [x for x, f in (('government-furnished', gov), ('open source', oss)) if f]
+    extra = [x for x, f in (('government-furnished', gov), ('open source', oss), ('source-available', src)) if f]
     if not parts:
-        return 'None. ' + ' and '.join(extra).capitalize() + ', so no new contract is needed.'
+        return 'None. ' + series(extra).capitalize() + ', so no new contract is needed.'
     s = ', '.join(parts)
-    return s + (f", plus {' and '.join(extra)} components" if extra else '')
+    return s + (f', plus {series(extra)} components' if extra else '')
 
 
 def level(a):
@@ -141,7 +147,7 @@ for fname in sorted(os.listdir(S.FW)):
             n += 1; phase_count[phase] += 1; phase_fa[phase][code] += 1
             for k in sel['tools']:
                 c = PRODUCTS[k][1]
-                if c not in (GOV, OSS) and oid not in contract_use[c]:
+                if c not in (GOV, OSS, SRC) and oid not in contract_use[c]:
                     contract_use[c].append(oid)
             pname = PHASES[phase][0]
             # A record whose fleet slice waits for Phase 3 stays open through it, via 'through'.
@@ -153,7 +159,7 @@ for fname in sorted(os.listdir(S.FW)):
                      f"**Environment-Specific Tailoring:** {sel['tailoring']}", '',
                      f"**Accountable Team:** {sel['team']}", '',
                      f"**Dependencies:** {sel['deps']}", '',
-                     f"**Funding Line:** {funding(sel['team'], fys)}", '',
+                     f"**Funding Line:** {funding(sel['team'], fys, set(aph.values()) | {last})}", '',
                      f'**Rollout Phase:** {span}', '',
                      f'**Target Date / Sprint:** {end}', '',
                      f"**Contracting / Procurement Reference:** {contracting(sel['tools'])}", '',
@@ -171,7 +177,11 @@ for fname in sorted(os.listdir(S.FW)):
                 body.append(f"| {a['title']} | {aph[aid]}{pin} | " + ' | '.join(cells) + ' |')
             pinned = [aid for aid in aph if aid in PINS]
             if pinned:
-                body += ['', '**Pinned:** ' + ' '.join(f'{aid}: {PINS[aid][1]}' for aid in pinned)]
+                # Activities pinned for the same reason share one sentence.
+                groups = collections.OrderedDict()
+                for aid in pinned:
+                    groups.setdefault(PINS[aid][1], []).append(aid)
+                body += ['', '**Pinned:** ' + ' '.join(f'{series(ids)}: {r}' for r, ids in groups.items())]
             rerated = [aid for aid in aph if aid in RERATE]
             if rerated:
                 body += ['', '**Re-rated:** ' + ' '.join(f'{aid}: {RERATE[aid][1]}' for aid in rerated)]
@@ -211,9 +221,10 @@ for cid, (veh, clauses, srcx, st) in CONTRACTS.items():
     c6.append(f'| {cid} | {veh} | {clauses} | {srcx} | {st} | {len(contract_use[cid])} |')
 gf = sorted({PRODUCTS[k][0] for k in PRODUCTS if PRODUCTS[k][1] == GOV})
 os_ = sorted({PRODUCTS[k][0] for k in PRODUCTS if PRODUCTS[k][1] == OSS}, key=str.lower)
+sa = sorted({PRODUCTS[k][0] for k in PRODUCTS if PRODUCTS[k][1] == SRC}, key=str.lower)
 src = (src.replace('{{PHASES}}', '\n'.join(ph)).replace('{{STATUS}}', '\n'.join(status))
           .replace('{{CONTRACTS}}', '\n'.join(c6)).replace('{{GOV}}', ', '.join(gf))
-          .replace('{{OSS}}', ', '.join(os_)).replace('{{NREC}}', str(sum(s[4] for s in stats))))
+          .replace('{{OSS}}', ', '.join(os_)).replace('{{SRC}}', ', '.join(sa)).replace('{{NREC}}', str(sum(s[4] for s in stats))))
 open(os.path.join(DOCS, 'index.md'), 'w', encoding='utf-8', newline='\n').write(src)
 unused = [c for c in CONTRACTS if not contract_use[c]]
 print(f"{sum(phase_count.values())} records by starting phase: {dict(sorted(phase_count.items()))}")

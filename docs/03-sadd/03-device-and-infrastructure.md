@@ -6,7 +6,7 @@
 
 ### DI-1.1: Asset Inventory and Discovery
 
-**Design Intent:** The service desk platform's configuration management database is KESTREL's one asset inventory. The cloud provider's resource inventory feeds it for every spoke, and agents and the SDN controller feed it for the data center, so nothing depends on manual entry. Every spoke is its own subscription under KESTREL's tenant, and a subscription created outside the landing zone raises an alert. License tracking covers every licensed product and model, such as each payload vendor's conversion software, the service desk platform, and each foundation model's terms of use.
+**Design Intent:** The service desk platform's configuration management database is KESTREL's one asset inventory. The cloud provider's resource inventory feeds it for every spoke. Agents feed it for the data center and the alternate site, with the SDN controller adding the data center's network devices, so nothing depends on manual entry. Every spoke is its own subscription under KESTREL's tenant, and a subscription created outside the landing zone raises an alert. License tracking covers every licensed product and model, such as each payload vendor's conversion software, the service desk platform, and each foundation model's terms of use.
 
 **NIST Control Mapping:**
 
@@ -240,7 +240,7 @@
 
 ### DI-2.1: Secure Resource Provisioning
 
-**Design Intent:** Every cloud resource is created by infrastructure as code through the shared pipeline from the Platform Team's landing zone modules. Those modules set secure defaults, and policy-as-code checks block a resource that departs from them. A second reviewer approves each infrastructure change, as with application code. Console creation is denied outside break-glass, and data center servers are built from the same kind of templates through the SDN controller and privileged access platform.
+**Design Intent:** Every cloud resource is created by infrastructure as code through the shared pipeline from the Platform Team's landing zone modules. Those modules set secure defaults, and policy-as-code checks block a resource that departs from them. A second reviewer approves each infrastructure change, as with application code. Console creation is denied outside break-glass. Data center and alternate site servers are built from the same kind of templates through the configuration automation platform.
 
 **NIST Control Mapping:**
 
@@ -250,7 +250,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Infrastructure-as-Code (IaC)
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The parent organization's facility, which hosts the alternate site's equipment under the facility agreement.
 
 **Security Impact:** Moderate
 
@@ -357,7 +357,7 @@
 
 ### DI-2.3: Resource Decommissioning Governance
 
-**Design Intent:** Cloud resources are removed through the same infrastructure as code that created them. Removal revokes their workload identities and deletes their spoke vault secrets and encryption keys. Data center drives are sanitized on site before they leave, and HSMs are zeroized. An aircraft or ground control station leaving service has its keys zeroized and its onboard storage wiped. Orphaned resources are those whose owning team or tag no longer resolves. Refresh planning tracks the payload processing workstation's replacement against its 2027-09-30 deadline.
+**Design Intent:** Cloud resources are removed through the same infrastructure as code that created them. Removal revokes their workload identities and deletes their spoke vault secrets and encryption keys. Data center drives are sanitized on site before they leave, and HSMs are zeroized. An aircraft or ground control station leaving service has its keys zeroized and its onboard storage wiped. Orphaned resources are those whose owning team or tag no longer resolves. Refresh planning tracks the payload processing workstation's replacement against its 2027-09-30 deadline, and a slip goes to the AO before the workstation connects.
 
 **NIST Control Mapping:**
 
@@ -412,7 +412,7 @@
 
 ### DI-2.4: Controlled Maintenance and Support
 
-**Design Intent:** Data center hardware maintenance is scheduled through the service desk, escorted, and recorded, and failed drives stay on site for sanitization. Fleet Operations maintains the ground control stations and launch equipment only in scheduled windows, with vendor sessions brokered and recorded under Access Process for Third-Party Support (`ID-4.7`). Diagnostic tools and media are approved and scanned before use. Spare stations and aircraft parts cover the mission's tolerance, and they double as the test articles for penetration testing.
+**Design Intent:** Data center and alternate site hardware maintenance is scheduled through the service desk, escorted, and recorded, and failed drives stay on site for sanitization. Fleet Operations maintains the ground control stations and launch equipment only in scheduled windows, with vendor sessions brokered and recorded under Access Process for Third-Party Support (`ID-4.7`). Diagnostic tools and media are approved and scanned before use. Spare stations and aircraft parts cover the mission's tolerance, and they double as the test articles for penetration testing.
 
 **NIST Control Mapping:**
 
@@ -558,7 +558,7 @@
 
 ### DI-3.2: Secure Compute Baselines
 
-**Design Intent:** One VDI golden image serves every host pool, and each pool adds only its own tools. Virtual machine images cover the experimentation workspaces, the payload vendors' conversion servers, and the data center's other servers. Container base images are hardened and minimal, built from the package mirror, and rebuilt rather than patched in place. Every managed Kubernetes cluster shares one baseline, whether it is a dev, test, stage, prod, or training cluster. BMC hardening applies to the data center's physical servers.
+**Design Intent:** One VDI golden image serves every host pool, and each pool adds only its own tools. Virtual machine images cover the experimentation workspaces, the payload vendors' conversion servers, and the data center's other servers. Container base images are hardened and minimal, built from the package mirror, and rebuilt rather than patched in place. Every managed Kubernetes cluster shares one baseline, whether it is a dev, test, stage, prod, or training cluster. BMC hardening applies to the physical servers in the data center and at the alternate site.
 
 **NIST Control Mapping:**
 
@@ -698,7 +698,7 @@
 
 ### DI-3.4: Secure Platform Services and Application Baselines
 
-**Design Intent:** Platform service baselines cover every managed service, such as the spoke secrets vaults, the feedback endpoints' queues and functions, the database services, and each foundation model deployment. Every foundation model deployment's baseline requires a private endpoint and provider-side prompt logging disabled. Application baselines cover how the mission teams' applications are hosted, and COTS products such as the service desk platform and the payload vendors' conversion software follow their vendors' guidance.
+**Design Intent:** Platform service baselines cover every managed service, such as the spoke secrets vaults, the feedback endpoints' queues and functions, the database services, and each foundation model deployment. Every foundation model deployment's baseline requires a private endpoint and provider-side prompt logging disabled. Where the provider grants that as an approved exemption rather than a setting, the approval is the baseline's evidence. Application baselines cover how the mission teams' applications are hosted, and COTS products such as the service desk platform and the payload vendors' conversion software follow their vendors' guidance.
 
 **NIST Control Mapping:**
 
@@ -740,7 +740,7 @@
 
 ### DI-3.5: Secure OT/Legacy Device Baselines
 
-**Design Intent:** Fleet Operations adopts each manufacturer's hardening guidance for the ground control stations, launch and recovery equipment, and aircraft. The payload processing workstation cannot be hardened to a current baseline, so its baseline is a set of compensating controls. These are isolation in the OT zone, application allow-listing, and a single firewalled conduit to Mission Team 1's data lake zone, per CCSD tailoring action 3. Approved firmware for each aircraft and station model is tracked in the inventory.
+**Design Intent:** Fleet Operations adopts each manufacturer's hardening guidance for the ground control stations, launch and recovery equipment, and aircraft. An asset that cannot be hardened to a current baseline gets a compensating control baseline instead. The payload processing workstation would get one only if it connects before its replacement fields. It would then run isolated in the OT zone with application allow-listing, per CCSD tailoring action 3. Approved firmware for each aircraft and station model is tracked in the inventory.
 
 **NIST Control Mapping:**
 
@@ -958,7 +958,7 @@
 
 ### DI-4.6: Platform Services and Application Configuration Monitoring
 
-**Design Intent:** Cloud configuration checks watch every platform service against its baseline. The checks with the highest priority are a re-enabled public endpoint and provider-side prompt logging turned back on for any foundation model deployment. The same checks cover how each application is hosted, and findings appear on the platform and application compliance dashboard.
+**Design Intent:** Cloud configuration checks watch every platform service against its baseline. The check with the highest priority is a re-enabled public endpoint on any foundation model deployment. Provider-side prompt logging is confirmed off each year where these checks cannot read it. The same checks cover how each application is hosted, and findings appear on the platform and application compliance dashboard.
 
 **NIST Control Mapping:**
 
@@ -1040,7 +1040,7 @@
 
 ### DI-4.8: Vulnerability and Patch Management
 
-**Design Intent:** The VPMP sets KESTREL's remediation deadlines, with priority raised for assets in the DMZ, Tier 0, and the fleet. Patches move from dev to test to stage before production. Container images are rebuilt and redeployed rather than patched in place. Data center servers are patched one node of each redundant pair at a time. Fleet patches must be validated by the manufacturer, tried on a spare, and loaded in a maintenance window. The payload processing workstation's flaws run under CCSD tailoring action 3 until 2027-09-30.
+**Design Intent:** The VPMP sets KESTREL's remediation deadlines, with priority raised for assets in the DMZ, Tier 0, and the fleet. Patches move from dev to test to stage before production. Container images are rebuilt and redeployed rather than patched in place. Data center and alternate site servers are patched one node of each redundant pair at a time. Fleet patches must be validated by the manufacturer, tried on a spare, and loaded in a maintenance window. The payload processing workstation's flaws run under CCSD tailoring action 3 until 2027-09-30.
 
 **NIST Control Mapping:**
 
@@ -1153,7 +1153,7 @@
 
 ### DI-4.9: Unpatchable/Legacy Asset Compensating Controls
 
-**Design Intent:** Any asset that cannot be patched gets its own segment, intrusion prevention at its only path, and tighter monitoring. The payload processing workstation is the only one today. It sits in its own OT zone segment, and a single conduit carries its converted recordings to Mission Team 1's data lake zone and nothing else. The data center hub's intrusion prevention signatures shield its known vulnerabilities at that conduit. The passive sensors and the security monitoring platform watch it under tighter alert thresholds than the rest of the fleet.
+**Design Intent:** Any asset that cannot be patched gets its own segment, intrusion prevention at its only path, and tighter monitoring. The payload processing workstation is the only candidate, and only if its replacement slips past 2027-09-30. It would sit in its own OT zone segment under application allow-listing. A single conduit would carry its converted recordings to Mission Team 1's data lake zone and nothing else. The data center hub's intrusion prevention signatures would shield its known vulnerabilities at that conduit. The passive sensors and the security monitoring platform would watch it under tighter alert thresholds than the rest of the fleet.
 
 **NIST Control Mapping:**
 

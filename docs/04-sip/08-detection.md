@@ -14,11 +14,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -44,11 +44,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 4, Maturity
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C18](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -73,11 +73,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -104,11 +104,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 4, Maturity
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -132,11 +132,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 4, Maturity
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C17](index.md#6-contracting-and-procurement-cross-references)
 
@@ -164,7 +164,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -188,11 +188,11 @@
 
 **Dependencies:** DE-2.7, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C14](index.md#6-contracting-and-procurement-cross-references), [C13](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references)
 
@@ -216,11 +216,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -248,11 +248,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -282,7 +282,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -313,7 +313,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -327,10 +327,12 @@
 | DE-2.2.2: Log Storage Operations | 1 | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | DE-2.2.3: Database Activity Auditing | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
 | DE-2.2.4: Secrets Access Monitoring | 1 | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-| DE-2.2.5: NoSQL Operations Tracking | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
-| DE-2.2.6: Other Data Services Coverage | 1 | Technical | None | Level 1 | Periodic (Quarterly) | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| DE-2.2.5: NoSQL Operations Tracking | 2 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
+| DE-2.2.6: Other Data Services Coverage | 2 (pinned) | Technical | None | Level 1 | Periodic (Quarterly) | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | DE-2.2.7: Data Service Logging Automation | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | DE-2.2.8: Consistent Logging Coverage Enforcement (data-service sources) | 1 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** DE-2.2.5 and DE-2.2.6: Coverage follows the data services and log sources, most of which arrive in Phase 2.
 
 ### DE-2.3: Container and Orchestration Platform Logging
 
@@ -346,7 +348,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -372,11 +374,11 @@
 
 **Dependencies:** DE-3.1
 
-**Funding Line:** FY27 and FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -399,17 +401,17 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise, Microsoft Defender for Endpoint
 
-**Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
+**Environment-Specific Tailoring:** Splunk universal forwarders and Defender for Endpoint collect host logs in the cloud, the data center, and the alternate site from Phase 1. Fleet host logs arrive through the IT/OT DMZ once it is built in Phase 2.
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DE-3.1
+**Dependencies:** DE-3.1, DI-5.4
 
 **Funding Line:** FY27 O&M, platform and security operations
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -434,11 +436,11 @@
 
 **Dependencies:** DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -448,13 +450,15 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| DE-2.6.1: Web Application Attack Monitoring | 1 | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| DE-2.6.1: Web Application Attack Monitoring | 2 (pinned) | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | DE-2.6.2: Layer 7 Attack Attempt Capturing | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | DE-2.6.3: API Abuse Tracking | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 
+**Pinned:** DE-2.6.1: The web application firewall fronts the mission applications, which arrive in Phase 2.
+
 ### DE-2.7: Network Security Logging
 
-**Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Cisco ACI and APIC, Panorama with the Terraform PAN-OS provider, Infoblox NIOS, Splunk Enterprise
+**Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Cisco ACI and APIC, Panorama with the PAN-OS provider for OpenTofu, Infoblox NIOS, Splunk Enterprise
 
 **Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
 
@@ -466,7 +470,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C12](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -496,7 +500,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C13](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -522,11 +526,11 @@
 
 **Dependencies:** NE-2.1, DA-2.4
 
-**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY27, FY28, and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -557,7 +561,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references)
 
@@ -588,7 +592,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references)
 
@@ -616,7 +620,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C20](index.md#6-contracting-and-procurement-cross-references)
 
@@ -629,7 +633,7 @@
 | DE-3.4.1: Windows Time Sync | 1 (pinned) | Technical | None | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | DE-3.4.2: Linux Time Sync | 1 (pinned) | Technical | None | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | DE-3.4.3: Custom NTP Servers | 1 (pinned) | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| DE-3.4.4: Timestamp Format Validation | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| DE-3.4.4: Timestamp Format Validation | 2 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | DE-3.4.5: Time Drift Monitoring | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** DE-3.4.1: Built in when the platform is created, since retrofitting it later costs far more. Logs collected before it cannot be correlated reliably. DE-3.4.2: Built in when the platform is created, since retrofitting it later costs far more. Logs collected before it cannot be correlated reliably. DE-3.4.3: Built in when the platform is created, since retrofitting it later costs far more. Logs collected before it cannot be correlated reliably.
+**Pinned:** DE-3.4.1, DE-3.4.2, and DE-3.4.3: Built in when the platform is created, since retrofitting it later costs far more. Logs collected before it cannot be correlated reliably. DE-3.4.4: Coverage follows the data services and log sources, most of which arrive in Phase 2.

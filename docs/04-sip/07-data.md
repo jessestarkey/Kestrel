@@ -14,11 +14,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -41,11 +41,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -72,11 +72,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -100,11 +100,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -128,11 +128,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -157,11 +157,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -185,11 +185,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -213,11 +213,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C30](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -242,11 +242,11 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -274,11 +274,11 @@
 
 **Dependencies:** DA-3.3, DA-3.4
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C16](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -306,7 +306,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C14](index.md#6-contracting-and-procurement-cross-references)
 
@@ -334,7 +334,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -362,7 +362,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references), [C15](index.md#6-contracting-and-procurement-cross-references)
 
@@ -390,7 +390,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
@@ -419,7 +419,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -444,11 +444,11 @@
 
 **Dependencies:** None. Keys and PKI are a Phase 1 prerequisite.
 
-**Funding Line:** FY28 and FY29 program management
+**Funding Line:** FY29 program management, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 4, Maturity
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C11](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -476,7 +476,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -503,7 +503,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -517,7 +517,7 @@
 | DA-3.4.2: Hardware Root-of-Trust Key Generation and Attestation | 1 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | DA-3.4.3: HSM Access Control and Audit Logging | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** DA-3.4.1: KESTREL's design depends on it from the first build, since the HSMs hold the root, signing, and datalink keys. DA-3.4.2: KESTREL's design depends on it from the first build, since the HSMs hold the root, signing, and datalink keys.
+**Pinned:** DA-3.4.1 and DA-3.4.2: KESTREL's design depends on it from the first build, since the HSMs hold the root, signing, and datalink keys.
 
 ### DA-3.5: Key Lifecycle Automation
 
@@ -533,7 +533,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -564,7 +564,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -591,7 +591,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references)
 
@@ -618,7 +618,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C11](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -645,7 +645,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C11](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -673,7 +673,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -702,7 +702,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -731,7 +731,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -754,11 +754,11 @@
 
 **Dependencies:** None. Keys and PKI are a Phase 1 prerequisite.
 
-**Funding Line:** FY27 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -770,4 +770,6 @@
 |---|---|---|---|---|---|---|---|---|
 | DA-3.13.1: KMP Development and Authoring | 1 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | DA-3.13.2: KMP Review and Approval | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| DA-3.13.3: KMP Periodic Review and Revision | 1 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| DA-3.13.3: KMP Periodic Review and Revision | 2 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** DA-3.13.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.

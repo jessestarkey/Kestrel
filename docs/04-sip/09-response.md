@@ -14,11 +14,11 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -42,11 +42,11 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -71,11 +71,11 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -99,11 +99,11 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -126,11 +126,11 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -153,11 +153,11 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -182,11 +182,11 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C31](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -213,11 +213,11 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -241,11 +241,11 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -269,11 +269,11 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C16](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -298,11 +298,11 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -325,11 +325,11 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -356,11 +356,11 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C31](index.md#6-contracting-and-procurement-cross-references)
 
@@ -376,7 +376,7 @@
 
 ### RS-3.2: Automated Containment and Isolation Procedures
 
-**Selected Tool / Product / Service:** Splunk SOAR, Panorama with the Terraform PAN-OS provider, Microsoft Entra ID, Microsoft Defender XDR
+**Selected Tool / Product / Service:** Splunk SOAR, Panorama with the PAN-OS provider for OpenTofu, Microsoft Entra ID, Microsoft Defender XDR
 
 **Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
 
@@ -384,11 +384,11 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -411,11 +411,11 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY27 and FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -431,7 +431,7 @@
 
 ### RS-3.4: Eradication and Threat Removal
 
-**Selected Tool / Product / Service:** Splunk SOAR, Panorama with the Terraform PAN-OS provider, Microsoft Entra ID, Microsoft Defender XDR
+**Selected Tool / Product / Service:** Splunk SOAR, Panorama with the PAN-OS provider for OpenTofu, Microsoft Entra ID, Microsoft Defender XDR
 
 **Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
 
@@ -439,11 +439,11 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -467,11 +467,11 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -496,11 +496,11 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -523,11 +523,11 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -552,11 +552,11 @@
 
 **Dependencies:** The SADD's Response design decisions
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 

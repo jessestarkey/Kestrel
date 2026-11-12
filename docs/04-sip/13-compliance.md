@@ -14,11 +14,11 @@
 
 **Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -42,11 +42,11 @@
 
 **Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -70,11 +70,11 @@
 
 **Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -101,11 +101,11 @@
 
 **Dependencies:** GV-5.9
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -129,11 +129,11 @@
 
 **Dependencies:** GV-5.9
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -157,11 +157,11 @@
 
 **Dependencies:** GV-5.9
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -191,7 +191,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -220,7 +220,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -246,11 +246,11 @@
 
 **Dependencies:** DA-1.1
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -275,11 +275,11 @@
 
 **Dependencies:** DA-1.1
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 

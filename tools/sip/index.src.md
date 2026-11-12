@@ -42,7 +42,7 @@ This plan carries KESTREL's SADD, version 0.2, into RMF Step 3. It records the p
 
 ## 2. Rollout Phasing Strategy
 
-The phases follow dependencies first. Identity, keys, the pipeline, and logging come before anything that relies on them, and detection comes after the telemetry it reads. Phases are set per activity, since the activities under one outcome often differ in urgency. An activity's SABER Maturity Level sets its default. Level 1, which the SABER marks as required for ATO, keeps its outcome's place in the dependency sequence, which is its capability's unless the selections place the outcome separately, and must land by the end of Phase 3, when the ATO decision is due. Level 2 waits for Phase 2 at the earliest, and Level 3 waits for Phase 4. A pin moves an activity earlier only where KESTREL's design depends on it from the first build, or where building it in costs far less than retrofitting it. A pin moves one later only where the work cannot start until the fleet integrates. Each pin states its reason in its record. A record starts in the phase of its earliest activity and stays open until its last one lands, so one outcome remains one story. Work finishing in Phase 3 is due by 2028-04-30, two months before the ATO decision, so the SCA has time to assess it.
+The phases follow dependencies first. Identity, keys, the pipeline, and logging come before anything that relies on them, and detection comes after the telemetry it reads. Phases are set per activity, since the activities under one outcome often differ in urgency. An activity's SABER Maturity Level sets its default. Level 1, which the SABER marks as required for ATO, keeps its outcome's place in the dependency sequence, which is its capability's unless the selections place the outcome separately, and must land by the end of Phase 3, when the ATO decision is due. Level 2 waits for Phase 2 at the earliest, and Level 3 waits for Phase 4. A pin moves an activity earlier only where KESTREL's design depends on it from the first build, or where building it in costs far less than retrofitting it. Early pins also cover what the interim authorization to test needs in Phase 1, and fleet work proven on the spare stations and the simulator before the fleet integrates. A pin moves one later only where the work cannot start until the fleet integrates, or cannot be used before Phase 2, such as a first periodic review. Phase 1 runs nine months rather than six, because it holds the foundation every team builds on. Each pin states its reason in its record. A record starts in the phase of its earliest activity and stays open until its last one lands, so one outcome remains one story. Work finishing in Phase 3 is due by 2028-07-31, two months before the ATO decision on 2028-09-30, so the SCA has time to assess it.
 
 An interim authorization to test (`GV-5.7`) covers Phases 1 to 3. Integration during those phases uses synthetic data, spare aircraft, and the simulator, so no live mission data or flight depends on a system that is not yet authorized.
 
@@ -90,6 +90,8 @@ Each contract below groups the products bought under one vehicle. The Records co
 **Government-furnished, so no contract is needed:** {{GOV}}.
 
 **Open source, adopted through the ASP's approved component catalog:** {{OSS}}.
+
+**Source-available, free to use under its license but not open source, so program legal counsel confirms the terms before adoption:** {{SRC}}.
 
 ---
 

@@ -14,11 +14,11 @@
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -43,11 +43,11 @@
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -71,11 +71,11 @@
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -99,11 +99,11 @@
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -128,11 +128,11 @@
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -155,11 +155,11 @@
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -182,11 +182,11 @@
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -210,11 +210,11 @@
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -245,7 +245,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -273,7 +273,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -300,7 +300,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -327,7 +327,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C16](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -356,7 +356,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -379,11 +379,11 @@
 
 **Dependencies:** ID-2.5, NE-2.7
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -410,7 +410,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -437,7 +437,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -466,7 +466,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -493,7 +493,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -520,7 +520,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -547,7 +547,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -574,7 +574,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -601,7 +601,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -628,7 +628,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -655,7 +655,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -682,7 +682,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -709,7 +709,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -736,7 +736,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -763,7 +763,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -790,7 +790,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -817,7 +817,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -844,7 +844,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -871,7 +871,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -898,7 +898,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -925,7 +925,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -952,7 +952,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -981,7 +981,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -1008,7 +1008,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1035,7 +1035,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -1058,11 +1058,11 @@
 
 **Dependencies:** AI-1.6, AI-4.14
 
-**Funding Line:** FY28 and FY29 program management
+**Funding Line:** FY28 and FY29 program management, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -1089,7 +1089,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1116,7 +1116,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -1143,7 +1143,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C28](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1170,7 +1170,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1199,7 +1199,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1226,7 +1226,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1253,7 +1253,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1280,7 +1280,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -1307,7 +1307,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1335,7 +1335,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1362,7 +1362,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1389,7 +1389,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C26](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1420,7 +1420,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1447,7 +1447,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1474,7 +1474,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1501,7 +1501,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1530,7 +1530,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1557,7 +1557,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1584,7 +1584,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1608,11 +1608,11 @@
 
 **Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1641,7 +1641,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1668,7 +1668,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1695,7 +1695,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -1723,7 +1723,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1750,7 +1750,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1777,7 +1777,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1802,11 +1802,11 @@
 
 **Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1833,7 +1833,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C26](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1860,7 +1860,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -1887,7 +1887,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1916,7 +1916,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1944,7 +1944,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1971,7 +1971,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1998,7 +1998,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -2025,7 +2025,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -2052,7 +2052,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -2079,7 +2079,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -2106,7 +2106,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -2134,7 +2134,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -2160,11 +2160,11 @@
 
 **Dependencies:** The SADD's Artificial Intelligence design decisions
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 

@@ -14,11 +14,11 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references)
 
@@ -42,11 +42,11 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references)
 
@@ -69,11 +69,11 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C21](index.md#6-contracting-and-procurement-cross-references)
 
@@ -100,7 +100,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C26](index.md#6-contracting-and-procurement-cross-references), [C15](index.md#6-contracting-and-procurement-cross-references)
 
@@ -116,7 +116,7 @@
 
 ### RC-1.5: Backup Policy Enforcement
 
-**Selected Tool / Product / Service:** Azure Policy, Veeam Data Platform, Terraform
+**Selected Tool / Product / Service:** Azure Policy, Veeam Data Platform, OpenTofu
 
 **Environment-Specific Tailoring:** Azure Backup protects cloud services, and Veeam protects the data center with copies to the alternate site and to immutable Blob storage in the second region.
 
@@ -124,11 +124,11 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C15](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -151,11 +151,11 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -180,11 +180,11 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C15](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -209,11 +209,11 @@
 
 **Dependencies:** RC-1.2, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references)
 
@@ -236,11 +236,11 @@
 
 **Dependencies:** RC-1.2, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references)
 
@@ -263,11 +263,11 @@
 
 **Dependencies:** RC-1.2, DA-3.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references)
 
@@ -286,17 +286,17 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center
 
-**Environment-Specific Tailoring:** Cloud spokes are rebuilt by Terraform in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
+**Environment-Specific Tailoring:** Cloud spokes are rebuilt by OpenTofu in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
 
 **Accountable Team:** Program Office (program manager)
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -311,19 +311,19 @@
 
 ### RC-3.2: Backup Recovery Testing
 
-**Selected Tool / Product / Service:** Terraform, Veeam Data Platform, ExpressRoute circuits from two carriers
+**Selected Tool / Product / Service:** OpenTofu, Veeam Data Platform, ExpressRoute circuits from two carriers
 
-**Environment-Specific Tailoring:** Cloud spokes are rebuilt by Terraform in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
+**Environment-Specific Tailoring:** Cloud spokes are rebuilt by OpenTofu in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
 
 **Accountable Team:** Platform Team
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C25](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -338,19 +338,19 @@
 
 ### RC-3.3: Disaster Recovery Capabilities
 
-**Selected Tool / Product / Service:** Terraform, Veeam Data Platform, ExpressRoute circuits from two carriers
+**Selected Tool / Product / Service:** OpenTofu, Veeam Data Platform, ExpressRoute circuits from two carriers
 
-**Environment-Specific Tailoring:** Cloud spokes are rebuilt by Terraform in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
+**Environment-Specific Tailoring:** Cloud spokes are rebuilt by OpenTofu in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
 
 **Accountable Team:** Platform Team
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C25](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -368,17 +368,17 @@
 
 **Selected Tool / Product / Service:** ExpressRoute circuits from two carriers, Entrust nShield 5 HSMs, Veeam Data Platform
 
-**Environment-Specific Tailoring:** Cloud spokes are rebuilt by Terraform in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
+**Environment-Specific Tailoring:** Cloud spokes are rebuilt by OpenTofu in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
 
 **Accountable Team:** Platform Team
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C25](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C15](index.md#6-contracting-and-procurement-cross-references)
 
@@ -395,17 +395,17 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center
 
-**Environment-Specific Tailoring:** Cloud spokes are rebuilt by Terraform in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
+**Environment-Specific Tailoring:** Cloud spokes are rebuilt by OpenTofu in US Gov Arizona from US Gov Virginia. The data center's Tier 1 services fail over to the alternate site's warm standby.
 
 **Accountable Team:** Fleet Operations, with the mission teams
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY27 and FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -431,11 +431,11 @@
 
 **Dependencies:** The SADD's Recovery design decisions
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 

@@ -14,11 +14,11 @@
 
 **Dependencies:** GV-5.1
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -31,7 +31,9 @@
 | AP-1.1.1: Current-State Security Capability Assessment | 2 | Process | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | AP-1.1.2: Gap Analysis Against Control/Requirement Baseline | 2 | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | AP-1.1.3: Capability Roadmap and Prioritization | 2 | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| AP-1.1.4: Resourcing and Budget Planning for Gap Closure | 1 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| AP-1.1.4: Resourcing and Budget Planning for Gap Closure | 2 (pinned) | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** AP-1.1.4: Gap-closure budgeting follows the first capability gap assessment.
 
 ### AP-1.2: Application Intake and Onboarding
 
@@ -47,7 +49,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -76,7 +78,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -101,11 +103,11 @@
 
 **Dependencies:** GV-5.1
 
-**Funding Line:** FY27 and FY28 and FY29 program management
+**Funding Line:** FY27, FY28, and FY29 program management, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -136,11 +138,11 @@
 
 **Dependencies:** the performer interconnection agreement
 
-**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -168,7 +170,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -197,7 +199,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -225,7 +227,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -240,7 +242,7 @@
 | AP-2.4.3: Pre-Commit Hook Enforcement | 1 (pinned) | Technical | Automate | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | AP-2.4.4: Server-Side Push Protection | 1 (pinned) | Technical | Automate | Level 2 | Continuous | Low | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 
-**Pinned:** AP-2.4.3: KESTREL's design depends on it from the first build, since source code lives on performer laptops from the first commit. AP-2.4.4: KESTREL's design depends on it from the first build, since source code lives on performer laptops from the first commit.
+**Pinned:** AP-2.4.3 and AP-2.4.4: KESTREL's design depends on it from the first build, since source code lives on performer laptops from the first commit.
 
 ### AP-2.5: Container Scanning
 
@@ -256,7 +258,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -283,7 +285,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -310,7 +312,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -338,7 +340,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -362,11 +364,11 @@
 
 **Dependencies:** ID-3.1, DA-3.3
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -376,8 +378,10 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| AP-2.9.1: External Runtime Service Dependency Inventory and Governance | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| AP-2.9.1: External Runtime Service Dependency Inventory and Governance | 2 (pinned) | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | AP-2.9.2: Client-Side Script Integrity and Third-Party Tag Control | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** AP-2.9.1: Mission applications, which call external runtime services, arrive in Phase 2.
 
 ### AP-2.10: Adversarial Code Review
 
@@ -389,11 +393,11 @@
 
 **Dependencies:** ID-3.1, DA-3.3
 
-**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -422,7 +426,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -447,11 +451,11 @@
 
 **Dependencies:** ID-3.1, DA-3.3
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C27](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -479,7 +483,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -509,7 +513,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), plus government-furnished and open source components
 
@@ -538,7 +542,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -567,7 +571,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -594,7 +598,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -621,7 +625,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -648,7 +652,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
 
@@ -672,11 +676,11 @@
 
 **Dependencies:** ID-3.1, DA-3.3
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -703,7 +707,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -732,7 +736,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -759,7 +763,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -786,7 +790,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -799,7 +803,7 @@
 | AP-2.24.1: Build Provenance Attestation Generation | 1 (pinned) | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | AP-2.24.2: Provenance Verification at Deploy Gate | 1 (pinned) | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** AP-2.24.1: Built in when the platform is created, since retrofitting it later costs far more. Artifacts built before it have no provenance to verify. AP-2.24.2: Built in when the platform is created, since retrofitting it later costs far more. Artifacts built before it have no provenance to verify.
+**Pinned:** AP-2.24.1 and AP-2.24.2: Built in when the platform is created, since retrofitting it later costs far more. Artifacts built before it have no provenance to verify.
 
 ### AP-2.25: CI Credential and Secrets Management
 
@@ -815,7 +819,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -842,11 +846,11 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -869,11 +873,11 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY27 and FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -898,11 +902,11 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -926,11 +930,11 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -955,11 +959,11 @@
 
 **Dependencies:** the penetration testing contract
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C28](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -983,11 +987,11 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 4, Maturity
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1012,11 +1016,11 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1040,11 +1044,11 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1067,11 +1071,11 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1094,11 +1098,11 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1121,11 +1125,11 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1149,11 +1153,11 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1177,11 +1181,11 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1206,11 +1210,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1233,11 +1237,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -1260,11 +1264,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1287,11 +1291,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1314,11 +1318,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1341,11 +1345,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1369,11 +1373,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1396,11 +1400,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1423,11 +1427,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 4, Maturity
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C19](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1450,11 +1454,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -1478,11 +1482,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1506,11 +1510,11 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -1535,11 +1539,11 @@
 
 **Dependencies:** The SADD's Application design decisions
 
-**Funding Line:** FY27 program management
+**Funding Line:** FY27 and FY28 program management
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -1551,4 +1555,6 @@
 |---|---|---|---|---|---|---|---|---|
 | AP-6.1.1: ASP Development and Authoring | 1 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | AP-6.1.2: ASP Review and Approval | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| AP-6.1.3: ASP Periodic Review and Revision | 1 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| AP-6.1.3: ASP Periodic Review and Revision | 2 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** AP-6.1.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.

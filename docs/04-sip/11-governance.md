@@ -18,7 +18,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -46,7 +46,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -70,11 +70,11 @@
 
 **Dependencies:** None.
 
-**Funding Line:** FY27 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -86,7 +86,9 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-1.3.1: Appointment Letter Template Development | 1 | Documentation | None | Level 1 | One-Time | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
 | GV-1.3.2: Appointment Letter Issuance and Tracking | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-1.3.3: Appointment Letter Renewal/Update on Personnel Change | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| GV-1.3.3: Appointment Letter Renewal/Update on Personnel Change | 2 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+
+**Pinned:** GV-1.3.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.
 
 ### GV-1.4: Security Governance and Steering Committee
 
@@ -98,11 +100,11 @@
 
 **Dependencies:** None.
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -131,7 +133,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -155,11 +157,11 @@
 
 **Dependencies:** None.
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -189,7 +191,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -201,9 +203,11 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-2.1.1: Policy Drafting/Authoring Workflow | 1 | Process | None | Level 1 | One-Time | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-2.1.2: Policy Review and Approval Cadence | 1 | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-2.1.3: Policy Retirement/Supersession Process | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| GV-2.1.3: Policy Retirement/Supersession Process | 2 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
 | GV-2.1.4: Policy Publication and Version Control | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-2.1.5: Policy-as-Code Implementation for Machine-Enforceable Policies Where Applicable | 2 | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+
+**Pinned:** GV-2.1.3: Nothing is retired from KESTREL during the first build.
 
 ### GV-2.2: Policy Exception Management
 
@@ -219,7 +223,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -247,7 +251,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -276,7 +280,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -302,11 +306,11 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -331,11 +335,11 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -360,11 +364,11 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -388,11 +392,11 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
+**Funding Line:** FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C30](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references)
 
@@ -418,11 +422,11 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -448,11 +452,11 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -480,7 +484,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -504,11 +508,11 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -532,11 +536,11 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -561,11 +565,11 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -589,11 +593,11 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY27 and FY28 program management
+**Funding Line:** FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -623,7 +627,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C04](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -647,11 +651,11 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY27 program management
+**Funding Line:** FY27 and FY28 program management
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -663,7 +667,9 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-5.2.1: Security Implementation Plan Development and Authoring | 1 | Documentation | None | Level 1 | One-Time | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | GV-5.2.2: Security Implementation Plan Review and Approval | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-5.2.3: Security Implementation Plan Periodic Review and Revision | 1 | Documentation | None | Level 1 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.2.3: Security Implementation Plan Periodic Review and Revision | 2 (pinned) | Documentation | None | Level 1 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-5.2.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.
 
 ### GV-5.3: System Security Plan (SSP)
 
@@ -675,11 +681,11 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY27, FY28, and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished and open source components
 
@@ -691,8 +697,10 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-5.3.1: SSP Development and Authoring | 1 | Documentation | None | Level 1 | One-Time | Extensive | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | GV-5.3.2: SSP Review and Approval | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-5.3.3: SSP Periodic Review and Revision | 1 | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.3.3: SSP Periodic Review and Revision | 2 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.3.4: SSP Machine-Readable Authoring/Maintenance | 4 | Technical | Automate | Level 3 | Continuous | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+
+**Pinned:** GV-5.3.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.
 
 ### GV-5.4: Categorization and Control Selection Document (CCSD)
 
@@ -704,11 +712,11 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY27 program management
+**Funding Line:** FY27 and FY28 program management
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -720,8 +728,10 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-5.4.1: Information Type Identification and Inventory | 1 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.4.2: Provisional Impact Value Assignment per Information Type | 1 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-5.4.3: CCSD Periodic Update | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.4.3: CCSD Periodic Update | 2 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.4.4: Control Selection and Tailoring Draft | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | High | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-5.4.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.
 
 ### GV-5.5: Security Categorization
 
@@ -733,11 +743,11 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY27 program management
+**Funding Line:** FY27 and FY28 program management
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** None. Government-furnished, so no new contract is needed.
 
@@ -749,7 +759,9 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-5.5.1: System-Level CIA Impact Determination | 1 | Process | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.5.2: Categorization Documentation and AO Concurrence | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-5.5.3: Categorization Periodic Reassessment | 1 | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.5.3: Categorization Periodic Reassessment | 2 (pinned) | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-5.5.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.
 
 ### GV-5.6: System Interconnection Agreements (ISA/MOU/MOA)
 
@@ -765,7 +777,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished and open source components
 
@@ -789,11 +801,11 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 3, Mission, AI, and Fleet
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** None. Government-furnished, so no new contract is needed.
 
@@ -806,7 +818,9 @@
 | GV-5.7.1: ATO Package Submission | 3 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.7.2: AO Risk Determination and Adjudication Tracking | 3 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Medium-term (3–6 months) |
 | GV-5.7.3: ATO Condition/POA&M Closure Tracking | 3 | Process | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-5.7.4: Interim Authorization to Test | 3 | Process | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.7.4: Interim Authorization to Test | 1 (pinned) | Process | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-5.7.4: The interim authorization to test covers Phases 1 to 3, so it is granted before Phase 1 testing starts.
 
 ### GV-5.8: Authorization Package Compilation
 
@@ -818,11 +832,11 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished and open source components
 
@@ -832,11 +846,13 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| GV-5.8.1: Authorization Package Artifact Inventory and Collection | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-5.8.2: Authorization Package Completeness/Quality Review | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-5.8.3: Authorization Package Version Control and Submission Packaging | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.8.1: Authorization Package Artifact Inventory and Collection | 2 (pinned) | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.8.2: Authorization Package Completeness/Quality Review | 2 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.8.3: Authorization Package Version Control and Submission Packaging | 2 (pinned) | Documentation | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.8.4: Package Accuracy Attestation | 2 | Documentation | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.8.5: Model Assessment Evidence Annex | 2 | Documentation | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-5.8.1, GV-5.8.2, and GV-5.8.3: The authorization package is compiled for the ATO decision, while the interim authorization to test has its own submission.
 
 ### GV-5.9: Security Controls Traceability Matrix (SCTM)
 
@@ -848,11 +864,11 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY27, FY28, and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 4
 
-**Target Date / Sprint:** 2028-12-31
+**Target Date / Sprint:** 2029-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished and open source components
 
@@ -864,8 +880,10 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-5.9.1: SCTM Development | 1 | Documentation | None | Level 1 | One-Time | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | GV-5.9.2: SCTM Review and Validation against SSP | 1 | Process | None | Level 1 | Periodic (Semi-Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-5.9.3: SCTM Periodic Update | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.9.3: SCTM Periodic Update | 2 (pinned) | Documentation | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.9.4: SCTM Automation via Machine-Readable Format (OSCAL) for Tool-Based Control Traceability | 4 | Technical | Automate | Level 3 | Continuous | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+
+**Pinned:** GV-5.9.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.
 
 ### GV-5.10: Ongoing Authorization
 
@@ -881,7 +899,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -909,7 +927,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -938,7 +956,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished and open source components
 
@@ -950,5 +968,7 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-5.12.1: Provider Authorization Verification | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.12.2: Customer Responsibility Matrix Integration into the SCTM | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| GV-5.12.3: Provider Authorization Status Monitoring | 1 | Process | None | Level 1 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-5.12.3: Provider Authorization Status Monitoring | 2 (pinned) | Process | None | Level 1 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-5.12.4: Reciprocity and Joint Authorization Terms | 2 | Documentation | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-5.12.3: Status monitoring follows the provider authorization check made in Phase 1.

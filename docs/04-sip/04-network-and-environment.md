@@ -6,9 +6,9 @@
 
 ### NE-1.1: Network Centralization and Standardization
 
-**Selected Tool / Product / Service:** Panorama with the Terraform PAN-OS provider, Cisco ACI and APIC, Terraform
+**Selected Tool / Product / Service:** Panorama with the PAN-OS provider for OpenTofu, Cisco ACI and APIC, OpenTofu
 
-**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center and alternate site segmentation is Cisco ACI endpoint groups, and the ground segment uses its own zoned firewall.
+**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center segmentation is Cisco ACI endpoint groups. The alternate site is segmented by its PA-Series firewall zones under the shared rule base, and the ground segment uses its own zoned firewall.
 
 **Accountable Team:** Platform Team
 
@@ -18,7 +18,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -35,9 +35,9 @@
 
 ### NE-1.2: Network Infrastructure Device Hardening
 
-**Selected Tool / Product / Service:** DISA SCAP Compliance Checker and STIG Viewer, Cisco ACI and APIC, Panorama with the Terraform PAN-OS provider
+**Selected Tool / Product / Service:** DISA SCAP Compliance Checker and STIG Viewer, Cisco ACI and APIC, Panorama with the PAN-OS provider for OpenTofu
 
-**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center and alternate site segmentation is Cisco ACI endpoint groups, and the ground segment uses its own zoned firewall.
+**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center segmentation is Cisco ACI endpoint groups. The alternate site is segmented by its PA-Series firewall zones under the shared rule base, and the ground segment uses its own zoned firewall.
 
 **Accountable Team:** Platform Team
 
@@ -47,7 +47,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C09](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -65,7 +65,7 @@
 
 **Selected Tool / Product / Service:** Corelight sensors, Tenable Security Center (ACAS)
 
-**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center and alternate site segmentation is Cisco ACI endpoint groups, and the ground segment uses its own zoned firewall.
+**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center segmentation is Cisco ACI endpoint groups. The alternate site is segmented by its PA-Series firewall zones under the shared rule base, and the ground segment uses its own zoned firewall.
 
 **Accountable Team:** Platform Team
 
@@ -75,7 +75,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C14](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -91,9 +91,9 @@
 
 ### NE-1.4: Network Macro Segmentation
 
-**Selected Tool / Product / Service:** Panorama with the Terraform PAN-OS provider, Cisco ACI and APIC, Terraform
+**Selected Tool / Product / Service:** Panorama with the PAN-OS provider for OpenTofu, Cisco ACI and APIC, OpenTofu
 
-**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center and alternate site segmentation is Cisco ACI endpoint groups, and the ground segment uses its own zoned firewall.
+**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center segmentation is Cisco ACI endpoint groups. The alternate site is segmented by its PA-Series firewall zones under the shared rule base, and the ground segment uses its own zoned firewall.
 
 **Accountable Team:** Platform Team
 
@@ -103,7 +103,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -124,17 +124,17 @@
 
 **Selected Tool / Product / Service:** Azure CNI Powered by Cilium network policy, Cisco ACI and APIC, Azure Monitor and VNet flow logs, Open Policy Agent (Gatekeeper and Conftest)
 
-**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center and alternate site segmentation is Cisco ACI endpoint groups, and the ground segment uses its own zoned firewall.
+**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center segmentation is Cisco ACI endpoint groups. The alternate site is segmented by its PA-Series firewall zones under the shared rule base, and the ground segment uses its own zoned firewall.
 
 **Accountable Team:** Platform Team
 
 **Dependencies:** DI-2.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -161,11 +161,11 @@
 
 **Dependencies:** DI-2.1
 
-**Funding Line:** FY27 and FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C13](index.md#6-contracting-and-procurement-cross-references)
 
@@ -186,17 +186,17 @@
 
 **Selected Tool / Product / Service:** Cisco Identity Services Engine, Active Directory Certificate Services
 
-**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center and alternate site segmentation is Cisco ACI endpoint groups, and the ground segment uses its own zoned firewall.
+**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center segmentation is Cisco ACI endpoint groups. The alternate site is segmented by its PA-Series firewall zones under the shared rule base, and the ground segment uses its own zoned firewall.
 
 **Accountable Team:** Platform Team
 
 **Dependencies:** DI-2.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C09](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -215,17 +215,17 @@
 
 **Selected Tool / Product / Service:** Bastille Enterprise
 
-**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center and alternate site segmentation is Cisco ACI endpoint groups, and the ground segment uses its own zoned firewall.
+**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center segmentation is Cisco ACI endpoint groups. The alternate site is segmented by its PA-Series firewall zones under the shared rule base, and the ground segment uses its own zoned firewall.
 
 **Accountable Team:** Security Team
 
 **Dependencies:** DI-2.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C23](index.md#6-contracting-and-procurement-cross-references)
 
@@ -245,7 +245,7 @@
 
 **Selected Tool / Product / Service:** Azure Private Link, Azure ExpressRoute, ExpressRoute circuits from two carriers, Azure Policy
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team
 
@@ -255,7 +255,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C25](index.md#6-contracting-and-procurement-cross-references)
 
@@ -275,7 +275,7 @@
 
 **Selected Tool / Product / Service:** Azure API Management, Azure Kubernetes Service, Azure Machine Learning, Azure Application Gateway WAF v2
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team
 
@@ -285,7 +285,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -304,7 +304,7 @@
 
 **Selected Tool / Product / Service:** Azure Policy, Azure Key Vault Premium, Azure SQL Database, Azure Private Link
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team
 
@@ -314,7 +314,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -332,9 +332,9 @@
 
 ### NE-2.4: Network Firewall
 
-**Selected Tool / Product / Service:** Palo Alto Networks VM-Series, Palo Alto Networks PA-Series, Panorama with the Terraform PAN-OS provider, Palo Alto Advanced URL Filtering
+**Selected Tool / Product / Service:** Palo Alto Networks VM-Series, Palo Alto Networks PA-Series, Panorama with the PAN-OS provider for OpenTofu, Palo Alto Advanced URL Filtering
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team
 
@@ -344,7 +344,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references)
 
@@ -367,17 +367,17 @@
 
 **Selected Tool / Product / Service:** Azure DDoS Network Protection, Azure Application Gateway WAF v2, Palo Alto Networks PA-Series, the DISA Boundary Cloud Access Point
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team
 
 **Dependencies:** NE-1.4, ID-1.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -396,17 +396,17 @@
 
 **Selected Tool / Product / Service:** Azure Application Gateway WAF v2, Azure API Management
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team, with the mission teams
 
 **Dependencies:** NE-1.4, ID-1.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -416,20 +416,22 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| NE-2.6.1: WAF Service Selection | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| NE-2.6.2: WAF Policy Configurations and Custom Rules | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| NE-2.6.3: WAF Policy Mode | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| NE-2.6.4: WAF Policy and Service Endpoint Associations | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| NE-2.6.5: On-Premises Reverse-Proxy WAF Deployment | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| NE-2.6.1: WAF Service Selection | 2 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| NE-2.6.2: WAF Policy Configurations and Custom Rules | 2 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| NE-2.6.3: WAF Policy Mode | 2 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| NE-2.6.4: WAF Policy and Service Endpoint Associations | 2 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| NE-2.6.5: On-Premises Reverse-Proxy WAF Deployment | 2 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | NE-2.6.6: Bot Management and Request Rate Limiting | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-| NE-2.6.7: API Protection Policy and Schema Validation | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| NE-2.6.7: API Protection Policy and Schema Validation | 2 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | NE-2.6.8: API Gateway Runtime Policy Enforcement | 2 | Technical | Automate | Level 2 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
+
+**Pinned:** NE-2.6.1, NE-2.6.2, NE-2.6.3, NE-2.6.4, NE-2.6.5, and NE-2.6.7: The web application firewall fronts the mission applications, which arrive in Phase 2.
 
 ### NE-2.7: Secure Remote Access
 
 **Selected Tool / Product / Service:** Pomerium Enterprise, Azure Virtual Desktop, CyberArk Privileged Access Manager
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team
 
@@ -439,7 +441,7 @@
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C22](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references)
 
@@ -469,11 +471,11 @@
 
 **Dependencies:** NE-1.4, ID-1.3, ID-3.7
 
-**Funding Line:** FY27 and FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C26](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
@@ -491,7 +493,7 @@
 
 **Selected Tool / Product / Service:** the cross domain service provider's enterprise CDS, Splunk Enterprise
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team
 
@@ -501,7 +503,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -523,7 +525,7 @@
 
 **Selected Tool / Product / Service:** Palo Alto Networks PA-Series, Nozomi Networks Guardian
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Fleet Operations
 
@@ -533,7 +535,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C13](index.md#6-contracting-and-procurement-cross-references)
 
@@ -550,19 +552,19 @@
 
 ### NE-2.12: Ports, Protocols, and Services Matrix (PPSM)
 
-**Selected Tool / Product / Service:** the DoD PPSM registry, Panorama with the Terraform PAN-OS provider
+**Selected Tool / Product / Service:** the DoD PPSM registry, Panorama with the PAN-OS provider for OpenTofu
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Security Team
 
 **Dependencies:** NE-1.4, ID-1.3
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -579,9 +581,9 @@
 
 ### NE-2.13: Authorized Cloud Access Point Integration
 
-**Selected Tool / Product / Service:** the DISA Boundary Cloud Access Point, Mission Landing Zone (Terraform) on Azure Government, Palo Alto Networks VM-Series
+**Selected Tool / Product / Service:** the DISA Boundary Cloud Access Point, the Platform Team's landing zone modules, derived from Mission Landing Zone, Palo Alto Networks VM-Series
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by OpenTofu.
 
 **Accountable Team:** Platform Team
 
@@ -591,9 +593,9 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
+**Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), plus government-furnished and open source components
 
 **Status:** Not Started
 
@@ -618,11 +620,11 @@
 
 **Dependencies:** NE-2.4, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C14](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references)
 
@@ -645,11 +647,11 @@
 
 **Dependencies:** NE-2.4, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C14](index.md#6-contracting-and-procurement-cross-references)
 
@@ -679,7 +681,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C12](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -708,7 +710,7 @@
 
 **Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C12](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -722,7 +724,7 @@
 | NE-3.4.2: Managed Private DNS for Private Endpoints | 1 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | NE-3.4.3: Custom DNS for Restricted Resolution | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | High | One-Time: High; Recurring: Low | Medium-term (3–6 months) |
 
-**Pinned:** NE-3.4.1: KESTREL's design depends on it from the first build, since private endpoints do not resolve without it. NE-3.4.2: KESTREL's design depends on it from the first build, since private endpoints do not resolve without it.
+**Pinned:** NE-3.4.1 and NE-3.4.2: KESTREL's design depends on it from the first build, since private endpoints do not resolve without it.
 
 ### NE-3.5: DNS Advanced Protection
 
@@ -734,11 +736,11 @@
 
 **Dependencies:** NE-2.4, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C12](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -762,11 +764,11 @@
 
 **Dependencies:** NE-2.4, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C29](index.md#6-contracting-and-procurement-cross-references)
 
@@ -795,7 +797,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C13](index.md#6-contracting-and-procurement-cross-references)
 
@@ -824,7 +826,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C26](index.md#6-contracting-and-procurement-cross-references), [C20](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
