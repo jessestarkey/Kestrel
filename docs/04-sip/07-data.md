@@ -360,7 +360,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -417,7 +417,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -531,7 +531,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -643,7 +643,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 

@@ -211,6 +211,8 @@ Three outcomes drop out across the whole framework by decision rather than footp
 
 Two activities inside in-scope outcomes do not apply. Derived/Mobile Credentials (`ID-2.1.3`) has nothing to issue, since KESTREL has no mobile devices. National Security Systems PKI Hardware Token Management (`ID-2.2.5`) belongs to the IL6 enclave, not to KESTREL. The Security Implementation Plan marks both as not applicable.
 
+One activity runs under a CCSD exception. Emergency Account Authentication Protections (`ID-4.6.2`) uses console-only passwords for the directory and ground segment break-glass accounts under CCSD tailoring action 6, proposed in version 1.1. For those accounts, the SABER mapping's note that emergency accounts reuse the standard authentication policy does not hold.
+
 ---
 
 ## 6. External System and Service Dependencies
@@ -230,7 +232,7 @@ This table rolls up the External Dependencies field from every focus area.
 | Cyber defense service provider | ID-4.1, ID-4.2, DI-1.4, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7, AP-5.6, AI-9.4, DE-1.1, DE-1.2, DE-1.3, DE-1.4, DE-3.1, DE-3.2, RS-1.2, RS-1.3, RS-1.5, RS-1.6, RS-1.7, RS-3.1, RS-3.2, RS-4.1, GV-3.1, GV-5.6, GV-5.12, RK-2.1, RK-2.2, RK-2.3 | Analysts in the CSSP host pool with read access and pre-approved containment playbooks, forwarded telemetry, IAVM relay, threat intelligence, signatures, external exposure reports, purple team participation, its own retained copy of security telemetry, round-the-clock triage, directives, and reporting to the DoD reporting chain | CSSP, under its service agreement |
 | Performer laptops and device management | ID-2.5, ID-4.2, NE-2.7, AP-2.1, AP-2.4, AI-3.4, RS-1.6, GV-2.3, GV-3.2, GV-5.6 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
 | Parent organization's and performer's personnel systems | ID-1.8 | Departure signals that trigger deprovisioning | Parent organization and performer |
-| PSO's physical access control systems | ID-1.10 | Badge events at the data center and operating sites | PSO |
+| PSO's physical access control systems | ID-1.10 | Badge events at the data center, the alternate site, and each operating site | PSO |
 | PSO's insider threat program | DE-1.6, DE-1.9, RS-3.5 | Receives insider threat referrals and spill reports, and owns every case | PSO |
 | Parent organization's alternate site | RC-2.3, RC-3.3, RC-3.4, GV-5.6, GV-5.12 | The warm standby for the data center's Tier 1 services, a second HSM, and a copy of the backups | Parent organization, under a facility agreement |
 | Second circuit provider | RC-3.4 | A second dedicated circuit on a separate path to the cloud | Circuit provider |

@@ -48,7 +48,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 3
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
 **Target Date / Sprint:** 2028-04-30
 
@@ -69,7 +69,7 @@
 
 **Pinned:** ID-1.2.1: Vendor support engineers authenticate with ECA credentials from Phase 1, before partners onboard. ID-1.2.2: Vendor ECA credentials are revocation-checked at every session from the day vendors connect. ID-1.2.4: Each vendor engineer is sponsored and bound to a local identity from the day vendors connect. ID-1.2.5: Vendor access is authorized against its support case from the day vendors connect. ID-1.2.6: Vendor access is reviewed from the day vendors connect.
 
-**Re-rated:** ID-1.2.6: AMP Section 6 reviews partner access quarterly.
+**Re-rated:** ID-1.2.6: AMP Section 6 reviews partner and vendor access quarterly.
 
 ### ID-1.3: Centralized Identity Platform
 
@@ -156,7 +156,7 @@
 | ID-1.5.3: Hybrid Identity Synchronization Infrastructure Hardening | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-1.5.4: Tier 0 and Local Administrator Credential Rotation | 1 | Technical | Automate | Level 1 | Periodic (Monthly) (re-rated) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 
-**Re-rated:** ID-1.5.4: AMP Section 3 rotates local administrator and service account passwords every 30 days.
+**Re-rated:** ID-1.5.4: AMP Section 3 rotates local administrator and group Managed Service Account passwords every 30 days.
 
 ### ID-1.6: Third-Party Application and SaaS Access Governance
 
@@ -170,7 +170,7 @@
 
 **Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 4
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 4
 
 **Target Date / Sprint:** 2028-12-31
 
@@ -189,9 +189,9 @@
 
 ### ID-1.7: Identities and Entitlements Lifecycle
 
-**Selected Tool / Product / Service:** Active Directory Domain Services, Microsoft Entra Connect Sync, Microsoft Entra ID, Microsoft Entra ID Governance
+**Selected Tool / Product / Service:** Active Directory Domain Services, Jira Service Management Data Center, Microsoft Entra ID Governance
 
-**Environment-Specific Tailoring:** Access packages are built per role and team in Entra ID Governance for the cloud and mirrored as Active Directory groups for the data center, so one approval grants both.
+**Environment-Specific Tailoring:** Active Directory groups own membership for every role, and IT Operations changes them through the Jira Service Management request that records each approval. Entra ID Governance access packages cover only cloud-only resources.
 
 **Accountable Team:** IT Operations, with the Platform Team
 
@@ -199,11 +199,11 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
-**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -212,16 +212,16 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | ID-1.7.1: Entitlement Management | 1 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| ID-1.7.2: Entitlement Lifecycle Workflows | 2 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| ID-1.7.2: Entitlement Lifecycle Workflows | 1 (pinned) | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | ID-1.7.3: Permissions Management | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 
-**Pinned:** ID-1.7.1: KESTREL's design depends on it from the first build, since team-scoped entitlements enforce the payload vendor split.
+**Pinned:** ID-1.7.1: KESTREL's design depends on it from the first build, since team-scoped entitlements enforce the payload vendor split. ID-1.7.2: Provisioning starts in Phase 1, so its approval workflow must too, or one person could approve and provision the same access.
 
 ### ID-1.8: Account Lifecycle and Identity Data Quality
 
-**Selected Tool / Product / Service:** Active Directory Domain Services, Microsoft Entra ID Governance, Jira Service Management Data Center, Splunk Enterprise
+**Selected Tool / Product / Service:** Active Directory Domain Services, Splunk Enterprise, Ansible Automation Platform, Jira Service Management Data Center
 
-**Environment-Specific Tailoring:** A departure disables the Active Directory account, which flows to Entra ID, and revokes the CAC binding. Ground control stations pick up the revocation at their daily refresh and before each flight.
+**Environment-Specific Tailoring:** Splunk computes dormancy daily from Active Directory and Entra ID sign-ins, including station sign-ins, and Ansible disables the account in Active Directory. A departure disables the Active Directory account, which flows to Entra ID, and revokes the CAC binding. Ground control stations pick up the revocation at their daily refresh and before each flight.
 
 **Accountable Team:** IT Operations
 
@@ -229,11 +229,11 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-04-30
 
-**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C21](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -261,7 +261,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -292,7 +292,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate, with activities through Phase 3
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
 **Target Date / Sprint:** 2028-04-30
 
@@ -317,7 +317,7 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra certificate-based authentication, Active Directory Domain Services, Active Directory Certificate Services, the aircraft and ground equipment manufacturer's tools
 
-**Environment-Specific Tailoring:** Cloud sign-in uses Entra certificate-based authentication with the CAC. Data center and fleet sign-in use Active Directory smart card logon, with ground control stations falling back to local smart card checks in flight.
+**Environment-Specific Tailoring:** Cloud sign-in uses Entra certificate-based authentication with the CAC. Data center sign-in uses Active Directory smart card logon. Ground control stations always check the CAC locally, against a revocation list refreshed daily and before each flight.
 
 **Accountable Team:** Platform Team, with Fleet Operations for the stations
 
@@ -325,9 +325,9 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 3
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2027-12-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references)
 
@@ -342,11 +342,9 @@
 | ID-2.1.3: Derived/Mobile Credentials | N/A | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-2.1.4: Fallback/Step-Up Authenticator Policy | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-2.1.5: Password Security | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| ID-2.1.6: OT/Legacy Authentication Compensating Controls | 3 (pinned) | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-2.1.6: OT/Legacy Authentication Compensating Controls | 2 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-2.1.7: System Use Notification Banner Configuration | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
 | ID-2.1.8: Logon Attempt Limits and Authentication Feedback | 1 | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-
-**Pinned:** ID-2.1.6: Compensating controls for the stations can only be put in place when the fleet integrates.
 
 **Not applicable:** ID-2.1.3: KESTREL has no mobile devices, so no derived credentials are issued.
 
@@ -360,11 +358,11 @@
 
 **Dependencies:** ID-1.3, DA-3.4, DA-3.7, DA-3.8
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2027-06-30
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -376,9 +374,11 @@
 |---|---|---|---|---|---|---|---|---|
 | ID-2.2.1: PIV/CAC Credential Issuance | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-2.2.2: Credential Revocation and Renewal | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| ID-2.2.3: PIV-Denied and Degraded-Connectivity Fallback | 2 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| ID-2.2.3: PIV-Denied and Degraded-Connectivity Fallback | 1 (pinned) | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-2.2.4: Credential Status Checking (OCSP/CRL) | 1 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-2.2.5: National Security Systems PKI Hardware Token Management | N/A | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+
+**Pinned:** ID-2.2.3: Revocation checking starts in Phase 1, and it needs the rule for what happens when the revocation service is unreachable.
 
 **Not applicable:** ID-2.2.5: NSS PKI hardware tokens belong to the IL6 enclave, not to KESTREL.
 
@@ -424,7 +424,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -454,11 +454,11 @@
 
 **Dependencies:** ID-1.3, ID-1.4, DA-3.7, NE-2.7, the performer device compliance feed
 
-**Funding Line:** FY27 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C22](index.md#6-contracting-and-procurement-cross-references)
 
@@ -485,9 +485,9 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
@@ -520,7 +520,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -549,7 +549,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -563,10 +563,12 @@
 |---|---|---|---|---|---|---|---|---|
 | ID-3.2.1: Service Account Creation | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-3.2.2: Service Account Least Privilege | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-| ID-3.2.3: Certificate-Based Credentials | 2 | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-3.2.3: Certificate-Based Credentials | 1 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-3.2.4: Client Secret Fallback | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-3.2.5: Service Account Code Authentication Integration | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-3.2.6: Non-Person Entity Account Recertification | 1 | Process | None | Level 1 | Periodic (Semi-Annual) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+
+**Pinned:** ID-3.2.3: Certificate credentials are the preferred method, so they must exist before the client-secret fallback that starts in Phase 1.
 
 ### ID-3.3: AI Agent Identities
 
@@ -668,7 +670,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -693,11 +695,11 @@
 
 **Accountable Team:** Fleet Operations
 
-**Dependencies:** DA-3.7, NE-1.6, NE-2.8
+**Dependencies:** DA-3.7, NE-1.6
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY27 and FY28 RDT&E, fleet integration
 
-**Rollout Phase:** Phase 3, Mission, AI, and Fleet
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
 **Target Date / Sprint:** 2028-04-30
 
@@ -710,10 +712,12 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | ID-3.7.1: Default Credential Remediation | 3 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| ID-3.7.2: Network-Based Device Identity Verification | 3 | Technical | None | Level 1 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| ID-3.7.2: Network-Based Device Identity Verification | 2 (pinned) | Technical | None | Level 1 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-3.7.3: Gateway-Based Credential Proxying | 3 | Technical | None | Level 2 | Periodic (Event-Driven) | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-| ID-3.7.4: Constrained-Device Certificate Lifecycle Management | 3 | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-3.7.4: Constrained-Device Certificate Lifecycle Management | 2 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-3.7.5: Credential Rotation via Maintenance Windows | 3 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** ID-3.7.2: Datalink authentication is set up on spares and the simulator in Phase 2, and it needs device identity to verify against. ID-3.7.4: Datalink authentication is set up on spares and the simulator in Phase 2, and it needs device certificates to verify against.
 
 ## ID-4: Privileged Access Management
 
@@ -729,7 +733,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -757,7 +761,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -778,7 +782,7 @@
 
 ### ID-4.3: Just in Time Access
 
-**Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Microsoft Entra Privileged Identity Management, Windows 11 Enterprise, hardened to the DISA STIG
+**Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Microsoft Entra Privileged Identity Management, Azure Virtual Desktop
 
 **Environment-Specific Tailoring:** Cloud roles are activated through Entra PIM and on-premises and fleet roles through CyberArk, each for a bounded window, with a second approver for the PKI and HSMs.
 
@@ -792,7 +796,7 @@
 
 **Target Date / Sprint:** 2027-06-30
 
-**Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -872,19 +876,19 @@
 
 ### ID-4.6: Emergency Access
 
-**Selected Tool / Product / Service:** Microsoft Entra ID, YubiKey 5 FIPS Series, Active Directory Domain Services, the aircraft and ground equipment manufacturer's tools, Splunk Enterprise
+**Selected Tool / Product / Service:** Microsoft Entra ID, YubiKey 5 FIPS Series, Active Directory Certificate Services, Active Directory Domain Services, the aircraft and ground equipment manufacturer's tools, Splunk Enterprise, Azure Monitor and VNet flow logs
 
-**Environment-Specific Tailoring:** The two cloud accounts use different sign-in methods, and the directory and ground segment accounts use console-only passwords under a tailored exception the AMP records. Cloud and directory sets are sealed in the data center and at the alternate site from Phase 1, and each operating site's ground segment set is sealed there when the fleet integrates in Phase 3.
+**Environment-Specific Tailoring:** The two cloud accounts use different sign-in methods and alert directly through Azure Monitor as well as Splunk. The directory set holds a domain account, each domain controller's DSRM password, and a local administrator per privileged access workstation, and every station has its own local account, all console-only under CCSD tailoring action 6. Cloud and directory sets are sealed in the data center and at the alternate site from Phase 1, and station accounts at each operating site when the fleet integrates in Phase 3.
 
 **Accountable Team:** Platform Team (Tier 0 administrators), with Fleet Operations
 
 **Dependencies:** ID-1.3, ID-2.1, DE-3.1
 
-**Funding Line:** FY27 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2027-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C24](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -903,6 +907,8 @@
 **Pinned:** ID-4.6.4: KESTREL's design depends on it from the first build, since the break-glass runbook depends on the alert from the first use. ID-4.6.5: KESTREL's design depends on it from the first build, since the break-glass runbook is tested quarterly from the first set.
 
 **Re-rated:** ID-4.6.5: AMP Section 11 tests each break-glass set quarterly.
+
+**Exception:** ID-4.6.2: The directory and ground segment break-glass accounts use console-only passwords under CCSD tailoring action 6. The cloud accounts keep two phishing-resistant methods.
 
 ### ID-4.7: Access Process for Third-Party Support
 
@@ -965,7 +971,7 @@
 
 ### ID-5.2: AMP Compliance Verification
 
-**Selected Tool / Product / Service:** Microsoft Entra ID Governance, CyberArk Privileged Access Manager, Splunk Enterprise
+**Selected Tool / Product / Service:** Microsoft Entra ID Governance, CyberArk Privileged Access Manager, Splunk Enterprise, Jira Software Data Center, eMASS
 
 **Environment-Specific Tailoring:** The monthly reconciliation compares Entra ID, Active Directory, and CyberArk with the AMP from Phase 2, and the ground control stations' account settings join it when the fleet integrates in Phase 3.
 
@@ -975,11 +981,11 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-04-30
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
 **Status:** Not Started
 

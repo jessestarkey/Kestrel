@@ -16,7 +16,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -253,7 +253,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -312,7 +312,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -342,7 +342,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -404,7 +404,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -437,7 +437,7 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -467,7 +467,7 @@
 
 **Accountable Team:** Fleet Operations
 
-**Dependencies:** NE-1.4, ID-1.3
+**Dependencies:** NE-1.4, ID-1.3, ID-3.7
 
 **Funding Line:** FY27 and FY28 RDT&E, fleet integration
 

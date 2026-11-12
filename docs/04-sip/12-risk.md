@@ -242,7 +242,7 @@
 
 **Funding Line:** FY28 and FY29 program management
 
-**Rollout Phase:** Phase 3, Mission, AI, and Fleet, with activities through Phase 4
+**Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
 **Target Date / Sprint:** 2028-12-31
 
@@ -272,7 +272,7 @@
 
 **Funding Line:** FY28 and FY29 O&M, platform and security operations
 
-**Rollout Phase:** Phase 3, Mission, AI, and Fleet, with activities through Phase 4
+**Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
 **Target Date / Sprint:** 2028-12-31
 

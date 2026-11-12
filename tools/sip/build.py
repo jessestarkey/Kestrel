@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(HERE)); sys.path.insert(0, HERE)
 import saberlib as S
 from saberlib import REPO, PILLAR, parse, scope
 from catalog import PRODUCTS, CONTRACTS, GOV, OSS
-from selections import CAP, OUT, PINS, NA, RERATE, ONE, SHARED, STRICT
+from selections import CAP, OUT, PINS, NA, RERATE, ONE, SHARED, STRICT, EXCEPT
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--framework', default=os.path.join(os.path.dirname(REPO), 'security-framework'))
@@ -142,9 +142,10 @@ for fname in sorted(os.listdir(S.FW)):
                 if c not in (GOV, OSS) and oid not in contract_use[c]:
                     contract_use[c].append(oid)
             pname = PHASES[phase][0]
-            last = max(aph.values()); end = ASSESS_READY if last == 3 else PHASES[last][2]
-            span = f'Phase {phase}, {pname}' + (f', with activities through Phase {last}' if last > phase else '')
-            fys = sorted({y for p in aph.values() for y in FY[p]})
+            # A record whose fleet slice waits for Phase 3 stays open through it, via 'through'.
+            last = max(max(aph.values()), sel.get('through', 0)); end = ASSESS_READY if last == 3 else PHASES[last][2]
+            span = f'Phase {phase}, {pname}' + (f', with work through Phase {last}' if last > phase else '')
+            fys = sorted({y for p in list(aph.values()) + [last] for y in FY[p]})
             body += [f'### {oid}: {ot}', '',
                      f"**Selected Tool / Product / Service:** {', '.join(PRODUCTS[k][0] for k in sel['tools'])}", '',
                      f"**Environment-Specific Tailoring:** {sel['tailoring']}", '',
@@ -172,6 +173,9 @@ for fname in sorted(os.listdir(S.FW)):
             rerated = [aid for aid in aph if aid in RERATE]
             if rerated:
                 body += ['', '**Re-rated:** ' + ' '.join(f'{aid}: {RERATE[aid][1]}' for aid in rerated)]
+            exc = [aid for aid in aph if aid in EXCEPT]
+            if exc:
+                body += ['', '**Exception:** ' + ' '.join(f'{aid}: {EXCEPT[aid]}' for aid in exc)]
             na = [a['title'].split(':')[0].strip() for a in o['acts'] if a['title'].split(':')[0].strip() in NA]
             if na:
                 body += ['', '**Not applicable:** ' + ' '.join(f'{aid}: {NA[aid]}' for aid in na)]

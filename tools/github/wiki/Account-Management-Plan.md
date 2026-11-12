@@ -13,7 +13,7 @@ This plan consolidates KESTREL's identity assurance levels, authentication and s
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| AMP Version | 0.3 |
+| AMP Version | 0.4 |
 | Date | 2026-11-11 |
 | Prepared By | KESTREL ISSM, with the Platform Team's Tier 0 administrators and IT Operations |
 | Approved By | Configuration Control Board, chaired by the chief engineer |
@@ -28,6 +28,7 @@ This plan consolidates KESTREL's identity assurance levels, authentication and s
 | 0.1 | 2026-11-11 | KESTREL ISSM | Initial draft for Configuration Control Board review |
 | 0.2 | 2026-11-12 | KESTREL ISSM | Named the selected products, fixed station revocation timing, named the break-glass custodians, and moved privileged unlocks to Tier 0 |
 | 0.3 | 2026-11-12 | KESTREL ISSM | Replaced temporary fallback keys with CAC PIN reset and reissue, and redesigned break-glass around method diversity in the cloud and console-only passwords for the directory and stations, under a tailored exception |
+| 0.4 | 2026-11-12 | KESTREL ISSM | Added DSRM and workstation local administrators to the directory break-glass set, a local account per station, direct cloud alerting, automatic session end, AD-owned group membership, and Splunk-computed dormancy, and recorded the exception as CCSD tailoring action 6 |
 
 ---
 
@@ -81,7 +82,7 @@ An identity is re-proofed when any of the following occurs:
 | Privileged role activation | 3 failed attempts | 15 minutes | Locked until a Tier 0 administrator unlocks it after verifying the person |
 | Partner users | 5 failed sign-ins | 15 minutes | Locked for 60 minutes, and the sponsor is told |
 
-The CAC itself locks after three incorrect PINs, which only a card issuance office can reset. Every sign-in screen masks the PIN, and every failure message says only that sign-in failed, never which factor was wrong.
+The CAC itself locks after three incorrect PINs and is unlocked at a CAC PIN reset workstation, as above. Every sign-in screen masks the PIN, and every failure message says only that sign-in failed, never which factor was wrong.
 
 ---
 
@@ -105,7 +106,7 @@ OT and legacy devices that can hold a certificate get a constrained lifecycle. C
 
 *Traces to ID-1.8.3, ID-3.2.1, ID-3.3.1, and ID-2.4.1.*
 
-**Dormancy.** An account with no sign-in for 35 days is disabled, and one dormant for 90 days is removed. Entra ID Governance lifecycle workflows check dormancy daily and act on the Active Directory account, which synchronizes to Entra ID. Privileged role eligibility lapses after 35 days without an activation.
+**Dormancy.** An account with no sign-in for 35 days is disabled, and one dormant for 90 days is removed. Splunk computes dormancy daily from Active Directory and Entra ID sign-ins, including sign-ins at the stations, and an Ansible Automation Platform job disables or removes the account in Active Directory, which synchronizes to Entra ID. Privileged role eligibility lapses after 35 days without an activation.
 
 **Departures.** A departure signal from the parent organization's or the performer's personnel system disables the account within 24 hours, across every segment. Ground control stations enforce it at their daily revocation refresh and before each flight. Partner accounts end with their sponsor's agreement.
 
@@ -121,7 +122,7 @@ OT and legacy devices that can hold a certificate get a constrained lifecycle. C
 
 *Traces to ID-2.4.2 to ID-2.4.4 and ID-4.1.1 to ID-4.1.3, for the policy these activities embed. The role lists they produce are in the Appendix.*
 
-KESTREL uses group-based access control. Permissions are granted to Active Directory groups, synchronized to Entra ID and bundled into Entra ID Governance access packages, and a person or workload gains access only through group membership, never through a one-off grant. Every role is built to the least privilege its function needs, whether the platform ships it or KESTREL defines it.
+KESTREL uses group-based access control. Permissions are granted to Active Directory groups, which own membership and synchronize to Entra ID, and a person or workload gains access only through group membership, never through a one-off grant. IT Operations changes membership through the Jira Service Management request that records each approval, and Entra ID Governance access packages are used only for cloud-only resources. Every role is built to the least privilege its function needs, whether the platform ships it or KESTREL defines it.
 
 Team membership is part of every role, so a role never spans two mission teams' payload vendor data. A platform-shipped role that grants broader access than its tier warrants, such as the Azure Owner or Contributor role at the tenant root, is disabled for daily use rather than adopted.
 
@@ -140,7 +141,7 @@ Team membership is part of every role, so a role never spans two mission teams' 
 | Team members | Analysts, developers, data scientists, and data engineers | Semiannually | Each team's product owner |
 | Workloads and agents | Service accounts, workload identities, and AI agents | Semiannually | Each owning team lead |
 
-Entra ID Governance runs every campaign except the vaulted privileged accounts, which CyberArk's own reviews cover. A completed review certifies that each person or workload still needs the access, holds the right role, and has had unused entitlements removed. Access a reviewer has not confirmed within 14 days of the campaign's close is removed.
+Entra ID Governance runs every campaign except the vaulted privileged accounts, which CyberArk's own reviews cover, and IT Operations applies the removals in Active Directory. A completed review certifies that each person or workload still needs the access, holds the right role, and has had unused entitlements removed. Access a reviewer has not confirmed within 14 days of the campaign's close is removed.
 
 ---
 
@@ -230,11 +231,11 @@ KESTREL keeps three sets of break-glass accounts:
 
 | Account set | Authenticator | Where it is sealed | Custodians |
 |---|---|---|---|
-| Cloud tenant, two accounts | One FIDO2 key and one certificate on a YubiKey's smart card applet, so one method failing does not lock out both | The data center and the alternate site | A Platform Team Tier 0 administrator and an ISSO |
-| Directory | Long random password, usable only at a domain controller or privileged access workstation console | The data center and the alternate site | A Platform Team Tier 0 administrator and an ISSO |
-| Ground segment | Long random password, usable only at a station's console | Each operating site | Fleet Operations' site lead and the operations lead |
+| Cloud tenant, two accounts | One FIDO2 key, and one certificate on a YubiKey's smart card applet from the program PKI with a seven-day revocation list, so one method failing does not lock out both. A PKI outage longer than a week leaves only the FIDO2 account | The data center and the alternate site | A Platform Team Tier 0 administrator and an ISSO |
+| Directory | Console-only passwords for a domain account, each domain controller's Directory Services Restore Mode, and a local administrator on each privileged access workstation kept outside Windows LAPS | The data center and the alternate site | A Platform Team Tier 0 administrator and an ISSO |
+| Ground segment | A console-only local password for each station | Each station's operating site | The site's Fleet Operations lead and the senior operator on shift |
 
-Each custodian has a named alternate, recorded in the privileged access platform. The cloud accounts are excluded from Conditional Access, so a policy error cannot lock them out. The directory and ground segment break-glass accounts use long random passwords rather than a second factor, because their recovery cannot depend on the PKI or the identity provider they may be recovering. This is a tailored exception to the SABER's phishing-resistant MFA requirement for emergency accounts (ID-4.6.2). Its compensating controls are physical presence at a console, logon restricted to named consoles, a password split between two custodians, an immediate alert to the Security Team and the CSSP on any use, and rotation after every use. The exception is recorded in the risk register and accepted by the AO. Each set is exercised once a quarter by a planned use of the [Break-Glass Account Retrieval](Break-Glass-Account-Retrieval) runbook. Every credential is rotated after every real or test use, and each test's result is recorded.
+Each custodian has a named alternate, recorded in the privileged access platform. The cloud accounts are excluded from Conditional Access, so a policy error cannot lock them out. If Active Directory or the PKI has failed, cloud recovery also opens the directory set, since a privileged access workstation is then reached through its local administrator. If Entra ID itself is down, the cloud set cannot help, and data center administration falls to the directory set, since Tier 1 normally runs through the cloud desktop pool and CyberArk's single sign-on. Every use alerts the Security Team and the CSSP through Splunk, and the cloud accounts also alert directly through Azure Monitor, so losing the data center does not silence them. A scheduled task on each console logs directory and station break-glass sessions off after four hours, and cloud sessions end when the custodians reset the credentials at the close of recovery. The directory and ground segment break-glass accounts use long random passwords rather than a second factor, because their recovery cannot depend on the PKI or the identity provider they may be recovering. This is an exception to the SABER's phishing-resistant MFA requirement for emergency accounts (ID-4.6.2). Its compensating controls are physical presence at a console, logon restricted to named consoles, a password split between two custodians, an immediate alert to the Security Team and the CSSP on any use, and rotation after every use. The exception is CCSD tailoring action 6, proposed in CCSD version 1.1 for the AO's approval, and it is reviewed each year. Each set is exercised once a quarter by a planned use of the [Break-Glass Account Retrieval](Break-Glass-Account-Retrieval) runbook. Every credential is rotated after every real or test use, and each test's result is recorded.
 
 ---
 
@@ -284,7 +285,7 @@ AMP Compliance Verification (ID-5.2) compares the identity provider's and the pr
 
 ## Approval
 
-**Approved By:** Pending. The Configuration Control Board reviews version 0.3.
+**Approved By:** Pending. The Configuration Control Board reviews version 0.4.
 
 **Circulated To:** the Platform Team, IT Operations, Fleet Operations, every team lead, the PSO, and the CSSP.
 

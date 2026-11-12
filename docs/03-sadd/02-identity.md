@@ -107,7 +107,7 @@
 
 ### ID-1.2: External PKI Trust and Sponsorship
 
-**Design Intent:** Admit coalition partners on External Certificate Authority or federated partner PKI credentials, each under a named KESTREL sponsor. Partner identities map only to partner API roles, and every external credential is revocation-checked at each session. The trust list names each partner nation's issuing authorities, and adding a partner nation is a CCSD revision trigger.
+**Design Intent:** Admit vendor support engineers on External Certificate Authority credentials from the first build, and coalition partners on ECA or federated partner PKI credentials once they onboard, each under a named KESTREL sponsor. Partner identities map only to partner API roles and vendor identities only to their support cases, and every external credential is revocation-checked at each session. The trust list names each partner nation's issuing authorities, and adding a partner nation is a CCSD revision trigger.
 
 **NIST Control Mapping:**
 
@@ -610,7 +610,7 @@
 
 **Affected Components:** Directory/Platform Core Infrastructure, Identity Lifecycle and Governance, OT/ICS Device
 
-**External Dependencies:** The PSO's physical access control systems at the data center and each operating site.
+**External Dependencies:** The PSO's physical access control systems at the data center, the alternate site, and each operating site.
 
 **Security Impact:** Low
 
@@ -979,7 +979,7 @@
 
 ### ID-2.5: Adaptive, Risk-Based Access Control
 
-**Design Intent:** Evaluate each request against identity, device posture, network origin, and risk before granting access. Performer users reach the identity-aware proxy and the admin VDI pool only from laptops that report as compliant at that moment. Partner sessions that arrive from outside their nation's expected networks are stepped up or denied. Signals from the identity threat detection and physical-logical correlation outcomes feed the policy engine.
+**Design Intent:** Evaluate each request against identity, device posture, network origin, and risk before granting access. Performer users reach the identity-aware proxy and the admin VDI pool only from laptops that report as compliant at that moment. Partner sessions that arrive from outside their nation's expected networks are stepped up or denied. Identity threat detection feeds the policy engine. The physical-logical correlation raises alerts in the security monitoring platform instead, since stations check sign-ins locally.
 
 **NIST Control Mapping:**
 
@@ -1630,7 +1630,7 @@
 
 ### ID-4.1: Privileged Access Control
 
-**Design Intent:** Define privileged roles for each administrative surface, namely the cloud hub, each spoke, the cluster control planes, the data center, the PKI and HSMs, and the ground segment. A team's administrators can administer only that team's spokes, and Tier 0 roles go only to the Platform Team's named Tier 0 administrators. The Security Team and the CSSP get read and audit roles, never the administrative roles they check. The CSSP's only action right is running the pre-approved containment playbooks. No single role spans the HSMs and the cloud tenants, and the cloud tenant-owner roles are separate from day-to-day cloud administration so they can be held to the privileged access workstations.
+**Design Intent:** Define privileged roles for each administrative surface, namely the cloud hub, each spoke, the cluster control planes, the data center, the alternate site, the PKI and HSMs, and the ground segment. A team's administrators can administer only that team's spokes, and Tier 0 roles go only to the Platform Team's named Tier 0 administrators. The Security Team and the CSSP get read and audit roles, never the administrative roles they check. The CSSP's only action right is running the pre-approved containment playbooks. No single role spans the HSMs and the cloud tenants, and the cloud tenant-owner roles are separate from day-to-day cloud administration so they can be held to the privileged access workstations.
 
 **NIST Control Mapping:**
 
@@ -1684,7 +1684,7 @@
 
 ### ID-4.2: Privileged Access Workstations and Administrative Tiering
 
-**Design Intent:** Administer Tier 0, which holds the identity provider, PKI, and HSMs, only from the physical privileged access workstations in the mission data center. The cloud tenant-owner roles, which can change a tenant's own security and identity settings, are restricted to the same workstations. Other Tier 1 work runs from the Platform Team's host pool in the VDI spoke, reached from performer laptops. The CSSP's analysts get their own host pool. It reads the security monitoring platform and the cloud's native threat protection and runs the pre-approved containment playbooks, but grants no administrative access. Developers hold no privileged roles, so they need neither path.
+**Design Intent:** Administer Tier 0, which holds the identity provider, PKI, and HSMs, only from the physical privileged access workstations in the mission data center and at the alternate site. The cloud tenant-owner roles, which can change a tenant's own security and identity settings, are restricted to the same workstations. Other Tier 1 work runs from the Platform Team's host pool in the VDI spoke, reached from performer laptops. The CSSP's analysts get their own host pool. It reads the security monitoring platform and the cloud's native threat protection and runs the pre-approved containment playbooks, but grants no administrative access. Developers hold no privileged roles, so they need neither path.
 
 **NIST Control Mapping:**
 
@@ -1980,7 +1980,7 @@
 
 ### ID-4.6: Emergency Access
 
-**Design Intent:** Keep break-glass accounts for the identity provider, the cloud tenants, and the ground segment. The cloud and directory sets are sealed in the data center with a second set at the alternate site, so losing the data center does not lose them, and each operating site holds its own ground segment set. The two cloud accounts use different sign-in methods. The directory and ground segment accounts use console-only passwords under a tailored exception, since their recovery cannot depend on the PKI they may be recovering. The ground segment account matters most, since an identity outage must never stop operators from recovering an airborne aircraft.
+**Design Intent:** Keep break-glass accounts for the cloud tenant, the directory, and the ground segment. The two cloud accounts use different phishing-resistant methods. The directory set holds a domain account, each domain controller's Directory Services Restore Mode password, and a local administrator for each privileged access workstation, and every station has its own local account. All of those are console-only passwords under CCSD tailoring action 6, since their recovery cannot depend on the PKI or the directory they may be recovering. Cloud and directory sets are sealed in the data center and at the alternate site, and each station's account at its operating site, since an identity outage must never stop operators from recovering an airborne aircraft.
 
 **NIST Control Mapping:**
 

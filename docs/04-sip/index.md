@@ -48,9 +48,9 @@ An interim authorization to test (`GV-5.7`) covers Phases 1 to 3. Integration du
 
 | Phase | Target Timeframe | Dependencies Satisfied / Rationale | Funding Status | Major Outcomes in This Phase |
 |---|---|---|---|---|
-| Phase 1, Foundation | 2027-01-01 to 2027-06-30 | Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, and the governance bodies and core plans. | Funded (FY27 base) | 352 activities. 120 records start here: ID (25), DI (12), NE (13), AP (26), DA (16), DE (10), GV (18) |
-| Phase 2, Protect and Operate | 2027-07-01 to 2027-12-31 | Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, adds application security gates, data protection, backup and recovery, detection content, and incident response, and brings AI governance up before any AI build. | Funded (FY27 and FY28 base) | 534 activities. 141 records start here: ID (4), DI (12), NE (11), AP (27), AI (9), DA (10), DE (6), RS (20), RC (15), GV (12), RK (7), CO (8) |
-| Phase 3, Mission, AI, and Fleet | 2028-01-01 to 2028-06-30 | Needs Phase 2 gates and detection. Builds the AI lifecycle controls, model serving guardrails, and the fleet and ground segment controls, and ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M) | 247 activities. 96 records start here: ID (3), DI (4), NE (4), AI (70), DE (2), RC (1), GV (3), RK (7), CO (2) |
+| Phase 1, Foundation | 2027-01-01 to 2027-06-30 | Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, and the governance bodies and core plans. | Funded (FY27 base) | 355 activities. 120 records start here: ID (25), DI (12), NE (13), AP (26), DA (16), DE (10), GV (18) |
+| Phase 2, Protect and Operate | 2027-07-01 to 2027-12-31 | Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, adds application security gates, data protection, backup and recovery, detection content, and incident response, and brings AI governance up before any AI build. | Funded (FY27 and FY28 base) | 534 activities. 142 records start here: ID (5), DI (12), NE (11), AP (27), AI (9), DA (10), DE (6), RS (20), RC (15), GV (12), RK (7), CO (8) |
+| Phase 3, Mission, AI, and Fleet | 2028-01-01 to 2028-06-30 | Needs Phase 2 gates and detection. Builds the AI lifecycle controls, model serving guardrails, and the fleet and ground segment controls, and ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M) | 244 activities. 95 records start here: ID (2), DI (4), NE (4), AI (70), DE (2), RC (1), GV (3), RK (7), CO (2) |
 | Phase 4, Maturity | 2028-07-01 to 2028-12-31 | Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, RASP, and post-quantum migration planning. | Unfunded (FY28 and FY29 requests) | 37 activities. 6 records start here: AP (2), DA (1), DE (3) |
 
 ---
@@ -104,9 +104,9 @@ Each contract below groups the products bought under one vehicle. The Records co
 
 | Contract | Selected Product / Service | Required Contract Clause(s) | Source | Status | Records |
 |---|---|---|---|---|---|
-| C01 | Microsoft Azure Government (IL5) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.239-7010 | Standard Security Clause Library | Open | 141 |
-| C02 | Microsoft 365 DoD and Windows enterprise licensing | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.239-7010 | Standard Security Clause Library | Open | 49 |
-| C03 | Atlassian Data Center (Jira Software, Jira Service Management, Confluence) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 119 |
+| C01 | Microsoft Azure Government (IL5) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.239-7010 | Standard Security Clause Library | Open | 140 |
+| C02 | Microsoft 365 DoD and Windows enterprise licensing | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.239-7010 | Standard Security Clause Library | Open | 48 |
+| C03 | Atlassian Data Center (Jira Software, Jira Service Management, Confluence) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 121 |
 | C04 | GitLab Ultimate, self-managed | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 51 |
 | C05 | JFrog Artifactory Enterprise+ with Xray, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 35 |
 | C06 | Splunk Enterprise, Enterprise Security, SOAR, and UBA, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 71 |
@@ -124,7 +124,7 @@ Each contract below groups the products bought under one vehicle. The Records co
 | C18 | AttackIQ Enterprise, on-premises | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 1 |
 | C19 | Contrast Security Assess and Protect, on-premises | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 1 |
 | C20 | Microchip SyncServer S650 time servers | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, firmware signing | Standard Security Clause Library | Open | 2 |
-| C21 | Red Hat Enterprise Linux and Ansible Automation Platform | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 11 |
+| C21 | Red Hat Enterprise Linux and Ansible Automation Platform | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 12 |
 | C22 | Pomerium Enterprise, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 2 |
 | C23 | Bastille Enterprise RF detection | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, firmware signing | Standard Security Clause Library | Open | 1 |
 | C24 | Yubico YubiKey 5 FIPS Series | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, FIPS 140-3 validation | Standard Security Clause Library | Open | 1 |
