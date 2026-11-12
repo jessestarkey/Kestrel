@@ -268,8 +268,8 @@ def external(deps):
 
 # The project's workflow, standing in for a Jira workflow.
 STATUSES = [
-    ('Backlog', 'GRAY', 'Scheduled for a later phase'),
-    ('Ready', 'BLUE', 'In the current phase, with its dependencies met'),
+    ('Backlog', 'GRAY', 'Scheduled for a later phase, or waiting on another story in the plan'),
+    ('Ready', 'BLUE', 'In the current phase, and every story it is blocked by is Done'),
     ('In Progress', 'YELLOW', 'Being built'),
     ('Blocked', 'RED', 'Waiting on something outside the team, such as a contract, an AO decision, or an outside dependency'),
     ('In Review', 'PURPLE', 'Built and awaiting acceptance by the product owner, the PMO ISSE, or the Configuration Control Board'),
@@ -278,8 +278,12 @@ STATUSES = [
 CURRENT_PHASE = 1
 
 
-def starting_status(it, by_key):
-    """The status the plan implies before anyone has worked the item."""
+def starting_status(it, by_key, done):
+    """The status the plan implies before anyone has worked the item.
+
+    A dependency counts as met once its story is Done. One in a focus area not yet
+    loaded on GitHub counts as met, since the plan's schedule already orders it.
+    """
     if it.get('state') == 'closed':
         return None
     if not it['phase']:
@@ -289,16 +293,20 @@ def starting_status(it, by_key):
     story = it if it['type'] == 'story' else by_key.get(it['parent']) if it['type'] == 'sub-task' else None
     if story and story.get('external'):
         return 'Blocked'
+    if story and any(ref in by_key and ref not in done for ref in story.get('deps', [])):
+        return 'Backlog'
     return 'Ready'
 
 
 def workflow(issues, st, save):
     """Set the six-status workflow, and each item's starting status unless a person has moved it."""
     pid = st['project']['id']
-    q = 'query($p:ID!){node(id:$p){... on ProjectV2{field(name:"Status"){... on ProjectV2SingleSelectField{id options{id name}}}}}}'
+    q = 'query($p:ID!){node(id:$p){... on ProjectV2{field(name:"Status"){... on ProjectV2SingleSelectField{id options{id name color description}}}}}}'
     sf = graphql(q, p=pid)['node']['field']
-    if [o['name'] for o in sf['options']] != [n for n, _, _ in STATUSES]:
-        opts = [{'name': n, 'color': c, 'description': d} for n, c, d in STATUSES]
+    if [(o['name'], o['color'], o['description']) for o in sf['options']] != STATUSES:
+        # Passing each existing option's id keeps the statuses already set on items.
+        ids = {o['name']: o['id'] for o in sf['options']}
+        opts = [{**({'id': ids[n]} if n in ids else {}), 'name': n, 'color': c, 'description': d} for n, c, d in STATUSES]
         graphql('mutation($f:ID!,$o:[ProjectV2SingleSelectFieldOptionInput!]){updateProjectV2Field(input:{fieldId:$f,singleSelectOptions:$o}){projectV2Field{... on ProjectV2SingleSelectField{id}}}}',
                 f=sf['id'], o=opts)
         sf = graphql(q, p=pid)['node']['field']
@@ -315,9 +323,10 @@ def workflow(issues, st, save):
             break
         after = items['pageInfo']['endCursor']
     by_key = {it['key']: it for it in issues}
+    done = {it['key'] for it in issues if current.get(st['items'][it['key']]) == 'Done' or it.get('state') == 'closed'}
     last = st.setdefault('status', {}); changed = 0
     for it in issues:
-        item = st['items'][it['key']]; cur = current.get(item); want = starting_status(it, by_key)
+        item = st['items'][it['key']]; cur = current.get(item); want = starting_status(it, by_key, done)
         moved_by_hand = cur not in (None, last.get(it['key']))
         if moved_by_hand or cur == want:
             continue
@@ -406,7 +415,7 @@ This repository shows a PMO ISSE applying the [SABER](https://github.com/jessest
 | Confluence Data Center | This repository's wiki | Governing plans and runbooks the stories point to |
 | GitLab Ultimate | This repository's code and docs | Source, infrastructure as code, and the configuration-controlled documents |
 
-The project's six statuses stand in for a Jira workflow, namely Backlog for later phases, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between issues show sequencing inside the plan, so the Blocked status is kept for outside parties. Done means a control is built, accepted, and evidenced, including continuous and periodic controls. After that, continuous controls run in the monitoring tools, and each periodic control gets a small issue per cycle, such as each quarter's access review. The ConMon Activity field shows which kind a card is.
+The project's six statuses stand in for a Jira workflow, namely Backlog for later phases and for work waiting on another story, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between stories show sequencing inside the plan. A story and its sub-tasks stay in Backlog until every story it is blocked by is Done, and the generator then moves them to Ready. The Blocked status is kept for outside parties. Done means a control is built, accepted, and evidenced, including continuous and periodic controls. After that, continuous controls run in the monitoring tools, and each periodic control gets a small issue per cycle, such as each quarter's access review. The ConMon Activity field shows which kind a card is.
 
 Only the Identity focus area is loaded. Every issue is generated from the plan's records by `tools/github/issues.py`, so the tracker and the documents always agree. Phases are milestones, standing in for Jira fix versions.
 """
@@ -414,6 +423,9 @@ Only the Identity focus area is loaded. Every issue is generated from the plan's
 
 def about(st, save):
     if 'ABOUT' in st['issues']:
+        num = st['issues']['ABOUT']['number']
+        if (api('GET', f'/repos/{OWNER}/{NAME}/issues/{num}')['body'] or '').replace('\r\n', '\n') != ABOUT:
+            api('PATCH', f'/repos/{OWNER}/{NAME}/issues/{num}', {'body': ABOUT}); print(f'  updated #{num} About this demonstration')
         return
     made = api('POST', f'/repos/{OWNER}/{NAME}/issues', {'title': 'About this demonstration: GitHub standing in for Jira and Confluence',
                                                          'body': ABOUT, 'labels': ['notional']})
