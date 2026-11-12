@@ -103,10 +103,10 @@ The repository will grow along the same path a PMO ISSE follows. The authorizati
 1. **System description** ([docs/01-system-description.md](docs/01-system-description.md)): authorization boundary, components, data flows, users, and interconnections.
 2. **Categorization and control selection** ([docs/02-ccsd.md](docs/02-ccsd.md)): information types, impact values, overlays, and tailoring, in the CCSD.
 3. **SADD** ([docs/03-sadd/](docs/03-sadd/index.md)): which SABER outcomes apply, which drop out and why, and the design intent for each, one file per focus area.
-4. **Implementation Plan:** epics, stories, and tasks derived from the tailored outcomes, ready to load into an issue tracker.
+4. **Security Implementation Plan** ([docs/04-sip/](docs/04-sip/index.md)): the products chosen for each SADD outcome, the team that delivers it, and a four-phase rollout, with each record ready to load into Jira as a story and its sub-tasks.
 5. **Plan-type deliverables** (`docs/plans/`): KESTREL-specific instances of the SABER's governing plans (AMP, CMP, KMP, IRP, CP, AISP, and others) where a worked example is useful.
 
-The system description, CCSD, and SADD are written. The rest follow in order.
+The system description, CCSD, SADD, and Security Implementation Plan are written. The rest follow in order.
 
 Three more folders will hold the material that shows the design built, not just documented:
 

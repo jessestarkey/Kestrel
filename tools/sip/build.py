@@ -1,0 +1,196 @@
+"""Build the KESTREL Security Implementation Plan in docs/04-sip/.
+
+Usage (from the kestrel repo root):
+    python tools/sip/build.py [--framework PATH]
+
+Scoping comes from tools/saberlib.py, so the plan carries exactly the SADD's
+in-scope outcomes. Product, team, phase, and dependency choices come from
+selections.py and catalog.py. Activity metadata is carried from the SABER.
+"""
+import argparse, collections, os, re, sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE)); sys.path.insert(0, HERE)
+import saberlib as S
+from saberlib import REPO, PILLAR, parse, scope
+from catalog import PRODUCTS, CONTRACTS, GOV, OSS
+from selections import CAP, OUT, PINS
+
+ap = argparse.ArgumentParser()
+ap.add_argument('--framework', default=os.path.join(os.path.dirname(REPO), 'security-framework'))
+args = ap.parse_args()
+S.init(args.framework)
+DOCS = os.path.join(REPO, 'docs', '04-sip')
+SADD = '../03-sadd'
+
+# Phase -> (name, start, end, funding status)
+PHASES = {
+    1: ('Foundation', '2027-01-01', '2027-06-30', 'Funded (FY27 base)'),
+    2: ('Protect and Operate', '2027-07-01', '2027-12-31', 'Funded (FY27 and FY28 base)'),
+    3: ('Mission, AI, and Fleet', '2028-01-01', '2028-06-30', 'Pending approval (FY28 RDT&E)'),
+    4: ('Maturity', '2028-07-01', '2028-12-31', 'Unfunded (FY29 request)'),
+}
+FY = {1: 'FY27', 2: 'FY28', 3: 'FY28', 4: 'FY29'}
+SEC6 = 'index.md#6-contracting-and-procurement-cross-references'
+
+
+def funding(team, fys):
+    if 'SCA' in team or team.startswith('Program Office'):
+        line = 'program management'
+    elif any(t in team for t in ('ML Team', 'Mission', 'Data Team')):
+        line = 'RDT&E, mission and ML'
+    else:
+        line = 'O&M, platform and security operations'
+    return f"{' and '.join(fys)} {line}"
+
+
+def contracting(keys):
+    ids, gov, oss = [], False, False
+    for k in keys:
+        c = PRODUCTS[k][1]
+        if c == GOV:
+            gov = True
+        elif c == OSS:
+            oss = True
+        elif c not in ids:
+            ids.append(c)
+    parts = [f'[{c}]({SEC6})' for c in ids]
+    extra = [x for x, f in (('government-furnished', gov), ('open source', oss)) if f]
+    if not parts:
+        return 'None. ' + ' and '.join(extra).capitalize() + ', so no new contract is needed.'
+    s = ', '.join(parts)
+    return s + (f", plus {' and '.join(extra)} components" if extra else '')
+
+
+def level(a):
+    m = re.match(r'Level (\d)', ' '.join(a['f'].get('Maturity Model', [''])))
+    return int(m.group(1)) if m else None
+
+
+def cell(a, f):
+    v = ' '.join(a['f'].get(f, [''])).strip()
+    if f == 'Maturity Model':
+        v = re.sub(r'\s*\(.*\)$', '', v)
+    return v
+
+
+ACT_COLS = ['Control Type', 'Cross-Cutting Discipline', 'Maturity Model', 'ConMon Activity',
+            'Level of Effort', 'Cost', 'Time Estimation']
+os.makedirs(DOCS, exist_ok=True)
+used_pins = set(); act_count = collections.Counter()
+stats = []; contract_use = collections.defaultdict(list); phase_count = collections.Counter()
+phase_fa = collections.defaultdict(collections.Counter); warnings = []
+for fname in sorted(os.listdir(S.FW)):
+    m = re.match(r'(0[2-9]|1[0-3])-saber-(.+)\.md$', fname)
+    if not m:
+        continue
+    pillar = PILLAR[m.group(1)]
+    fa, caps = parse(os.path.join(S.FW, fname))
+    code = fa.split(':')[0].strip()
+    sadd_file = f'{SADD}/{m.group(1)}-{m.group(2)}.md'
+    body = [f'# {fa}', '',
+            f'*KESTREL Security Implementation Plan, Section 4 ({pillar}). Each record implements the outcome of the same ID in the '
+            f'[SADD]({sadd_file}), which holds its design intent and control mapping. See the [index](index.md) for the phases, '
+            'issue tracker mapping, and contracts. Activity-level metadata is carried from the SABER.*', '']
+    n = acts = 0
+    for cap in caps:
+        cid = cap['title'].split(':')[0].strip()
+        recs = []
+        for o in cap['outcomes']:
+            ok, *_ = scope(o)
+            if not ok:
+                continue
+            oid, ot = [x.strip() for x in o['title'].split(':', 1)]
+            sel = dict(CAP[cid]); sel.update(OUT.get(oid, {}))
+            # Each activity takes a phase from its maturity level: Level 1 keeps the
+            # outcome's base phase, Level 2 waits for Phase 2 at the earliest, and
+            # Level 3 waits for Phase 4. A pin in selections.PINS overrides that.
+            base = sel['phase']
+            aph = {}
+            for a in o['acts']:
+                aid = a['title'].split(':')[0].strip()
+                lv = level(a)
+                p = {1: base, 2: max(base, 2), 3: 4}.get(lv, base)
+                if aid in PINS:
+                    p = PINS[aid][0]; used_pins.add(aid)
+                if lv == 1 and p > 3:
+                    sys.exit(f'{aid} is Maturity Level 1, required for ATO, but lands in Phase {p}')
+                aph[aid] = p
+                act_count[p] += 1
+            phase = min(aph.values())
+            recs.append((o, oid, ot, sel, phase, aph))
+        if not recs:
+            continue
+        body += [f"## {cap['title']}", '']
+        for o, oid, ot, sel, phase, aph in recs:
+            n += 1; phase_count[phase] += 1; phase_fa[phase][code] += 1
+            for k in sel['tools']:
+                c = PRODUCTS[k][1]
+                if c not in (GOV, OSS) and oid not in contract_use[c]:
+                    contract_use[c].append(oid)
+            pname = PHASES[phase][0]
+            last = max(aph.values()); end = PHASES[last][2]
+            span = f'Phase {phase}, {pname}' + (f', with activities through Phase {last}' if last > phase else '')
+            fys = sorted({FY[p] for p in aph.values()})
+            body += [f'### {oid}: {ot}', '',
+                     f"**Selected Tool / Product / Service:** {', '.join(PRODUCTS[k][0] for k in sel['tools'])}", '',
+                     f"**Environment-Specific Tailoring:** {sel['tailoring']}", '',
+                     f"**Accountable Team:** {sel['team']}", '',
+                     f"**Dependencies:** {sel['deps']}", '',
+                     f"**Funding Line:** {funding(sel['team'], fys)}", '',
+                     f'**Rollout Phase:** {span}', '',
+                     f'**Target Date / Sprint:** {end}', '',
+                     f"**Contracting / Procurement Reference:** {contracting(sel['tools'])}", '',
+                     '**Status:** Not Started', '',
+                     '**Activity-Level Metadata:**', '',
+                     '| Activity | Phase | ' + ' | '.join(ACT_COLS) + ' |', '|---|---|' + '---|' * len(ACT_COLS)]
+            for a in o['acts']:
+                acts += 1
+                aid = a['title'].split(':')[0].strip()
+                pin = ' (pinned)' if aid in PINS else ''
+                body.append(f"| {a['title']} | {aph[aid]}{pin} | " + ' | '.join(cell(a, f) for f in ACT_COLS) + ' |')
+            pinned = [aid for aid in aph if aid in PINS]
+            if pinned:
+                body += ['', '**Pinned:** ' + ' '.join(f'{aid}: {PINS[aid][1]}' for aid in pinned)]
+            body.append('')
+    out = f'{m.group(1)}-{m.group(2)}.md'
+    open(os.path.join(DOCS, out), 'w', encoding='utf-8', newline='\n').write('\n'.join(body))
+    stats.append((pillar, fa, code, out, n, acts))
+    print(f'{out:36} records {n:3} activities {acts:4}')
+
+# Index
+src = open(os.path.join(HERE, 'index.src.md'), encoding='utf-8').read()
+codes = [s[2] for s in stats]
+ph = ['| Phase | Target Timeframe | Dependencies Satisfied / Rationale | Funding Status | Major Outcomes in This Phase |',
+      '|---|---|---|---|---|']
+RATIONALE = {
+    1: 'Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, and the governance bodies and core plans.',
+    2: 'Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, adds application security gates, data protection, backup and recovery, detection content, and incident response, and brings AI governance up before any AI build.',
+    3: 'Needs Phase 2 gates and detection. Builds the AI lifecycle controls, model serving guardrails, and the fleet and ground segment controls, and ends with the SCA assessment and the ATO decision.',
+    4: 'Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, RASP, and post-quantum migration planning.',
+}
+for p, (name, start, end, fund) in PHASES.items():
+    major = ', '.join(f'{c} ({phase_fa[p][c]})' for c in codes if phase_fa[p][c])
+    ph.append(f'| Phase {p}, {name} | {start} to {end} | {RATIONALE[p]} | {fund} | '
+              f'{act_count[p]} activities. {phase_count[p]} records start here: {major} |')
+status = ['| Pillar | Focus Area | Records | Activities |', '|---|---|---|---|']
+for pillar, fa, code, out, n, acts in stats:
+    status.append(f'| {pillar} | [{fa}]({out}) | {n} | {acts} |')
+status.append(f"| | **Total** | **{sum(s[4] for s in stats)}** | **{sum(s[5] for s in stats)}** |")
+c6 = ['| Contract | Selected Product / Service | Required Contract Clause(s) | Source | Status | Records |', '|---|---|---|---|---|---|']
+for cid, (veh, clauses, srcx, st) in CONTRACTS.items():
+    c6.append(f'| {cid} | {veh} | {clauses} | {srcx} | {st} | {len(contract_use[cid])} |')
+gf = sorted({PRODUCTS[k][0] for k in PRODUCTS if PRODUCTS[k][1] == GOV})
+os_ = sorted({PRODUCTS[k][0] for k in PRODUCTS if PRODUCTS[k][1] == OSS}, key=str.lower)
+src = (src.replace('{{PHASES}}', '\n'.join(ph)).replace('{{STATUS}}', '\n'.join(status))
+          .replace('{{CONTRACTS}}', '\n'.join(c6)).replace('{{GOV}}', ', '.join(gf))
+          .replace('{{OSS}}', ', '.join(os_)).replace('{{NREC}}', str(sum(s[4] for s in stats))))
+open(os.path.join(DOCS, 'index.md'), 'w', encoding='utf-8', newline='\n').write(src)
+unused = [c for c in CONTRACTS if not contract_use[c]]
+print(f"{sum(phase_count.values())} records by starting phase: {dict(sorted(phase_count.items()))}")
+print(f"activities by phase: {dict(sorted(act_count.items()))}")
+print(f'{len(used_pins)} pins used')
+if set(PINS) - used_pins:
+    sys.exit(f'Pins that match no in-scope activity: {sorted(set(PINS) - used_pins)}')
+if unused:
+    print('Contracts no record uses:', unused)

@@ -1980,7 +1980,7 @@
 
 ### ID-4.6: Emergency Access
 
-**Design Intent:** Keep break-glass accounts for the identity provider, the cloud tenants, and the ground segment, sealed and stored in the data center. The ground segment account matters most, since an identity outage must never stop operators from recovering an airborne aircraft.
+**Design Intent:** Keep break-glass accounts for the identity provider, the cloud tenants, and the ground segment, sealed in the data center with a second sealed set at the alternate site, so losing the data center does not lose them. The ground segment account matters most, since an identity outage must never stop operators from recovering an airborne aircraft.
 
 **NIST Control Mapping:**
 
