@@ -621,6 +621,32 @@ def project(code, issues, st, save):
             time.sleep(0.3)
         st['fields_set'].append(key); st.setdefault('dates_set', []).append(key); save()
         print(f"  project item {key}")
+    # Select and text fields are compared with the plan on every run, so a change such as
+    # a new accountable team reaches the board even when the phase stays the same.
+    current, after = {}, None
+    q = ('query($p:ID!,$a:String){node(id:$p){... on ProjectV2{items(first:100,after:$a){pageInfo{hasNextPage endCursor} '
+         'nodes{id fieldValues(first:30){nodes{'
+         '... on ProjectV2ItemFieldSingleSelectValue{name field{... on ProjectV2SingleSelectField{name}}} '
+         '... on ProjectV2ItemFieldTextValue{text field{... on ProjectV2Field{name}}}}}}}}}}')
+    while True:
+        page = graphql(q, p=pid, a=after)['node']['items']
+        for n in page['nodes']:
+            current[n['id']] = {v['field']['name']: v.get('name', v.get('text')) for v in n['fieldValues']['nodes'] if v and v.get('field')}
+        if not page['pageInfo']['hasNextPage']:
+            break
+        after = page['pageInfo']['endCursor']
+    fixed = 0
+    for it in issues:
+        have = current.get(st['items'][it['key']], {})
+        for k, x in values(it).items():
+            if k in DATES or have.get(k) == x:
+                continue
+            v = {'singleSelectOptionId': fields[k]['options'][x]} if k in SELECTS else {'text': x}
+            graphql('mutation($p:ID!,$i:ID!,$f:ID!,$v:ProjectV2FieldValue!){updateProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f,value:$v}){projectV2Item{id}}}',
+                    p=pid, i=st['items'][it['key']], f=fields[k]['id'], v=v)
+            fixed += 1; time.sleep(0.3)
+            print(f"  {it['key']} {k}: {have.get(k)} -> {x}")
+    print(f'field values brought in line with the plan: {fixed}')
     # Dates are set again whenever the plan's dates move, as when a phase is lengthened.
     done = st.setdefault('dates_set', [])
     vals = st.setdefault('date_values', {})
