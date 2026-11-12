@@ -126,7 +126,7 @@
 
 ### DI-2.1: Secure Resource Provisioning
 
-**Selected Tool / Product / Service:** OpenTofu, the Platform Team's landing zone modules, derived from Mission Landing Zone, Azure Policy, GitLab Ultimate, Ansible Automation Platform
+**Selected Tool / Product / Service:** OpenTofu, the Platform Team's landing zone modules derived from Mission Landing Zone, Azure Policy, GitLab Ultimate, Ansible Automation Platform
 
 **Environment-Specific Tailoring:** Cloud resources come from the landing zone modules through OpenTofu in GitLab, and Azure Policy denies console creation outside break-glass. Data center and alternate site servers come from Ansible Automation Platform playbooks, with the alternate site's equipment placed under the facility agreement.
 
@@ -246,7 +246,7 @@
 
 ### DI-3.1: Secure Configurations
 
-**Selected Tool / Product / Service:** the Platform Team's landing zone modules, derived from Mission Landing Zone, OpenTofu, Azure Policy, Ansible Automation Platform, DISA SCAP Compliance Checker and STIG Viewer
+**Selected Tool / Product / Service:** the Platform Team's landing zone modules derived from Mission Landing Zone, OpenTofu, Azure Policy, Ansible Automation Platform, DISA SCAP Compliance Checker and STIG Viewer
 
 **Environment-Specific Tailoring:** DISA STIGs and SRGs set every baseline, with the Cloud Computing SRG's IL5 requirements in the cloud. The landing zone modules build the hub and ten spokes as subscriptions guarded by Azure Policy. Ansible roles carry the STIGs to the data center and alternate site.
 
@@ -278,9 +278,9 @@
 
 ### DI-3.2: Secure Compute Baselines
 
-**Selected Tool / Product / Service:** Azure VM Image Builder, Packer, Iron Bank hardened images from Platform One, Azure Kubernetes Service, kube-bench, Azure Virtual Desktop, Ansible Automation Platform
+**Selected Tool / Product / Service:** Packer, Iron Bank hardened images from Platform One, Azure Kubernetes Service, kube-bench, Azure Virtual Desktop, Ansible Automation Platform
 
-**Environment-Specific Tailoring:** Azure VM Image Builder builds the cloud's VDI and server images, and Packer builds the data center's from the same STIG roles. The IT/OT DMZ's staging servers use the data center server image. Container base images come from Iron Bank, every AKS cluster shares one baseline checked by kube-bench, and Ansible hardens the physical servers' BMCs.
+**Environment-Specific Tailoring:** Packer builds the cloud's VDI and server images and the data center's from the same STIG roles. The IT/OT DMZ's staging servers use the data center server image. Container base images come from Iron Bank, every AKS cluster shares one baseline checked by kube-bench, and Ansible hardens the physical servers' BMCs.
 
 **Accountable Team:** Platform Team
 
@@ -558,9 +558,9 @@
 
 ### DI-4.8: Vulnerability and Patch Management
 
-**Selected Tool / Product / Service:** Tenable Security Center (ACAS), Azure Update Manager, Microsoft Configuration Manager, Ansible Automation Platform, Jira Service Management Data Center, the aircraft and ground equipment manufacturer's tools
+**Selected Tool / Product / Service:** Tenable Security Center (ACAS), Microsoft Configuration Manager, Ansible Automation Platform, Jira Service Management Data Center, the aircraft and ground equipment manufacturer's tools
 
-**Environment-Specific Tailoring:** ACAS scans every host from Phase 1, so Tier 0 runs under the VPMP's deadlines from the interim authorization to test. Azure Update Manager patches the cloud, and container images are rebuilt rather than patched. Configuration Manager and Ansible patch the data center and alternate site one node of each pair at a time. Fleet patches start in Phase 3, validated by the manufacturer, tried on a spare, and loaded in a maintenance window.
+**Environment-Specific Tailoring:** ACAS scans every host from Phase 1, so Tier 0 runs under the VPMP's deadlines from the interim authorization to test. Configuration Manager and Ansible patch servers in every location, one node of each on-premises pair at a time. Container images are rebuilt rather than patched. Fleet patches start in Phase 3, validated by the manufacturer, tried on a spare, and loaded in a maintenance window.
 
 **Accountable Team:** IT Operations, with the Platform Team and Fleet Operations
 
@@ -572,7 +572,7 @@
 
 **Target Date / Sprint:** 2028-07-31
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C21](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
+**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C21](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
 **Status:** Not Started
 
@@ -593,7 +593,7 @@
 
 ### DI-4.9: Unpatchable/Legacy Asset Compensating Controls
 
-**Selected Tool / Product / Service:** Palo Alto Networks PA-Series, Palo Alto Advanced Threat Prevention, Nozomi Networks Guardian, Splunk Enterprise Security, Trellix Application Control
+**Selected Tool / Product / Service:** Palo Alto Networks PA-Series, Palo Alto Threat Prevention with on-box signatures, Nozomi Networks Guardian, Splunk Enterprise Security, Trellix Application Control
 
 **Environment-Specific Tailoring:** These controls are the pattern for any asset that cannot be patched. If none is fielded, they are validated on a spare station. If the payload processing workstation's replacement slips, the workstation connects only after the AO re-dates CCSD tailoring action 3. It then runs in its own OT zone segment with Advanced Threat Prevention at its single conduit, Trellix Application Control, and tighter Guardian and Splunk thresholds.
 

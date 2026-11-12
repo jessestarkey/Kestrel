@@ -229,6 +229,7 @@ The alternate site keeps identity, the PKI, and the backups alive if the mission
 | Standby identity provider and directory | A warm replica of the identity provider that takes over authentication if the data center is lost | On-Premises, Hybrid | Directory/Platform Core Infrastructure, Human Authentication |
 | Standby PKI and HSM | A standby issuing certificate authority and a second HSM holding backups of the program's keys | On-Premises | PKI/Certificate Authority, Cryptographic Hardware/HSM |
 | Backup copy repository | Immutable copies of the data center's backups under the same retention lock | On-Premises | Backup/Archive Repository |
+| Standby DNS | Resolves names for the site and the standby directory, and takes over the data center's resolution if it is lost | On-Premises | DNS Infrastructure |
 | Alternate site firewall | Inspects all traffic to and from the site under the hubs' shared rule base | On-Premises, Hybrid | Network Firewall, Intrusion Detection/Prevention System (IDPS) |
 | Second cloud interconnect | Carries the site's traffic to the IL5 environment over a dedicated circuit on a separate path | Hybrid | Private Connectivity/Dedicated Circuit |
 

@@ -71,7 +71,7 @@
 
 ### NE-1.2: Network Infrastructure Device Hardening
 
-**Design Intent:** Hardening baselines come from the DISA STIGs for the SDN switches and controller, the data center hub, the DMZ's load balancers, and the ground segment network's switches. Management interfaces sit only on the out-of-band network and accept only administrators coming through the privileged access platform. The cloud and data center run dual-stack, with every hub rule written for both address families. The ground segment stays IPv4 only and drops IPv6 at its conduit.
+**Design Intent:** Hardening baselines come from the DISA STIGs for the SDN switches and controller, both hubs' firewalls, the alternate site firewall, and the ground segment network's switches. Management interfaces sit only on the out-of-band network and accept only administrators coming through the privileged access platform. The cloud and data center run dual-stack, with every hub rule written for both address families. The ground segment stays IPv4 only and drops IPv6 at its conduit.
 
 **NIST Control Mapping:**
 
@@ -82,7 +82,7 @@
 
 **Affected Components:** Routing/Switching Fabric, Wireless/RF Infrastructure, Load Balancer/Reverse Proxy/API Gateway
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider hardens the network devices beneath the cloud hub.
+**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider hardens the network devices beneath the cloud hub and the managed load balancers in the DMZ.
 
 **Security Impact:** High
 
@@ -123,7 +123,7 @@
 
 ### NE-1.3: Insecure Services and Protocols
 
-**Design Intent:** Flow telemetry from both hubs and the SDN fabric is checked for cleartext and obsolete protocols, such as Telnet, FTP, SMBv1, unsigned LDAP, and TLS below 1.2. Each one found is disabled. The payload processing workstation's operating system may not negotiate current TLS. If so, its transfer to the data lake is the one registered exception, confined to its single conduit and covered by CCSD tailoring action 3.
+**Design Intent:** Flow telemetry from both hubs and the SDN fabric is checked for cleartext and obsolete protocols, such as Telnet, FTP, SMBv1, unsigned LDAP, and TLS below 1.2. Each one found is disabled. The payload processing workstation stays connected past its replacement date only if the AO re-dates CCSD tailoring action 3. If its operating system then cannot negotiate current TLS, its transfer to the data lake is the one registered exception, confined to its single conduit.
 
 **NIST Control Mapping:**
 
@@ -413,7 +413,7 @@
 
 ### NE-1.7: Network Access Control (NAC/802.1X)
 
-**Design Intent:** Every wired port in the data center and at the operating sites requires 802.1X, with device certificates from the program PKI. Posture checks gate admission for the privileged access workstations and servers. Ground control stations and launch equipment that cannot run a supplicant are admitted by registered hardware address to their own zone only. A device that fails is quarantined, and the SDN controller alerts the Security Team.
+**Design Intent:** Every wired port in the data center, at the alternate site, and at the operating sites requires 802.1X, with device certificates from the program PKI. Posture checks gate admission for the privileged access workstations and servers. Ground control stations and launch equipment that cannot run a supplicant are admitted by registered hardware address to their own zone only. A device that fails is quarantined, and the Security Team is alerted. Each operating site keeps admitting devices while it is cut off from the data center.
 
 **NIST Control Mapping:**
 
@@ -534,7 +534,7 @@
 
 ### NE-2.1: Private Connectivity
 
-**Design Intent:** Every provider-managed service, including the foundation model, the spoke vaults, and the portal database, is reached only through a private endpoint in its own spoke, with public access disabled. Configuration checks alert if public access returns. The dedicated circuit terminates on the cloud hub and the data center hub. Its routing sessions are authenticated, and prefix filters accept only KESTREL's own address ranges.
+**Design Intent:** Every provider-managed service, including the foundation model, the spoke vaults, and the portal database, is reached only through a private endpoint in its own spoke, with public access disabled. Configuration checks alert if public access returns. The dedicated circuit terminates on the cloud hub and the data center hub. The carrier path is not trusted, so traffic crosses the circuit inside encrypted tunnels between the hubs. Its routing sessions are authenticated, and prefix filters accept only KESTREL's own address ranges.
 
 **NIST Control Mapping:**
 
@@ -737,7 +737,7 @@
 
 **Affected Components:** Network Firewall, Routing/Switching Fabric
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider supplies the cloud-native firewall service the cloud hub runs on.
+**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider supplies the virtual machines and networking the cloud hub's firewalls run on.
 
 **Security Impact:** High
 
@@ -833,7 +833,7 @@
 
 ### NE-2.5: DDoS Protection
 
-**Design Intent:** The cloud provider's network-layer DDoS protection covers the DMZ's public addresses, which sit behind the Boundary Cloud Access Point. The DMZ's edge services add request-rate limits for every user-facing application. The cloud hub rate-limits each spoke, so a runaway workload cannot flood the hub or ML Prod's endpoints. DDoS alerts go to the security monitoring platform.
+**Design Intent:** The DMZ holds no cloud provider public addresses. Its DoD-registered addresses are reached only through DISA's internet access points and the Boundary Cloud Access Point, which absorb network-layer floods upstream. The DMZ's edge services add request-rate limits for every user-facing application. The cloud hub rate-limits each spoke, so a runaway workload cannot flood the hub or ML Prod's endpoints. DDoS alerts go to the security monitoring platform.
 
 **NIST Control Mapping:**
 
@@ -846,7 +846,7 @@
 
 **Affected Components:** DDoS Protection, Application/API
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The Boundary Cloud Access Point also filters upstream of KESTREL.
+**External Dependencies:** The Boundary Cloud Access Point, which absorbs network-layer floods before they reach KESTREL. The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization, supplies the edge services' rate limiting.
 
 **Security Impact:** Moderate
 
@@ -898,7 +898,7 @@
 
 ### NE-2.6: Web Application Firewall
 
-**Design Intent:** The WAF in the DMZ's edge services fronts every user-facing application in blocking mode, with managed rules plus custom rules for each application. Today those are the analyst portal, the signals workbench, and the partner API. Every partner-facing API is checked against its published schema and rate-limited per partner. Nothing on premises faces users directly, so no on-premises reverse-proxy WAF is needed.
+**Design Intent:** The WAF in the DMZ's edge services fronts every user-facing application in blocking mode, with managed rules plus custom rules for each application. Today those are the identity-aware access proxy, the analyst portal, the signals workbench, and the partner API. Every partner-facing API is checked against its published schema and rate-limited per partner. Nothing on premises faces users directly, so no on-premises reverse-proxy WAF is needed.
 
 **NIST Control Mapping:**
 
@@ -1009,7 +1009,7 @@
 
 ### NE-2.7: Secure Remote Access
 
-**Design Intent:** Performers reach KESTREL only through the identity-aware access proxy for developer tools and the VDI brokers for desktops. Neither offers a network tunnel, so no laptop joins KESTREL's network and split tunneling cannot occur. The VDI desktops reach management ports only when the privileged access platform opens them for a just-in-time window. Sessions end after 15 idle minutes, and the Security Team can end any session at once. Recorded sessions and broker logs go to the security monitoring platform.
+**Design Intent:** Performers reach KESTREL only through the identity-aware access proxy for developer tools and the VDI brokers for desktops. Neither offers a network tunnel, so no laptop joins KESTREL's network and split tunneling cannot occur. The VDI desktops reach management ports only during an approved just-in-time window, or through the privileged access platform's session hosts. Sessions end after 15 idle minutes, and the Security Team can end any session at once. Recorded sessions and broker logs go to the security monitoring platform.
 
 **NIST Control Mapping:**
 
@@ -1421,7 +1421,7 @@
 
 ### NE-2.13: Authorized Cloud Access Point Integration
 
-**Design Intent:** Every inbound flow reaches KESTREL only through the Boundary Cloud Access Point and then the cloud hub. That includes analysts, partners, performers, and the CSSP. The mission-owner stack behind it is the cloud hub's firewall and intrusion prevention, followed by the DMZ's edge services and WAF. Administration uses its own path through the VDI brokers and the privileged access workstations. KESTREL was registered with the access point's operator before it accepted traffic.
+**Design Intent:** Every inbound flow from outside KESTREL's own sites reaches it only through the Boundary Cloud Access Point and then the cloud hub. That includes analysts, partners, performers, and the CSSP. The mission-owner stack behind it is the cloud hub's firewall and intrusion prevention, followed by the DMZ's edge services and WAF. Administration uses its own path through the VDI brokers and the privileged access workstations. KESTREL was registered with the access point's operator before it accepted traffic. DISA also approved the dedicated circuits to the data center and the alternate site as a direct connection.
 
 **NIST Control Mapping:**
 
@@ -1670,7 +1670,7 @@
 
 ### NE-3.4: Private DNS Service
 
-**Design Intent:** Each spoke's private zone holds its internal names, and the private endpoint zones resolve every managed service to its endpoint. Each side's resolvers forward the other side's names across the circuit, so a circuit outage leaves local resolution working. The ground segment resolves only its own names and the IT/OT DMZ through a resolver in the data center.
+**Design Intent:** Each spoke's private zone holds its internal names, and the private endpoint zones resolve every managed service to its endpoint. Each side's resolvers forward the other side's names across the circuit, so a circuit outage leaves local resolution working. Each operating site resolves only its own names and the IT/OT DMZ, through a local resolver pair, so a lost conduit leaves resolution working.
 
 **NIST Control Mapping:**
 
@@ -1723,7 +1723,7 @@
 
 ### NE-3.5: DNS Advanced Protection
 
-**Design Intent:** Both sides' resolvers block known-malicious, newly registered, and algorithmically generated domains using a threat feed. Query logs go to the security monitoring platform, where analytics look for tunneling, beaconing, and exfiltration. Records are reconciled weekly against the asset inventory, so a record pointing at a removed resource is caught before someone else can claim the address.
+**Design Intent:** Both sides' resolvers block known-malicious, newly registered, and algorithmically generated domains using a threat feed. Query logs go to the security monitoring platform, where analytics look for tunneling, beaconing, and exfiltration. Records are checked continuously against the asset inventory, so a record pointing at a removed resource is caught before someone else can claim the address.
 
 **NIST Control Mapping:**
 
@@ -1735,7 +1735,7 @@
 
 **Affected Components:** DNS Infrastructure, Compute, Device/Workstation, Application/API
 
-**External Dependencies:** The CSSP and the cloud provider, which supply the threat feeds the resolvers use.
+**External Dependencies:** A commercial threat feed service, pulled by zone transfer with no query data sent back. The CSSP, whose indicators load as a local policy zone.
 
 **Security Impact:** Low
 
@@ -1776,7 +1776,7 @@
 
 ### NE-3.7: External Attack Surface Management
 
-**Design Intent:** The Security Team scans KESTREL's public addresses and names each month from outside, and it compares what it finds with the inventory. KESTREL's source code is held on performer laptops, so the Security Team also watches public code hosting and paste sites for its code, secrets, and credentials. Each finding opens a service desk ticket to the owning team.
+**Design Intent:** The Security Team watches KESTREL's public names and addresses continuously from outside, and it reviews what it finds against the inventory each month. KESTREL's source code is held on performer laptops, so the Security Team also watches public code hosting and paste sites for its code, secrets, and credentials. Each finding opens a service desk ticket to the owning team.
 
 **NIST Control Mapping:**
 
@@ -1904,7 +1904,7 @@
 
 ### NE-3.9: GNSS/PNT Spoofing and Jamming Detection
 
-**Design Intent:** Each aircraft's GNSS receiver reports signal and solution quality, which is profiled per aircraft and compared with its inertial navigation. Each station compares its own GNSS timing with the data center's time source. Indicators of spoofing or jamming alert the operator at the station during flight and reach the Security Team through the security monitoring platform.
+**Design Intent:** Each aircraft's GNSS receiver reports signal and solution quality, which is profiled per aircraft and compared with its inertial navigation. Each station compares its GNSS timing with a local holdover reference. It also checks against the data center's time source whenever the conduit is up. Indicators of spoofing or jamming alert the operator at the station during flight and reach the Security Team through the security monitoring platform.
 
 **NIST Control Mapping:**
 

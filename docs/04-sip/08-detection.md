@@ -180,7 +180,7 @@
 
 ### DE-1.7: Network/OT Intrusion and Anomaly Detection
 
-**Selected Tool / Product / Service:** Corelight sensors, Nozomi Networks Guardian, Palo Alto Advanced Threat Prevention
+**Selected Tool / Product / Service:** Corelight sensors, Nozomi Networks Guardian, Palo Alto Threat Prevention with on-box signatures
 
 **Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
 
@@ -436,9 +436,9 @@
 
 **Dependencies:** DE-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2028-03-31
 
@@ -450,11 +450,11 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| DE-2.6.1: Web Application Attack Monitoring | 2 (pinned) | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| DE-2.6.1: Web Application Attack Monitoring | 1 (pinned) | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | DE-2.6.2: Layer 7 Attack Attempt Capturing | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | DE-2.6.3: API Abuse Tracking | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 
-**Pinned:** DE-2.6.1: The web application firewall fronts the mission applications, which arrive in Phase 2.
+**Pinned:** DE-2.6.1: The WAF fronts the identity-aware proxy from the first commit, as part of the boundary stack the access point connection needs.
 
 ### DE-2.7: Network Security Logging
 

@@ -182,9 +182,9 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2028-03-31
 
@@ -196,10 +196,12 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RS-1.7.1: Provider Service Agreement and Responsibility Division | 2 | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| RS-1.7.2: Telemetry and Sensor Delivery to the Provider | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| RS-1.7.1: Provider Service Agreement and Responsibility Division | 1 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RS-1.7.2: Telemetry and Sensor Delivery to the Provider | 1 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | RS-1.7.3: Provider Incident Reporting and Directive Handling | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RS-1.7.4: Automated Provider Advisory and Assistance Access | 2 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RS-1.7.1 and RS-1.7.2: The access point connection and the interim authorization to test need CSSP alignment in Phase 1.
 
 ## RS-2: Incident Detection, Analysis, and Investigation
 

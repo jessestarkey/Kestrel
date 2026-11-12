@@ -12,10 +12,14 @@ Usage (from the kestrel repo root):
 `plan` writes tools/github/out/<code>-plan.json and prints a summary.
 `apply` creates labels, milestones, issues, sub-issue links, and project items,
 recording each in tools/github/state/<code>.json so a re-run never duplicates.
+The project and the pinned About issue are shared by every focus area, so they are
+recorded once, in tools/github/state/shared.json. Each run also reads the other
+loaded focus areas, so a story can be blocked by a story in another one.
 """
 import json, os, re, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+STATE = os.path.join(HERE, 'state')
 REPO_ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.dirname(HERE))
 import saberlib as S
@@ -218,13 +222,37 @@ def graphql(query, **vars):
     return out['data']
 
 
+def loaded_codes():
+    """Focus areas with a state file, meaning they are loaded on GitHub."""
+    return [c for c in FILES if os.path.exists(os.path.join(STATE, f'{c}.json'))]
+
+
 def apply(code, issues):
-    state_path = os.path.join(HERE, 'state', f'{code}.json')
-    os.makedirs(os.path.dirname(state_path), exist_ok=True)
+    os.makedirs(STATE, exist_ok=True)
+    state_path = os.path.join(STATE, f'{code}.json')
+    shared_path = os.path.join(STATE, 'shared.json')
     st = json.load(open(state_path)) if os.path.exists(state_path) else {'issues': {}, 'links': [], 'items': {}, 'fields_set': []}
+    if os.path.exists(shared_path):
+        sh = json.load(open(shared_path))
+    else:
+        # The project and the About issue were first recorded with the Identity focus area.
+        first_path = os.path.join(STATE, 'ID.json')
+        first = json.load(open(first_path)) if os.path.exists(first_path) else {'issues': {}}
+        sh = {k: v for k, v in (('project', first.get('project')), ('about', first['issues'].get('ABOUT'))) if v}
+    st.pop('project', None)
+    st['issues'].pop('ABOUT', None)
+    if 'project' in sh:
+        st['project'] = sh['project']
 
     def save():
-        json.dump(st, open(state_path, 'w'), indent=1)
+        if 'project' in st:
+            sh['project'] = st['project']
+        json.dump(sh, open(shared_path, 'w'), indent=1)
+        json.dump({k: v for k, v in st.items() if k != 'project'}, open(state_path, 'w'), indent=1)
+
+    save()
+    # The other loaded focus areas, for blocked-by links and statuses across them.
+    others = [(build_plan(c), json.load(open(os.path.join(STATE, f'{c}.json')))) for c in loaded_codes() if c != code]
 
     repo = f'/repos/{OWNER}/{NAME}'
     # Labels
@@ -264,16 +292,18 @@ def apply(code, issues):
         api('POST', f'{repo}/issues/{parent}/sub_issues', {'sub_issue_id': st['issues'][it['key']]['id']})
         st['links'].append(it['key']); save(); time.sleep(0.8)
     print(f"issues {len(st['issues'])}, sub-issue links {len(st['links'])}")
-    about(st, save)
+    about(sh, save, [c for c in FILES if c in loaded_codes() or c == code])
     sync(code, issues, st, save)
     project(code, issues, st, save)
-    dependencies(issues, st, save)
-    workflow(issues, st, save)
+    dependencies(issues, st, save, others)
+    workflow(issues, st, save, others)
 
 
 def external(deps):
     """Dependencies that are not outcomes, such as an outside party's feed or agreement."""
     out = []
+    if deps.strip().startswith('None'):
+        return out
     for part in [x.strip() for x in deps.split(',')]:
         if not part or part.startswith(('None', "The SADD's")) or re.fullmatch(r'[A-Z]{2}-\d+(?:\.\d+)?', part):
             continue
@@ -298,8 +328,8 @@ def met(ref, phase, by_key, kids, done):
 
     A story that runs across phases, such as one whose dashboard comes a phase later,
     satisfies a dependent once its sub-tasks up to the dependent's phase are Done. A
-    capability counts as every story in it. A dependency outside the focus area being
-    loaded always counts as met here, since the plan's schedule already orders it.
+    capability counts as every story in it. A dependency in a focus area not yet loaded
+    always counts as met here, since the plan's schedule already orders it.
     """
     if ref not in by_key:
         return True
@@ -338,7 +368,7 @@ def starting_status(it, by_key, done, kids=None):
     return 'Ready'
 
 
-def workflow(issues, st, save):
+def workflow(issues, st, save, others=()):
     """Set the six-status workflow, and each item's starting status unless a person has moved it."""
     pid = st['project']['id']
     q = 'query($p:ID!){node(id:$p){... on ProjectV2{field(name:"Status"){... on ProjectV2SingleSelectField{id options{id name color description}}}}}}'
@@ -362,10 +392,14 @@ def workflow(issues, st, save):
         if not items['pageInfo']['hasNextPage']:
             break
         after = items['pageInfo']['endCursor']
-    by_key = {it['key']: it for it in issues}
-    done = {it['key'] for it in issues if current.get(st['items'][it['key']]) == 'Done' or it.get('state') == 'closed'}
+    every = list(issues) + [it for o_issues, _ in others for it in o_issues]
+    items = dict(st['items'])
+    for _, o_st in others:
+        items.update(o_st.get('items', {}))
+    by_key = {it['key']: it for it in every}
+    done = {it['key'] for it in every if current.get(items.get(it['key'])) == 'Done' or it.get('state') == 'closed'}
     kids = {}
-    for it in issues:
+    for it in every:
         if it['parent'] and it.get('state') != 'closed':
             kids.setdefault(it['parent'], []).append(it['key'])
     last = st.setdefault('status', {}); changed = 0
@@ -424,24 +458,28 @@ def sync(code, issues, st, save):
     print(f'issues synced with the plan: {changed}')
 
 
-def dependencies(issues, st, save):
+def dependencies(issues, st, save, others=()):
     """Mark each story blocked by the outcomes, or whole capabilities, its plan record depends on."""
     repo = f'/repos/{OWNER}/{NAME}'
     done = st.setdefault('deps', []); skipped = set()
+    known = {}
+    for _, o_st in others:
+        known.update(o_st['issues'])
+    known.update(st['issues'])
     wanted = {f"{it['key']}<-{ref}" for it in issues for ref in it.get('deps', [])}
     for link in [l for l in done if l not in wanted]:
         key, ref = link.split('<-')
-        api('DELETE', f"{repo}/issues/{st['issues'][key]['number']}/dependencies/blocked_by/{st['issues'][ref]['id']}")
+        api('DELETE', f"{repo}/issues/{st['issues'][key]['number']}/dependencies/blocked_by/{known[ref]['id']}")
         done.remove(link); save(); print(f'  removed {key} blocked by {ref}'); time.sleep(0.8)
     for it in issues:
         for ref in it.get('deps', []):
             link = f"{it['key']}<-{ref}"
             if link in done:
                 continue
-            if ref not in st['issues']:
+            if ref not in known:
                 skipped.add(ref); continue
             api('POST', f"{repo}/issues/{st['issues'][it['key']]['number']}/dependencies/blocked_by",
-                {'issue_id': st['issues'][ref]['id']})
+                {'issue_id': known[ref]['id']})
             done.append(link); save(); print(f'  {it["key"]} blocked by {ref}'); time.sleep(0.8)
     print(f"dependency links {len(done)}" + (f", not loaded on GitHub: {', '.join(sorted(skipped))}" if skipped else ''))
 
@@ -461,19 +499,34 @@ This repository shows a PMO ISSE applying the [SABER](https://github.com/jessest
 
 The project's six statuses stand in for a Jira workflow, namely Backlog for later phases and for work waiting on another story, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between stories show sequencing inside the plan. A story and its sub-tasks stay in Backlog until the stories it is blocked by are Done up to its phase, and the generator then moves them to Ready. The Blocked status is kept for outside parties. Done means a control is built, accepted, and evidenced, including continuous and periodic controls. After that, continuous controls run in the monitoring tools, and each periodic control gets a small issue per cycle, such as each quarter's access review. The ConMon Activity field shows which kind a card is.
 
-Only the Identity focus area is loaded. Every issue is generated from the plan's records by `tools/github/issues.py`, so the tracker and the documents always agree. Phases are milestones, standing in for Jira fix versions.
+{LOADED} Every issue is generated from the plan's records by `tools/github/issues.py`, so the tracker and the documents always agree. Phases are milestones, standing in for Jira fix versions.
 """
 
 
-def about(st, save):
-    if 'ABOUT' in st['issues']:
-        num = st['issues']['ABOUT']['number']
-        if (api('GET', f'/repos/{OWNER}/{NAME}/issues/{num}')['body'] or '').replace('\r\n', '\n') != ABOUT:
-            api('PATCH', f'/repos/{OWNER}/{NAME}/issues/{num}', {'body': ABOUT}); print(f'  updated #{num} About this demonstration')
+NUMBERS = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve']
+
+
+def about_text(codes):
+    """The About text, naming the focus areas loaded so far."""
+    names = [FILES[c][1].replace('-', ' ').title().replace(' And ', ' and ') + f' ({c})' for c in codes]
+    listed = names[0] if len(names) == 1 else ', '.join(names[:-1]) + (',' if len(names) > 2 else '') + ' and ' + names[-1]
+    verb = 'is' if len(codes) == 1 else 'are'
+    return ABOUT.replace('{LOADED}', f'{NUMBERS[len(codes)]} of the twelve focus areas {verb} loaded so far, namely {listed}.')
+
+
+def about(sh, save, codes):
+    text = about_text(codes)
+    if 'about' in sh:
+        num = sh['about']['number']
+        if (api('GET', f'/repos/{OWNER}/{NAME}/issues/{num}')['body'] or '').replace('\r\n', '\n') != text:
+            api('PATCH', f'/repos/{OWNER}/{NAME}/issues/{num}', {'body': text}); print(f'  updated #{num} About this demonstration')
+        if 'project' in sh and sh.get('readme') != text:
+            graphql('mutation($p:ID!,$r:String!){updateProjectV2(input:{projectId:$p,readme:$r}){projectV2{id}}}', p=sh['project']['id'], r=text)
+            sh['readme'] = text; save(); print('  updated the project README')
         return
     made = api('POST', f'/repos/{OWNER}/{NAME}/issues', {'title': 'About this demonstration: GitHub standing in for Jira and Confluence',
-                                                         'body': ABOUT, 'labels': ['notional']})
-    st['issues']['ABOUT'] = {'number': made['number'], 'id': made['id'], 'node': made['node_id']}; save()
+                                                         'body': text, 'labels': ['notional']})
+    sh['about'] = {'number': made['number'], 'id': made['id'], 'node': made['node_id']}; save()
     graphql('mutation($id:ID!){pinIssue(input:{issueId:$id}){issue{number}}}', id=made['node_id'])
     print(f"  pinned #{made['number']} About this demonstration")
 
@@ -501,7 +554,7 @@ def project(code, issues, st, save):
         graphql('mutation($p:ID!,$r:ID!){linkProjectV2ToRepository(input:{projectId:$p,repositoryId:$r}){repository{id}}}',
                 p=p['id'], r=repo_id)
         graphql('mutation($p:ID!,$d:String!,$r:String!){updateProjectV2(input:{projectId:$p,shortDescription:$d,readme:$r,public:true}){projectV2{id}}}',
-                p=p['id'], d='Stands in for KESTREL\'s Jira board. Notional system.', r=ABOUT)
+                p=p['id'], d='Stands in for KESTREL\'s Jira board. Notional system.', r=about_text([code]))
         st['project'] = {'id': p['id'], 'number': p['number'], 'url': p['url'], 'fields': {}}; save()
         print(f"  project {p['url']}")
     pid = st['project']['id']; fields = st['project']['fields']
@@ -513,6 +566,19 @@ def project(code, issues, st, save):
                 opts[k].append(x)
     for k in SELECTS + TEXTS + DATES:
         if k in fields:
+            missing = [x for x in opts.get(k, []) if x not in fields[k]['options']]
+            if missing:
+                # A later focus area brings new values, such as a team. Passing each existing
+                # option's id keeps the values already set on items.
+                q = 'query($f:ID!){node(id:$f){... on ProjectV2SingleSelectField{options{id name color description}}}}'
+                have = graphql(q, f=fields[k]['id'])['node']['options']
+                o = [{'id': x['id'], 'name': x['name'], 'color': x['color'], 'description': x['description']} for x in have]
+                o += [{'name': x, 'color': 'GRAY', 'description': ''} for x in sorted(missing)]
+                f = graphql('mutation($f:ID!,$o:[ProjectV2SingleSelectFieldOptionInput!]){updateProjectV2Field(input:{fieldId:$f,singleSelectOptions:$o})'
+                            '{projectV2Field{... on ProjectV2SingleSelectField{id options{id name}}}}}',
+                            f=fields[k]['id'], o=o)['updateProjectV2Field']['projectV2Field']
+                fields[k]['options'] = {x['name']: x['id'] for x in f['options']}; save()
+                print(f"  {k} options added: {', '.join(sorted(missing))}")
             continue
         dtype = 'SINGLE_SELECT' if k in SELECTS else 'DATE' if k in DATES else 'TEXT'
         args = {'p': pid, 'n': k, 'd': dtype}

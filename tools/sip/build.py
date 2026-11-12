@@ -92,7 +92,7 @@ ACT_COLS = ['Control Type', 'Cross-Cutting Discipline', 'Maturity Model', 'ConMo
 os.makedirs(DOCS, exist_ok=True)
 inherited = collections.defaultdict(list)
 used_na = set(); used_pins = set(); act_count = collections.Counter()
-starts = {}; dep_refs = {}
+starts = {}; dep_refs = {}; l1_last = {}
 stats = []; contract_use = collections.defaultdict(list); phase_count = collections.Counter()
 phase_fa = collections.defaultdict(collections.Counter); warnings = []
 for fname in sorted(os.listdir(S.FW)):
@@ -137,6 +137,8 @@ for fname in sorted(os.listdir(S.FW)):
                     sys.exit(f'{aid} is Maturity Level 1, required for ATO, but lands in Phase {p}')
                 aph[aid] = p
                 act_count[p] += 1
+                if lv == 1:
+                    l1_last[oid] = max(l1_last.get(oid, 0), p)
             phase = min(aph.values())
             starts[oid] = phase; dep_refs[oid] = re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+)?)\b', sel['deps'])
             recs.append((o, oid, ot, sel, phase, aph))
@@ -239,13 +241,18 @@ if unused:
 
 # Every dependency must start no later than the outcome that relies on it. A
 # reference to a capability, such as AI-5, means every in-scope outcome in it.
-late, missing = [], []
+late, missing, uneven = [], [], []
 for oid, refs in dep_refs.items():
     for r in refs:
         targets = [r] if r in starts else [o for o in starts if o.startswith(r + '.')]
         if not targets:
             missing.append(f'{oid} -> {r}')
         late += [f'{oid} (Phase {starts[oid]}) depends on {t} (Phase {starts[t]})' for t in targets if starts[t] > starts[oid]]
+        # A dependency can start in time yet finish its Level 1 work later. Reviewed focus
+        # areas get a warning, so a reviewer can judge whether the dependent needs that part.
+        if oid[:2] in STRICT:
+            uneven += [f'{oid} (starts Phase {starts[oid]}) depends on {t}, whose Level 1 work runs to Phase {l1_last[t]}'
+                       for t in targets if l1_last.get(t, 0) > starts[oid]]
 for c, ids in inherited.items():
     if c in STRICT:
         sys.exit(f'{c} records still carry their capability tailoring: {ids}. Write their own in OUT or list them in SHARED.')
@@ -255,3 +262,6 @@ if missing:
 if late:
     sys.exit('Dependencies scheduled after the outcomes that rely on them:\n  ' + '\n  '.join(late))
 print(f'{sum(len(v) for v in dep_refs.values())} dependency references, all scheduled in order')
+if uneven:
+    print(f'Warning, {len(uneven)} dependencies in reviewed focus areas finish their Level 1 work after the dependent starts:\n  '
+          + '\n  '.join(uneven))
