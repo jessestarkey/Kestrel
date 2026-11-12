@@ -889,11 +889,6 @@
    "number": 178,
    "id": 6339973779,
    "node": "I_kwDOVqDm9M8AAAABeeRSkw"
-  },
-  "ABOUT": {
-   "number": 179,
-   "id": 6340037860,
-   "node": "I_kwDOVqDm9M8AAAABeeVM5A"
   }
  },
  "links": [
@@ -1348,7 +1343,6 @@
   "ID-3.5.2",
   "ID-3.6.3",
   "ID-3.6.4",
-  "ID-3.7.1",
   "ID-3.7.3",
   "ID-3.7.5",
   "ID-4",
@@ -1433,114 +1427,9 @@
   "ID-1.9.4",
   "ID-1.9.5",
   "ID-3.2.6",
-  "ID-5.1.3"
+  "ID-5.1.3",
+  "ID-3.7.1"
  ],
- "project": {
-  "id": "PVT_kwHOCZ5vBc4BrOti",
-  "number": 3,
-  "url": "https://github.com/users/jessestarkey/projects/3",
-  "fields": {
-   "Level": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWZo",
-    "options": {
-     "Epic": "8405ae71",
-     "Initiative": "d6825cca",
-     "Story": "358d1117",
-     "Sub-Task": "f75073d1"
-    }
-   },
-   "Phase": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWZs",
-    "options": {
-     "Phase 1: Foundation": "eb4e6d08",
-     "Phase 2: Protect and Operate": "e561df6e",
-     "Phase 3: Mission, AI, and Fleet": "534ef2a4",
-     "Phase 4: Maturity": "c67c362e"
-    }
-   },
-   "Team": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWZ4",
-    "options": {
-     "Fleet Operations": "e3e9f699",
-     "Mission teams, with the Platform Team": "e2f2b9af",
-     "Platform Team": "fe39d327",
-     "Platform Team (Tier 0 administrators)": "deb76ab6",
-     "Security Team": "dd33ab9a",
-     "Security Team (ISSM)": "7a769274"
-    }
-   },
-   "Control Type": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWak",
-    "options": {
-     "Documentation": "91d1d35c",
-     "Process": "eb7ba9cc",
-     "Technical": "948df5d4"
-    }
-   },
-   "Cross-Cutting Discipline": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWbE",
-    "options": {
-     "Automate": "ad8e2b09",
-     "None": "971e138c",
-     "Visualize": "fa59b9d1"
-    }
-   },
-   "Maturity Model": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWbo",
-    "options": {
-     "Level 1": "257dafe8",
-     "Level 2": "d77fb9f7",
-     "Level 3": "b4d51bd4"
-    }
-   },
-   "ConMon Activity": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWbw",
-    "options": {
-     "Continuous": "905bf381",
-     "One-Time": "569a4f1f",
-     "Periodic (Annual)": "1585ac26",
-     "Periodic (Event-Driven)": "081d6832",
-     "Periodic (Monthly)": "f5d30234",
-     "Periodic (Quarterly)": "8094925e",
-     "Periodic (Semi-Annual)": "cc68c75b"
-    }
-   },
-   "Level of Effort": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWb0",
-    "options": {
-     "Extensive": "bdff5b63",
-     "High": "f4ea286a",
-     "Low": "2c6a29c3",
-     "Moderate": "787ad0f2"
-    }
-   },
-   "Time Estimation": {
-    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWb4",
-    "options": {
-     "Immediate (less than one sprint)": "178a8d49",
-     "Long-term (6+ months)": "367e8a46",
-     "Medium-term (3\u20136 months)": "d3f94cf5",
-     "Short-term (1\u20133 months)": "55046f6a"
-    }
-   },
-   "Outcome ID": {
-    "id": "PVTF_lAHOCZ5vBc4BrOtizhpiWb8",
-    "options": {}
-   },
-   "Cost": {
-    "id": "PVTF_lAHOCZ5vBc4BrOtizhpiWcA",
-    "options": {}
-   },
-   "Target Date": {
-    "id": "PVTF_lAHOCZ5vBc4BrOtizhpiWcE",
-    "options": {}
-   },
-   "Start Date": {
-    "id": "PVTF_lAHOCZ5vBc4BrOtizhpimlE",
-    "options": {}
-   }
-  }
- },
  "dates_set": [
   "ID",
   "ID-1",
@@ -1634,7 +1523,6 @@
   "ID-3.5.2",
   "ID-3.6.3",
   "ID-3.6.4",
-  "ID-3.7.1",
   "ID-3.7.3",
   "ID-3.7.5",
   "ID-4",
@@ -1719,7 +1607,8 @@
   "ID-1.9.4",
   "ID-1.9.5",
   "ID-3.2.6",
-  "ID-5.1.3"
+  "ID-5.1.3",
+  "ID-3.7.1"
  ],
  "deps": [
   "ID-2.1<-ID-1.3",
@@ -1761,7 +1650,10 @@
   "ID-4.5<-ID-4.4",
   "ID-4.5<-ID-3.7",
   "ID-4.7<-ID-1.2",
-  "ID-2.5<-ID-1.4"
+  "ID-2.5<-ID-1.4",
+  "ID-2.5<-NE-2.7",
+  "ID-3.5<-NE-3.7",
+  "ID-3.7<-NE-1.6"
  ],
  "status": {
   "ID": "Ready",
@@ -2439,8 +2331,8 @@
    "2028-07-31"
   ],
   "ID-3.7.1": [
-   "2028-04-01",
-   "2028-07-31"
+   "2027-10-01",
+   "2028-03-31"
   ],
   "ID-3.7.2": [
    "2027-10-01",
