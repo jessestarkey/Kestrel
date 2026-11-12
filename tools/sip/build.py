@@ -42,6 +42,8 @@ def funding(team, fys):
         line = 'program management'
     elif team.startswith('Fleet Operations'):
         line = 'RDT&E, fleet integration'
+    elif 'Fleet Operations' in team and 'FY28' in fys:
+        line = 'O&M, platform and security operations, with the fleet slice as RDT&E fleet integration'
     elif any(t in team for t in ('ML Team', 'Mission', 'Data Team')):
         line = 'RDT&E, mission and ML'
     else:

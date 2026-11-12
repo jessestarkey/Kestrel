@@ -28,7 +28,7 @@ The two cloud accounts use different methods, so the failure of one method canno
 - The cloud keys sit in one safe in the data center's Tier 0 room, and their PINs sit in sealed envelopes in a second safe. The directory password is split in two halves, one sealed in each safe. No single person can open both.
 - A second sealed set of the cloud and directory credentials is held the same way at the alternate site, so losing the data center does not lose break-glass access.
 - Each operating site seals the password for each of its stations in two halves, in two safes at that site, so recovery happens where the aircraft is.
-- Custodians are named in AMP Section 11. At the data center and the alternate site, one safe's custodian is a Platform Team Tier 0 administrator and the other's an ISSO. At an operating site, they are the site's Fleet Operations lead and the senior operator on shift, so both halves are on site whenever aircraft fly. Each has a named alternate.
+- Custodians are named in AMP Section 11. At the data center and the alternate site, one safe's custodian is a Platform Team Tier 0 administrator and the other's an ISSO. At an operating site, they are the site's Fleet Operations lead and a named pool of senior operators, one of whom is on shift, so both halves are on site whenever aircraft fly. Each has a named alternate.
 - Every opening of either safe is written in the custody log inside it, with the date, time, both custodians, and the reason.
 
 ## When to use it
@@ -45,13 +45,13 @@ Use break-glass only when normal privileged access through the privileged access
 1. **Declare.** Open a Severity 1 incident in the service desk. If the service desk is down, call the Security Team's on-call number and record the incident afterward.
 2. **Retrieve.** Both custodians open their safes together, sign the custody log, and hand over only the account sets needed. If Active Directory or the PKI has failed, open the directory set along with the cloud set, since the privileged access workstation is then reached through its local administrator.
 3. **Sign in** from a privileged access workstation for the cloud tenant, at a domain controller or privileged access workstation console for the directory, or at the affected station's console for the ground segment. Use the data center or the alternate site, whichever is still running.
-4. **Confirm the alert.** Every break-glass sign-in pages the Security Team and the CSSP through the security monitoring platform, and cloud sign-ins also alert directly through Azure Monitor. If no page arrives within five minutes, report it in the incident, since monitoring is also impaired.
+4. **Confirm the alert.** Every break-glass sign-in pages the Security Team and the CSSP through the security monitoring platform, and cloud sign-ins and the alternate site's consoles also alert directly through Azure Monitor. If no page arrives within five minutes, report it in the incident, since monitoring is also impaired.
 5. **Do only the recovery.** Restore normal access and nothing else. Do not change other configuration, and write each action in the incident record as it is taken.
-6. **End the session** within four hours. A scheduled task logs directory and station break-glass sessions off automatically at four hours. If recovery needs longer, the authorizer renews the authorization and the incident records it.
+6. **End the session** within four hours. A scheduled task logs directory break-glass sessions off automatically at four hours. A station session stays open while any aircraft under that station is airborne, and ends at four hours or when the last one lands. If recovery needs longer, the authorizer renews the authorization and the incident records it.
 
 ## After every use
 
-1. Rotate the account's password, or reissue the key and replace its PIN.
+1. Rotate the account's password, or reissue the key and replace its PIN. For a cloud account, first revoke its sessions and refresh tokens.
 2. Reseal the key and PIN in their safes, with both custodians signing the log.
 3. The Security Team reviews the session recording and the incident record within two business days.
 4. Any gap the use exposed becomes a tracked item, and if the runbook was wrong, this page is updated.

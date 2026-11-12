@@ -221,7 +221,7 @@
 
 **Selected Tool / Product / Service:** Active Directory Domain Services, Splunk Enterprise, Ansible Automation Platform, Jira Service Management Data Center
 
-**Environment-Specific Tailoring:** Splunk computes dormancy daily from Active Directory and Entra ID sign-ins, including station sign-ins, and Ansible disables the account in Active Directory. A departure disables the Active Directory account, which flows to Entra ID, and revokes the CAC binding. Ground control stations pick up the revocation at their daily refresh and before each flight.
+**Environment-Specific Tailoring:** Splunk computes dormancy daily from Active Directory and Entra ID sign-ins, including station sign-ins, and Ansible disables the account in Active Directory, excluding break-glass accounts. A departure disables the Active Directory account, which flows to Entra ID, and revokes the CAC binding. Ground control stations pick up the revocation at their daily refresh and before each flight.
 
 **Accountable Team:** IT Operations
 
@@ -284,7 +284,7 @@
 
 **Selected Tool / Product / Service:** the PSO's physical access control system, Splunk Enterprise Security
 
-**Environment-Specific Tailoring:** The PSO runs the physical access control systems at the data center, the alternate site, and each operating site. KESTREL's account lifecycle events drive the PSO's badge provisioning and removal from Phase 2, and the correlation that alerts on an operator signed in at a station without a badge-in starts in Phase 3, when the fleet's logs arrive.
+**Environment-Specific Tailoring:** The PSO runs the physical access control systems at the data center and each operating site, and the parent organization's facility runs the one at the alternate site. KESTREL's account lifecycle events drive the PSO's badge provisioning and removal from Phase 2, and the correlation that alerts on an operator signed in at a station without a badge-in starts in Phase 3, when the fleet's logs arrive.
 
 **Accountable Team:** Security Team, with the PSO
 
@@ -323,7 +323,7 @@
 
 **Dependencies:** ID-1.3, DA-3.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
@@ -477,13 +477,13 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra Conditional Access, Microsoft Entra ID Protection, Azure Virtual Desktop
 
-**Environment-Specific Tailoring:** Cloud and VDI sessions follow the AMP's timeouts under continuous access evaluation. Ground control stations lock after 15 minutes except while their aircraft is airborne, under CCSD tailoring action 2.
+**Environment-Specific Tailoring:** Cloud and VDI sessions follow the AMP's timeouts under continuous access evaluation. Ground control stations lock after 15 minutes except while their aircraft is airborne, under CCSD tailoring action 2, from fleet integration in Phase 3.
 
 **Accountable Team:** Platform Team, with Fleet Operations for the stations
 
 **Dependencies:** ID-1.3, DA-3.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -878,13 +878,13 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra ID, YubiKey 5 FIPS Series, Active Directory Certificate Services, Active Directory Domain Services, the aircraft and ground equipment manufacturer's tools, Splunk Enterprise, Azure Monitor and VNet flow logs
 
-**Environment-Specific Tailoring:** The two cloud accounts use different sign-in methods and alert directly through Azure Monitor as well as Splunk. The directory set holds a domain account, each domain controller's DSRM password, and a local administrator per privileged access workstation, and every station has its own local account, all console-only under CCSD tailoring action 6. Cloud and directory sets are sealed in the data center and at the alternate site from Phase 1, and station accounts at each operating site when the fleet integrates in Phase 3.
+**Environment-Specific Tailoring:** The two cloud accounts use different sign-in methods, the cloud certificate comes from a dedicated break-glass CA, and cloud and alternate-site use alerts directly through Azure Monitor as well as Splunk. The directory set holds a domain account, each domain controller's DSRM password, and a local administrator per privileged access workstation, and every station has its own local account, all console-only under CCSD tailoring action 6. Cloud and directory sets are sealed in the data center and at the alternate site from Phase 1, and station accounts at each operating site when the fleet integrates in Phase 3.
 
 **Accountable Team:** Platform Team (Tier 0 administrators), with Fleet Operations
 
 **Dependencies:** ID-1.3, ID-2.1, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 

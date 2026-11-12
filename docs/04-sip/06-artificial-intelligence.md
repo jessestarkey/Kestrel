@@ -1331,7 +1331,7 @@
 
 **Dependencies:** AI-5
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 

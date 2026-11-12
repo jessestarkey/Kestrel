@@ -388,7 +388,7 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
