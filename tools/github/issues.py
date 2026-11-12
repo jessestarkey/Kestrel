@@ -161,6 +161,9 @@ def gh(*args, input=None, ok_fail=False):
         if 'rate limit' in err.lower() or 'abuse' in err.lower() or 'HTTP 403' in err or 'HTTP 429' in err:
             wait = 60 * (attempt + 1)
             print(f'  rate limited, waiting {wait}s'); time.sleep(wait); continue
+        if 'Something went wrong' in err or 'HTTP 502' in err or 'HTTP 503' in err or 'HTTP 504' in err:
+            wait = 10 * (attempt + 1)
+            print(f'  GitHub server error, retrying in {wait}s'); time.sleep(wait); continue
         raise RuntimeError(f"gh {' '.join(args[:3])} failed: {err.strip()}")
     raise RuntimeError('gave up after repeated rate limits')
 
@@ -225,7 +228,9 @@ def apply(code, issues):
     project(code, issues, st, save)
 
 
-ABOUT = """> **Notional system.** KESTREL is fictional. Nothing in this repository describes a real program, real data, or a real authorization.
+ABOUT = """<p align="center"><img src="https://raw.githubusercontent.com/jessestarkey/Kestrel/main/docs/assets/kestrel-mark.svg" alt="KESTREL logo, a hovering kestrel inside a reticle" width="160"></p>
+
+> **Notional system.** KESTREL is fictional. Nothing in this repository describes a real program, real data, or a real authorization.
 
 This repository shows a PMO ISSE applying the [SABER](https://github.com/jessestarkey/saber-framework) to a notional system. For the demonstration, three GitHub features stand in for KESTREL's self-hosted tools inside its authorization boundary:
 
@@ -250,13 +255,13 @@ def about(st, save):
     print(f"  pinned #{made['number']} About this demonstration")
 
 
-SELECTS = ['Type', 'Phase', 'Team', 'Control Type', 'Cross-Cutting Discipline', 'Maturity Model',
+SELECTS = ['Level', 'Phase', 'Team', 'Control Type', 'Cross-Cutting Discipline', 'Maturity Model',
            'ConMon Activity', 'Level of Effort', 'Time Estimation']
 TEXTS = ['Outcome ID', 'Cost']
 
 
 def values(it):
-    v = {'Type': it['type'].title(), **{k: x for k, x in it.get('fields', {}).items() if x}}
+    v = {'Level': it['type'].title(), **{k: x for k, x in it.get('fields', {}).items() if x}}
     if it['phase']:
         v['Phase'] = PHASES[it['phase']][0]
     return v

@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/assets/kestrel-mark.svg" alt="KESTREL logo, a hovering kestrel inside a reticle" width="160"></p>
+
 # KESTREL: The SABER Applied
 
 KESTREL is a **notional system** built to show the SABER (Security Architecture and Baseline Engineering Reference) applied in practice. It follows a PMO ISSE through the whole path the SABER is designed to support: categorizing a system, tailoring the framework to it, producing a Security Architecture and Design Document (SADD), and carrying that design into an issue-tracker Implementation Plan.
@@ -104,7 +106,7 @@ The repository will grow along the same path a PMO ISSE follows. The authorizati
 2. **Categorization and control selection** ([docs/02-ccsd.md](docs/02-ccsd.md)): information types, impact values, overlays, and tailoring, in the CCSD.
 3. **SADD** ([docs/03-sadd/](docs/03-sadd/index.md)): which SABER outcomes apply, which drop out and why, and the design intent for each, one file per focus area.
 4. **Security Implementation Plan** ([docs/04-sip/](docs/04-sip/index.md)): the products chosen for each SADD outcome, the team that delivers it, and a four-phase rollout, with each record ready to load into Jira as a story and its sub-tasks.
-5. **Plan-type deliverables** (`docs/plans/`): KESTREL-specific instances of the SABER's governing plans (AMP, CMP, KMP, IRP, CP, AISP, and others) where a worked example is useful.
+5. **Plan-type deliverables** (the [wiki](https://github.com/jessestarkey/Kestrel/wiki), standing in for KESTREL's Confluence, with page sources in `tools/github/wiki/`): KESTREL-specific instances of the SABER's governing plans, starting with the Account Management Plan, and the runbooks that carry them out.
 
 The system description, CCSD, SADD, and Security Implementation Plan are written. The rest follow in order.
 

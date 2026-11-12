@@ -1,5 +1,7 @@
 > **Notional system.** KESTREL is fictional. This wiki stands in for KESTREL's self-hosted Confluence space inside its authorization boundary.
 
+<p align="center"><img src="https://raw.githubusercontent.com/jessestarkey/Kestrel/main/docs/assets/kestrel-mark.svg" alt="KESTREL logo, a hovering kestrel inside a reticle" width="160"></p>
+
 # KESTREL Program Space
 
 This space holds KESTREL's working documents, namely the governing plans and the runbooks that carry them out. The configuration-controlled authorization documents live in the repository's [`docs/`](https://github.com/jessestarkey/Kestrel/tree/main/docs) folder, and the work to build KESTREL is tracked in the repository's [issues](https://github.com/jessestarkey/Kestrel/issues), which stand in for Jira.
@@ -8,7 +10,7 @@ This space holds KESTREL's working documents, namely the governing plans and the
 
 | Plan | SADD outcome | Status |
 |---|---|---|
-| [Account Management Plan (AMP)](Account-Management-Plan) | ID-5.1 | Drafting |
+| [Account Management Plan (AMP)](Account-Management-Plan) | ID-5.1 | Draft 0.1, in Configuration Control Board review |
 | Configuration Management Plan (CMP) | DI-6.1 | Not started |
 | Vulnerability and Patch Management Plan (VPMP) | DI-7.1 | Not started |
 | Application Security Plan (ASP) | AP-6.1 | Not started |

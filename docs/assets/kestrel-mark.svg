@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t">
+  <title id="t">KESTREL</title>
+  <!-- reticle -->
+  <circle cx="256" cy="256" r="224" fill="none" stroke="#5a7896" stroke-width="12"/>
+  <g fill="#5a7896">
+    <rect x="249" y="8" width="14" height="52" rx="3"/>
+    <rect x="249" y="452" width="14" height="52" rx="3"/>
+    <rect x="8" y="249" width="52" height="14" rx="3"/>
+    <rect x="452" y="249" width="52" height="14" rx="3"/>
+  </g>
+  <!-- tail, fanned, with the kestrel's dark band and pale tip -->
+  <path fill="#5a7896" d="M240 262 C248 270 264 270 272 262 L306 368 L206 368 Z"/>
+  <path fill="#7a2e14" d="M210 358 L302 358 L306 368 L206 368 Z"/>
+  <path fill="#f2e4cc" d="M206 368 L306 368 L302 378 L210 378 Z"/>
+  <!-- wings, held in a hover with pointed falcon tips -->
+  <path fill="#c2552b" d="M246 206 C220 184 198 160 176 140 C140 146 92 156 40 172 L92 184 L80 192 L128 198 L118 207 L166 212 C196 220 220 230 236 240 Z"/>
+  <path fill="#7a2e14" d="M176 140 C140 146 92 156 40 172 L92 184 L80 192 L128 198 L118 207 L150 210 C150 184 160 160 176 140 Z"/>
+  <path fill="#c2552b" d="M266 206 C292 184 314 160 336 140 C372 146 420 156 472 172 L420 184 L432 192 L384 198 L394 207 L346 212 C316 220 292 230 276 240 Z"/>
+  <path fill="#7a2e14" d="M336 140 C372 146 420 156 472 172 L420 184 L432 192 L384 198 L394 207 L362 210 C362 184 352 160 336 140 Z"/>
+  <!-- body -->
+  <path fill="#c2552b" d="M256 176 C278 176 286 204 284 232 C282 260 272 284 256 296 C240 284 230 260 228 232 C226 204 234 176 256 176 Z"/>
+  <path fill="#f2e4cc" d="M256 206 C268 210 271 232 268 252 C265 270 261 280 256 286 C251 280 247 270 244 252 C241 232 244 210 256 206 Z"/>
+  <!-- head: blue-gray with the dark malar marks below the eyes -->
+  <circle fill="#5a7896" cx="256" cy="168" r="27"/>
+  <path fill="#1d2733" d="M241 160 C239 170 241 180 245 186 C247 178 247 168 246 160 Z"/>
+  <path fill="#1d2733" d="M271 160 C273 170 271 180 267 186 C265 178 265 168 266 160 Z"/>
+  <path fill="#e3a83a" d="M250 172 L262 172 L256 184 Z"/>
+</svg>
