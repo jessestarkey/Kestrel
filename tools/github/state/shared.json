@@ -1,0 +1,121 @@
+{
+ "project": {
+  "id": "PVT_kwHOCZ5vBc4BrOti",
+  "number": 3,
+  "url": "https://github.com/users/jessestarkey/projects/3",
+  "fields": {
+   "Level": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWZo",
+    "options": {
+     "Epic": "8405ae71",
+     "Initiative": "d6825cca",
+     "Story": "358d1117",
+     "Sub-Task": "f75073d1"
+    }
+   },
+   "Phase": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWZs",
+    "options": {
+     "Phase 1: Foundation": "eb4e6d08",
+     "Phase 2: Protect and Operate": "e561df6e",
+     "Phase 3: Mission, AI, and Fleet": "534ef2a4",
+     "Phase 4: Maturity": "c67c362e"
+    }
+   },
+   "Team": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWZ4",
+    "options": {
+     "Fleet Operations": "e3e9f699",
+     "Mission teams, with the Platform Team": "e2f2b9af",
+     "Platform Team": "fe39d327",
+     "Platform Team (Tier 0 administrators)": "deb76ab6",
+     "Security Team": "dd33ab9a",
+     "Security Team (ISSM)": "7a769274",
+     "Fleet Operations, with the Platform Team and the Security Team": "59098819",
+     "Fleet Operations, with the Security Team": "d783e51e",
+     "IT Operations, with the Platform Team and Fleet Operations": "6eac973b",
+     "Platform Team, with Fleet Operations for the fleet": "d801abce",
+     "Platform Team, with the Security Team": "cc101305",
+     "Platform Team, with the Security Team for the tamper protection policy": "f70f9aa4",
+     "Platform Team, with the Security Team for threat hunting and custom indicators": "10366e9b"
+    }
+   },
+   "Control Type": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWak",
+    "options": {
+     "Documentation": "91d1d35c",
+     "Process": "eb7ba9cc",
+     "Technical": "948df5d4"
+    }
+   },
+   "Cross-Cutting Discipline": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWbE",
+    "options": {
+     "Automate": "ad8e2b09",
+     "None": "971e138c",
+     "Visualize": "fa59b9d1"
+    }
+   },
+   "Maturity Model": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWbo",
+    "options": {
+     "Level 1": "257dafe8",
+     "Level 2": "d77fb9f7",
+     "Level 3": "b4d51bd4"
+    }
+   },
+   "ConMon Activity": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWbw",
+    "options": {
+     "Continuous": "905bf381",
+     "One-Time": "569a4f1f",
+     "Periodic (Annual)": "1585ac26",
+     "Periodic (Event-Driven)": "081d6832",
+     "Periodic (Monthly)": "f5d30234",
+     "Periodic (Quarterly)": "8094925e",
+     "Periodic (Semi-Annual)": "cc68c75b"
+    }
+   },
+   "Level of Effort": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWb0",
+    "options": {
+     "Extensive": "bdff5b63",
+     "High": "f4ea286a",
+     "Low": "2c6a29c3",
+     "Moderate": "787ad0f2"
+    }
+   },
+   "Time Estimation": {
+    "id": "PVTSSF_lAHOCZ5vBc4BrOtizhpiWb4",
+    "options": {
+     "Immediate (less than one sprint)": "178a8d49",
+     "Long-term (6+ months)": "367e8a46",
+     "Medium-term (3\u20136 months)": "d3f94cf5",
+     "Short-term (1\u20133 months)": "55046f6a"
+    }
+   },
+   "Outcome ID": {
+    "id": "PVTF_lAHOCZ5vBc4BrOtizhpiWb8",
+    "options": {}
+   },
+   "Cost": {
+    "id": "PVTF_lAHOCZ5vBc4BrOtizhpiWcA",
+    "options": {}
+   },
+   "Target Date": {
+    "id": "PVTF_lAHOCZ5vBc4BrOtizhpiWcE",
+    "options": {}
+   },
+   "Start Date": {
+    "id": "PVTF_lAHOCZ5vBc4BrOtizhpimlE",
+    "options": {}
+   }
+  }
+ },
+ "about": {
+  "number": 179,
+  "id": 6340037860,
+  "node": "I_kwDOVqDm9M8AAAABeeVM5A"
+ },
+ "readme": "<p align=\"center\"><img src=\"https://raw.githubusercontent.com/jessestarkey/Kestrel/main/docs/assets/kestrel-mark.svg\" alt=\"KESTREL logo, a hovering kestrel inside a reticle\" width=\"160\"></p>\n\n> **Notional system.** KESTREL is fictional. Nothing in this repository describes a real program, real data, or a real authorization.\n\nThis repository shows a PMO ISSE applying the [SABER](https://github.com/jessestarkey/saber-framework) to a notional system. For the demonstration, three GitHub features stand in for KESTREL's self-hosted tools inside its authorization boundary:\n\n| KESTREL's tool | Stood in for by | What it holds here |\n|---|---|---|\n| Jira Software Data Center | GitHub Issues with sub-issues | The Security Implementation Plan's work, as initiative, epic, story, and sub-task |\n| Jira plans and boards | The [KESTREL Implementation](https://github.com/users/jessestarkey/projects/3) project | The same issues with the plan's phase, team, and activity metadata as fields |\n| Confluence Data Center | This repository's wiki | Governing plans and runbooks the stories point to |\n| GitLab Ultimate | This repository's code and docs | Source, infrastructure as code, and the configuration-controlled documents |\n\nThe project's six statuses stand in for a Jira workflow, namely Backlog for later phases and for work waiting on another story, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between stories show sequencing inside the plan. A story and its sub-tasks stay in Backlog until the stories it is blocked by are Done up to its phase, and the generator then moves them to Ready. The Blocked status is kept for outside parties. Done means a control is built, accepted, and evidenced, including continuous and periodic controls. After that, continuous controls run in the monitoring tools, and each periodic control gets a small issue per cycle, such as each quarter's access review. The ConMon Activity field shows which kind a card is.\n\nTwo of the twelve focus areas are loaded so far, namely Identity (ID) and Device and Infrastructure (DI). Every issue is generated from the plan's records by `tools/github/issues.py`, so the tracker and the documents always agree. Phases are milestones, standing in for Jira fix versions.\n"
+}
