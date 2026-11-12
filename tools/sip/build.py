@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(HERE)); sys.path.insert(0, HERE)
 import saberlib as S
 from saberlib import REPO, PILLAR, parse, scope
 from catalog import PRODUCTS, CONTRACTS, GOV, OSS
-from selections import CAP, OUT, PINS, NA, RERATE
+from selections import CAP, OUT, PINS, NA, RERATE, ONE, SHARED, STRICT
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--framework', default=os.path.join(os.path.dirname(REPO), 'security-framework'))
@@ -82,6 +82,7 @@ def cell(a, f):
 ACT_COLS = ['Control Type', 'Cross-Cutting Discipline', 'Maturity Model', 'ConMon Activity',
             'Level of Effort', 'Cost', 'Time Estimation']
 os.makedirs(DOCS, exist_ok=True)
+inherited = collections.defaultdict(list)
 used_na = set(); used_pins = set(); act_count = collections.Counter()
 starts = {}; dep_refs = {}
 stats = []; contract_use = collections.defaultdict(list); phase_count = collections.Counter()
@@ -108,6 +109,9 @@ for fname in sorted(os.listdir(S.FW)):
                 continue
             oid, ot = [x.strip() for x in o['title'].split(':', 1)]
             sel = dict(CAP[cid]); sel.update(OUT.get(oid, {}))
+            # Tailoring copied from the capability usually describes a sibling, not this outcome.
+            if sel['tailoring'] == CAP[cid]['tailoring'] and sel['tailoring'] != ONE and oid not in SHARED:
+                inherited[code].append(oid)
             # Each activity takes a phase from its maturity level: Level 1 keeps the
             # outcome's base phase, Level 2 waits for Phase 2 at the earliest, and
             # Level 3 waits for Phase 4. A pin in selections.PINS overrides that.
@@ -225,6 +229,10 @@ for oid, refs in dep_refs.items():
         if not targets:
             missing.append(f'{oid} -> {r}')
         late += [f'{oid} (Phase {starts[oid]}) depends on {t} (Phase {starts[t]})' for t in targets if starts[t] > starts[oid]]
+for c, ids in inherited.items():
+    if c in STRICT:
+        sys.exit(f'{c} records still carry their capability tailoring: {ids}. Write their own in OUT or list them in SHARED.')
+print('Records still carrying capability tailoring, by unreviewed focus area: ' + ', '.join(f'{c} {len(v)}' for c, v in inherited.items()))
 if missing:
     sys.exit('Dependencies on outcomes that are not in scope: ' + ', '.join(missing))
 if late:

@@ -40,13 +40,13 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra certificate-based authentication, Microsoft Entra ID, Microsoft Entra ID Governance
 
-**Environment-Specific Tailoring:** Partner PKIs and federated partner identity providers are trusted only in the cloud, since partners reach only the partner API in Mission Team 2 Prod. The ECA trust list is set up in Phase 1 for vendor support, and partners onboard in Phase 3, after the integration testing the interim authorization to test covers.
+**Environment-Specific Tailoring:** ECA trust, revocation checking, sponsorship, and review start in Phase 1, because vendor support engineers connect with ECA credentials from the first build. Partner nations' PKIs and identity providers join in Phase 3, once integration testing under the interim authorization to test is done, and they are trusted only for the partner API that Mission Team 2 runs.
 
-**Accountable Team:** IT Operations, with Mission Team 2
+**Accountable Team:** IT Operations
 
 **Dependencies:** ID-1.3, DA-3.7, GV-5.6
 
-**Funding Line:** FY27 and FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 1, Foundation, with activities through Phase 3
 
@@ -61,13 +61,13 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | ID-1.2.1: External PKI Trust Chain Management | 1 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| ID-1.2.2: External Credential Validation and Revocation Checking | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-1.2.2: External Credential Validation and Revocation Checking | 1 (pinned) | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-1.2.3: Partner Identity Provider Federation Trust Management | 3 | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| ID-1.2.4: External User Sponsorship and Local Identity Binding | 3 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-| ID-1.2.5: External User Access Authorization Mapping | 3 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| ID-1.2.6: External User Access Review and Revocation | 3 | Process | None | Level 1 | Periodic (Quarterly) (re-rated) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| ID-1.2.4: External User Sponsorship and Local Identity Binding | 1 (pinned) | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| ID-1.2.5: External User Access Authorization Mapping | 1 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| ID-1.2.6: External User Access Review and Revocation | 1 (pinned) | Process | None | Level 1 | Periodic (Quarterly) (re-rated) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 
-**Pinned:** ID-1.2.1: Vendor support engineers authenticate with ECA credentials from Phase 1, before partners onboard.
+**Pinned:** ID-1.2.1: Vendor support engineers authenticate with ECA credentials from Phase 1, before partners onboard. ID-1.2.2: Vendor ECA credentials are revocation-checked at every session from the day vendors connect. ID-1.2.4: Each vendor engineer is sponsored and bound to a local identity from the day vendors connect. ID-1.2.5: Vendor access is authorized against its support case from the day vendors connect. ID-1.2.6: Vendor access is reviewed from the day vendors connect.
 
 **Re-rated:** ID-1.2.6: AMP Section 6 reviews partner access quarterly.
 
@@ -129,7 +129,7 @@
 
 ### ID-1.5: Directory and Tier 0 Infrastructure Hardening
 
-**Selected Tool / Product / Service:** Active Directory Domain Services, Active Directory Certificate Services, Entrust nShield 5 HSMs, Microsoft Defender for Identity, Microsoft Entra Connect Sync, Windows LAPS
+**Selected Tool / Product / Service:** Active Directory Domain Services, Active Directory Certificate Services, Entrust nShield 5 HSMs, Microsoft Defender for Identity, Microsoft Entra Connect Sync, Windows LAPS, group Managed Service Accounts, CyberArk Privileged Access Manager
 
 **Environment-Specific Tailoring:** The root certificate authority's keys sit in the nShield HSMs, with a standby issuing authority and a second HSM at the alternate site. Directory synchronization runs only over the circuit, and Windows LAPS rotates local administrator passwords.
 
@@ -143,7 +143,7 @@
 
 **Target Date / Sprint:** 2027-06-30
 
-**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -154,7 +154,9 @@
 | ID-1.5.1: Directory Service Configuration Hardening | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-1.5.2: Certificate Authority Infrastructure Hardening | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-1.5.3: Hybrid Identity Synchronization Infrastructure Hardening | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| ID-1.5.4: Tier 0 and Local Administrator Credential Rotation | 1 | Technical | Automate | Level 1 | Periodic (Semi-Annual) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-1.5.4: Tier 0 and Local Administrator Credential Rotation | 1 | Technical | Automate | Level 1 | Periodic (Monthly) (re-rated) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+
+**Re-rated:** ID-1.5.4: AMP Section 3 rotates local administrator and service account passwords every 30 days.
 
 ### ID-1.6: Third-Party Application and SaaS Access Governance
 
@@ -219,7 +221,7 @@
 
 **Selected Tool / Product / Service:** Active Directory Domain Services, Microsoft Entra ID Governance, Jira Service Management Data Center, Splunk Enterprise
 
-**Environment-Specific Tailoring:** A departure disables the Active Directory account, which flows to Entra ID, and revokes the CAC binding. Ground control stations pick up the revocation at their daily refresh.
+**Environment-Specific Tailoring:** A departure disables the Active Directory account, which flows to Entra ID, and revokes the CAC binding. Ground control stations pick up the revocation at their daily refresh and before each flight.
 
 **Accountable Team:** IT Operations
 
@@ -241,9 +243,11 @@
 |---|---|---|---|---|---|---|---|---|
 | ID-1.8.1: Authoritative Source Synchronization | 1 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-1.8.2: Deprovisioning-on-Termination Automation | 1 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| ID-1.8.3: Orphaned and Dormant Account Remediation | 2 | Technical | Automate | Level 2 | Periodic (Monthly) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| ID-1.8.3: Orphaned and Dormant Account Remediation | 2 | Technical | Automate | Level 2 | Continuous (re-rated) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | ID-1.8.4: Duplicate Identity Detection and Reconciliation | 2 | Technical | None | Level 2 | Periodic (Quarterly) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-1.8.5: Identity/Access Posture Dashboard | 2 | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+
+**Re-rated:** ID-1.8.3: AMP Section 4 checks dormancy daily.
 
 ### ID-1.9: Access Reviews
 
@@ -280,9 +284,9 @@
 
 **Selected Tool / Product / Service:** the PSO's physical access control system, Splunk Enterprise Security
 
-**Environment-Specific Tailoring:** The PSO runs the physical access control systems at the data center and each operating site, and KESTREL only reads their badge events and assignments. Data center correlation starts in Phase 2, and station sites join when the fleet's logs arrive in Phase 3.
+**Environment-Specific Tailoring:** The PSO runs the physical access control systems at the data center, the alternate site, and each operating site. KESTREL's account lifecycle events drive the PSO's badge provisioning and removal from Phase 2, and the correlation that alerts on an operator signed in at a station without a badge-in starts in Phase 3, when the fleet's logs arrive.
 
-**Accountable Team:** Security Team
+**Accountable Team:** Security Team, with the PSO
 
 **Dependencies:** DE-3.1, the PSO physical access control system
 
@@ -305,13 +309,13 @@
 | ID-1.10.3: Physical-Logical Access Correlation | 3 (pinned) | Technical | Automate | Level 3 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-1.10.4: Physical Access Reconciliation and Audit | 2 | Process | None | Level 2 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** ID-1.10.3: The AMP already denies an operator who is not badged in, so the correlation must run before the ATO decision.
+**Pinned:** ID-1.10.3: The AMP alerts on an operator signed in at a station without a badge-in, so the correlation must run before the ATO decision.
 
 ## ID-2: User Identity Protection
 
 ### ID-2.1: User Authentication Controls
 
-**Selected Tool / Product / Service:** Microsoft Entra certificate-based authentication, Active Directory Domain Services, Active Directory Certificate Services, the aircraft and ground equipment manufacturer's tools, YubiKey 5 FIPS Series
+**Selected Tool / Product / Service:** Microsoft Entra certificate-based authentication, Active Directory Domain Services, Active Directory Certificate Services, the aircraft and ground equipment manufacturer's tools
 
 **Environment-Specific Tailoring:** Cloud sign-in uses Entra certificate-based authentication with the CAC. Data center and fleet sign-in use Active Directory smart card logon, with ground control stations falling back to local smart card checks in flight.
 
@@ -321,11 +325,11 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with activities through Phase 3
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-04-30
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references), [C24](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -338,19 +342,21 @@
 | ID-2.1.3: Derived/Mobile Credentials | N/A | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-2.1.4: Fallback/Step-Up Authenticator Policy | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-2.1.5: Password Security | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| ID-2.1.6: OT/Legacy Authentication Compensating Controls | 2 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-2.1.6: OT/Legacy Authentication Compensating Controls | 3 (pinned) | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-2.1.7: System Use Notification Banner Configuration | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
 | ID-2.1.8: Logon Attempt Limits and Authentication Feedback | 1 | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** ID-2.1.6: Compensating controls for the stations can only be put in place when the fleet integrates.
 
 **Not applicable:** ID-2.1.3: KESTREL has no mobile devices, so no derived credentials are issued.
 
 ### ID-2.2: Credential Management
 
-**Selected Tool / Product / Service:** Active Directory Certificate Services, Keyfactor Command, Entrust nShield 5 HSMs, Microsoft Entra certificate-based authentication
+**Selected Tool / Product / Service:** Active Directory Certificate Services, Keyfactor Command, Entrust nShield 5 HSMs, Microsoft Entra certificate-based authentication, CAC PIN reset workstations
 
-**Environment-Specific Tailoring:** The program PKI issues and revokes device and workload certificates in every location. Services accept a cached revocation response for up to 24 hours, and ground control stations check a local list refreshed daily and before each flight.
+**Environment-Specific Tailoring:** DoD issues the CACs, and IT Operations runs CAC PIN reset workstations at the data center and each operating site, with no alternate credential for a lost card. The program PKI issues and revokes device and workload certificates in every location. Services accept a cached revocation response for up to 24 hours, and ground control stations check a local list refreshed daily and before each flight.
 
-**Accountable Team:** Platform Team (Tier 0 administrators)
+**Accountable Team:** Platform Team (Tier 0 administrators), with IT Operations for CAC PIN resets
 
 **Dependencies:** ID-1.3, DA-3.4, DA-3.7, DA-3.8
 
@@ -360,7 +366,7 @@
 
 **Target Date / Sprint:** 2027-12-31
 
-**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C11](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
 **Status:** Not Started
 
@@ -442,11 +448,11 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra Conditional Access, Microsoft Entra ID Protection, Pomerium Enterprise
 
-**Environment-Specific Tailoring:** Conditional Access reads the performer's device compliance signal, shared under the interconnection agreement, for every proxy and VDI session. The Boundary Cloud Access Point supplies the network origin, and partner sessions from unexpected networks step up.
+**Environment-Specific Tailoring:** Conditional Access reads the performer's device compliance signal, shared under the interconnection agreement, for every proxy and VDI session. The Boundary Cloud Access Point supplies the network origin, partner sessions from unexpected networks step up, and identity threat detection's risk feeds every decision. The badge correlation alert joins as a signal in Phase 3.
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** ID-1.3, DA-3.7, NE-2.7, the performer device compliance feed
+**Dependencies:** ID-1.3, ID-1.4, DA-3.7, NE-2.7, the performer device compliance feed
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -504,9 +510,9 @@
 
 ### ID-3.1: Cloud Workload Identities
 
-**Selected Tool / Product / Service:** Microsoft Entra Workload ID, AKS workload identity, group Managed Service Accounts, Azure Key Vault Premium
+**Selected Tool / Product / Service:** Microsoft Entra Workload ID, AKS workload identity
 
-**Environment-Specific Tailoring:** Cloud workloads use AKS workload identity federated to Entra. Data center services use group Managed Service Accounts, and fleet devices use program PKI device certificates.
+**Environment-Specific Tailoring:** Every cloud workload, including the pipeline's runners, uses AKS workload identity federated to Entra ID, scoped to its own spoke. Data center services are covered by ID-3.2 and fleet devices by ID-3.7.
 
 **Accountable Team:** Platform Team
 
@@ -518,7 +524,7 @@
 
 **Target Date / Sprint:** 2027-12-31
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -652,7 +658,7 @@
 
 ### ID-3.6: Secrets and Credentials Protection
 
-**Selected Tool / Product / Service:** Microsoft Entra Workload ID, AKS workload identity, group Managed Service Accounts, Azure Key Vault Premium
+**Selected Tool / Product / Service:** Azure Key Vault Premium, GitLab Secret Detection, Entrust nShield 5 HSMs
 
 **Environment-Specific Tailoring:** Each spoke's Key Vault holds only that spoke's secrets and rotates them automatically. Datalink and root keys stay in the nShield HSMs instead.
 
@@ -666,7 +672,7 @@
 
 **Target Date / Sprint:** 2027-12-31
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -715,7 +721,7 @@
 
 **Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Microsoft Entra Privileged Identity Management, Windows 11 Enterprise, hardened to the DISA STIG
 
-**Environment-Specific Tailoring:** CyberArk brokers data center, alternate site, and fleet maintenance sessions. Entra PIM handles cloud role activation, from the platform AVD host pool for Tier 1 and from the privileged access workstations for Tier 0.
+**Environment-Specific Tailoring:** Privileged roles are defined per administrative surface, namely the cloud hub, each spoke, the clusters, the data center, the alternate site, the PKI and HSMs, and the ground segment, in Entra PIM for the cloud and CyberArk for everything else.
 
 **Accountable Team:** Platform Team (Tier 0 administrators)
 
@@ -743,7 +749,7 @@
 
 **Selected Tool / Product / Service:** Windows 11 Enterprise, hardened to the DISA STIG, Azure Virtual Desktop, CyberArk Privileged Session Manager
 
-**Environment-Specific Tailoring:** CyberArk brokers data center, alternate site, and fleet maintenance sessions. Entra PIM handles cloud role activation, from the platform AVD host pool for Tier 1 and from the privileged access workstations for Tier 0.
+**Environment-Specific Tailoring:** Tier 0 is administered only from the Windows 11 privileged access workstations in the data center and at the alternate site. Tier 1 runs from the platform Azure Virtual Desktop host pool, and the CSSP's pool reaches only the security monitoring platform and its playbooks.
 
 **Accountable Team:** Platform Team (Tier 0 administrators)
 
@@ -774,7 +780,7 @@
 
 **Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Microsoft Entra Privileged Identity Management, Windows 11 Enterprise, hardened to the DISA STIG
 
-**Environment-Specific Tailoring:** CyberArk brokers data center, alternate site, and fleet maintenance sessions. Entra PIM handles cloud role activation, from the platform AVD host pool for Tier 1 and from the privileged access workstations for Tier 0.
+**Environment-Specific Tailoring:** Cloud roles are activated through Entra PIM and on-premises and fleet roles through CyberArk, each for a bounded window, with a second approver for the PKI and HSMs.
 
 **Accountable Team:** Platform Team (Tier 0 administrators)
 
@@ -803,9 +809,9 @@
 
 ### ID-4.4: Privileged Credential Vaulting and Session Brokering
 
-**Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Microsoft Entra Privileged Identity Management, Windows 11 Enterprise, hardened to the DISA STIG
+**Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Entrust nShield 5 HSMs
 
-**Environment-Specific Tailoring:** CyberArk brokers data center, alternate site, and fleet maintenance sessions. Entra PIM handles cloud role activation, from the platform AVD host pool for Tier 1 and from the privileged access workstations for Tier 0.
+**Environment-Specific Tailoring:** CyberArk vaults the built-in administrative accounts on the HSMs, network appliances, hypervisors, and out-of-band controllers, and brokers and records every session that uses one. Two-person actions use CyberArk dual control, and HSM key operations use the nShield card quorum.
 
 **Accountable Team:** Platform Team (Tier 0 administrators)
 
@@ -817,7 +823,7 @@
 
 **Target Date / Sprint:** 2027-06-30
 
-**Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -866,11 +872,11 @@
 
 ### ID-4.6: Emergency Access
 
-**Selected Tool / Product / Service:** Microsoft Entra ID, YubiKey 5 FIPS Series, Splunk Enterprise
+**Selected Tool / Product / Service:** Microsoft Entra ID, YubiKey 5 FIPS Series, Active Directory Domain Services, the aircraft and ground equipment manufacturer's tools, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Sealed sets are held in the data center and at the alternate site. The cloud accounts are excluded from Conditional Access, and the ground segment set is delivered with Fleet Operations when the fleet integrates in Phase 3.
+**Environment-Specific Tailoring:** The two cloud accounts use different sign-in methods, and the directory and ground segment accounts use console-only passwords under a tailored exception the AMP records. Cloud and directory sets are sealed in the data center and at the alternate site from Phase 1, and each operating site's ground segment set is sealed there when the fleet integrates in Phase 3.
 
-**Accountable Team:** Platform Team (Tier 0 administrators)
+**Accountable Team:** Platform Team (Tier 0 administrators), with Fleet Operations
 
 **Dependencies:** ID-1.3, ID-2.1, DE-3.1
 
@@ -880,7 +886,7 @@
 
 **Target Date / Sprint:** 2027-06-30
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C24](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C24](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C26](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -902,7 +908,7 @@
 
 **Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Jira Service Management Data Center
 
-**Environment-Specific Tailoring:** CyberArk brokers data center, alternate site, and fleet maintenance sessions. Entra PIM handles cloud role activation, from the platform AVD host pool for Tier 1 and from the privileged access workstations for Tier 0.
+**Environment-Specific Tailoring:** Vendor engineers connect through CyberArk only for an open Jira Service Management case, for at most eight hours, with every session recorded. Fleet vendors connect only within a maintenance window.
 
 **Accountable Team:** Platform Team, with each system-owning team lead as sponsor
 
@@ -933,7 +939,7 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center, Jira Software Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** One AMP covers every identity population in the cloud, the data center, the alternate site, and the fleet, and it names the products this plan selects.
 
 **Accountable Team:** Security Team (ISSM)
 
@@ -961,7 +967,7 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra ID Governance, CyberArk Privileged Access Manager, Splunk Enterprise
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The monthly reconciliation compares Entra ID, Active Directory, and CyberArk with the AMP from Phase 2, and the ground control stations' account settings join it when the fleet integrates in Phase 3.
 
 **Accountable Team:** Security Team (ISSM)
 

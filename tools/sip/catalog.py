@@ -181,6 +181,7 @@ PRODUCTS = {
     'dcise': ("DC3's DIB Cybersecurity program", GOV),
     'pacs': ("the PSO's physical access control system", GOV),
     'dd2930': ('DD Form 2930', GOV),
+    'cpr': ('CAC PIN reset workstations', GOV),
     # Open source
     'terraform': ('Terraform', OSS),
     'packer': ('Packer', OSS),

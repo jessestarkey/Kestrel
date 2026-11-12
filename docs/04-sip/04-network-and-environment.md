@@ -155,17 +155,17 @@
 
 **Selected Tool / Product / Service:** Palo Alto Networks PA-Series, Nozomi Networks Guardian
 
-**Environment-Specific Tailoring:** Cloud segmentation is the ten spoke VNets and their NSGs. Data center and alternate site segmentation is Cisco ACI endpoint groups, and the ground segment uses its own zoned firewall.
+**Environment-Specific Tailoring:** The zones and conduits are designed and validated on the spare stations and the simulator in Phase 2, so device identity and maintenance windows can build on them when the fleet integrates.
 
 **Accountable Team:** Fleet Operations
 
 **Dependencies:** DI-2.1
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY27 and FY28 RDT&E, fleet integration
 
-**Rollout Phase:** Phase 3, Mission, AI, and Fleet
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2027-12-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C13](index.md#6-contracting-and-procurement-cross-references)
 
@@ -175,12 +175,12 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| NE-1.6.1: Zone and Conduit Model Definition | 3 | Documentation | None | Level 1 | Periodic (Event-Driven) | High | One-Time: High; Recurring: Low | Medium-term (3–6 months) |
-| NE-1.6.2: Security Level Target (SL-T) Assignment | 3 | Documentation | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| NE-1.6.3: Conduit Access Control and Allow-Listing | 3 | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
-| NE-1.6.4: IT/OT Demilitarized Zone | 3 | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
-| NE-1.6.5: Zone-to-Zone Data Flow Monitoring | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| NE-1.6.6: Zone Segmentation Enforcement Validation | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| NE-1.6.1: Zone and Conduit Model Definition | 2 | Documentation | None | Level 1 | Periodic (Event-Driven) | High | One-Time: High; Recurring: Low | Medium-term (3–6 months) |
+| NE-1.6.2: Security Level Target (SL-T) Assignment | 2 | Documentation | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| NE-1.6.3: Conduit Access Control and Allow-Listing | 2 | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
+| NE-1.6.4: IT/OT Demilitarized Zone | 2 | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
+| NE-1.6.5: Zone-to-Zone Data Flow Monitoring | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| NE-1.6.6: Zone Segmentation Enforcement Validation | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 
 ### NE-1.7: Network Access Control (NAC/802.1X)
 
@@ -463,17 +463,17 @@
 
 **Selected Tool / Product / Service:** the datalink crypto modules, Entrust nShield 5 HSMs
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub. PA-Series pairs form the data center hub and the alternate site firewall, all under one Panorama rule base deployed by Terraform.
+**Environment-Specific Tailoring:** Datalink authentication and encryption are set up and tested on spare aircraft and the simulator in Phase 2, before any aircraft carries mission data.
 
 **Accountable Team:** Fleet Operations
 
 **Dependencies:** NE-1.4, ID-1.3
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY27 and FY28 RDT&E, fleet integration
 
-**Rollout Phase:** Phase 3, Mission, AI, and Fleet
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2028-04-30
+**Target Date / Sprint:** 2027-12-31
 
 **Contracting / Procurement Reference:** [C26](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
@@ -483,9 +483,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| NE-2.8.1: Command Uplink Authentication and Encryption (CCSDS SDLS) | 3 | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Long-term (6+ months) |
-| NE-2.8.2: Telemetry Downlink Authentication and Integrity Protection (CCSDS SDLS) | 3 | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Long-term (6+ months) |
-| NE-2.8.3: Link-Anomaly and Jamming-Indicator Monitoring and Alerting | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| NE-2.8.1: Command Uplink Authentication and Encryption (CCSDS SDLS) | 2 | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Long-term (6+ months) |
+| NE-2.8.2: Telemetry Downlink Authentication and Integrity Protection (CCSDS SDLS) | 2 | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Long-term (6+ months) |
+| NE-2.8.3: Link-Anomaly and Jamming-Indicator Monitoring and Alerting | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 
 ### NE-2.10: Cross Domain Solution (CDS) Transfer Procedures
 

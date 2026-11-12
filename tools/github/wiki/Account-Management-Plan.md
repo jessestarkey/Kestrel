@@ -13,7 +13,7 @@ This plan consolidates KESTREL's identity assurance levels, authentication and s
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| AMP Version | 0.2 |
+| AMP Version | 0.3 |
 | Date | 2026-11-11 |
 | Prepared By | KESTREL ISSM, with the Platform Team's Tier 0 administrators and IT Operations |
 | Approved By | Configuration Control Board, chaired by the chief engineer |
@@ -27,6 +27,7 @@ This plan consolidates KESTREL's identity assurance levels, authentication and s
 |---|---|---|---|
 | 0.1 | 2026-11-11 | KESTREL ISSM | Initial draft for Configuration Control Board review |
 | 0.2 | 2026-11-12 | KESTREL ISSM | Named the selected products, fixed station revocation timing, named the break-glass custodians, and moved privileged unlocks to Tier 0 |
+| 0.3 | 2026-11-12 | KESTREL ISSM | Replaced temporary fallback keys with CAC PIN reset and reissue, and redesigned break-glass around method diversity in the cloud and console-only passwords for the directory and stations, under a tailored exception |
 
 ---
 
@@ -62,11 +63,11 @@ An identity is re-proofed when any of the following occurs:
 
 *Traces to ID-2.1.1, ID-2.1.4, ID-2.1.5, ID-2.1.6, ID-2.1.8, and ID-2.2.3.*
 
-**Primary authenticators.** Every person authenticates with a hardware certificate, namely the CAC for DoD staff, performers, the CSSP, and penetration testers, and a partner PKI or ECA certificate for partners and vendors. Cloud sign-in uses Microsoft Entra certificate-based authentication, and data center sign-in uses Active Directory smart card logon. No user role has a password path. FIPS 140-3 validated FIDO2 hardware keys, namely YubiKey 5 FIPS Series keys, are used in only two cases, namely the break-glass accounts under Section 11 and the temporary fallback below.
+**Primary authenticators.** Every person authenticates with a hardware certificate, namely the CAC for DoD staff, performers, the CSSP, and penetration testers, and a partner PKI or ECA certificate for partners and vendors. Cloud sign-in uses Microsoft Entra certificate-based authentication, and data center sign-in uses Active Directory smart card logon. No user role has a password path. FIPS 140-3 validated hardware keys, namely YubiKey 5 FIPS Series keys, are used only for the cloud break-glass accounts under Section 11.
 
 **Step-up.** A fresh certificate authentication is required to activate any Tier 0 or Tier 1 role, to approve a release to a partner nation, to approve an AI agent's action that affects a flight, and to approve a change in the Configuration Control Board's queue.
 
-**Fallback when a CAC is unavailable.** A user whose CAC is lost or broken may receive a temporary FIDO2 hardware key from IT Operations, after in-person identity verification against the CAC record. It is valid for 14 days, grants no privileged role, and is revoked as soon as the replacement CAC is issued.
+**When a CAC fails.** A locked CAC is unlocked at a CAC PIN reset workstation, which IT Operations runs at the data center and each operating site after verifying the person in person. A lost or broken CAC is reissued by a DoD ID card office, and the user has no KESTREL access until it is. KESTREL issues no alternate credential, so an operator without a working CAC hands the station to another operator.
 
 **Degraded revocation checking.** Active Directory Certificate Services publishes revocation status for the program PKI, and Entra ID checks DoD PKI and ECA revocation for cloud sign-in. If the revocation service cannot be reached, services accept a cached response for up to 24 hours and then deny. Ground control stations validate against a locally cached revocation list refreshed daily and before each flight, so a revoked credential stops working within 24 hours and revocation outages never block an operator in flight.
 
@@ -106,7 +107,7 @@ OT and legacy devices that can hold a certificate get a constrained lifecycle. C
 
 **Dormancy.** An account with no sign-in for 35 days is disabled, and one dormant for 90 days is removed. Entra ID Governance lifecycle workflows check dormancy daily and act on the Active Directory account, which synchronizes to Entra ID. Privileged role eligibility lapses after 35 days without an activation.
 
-**Departures.** A departure signal from the parent organization's or the performer's personnel system disables the account within 24 hours, across every segment. Ground control stations enforce it at their daily revocation refresh. Partner accounts end with their sponsor's agreement.
+**Departures.** A departure signal from the parent organization's or the performer's personnel system disables the account within 24 hours, across every segment. Ground control stations enforce it at their daily revocation refresh and before each flight. Partner accounts end with their sponsor's agreement.
 
 **Service accounts.** A service account is created only where Entra Workload ID cannot be used, through a Jira Service Management request naming its owner, purpose, scope, and expiry. It is a group Managed Service Account wherever the service supports one. The Platform Team lead and an ISSO both approve it.
 
@@ -147,14 +148,14 @@ Entra ID Governance runs every campaign except the vaulted privileged accounts, 
 
 *Traces to ID-2.5.2, ID-2.6.1, ID-2.6.5, ID-2.6.7, ID-2.6.8, and ID-3.3.8.*
 
-**Access decisions.** Entra Conditional Access makes these decisions, reading Entra ID Protection's risk, the performer's device compliance signal, and badge events from Splunk.
+**Access decisions.** Entra Conditional Access and the Pomerium identity-aware proxy make these decisions, reading Entra ID Protection's risk and the performer's device compliance signal. Station sign-ins are checked locally, so the badge rule raises an alert in Splunk rather than a denial.
 
 | Condition | Result |
 |---|---|
 | A performer laptop that is not reporting as compliant | Deny |
 | A partner session from outside that nation's expected networks | Step up, and deny if it persists |
 | High sign-in risk from identity threat detection | Deny, and alert the Security Team |
-| An operator signed in at a station they are not badged into | Deny, and alert the Security Team |
+| An operator signed in at a station without a badge-in at that site | Alert the Security Team, which investigates at once |
 | Medium sign-in risk on a privileged activation | Step up |
 
 **Session risk.** Each session's risk score rises with impossible travel, a changed device or network, token reuse from another device, and access to another team's data. A score above the high threshold ends the session and revokes its tokens.
@@ -200,11 +201,11 @@ Every developer's laptop runs the GitLab secret detection pre-commit hook the pe
 
 | Tier | Covers |
 |---|---|
-| Tier 0 | The directory and identity provider, its cloud synchronization, the PKI and HSMs, the privileged access platform, and the cloud tenant-owner roles |
+| Tier 0 | The directory and identity provider, its cloud synchronization, the PKI and HSMs, the privileged access platform, the cloud tenant-owner roles, and the privileged access workstations themselves |
 | Tier 1 | The cloud hub and spokes, every cluster, the data center and alternate site servers, the network fabric, and the security monitoring platform |
-| Tier 2 | VDI desktops, the privileged access workstations as devices, and ground control station workstations |
+| Tier 2 | VDI desktops and ground control station workstations |
 
-Tier 0 roles may be activated only by the Platform Team's named Tier 0 administrators, from the Windows 11 privileged access workstations, for up to one hour. Tier 1 roles may be activated by each team's named administrators for that team's own systems, from the platform Azure Virtual Desktop host pool, for up to four hours. Entra Privileged Identity Management activates cloud roles, and CyberArk Privileged Access Manager brokers, vaults, and records every on-premises and fleet session. No privilege is standing.
+Tier 0 roles may be activated only by the Platform Team's named Tier 0 administrators, from the Windows 11 privileged access workstations in the data center and at the alternate site, for up to one hour. Tier 1 roles may be activated by each team's named administrators for that team's own systems, from the platform Azure Virtual Desktop host pool, for up to four hours. Entra Privileged Identity Management activates cloud roles, and CyberArk Privileged Access Manager brokers, vaults, and records every on-premises and fleet session. No privilege is standing.
 
 **OT maintenance windows.** Each operating site has a weekly maintenance window for its ground control stations and launch equipment, scheduled by Fleet Operations and never held while an aircraft under that site's stations is airborne. Each window opens against a change record the Configuration Control Board has approved, and the device credential rotation in Section 3 rides the same window. Work that runs past the window stops until Fleet Operations' operations lead and an ISSO approve an extension.
 
@@ -225,7 +226,15 @@ Tier 0 roles may be activated only by the Platform Team's named Tier 0 administr
 
 *Traces to ID-4.6.5.*
 
-KESTREL keeps break-glass accounts for the directory, the cloud tenant, and the ground segment, sealed in the data center with a second sealed set at the alternate site. The custodians are two named Platform Team Tier 0 administrators and two named ISSOs, recorded in the privileged access platform, so each safe has a primary and an alternate custodian. Each set is exercised once a quarter by a planned use of the [Break-Glass Account Retrieval](Break-Glass-Account-Retrieval) runbook. Every credential is rotated after every real or test use, and each test's result is recorded.
+KESTREL keeps three sets of break-glass accounts:
+
+| Account set | Authenticator | Where it is sealed | Custodians |
+|---|---|---|---|
+| Cloud tenant, two accounts | One FIDO2 key and one certificate on a YubiKey's smart card applet, so one method failing does not lock out both | The data center and the alternate site | A Platform Team Tier 0 administrator and an ISSO |
+| Directory | Long random password, usable only at a domain controller or privileged access workstation console | The data center and the alternate site | A Platform Team Tier 0 administrator and an ISSO |
+| Ground segment | Long random password, usable only at a station's console | Each operating site | Fleet Operations' site lead and the operations lead |
+
+Each custodian has a named alternate, recorded in the privileged access platform. The cloud accounts are excluded from Conditional Access, so a policy error cannot lock them out. The directory and ground segment break-glass accounts use long random passwords rather than a second factor, because their recovery cannot depend on the PKI or the identity provider they may be recovering. This is a tailored exception to the SABER's phishing-resistant MFA requirement for emergency accounts (ID-4.6.2). Its compensating controls are physical presence at a console, logon restricted to named consoles, a password split between two custodians, an immediate alert to the Security Team and the CSSP on any use, and rotation after every use. The exception is recorded in the risk register and accepted by the AO. Each set is exercised once a quarter by a planned use of the [Break-Glass Account Retrieval](Break-Glass-Account-Retrieval) runbook. Every credential is rotated after every real or test use, and each test's result is recorded.
 
 ---
 
@@ -275,7 +284,7 @@ AMP Compliance Verification (ID-5.2) compares the identity provider's and the pr
 
 ## Approval
 
-**Approved By:** Pending. The Configuration Control Board reviews version 0.1.
+**Approved By:** Pending. The Configuration Control Board reviews version 0.3.
 
 **Circulated To:** the Platform Team, IT Operations, Fleet Operations, every team lead, the PSO, and the CSSP.
 

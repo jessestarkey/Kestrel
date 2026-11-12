@@ -211,7 +211,7 @@ This segment holds the authoritative mission data and the services every other s
 | Signals conversion server | Runs Payload Vendor B's conversion software on a supported operating system inside Mission Team 2's segment | On-Premises | Virtual Machine/Server, Self-Hosted Third-Party Application (COTS) |
 | Identity provider and directory | Authenticates users and workloads across KESTREL and issues their team and role memberships | On-Premises, Hybrid | Directory/Platform Core Infrastructure, Human Authentication |
 | Privileged access platform | Brokers just-in-time elevation, vaults shared credentials, and records privileged sessions | On-Premises, Hybrid | Privileged Access Management |
-| Privileged access workstations | Physical workstations in the data center, the only origin for Tier 0 administration and the cloud tenant-owner roles | On-Premises | Privileged Access Workstation (PAW) |
+| Privileged access workstations | Physical workstations in the data center and at the alternate site, the only origin for Tier 0 administration and the cloud tenant-owner roles | On-Premises | Privileged Access Workstation (PAW) |
 | PKI and HSMs | Issues device, workload, and code-signing certificates and protects the signing keys | On-Premises | PKI/Certificate Authority, Cryptographic Hardware/HSM |
 | Security monitoring platform | Collects and correlates logs from every spoke and segment, forwards telemetry to the CSSP, and is the working view for the Security Team and the CSSP's analysts | On-Premises, Hybrid | Security Information and Event Management (SIEM) Platform |
 | Backup and archive | Keeps recovery copies of the data lake, registries, and configuration under retention lock | On-Premises | Backup/Archive Repository |
@@ -222,7 +222,7 @@ This segment holds the authoritative mission data and the services every other s
 
 ### Alternate Site
 
-The alternate site keeps identity, the PKI, and the backups alive if the mission data center is lost. KESTREL owns and operates its equipment in a parent organization facility, which provides space, power, and physical security under a facility agreement. It reaches the cloud over its own circuit and the data center through the cloud hub, so losing either the data center or the first circuit leaves it connected.
+The alternate site keeps identity, the PKI, and the backups alive if the mission data center is lost. It has its own privileged access workstations, so Tier 0 administration and break-glass recovery still work without the data center. KESTREL owns and operates its equipment in a parent organization facility, which provides space, power, and physical security under a facility agreement. It reaches the cloud over its own circuit and the data center through the cloud hub, so losing either the data center or the first circuit leaves it connected.
 
 | Component | What it does | Deployment Type | Affected Components |
 | :--- | :--- | :--- | :--- |
@@ -299,7 +299,7 @@ Flows F9 and F16 are where the mission teams' AI use cases meet the ML team's mo
 | Coalition partners | Partner API only, from five partner nations under program sponsorship |
 | Software developers | Their own team's repositories and CI interfaces from performer laptops through the identity-aware proxy, with no privileged roles |
 | Data scientists and ML engineers | The ML team's experimentation workspaces and training cluster from performer laptops through the identity-aware proxy. Mission data never reaches the laptops |
-| Platform administrators | Tier 1 administration from the platform team's VDI host pool, reached from performer laptops. Tier 0 and the cloud tenant-owner roles only from the privileged access workstations |
+| Platform administrators | Tier 1 administration from the platform team's VDI host pool, reached from performer laptops. Tier 0 and the cloud tenant-owner roles only from the privileged access workstations in the data center or at the alternate site |
 | Security Team | The ISSM, ISSOs, and security analysts, with read and audit access across KESTREL and full use of the security monitoring platform, but no administrative roles |
 | IT Operations staff | The service desk, account provisioning through the identity provider's workflows, and scheduled operations through the pipeline and the privileged access platform |
 | Data engineers and stewards | The Data Team's ingest pipelines, conversion hosts, catalog, and the curation path into the ML training zone |
