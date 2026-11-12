@@ -98,6 +98,8 @@ PRODUCTS = {
     'adcs': ('Active Directory Certificate Services', 'C02'),
     'gmsa': ('group Managed Service Accounts', 'C02'),
     'mecm': ('Microsoft Configuration Manager', 'C02'),
+    'laps': ('Windows LAPS', 'C02'),
+    'mdca': ('Microsoft Defender for Cloud Apps', 'C02'),
     'win11': ('Windows 11 Enterprise, hardened to the DISA STIG', 'C02'),
     'purviewmip': ('Microsoft Purview Information Protection', 'C02'),
     'purviewdlp': ('Microsoft Purview Data Loss Prevention', 'C02'),

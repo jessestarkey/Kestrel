@@ -98,7 +98,7 @@
 
 **Dependencies:** None.
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -155,7 +155,7 @@
 
 **Dependencies:** None.
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -302,7 +302,7 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -331,7 +331,7 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -360,7 +360,7 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -388,7 +388,7 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -418,7 +418,7 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -448,7 +448,7 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -480,7 +480,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -504,7 +504,7 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -532,7 +532,7 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -561,7 +561,7 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -589,7 +589,7 @@
 
 **Dependencies:** GV-1.4
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -675,7 +675,7 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY27 and FY29 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 1, Foundation, with activities through Phase 4
 
@@ -793,7 +793,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** None. Government-furnished, so no new contract is needed.
 
@@ -848,7 +848,7 @@
 
 **Dependencies:** GV-1.2
 
-**Funding Line:** FY27 and FY29 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 1, Foundation, with activities through Phase 4
 
@@ -881,7 +881,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 

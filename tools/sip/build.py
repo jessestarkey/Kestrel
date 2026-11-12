@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(HERE)); sys.path.insert(0, HERE)
 import saberlib as S
 from saberlib import REPO, PILLAR, parse, scope
 from catalog import PRODUCTS, CONTRACTS, GOV, OSS
-from selections import CAP, OUT, PINS
+from selections import CAP, OUT, PINS, NA, RERATE
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--framework', default=os.path.join(os.path.dirname(REPO), 'security-framework'))
@@ -27,16 +27,21 @@ SADD = '../03-sadd'
 PHASES = {
     1: ('Foundation', '2027-01-01', '2027-06-30', 'Funded (FY27 base)'),
     2: ('Protect and Operate', '2027-07-01', '2027-12-31', 'Funded (FY27 and FY28 base)'),
-    3: ('Mission, AI, and Fleet', '2028-01-01', '2028-06-30', 'Pending approval (FY28 RDT&E)'),
-    4: ('Maturity', '2028-07-01', '2028-12-31', 'Unfunded (FY29 request)'),
+    3: ('Mission, AI, and Fleet', '2028-01-01', '2028-06-30', 'Pending approval (FY28 RDT&E and O&M)'),
+    4: ('Maturity', '2028-07-01', '2028-12-31', 'Unfunded (FY28 and FY29 requests)'),
 }
-FY = {1: 'FY27', 2: 'FY28', 3: 'FY28', 4: 'FY29'}
+# Fiscal years each phase spans. The federal fiscal year starts on 1 October.
+FY = {1: ['FY27'], 2: ['FY27', 'FY28'], 3: ['FY28'], 4: ['FY28', 'FY29']}
+# Work due by the ATO decision must be ready two months early, so the SCA can assess it.
+ASSESS_READY = '2028-04-30'
 SEC6 = 'index.md#6-contracting-and-procurement-cross-references'
 
 
 def funding(team, fys):
     if 'SCA' in team or team.startswith('Program Office'):
         line = 'program management'
+    elif team.startswith('Fleet Operations'):
+        line = 'RDT&E, fleet integration'
     elif any(t in team for t in ('ML Team', 'Mission', 'Data Team')):
         line = 'RDT&E, mission and ML'
     else:
@@ -77,7 +82,7 @@ def cell(a, f):
 ACT_COLS = ['Control Type', 'Cross-Cutting Discipline', 'Maturity Model', 'ConMon Activity',
             'Level of Effort', 'Cost', 'Time Estimation']
 os.makedirs(DOCS, exist_ok=True)
-used_pins = set(); act_count = collections.Counter()
+used_na = set(); used_pins = set(); act_count = collections.Counter()
 starts = {}; dep_refs = {}
 stats = []; contract_use = collections.defaultdict(list); phase_count = collections.Counter()
 phase_fa = collections.defaultdict(collections.Counter); warnings = []
@@ -110,6 +115,8 @@ for fname in sorted(os.listdir(S.FW)):
             aph = {}
             for a in o['acts']:
                 aid = a['title'].split(':')[0].strip()
+                if aid in NA:
+                    used_na.add(aid); continue
                 lv = level(a)
                 p = {1: base, 2: max(base, 2), 3: 4}.get(lv, base)
                 if aid in PINS:
@@ -131,9 +138,9 @@ for fname in sorted(os.listdir(S.FW)):
                 if c not in (GOV, OSS) and oid not in contract_use[c]:
                     contract_use[c].append(oid)
             pname = PHASES[phase][0]
-            last = max(aph.values()); end = PHASES[last][2]
+            last = max(aph.values()); end = ASSESS_READY if last == 3 else PHASES[last][2]
             span = f'Phase {phase}, {pname}' + (f', with activities through Phase {last}' if last > phase else '')
-            fys = sorted({FY[p] for p in aph.values()})
+            fys = sorted({y for p in aph.values() for y in FY[p]})
             body += [f'### {oid}: {ot}', '',
                      f"**Selected Tool / Product / Service:** {', '.join(PRODUCTS[k][0] for k in sel['tools'])}", '',
                      f"**Environment-Specific Tailoring:** {sel['tailoring']}", '',
@@ -149,11 +156,21 @@ for fname in sorted(os.listdir(S.FW)):
             for a in o['acts']:
                 acts += 1
                 aid = a['title'].split(':')[0].strip()
+                if aid in NA:
+                    body.append(f"| {a['title']} | N/A | " + ' | '.join(cell(a, f) for f in ACT_COLS) + ' |'); continue
                 pin = ' (pinned)' if aid in PINS else ''
-                body.append(f"| {a['title']} | {aph[aid]}{pin} | " + ' | '.join(cell(a, f) for f in ACT_COLS) + ' |')
+                rr = RERATE.get(aid, ({}, ''))[0]
+                cells = [f'{rr[f]} (re-rated)' if f in rr else cell(a, f) for f in ACT_COLS]
+                body.append(f"| {a['title']} | {aph[aid]}{pin} | " + ' | '.join(cells) + ' |')
             pinned = [aid for aid in aph if aid in PINS]
             if pinned:
                 body += ['', '**Pinned:** ' + ' '.join(f'{aid}: {PINS[aid][1]}' for aid in pinned)]
+            rerated = [aid for aid in aph if aid in RERATE]
+            if rerated:
+                body += ['', '**Re-rated:** ' + ' '.join(f'{aid}: {RERATE[aid][1]}' for aid in rerated)]
+            na = [a['title'].split(':')[0].strip() for a in o['acts'] if a['title'].split(':')[0].strip() in NA]
+            if na:
+                body += ['', '**Not applicable:** ' + ' '.join(f'{aid}: {NA[aid]}' for aid in na)]
             body.append('')
     out = f'{m.group(1)}-{m.group(2)}.md'
     open(os.path.join(DOCS, out), 'w', encoding='utf-8', newline='\n').write('\n'.join(body))
@@ -192,6 +209,8 @@ unused = [c for c in CONTRACTS if not contract_use[c]]
 print(f"{sum(phase_count.values())} records by starting phase: {dict(sorted(phase_count.items()))}")
 print(f"activities by phase: {dict(sorted(act_count.items()))}")
 print(f'{len(used_pins)} pins used')
+if set(NA) - used_na:
+    sys.exit(f'Not-applicable entries that match no in-scope activity: {sorted(set(NA) - used_na)}')
 if set(PINS) - used_pins:
     sys.exit(f'Pins that match no in-scope activity: {sorted(set(PINS) - used_pins)}')
 if unused:

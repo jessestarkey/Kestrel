@@ -14,7 +14,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -41,7 +41,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -72,7 +72,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -100,7 +100,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -128,7 +128,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -157,7 +157,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -185,7 +185,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -213,7 +213,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -242,7 +242,7 @@
 
 **Dependencies:** ID-2.4, DA-3.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -274,7 +274,7 @@
 
 **Dependencies:** DA-3.3, DA-3.4
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -444,7 +444,7 @@
 
 **Dependencies:** None. Keys and PKI are a Phase 1 prerequisite.
 
-**Funding Line:** FY29 program management
+**Funding Line:** FY28 and FY29 program management
 
 **Rollout Phase:** Phase 4, Maturity
 

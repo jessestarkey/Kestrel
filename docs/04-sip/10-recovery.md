@@ -14,7 +14,7 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -42,7 +42,7 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -69,7 +69,7 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -96,11 +96,11 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C26](index.md#6-contracting-and-procurement-cross-references), [C15](index.md#6-contracting-and-procurement-cross-references)
 
@@ -124,7 +124,7 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -151,7 +151,7 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -180,7 +180,7 @@
 
 **Dependencies:** DI-1.3, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -209,7 +209,7 @@
 
 **Dependencies:** RC-1.2, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -236,7 +236,7 @@
 
 **Dependencies:** RC-1.2, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -263,7 +263,7 @@
 
 **Dependencies:** RC-1.2, DA-3.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -292,7 +292,7 @@
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -319,7 +319,7 @@
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -346,7 +346,7 @@
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -374,7 +374,7 @@
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -401,7 +401,7 @@
 
 **Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -431,7 +431,7 @@
 
 **Dependencies:** The SADD's Recovery design decisions
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 

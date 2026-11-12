@@ -115,7 +115,9 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 
 {{STATUS}}
 
-Three outcomes drop out across the whole framework by decision rather than footprint. Device Compliance (`DI-4.1`) drops because KESTREL owns no laptops, desktops, or mobile devices. Unidirectional Gateways (`NE-2.9`) drops because the ground segment conduit carries traffic both ways. Native Email Messaging Service (`NE-3.6`) drops because KESTREL runs no email service and the AO approved removing SI-8.
+Three outcomes drop out across the whole framework by decision rather than footprint. Device Compliance (`DI-4.1`) drops because KESTREL owns no laptops, desktops, or mobile devices. Unidirectional Gateways (`NE-2.9`) drops because the ground segment conduit carries traffic both ways.
+
+Two activities inside in-scope outcomes do not apply. Derived/Mobile Credentials (`ID-2.1.3`) has nothing to issue, since KESTREL has no mobile devices. National Security Systems PKI Hardware Token Management (`ID-2.2.5`) belongs to the IL6 enclave, not to KESTREL. The Security Implementation Plan marks both as not applicable. Native Email Messaging Service (`NE-3.6`) drops because KESTREL runs no email service and the AO approved removing SI-8.
 
 ---
 

@@ -14,7 +14,7 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -44,7 +44,7 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY29 O&M, platform and security operations
+**Funding Line:** FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 4, Maturity
 
@@ -73,7 +73,7 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate, with activities through Phase 4
 
@@ -104,7 +104,7 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY29 O&M, platform and security operations
+**Funding Line:** FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 4, Maturity
 
@@ -132,7 +132,7 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY29 O&M, platform and security operations
+**Funding Line:** FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 4, Maturity
 
@@ -164,7 +164,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -188,7 +188,7 @@
 
 **Dependencies:** DE-2.7, DE-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -216,7 +216,7 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -248,7 +248,7 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -372,7 +372,7 @@
 
 **Dependencies:** DE-3.1
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 and FY29 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate, with activities through Phase 4
 
@@ -492,11 +492,11 @@
 
 **Dependencies:** DE-3.1, NE-1.6
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C13](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 

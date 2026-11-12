@@ -28,6 +28,8 @@ FILES = {'ID': ('02', 'identity'), 'DI': ('03', 'device-and-infrastructure'), 'N
          'AP': ('05', 'application'), 'AI': ('06', 'artificial-intelligence'), 'DA': ('07', 'data'),
          'DE': ('08', 'detection'), 'RS': ('09', 'response'), 'RC': ('10', 'recovery'),
          'GV': ('11', 'governance'), 'RK': ('12', 'risk'), 'CO': ('13', 'compliance')}
+# Target dates for sub-tasks. Phase 3 work is due two months before the ATO decision, for SCA assessment.
+TARGET = {1: '2027-06-30', 2: '2027-12-31', 3: '2028-04-30', 4: '2028-12-31'}
 PHASE_START = {1: '2027-01-01', 2: '2027-07-01', 3: '2028-01-01', 4: '2028-07-01'}
 PHASES = {1: ('Phase 1: Foundation', '2027-06-30'), 2: ('Phase 2: Protect and Operate', '2027-12-31'),
           3: ('Phase 3: Mission, AI, and Fleet', '2028-06-30'), 4: ('Phase 4: Maturity', '2028-12-31')}
@@ -69,12 +71,15 @@ def sip_records(path):
         f = dict(re.findall(r'^\*\*([^*]+):\*\* (.*)$', rest, re.M))
         rows = {}
         for line in rest.splitlines():
-            m = re.match(r'^\| ([A-Z]{2}-[\d.]+): [^|]+ \| (\d)( \(pinned\))? \| (.+) \|$', line)
+            m = re.match(r'^\| ([A-Z]{2}-[\d.]+): [^|]+ \| (\d|N/A)( \(pinned\))? \| (.+) \|$', line)
             if m:
-                cells = [c.strip() for c in m.group(4).split(' | ')]
-                rows[m.group(1)] = {'phase': int(m.group(2)), 'pinned': bool(m.group(3)), 'cells': cells}
+                cells = [c.strip().replace(' (re-rated)', '') for c in m.group(4).split(' | ')]
+                rows[m.group(1)] = {'phase': None if m.group(2) == 'N/A' else int(m.group(2)),
+                                    'pinned': bool(m.group(3)), 'cells': cells}
         pin = re.search(r'^\*\*Pinned:\*\* (.*)$', rest, re.M)
-        recs[oid] = {'title': head, 'fields': f, 'rows': rows, 'pinned': pin.group(1) if pin else ''}
+        na = re.search(r'^\*\*Not applicable:\*\* (.*)$', rest, re.M)
+        na = dict(re.findall(r'([A-Z]{2}-[\d.]+): (.*?)(?= [A-Z]{2}-[\d.]+: |$)', na.group(1))) if na else {}
+        recs[oid] = {'title': head, 'fields': f, 'rows': rows, 'pinned': pin.group(1) if pin else '', 'na': na}
     return recs
 
 
@@ -105,14 +110,14 @@ def build_plan(code):
         if not ins:
             continue
         cap_intro = narrative(fw_text, r'^## ' + re.escape(cap['title']) + r'\s*$', r'^###? ')
-        cap_phase = min(min(r['phase'] for r in recs[o['title'].split(':')[0].strip()]['rows'].values()) for o in ins)
+        cap_phase = min(min(r['phase'] for r in recs[o['title'].split(':')[0].strip()]['rows'].values() if r['phase']) for o in ins)
         issues.append({'key': cid, 'type': 'epic', 'parent': init_key, 'phase': cap_phase, 'title': cap['title'],
                        'body': f"{note('an epic')}\n\n{cap_intro}"
                                f'\n\n**Stories:** {len(ins)}, one per in-scope SADD outcome.\n'})
         for o in ins:
             oid, ot = [x.strip() for x in o['title'].split(':', 1)]
             r = recs[oid]; f = r['fields']
-            phase = min(x['phase'] for x in r['rows'].values())
+            phase = min(x['phase'] for x in r['rows'].values() if x['phase'])
             lines = [note('a story'), '',
                      f"**SADD outcome:** [{oid}: {ot}]({BLOB}/{sadd_file}#{slug(o['title'])}), which holds the design intent and control mapping.  ",
                      f"**Plan record:** [{oid}]({BLOB}/{sip_file}#{slug(o['title'])})", '',
@@ -142,11 +147,17 @@ def build_plan(code):
                 body = [note('a sub-task'), '', desc]
                 if guide:
                     body += ['', f'**Supplemental Guidance:** {guide}']
-                body += ['', f"**Phase:** {PHASES[row['phase']][0]}{' (pinned, see the parent story)' if row['pinned'] else ''}", '',
-                         '| Field | Value |', '|---|---|'] + [f'| {k} | {v} |' for k, v in meta.items()]
+                if row['phase'] is None:
+                    phase_line = f"**Not applicable:** {r['na'].get(aid, 'Does not apply to KESTREL.')} Closed as not planned."
+                else:
+                    phase_line = f"**Phase:** {PHASES[row['phase']][0]}{' (pinned, see the parent story)' if row['pinned'] else ''}"
+                body += ['', phase_line, '', '| Field | Value |', '|---|---|'] + [f'| {k} | {v} |' for k, v in meta.items()]
+                fields = {'Outcome ID': oid, **meta}
+                if row['phase']:
+                    fields['Target Date'] = TARGET[row['phase']]
                 issues.append({'key': aid, 'type': 'sub-task', 'parent': oid, 'phase': row['phase'],
-                               'title': f'{aid}: {at}', 'body': '\n'.join(body) + '\n',
-                               'fields': {'Outcome ID': oid, 'Target Date': PHASES[row['phase']][1], **meta}})
+                               'state': 'open' if row['phase'] else 'closed',
+                               'title': f'{aid}: {at}', 'body': '\n'.join(body) + '\n', 'fields': fields})
     # Start dates for the roadmap view, and spans for the epics and the initiative.
     for it in issues:
         if it['phase']:
@@ -156,8 +167,8 @@ def build_plan(code):
             kids = [k for k in issues if k['parent'] == it['key']] if it['type'] == 'epic' else \
                    [k for k in issues if k['type'] == 'story']
             f = it.setdefault('fields', {})
-            f['Start Date'] = min(k['fields']['Start Date'] for k in kids)
-            f['Target Date'] = max(k['fields']['Target Date'] for k in kids)
+            f['Start Date'] = min(k['fields']['Start Date'] for k in kids if 'Start Date' in k['fields'])
+            f['Target Date'] = max(k['fields']['Target Date'] for k in kids if 'Target Date' in k['fields'])
     return issues
 
 
@@ -265,9 +276,10 @@ def sync(code, issues, st, save):
         want_labels = labels_for(code, it)
         want_ms = PHASES[it['phase']][0] if it['phase'] else None
         cur_ms = cur['milestone']['title'] if cur['milestone'] else None
-        moved = sorted(l['name'] for l in cur['labels']) != want_labels or cur_ms != want_ms
+        moved = sorted(l['name'] for l in cur['labels']) != want_labels or cur_ms != want_ms or cur['state'] != it.get('state', 'open')
         if cur['title'] != it['title'] or (cur['body'] or '').replace('\r\n', '\n') != it['body'] or moved:
-            data = {'title': it['title'], 'body': it['body'], 'labels': want_labels,
+            data = {'title': it['title'], 'body': it['body'], 'labels': want_labels, 'state': it.get('state', 'open'),
+                    **({'state_reason': 'not_planned'} if it.get('state') == 'closed' else {}),
                     'milestone': ms[want_ms] if want_ms else None}
             api('PATCH', f"{repo}/issues/{cur['number']}", data); changed += 1
             if moved:
@@ -282,6 +294,11 @@ def dependencies(issues, st, save):
     """Mark each story blocked by the outcomes, or whole capabilities, its plan record depends on."""
     repo = f'/repos/{OWNER}/{NAME}'
     done = st.setdefault('deps', []); skipped = set()
+    wanted = {f"{it['key']}<-{ref}" for it in issues for ref in it.get('deps', [])}
+    for link in [l for l in done if l not in wanted]:
+        key, ref = link.split('<-')
+        api('DELETE', f"{repo}/issues/{st['issues'][key]['number']}/dependencies/blocked_by/{st['issues'][ref]['id']}")
+        done.remove(link); save(); print(f'  removed {key} blocked by {ref}'); time.sleep(0.8)
     for it in issues:
         for ref in it.get('deps', []):
             link = f"{it['key']}<-{ref}"
@@ -391,6 +408,10 @@ def project(code, issues, st, save):
                 sets.append((f['id'], {'date': x}))
             else:
                 sets.append((f['id'], {'text': x}))
+        for k in ('Phase', 'Start Date', 'Target Date'):
+            if k not in values(it) and k in fields:
+                graphql('mutation($p:ID!,$i:ID!,$f:ID!){clearProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f}){projectV2Item{id}}}',
+                        p=pid, i=st['items'][key], f=fields[k]['id'])
         for fid, val in sets:
             graphql('mutation($p:ID!,$i:ID!,$f:ID!,$v:ProjectV2FieldValue!){updateProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f,value:$v}){projectV2Item{id}}}',
                     p=pid, i=st['items'][key], f=fid, v=val)
@@ -400,7 +421,7 @@ def project(code, issues, st, save):
     # Items loaded before Start Date existed get both dates set here.
     done = st.setdefault('dates_set', [])
     for it in issues:
-        if it['key'] in done:
+        if it['key'] in done or 'Start Date' not in it.get('fields', {}):
             continue
         for k in DATES:
             graphql('mutation($p:ID!,$i:ID!,$f:ID!,$v:ProjectV2FieldValue!){updateProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f,value:$v}){projectV2Item{id}}}',

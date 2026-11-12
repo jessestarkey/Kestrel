@@ -14,7 +14,7 @@
 
 **Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -42,7 +42,7 @@
 
 **Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -70,7 +70,7 @@
 
 **Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -101,7 +101,7 @@
 
 **Dependencies:** GV-5.9
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -129,7 +129,7 @@
 
 **Dependencies:** GV-5.9
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -157,7 +157,7 @@
 
 **Dependencies:** GV-5.9
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -191,7 +191,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -220,7 +220,7 @@
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-06-30
+**Target Date / Sprint:** 2028-04-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -246,7 +246,7 @@
 
 **Dependencies:** DA-1.1
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -275,7 +275,7 @@
 
 **Dependencies:** DA-1.1
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 

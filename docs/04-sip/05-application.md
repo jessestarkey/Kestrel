@@ -136,7 +136,7 @@
 
 **Dependencies:** the performer interconnection agreement
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate, with activities through Phase 4
 
@@ -389,7 +389,7 @@
 
 **Dependencies:** ID-3.1, DA-3.3
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate, with activities through Phase 4
 
@@ -447,7 +447,7 @@
 
 **Dependencies:** ID-3.1, DA-3.3
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -672,7 +672,7 @@
 
 **Dependencies:** ID-3.1, DA-3.3
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -842,7 +842,7 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -869,7 +869,7 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 and FY29 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate, with activities through Phase 4
 
@@ -898,7 +898,7 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -926,7 +926,7 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -955,7 +955,7 @@
 
 **Dependencies:** the penetration testing contract
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -983,7 +983,7 @@
 
 **Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
-**Funding Line:** FY29 RDT&E, mission and ML
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 4, Maturity
 
@@ -1012,7 +1012,7 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1040,7 +1040,7 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1067,7 +1067,7 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1094,7 +1094,7 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1121,7 +1121,7 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1149,7 +1149,7 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1177,7 +1177,7 @@
 
 **Dependencies:** AP-2.13, AP-2.24
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1206,7 +1206,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1233,7 +1233,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1260,7 +1260,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1287,7 +1287,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1314,7 +1314,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1341,7 +1341,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1369,7 +1369,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1396,7 +1396,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1423,7 +1423,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY29 RDT&E, mission and ML
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML
 
 **Rollout Phase:** Phase 4, Maturity
 
@@ -1450,7 +1450,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1478,7 +1478,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -1506,7 +1506,7 @@
 
 **Dependencies:** AP-2.11, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 

@@ -42,22 +42,22 @@ This plan carries KESTREL's SADD, version 0.2, into RMF Step 3. It records the p
 
 ## 2. Rollout Phasing Strategy
 
-The phases follow dependencies first. Identity, keys, the pipeline, and logging come before anything that relies on them, and detection comes after the telemetry it reads. Phases are set per activity, since the activities under one outcome often differ in urgency. An activity's SABER Maturity Level sets its default. Level 1, which the SABER marks as required for ATO, keeps its capability's place in the dependency sequence and must land by the end of Phase 3, when the ATO decision is due. Level 2 waits for Phase 2 at the earliest, and Level 3 waits for Phase 4. A pin moves an activity earlier only where KESTREL's design depends on it from the first build, or where building it in costs far less than retrofitting it, and each pin states its reason in its record. A record starts in the phase of its earliest activity and stays open until its last one lands, so one outcome remains one story.
+The phases follow dependencies first. Identity, keys, the pipeline, and logging come before anything that relies on them, and detection comes after the telemetry it reads. Phases are set per activity, since the activities under one outcome often differ in urgency. An activity's SABER Maturity Level sets its default. Level 1, which the SABER marks as required for ATO, keeps its capability's place in the dependency sequence and must land by the end of Phase 3, when the ATO decision is due. Level 2 waits for Phase 2 at the earliest, and Level 3 waits for Phase 4. A pin moves an activity earlier only where KESTREL's design depends on it from the first build, or where building it in costs far less than retrofitting it, and each pin states its reason in its record. A record starts in the phase of its earliest activity and stays open until its last one lands, so one outcome remains one story. Work finishing in Phase 3 is due by 2028-04-30, two months before the ATO decision, so the SCA has time to assess it.
 
 An interim authorization to test (`GV-5.7`) covers Phases 1 to 3. Integration during those phases uses synthetic data, spare aircraft, and the simulator, so no live mission data or flight depends on a system that is not yet authorized.
 
 | Phase | Target Timeframe | Dependencies Satisfied / Rationale | Funding Status | Major Outcomes in This Phase |
 |---|---|---|---|---|
-| Phase 1, Foundation | 2027-01-01 to 2027-06-30 | Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, and the governance bodies and core plans. | Funded (FY27 base) | 338 activities. 118 records start here: ID (23), DI (12), NE (13), AP (26), DA (16), DE (10), GV (18) |
-| Phase 2, Protect and Operate | 2027-07-01 to 2027-12-31 | Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, adds application security gates, data protection, backup and recovery, detection content, and incident response, and brings AI governance up before any AI build. | Funded (FY27 and FY28 base) | 543 activities. 141 records start here: ID (6), DI (12), NE (9), AP (27), AI (9), DA (10), DE (6), RS (20), RC (15), GV (12), RK (7), CO (8) |
-| Phase 3, Mission, AI, and Fleet | 2028-01-01 to 2028-06-30 | Needs Phase 2 gates and detection. Builds the AI lifecycle controls, model serving guardrails, and the fleet and ground segment controls, and ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E) | 253 activities. 98 records start here: ID (3), DI (4), NE (6), AI (70), DE (2), RC (1), GV (3), RK (7), CO (2) |
-| Phase 4, Maturity | 2028-07-01 to 2028-12-31 | Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, RASP, and post-quantum migration planning. | Unfunded (FY29 request) | 38 activities. 6 records start here: AP (2), DA (1), DE (3) |
+| Phase 1, Foundation | 2027-01-01 to 2027-06-30 | Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, and the governance bodies and core plans. | Funded (FY27 base) | 348 activities. 120 records start here: ID (25), DI (12), NE (13), AP (26), DA (16), DE (10), GV (18) |
+| Phase 2, Protect and Operate | 2027-07-01 to 2027-12-31 | Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, adds application security gates, data protection, backup and recovery, detection content, and incident response, and brings AI governance up before any AI build. | Funded (FY27 and FY28 base) | 526 activities. 139 records start here: ID (4), DI (12), NE (9), AP (27), AI (9), DA (10), DE (6), RS (20), RC (15), GV (12), RK (7), CO (8) |
+| Phase 3, Mission, AI, and Fleet | 2028-01-01 to 2028-06-30 | Needs Phase 2 gates and detection. Builds the AI lifecycle controls, model serving guardrails, and the fleet and ground segment controls, and ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M) | 259 activities. 98 records start here: ID (3), DI (4), NE (6), AI (70), DE (2), RC (1), GV (3), RK (7), CO (2) |
+| Phase 4, Maturity | 2028-07-01 to 2028-12-31 | Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, RASP, and post-quantum migration planning. | Unfunded (FY28 and FY29 requests) | 37 activities. 6 records start here: AP (2), DA (1), DE (3) |
 
 ---
 
 ## 3. Implementation Record
 
-Each record in Section 4 follows the template's record pattern. Every record cites its SADD outcome by ID rather than restating the design intent or control mapping, which stay in the SADD. Each record also carries a table giving every activity under its outcome its phase and the seven activity-level metadata fields. The metadata is carried unchanged from the SABER, and they are re-rated only where a product decision changes the effort, cost, or timing the SABER assumed.
+Each record in Section 4 follows the template's record pattern. Every record cites its SADD outcome by ID rather than restating the design intent or control mapping, which stay in the SADD. Each record also carries a table giving every activity under its outcome its phase and the seven activity-level metadata fields. The metadata is carried from the SABER. It is re-rated only where a governing plan sets a different cadence or a product decision changes the effort, cost, or timing the SABER assumed, and the record marks each re-rated value with its source. An activity that does not apply to KESTREL is marked not applicable with its reason, and the SADD lists the same activities.
 
 Every record's status is Not Started, since the plan precedes Phase 1.
 
@@ -104,17 +104,17 @@ Each contract below groups the products bought under one vehicle. The Records co
 
 | Contract | Selected Product / Service | Required Contract Clause(s) | Source | Status | Records |
 |---|---|---|---|---|---|
-| C01 | Microsoft Azure Government (IL5) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.239-7010 | Standard Security Clause Library | Open | 141 |
-| C02 | Microsoft 365 DoD and Windows enterprise licensing | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.239-7010 | Standard Security Clause Library | Open | 48 |
-| C03 | Atlassian Data Center (Jira Software, Jira Service Management, Confluence) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 115 |
+| C01 | Microsoft Azure Government (IL5) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.239-7010 | Standard Security Clause Library | Open | 142 |
+| C02 | Microsoft 365 DoD and Windows enterprise licensing | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.239-7010 | Standard Security Clause Library | Open | 51 |
+| C03 | Atlassian Data Center (Jira Software, Jira Service Management, Confluence) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 119 |
 | C04 | GitLab Ultimate, self-managed | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 50 |
 | C05 | JFrog Artifactory Enterprise+ with Xray, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 35 |
-| C06 | Splunk Enterprise, Enterprise Security, SOAR, and UBA, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 69 |
+| C06 | Splunk Enterprise, Enterprise Security, SOAR, and UBA, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 71 |
 | C07 | CyberArk Privileged Access Manager, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 17 |
-| C08 | Palo Alto Networks VM-Series, PA-Series, and Panorama | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, firmware signing | Standard Security Clause Library | Open | 18 |
+| C08 | Palo Alto Networks VM-Series, PA-Series, and Panorama | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, firmware signing | Standard Security Clause Library | Open | 17 |
 | C09 | Cisco ACI, APIC, and Identity Services Engine | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, firmware signing | Standard Security Clause Library | Open | 8 |
-| C10 | Entrust nShield 5 HSMs | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, FIPS 140-3 Level 3 validation, firmware signing | Standard Security Clause Library | Open | 10 |
-| C11 | Keyfactor Command, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 9 |
+| C10 | Entrust nShield 5 HSMs | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, FIPS 140-3 Level 3 validation, firmware signing | Standard Security Clause Library | Open | 11 |
+| C11 | Keyfactor Command, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 11 |
 | C12 | Infoblox NIOS and Threat Defense | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 4 |
 | C13 | Nozomi Networks Guardian and Central Management Console | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 8 |
 | C14 | Corelight sensors | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 5 |
@@ -125,14 +125,14 @@ Each contract below groups the products bought under one vehicle. The Records co
 | C19 | Contrast Security Assess and Protect, on-premises | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 1 |
 | C20 | Microchip SyncServer S650 time servers | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, firmware signing | Standard Security Clause Library | Open | 2 |
 | C21 | Red Hat Enterprise Linux and Ansible Automation Platform | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery | Standard Security Clause Library | Open | 11 |
-| C22 | Pomerium Enterprise, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 1 |
+| C22 | Pomerium Enterprise, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 2 |
 | C23 | Bastille Enterprise RF detection | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, firmware signing | Standard Security Clause Library | Open | 1 |
-| C24 | Yubico YubiKey 5 FIPS Series | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, FIPS 140-3 validation | Standard Security Clause Library | Open | 1 |
+| C24 | Yubico YubiKey 5 FIPS Series | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, FIPS 140-3 validation | Standard Security Clause Library | Open | 2 |
 | C25 | ExpressRoute circuits from two carriers on separate paths | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, path diversity | New clause needed (path diversity) | Open | 4 |
-| C26 | Aircraft, ground control station, and launch equipment manufacturer | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.204-7021, SBOM delivery, firmware signing, onboard TEE support | New clause needed (onboard TEE support) | Open | 11 |
+| C26 | Aircraft, ground control station, and launch equipment manufacturer | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.204-7021, SBOM delivery, firmware signing, onboard TEE support | New clause needed (onboard TEE support) | Open | 12 |
 | C27 | Payload Vendor A and Payload Vendor B | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.204-7021, SBOM delivery, data rights terms | Standard Security Clause Library | Open | 1 |
 | C28 | Penetration testing provider, including AI red team | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, DFARS 252.204-7021, rules of engagement | New clause needed (AI red team scope) | Open | 2 |
-| C29 | Tenable Attack Surface Management and GitGuardian public monitoring | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30 | Standard Security Clause Library | Open | 1 |
+| C29 | Tenable Attack Surface Management and GitGuardian public monitoring | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30 | Standard Security Clause Library | Open | 2 |
 | C30 | Blancco Drive Eraser | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30 | Standard Security Clause Library | Open | 3 |
 | C31 | CSSP service agreement amendment for containment playbooks | Containment role and playbook terms | New clause needed (CSSP containment role) | Open | 3 |
 

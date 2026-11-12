@@ -14,7 +14,7 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -42,7 +42,7 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -71,7 +71,7 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -99,7 +99,7 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -126,7 +126,7 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -153,7 +153,7 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -182,7 +182,7 @@
 
 **Dependencies:** DE-3.1, the CSSP service agreement
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -213,7 +213,7 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -241,7 +241,7 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -269,7 +269,7 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -298,7 +298,7 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -325,7 +325,7 @@
 
 **Dependencies:** DE-3.1, DI-1.3
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -356,7 +356,7 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 and FY29 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate, with activities through Phase 4
 
@@ -384,7 +384,7 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -411,7 +411,7 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 RDT&E, fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -439,7 +439,7 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -467,7 +467,7 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -496,7 +496,7 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -523,7 +523,7 @@
 
 **Dependencies:** RS-1.1, RS-1.7, DI-5.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 
@@ -552,7 +552,7 @@
 
 **Dependencies:** The SADD's Response design decisions
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
 **Rollout Phase:** Phase 2, Protect and Operate
 

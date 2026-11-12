@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Executes | ID-4.6: Emergency Access Accounts, under the [Account Management Plan](Account-Management-Plan) |
+| Executes | ID-4.6: Emergency Access, under the [Account Management Plan](Account-Management-Plan) |
 | Owner | Platform Team (Tier 0 administrators) |
 | Reviewed by | ISSM |
 | Version | 0.1 draft |
@@ -27,7 +27,7 @@ Each authenticator verifies without reaching the identity provider, so an identi
 
 - The hardware keys sit in one safe in the data center's Tier 0 room, and their PINs sit in sealed envelopes in a second safe. No single person can open both.
 - A second sealed set is held the same way at the alternate site, so losing the data center does not lose break-glass access.
-- Custodians are named in the AMP. One is a Platform Team Tier 0 administrator and the other an ISSO.
+- Custodians are named in AMP Section 11. One safe's custodian is a Platform Team Tier 0 administrator and the other's an ISSO, each with a named alternate.
 - Every opening of either safe is written in the custody log inside it, with the date, time, both custodians, and the reason.
 
 ## When to use it
