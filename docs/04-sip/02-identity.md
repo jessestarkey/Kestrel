@@ -713,13 +713,13 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| ID-3.7.1: Default Credential Remediation | 3 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| ID-3.7.1: Default Credential Remediation | 2 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-3.7.2: Network-Based Device Identity Verification | 2 (pinned) | Technical | None | Level 1 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-3.7.3: Gateway-Based Credential Proxying | 3 | Technical | None | Level 2 | Periodic (Event-Driven) | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-3.7.4: Constrained-Device Certificate Lifecycle Management | 2 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-3.7.5: Credential Rotation via Maintenance Windows | 3 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** ID-3.7.2: Datalink authentication is set up on spares and the simulator in Phase 2, and it needs device identity to verify against. ID-3.7.4: Datalink authentication is set up on spares and the simulator in Phase 2, and it needs device certificates to verify against.
+**Pinned:** ID-3.7.1: Spares are keyed and admitted to the network in Phase 2, so their default credentials must be gone first. ID-3.7.2: Datalink authentication is set up on spares and the simulator in Phase 2, and it needs device identity to verify against. ID-3.7.4: Datalink authentication is set up on spares and the simulator in Phase 2, and it needs device certificates to verify against.
 
 ## ID-4: Privileged Access Management
 

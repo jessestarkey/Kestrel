@@ -595,7 +595,7 @@
 
 **Selected Tool / Product / Service:** Palo Alto Networks PA-Series, Palo Alto Threat Prevention with on-box signatures, Nozomi Networks Guardian, Splunk Enterprise Security, Trellix Application Control
 
-**Environment-Specific Tailoring:** These controls are the pattern for any asset that cannot be patched. If none is fielded, they are validated on a spare station. If the payload processing workstation's replacement slips, the workstation connects only after the AO re-dates CCSD tailoring action 3. It then runs in its own OT zone segment with Advanced Threat Prevention at its single conduit, Trellix Application Control, and tighter Guardian and Splunk thresholds.
+**Environment-Specific Tailoring:** These controls are the pattern for any asset that cannot be patched. If none is fielded, they are validated on a spare station. If the payload processing workstation's replacement slips, the workstation connects only after the AO re-dates CCSD tailoring action 3. It then runs in its own OT zone segment with Threat Prevention at its single conduit. Trellix Application Control and tighter Guardian and Splunk thresholds complete the set.
 
 **Accountable Team:** Fleet Operations, with the Platform Team and the Security Team
 

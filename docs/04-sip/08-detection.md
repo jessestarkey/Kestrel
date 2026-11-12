@@ -450,11 +450,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| DE-2.6.1: Web Application Attack Monitoring | 1 (pinned) | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| DE-2.6.1: Web Application Attack Monitoring | 1 | Technical | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | DE-2.6.2: Layer 7 Attack Attempt Capturing | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | DE-2.6.3: API Abuse Tracking | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-
-**Pinned:** DE-2.6.1: The WAF fronts the identity-aware proxy from the first commit, as part of the boundary stack the access point connection needs.
 
 ### DE-2.7: Network Security Logging
 

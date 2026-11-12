@@ -198,10 +198,10 @@
 |---|---|---|---|---|---|---|---|---|
 | RS-1.7.1: Provider Service Agreement and Responsibility Division | 1 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RS-1.7.2: Telemetry and Sensor Delivery to the Provider | 1 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| RS-1.7.3: Provider Incident Reporting and Directive Handling | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RS-1.7.3: Provider Incident Reporting and Directive Handling | 1 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RS-1.7.4: Automated Provider Advisory and Assistance Access | 2 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** RS-1.7.1 and RS-1.7.2: The access point connection and the interim authorization to test need CSSP alignment in Phase 1.
+**Pinned:** RS-1.7.1 and RS-1.7.2: The access point connection and the interim authorization to test need CSSP alignment in Phase 1. RS-1.7.3: A system connected under the interim authorization to test must report incidents to the CSSP and act on its directives.
 
 ## RS-2: Incident Detection, Analysis, and Investigation
 

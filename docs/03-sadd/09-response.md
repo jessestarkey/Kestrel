@@ -732,7 +732,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Segmentation Policy, Network Firewall, DNS Infrastructure, Identity Lifecycle and Governance, Human Authentication, Privileged Access Management, Compute, Device/Workstation, Application/API
+**Affected Components:** Segmentation Policy, Network Firewall, Network Access Control (NAC), DNS Infrastructure, Identity Lifecycle and Governance, Human Authentication, Privileged Access Management, Compute, Device/Workstation, Application/API
 
 **External Dependencies:** The CSSP, whose containment role its service agreement defines.
 

@@ -119,7 +119,7 @@ KESTREL is a hybrid ISR analytics platform inside one IL5 authorization boundary
     - [x] Service-Native/Resource-Level Firewall
     - [x] DNS Infrastructure
     - [x] Remote Access/VPN Gateway
-    - [ ] Network Access Control (NAC)
+    - [x] Network Access Control (NAC)
     - [x] Private Connectivity/Dedicated Circuit
     - [ ] Managed Service Network Integration
     - [x] Cross-Domain/Boundary Transfer
@@ -209,7 +209,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 
 Three outcomes drop out across the whole framework by decision rather than footprint. Device Compliance (`DI-4.1`) drops because KESTREL owns no laptops, desktops, or mobile devices. Unidirectional Gateways (`NE-2.9`) drops because the ground segment conduit carries traffic both ways. Native Email Messaging Service (`NE-3.6`) drops because KESTREL runs no email service and the AO approved removing SI-8.
 
-Six activities inside in-scope outcomes do not apply. Derived/Mobile Credentials (`ID-2.1.3`) has nothing to issue, since KESTREL has no mobile devices. National Security Systems PKI Hardware Token Management (`ID-2.2.5`) covers NSS PKI tokens for SECRET and higher networks, while KESTREL, though a national security system, is unclassified and its users authenticate with DoD PKI CACs, so the tokens belong to the IL6 enclave. Wireless Network Authentication (WPA2/3-Enterprise) (`NE-1.8.2`) has nothing to authenticate, since KESTREL has no wireless LAN. Service Public Access Allow-List Configuration (`NE-2.3.3`) has no public service to restrict. On-Premises Reverse-Proxy WAF Deployment (`NE-2.6.5`) is not needed, since nothing on premises faces users. Manual Cross-Domain Media Transfer (`NE-2.10.7`) is prohibited outright. The Security Implementation Plan marks all six as not applicable.
+Six activities inside in-scope outcomes do not apply. Derived/Mobile Credentials (`ID-2.1.3`) has nothing to issue, since KESTREL has no mobile devices. National Security Systems PKI Hardware Token Management (`ID-2.2.5`) covers NSS PKI tokens for SECRET and higher networks. KESTREL is an unclassified national security system whose users authenticate with DoD PKI CACs, so the tokens belong to the IL6 enclave. Wireless Network Authentication (WPA2/3-Enterprise) (`NE-1.8.2`) has nothing to authenticate, since KESTREL has no wireless LAN. Service Public Access Allow-List Configuration (`NE-2.3.3`) has no public service to restrict. On-Premises Reverse-Proxy WAF Deployment (`NE-2.6.5`) is not needed, since nothing on premises faces users. Manual Cross-Domain Media Transfer (`NE-2.10.7`) is prohibited outright. The Security Implementation Plan marks all six as not applicable.
 
 One activity runs under a CCSD exception. Emergency Account Authentication Protections (`ID-4.6.2`) uses console-only passwords for the directory and ground segment break-glass accounts under CCSD tailoring action 6, proposed in version 1.1. For those accounts, the SABER mapping's note that emergency accounts reuse the standard authentication policy does not hold.
 
@@ -235,6 +235,7 @@ This table rolls up the External Dependencies field from every focus area.
 | PSO's physical access control systems | ID-1.10 | Badge events at the data center and each operating site | PSO |
 | PSO's insider threat program | DE-1.6, DE-1.9, RS-3.5 | Receives insider threat referrals and spill reports, and owns every case | PSO |
 | Parent organization's alternate site | ID-1.10, DI-2.1, RC-2.3, RC-3.3, RC-3.4, GV-5.6, GV-5.12 | The warm standby for the data center's Tier 1 services, a second HSM, a copy of the backups, and badge events from the facility's access control system | Parent organization, under a facility agreement |
+| Circuit carriers | NE-2.1 | Two dedicated circuits from different carriers, carried inside KESTREL's own encrypted tunnels | Carriers, under contract |
 | Second circuit provider | RC-3.4 | A second dedicated circuit on a separate path to the cloud | Circuit provider |
 | DNS threat feed provider | NE-3.5 | Malicious-domain feeds pulled by zone transfer, with no query data sent back | Feed vendor, under contract |
 | Parent organization's enterprise services | GV-1.1, GV-2.3 | Enterprise security policy KESTREL's policy sits beneath, and phishing exercises on its email systems | Parent organization |

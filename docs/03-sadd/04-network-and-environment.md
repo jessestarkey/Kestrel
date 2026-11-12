@@ -175,7 +175,7 @@
 
 ### NE-1.4: Network Macro Segmentation
 
-**Design Intent:** The macro segments are the cloud's ten spokes, the data center's SDN segments, and the ground segment's OT zone. The data center's segments match the cloud's teams, with one segment per mission team's data lake zone. The DMZ, the VDI spoke, and Tier 0 are the high-risk classes, each isolated in its own segment. The data center's BMCs, SDN controller management, and HSM management sit on an out-of-band network reachable only from the privileged access workstations.
+**Design Intent:** The macro segments are the cloud's ten spokes, the data center's SDN segments, and the ground segment's OT zone. The data center's segments match the cloud's teams, with one segment per mission team's data lake zone. The DMZ, the VDI spoke, and Tier 0 are the high-risk classes, each isolated in its own segment. The data center's BMCs, SDN controller management, and HSM management sit on an out-of-band network. It is reachable only through the privileged access platform's session hosts, which Tier 0 reaches from the privileged access workstations.
 
 **NIST Control Mapping:**
 
@@ -325,7 +325,7 @@
 
 ### NE-1.6: IT/OT Zone and Conduit Segmentation (IEC 62443)
 
-**Design Intent:** The ground segment has four zones, namely aircraft and datalinks, ground control stations, launch and recovery, and the payload processing workstation. The station and aircraft zones carry security level target 3, and the others carry 2. One conduit joins the ground segment to the data center through an IT/OT DMZ, where recordings and model packages are staged so that no session spans IT and OT. The passive sensors watch every zone-to-zone flow, and the penetration testers validate the zones on spares.
+**Design Intent:** The ground segment has four zones, namely aircraft and datalinks, ground control stations, launch and recovery, and the payload processing workstation. The station and aircraft zones carry security level target 3, and the others carry 2. One conduit joins the ground segment to the data center through an IT/OT DMZ. Recordings and model packages are staged there, so no session spans IT and OT. The passive sensors watch every zone-to-zone flow, and the penetration testers validate the zones on spares.
 
 **NIST Control Mapping:**
 
@@ -423,7 +423,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Device/Workstation, OT/ICS Device
+**Affected Components:** Network Access Control (NAC), Device/Workstation, OT/ICS Device
 
 **External Dependencies:** None outside the boundary.
 
@@ -477,7 +477,7 @@
 
 ### NE-1.8: Wireless Network Access Control
 
-**Design Intent:** The command and payload datalinks are KESTREL's only authorized wireless. No wireless LAN exists in the data center or at the operating sites, and embedded radios are disabled on every server, workstation, and station. WPA2/3-Enterprise therefore has nothing to authenticate today. Wireless sensors at the data center and each operating site look for rogue access points and alert the Security Team.
+**Design Intent:** The command and payload datalinks are KESTREL's only authorized wireless. No wireless LAN exists in the data center or at the operating sites, and embedded radios are disabled on every server, workstation, and station. WPA2/3-Enterprise therefore has nothing to authenticate today. Wireless sensors at the data center, the alternate site, and each operating site look for rogue access points and alert the Security Team.
 
 **NIST Control Mapping:**
 
@@ -534,7 +534,7 @@
 
 ### NE-2.1: Private Connectivity
 
-**Design Intent:** Every provider-managed service, including the foundation model, the spoke vaults, and the portal database, is reached only through a private endpoint in its own spoke, with public access disabled. Configuration checks alert if public access returns. The dedicated circuit terminates on the cloud hub and the data center hub. The carrier path is not trusted, so traffic crosses the circuit inside encrypted tunnels between the hubs. Its routing sessions are authenticated, and prefix filters accept only KESTREL's own address ranges.
+**Design Intent:** Every provider-managed service is reached only through a private endpoint in its own spoke, with public access disabled. That includes the foundation model, the spoke vaults, and the portal database. Configuration checks alert if public access returns. Both dedicated circuits terminate on the cloud hub, one on the data center hub and one on the alternate site firewall. The carrier path is not trusted, so traffic crosses each circuit inside encrypted tunnels between the firewalls. Its routing sessions are authenticated, and prefix filters accept only KESTREL's own address ranges.
 
 **NIST Control Mapping:**
 
@@ -1292,7 +1292,7 @@
 
 ### NE-2.11: Industrial Protocol Filtering (DPI)
 
-**Design Intent:** The ground segment firewall parses the command and control protocol the ground control stations use with the launch and recovery equipment. It allows only the commands each station is approved to send. The conduit to the data center carries file transfer for recordings and model packages and nothing else, so any control protocol traffic there is blocked and alerted. Fleet Operations and the Security Team tune the rules after each maintenance window.
+**Design Intent:** The ground segment firewall parses the command and control protocol the ground control stations use with the launch and recovery equipment. It allows only the commands each station is approved to send. Command and control traffic never crosses the conduit to the data center, so any seen there is blocked and alerted. Fleet Operations and the Security Team tune the rules after each maintenance window.
 
 **NIST Control Mapping:**
 
@@ -1357,7 +1357,7 @@
 
 ### NE-2.12: Ports, Protocols, and Services Matrix (PPSM)
 
-**Design Intent:** Every port, protocol, and service crossing KESTREL's boundary is registered in the DoD PPSM registry and aligned to its Category Assurance List entry. These include the Boundary Cloud Access Point flows, the CSSP feed, the cross domain transfers, and the partner API. The approved baseline is the same policy-as-code rule base the hubs run, so the pipeline checks the deployed rules against the registration on every change. The Security Team recertifies the registration each year.
+**Design Intent:** Every port, protocol, and service crossing KESTREL's boundary is registered in the DoD PPSM registry and aligned to its Category Assurance List entry. These include the Boundary Cloud Access Point flows, the dedicated circuits, the CSSP feed, the cross domain transfers, and the partner API. The DMZ's internet-facing services are also registered for DISA's internet access points. The approved baseline is the same policy-as-code rule base the hubs run, so the pipeline checks the deployed rules against the registration on every change. The Security Team recertifies the registration each year.
 
 **NIST Control Mapping:**
 
@@ -1605,7 +1605,7 @@
 
 ### NE-3.3: Trusted DNS Service
 
-**Design Intent:** The cloud DNS resolvers and the data center DNS are KESTREL's only recursive resolvers, and hosts are allowed no other. Outbound queries are filtered by policy, and the resolvers validate DNSSEC. KESTREL's public names, one for each user-facing application, are hosted in the cloud provider's DNS service and signed. Resolver traffic across the circuit stays inside its encryption.
+**Design Intent:** KESTREL's own resolvers in the cloud, the data center, the alternate site, and each operating site are the only ones hosts may use. Outbound queries are filtered by policy, and the resolvers validate DNSSEC. KESTREL's public names, one for each user-facing application, are hosted in the cloud provider's DNS service and signed. Resolver traffic across the circuits stays inside their encrypted tunnels.
 
 **NIST Control Mapping:**
 

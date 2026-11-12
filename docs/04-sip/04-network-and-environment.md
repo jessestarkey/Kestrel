@@ -37,7 +37,7 @@
 
 **Selected Tool / Product / Service:** DISA SCAP Compliance Checker and STIG Viewer, Panorama with the PAN-OS provider for OpenTofu, Cisco ACI and APIC, CyberArk Privileged Access Manager
 
-**Environment-Specific Tailoring:** DISA STIGs harden the VM-Series cloud hub, the data center hub's PA-Series pair, and the alternate site firewall. They also harden the ACI switches and APIC, checked with the SCAP Compliance Checker. Ground segment switches are hardened on the spares in Phase 2. Management interfaces accept only CyberArk-brokered sessions from the out-of-band network. The cloud and data center run dual-stack, and the ground segment drops IPv6 at its conduit.
+**Environment-Specific Tailoring:** DISA STIGs harden the VM-Series cloud hub, the data center hub's PA-Series pair, and the alternate site firewall. They also harden the ACI switches and APIC, checked with the SCAP Compliance Checker. Ground segment switches are hardened on the spares in Phase 2 and at each operating site when the fleet integrates. Management interfaces accept only CyberArk-brokered sessions from the out-of-band network. The cloud and data center run dual-stack, and the ground segment drops IPv6 at its conduit.
 
 **Accountable Team:** Platform Team
 
@@ -45,9 +45,9 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -144,14 +144,14 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| NE-1.5.1: Communication Requirements Mapping | 2 | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| NE-1.5.1: Communication Requirements Mapping | 1 (pinned) | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | NE-1.5.2: Allow and Deny Rules | 1 (pinned) | Technical | None | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
 | NE-1.5.3: Workload/Application-Based Security Grouping | 2 | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | NE-1.5.4: Flow Logs Monitoring and Optimization | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | NE-1.5.5: Security Group and Firewall Rule Drift Detection | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | NE-1.5.6: Segmentation Enforcement Validation and Exfiltration Testing | 2 | Process | None | Level 2 | Periodic (Annual) (re-rated) | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
 
-**Pinned:** NE-1.5.2: Built in when the platform is created, since retrofitting it later costs far more. Default-deny namespace policy is set when each AKS cluster is created, and the first clusters run in Phase 1.
+**Pinned:** NE-1.5.1: The first rules carry the flows the system description already maps. NE-1.5.2: Built in when the platform is created, since retrofitting it later costs far more. Default-deny namespace policy is set when each AKS cluster is created, and the first clusters run in Phase 1.
 
 **Re-rated:** NE-1.5.6: The penetration testers test the whole system, including its internal segmentation, each year.
 
@@ -251,7 +251,7 @@
 
 **Selected Tool / Product / Service:** Azure Private Link, Azure ExpressRoute, ExpressRoute circuits from two carriers, Palo Alto Networks VM-Series, Palo Alto Networks PA-Series, Azure Policy
 
-**Environment-Specific Tailoring:** Every provider-managed service gets a private endpoint in its own spoke, and Azure Policy denies public network access. The data center and alternate site circuits come from different carriers and terminate on the cloud hub and each site's firewall. ExpressRoute private peering is not encrypted, so IPsec tunnels in FIPS-CC mode run between the firewalls inside each circuit. BGP sessions are authenticated, and prefix filters accept only KESTREL's address ranges.
+**Environment-Specific Tailoring:** Every provider-managed service gets a private endpoint in its own spoke, and Azure Policy denies public network access. The data center and alternate site circuits come from different carriers and terminate on the cloud hub and each site's firewall. ExpressRoute private peering is not encrypted, so IPsec tunnels in FIPS-CC mode run between the firewalls inside each circuit. The cloud hub terminates them on an active/passive VM-Series pair, sized for the bulk flows F4 and F20. BGP sessions are authenticated, and prefix filters accept only KESTREL's address ranges.
 
 **Accountable Team:** Platform Team
 
@@ -281,7 +281,7 @@
 
 **Selected Tool / Product / Service:** Azure API Management, Azure Kubernetes Service, Azure Machine Learning, Azure Application Gateway WAF v2
 
-**Environment-Specific Tailoring:** AKS, Azure Machine Learning, and API Management are injected into their spokes' subnets, so their traffic follows the hub's routes. Application Gateway runs as a private deployment with no public IP, and its listeners exist only in the DMZ. Mission team services publish only internal listeners. The Platform Team reviews internal connections each quarter and removes any that no longer match a documented flow.
+**Environment-Specific Tailoring:** AKS, Azure Machine Learning, and API Management are injected into their spokes' subnets, so their traffic follows the hub's routes. Application Gateway runs as a private deployment with no public IP, and its listeners exist only in the DMZ. GV-5.12 confirms the private deployment in Azure Government before the first gateway is built. Mission team services publish only internal listeners. The Platform Team reviews internal connections each quarter and removes any that no longer match a documented flow.
 
 **Accountable Team:** Platform Team
 
@@ -373,7 +373,7 @@
 | NE-2.4.7: HTTP/HTTPS Traffic URL Filtering | 1 (pinned) | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | NE-2.4.8: TLS Inspection Advanced Filtering | 2 | Technical | None | Level 2 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
 
-**Pinned:** NE-2.4.7: Outbound web traffic is limited to the package mirror's sources from the first build, as part of the boundary stack the access point connection needs.
+**Pinned:** NE-2.4.7: The boundary stack the access point connection needs limits outbound web traffic to the package mirror's sources.
 
 ### NE-2.5: DDoS Protection
 
@@ -408,7 +408,7 @@
 
 **Selected Tool / Product / Service:** Azure Application Gateway WAF v2, Azure API Management
 
-**Environment-Specific Tailoring:** Application Gateway WAF v2 fronts the identity-aware proxy in blocking mode from Phase 1. The analyst portal, the signals workbench, and the partner API join it when they arrive in Phase 2, each with managed and custom rules. API Management checks every partner call against its published schema, rate-limits each partner, and admits only routes in AP-5.7's inventory. Nothing on premises faces users, so no on-premises WAF is built.
+**Environment-Specific Tailoring:** Application Gateway WAF v2 fronts the identity-aware proxy in blocking mode from Phase 1. The analyst portal, the signals workbench, and the partner API join it when they arrive in Phase 2, each with managed and custom rules. API Management checks every partner call against its published schema and rate-limits each partner. It admits only routes in AP-5.7's inventory. Nothing on premises faces users, so no on-premises WAF is built.
 
 **Accountable Team:** Platform Team, with the mission teams
 
@@ -428,16 +428,16 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| NE-2.6.1: WAF Service Selection | 1 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| NE-2.6.2: WAF Policy Configurations and Custom Rules | 1 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| NE-2.6.3: WAF Policy Mode | 1 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| NE-2.6.4: WAF Policy and Service Endpoint Associations | 1 (pinned) | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| NE-2.6.1: WAF Service Selection | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| NE-2.6.2: WAF Policy Configurations and Custom Rules | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| NE-2.6.3: WAF Policy Mode | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| NE-2.6.4: WAF Policy and Service Endpoint Associations | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | NE-2.6.5: On-Premises Reverse-Proxy WAF Deployment | N/A | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | NE-2.6.6: Bot Management and Request Rate Limiting | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | NE-2.6.7: API Protection Policy and Schema Validation | 2 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | NE-2.6.8: API Gateway Runtime Policy Enforcement | 2 | Technical | Automate | Level 2 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
 
-**Pinned:** NE-2.6.1, NE-2.6.2, NE-2.6.3, and NE-2.6.4: The WAF fronts the identity-aware proxy from the first commit, as part of the boundary stack the access point connection needs. NE-2.6.7: The web application firewall fronts the mission applications, which arrive in Phase 2.
+**Pinned:** NE-2.6.7: The partner API, whose calls API Management checks against its schema, arrives in Phase 2.
 
 **Not applicable:** NE-2.6.5: Nothing on premises faces users, so no on-premises reverse-proxy WAF is needed.
 
@@ -445,7 +445,7 @@
 
 **Selected Tool / Product / Service:** Pomerium Enterprise, Azure Virtual Desktop, Azure Private Link, Defender for Servers, CyberArk Privileged Access Manager
 
-**Environment-Specific Tailoring:** Pomerium admits developers to GitLab, CI, and the experimentation workspaces from the first commit, behind the DMZ's WAF. Azure Virtual Desktop admits operators and CSSP analysts through Private Link, with public access disabled. The interconnection agreement has the performer forward the private link names to KESTREL's resolvers. Neither path offers a network tunnel, so no laptop joins KESTREL's network. Defender for Servers opens cloud management ports only for a just-in-time window. On-premises management ports accept only CyberArk's session hosts. Sessions end after 15 idle minutes, and the Security Team can end any session at once.
+**Environment-Specific Tailoring:** Pomerium admits developers to GitLab, CI, and the experimentation workspaces from the first commit, behind the DMZ's WAF. Azure Virtual Desktop admits operators and CSSP analysts through private endpoints in the DMZ, with public access disabled. The performer hosts their names in its own DNS, pointing at DMZ addresses KESTREL supplies under the interconnection agreement. Neither path offers a network tunnel, so no laptop joins KESTREL's network. Defender for Servers opens cloud management ports only for a just-in-time window. On-premises management ports accept only CyberArk's session hosts. Sessions end after 15 idle minutes, and the Security Team can end any session at once.
 
 **Accountable Team:** Platform Team
 
@@ -543,7 +543,7 @@
 
 **Selected Tool / Product / Service:** Palo Alto Networks PA-Series, Nozomi Networks Guardian, the aircraft and ground equipment manufacturer's tools
 
-**Environment-Specific Tailoring:** Custom App-ID signatures, built from the manufacturer's protocol documentation, let the ground segment firewall allow only each station's approved commands. They are built and tested on the spares in Phase 2 and applied at each operating site when the fleet integrates. The conduit to the data center carries file transfer alone, so control protocol traffic there is blocked and alerted. Fleet Operations and the Security Team tune the rules after each maintenance window.
+**Environment-Specific Tailoring:** Custom App-ID signatures, built from the manufacturer's protocol documentation, let the ground segment firewall allow only each station's approved commands. They are built and tested on the spares in Phase 2 and applied at each operating site when the fleet integrates. Command and control traffic never crosses the conduit to the data center, so any seen there is blocked and alerted. Fleet Operations and the Security Team tune the rules after each maintenance window.
 
 **Accountable Team:** Fleet Operations
 
@@ -603,7 +603,7 @@
 
 **Selected Tool / Product / Service:** the DISA Boundary Cloud Access Point, the Platform Team's landing zone modules derived from Mission Landing Zone, Palo Alto Networks VM-Series, Azure Policy
 
-**Environment-Specific Tailoring:** Every user flow arrives through DISA's internet access points, the Boundary Cloud Access Point, and the cloud hub. Azure Policy denies Azure public IP resources in every spoke. From Phase 1 the mission-owner stack is the VM-Series hub with Threat Prevention and outbound URL filtering, behind the DMZ's WAF. Administration uses its own path through the VDI brokers and the privileged access workstations. DISA approves the access point connection and the two dedicated circuits before the DMZ accepts traffic.
+**Environment-Specific Tailoring:** Every user flow arrives through DISA's internet access points, the Boundary Cloud Access Point, and the cloud hub. Azure Policy denies Azure public IP resources in every spoke. From Phase 1 the mission-owner stack is the VM-Series hub with Threat Prevention and outbound URL filtering, followed by the DMZ's WAF. Administration uses its own path through the VDI brokers and the privileged access workstations. DISA approves the access point connection and the two dedicated circuits before the DMZ accepts traffic.
 
 **Accountable Team:** Platform Team
 
@@ -840,7 +840,7 @@
 
 **Selected Tool / Product / Service:** the aircraft and ground equipment manufacturer's tools, Microchip SyncServer S650, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Each aircraft's GNSS signal and solution quality is profiled and compared with its inertial navigation. Each station compares its GNSS timing with a local holdover reference, and with the data center's SyncServer whenever the conduit is up. Spoofing and jamming indicators alert the operator during flight and reach the Security Team through Splunk.
+**Environment-Specific Tailoring:** Each aircraft's GNSS signal and solution quality is profiled and compared with its inertial navigation. Each operating site has its own SyncServer as a holdover reference. Each station compares its GNSS timing with it, and with the data center's SyncServer whenever the conduit is up. Spoofing and jamming indicators alert the operator during flight and reach the Security Team through Splunk.
 
 **Accountable Team:** Fleet Operations
 
