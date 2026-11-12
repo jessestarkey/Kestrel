@@ -4,7 +4,7 @@
 
 # KESTREL Program Space
 
-This space holds KESTREL's working documents, namely the governing plans and the runbooks that carry them out. The configuration-controlled authorization documents live in the repository's [`docs/`](https://github.com/jessestarkey/Kestrel/tree/main/docs) folder, and the work to build KESTREL is tracked in the repository's [issues](https://github.com/jessestarkey/Kestrel/issues), which stand in for Jira.
+This space holds KESTREL's working documents, namely the governing plans and the runbooks that carry them out. The configuration-controlled authorization documents live in the repository's [`docs/`](https://github.com/jessestarkey/Kestrel/tree/main/docs) folder, and the work to build KESTREL is tracked in the repository's [issues](https://github.com/jessestarkey/Kestrel/issues) and on the [project board](https://github.com/users/jessestarkey/projects/3), which stand in for Jira.
 
 ## Governing plans
 

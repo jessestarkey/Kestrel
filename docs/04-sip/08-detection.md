@@ -12,7 +12,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -42,7 +42,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
 **Funding Line:** FY29 O&M, platform and security operations
 
@@ -71,7 +71,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
 **Funding Line:** FY28 and FY29 O&M, platform and security operations
 
@@ -102,7 +102,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
 **Funding Line:** FY29 O&M, platform and security operations
 
@@ -130,7 +130,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
 **Funding Line:** FY29 O&M, platform and security operations
 
@@ -158,7 +158,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -186,7 +186,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.7, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -214,7 +214,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -246,7 +246,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -490,7 +490,7 @@
 
 **Accountable Team:** Fleet Operations
 
-**Dependencies:** DE-3.1
+**Dependencies:** DE-3.1, NE-1.6
 
 **Funding Line:** FY28 O&M, platform and security operations
 

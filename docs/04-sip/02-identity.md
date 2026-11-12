@@ -498,9 +498,9 @@
 
 **Dependencies:** ID-1.3, DA-3.3, DA-3.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with activities through Phase 2
 
 **Target Date / Sprint:** 2027-12-31
 
@@ -512,9 +512,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| ID-3.1.1: Cloud Workload Identity Selection | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| ID-3.1.1: Cloud Workload Identity Selection | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | ID-3.1.2: Cloud Workload Identity Permissions | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-| ID-3.1.3: Cloud Workload Identity Code Authentication Integration | 2 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-3.1.3: Cloud Workload Identity Code Authentication Integration | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-3.1.4: Native/Local Credential Elimination | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 
 ### ID-3.2: Application and Service Account Identities
@@ -919,7 +919,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** ID-1 through ID-4 design decisions
+**Dependencies:** The SADD's Identity design decisions
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -947,7 +947,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** ID-1 through ID-4 design decisions
+**Dependencies:** ID-5.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 

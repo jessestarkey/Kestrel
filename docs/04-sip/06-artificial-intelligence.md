@@ -460,7 +460,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -487,7 +487,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -514,7 +514,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -541,7 +541,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -568,7 +568,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -595,7 +595,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -622,7 +622,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -649,7 +649,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -676,7 +676,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -703,7 +703,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -730,7 +730,7 @@
 
 **Accountable Team:** ML Team, with the Security Team
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -757,7 +757,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -784,7 +784,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -811,7 +811,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -838,7 +838,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -865,7 +865,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -892,7 +892,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -919,7 +919,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -946,7 +946,7 @@
 
 **Accountable Team:** ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, AI-2.4
+**Dependencies:** AP-2.21, AP-2.22, AI-2.4
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1414,7 +1414,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-4, AI-6.5
+**Dependencies:** AI-4.1, AI-4.14, AI-6.5
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1441,7 +1441,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-4, AI-6.5
+**Dependencies:** AI-4.1, AI-4.14, AI-6.5
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1468,7 +1468,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-4, AI-6.5
+**Dependencies:** AI-4.1, AI-4.14, AI-6.5
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1495,7 +1495,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-4, AI-6.5
+**Dependencies:** AI-4.1, AI-4.14, AI-6.5
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1524,7 +1524,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1551,7 +1551,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1578,7 +1578,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1606,7 +1606,7 @@
 
 **Accountable Team:** Mission Team 1
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 and FY29 RDT&E, mission and ML
 
@@ -1635,7 +1635,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1662,7 +1662,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1689,7 +1689,7 @@
 
 **Accountable Team:** Mission Team 2
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1717,7 +1717,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1744,7 +1744,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1771,7 +1771,7 @@
 
 **Accountable Team:** Mission teams
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1800,7 +1800,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 and FY29 RDT&E, mission and ML
 
@@ -1827,7 +1827,7 @@
 
 **Accountable Team:** Fleet Operations, with the ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1854,7 +1854,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1881,7 +1881,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-6, NE-2.2
+**Dependencies:** AI-6.5, AI-6.7, NE-2.2
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1910,7 +1910,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1938,7 +1938,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1965,7 +1965,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -1992,7 +1992,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -2019,7 +2019,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -2046,7 +2046,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -2073,7 +2073,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -2100,7 +2100,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -2128,7 +2128,7 @@
 
 **Accountable Team:** Program Office (PMO ISSE)
 
-**Dependencies:** AI-8, DE-3.1
+**Dependencies:** AI-6.7, DE-3.1
 
 **Funding Line:** FY28 program management
 
@@ -2158,7 +2158,7 @@
 
 **Accountable Team:** ML Team
 
-**Dependencies:** AI-1 design decisions
+**Dependencies:** The SADD's Artificial Intelligence design decisions
 
 **Funding Line:** FY28 RDT&E, mission and ML
 

@@ -6,6 +6,19 @@ KESTREL is a **notional system** built to show the SABER (Security Architecture 
 
 > **KESTREL is fictional.** It is not a real program, it holds no real data, and any resemblance to an actual system is coincidental. Its architecture is realistic so that every SABER decision made against it is a decision a real program would face, but nothing here describes an operational capability.
 
+## Where things live
+
+KESTREL's real tools would be self-hosted inside its authorization boundary. Here, GitHub stands in for them:
+
+| Open | Stands in for | What you'll find |
+|---|---|---|
+| [`docs/`](docs/) | Configuration-controlled documents | The system description, CCSD, SADD, and Security Implementation Plan |
+| [Project board](https://github.com/users/jessestarkey/projects/3) | Jira board | The Identity focus area's work, with each item's phase, team, dates, and activity metadata |
+| [Issues](https://github.com/jessestarkey/Kestrel/issues) | Jira issues | The same work as initiative, epics, stories, and sub-tasks, with blocked-by links between stories |
+| [Wiki](https://github.com/jessestarkey/Kestrel/wiki) | Confluence | The governing plans, starting with the Account Management Plan, and the runbooks that carry them out |
+
+The pinned issue [About this demonstration](https://github.com/jessestarkey/Kestrel/issues/179) explains the mapping in more detail. Only the Identity focus area is loaded on the board and in the issues so far.
+
 ## Why a notional system
 
 The SABER is a framework: it defines outcomes, activities, control mappings, and metadata, but it deliberately stops short of any one program's design. A framework that only exists in the abstract is hard to evaluate. KESTREL gives it something concrete to act on, chosen so that most of the SABER applies and the parts that get tailored out are excluded for a stated reason, not because the example was too small to need them.

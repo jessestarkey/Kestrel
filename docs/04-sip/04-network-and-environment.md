@@ -495,7 +495,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** the enterprise CDS interconnection agreement, AP-4
+**Dependencies:** AP-4.5, the enterprise CDS interconnection agreement
 
 **Funding Line:** FY28 O&M, platform and security operations
 

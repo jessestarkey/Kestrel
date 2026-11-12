@@ -130,7 +130,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-1.1, AP-2 pipeline foundation
+**Dependencies:** DI-1.1, AP-2.21, AP-2.22
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -159,7 +159,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-1.1, AP-2 pipeline foundation
+**Dependencies:** DI-1.1, AP-2.21, AP-2.22
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -189,7 +189,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-1.1, AP-2 pipeline foundation
+**Dependencies:** DI-1.1, AP-2.21, AP-2.22
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -217,7 +217,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-1.1, AP-2 pipeline foundation
+**Dependencies:** DI-1.1, AP-2.21, AP-2.22
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -394,7 +394,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-3, DE-3.1
+**Dependencies:** DI-3.1, DI-3.2, DI-3.3, DI-3.4, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -421,7 +421,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-3, DE-3.1
+**Dependencies:** DI-3.1, DI-3.2, DI-3.3, DI-3.4, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -448,7 +448,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-3, DE-3.1
+**Dependencies:** DI-3.1, DI-3.2, DI-3.3, DI-3.4, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -475,7 +475,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-3, DE-3.1
+**Dependencies:** DI-3.1, DI-3.2, DI-3.3, DI-3.4, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -502,7 +502,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-3, DE-3.1
+**Dependencies:** DI-3.1, DI-3.2, DI-3.3, DI-3.4, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -529,7 +529,7 @@
 
 **Accountable Team:** Fleet Operations
 
-**Dependencies:** DI-3, DE-3.1
+**Dependencies:** DI-1.2, DI-3.5
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -556,7 +556,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-3, DE-3.1
+**Dependencies:** DI-3.1, DI-3.2, DI-3.3, DI-3.4, DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -589,13 +589,13 @@
 
 **Accountable Team:** Fleet Operations, with the Platform Team
 
-**Dependencies:** DI-3, DE-3.1
+**Dependencies:** DI-3.5, NE-1.6
 
 **Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2027-12-31
+**Target Date / Sprint:** 2028-06-30
 
 **Contracting / Procurement Reference:** [C08](index.md#6-contracting-and-procurement-cross-references), [C13](index.md#6-contracting-and-procurement-cross-references)
 
@@ -605,9 +605,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| DI-4.9.1: Network Segmentation and Isolation Enforcement | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| DI-4.9.2: Virtual Patching | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-| DI-4.9.3: Enhanced Monitoring for Unpatchable Assets | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| DI-4.9.1: Network Segmentation and Isolation Enforcement | 3 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| DI-4.9.2: Virtual Patching | 3 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| DI-4.9.3: Enhanced Monitoring for Unpatchable Assets | 3 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 
 ## DI-5: Endpoint Security
 
@@ -775,7 +775,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-2, DI-3 design decisions
+**Dependencies:** The SADD's Device and Infrastructure design decisions
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -805,7 +805,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DI-4.8 design decisions
+**Dependencies:** The SADD's vulnerability and patch management design decisions
 
 **Funding Line:** FY28 O&M, platform and security operations
 

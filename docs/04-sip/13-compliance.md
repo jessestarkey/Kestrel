@@ -12,7 +12,7 @@
 
 **Accountable Team:** Program Office (PMO ISSE)
 
-**Dependencies:** DI-4, AP-5.11
+**Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
 **Funding Line:** FY28 program management
 
@@ -40,7 +40,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DI-4, AP-5.11
+**Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -68,7 +68,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DI-4, AP-5.11
+**Dependencies:** DI-4.4, DI-4.5, DI-4.6, AP-5.11
 
 **Funding Line:** FY28 O&M, platform and security operations
 

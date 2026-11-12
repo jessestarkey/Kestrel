@@ -78,6 +78,7 @@ ACT_COLS = ['Control Type', 'Cross-Cutting Discipline', 'Maturity Model', 'ConMo
             'Level of Effort', 'Cost', 'Time Estimation']
 os.makedirs(DOCS, exist_ok=True)
 used_pins = set(); act_count = collections.Counter()
+starts = {}; dep_refs = {}
 stats = []; contract_use = collections.defaultdict(list); phase_count = collections.Counter()
 phase_fa = collections.defaultdict(collections.Counter); warnings = []
 for fname in sorted(os.listdir(S.FW)):
@@ -118,6 +119,7 @@ for fname in sorted(os.listdir(S.FW)):
                 aph[aid] = p
                 act_count[p] += 1
             phase = min(aph.values())
+            starts[oid] = phase; dep_refs[oid] = re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+)?)\b', sel['deps'])
             recs.append((o, oid, ot, sel, phase, aph))
         if not recs:
             continue
@@ -194,3 +196,18 @@ if set(PINS) - used_pins:
     sys.exit(f'Pins that match no in-scope activity: {sorted(set(PINS) - used_pins)}')
 if unused:
     print('Contracts no record uses:', unused)
+
+# Every dependency must start no later than the outcome that relies on it. A
+# reference to a capability, such as AI-5, means every in-scope outcome in it.
+late, missing = [], []
+for oid, refs in dep_refs.items():
+    for r in refs:
+        targets = [r] if r in starts else [o for o in starts if o.startswith(r + '.')]
+        if not targets:
+            missing.append(f'{oid} -> {r}')
+        late += [f'{oid} (Phase {starts[oid]}) depends on {t} (Phase {starts[t]})' for t in targets if starts[t] > starts[oid]]
+if missing:
+    sys.exit('Dependencies on outcomes that are not in scope: ' + ', '.join(missing))
+if late:
+    sys.exit('Dependencies scheduled after the outcomes that rely on them:\n  ' + '\n  '.join(late))
+print(f'{sum(len(v) for v in dep_refs.values())} dependency references, all scheduled in order')

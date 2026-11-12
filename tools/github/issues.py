@@ -28,6 +28,7 @@ FILES = {'ID': ('02', 'identity'), 'DI': ('03', 'device-and-infrastructure'), 'N
          'AP': ('05', 'application'), 'AI': ('06', 'artificial-intelligence'), 'DA': ('07', 'data'),
          'DE': ('08', 'detection'), 'RS': ('09', 'response'), 'RC': ('10', 'recovery'),
          'GV': ('11', 'governance'), 'RK': ('12', 'risk'), 'CO': ('13', 'compliance')}
+PHASE_START = {1: '2027-01-01', 2: '2027-07-01', 3: '2028-01-01', 4: '2028-07-01'}
 PHASES = {1: ('Phase 1: Foundation', '2027-06-30'), 2: ('Phase 2: Protect and Operate', '2027-12-31'),
           3: ('Phase 3: Mission, AI, and Fleet', '2028-06-30'), 4: ('Phase 4: Maturity', '2028-12-31')}
 def note(kind):
@@ -128,6 +129,7 @@ def build_plan(code):
             if r['pinned']:
                 lines += ['', f"**Pinned activities:** {r['pinned']}"]
             issues.append({'key': oid, 'type': 'story', 'parent': cid, 'phase': phase,
+                           'deps': re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+)?)\b', f.get('Dependencies', '')),
                            'title': f'{oid}: {ot}', 'body': '\n'.join(lines) + '\n',
                            'fields': {'Outcome ID': oid, 'Team': f.get('Accountable Team', ''),
                                       'Target Date': f.get('Target Date / Sprint', '')}})
@@ -145,6 +147,17 @@ def build_plan(code):
                 issues.append({'key': aid, 'type': 'sub-task', 'parent': oid, 'phase': row['phase'],
                                'title': f'{aid}: {at}', 'body': '\n'.join(body) + '\n',
                                'fields': {'Outcome ID': oid, 'Target Date': PHASES[row['phase']][1], **meta}})
+    # Start dates for the roadmap view, and spans for the epics and the initiative.
+    for it in issues:
+        if it['phase']:
+            it.setdefault('fields', {})['Start Date'] = PHASE_START[it['phase']]
+    for it in issues:
+        if it['type'] in ('epic', 'initiative'):
+            kids = [k for k in issues if k['parent'] == it['key']] if it['type'] == 'epic' else \
+                   [k for k in issues if k['type'] == 'story']
+            f = it.setdefault('fields', {})
+            f['Start Date'] = min(k['fields']['Start Date'] for k in kids)
+            f['Target Date'] = max(k['fields']['Target Date'] for k in kids)
     return issues
 
 
@@ -225,7 +238,61 @@ def apply(code, issues):
         st['links'].append(it['key']); save(); time.sleep(0.8)
     print(f"issues {len(st['issues'])}, sub-issue links {len(st['links'])}")
     about(st, save)
+    sync(code, issues, st, save)
     project(code, issues, st, save)
+    dependencies(issues, st, save)
+
+
+def labels_for(code, it):
+    return sorted([TYPE_LABELS[it['type']][0], f'focus area: {code}', 'notional'] + ([f"phase: {it['phase']}"] if it['phase'] else []))
+
+
+def sync(code, issues, st, save):
+    """Bring existing issues in line with the plan, and re-set project fields where the phase moved."""
+    repo = f'/repos/{OWNER}/{NAME}'
+    have, page = {}, 1
+    while True:
+        batch = api('GET', f'{repo}/issues?state=all&per_page=100&page={page}&labels=' + f'focus area: {code}'.replace(' ', '%20'))
+        if not batch:
+            break
+        have.update({i['number']: i for i in batch}); page += 1
+    ms = {m['title']: m['number'] for m in api('GET', f'{repo}/milestones?state=all&per_page=100')}
+    changed = 0
+    for it in issues:
+        cur = have.get(st['issues'][it['key']]['number'])
+        if cur is None:
+            continue
+        want_labels = labels_for(code, it)
+        want_ms = PHASES[it['phase']][0] if it['phase'] else None
+        cur_ms = cur['milestone']['title'] if cur['milestone'] else None
+        moved = sorted(l['name'] for l in cur['labels']) != want_labels or cur_ms != want_ms
+        if cur['title'] != it['title'] or (cur['body'] or '').replace('\r\n', '\n') != it['body'] or moved:
+            data = {'title': it['title'], 'body': it['body'], 'labels': want_labels,
+                    'milestone': ms[want_ms] if want_ms else None}
+            api('PATCH', f"{repo}/issues/{cur['number']}", data); changed += 1
+            if moved:
+                for lst in ('fields_set', 'dates_set'):
+                    if it['key'] in st.get(lst, []):
+                        st[lst].remove(it['key'])
+            save(); print(f"  synced {it['key']}{' (phase moved)' if moved else ''}"); time.sleep(0.8)
+    print(f'issues synced with the plan: {changed}')
+
+
+def dependencies(issues, st, save):
+    """Mark each story blocked by the outcomes, or whole capabilities, its plan record depends on."""
+    repo = f'/repos/{OWNER}/{NAME}'
+    done = st.setdefault('deps', []); skipped = set()
+    for it in issues:
+        for ref in it.get('deps', []):
+            link = f"{it['key']}<-{ref}"
+            if link in done:
+                continue
+            if ref not in st['issues']:
+                skipped.add(ref); continue
+            api('POST', f"{repo}/issues/{st['issues'][it['key']]['number']}/dependencies/blocked_by",
+                {'issue_id': st['issues'][ref]['id']})
+            done.append(link); save(); print(f'  {it["key"]} blocked by {ref}'); time.sleep(0.8)
+    print(f"dependency links {len(done)}" + (f", not loaded on GitHub: {', '.join(sorted(skipped))}" if skipped else ''))
 
 
 ABOUT = """<p align="center"><img src="https://raw.githubusercontent.com/jessestarkey/Kestrel/main/docs/assets/kestrel-mark.svg" alt="KESTREL logo, a hovering kestrel inside a reticle" width="160"></p>
@@ -237,7 +304,7 @@ This repository shows a PMO ISSE applying the [SABER](https://github.com/jessest
 | KESTREL's tool | Stood in for by | What it holds here |
 |---|---|---|
 | Jira Software Data Center | GitHub Issues with sub-issues | The Security Implementation Plan's work, as initiative, epic, story, and sub-task |
-| Jira plans and boards | The KESTREL Implementation project | The same issues with the plan's phase, team, and activity metadata as fields |
+| Jira plans and boards | The [KESTREL Implementation](https://github.com/users/jessestarkey/projects/3) project | The same issues with the plan's phase, team, and activity metadata as fields |
 | Confluence Data Center | This repository's wiki | Governing plans and runbooks the stories point to |
 | GitLab Ultimate | This repository's code and docs | Source, infrastructure as code, and the configuration-controlled documents |
 
@@ -258,6 +325,7 @@ def about(st, save):
 SELECTS = ['Level', 'Phase', 'Team', 'Control Type', 'Cross-Cutting Discipline', 'Maturity Model',
            'ConMon Activity', 'Level of Effort', 'Time Estimation']
 TEXTS = ['Outcome ID', 'Cost']
+DATES = ['Start Date', 'Target Date']
 
 
 def values(it):
@@ -287,10 +355,10 @@ def project(code, issues, st, save):
         for k, x in values(it).items():
             if k in opts and x not in opts[k]:
                 opts[k].append(x)
-    for k in SELECTS + TEXTS + ['Target Date']:
+    for k in SELECTS + TEXTS + DATES:
         if k in fields:
             continue
-        dtype = 'SINGLE_SELECT' if k in SELECTS else 'DATE' if k == 'Target Date' else 'TEXT'
+        dtype = 'SINGLE_SELECT' if k in SELECTS else 'DATE' if k in DATES else 'TEXT'
         args = {'p': pid, 'n': k, 'd': dtype}
         q = 'mutation($p:ID!,$n:String!,$d:ProjectV2CustomFieldType!'
         if dtype == 'SINGLE_SELECT':
@@ -319,7 +387,7 @@ def project(code, issues, st, save):
             f = fields[k]
             if k in SELECTS:
                 sets.append((f['id'], {'singleSelectOptionId': f['options'][x]}))
-            elif k == 'Target Date':
+            elif k in DATES:
                 sets.append((f['id'], {'date': x}))
             else:
                 sets.append((f['id'], {'text': x}))
@@ -327,9 +395,20 @@ def project(code, issues, st, save):
             graphql('mutation($p:ID!,$i:ID!,$f:ID!,$v:ProjectV2FieldValue!){updateProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f,value:$v}){projectV2Item{id}}}',
                     p=pid, i=st['items'][key], f=fid, v=val)
             time.sleep(0.3)
-        st['fields_set'].append(key); save()
+        st['fields_set'].append(key); st.setdefault('dates_set', []).append(key); save()
         print(f"  project item {key}")
-    print(f"project items {len(st['items'])}, with fields {len(st['fields_set'])}")
+    # Items loaded before Start Date existed get both dates set here.
+    done = st.setdefault('dates_set', [])
+    for it in issues:
+        if it['key'] in done:
+            continue
+        for k in DATES:
+            graphql('mutation($p:ID!,$i:ID!,$f:ID!,$v:ProjectV2FieldValue!){updateProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f,value:$v}){projectV2Item{id}}}',
+                    p=pid, i=st['items'][it['key']], f=fields[k]['id'], v={'date': it['fields'][k]})
+            time.sleep(0.3)
+        done.append(it['key']); save()
+        print(f"  dates {it['key']}")
+    print(f"project items {len(st['items'])}, with fields {len(st['fields_set'])}, with dates {len(done)}")
 
 
 if __name__ == '__main__':

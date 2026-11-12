@@ -207,7 +207,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** RC-1, DA-3.5
+**Dependencies:** RC-1.2, DA-3.5
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -234,7 +234,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** RC-1, DA-3.5
+**Dependencies:** RC-1.2, DA-3.5
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -261,7 +261,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** RC-1, DA-3.5
+**Dependencies:** RC-1.2, DA-3.5
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -290,7 +290,7 @@
 
 **Accountable Team:** Program Office (program manager)
 
-**Dependencies:** RC-1, RK-3.2, the alternate site facility agreement
+**Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
 **Funding Line:** FY28 program management
 
@@ -317,7 +317,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** RC-1, RK-3.2, the alternate site facility agreement
+**Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -344,7 +344,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** RC-1, RK-3.2, the alternate site facility agreement
+**Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -372,7 +372,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** RC-1, RK-3.2, the alternate site facility agreement
+**Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -399,7 +399,7 @@
 
 **Accountable Team:** Fleet Operations, with the mission teams
 
-**Dependencies:** RC-1, RK-3.2, the alternate site facility agreement
+**Dependencies:** RC-1.2, RC-1.3, RK-3.2, the alternate site facility agreement
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -429,7 +429,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** RC-1 through RC-3 design decisions
+**Dependencies:** The SADD's Recovery design decisions
 
 **Funding Line:** FY28 O&M, platform and security operations
 

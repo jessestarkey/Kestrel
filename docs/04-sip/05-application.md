@@ -840,7 +840,7 @@
 
 **Accountable Team:** Data Team
 
-**Dependencies:** AP-2, stage clusters in each dev/test spoke
+**Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -867,7 +867,7 @@
 
 **Accountable Team:** Mission teams and ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, stage clusters in each dev/test spoke
+**Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
 **Funding Line:** FY28 and FY29 RDT&E, mission and ML
 
@@ -896,7 +896,7 @@
 
 **Accountable Team:** Mission teams and ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, stage clusters in each dev/test spoke
+**Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -924,7 +924,7 @@
 
 **Accountable Team:** Mission teams and ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, stage clusters in each dev/test spoke
+**Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
 **Funding Line:** FY28 RDT&E, mission and ML
 
@@ -981,7 +981,7 @@
 
 **Accountable Team:** Mission teams and ML Team, on Platform Team tooling
 
-**Dependencies:** AP-2, stage clusters in each dev/test spoke
+**Dependencies:** AP-2.21, AP-2.22, stage clusters in each dev/test spoke
 
 **Funding Line:** FY29 RDT&E, mission and ML
 
@@ -1533,7 +1533,7 @@
 
 **Accountable Team:** Program Office (PMO ISSE)
 
-**Dependencies:** AP-1 through AP-5 design decisions
+**Dependencies:** The SADD's Application design decisions
 
 **Funding Line:** FY27 program management
 
