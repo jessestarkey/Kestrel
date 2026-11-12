@@ -514,7 +514,7 @@ PINS = {
 # Section 5 records the same list.
 NA = {
     'ID-2.1.3': 'KESTREL has no mobile devices, so no derived credentials are issued.',
-    'ID-2.2.5': 'NSS PKI hardware tokens belong to the IL6 enclave, not to KESTREL.',
+    'ID-2.2.5': 'KESTREL is an unclassified national security system whose users authenticate with DoD PKI CACs. NSS PKI tokens serve SECRET and higher networks, which at KESTREL means only the separately authorized IL6 enclave.',
 }
 
 # Activity metadata re-rated where a governing plan sets a different value, with the source.

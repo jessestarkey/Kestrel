@@ -135,6 +135,7 @@ def build_plan(code):
                 lines += ['', f"**Pinned activities:** {r['pinned']}"]
             issues.append({'key': oid, 'type': 'story', 'parent': cid, 'phase': phase,
                            'deps': re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+)?)\b', f.get('Dependencies', '')),
+                           'external': external(f.get('Dependencies', '')),
                            'title': f'{oid}: {ot}', 'body': '\n'.join(lines) + '\n',
                            'fields': {'Outcome ID': oid, 'Team': f.get('Accountable Team', ''),
                                       'Target Date': f.get('Target Date / Sprint', '')}})
@@ -252,6 +253,86 @@ def apply(code, issues):
     sync(code, issues, st, save)
     project(code, issues, st, save)
     dependencies(issues, st, save)
+    workflow(issues, st, save)
+
+
+def external(deps):
+    """Dependencies that are not outcomes, such as an outside party's feed or agreement."""
+    out = []
+    for part in [x.strip() for x in deps.split(',')]:
+        if not part or part.startswith(('None', "The SADD's")) or re.fullmatch(r'[A-Z]{2}-\d+(?:\.\d+)?', part):
+            continue
+        out.append(part)
+    return out
+
+
+# The project's workflow, standing in for a Jira workflow.
+STATUSES = [
+    ('Backlog', 'GRAY', 'Scheduled for a later phase'),
+    ('Ready', 'BLUE', 'In the current phase, with its dependencies met'),
+    ('In Progress', 'YELLOW', 'Being built'),
+    ('Blocked', 'RED', 'Waiting on something outside the team, such as a contract, an AO decision, or an outside dependency'),
+    ('In Review', 'PURPLE', 'Built and awaiting acceptance by the product owner, the PMO ISSE, or the Configuration Control Board'),
+    ('Done', 'GREEN', 'Accepted, with its evidence filed and the SSP updated'),
+]
+CURRENT_PHASE = 1
+
+
+def starting_status(it, by_key):
+    """The status the plan implies before anyone has worked the item."""
+    if it.get('state') == 'closed':
+        return None
+    if not it['phase']:
+        return 'Ready'
+    if it['phase'] > CURRENT_PHASE:
+        return 'Backlog'
+    story = it if it['type'] == 'story' else by_key.get(it['parent']) if it['type'] == 'sub-task' else None
+    if story and story.get('external'):
+        return 'Blocked'
+    return 'Ready'
+
+
+def workflow(issues, st, save):
+    """Set the six-status workflow, and each item's starting status unless a person has moved it."""
+    pid = st['project']['id']
+    q = 'query($p:ID!){node(id:$p){... on ProjectV2{field(name:"Status"){... on ProjectV2SingleSelectField{id options{id name}}}}}}'
+    sf = graphql(q, p=pid)['node']['field']
+    if [o['name'] for o in sf['options']] != [n for n, _, _ in STATUSES]:
+        opts = [{'name': n, 'color': c, 'description': d} for n, c, d in STATUSES]
+        graphql('mutation($f:ID!,$o:[ProjectV2SingleSelectFieldOptionInput!]){updateProjectV2Field(input:{fieldId:$f,singleSelectOptions:$o}){projectV2Field{... on ProjectV2SingleSelectField{id}}}}',
+                f=sf['id'], o=opts)
+        sf = graphql(q, p=pid)['node']['field']
+        print('  status options set to ' + ', '.join(n for n, _, _ in STATUSES))
+    opt = {o['name']: o['id'] for o in sf['options']}
+    current, after = {}, None
+    while True:
+        page = graphql('query($p:ID!,$a:String){node(id:$p){... on ProjectV2{items(first:100,after:$a){pageInfo{hasNextPage endCursor} '
+                       'nodes{id fieldValueByName(name:"Status"){... on ProjectV2ItemFieldSingleSelectValue{name}}}}}}}', p=pid, a=after)
+        items = page['node']['items']
+        for n in items['nodes']:
+            current[n['id']] = (n['fieldValueByName'] or {}).get('name')
+        if not items['pageInfo']['hasNextPage']:
+            break
+        after = items['pageInfo']['endCursor']
+    by_key = {it['key']: it for it in issues}
+    last = st.setdefault('status', {}); changed = 0
+    for it in issues:
+        item = st['items'][it['key']]; cur = current.get(item); want = starting_status(it, by_key)
+        moved_by_hand = cur not in (None, last.get(it['key']))
+        if moved_by_hand or cur == want:
+            continue
+        if want is None:
+            graphql('mutation($p:ID!,$i:ID!,$f:ID!){clearProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f}){projectV2Item{id}}}',
+                    p=pid, i=item, f=sf['id'])
+        else:
+            graphql('mutation($p:ID!,$i:ID!,$f:ID!,$v:ProjectV2FieldValue!){updateProjectV2ItemFieldValue(input:{projectId:$p,itemId:$i,fieldId:$f,value:$v}){projectV2Item{id}}}',
+                    p=pid, i=item, f=sf['id'], v={'singleSelectOptionId': opt[want]})
+        last[it['key']] = want; changed += 1; save(); time.sleep(0.3)
+    counts = {}
+    for it in issues:
+        w = last.get(it['key'])
+        counts[w] = counts.get(w, 0) + 1
+    print(f'statuses set: {changed}, by status: {counts}')
 
 
 def labels_for(code, it):
@@ -325,6 +406,8 @@ This repository shows a PMO ISSE applying the [SABER](https://github.com/jessest
 | Confluence Data Center | This repository's wiki | Governing plans and runbooks the stories point to |
 | GitLab Ultimate | This repository's code and docs | Source, infrastructure as code, and the configuration-controlled documents |
 
+The project's six statuses stand in for a Jira workflow, namely Backlog for later phases, Ready, In Progress, Blocked for waits on something outside the team, In Review for acceptance by the product owner, the PMO ISSE, or the Configuration Control Board, and Done once the evidence is filed and the SSP updated. Blocked-by links between issues show sequencing inside the plan, so the Blocked status is kept for outside parties.
+
 Only the Identity focus area is loaded. Every issue is generated from the plan's records by `tools/github/issues.py`, so the tracker and the documents always agree. Phases are milestones, standing in for Jira fix versions.
 """
 
@@ -387,8 +470,6 @@ def project(code, issues, st, save):
         q += '{projectV2Field{... on ProjectV2Field{id} ... on ProjectV2SingleSelectField{id options{id name}}}}}'
         f = graphql(q, **args)['createProjectV2Field']['projectV2Field']
         fields[k] = {'id': f['id'], 'options': {o['name']: o['id'] for o in f.get('options', [])}}; save()
-    status = graphql('query($p:ID!){node(id:$p){... on ProjectV2{field(name:"Status"){... on ProjectV2SingleSelectField{id options{id name}}}}}}', p=pid)
-    sf = status['node']['field']; todo = next(o['id'] for o in sf['options'] if o['name'] == 'Todo')
     # Items and their values
     for it in issues:
         key = it['key']
@@ -399,7 +480,7 @@ def project(code, issues, st, save):
             st['items'][key] = item; save(); time.sleep(0.5)
         if key in st['fields_set']:
             continue
-        sets = [(sf['id'], {'singleSelectOptionId': todo})]
+        sets = []
         for k, x in values(it).items():
             f = fields[k]
             if k in SELECTS:

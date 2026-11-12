@@ -117,7 +117,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 
 Three outcomes drop out across the whole framework by decision rather than footprint. Device Compliance (`DI-4.1`) drops because KESTREL owns no laptops, desktops, or mobile devices. Unidirectional Gateways (`NE-2.9`) drops because the ground segment conduit carries traffic both ways. Native Email Messaging Service (`NE-3.6`) drops because KESTREL runs no email service and the AO approved removing SI-8.
 
-Two activities inside in-scope outcomes do not apply. Derived/Mobile Credentials (`ID-2.1.3`) has nothing to issue, since KESTREL has no mobile devices. National Security Systems PKI Hardware Token Management (`ID-2.2.5`) belongs to the IL6 enclave, not to KESTREL. The Security Implementation Plan marks both as not applicable.
+Two activities inside in-scope outcomes do not apply. Derived/Mobile Credentials (`ID-2.1.3`) has nothing to issue, since KESTREL has no mobile devices. National Security Systems PKI Hardware Token Management (`ID-2.2.5`) covers NSS PKI tokens for SECRET and higher networks, while KESTREL, though a national security system, is unclassified and its users authenticate with DoD PKI CACs, so the tokens belong to the IL6 enclave. The Security Implementation Plan marks both as not applicable.
 
 One activity runs under a CCSD exception. Emergency Account Authentication Protections (`ID-4.6.2`) uses console-only passwords for the directory and ground segment break-glass accounts under CCSD tailoring action 6, proposed in version 1.1. For those accounts, the SABER mapping's note that emergency accounts reuse the standard authentication policy does not hold.
 

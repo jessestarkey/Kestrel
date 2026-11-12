@@ -177,7 +177,7 @@ KESTREL is a national security system, so its controls are selected per objectiv
 
 ## 8. Approved Control Set
 
-The AO approved the selection on 2026-10-02 as version 1.0. The approved set is the CNSSI 1253 selection from Section 5, plus the overlays in Section 6, as modified by the five actions in Section 7. Two actions added controls, one removed a control, and two kept a control while changing how it applies. The Security Controls Traceability Matrix (`GV-5.9.1`) records each approved control with its inherited, shared, or program-owned designation, and the SADD is built against this set.
+The AO approved the selection on 2026-10-02 as version 1.0. The approved set is the CNSSI 1253 selection from Section 5, plus the overlays in Section 6, as modified by the five actions in Section 7. Two actions added controls, one removed a control, and two kept a control while changing how it applies. Version 1.1 proposes a sixth, a compensating control on IA-2(1) for break-glass authentication, which awaits SCA review and the AO's decision. The Security Controls Traceability Matrix (`GV-5.9.1`) records each approved control with its inherited, shared, or program-owned designation, and the SADD is built against this set.
 
 This notional example does not reproduce the per-family control counts a real CCSD would state here.
 

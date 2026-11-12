@@ -13,7 +13,7 @@ KESTREL's real tools would be self-hosted inside its authorization boundary. Her
 | Open | Stands in for | What you'll find |
 |---|---|---|
 | [`docs/`](docs/) | Configuration-controlled documents | The system description, CCSD, SADD, and Security Implementation Plan |
-| [Project board](https://github.com/users/jessestarkey/projects/3) | Jira board | The Identity focus area's work, with each item's phase, team, dates, and activity metadata |
+| [Project board](https://github.com/users/jessestarkey/projects/3) | Jira board | The Identity focus area's work, with each item's phase, team, dates, and activity metadata, moving through Backlog, Ready, In Progress, Blocked, In Review, and Done |
 | [Issues](https://github.com/jessestarkey/Kestrel/issues) | Jira issues | The same work as initiative, epics, stories, and sub-tasks, with blocked-by links between stories |
 | [Wiki](https://github.com/jessestarkey/Kestrel/wiki) | Confluence | The governing plans, starting with the Account Management Plan, and the runbooks that carry them out |
 

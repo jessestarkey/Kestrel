@@ -380,7 +380,7 @@
 
 **Pinned:** ID-2.2.3: Revocation checking starts in Phase 1, and it needs the rule for what happens when the revocation service is unreachable.
 
-**Not applicable:** ID-2.2.5: NSS PKI hardware tokens belong to the IL6 enclave, not to KESTREL.
+**Not applicable:** ID-2.2.5: KESTREL is an unclassified national security system whose users authenticate with DoD PKI CACs. NSS PKI tokens serve SECRET and higher networks, which at KESTREL means only the separately authorized IL6 enclave.
 
 ### ID-2.3: Single Sign on (SSO)
 
