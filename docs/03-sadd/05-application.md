@@ -738,7 +738,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Client-Side/Browser-Executed Code
+**Affected Components:** Third-Party Runtime Service Dependency, Client-Side/Browser-Executed Code
 
 **External Dependencies:** The IL5 cloud provider and KESTREL's Microsoft 365 DoD tenant, whose hosted services the inventory records.
 

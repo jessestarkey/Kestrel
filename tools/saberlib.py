@@ -17,7 +17,7 @@ PROSE = {
     'Base/Pretrained Model',
 }
 # Footprint values this design introduces.
-DESIGN = set()
+DESIGN = {'Managed Service Network Integration', 'Third-Party Runtime Service Dependency'}
 
 MANUAL_OUT = {
     'DE-1.9': "Out of scope. KESTREL has no classified endpoints, so CNSSD 504's user activity monitoring does not apply. Privileged session recording belongs to Privileged Credential Vaulting and Session Brokering (`ID-4.4`).",

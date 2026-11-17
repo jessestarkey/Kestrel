@@ -355,7 +355,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** External/Federated Trust
+**Affected Components:** External/Federated Trust, Third-Party Runtime Service Dependency
 
 **External Dependencies:** KESTREL's Microsoft 365 DoD tenant, admitted under its IL5 authorization.
 
@@ -1298,7 +1298,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Compute, AI Agent Identity, Application/API
+**Affected Components:** Compute, AI Agent Identity, Application/API, Third-Party Runtime Service Dependency
 
 **External Dependencies:** None outside the boundary.
 

@@ -189,7 +189,7 @@
 
 **Selected Tool / Product / Service:** OpenTofu, Jira Service Management Data Center, Blancco Drive Eraser, Entrust nShield 5 HSMs, the aircraft and ground equipment manufacturer's tools, the payload vendors' software and SBOMs
 
-**Environment-Specific Tailoring:** Cloud resources are destroyed by the OpenTofu that created them, which revokes their workload identities and deletes their vault secrets and keys. Data center and alternate site drives are wiped with Blancco on site, and HSMs are zeroized. Payload Vendor A fields the replacement by 2027-09-30, before the fleet integrates, so the legacy workstation is never connected. If it slips, the workstation connects only after the AO re-dates CCSD tailoring action 3.
+**Environment-Specific Tailoring:** Cloud resources are destroyed by the OpenTofu that created them, which revokes their workload identities and deletes their vault secrets and keys. Data center and alternate site drives are wiped with Blancco on site, and HSMs are zeroized. Payload Vendor A fields the replacement by 2027-09-30, before the fleet integrates, so the legacy workstation is not connected unless it slips. If it slips, the workstation connects only after the AO re-dates CCSD tailoring action 3.
 
 **Accountable Team:** Platform Team, with Fleet Operations for the fleet
 

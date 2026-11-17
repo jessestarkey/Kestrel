@@ -2001,7 +2001,7 @@
 
 ### AI-6.3: Red-Team Findings Sign-Off
 
-**Design Intent:** Every red team finding above the AISP's must-fix severity needs a validated fix, or a risk acceptance, before the use case can be certified. The PMO ISSE signs off on each closure. Any acceptance routes under Risk Acceptance Process (`RK-1.4`), and anything above Very Low goes to the AO, since every finding touches CCSD row 8.
+**Design Intent:** Every red team finding above the AISP's must-fix severity needs a validated fix, or a risk acceptance, before the use case can be certified. The PMO ISSE signs off on each closure. Any acceptance routes under Risk Acceptance Process (`RK-1.4`), and anything above Very Low goes to the AO, since every certification touches CCSD row 8 or row 10.
 
 **NIST Control Mapping:**
 
@@ -2551,7 +2551,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Third-Party API Model, Foundation Model, Application and Service Account Identity
+**Affected Components:** Third-Party Runtime Service Dependency, Third-Party API Model, Foundation Model, Application and Service Account Identity
 
 **External Dependencies:** The IL5 cloud provider, which hosts each foundation model deployment inside KESTREL's tenant under its provisional authorization. The model's publisher, whose versions and deprecations the provider passes on.
 

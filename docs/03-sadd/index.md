@@ -11,10 +11,10 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SADD Version | 0.2 |
-| Date | 2026-11-11 |
+| SADD Version | 0.3 |
+| Date | 2026-11-17 |
 | Prepared By | KESTREL PMO ISSE |
-| Approved By | Pending. Version 0.2 is submitted to the KESTREL AO for approval as version 1.0. |
+| Approved By | Pending. Version 0.3 is submitted to the KESTREL AO for approval as version 1.0. |
 | Classification / Handling | CUI |
 | Security Categorization | Confidentiality High, Integrity High, Availability Moderate (see Section 2) |
 
@@ -24,6 +24,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 |---|---|---|---|
 | 0.1 | 2026-11-11 | KESTREL PMO ISSE | Initial draft with the document-wide sections and the Identity focus area |
 | 0.2 | 2026-11-11 | KESTREL PMO ISSE | Wrote the remaining eleven focus areas, for AO approval |
+| 0.3 | 2026-11-17 | KESTREL PMO ISSE | Applied the independent reviews of every focus area. Brought privileged access workstations into scope and took classified endpoint monitoring out. Added flows F29 to F38, the Microsoft 365 DoD tenant, and a second data center circuit |
 
 ---
 
@@ -75,7 +76,7 @@ The PMO ISSE drafted the CCSD, the SCA reviewed it, and the AO approved version 
 
 ## 3. Architecture Overview
 
-KESTREL is a hybrid ISR analytics platform inside one IL5 authorization boundary. The IL5 cloud is a hub and ten spokes organized by team. The platform team runs the shared pipeline and registry, the ML team trains and serves every model, and two mission teams, split by payload vendor, run the applications analysts and partners reach through the DMZ. Every spoke-to-spoke flow crosses the cloud hub's NGFW, which denies traffic between the two mission teams. It also denies dev/test to prod traffic, apart from F25's shared services in Platform Prod. The on-premises mission data center holds the authoritative data lake, the identity provider, the PKI and HSMs, and the security monitoring platform, joined to the cloud by two dedicated circuits from different carriers on diverse paths, all riding DISN through the Boundary Cloud Access Point. An alternate site in a parent organization facility holds a warm standby of identity and the PKI and copies of the backups, on its own circuit. The UAS fleet flies the missions and runs detection models on board. Outside the boundary, an enterprise cross domain solution carries baselines to the IL6 enclave and released products back. The [system description](../01-system-description.md) holds the full diagram and data flows.
+KESTREL is a hybrid ISR analytics platform inside one IL5 authorization boundary. The IL5 cloud is a hub and ten spokes organized by team. The platform team runs the shared pipeline and registry, the ML team trains and serves every model, and two mission teams, split by payload vendor, run the applications analysts and partners reach through the DMZ. Every spoke-to-spoke flow crosses the cloud hub's NGFW, which denies traffic between the two mission teams. It also denies dev/test to prod traffic, apart from F25's shared services in Platform Prod. The on-premises mission data center holds the authoritative data lake, the identity provider, the PKI and HSMs, and the security monitoring platform. Two dedicated circuits from different carriers join it to the cloud on diverse paths to different meet-me points. An alternate site in a parent organization facility holds a warm standby of identity and the PKI and copies of the backups, on its own circuit. All three circuits ride DISN through the Boundary Cloud Access Point. The UAS fleet flies the missions and runs detection models on board. Outside the boundary, an enterprise cross domain solution carries baselines to the IL6 enclave and released products back. The [system description](../01-system-description.md) holds the full diagram and data flows.
 
 **Deployment footprint for this program:**
 
@@ -121,7 +122,7 @@ KESTREL is a hybrid ISR analytics platform inside one IL5 authorization boundary
     - [x] Remote Access/VPN Gateway
     - [x] Network Access Control (NAC)
     - [x] Private Connectivity/Dedicated Circuit
-    - [ ] Managed Service Network Integration
+    - [x] Managed Service Network Integration ‡
     - [x] Cross-Domain/Boundary Transfer
     - [x] Industrial Protocol Filtering (OT DPI)
     - [x] OT/ICS Zone-Conduit Segmentation (IEC 62443)
@@ -149,7 +150,7 @@ KESTREL is a hybrid ISR analytics platform inside one IL5 authorization boundary
     - [x] Self-Hosted Third-Party Application (COTS)
     - [x] API/Interface Contract
     - [x] Client-Side/Browser-Executed Code
-    - [ ] Third-Party Runtime Service Dependency
+    - [x] Third-Party Runtime Service Dependency ‡
     - [x] Infrastructure-as-Code (IaC)
     - [x] CI/CD Pipeline
 - [x] **AI/ML System**
@@ -223,27 +224,27 @@ This table rolls up the External Dependencies field from every focus area.
 |---|---|---|---|
 | DoD PKI | ID-1.1, ID-1.2, ID-2.1, ID-2.2, DA-3.7, GV-5.6, GV-5.12 | Proofing through CAC issuance, user certificates, and revocation status | DoD PKI |
 | Contractor CAC sponsorship and DMDC | ID-1.1, ID-2.2 | Sponsorship, issuance, and revocation of performer CACs | Program office and DMDC |
-| External Certificate Authorities and partner PKIs | ID-1.2, ID-2.1, ID-2.2, DA-3.7, GV-5.6 | Partner certificates and assertions, and their revocation status | Each issuing authority, under the partner memoranda of agreement |
-| IL5 cloud provider | ID-3.1, DI-1.1, DI-2.4, DI-3.1, DI-3.2, DI-3.4, DI-4.6, DI-4.8, NE-1.2, NE-2.1 to NE-2.6, NE-3.4, AI-1.3, AI-1.5, AI-8.3, AI-8.9, AI-9.9, DA-1.4, DA-2.4, DA-2.5, DA-3.3, DA-3.5, DA-3.11, DA-3.12, DE-1.1, DE-2.1, DE-3.1, DE-3.4, RS-1.1, RS-1.4, RC-1.2, RC-2.3, RC-3.3, GV-3.1, GV-3.3, GV-4.6, GV-5.12, ID-1.3, ID-2.3, ID-2.5, ID-2.6, DI-4.4, DI-5.4, DI-5.5, DA-1.8, AI-8.8, AI-9.8, RS-3.5, RC-3.4 | Native workload identity, resource inventory and configuration state, physical hosts and network devices, platform patching, private endpoints and the circuit's cloud side, firewall, WAF, and DNS services, the hosted foundation models with their content filters, the HSM-backed key management service, native detection, response actions, and control-plane logging, its security team's contact path, time service, native backup, and a second IL5 region for recovery, inherited under the provisional authorization | Cloud provider |
+| External Certificate Authorities and partner PKIs | ID-1.2, ID-2.1, ID-2.2, ID-3.4, DA-3.7, GV-5.6 | Partner certificates and assertions, and their revocation status | Each issuing authority, under the partner memoranda of agreement |
+| IL5 cloud provider | ID-1.3, ID-2.3, ID-2.5, ID-2.6, ID-3.1, DI-1.1, DI-2.4, DI-3.1, DI-3.2, DI-3.4, DI-4.4, DI-4.6, DI-4.8, NE-1.2, NE-2.1 to NE-2.6, NE-3.4, AP-2.9, AI-1.3, AI-1.5, AI-8.3, AI-8.8, AI-8.9, AI-9.8, AI-9.9, DA-1.4, DA-1.8, DA-2.4, DA-2.5, DA-3.3, DA-3.5, DA-3.11, DA-3.12, DE-1.1, DE-2.1, DE-3.1, DE-3.4, RS-1.1, RS-1.4, RS-3.5, RC-1.2, RC-2.3, RC-3.3, RC-3.4, GV-3.3, GV-4.6, GV-5.12 | Native workload identity, resource inventory and configuration state, physical hosts and network devices, platform patching, private endpoints and the circuit's cloud side, firewall, WAF, and DNS services, the hosted foundation models with their content filters, the HSM-backed key management service, native detection, response actions, and control-plane logging, its security team's contact path, time service, native backup, and a second IL5 region for recovery, inherited under the provisional authorization | Cloud provider |
 | Boundary Cloud Access Point | ID-2.5, NE-2.5, NE-2.13, GV-5.12 | The only inbound path, its network-origin signal, and upstream filtering and flood absorption | DoD |
 | DISA network services | NE-1.6, NE-2.1, NE-2.13, NE-3.3, RC-3.4 | DISN carriage of the circuits through the access point's meet-me points, each operating site's backhaul, and the DoD parent DNS zone | DISA |
 | DISA's eMASS | RK-1.3, RK-1.4, RK-1.5, RK-1.6, RK-1.7, RK-1.8 | The authorization system of record holding the POA&M, the assessment plan, and the reports | DISA |
 | Enterprise cross domain service provider | NE-2.10, GV-5.6, GV-5.12 | The cross domain solution, its product selection, and its accreditation | Cross domain service provider, under the interconnection agreement |
-| IL6 enclave owner | NE-2.10, AI-7.4, RS-3.5, AI-9.8, GV-5.6 | Release review for every high-to-low product, and joint handling of any spill traced to one | IL6 enclave program |
+| IL6 enclave owner | NE-2.10, AI-2.2, AI-7.4, AI-9.8, RS-3.5, GV-5.6 | Release review for every high-to-low product, and joint handling of any spill traced to one | IL6 enclave program |
 | DISA PPSM program | NE-2.12 | The PPSM registry and Category Assurance List | DISA |
-| Penetration testing provider | NE-1.5, AP-3.5, AI-5.7, AI-6.3, NE-2.7, DE-1.2, CO-2.3, GV-3.2 | Independent tests of the whole system, its external paths, and its segmentation, and an AI red team for new use cases and foundation model changes, as a check on the design | Provider, under each engagement's rules of engagement |
-| Cyber defense service provider | ID-4.2, DI-4.8, DI-5.4, DI-5.5, NE-3.1, NE-3.2, NE-3.5, NE-3.7, AI-9.4, DE-1.1, DE-1.2, DE-1.3, DE-1.4, DE-3.1, DE-3.2, RS-1.2, RS-1.3, RS-1.5, RS-1.6, RS-1.7, RS-3.1, RS-3.2, RS-4.1, GV-3.1, GV-5.6, GV-5.12, RK-2.1, RK-2.2, RK-2.3, NE-2.7, DA-1.4, DE-1.5, DE-1.7 | Analysts in the CSSP host pool with read access and pre-approved containment playbooks, forwarded telemetry, IAVM relay, threat intelligence, signatures, external exposure reports, purple team participation, its own retained copy of security telemetry, round-the-clock triage, directives, and reporting to the DoD reporting chain | CSSP, under its service agreement |
-| Performer laptops and device management | ID-2.5, ID-4.2, NE-2.7, AP-2.1, AP-2.4, AI-3.4, RS-1.6, GV-2.3, GV-3.2, GV-5.6, DI-4.1, AI-3.1, DE-1.8 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
+| Penetration testing provider | NE-1.5, NE-2.7, AP-3.5, AI-5.7, AI-6.3, DE-1.2, CO-2.3 | Independent tests of the whole system, its external paths, and its segmentation, and an AI red team for new use cases and foundation model changes, as a check on the design | Provider, under each engagement's rules of engagement |
+| Cyber defense service provider | ID-4.2, DI-4.8, DI-5.4, DI-5.5, NE-2.7, NE-3.1, NE-3.2, NE-3.5, NE-3.7, AI-9.4, DA-1.4, DE-1.1, DE-1.2, DE-1.3, DE-1.4, DE-1.5, DE-1.7, DE-3.1, DE-3.2, RS-1.2, RS-1.3, RS-1.5, RS-1.6, RS-1.7, RS-3.1, RS-3.2, RS-4.1, GV-5.6, GV-5.12, RK-2.1, RK-2.2, RK-2.3 | Analysts in the CSSP host pool with read access and pre-approved containment playbooks, forwarded telemetry, IAVM relay, threat intelligence, signatures, external exposure reports, purple team participation, its own retained copy of security telemetry, round-the-clock triage, directives, and reporting to the DoD reporting chain | CSSP, under its service agreement |
+| Performer laptops and device management | ID-2.5, ID-4.2, DI-4.1, NE-2.7, AP-2.1, AP-2.4, AI-3.1, AI-3.4, DE-1.8, RS-1.6, GV-2.3, GV-3.2, GV-5.6 | CMMC Level 2 laptops as the origin for developer and Tier 1 sessions, and each laptop's compliance signal | The performer, under the interconnection agreement |
 | Parent organization's managed devices | ID-2.5, NE-2.7, DI-4.1 | Program office staff's devices and their compliance signal, under the interconnection agreement | Parent organization |
 | Parent organization's and performer's personnel systems | ID-1.8 | Departure signals that trigger deprovisioning | Parent organization and performer |
-| PSO's physical access control systems | ID-1.10, DE-1.8, DI-2.4 | Badge events at the data center and each operating site | PSO |
+| PSO's physical access control systems | ID-1.10, DE-1.8 | Badge events at the data center and each operating site | PSO |
 | PSO's insider threat program | DE-1.6, RS-3.5 | Receives insider threat referrals and spill reports, and owns every case | PSO |
 | Parent organization's alternate site | ID-1.10, DI-2.4, RC-2.3, RC-3.3, RC-3.4, GV-5.12 | Space, power, and physical security for KESTREL's equipment at the site, escorted maintenance, priority access in an emergency, and badge events from the facility's access control system | Parent organization |
 | Circuit carriers | NE-2.1, RC-3.4 | Three dedicated circuits, two for the data center from different carriers on diverse paths and one for the alternate site, carried over DISN inside KESTREL's own encrypted tunnels, with priority restoration | Carriers, under contract |
 | DNS threat feed provider | NE-3.5, GV-5.6 | Malicious-domain feeds pulled by zone transfer, with no query data sent back | Feed vendor, under contract |
-| Paging service | RS-1.5 | Out-of-band pages to on-call staff over F29 | Provider, under contract |
-| Exposure and leak monitoring service | NE-3.7 | Outside-in discovery of public names, services, and leaked code | Provider, under contract |
-| Microsoft 365 DoD tenant | ID-1.4, ID-1.6, NE-2.4, DI-5.1, DI-5.2, DI-5.3, DI-5.4, DI-5.5, DE-1.1, DE-2.5, DA-1.6, AP-2.9, GV-5.12 | Endpoint and identity threat protection, and rights protection for reports released to partners, authorized at IL5 | Microsoft |
+| Paging service | RS-1.5, GV-5.6 | Out-of-band pages to on-call staff over F29 | Provider, under contract |
+| Exposure and leak monitoring service | NE-3.7, DE-1.8 | Outside-in discovery of public names, services, and leaked code | Provider, under contract |
+| Microsoft 365 DoD tenant | ID-1.4, ID-1.6, DI-5.1, DI-5.2, DI-5.3, DI-5.4, DI-5.5, NE-2.4, AP-2.9, DA-1.6, DE-1.1, DE-2.5, GV-5.12 | Endpoint and identity threat protection, and rights protection for reports released to partners, authorized at IL5 | Microsoft |
 | Parent organization's enterprise services | GV-1.1, GV-2.3 | Enterprise security policy KESTREL's policy sits beneath, and phishing exercises on its email systems | Parent organization |
 | Parent organization's internal review office | CO-3.1 | Independent audits of whether KESTREL's plans are carried out | Parent organization |
 | DoW CIO, DoD, and NIST AI guidance | GV-1.6, GV-4.5 | The zero trust reference architecture and target, and the AI frameworks and directives KESTREL maps to | DoW CIO, DoD, and NIST |
@@ -253,12 +254,13 @@ This table rolls up the External Dependencies field from every focus area.
 | External auditors and inspectors | CO-3.2 | Audits and inspections by inspectors general, GAO, cyber readiness inspectors, DCMA, and DIBCAC | Each auditing body |
 | DoD component privacy office | CO-4.1, CO-4.2, RS-1.6 | Oversight of the privacy program and approval of each privacy impact assessment | DoD component |
 | DoD authoritative time service | DE-3.4 | Reference the data center's time servers check against | DoD |
-| Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7, DI-2.4, DI-3.4, DI-3.5, DI-4.8, DI-4.9, NE-2.8, NE-2.11, NE-3.9, AP-2.6, AP-2.12, AI-8.12, DA-1.2, DA-3.1, DA-3.2, DA-3.4, RC-1.4, GV-3.1, GV-3.2, GV-3.3, GV-3.4 | Devices that accept program-issued identities, support under agreement, hardening guidance, firmware and patch validation, datalink crypto modules, documented command sets, the payload vendors' certified conversion software, SBOMs for every delivery, the aircraft's onboard trusted execution environment, the datalink crypto modules and their post-quantum roadmap, and the data rights terms the vendor attributes encode | Each vendor |
+| Airworthiness and systems-safety authority | AI-1.8 | Safety-impact determinations for onboard models and the mission-planning agent | The program's airworthiness authority |
+| Aircraft, ground station, payload, and launch equipment vendors | ID-3.7, ID-4.7, DI-2.4, DI-3.4, DI-3.5, DI-4.8, DI-4.9, NE-2.7, NE-2.8, NE-2.11, NE-3.9, AP-2.6, AP-2.12, AI-8.12, DA-1.2, DA-3.1, DA-3.2, DA-3.4, RC-1.4, GV-3.1, GV-3.3, GV-3.4 | Devices that accept program-issued identities, support under agreement, hardening guidance, firmware and patch validation, datalink crypto modules, documented command sets, the payload vendors' certified conversion software, SBOMs for every delivery, the aircraft's onboard trusted execution environment, the datalink crypto modules and their post-quantum roadmap, and the data rights terms the vendor attributes encode | Each vendor |
 | Public package indexes and image sources | AP-2.7, AP-2.14, AI-4.6 | Third-party packages and the upstream images the hardened bases derive from, reached only through the package mirror | Each index's maintainers |
 | COTS software suppliers | AP-2.6, AP-2.12, GV-3.1 | Scanned deliveries and SBOMs under their contracts | Suppliers, under contract |
-| Data center hardware and HSM vendors | GV-3.4, DA-3.4 | Servers, firewalls, workstations, and HSMs bought through authorized resellers, with tamper-evident delivery | Vendors and resellers, under contract |
+| Data center hardware and HSM vendors | GV-3.1, GV-3.3, GV-3.4 | Servers, firewalls, workstations, and HSMs bought through authorized resellers, with tamper-evident delivery | Vendors and resellers, under contract |
 | Pretrained model and foundation model publishers | AI-1.3, AI-1.5, AI-4.7, AI-8.3, GV-3.3, GV-4.6 | Pretrained checkpoints with their signatures or digests, and the foundation model versions the cloud provider serves | Each publisher |
-| Partner nations | DA-1.6, RS-1.6, GV-5.6 | Honoring rights protection on released report documents, and receiving notice when their data is affected | Each partner nation, under its memorandum of agreement |
+| Partner nations | ID-1.2, DA-1.6, RS-1.6, GV-5.6 | Honoring rights protection on released report documents, and receiving notice when their data is affected | Each partner nation, under its memorandum of agreement |
 | DoD Vulnerability Disclosure Program | AP-5.10, DA-1.7 | Researcher reports against KESTREL's internet-reachable endpoints | DoD Cyber Crime Center |
 
 ---
@@ -315,7 +317,7 @@ SI-8 is not a gap. The AO removed it in CCSD tailoring action 1, and its one own
 
 ## 10. Approval and Periodic Review
 
-**Approved By:** Pending. Version 0.2 is submitted to the KESTREL AO for approval as version 1.0.
+**Approved By:** Pending. Version 0.3 is submitted to the KESTREL AO for approval as version 1.0.
 
 **Review Cadence:** Annually, and whenever a revision trigger below occurs.
 

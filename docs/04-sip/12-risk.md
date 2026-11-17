@@ -36,7 +36,7 @@
 
 **Selected Tool / Product / Service:** Jira Software Data Center, eMASS, Confluence Data Center
 
-**Environment-Specific Tailoring:** The program manager drafts the risk appetite statement and the AO approves it. The AO accepts every risk, and a standing AO delegation recorded in the authorization decision lets the PMO ISSE accept Low ones. Risk above Very Low to flight safety, the command link, keys, or the High-integrity models and releases goes to the AO.
+**Environment-Specific Tailoring:** The program manager drafts the risk appetite statement and the AO approves it. The AO accepts every risk, and a standing AO delegation recorded in the authorization decision lets the PMO ISSE accept Low and Very Low ones. Risk above Very Low to flight safety, the command link, keys, or the High-integrity models and releases goes to the AO.
 
 **Accountable Team:** Program Office (program manager)
 
@@ -94,7 +94,7 @@
 
 **Selected Tool / Product / Service:** Jira Software Data Center, eMASS, Confluence Data Center
 
-**Environment-Specific Tailoring:** Acceptances are requested and scored in Jira and recorded in eMASS. A Low risk goes to the PMO ISSE under the AO's delegation, and anything above Very Low on CCSD rows 6, 8, 10, or 13 goes to the AO.
+**Environment-Specific Tailoring:** Acceptances are requested and scored in Jira and recorded in eMASS. A Very Low risk, or a Low risk outside CCSD rows 6, 8, 10, and 13, goes to the PMO ISSE under the AO's delegation. Everything else goes to the AO.
 
 **Accountable Team:** Security Team (ISSM)
 

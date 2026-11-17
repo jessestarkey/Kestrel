@@ -227,7 +227,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Serverless/Platform Service, Security Information and Event Management (SIEM) Platform, Message Queue/Event Stream
+**Affected Components:** Serverless/Platform Service, Security Information and Event Management (SIEM) Platform, Message Queue/Event Stream, Third-Party Runtime Service Dependency
 
 **External Dependencies:** The CSSP, under the detection and response split in its service agreement. The paging service, reached over F29.
 
@@ -271,7 +271,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Self-Hosted Third-Party Application (COTS), Third-Party Dependency (Embedded Library/Package), Industrial Controller/SCADA
+**Affected Components:** Self-Hosted Third-Party Application (COTS), Third-Party Dependency (Embedded Library/Package), Third-Party Runtime Service Dependency, Industrial Controller/SCADA
 
 **External Dependencies:** The CSSP and the DoD reporting chain it reports to. The partner nations, under their memoranda of agreement. The DoD component privacy office. The performer and DC3, under DFARS 252.204-7012. Each vendor, under its support agreement.
 

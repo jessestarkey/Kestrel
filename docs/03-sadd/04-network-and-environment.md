@@ -618,7 +618,7 @@
 
 **Deployment Type:** Cloud, Hybrid
 
-**Affected Components:** Serverless/Platform Service, Storage/Database, Load Balancer/Reverse Proxy/API Gateway
+**Affected Components:** Managed Service Network Integration, Serverless/Platform Service, Storage/Database, Load Balancer/Reverse Proxy/API Gateway
 
 **External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization.
 

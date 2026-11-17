@@ -1509,7 +1509,7 @@
 
 ### DI-5.4: Endpoint Detection
 
-**Design Intent:** Authenticated vulnerability scans cover every host in every location on a continuously updated feed. Scan credentials for Tier 0 hosts are vaulted in the privileged access platform and used only from a Tier 0 scanner. EDR sensors run in blocking mode on every agentable host and report to the cloud endpoint service over F21, whose alerts reach the security monitoring platform and the CSSP. Hosts running payload vendor software start in audit mode until the software is profiled. File integrity monitoring covers Tier 0 and the privileged access platform. Boot integrity attestation covers every physical server and workstation, with trusted launch for cloud virtual machines.
+**Design Intent:** Authenticated vulnerability scans cover every host in every location on a continuously updated feed. Scan credentials for Tier 0 hosts are vaulted in the privileged access platform and used only from a Tier 0 scanner. EDR sensors run in blocking mode on every agentable host and report to the Microsoft 365 DoD tenant's endpoint service over F29, whose alerts reach the security monitoring platform and the CSSP. Hosts running payload vendor software start in audit mode until the software is profiled. File integrity monitoring covers Tier 0 and the privileged access platform. Boot integrity attestation covers every physical server and workstation, with trusted launch for cloud virtual machines.
 
 **NIST Control Mapping:**
 

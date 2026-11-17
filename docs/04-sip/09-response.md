@@ -380,7 +380,7 @@
 
 **Selected Tool / Product / Service:** Splunk SOAR, Panorama with the PAN-OS provider for OpenTofu, Cisco ACI and APIC, Microsoft Entra ID, Microsoft Defender XDR
 
-**Environment-Specific Tailoring:** Panorama moves a cloud workload into a quarantine policy, and ACI moves a data center host into a quarantine endpoint group. Entra ID and Defender XDR disable accounts and revoke sessions. The Security Team approves before either touches production, except a CSSP playbook run when an incident cannot wait, which pages it.
+**Environment-Specific Tailoring:** Panorama moves a cloud workload into a quarantine policy, and ACI moves a data center host into a quarantine endpoint group. Entra ID and Defender XDR disable accounts and revoke sessions. The Security Team approves before a playbook touches production, except a CSSP run when an incident cannot wait, which pages the Security Team.
 
 **Accountable Team:** Security Team
 

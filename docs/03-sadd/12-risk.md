@@ -58,7 +58,7 @@
 
 ### RK-1.2: Risk Appetite and Tolerance Definition
 
-**Design Intent:** The program manager drafts KESTREL's risk appetite statement, and the AO approves it. Appetite is lowest for flight safety, the command link, key material, and the High-integrity models and releases (CCSD rows 6, 8, 10, and 13). Any residual risk above Very Low there goes to the AO. Elsewhere it is moderate for analytic availability and for development environments. The ISSM and ISSOs score each request and recommend. The AO accepts every risk, and a standing AO delegation recorded in the authorization decision lets the PMO ISSE accept Low ones. If the PMO ISSE is unavailable, the request waits for the AO. The statement is reviewed each year with the steering committee.
+**Design Intent:** The program manager drafts KESTREL's risk appetite statement, and the AO approves it. Appetite is lowest for flight safety, the command link, key material, and the High-integrity models and releases (CCSD rows 6, 8, 10, and 13). Any residual risk above Very Low there goes to the AO. Elsewhere it is moderate for analytic availability and for development environments. The ISSM and ISSOs score each request and recommend. The AO accepts every risk, and a standing AO delegation recorded in the authorization decision lets the PMO ISSE accept Low and Very Low ones. If the PMO ISSE is unavailable, the request waits for the AO. The statement is reviewed each year with the steering committee.
 
 **NIST Control Mapping:**
 
@@ -186,7 +186,7 @@
 
 ### RK-1.4: Risk Acceptance Process
 
-**Design Intent:** A risk owner proposes an acceptance through the service desk. The ISSM scores it against the tolerance bands. A Low or Very Low risk goes to the PMO ISSE under the AO's delegation, and everything else goes to the AO. A risk above Very Low that touches CCSD rows 6, 8, 10, or 13 always goes to the AO. The accepting authority is never the team whose delivery the finding blocks. Every acceptance records its rationale, compensating measures, and an expiry no later than one year. Acceptances are re-reviewed each quarter and before they expire, and a second extension goes to the AO. An expired acceptance becomes an open finding.
+**Design Intent:** A risk owner proposes an acceptance through the service desk. The ISSM scores it against the tolerance bands. A Very Low risk, or a Low risk outside CCSD rows 6, 8, 10, and 13, goes to the PMO ISSE under the AO's delegation. Everything else goes to the AO. The accepting authority is never the team whose delivery the finding blocks. Every acceptance records its rationale, compensating measures, and an expiry no later than one year. Acceptances are re-reviewed each quarter and before they expire, and a second extension goes to the AO. An expired acceptance becomes an open finding.
 
 **NIST Control Mapping:**
 

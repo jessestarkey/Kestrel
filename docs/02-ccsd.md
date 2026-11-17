@@ -27,7 +27,7 @@ This document is KESTREL's RMF Step 2 (Select), built from the SABER's CCSD temp
 | 0.1 | 2026-08-14 | KESTREL PMO ISSE | Initial draft for SCA review |
 | 0.2 | 2026-09-11 | KESTREL PMO ISSE | Dispositioned SCA comments and added the OT overlay |
 | 1.0 | 2026-10-02 | KESTREL PMO ISSE | Approved by the AO, with tailoring action 3 modified |
-| 1.1 | 2026-11-11 | KESTREL PMO ISSE | Added the performer interconnection, recorded source code held on performer laptops, moved the foundation model inside the boundary as a cloud-hosted service, recorded each mission team's ownership of its payload vendor's collection, added service desk records as row 18, added the alternate site to the boundary, gave the CSSP pre-approved containment playbooks, proposed tailoring action 6 for break-glass authentication, added the Microsoft 365 DoD tenant and the vendor and parent organization device paths, recorded that key backups cross the circuits only HSM-wrapped, and proposed recasting tailoring action 3 as contingent, for SCA review |
+| 1.1 | 2026-11-11 | KESTREL PMO ISSE | Added the alternate site, service desk records as row 18, and the performer, Microsoft 365 DoD tenant, vendor, and parent organization device interconnections. Moved the foundation model inside the boundary, recorded source code on performer laptops, and recorded each mission team's payload vendor collection. Gave the CSSP containment playbooks, recorded HSM-wrapped key backups, proposed tailoring action 6, and proposed recasting action 3 as contingent. For SCA review |
 
 ---
 
@@ -41,7 +41,7 @@ This CCSD lists the information types KESTREL processes, stores, and transmits, 
 
 KESTREL is an ISR analytics platform. Twelve unmanned aircraft collect sensor data and run onboard detection models. An IL5 cloud and on-premises backend retrains those models and serves the results to about 300 analysts, the UAS operators, and coalition partners from five nations. The full description, including components, data flows, and users, is in the [system description](01-system-description.md), which serves as the draft of SSP Section 2.
 
-Information enters or leaves the boundary through ten interconnections, each a likely source of an information type:
+Information enters or leaves the boundary through ten interconnections that carry its information types, each a likely source of an information type:
 
 - **The UAS fleet's RF datalinks** bring in sensor recordings, telemetry, and federated model updates, and carry flight commands out.
 - **The partner API** releases detections and reports to coalition partner systems.
@@ -49,7 +49,7 @@ Information enters or leaves the boundary through ten interconnections, each a l
 - **The cyber defense service provider** receives security telemetry and incident reports, and its analysts run pre-approved containment playbooks through their host pool.
 - **The enterprise cross domain solution** carries baselines low to high into the IL6 enclave, and released analyst reports and model corrections high to low out of it.
 - **DoD PKI and External Certificate Authorities** supply the trust anchors for user and partner credentials.
-- **The performer's enterprise network and laptops** carry source code to and from the development environment, and display-only sessions into the admin and ML VDI pools.
+- **The performer's enterprise network and laptops** carry source code to and from the development environment, and display-only sessions into the Platform and ML VDI pools.
 - **Vendor engineers' devices** carry brokered maintenance sessions into the vendor VDI pool.
 - **The parent organization's managed devices** carry program office approvals, including partner release approvals, through the identity-aware access proxy.
 - **The Microsoft 365 DoD tenant** wraps reports released to partners and receives endpoint telemetry.
@@ -169,9 +169,9 @@ KESTREL is a national security system, so its controls are selected per objectiv
 |---|---|---|---|---|---|---|
 | 1 | SI-8 | Removed | KESTREL runs no email service. Analysts use the parent organization's enterprise email, which sits outside the boundary and carries its own SI-8 implementation. | `NE-3.6` drops out of the SADD | Concur. Confirm in the SSP that no KESTREL component sends or receives mail. | Approved |
 | 2 | AC-11 | Scoped | Session lock does not apply to ground control stations while an aircraft is airborne, because a locked station during flight is a safety hazard. Operators stay at the station, and the station sits in a controlled operating area. AC-11 still applies to every other KESTREL device and to the stations on the ground. | `ID-2.6` (Device Lock, `ID-2.6.7`) | Concur, with the physical control documented in the SSP as the compensating measure. | Approved |
-| 3 | SI-2 | Compensating control | The payload processing workstation runs an operating system its vendor no longer patches, and Payload Vendor A certifies its conversion software only on that system. If connected, it would run isolated in the OT zone with application allow-listing, and reach the data lake through a single firewalled conduit. | `DI-4.8`, `DI-3.5` (Compensating Control Baseline Definition, `DI-3.5.2`) | Concur, but the measure has no end date. | Modified: approved until the replacement workstation fields, and no later than 2027-09-30. Version 1.1 proposes recasting it as a contingent approval, used only if the replacement slips, since the workstation is not connected before fleet integration. |
+| 3 | SI-2 | Compensating control | The payload processing workstation runs an operating system its vendor no longer patches, and Payload Vendor A certifies its conversion software only on that system. If connected, it would run isolated in the OT zone with application allow-listing, and reach the data lake through a single firewalled conduit. | `DI-4.8`, `DI-3.5` (Compensating Control Baseline Definition, `DI-3.5.2`) | Concur, but the measure has no end date. | Modified: approved until the replacement workstation fields, and no later than 2027-09-30. Version 1.1 proposes recasting it as a contingent approval, used only if the replacement slips and the AO re-dates it, since the workstation is not connected before fleet integration. |
 | 4 | SR-11(3) | Added | Ground control stations and aircraft avionics include parts bought through vendor service channels. A periodic rescan for counterfeit components covers parts that enter after initial receipt. The enhancement is in no NIST baseline. | `GV-3.4` | Concur. | Approved |
-| 5 | SA-9(5) | Added | The SRG's IL5 requirements and the hosted model service's terms both turn on where data is processed. Selecting the control makes the location a recorded parameter, namely United States regions within the cloud provider's IL5 authorization. Version 1.1 sets the parameter to that provider's IL5 regions and KESTREL's Microsoft 365 DoD tenant, both authorized at IL5, since the foundation model is now one of the provider's hosted services. | `AP-2.9`, `AI-8.3` | Concur. | Approved |
+| 5 | SA-9(5) | Added | The SRG's IL5 requirements and the hosted model service's terms both turn on where data is processed. Selecting the control makes the location a recorded parameter, namely United States regions within the cloud provider's IL5 authorization. Version 1.1 sets the parameter to that provider's IL5 regions, since the foundation model is now one of its hosted services. It also adds KESTREL's Microsoft 365 DoD tenant, authorized at IL5, whose rights protection processes partner releases. | `AP-2.9`, `AI-8.3` | Concur. | Approved. Version 1.1's parameter change awaits AO approval. |
 | 6 | IA-2(1) | Compensating control | The directory and ground segment break-glass accounts use console-only passwords rather than a second factor, because their recovery cannot depend on the PKI or the directory they may be recovering. Logon is restricted to named consoles, each password is split between two custodians and sealed, any use alerts the Security Team and the CSSP, directory sessions end automatically after four hours and station sessions once no aircraft under the station is airborne, and the password is rotated after every use. Every other privileged account keeps phishing-resistant MFA, and the two cloud break-glass accounts use two different phishing-resistant methods. | `ID-4.6` (Emergency Account Authentication Protections, `ID-4.6.2`) | Pending SCA review of version 1.1 | Pending, with an annual review proposed |
 
 **Organization-defined parameters:** recorded in the parameter table kept with the SCTM. The parameters this CCSD sets directly are the SA-9(5) location above and the AC-11 exception window, namely while an aircraft under that station's control is airborne.
@@ -194,7 +194,7 @@ This notional example does not reproduce the per-family control counts a real CC
 
 **AO Approval:** KESTREL Authorizing Official, 2026-10-02, approved version 1.0
 
-**Version 1.1:** drafted 2026-11-11 for the new performer, Microsoft 365 DoD tenant, vendor, and parent organization device interconnections, and the retired foundation model vendor interconnection, all revision triggers under Periodic Review and Revision. It also proposes tailoring action 6 and recasting action 3 as contingent. It changes no impact value and no control selection, and it awaits SCA review and AO approval.
+**Version 1.1:** drafted 2026-11-11 for the alternate site, service desk records, and the new performer, Microsoft 365, vendor, and parent organization device interconnections. It also retires the foundation model vendor interconnection. Each is a revision trigger under Periodic Review and Revision. It also proposes tailoring action 6 and recasting action 3 as contingent. It changes no impact value and no control selection, and it awaits SCA review and AO approval.
 
 ---
 
@@ -206,7 +206,7 @@ This notional example does not reproduce the per-family control counts a real CC
 
 **Revision Triggers (event-driven):**
 
-- A new data source, mission, interconnection, or user population, such as a new coalition partner, a new sensor payload, or a new feed into the training data
+- A new data source, mission, or user population, or a new or retired interconnection, such as a new coalition partner, a new sensor payload, or a new feed into the training data
 - An information type retired
 - A Security Impact Analysis record (`GV-5.11.3`) that flags a CCSD update
 - A change to the overlays or IL5 requirements in Section 6

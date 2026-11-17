@@ -1202,7 +1202,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Third-Party API Model, Self-Hosted Model, Foundation Model, Edge/Embedded AI Device
+**Affected Components:** Third-Party API Model, Self-Hosted Model, Foundation Model, Third-Party Runtime Service Dependency, Edge/Embedded AI Device
 
 **External Dependencies:** The cloud provider, the foundation model's publisher, and the publishers of pretrained checkpoints.
 
