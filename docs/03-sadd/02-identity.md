@@ -6,7 +6,7 @@
 
 ### ID-1.1: Identity Proofing and Enrollment
 
-**Design Intent:** Proof every person before KESTREL issues an account, at the assurance level the AMP sets for each population. DoD users are proofed through their CAC issuance, so KESTREL binds them to that record rather than re-proofing them. Operators and platform administrators sit at the highest assurance level, since they can command aircraft or change the boundary.
+**Design Intent:** Proof every person before KESTREL issues an account, at the assurance level the AMP sets for each population. DoD users are proofed through their CAC issuance, which also confirms their address, so KESTREL binds them to that record rather than re-proofing them. The program office sponsors each performer's CAC, and that sponsorship is the nomination KESTREL requires. CAC affiliation marks contractors and a nationality attribute marks partners, so roles can tell them apart.
 
 **NIST Control Mapping:**
 
@@ -23,7 +23,7 @@
 
 **Affected Components:** Identity Lifecycle and Governance
 
-**External Dependencies:** DoD PKI CAC issuance, which proofs DoD users before they reach KESTREL.
+**External Dependencies:** DoD PKI CAC issuance, which proofs DoD users before they reach KESTREL. The program office's contractor CAC sponsorship with DMDC.
 
 **Security Impact:** High
 
@@ -107,7 +107,7 @@
 
 ### ID-1.2: External PKI Trust and Sponsorship
 
-**Design Intent:** Admit vendor support engineers on External Certificate Authority credentials from the first build, and coalition partners on ECA or federated partner PKI credentials once they onboard, each under a named KESTREL sponsor. Partner identities map only to partner API roles and vendor identities only to their support cases, and every external credential is revocation-checked at each session. The trust list names each partner nation's issuing authorities, and adding a partner nation is a CCSD revision trigger.
+**Design Intent:** Admit vendor support engineers on External Certificate Authority credentials at the Medium Hardware level from the first build. Coalition partner systems connect on their nation's PKI or ECA certificates once they onboard, each under a named KESTREL sponsor. Partner identities map only to partner API roles and vendor identities only to their support cases. Every external credential is revocation-checked at each session. The trust list names each partner nation's issuing authorities, and adding a partner nation is a CCSD revision trigger.
 
 **NIST Control Mapping:**
 
@@ -198,7 +198,7 @@
 
 ### ID-1.3: Centralized Identity Platform
 
-**Design Intent:** The on-premises identity provider and directory in the mission data center is KESTREL's one identity system of record. It serves the IL5 cloud over the dedicated circuit, so identity keeps working for the data center and the fleet if the cloud is unreachable. Separate administrative units keep each team's identities apart, along with partner, operator, and platform administrator identities.
+**Design Intent:** The on-premises directory in the mission data center is KESTREL's identity system of record, and its cloud copy is the federation and access policy service for cloud sign-in. If the cloud is unreachable, directory logon, the stations' local CAC checks, and the break-glass accounts keep working. Cloud-federated sign-in waits for the circuit. Separate organizational units in the directory, mirrored as administrative units in the cloud copy, keep each team's identities apart.
 
 **NIST Control Mapping:**
 
@@ -210,7 +210,7 @@
 
 **Affected Components:** Directory/Platform Core Infrastructure
 
-**External Dependencies:** None outside the boundary. The identity provider is program-owned.
+**External Dependencies:** The IL5 cloud provider's identity service, inherited under its provisional authorization.
 
 **Security Impact:** High
 
@@ -239,7 +239,7 @@
 
 ### ID-1.4: Identity Platform Threat Detection and Hardening
 
-**Design Intent:** Treat the identity provider as the asset whose loss would hand an adversary the command link, and watch it accordingly. Identity threat detection feeds the security monitoring platform, and the provider is hardened to its DISA STIG.
+**Design Intent:** Treat the identity provider as the asset whose loss hands an adversary every boundary, and watch it accordingly. Identity threat detection feeds the security monitoring platform. The directory is hardened to its DISA STIG, and its cloud copy to the cloud provider's security baseline for the IL5 identity service.
 
 **NIST Control Mapping:**
 
@@ -251,7 +251,7 @@
 
 **Affected Components:** Directory/Platform Core Infrastructure
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, which supplies identity threat detection under its IL5 authorization.
 
 **Security Impact:** High
 
@@ -281,7 +281,7 @@
 
 ### ID-1.5: Directory and Tier 0 Infrastructure Hardening
 
-**Design Intent:** Harden the directory, its domain controllers, and the PKI's issuing certificate authorities as Tier 0. The root certificate authority and its keys sit in the HSMs that hold CCSD row 13's key material, so this outcome protects KESTREL's one High confidentiality type directly. Directory synchronization to the cloud runs only over the dedicated circuit.
+**Design Intent:** Keep the root certificate authority offline and off the domain. Its key sits in an HSM and is used only in two-person ceremonies to sign issuing authorities and revocation lists. Harden the directory, its domain controllers, the issuing authorities, and the directory sync servers as Tier 0, at the data center and at the alternate site's standby. Directory synchronization to the cloud runs only over the dedicated circuit.
 
 **NIST Control Mapping:**
 
@@ -289,7 +289,7 @@
 - **IA-5 (partial):** Tier 0 and Local Administrator Credential Rotation refreshes tier 0 key material and service-account authenticators on a defined period. Credential Management holds the person-entity slice, and Eradication and Threat Removal holds compromise-triggered refresh.
 - **Declined:** CM-7(1) belongs to Insecure Services and Protocols, while this outcome only makes the directory refuse legacy protocols. AC-6 is not claimed, since the delegation constraints are a directory setting CM-6 already covers rather than AC-6 privilege right-sizing. SC-17 stays with Server and Services Authentication and the Data focus area's certificate outcomes, since this outcome hardens the CA host rather than certificate policy.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Directory/Platform Core Infrastructure, PKI/Certificate Authority, Virtual Machine/Server, Cryptographic Hardware/HSM, Device/Workstation
 
@@ -345,7 +345,7 @@
 
 ### ID-1.6: Third-Party Application and SaaS Access Governance
 
-**Design Intent:** KESTREL admits no third-party OAuth or SaaS application to its identities by default. A foundation model the cloud provider hosts inside KESTREL's tenant receives no delegated user access, so it is not a third-party application in this outcome's sense. Discovery runs against IL5 production egress to catch any other service in use.
+**Design Intent:** KESTREL admits one SaaS service to its identities, its Microsoft 365 DoD tenant, through intake and with administrator consent. User consent is blocked at the tenant, so only an administrator can grant an application access, and only through intake. A foundation model the cloud provider hosts inside KESTREL's tenant receives no delegated user access, so it is not a third-party application. KESTREL has almost no general egress, so discovery watches the egress allow-list for any other service.
 
 **NIST Control Mapping:**
 
@@ -353,11 +353,11 @@
 - **SI-4(2) (partial):** The broker's continuous analysis of which SaaS applications organizational identities reach is a disjoint slice, alongside Identity Platform Threat Detection and Hardening's platform slice.
 - **Declined:** CM-6 covers baselines on systems the program operates, while SaaS posture findings go to the tenant's owner for remediation.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** External/Federated Trust
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, admitted under its IL5 authorization.
 
 **Security Impact:** Moderate
 
@@ -598,7 +598,7 @@
 
 ### ID-1.10: Physical and Logical Access Convergence
 
-**Design Intent:** Correlate badge events at the mission data center and the ground control station sites with logical sign-ins, so an operator signed in at a station but not badged into that site raises an alert. The physical access control systems belong to the PSO, and at the alternate site to the parent organization's facility, so KESTREL consumes their events and drives badge provisioning from its account lifecycle rather than running them.
+**Design Intent:** Correlate badge events at each KESTREL site with logical sign-ins, so an operator signed in at a station but not badged into that site raises an alert. The PSO owns the physical access control systems, and the parent organization's facility those at the alternate site. KESTREL consumes their events and sends badge requests from its account lifecycle, as the facility agreement allows.
 
 **NIST Control Mapping:**
 
@@ -606,7 +606,7 @@
 - **PE-2 (partial):** This claim covers the same integration slice as PE-3, while the rest stays with the PSO. PE-2's enhancements likewise govern physical operations this outcome does not own.
 - **AC-2 (partial):** This outcome extends the account lifecycle to badge and physical credentials. Account Lifecycle and Identity Data Quality holds the general machinery.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid
+**Deployment Type:** On-Premises, Hybrid
 
 **Affected Components:** Directory/Platform Core Infrastructure, Identity Lifecycle and Governance, OT/ICS Device
 
@@ -664,7 +664,7 @@
 
 ### ID-2.1: User Authentication Controls
 
-**Design Intent:** Require CAC or partner PKI certificates for every person, with no password path for any user role. Ground control stations cannot use the enterprise sign-in flow during flight, so they authenticate operators with a local smart card check and rely on the compensating physical controls the CCSD recorded for AC-11.
+**Design Intent:** Every person authenticates with a CAC, an ECA certificate, or a partner PKI certificate. Apart from built-in accounts the privileged access platform vaults and injects, the only passwords are the break-glass accounts under Emergency Access (`ID-4.6`). Stations always check the CAC locally against a cached revocation list, so they keep working when the conduit is down. At a station whose aircraft is airborne, failed logons delay the next prompt and alert rather than lock the account, a parameter the AMP records.
 
 **NIST Control Mapping:**
 
@@ -776,7 +776,7 @@
 
 ### ID-2.2: Credential Management
 
-**Design Intent:** KESTREL validates CACs and partner certificates but does not issue them. It issues and revokes only its own device and workload certificates from the program PKI, and it runs the revocation checking every external credential passes. The NSS PKI tokens this outcome names belong to the IL6 enclave, not to KESTREL.
+**Design Intent:** KESTREL validates CACs and partner certificates but does not issue them. The program office sponsors performer CACs through DoD's contractor sponsorship system and requests revocation the day someone leaves. IT Operations resets CAC PINs at dedicated workstations. Every credential's status is checked against DoD PKI and the partner authorities. When a site's conduit is down, it accepts its last revocation list for an AMP-set grace period, and break-glass covers anything longer. The NSS PKI tokens this outcome names belong to the IL6 enclave.
 
 **NIST Control Mapping:**
 
@@ -787,7 +787,7 @@
 
 **Affected Components:** Human Authentication, PKI/Certificate Authority, Device/Workstation
 
-**External Dependencies:** DoD PKI and External Certificate Authorities for issuance and revocation of user credentials.
+**External Dependencies:** DoD PKI and External Certificate Authorities for issuance and revocation of user credentials. The program office's contractor CAC sponsorship with DMDC.
 
 **Security Impact:** High
 
@@ -850,7 +850,7 @@
 
 ### ID-2.3: Single Sign on (SSO)
 
-**Design Intent:** Federate every user-facing application and administrative console behind the identity provider, from the analyst portal and the LLM analyst assistant to the partner API. One sign-on covers the mission applications, while administrative consoles require their own fresh authentication.
+**Design Intent:** Federate every cloud user-facing application and administrative console with the cloud identity service, from the analyst portal and the LLM analyst assistant to the cloud administrative consoles. Data center applications federate with the on-premises directory instead, so they keep working if the circuits fail. One sign-on covers the mission applications, while administrative consoles require fresh authentication. Partner systems reach the partner API with mutual TLS under Server and Services Authentication (`ID-3.4`), not through single sign-on.
 
 **NIST Control Mapping:**
 
@@ -863,7 +863,7 @@
 
 **Affected Components:** Directory/Platform Core Infrastructure, Human Authentication, Application/API
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The IL5 cloud provider's identity service, inherited under its provisional authorization.
 
 **Security Impact:** Moderate
 
@@ -904,7 +904,7 @@
 
 ### ID-2.4: Non-Privileged Access Control
 
-**Design Intent:** Define the non-privileged roles once in the identity provider, and default every new identity to no access. Team membership is part of every role, so an analyst in one mission team cannot reach another team's payload vendor data. Partners see only products released to their own nation.
+**Design Intent:** Define the non-privileged roles once in the identity provider, and default every new identity to no access. Team membership is part of every role, so an analyst in one mission team cannot reach another team's payload vendor data. Partners see only products released to their own nation. Unauthenticated users see only the banner and the sign-in pages.
 
 **NIST Control Mapping:**
 
@@ -979,7 +979,7 @@
 
 ### ID-2.5: Adaptive, Risk-Based Access Control
 
-**Design Intent:** Evaluate each request against identity, device posture, network origin, and risk before granting access. Performer users reach the identity-aware proxy and the admin VDI pool only from laptops that report as compliant at that moment. Partner sessions that arrive from outside their nation's expected networks are stepped up or denied. Identity threat detection feeds the policy engine. The physical-logical correlation raises alerts in the security monitoring platform instead, since stations check sign-ins locally.
+**Design Intent:** Evaluate each request against identity, device posture, network origin, and risk before granting access. Performer users reach the identity-aware proxy and their VDI pools only from laptops that report as compliant at that moment. Program office staff connect over F38 from the parent organization's managed devices, checked the same way. Partner system calls from outside their nation's expected networks are denied. Identity threat detection feeds the policy engine.
 
 **NIST Control Mapping:**
 
@@ -989,7 +989,7 @@
 
 **Affected Components:** Human Authentication, Application/API
 
-**External Dependencies:** The Boundary Cloud Access Point, which supplies the network-origin signal for inbound sessions. The performer's device management, which supplies each laptop's compliance signal.
+**External Dependencies:** The Boundary Cloud Access Point, which supplies the network-origin signal for inbound sessions. The performer's and the parent organization's device management, which supply each device's compliance signal. The IL5 cloud provider's identity service, inherited under its provisional authorization.
 
 **Security Impact:** Moderate
 
@@ -1019,7 +1019,7 @@
 
 ### ID-2.6: Continuous Authentication
 
-**Design Intent:** Re-evaluate every portal, assistant, and administrative session while it runs, and revoke a session when risk becomes severe. Device lock applies to every KESTREL device except a ground control station whose aircraft is airborne, the exception the AO approved in CCSD tailoring action 2.
+**Design Intent:** Re-evaluate every portal, assistant, and administrative session while it runs, and revoke a session when risk becomes severe. Concurrent sessions are limited per account type, tighter for privileged accounts, and exceeding a limit alerts. Device lock applies everywhere except a ground control station whose aircraft is airborne, under CCSD tailoring action 2. Station sessions are not ended for inactivity while their aircraft is airborne, a parameter the AMP records.
 
 **NIST Control Mapping:**
 
@@ -1036,7 +1036,7 @@
 
 **Affected Components:** Human Authentication, Application/API
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The IL5 cloud provider's identity service, inherited under its provisional authorization.
 
 **Security Impact:** Moderate
 
@@ -1134,7 +1134,7 @@
 
 ### ID-3.1: Cloud Workload Identities
 
-**Design Intent:** Give every IL5 workload the managed Kubernetes service's native workload identity, so services read the data lake zones, the report index, and ML Prod's model endpoints without a stored secret. Each workload's identity is scoped to its own spoke and team. Static credentials found in the cloud spokes are removed once native identity replaces them.
+**Design Intent:** Give every IL5 workload the cloud's native workload or managed identity, so services read the data lake zones, the report index, and ML Prod's model endpoints without a stored secret. The on-premises data lake trusts these federated workload tokens. Pipeline identities are a workload class of their own, scoped by Least-Privilege CI/Build Infrastructure Access (`AP-2.22`). Static credentials found in the cloud spokes are removed once native identity replaces them.
 
 **NIST Control Mapping:**
 
@@ -1198,7 +1198,7 @@
 
 ### ID-3.2: Application and Service Account Identities
 
-**Design Intent:** Use governed service accounts only where native identity is not available, namely the data center's services and connections that cross the dedicated circuit. Each has a named owner and certificate-based authentication from the program PKI.
+**Design Intent:** Use governed service accounts only for data center and alternate site services that have no native identity. Each has a named owner and certificate-based authentication from the program PKI.
 
 **NIST Control Mapping:**
 
@@ -1285,7 +1285,7 @@
 
 ### ID-3.3: AI Agent Identities
 
-**Design Intent:** Register every AI agent as its own identity, scoped to the data and tools its approved use case needs. No agent identity can reach a tool that tasks an aircraft or changes a system without a named human role approving the action first. The mission-planning agent is the first, scoped to reading mission data and drafting plans, so an operator's approval stays the only path from a draft to a flight.
+**Design Intent:** Register every AI agent as its own identity, scoped to the data and tools its approved use case needs. No agent identity can reach a tool that tasks an aircraft or changes a system without a named human role approving the action first. The mission-planning agent is the first. It calls no tool server outside the boundary, acts on behalf of the requesting user, and its sessions end at a fixed limit.
 
 **NIST Control Mapping:**
 
@@ -1296,7 +1296,7 @@
 - **SA-9 (partial):** This claim covers admitting external tool-providing servers to an agent's reachable set and monitoring their declared catalogs. Such servers assert their own callable actions at connection time, a risk distinct from a conventional API. Four other outcomes, including Contract Security Requirements, hold the other provider populations.
 - **Declined:** IA-9 is already satisfied by the base identity from Cloud Workload Identities or Application and Service Account Identities. AC-6 stays with Agent Tool/API Access Scoping. SI-15 and AC-4 belong to Agentic Tool-Call/Action Output Validation.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Compute, AI Agent Identity, Application/API
 
@@ -1396,7 +1396,7 @@
 
 ### ID-3.4: Server and Services Authentication
 
-**Design Intent:** Require mutual TLS between every KESTREL service, with certificates from the program PKI. This includes traffic across the dedicated circuit and the feedback endpoints that accept released products from the IL6 enclave.
+**Design Intent:** Use mutual TLS with program PKI certificates on every service-to-service connection between KESTREL's own workloads, including across the circuits and into the feedback endpoints that accept IL6 products. Each internal service trusts only the program's issuing authorities. The partner API also trusts the partner and ECA issuers on External PKI Trust and Sponsorship (`ID-1.2`)'s trust list, so partner systems authenticate there with mutual TLS. Provider-managed services authenticate callers by workload identity under Cloud Workload Identities (`ID-3.1`). User-facing edge services present DoD PKI server certificates that browsers and partner systems already trust.
 
 **NIST Control Mapping:**
 
@@ -1407,7 +1407,7 @@
 
 **Affected Components:** Compute, Network Infrastructure, Application/API
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** External Certificate Authorities and partner PKIs, whose issuers the partner API trusts.
 
 **Security Impact:** High
 
@@ -1448,7 +1448,7 @@
 
 ### ID-3.5: Secrets and Credentials Detection
 
-**Design Intent:** Scan the source repository, pipeline logs, container images, and object storage for exposed secrets on every build and on a schedule. A finding in a release candidate fails Certification to Field.
+**Design Intent:** Scan the source repository, pipeline logs, container images, object storage, and service desk tickets for exposed secrets on every build and on a schedule. A finding in a release candidate fails Certification to Field.
 
 **NIST Control Mapping:**
 
@@ -1490,14 +1490,14 @@
 
 ### ID-3.6: Secrets and Credentials Protection
 
-**Design Intent:** Hold every non-person secret in its own spoke's secrets vault and rotate it automatically, so no vault holds another team's secrets. CCSD row 13's datalink and root signing keys stay in the HSMs instead, since their High confidentiality calls for hardware protection a software vault does not give.
+**Design Intent:** Hold every cloud non-person secret in its own spoke's secrets vault and rotate it automatically, so no vault holds another team's secrets. Data center, alternate site, and fleet secrets are vaulted in the privileged access platform. CCSD row 13's datalink and root signing keys stay in the HSMs and the datalink crypto modules, since their High confidentiality calls for hardware protection.
 
 **NIST Control Mapping:**
 
 - **IA-5(6) (partial):** NPE Credential Vault Integration vaults non-person authenticators, Automated Secret Rotation refreshes them, and Secrets Continuous Monitoring confirms protection holds. Outcomes in the Application and Artificial Intelligence focus areas hold the other slices.
 - **IA-5(7) (partial):** Vaulting and the developer workflow keep secrets out of source and configuration. Secrets and Credentials Detection holds detection, and Native/Local Credential Elimination holds removal.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Compute, Application and Service Account Identity, Application/API
 
@@ -1553,7 +1553,7 @@
 
 ### ID-3.7: OT/Legacy Device Identity Controls
 
-**Design Intent:** Remove vendor-default credentials from the aircraft, ground control stations, and launch and recovery equipment before they field. Each aircraft and station authenticates with its device identity on the datalinks, and equipment that cannot authenticate itself is identified by its zone and conduit placement.
+**Design Intent:** Remove vendor-default credentials from the aircraft, ground control stations, launch and recovery equipment, and operating site services before they field. Each aircraft and station authenticates with its device identity on the datalinks, and device credentials rotate in maintenance windows. Equipment that cannot authenticate itself, such as launch and recovery equipment with fixed controllers, is identified by its zone and conduit placement.
 
 **NIST Control Mapping:**
 
@@ -1630,7 +1630,7 @@
 
 ### ID-4.1: Privileged Access Control
 
-**Design Intent:** Define privileged roles for each administrative surface, namely the cloud hub, each spoke, the cluster control planes, the data center, the alternate site, the PKI and HSMs, and the ground segment. A team's administrators can administer only that team's spokes, and Tier 0 roles go only to the Platform Team's named Tier 0 administrators. The Security Team and the CSSP get read and audit roles, never the administrative roles they check. The CSSP's only action right is running the pre-approved containment playbooks. No single role spans the HSMs and the cloud tenants, and the cloud tenant-owner roles are separate from day-to-day cloud administration so they can be held to the privileged access workstations.
+**Design Intent:** Define privileged roles for each administrative surface, namely the cloud hub, each spoke, the cluster control planes, the data center, the alternate site, the PKI and HSMs, and the ground segment. In the cloud, a team gets administrative roles only once it runs its own production spoke. On premises, each owning team holds the roles for the systems it runs, such as Fleet Operations for the ground segment. Tier 0 roles go only to the named Tier 0 administrators. The Security Team and the CSSP get read and audit roles. Their stated exceptions are the EDR responder role, the logging administrator role, and the detection content role, which deploys detection rules through the pipeline. Containment playbooks run by the Security Team or the CSSP are the last exception. No single role spans the HSMs and the cloud tenants.
 
 **NIST Control Mapping:**
 
@@ -1639,7 +1639,7 @@
 - **AC-2(7) (partial):** cited for the first clause, administering privileged accounts under a role-based scheme. Access Reviews and the Operate pillar's Identity Change Tracking hold the rest.
 - **AC-6(10) (partial):** privileged functions are reachable only through the privileged roles and groups defined here. Secure Compute Baselines holds host-level enforcement.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Privileged Access Management
 
@@ -1684,7 +1684,7 @@
 
 ### ID-4.2: Privileged Access Workstations and Administrative Tiering
 
-**Design Intent:** Administer Tier 0, which holds the identity provider, PKI, and HSMs, only from the physical privileged access workstations in the mission data center and at the alternate site. The cloud tenant-owner roles, which can change a tenant's own security and identity settings, are restricted to the same workstations. Other Tier 1 work runs from the Platform Team's host pool in the VDI spoke, reached from performer laptops. The CSSP's analysts get their own host pool. It reads the security monitoring platform and the cloud's native threat protection and runs the pre-approved containment playbooks, but grants no administrative access. Developers hold no privileged roles, so they need neither path.
+**Design Intent:** Administer Tier 0 and the cloud tenant-owner roles only from the physical privileged access workstations in the data center and at the alternate site. Other Tier 1 work runs from the Platform Team's VDI host pool, reached from performer laptops KESTREL does not own. That departure is compensated by CAC and posture checks at the broker, elevation only inside the session, recording, and live termination. Smart card redirection is allowed while clipboard, drive, and USB redirection are blocked. Administrators who work across tiers hold a separate account per tier. Ground segment administration comes only from the stations' maintenance consoles in a window.
 
 **NIST Control Mapping:**
 
@@ -1693,7 +1693,7 @@
 - **SC-2 (partial):** Administrative Tier Model Definition and Privileged Access Workstation Deployment and Hardening confine management functions to dedicated workstations and tiers. Authorized Cloud Access Point Integration holds the cloud management path.
 - **Declined:** AC-6(5) stays with Privileged Access Control, which decides which roles hold elevated capability rather than where they are used. CM-2, CM-6, and CM-7 stay with Secure Compute Baselines and Endpoint Security, which produce and defend the PAW image.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Privileged Access Management, Privileged Access Workstation (PAW), Compute
 
@@ -1755,7 +1755,7 @@
 
 - **AC-2(6) (partial):** Time-bound activation and automatic expiration of privileged roles are runtime privilege changes. OT/Legacy Scheduled Maintenance-Window Access and Permissions Management hold the other shares.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Privileged Access Management
 
@@ -1811,7 +1811,7 @@
 
 ### ID-4.4: Privileged Credential Vaulting and Session Brokering
 
-**Design Intent:** Vault the built-in administrative accounts on the HSMs, network appliances, hypervisors, and out-of-band controllers, and broker and record every session that uses one.
+**Design Intent:** Vault the built-in administrative accounts on the HSMs, network appliances, hypervisors, out-of-band controllers, database engines, and the ground segment's local administrators. Broker and record every session that uses one, and let reviewers watch it live and end it. Two people are required for HSM key ceremonies, fleet counter-signing, root CA operations, deleting audit records, and changing a cloud tenant's security settings.
 
 **NIST Control Mapping:**
 
@@ -1824,7 +1824,7 @@
 - **AC-17(4) (partial):** recorded commands give remote privileged access its assessable evidence, with justifying needs recorded in the AMP. Secure Remote Access holds the network path.
 - **Declined:** AC-6(3) stays with Privileged Access Workstation Deployment and Hardening, which restricts origin devices. AC-17(3) stays with Private Remote Access, since this broker sits on an internal path. AC-2(6) does not fit, since a checkout releases a credential rather than changing a standing account's privilege.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Privileged Access Management, Virtual Machine/Server, Network Infrastructure, Database Service
 
@@ -1880,7 +1880,7 @@
 
 ### ID-4.5: OT/Legacy Scheduled Maintenance-Window Access
 
-**Design Intent:** Grant ground control station and launch equipment maintenance access only within scheduled maintenance windows, never while an aircraft under that station's control is airborne. Model packages also load only in these windows, which ties this outcome to the edge release path in flow F6.
+**Design Intent:** Grant ground control station, launch equipment, and aircraft maintenance access only within scheduled maintenance windows, never while an aircraft under that station's control is airborne. Maintenance tools are inspected before use. Model packages also load only in these windows, which ties this outcome to the edge release path in flow F6.
 
 **NIST Control Mapping:**
 
@@ -1891,7 +1891,7 @@
 - **MA-3(2) (partial):** cited for checking a technician's media and diagnostic programs for malicious code before connection. It is partial on the same basis as MA-3(1).
 - **MA-5 (partial):** Window-Bound Access Request and Approval authorizes maintenance personnel per window, and Post-Maintenance Access Review and Audit verifies they stayed in scope. The PSO holds the rest, principally escorting uncleared personnel.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** OT/ICS Device, Virtual Machine/Server, OT/Legacy Device Identity, Privileged Access Management
 
@@ -1980,7 +1980,7 @@
 
 ### ID-4.6: Emergency Access
 
-**Design Intent:** Keep break-glass accounts for the cloud tenant, the directory, and the ground segment. The two cloud accounts use different phishing-resistant methods. The directory set holds a domain account, each domain controller's Directory Services Restore Mode password, and a local administrator for each privileged access workstation, and every station has its own local account. All of those are console-only passwords under CCSD tailoring action 6, since their recovery cannot depend on the PKI or the directory they may be recovering. Cloud and directory sets are sealed in the data center and at the alternate site, and each station's account at its operating site, since an identity outage must never stop operators from recovering an airborne aircraft.
+**Design Intent:** Keep break-glass accounts for the cloud tenant, the directory, and the ground segment. The two cloud accounts use different phishing-resistant methods. The directory and station accounts are console-only passwords under CCSD tailoring action 6, still pending AO approval. If the AO declines it, those accounts use offline smart cards held in the same seals. Logon is limited to named consoles, any use alerts the Security Team and the CSSP, and each password rotates after use. Directory sessions end after four hours, and station sessions once no aircraft under the station is airborne. A station's alert is raised locally and queued until its conduit returns.
 
 **NIST Control Mapping:**
 
@@ -1989,7 +1989,7 @@
 - **CP-13 (partial):** break-glass access is the alternative mechanism for access control when the identity platform is unavailable. It is partial because it covers only that one security function.
 - **Declined:** IA-2(1) and IA-2(2) stay with User Authentication Controls, whose policy these accounts reuse.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Privileged Access Management, Virtual Machine/Server
 
@@ -2056,7 +2056,7 @@
 
 ### ID-4.7: Access Process for Third-Party Support
 
-**Design Intent:** Approve each vendor support session per support case, broker and record it, and end it when the case closes. Ground control station and payload vendors connect only within maintenance windows.
+**Design Intent:** Approve each vendor support session per support case, broker and record it through the privileged access platform, and end it when the case closes. Vendors connect over F37 only from the vendor host pool in the VDI spoke, using ECA Medium Hardware credentials. Ground control station and payload vendors work only within maintenance windows, either on site under escort or through that brokered path.
 
 **NIST Control Mapping:**
 
@@ -2067,7 +2067,7 @@
 - **AC-17(1) (partial):** Vendor Support Access Monitoring and Audit Logging monitors and controls vendor remote sessions. Virtual Desktop Monitoring and Alerting holds general remote sessions as a separate partial.
 - **Declined:** AC-6(6) prohibits privileged access by non-organizational users, while this outcome grants it under AO tailoring. Its per-case approval, bounded scope, and recorded session are the compensating design that tailoring rests on.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Privileged Access Management
 
@@ -2125,7 +2125,7 @@
 
 ### ID-5.1: Account Management Plan (AMP)
 
-**Design Intent:** Write one AMP covering every KESTREL identity population, including partners, AI agents, and OT devices. It records the assurance levels, the role bundles, the maintenance-window rules, and the ground control station session lock exception.
+**Design Intent:** Write one AMP covering every KESTREL identity population, including partners, AI agents, and OT devices. It records the assurance levels, the role bundles, the maintenance-window rules, and the break-glass procedures. It also records the station exceptions: session lock under CCSD tailoring action 2, no lockout or idle logout while an aircraft is airborne, and the revocation grace period.
 
 **NIST Control Mapping:**
 

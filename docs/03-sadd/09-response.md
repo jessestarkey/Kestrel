@@ -6,7 +6,7 @@
 
 ### RS-1.1: Incident Response Development
 
-**Design Intent:** Runbooks cover the cloud provider's own incident types, such as a compromised subscription, an exposed storage service, or a stolen workload identity. They use the provider's native response actions. AI/ML runbooks cover a poisoned training snapshot, a compromised or misbehaving AI agent, a foundation model incident on the provider's side, and a lost aircraft carrying an onboard model. Each runbook names the team that executes it.
+**Design Intent:** Runbooks cover the cloud provider's own incident types, such as a compromised subscription, an exposed storage service, or a stolen workload identity, using the provider's native response actions. AI/ML runbooks cover a poisoned training snapshot, prompt injection through retrieved reports, a compromised or misbehaving AI agent, and a tampered or misbehaving onboard edge model. They also cover a foundation model incident on the provider's side. A lost aircraft is treated as exposing its model and datalink module, and its datalink keys are superseded fleet-wide. Each runbook names the team that executes it.
 
 **NIST Control Mapping:**
 
@@ -58,7 +58,7 @@
 
 ### RS-1.2: Incident Response Team Structure and Training
 
-**Design Intent:** The ISSM leads every incident, with the ISSOs and security analysts as the hands-on responders. The CSSP contains what cannot wait for the on-call analyst, using the pre-approved playbooks. The Platform Team, IT Operations, and Fleet Operations act on their own systems at the ISSM's direction. For a model incident, the ML team owns the model and the mission team owns the use case, and both join the response. Every responder trains on KESTREL's own tools and runbooks each year, and the AO funds the CSSP and tooling through the program budget.
+**Design Intent:** The ISSM leads every incident, with the ISSOs and security analysts as the hands-on investigators. The CSSP contains what cannot wait for the on-call analyst, using the pre-approved playbooks. The Platform Team, IT Operations, the Data Team, and Fleet Operations act on their own systems at the ISSM's direction. For a model incident, the ML Team owns the model and the mission team owns the use case. Every responder trains on KESTREL's own tools and runbooks before joining the on-call rotation and each year after, with simulated incidents in the exercise environment. The program manager funds the CSSP and tooling through the program budget.
 
 **NIST Control Mapping:**
 
@@ -122,7 +122,7 @@
 
 ### RS-1.3: Incident Response Plan Testing and Exercises
 
-**Design Intent:** The response team runs a tabletop twice a year, one with an aircraft or ground segment scenario and one with an AI scenario. It also runs a functional exercise each year with the CSSP, using the real tools. Each exercise's findings become tracked changes to the IRP and runbooks.
+**Design Intent:** The response team runs a tabletop twice a year, one with an aircraft or ground segment scenario and one with an AI scenario. It also runs a functional exercise each year with the CSSP and the contingency plan's owners, using the real tools in a representative environment. Fleet systems join only by simulator or discussion. Each exercise's findings become tracked changes to the IRP and runbooks.
 
 **NIST Control Mapping:**
 
@@ -217,7 +217,7 @@
 
 ### RS-1.5: Automated Notification Workflows
 
-**Design Intent:** A declared incident pages the on-call security analyst through the service desk, and the CSSP's operations center is notified at the same time. Severe incidents also page the ISSM and the affected team's lead. The security monitoring platform hands incidents to the service desk through an event stream, not by email.
+**Design Intent:** A declared incident pages the on-call security analyst through the service desk, and the CSSP's operations center is notified at the same time. Severe incidents also page the ISSM and the affected team's lead. The security monitoring platform hands incidents to the service desk through an event stream, not by email. If the service desk or the circuits are down, the platform pages directly over F29, and pages carry only an incident ID and severity.
 
 **NIST Control Mapping:**
 
@@ -229,7 +229,7 @@
 
 **Affected Components:** Serverless/Platform Service, Security Information and Event Management (SIEM) Platform, Message Queue/Event Stream
 
-**External Dependencies:** The CSSP, under the detection and response split in its service agreement.
+**External Dependencies:** The CSSP, under the detection and response split in its service agreement. The paging service, reached over F29.
 
 **Security Impact:** Moderate
 
@@ -259,7 +259,7 @@
 
 ### RS-1.6: Incident Reporting and External Communications
 
-**Design Intent:** The ISSM notifies the AO, and the CSSP reports to the DoD reporting chain within the timelines CJCSM 6510.01B sets. If partner data is affected, the foreign disclosure officer notifies the partner nations under their agreements. Incidents involving a vendor's product are coordinated with that vendor. When a performer laptop holding KESTREL source code is involved, the performer also reports under DFARS 252.204-7012.
+**Design Intent:** The ISSM notifies the AO, and the CSSP reports to the DoD reporting chain within the timelines CJCSM 6510.01B sets. If partner data is affected, the foreign disclosure officer notifies the partner nations under their agreements. Incidents involving a vendor's product are coordinated with that vendor. A breach of personal information is reported through the privacy officer to the DoD component privacy office within its timelines. When a performer laptop holding KESTREL source code is involved, the performer also reports to DC3 under DFARS 252.204-7012.
 
 **NIST Control Mapping:**
 
@@ -273,7 +273,7 @@
 
 **Affected Components:** Self-Hosted Third-Party Application (COTS), Third-Party Dependency (Embedded Library/Package), Industrial Controller/SCADA
 
-**External Dependencies:** The CSSP and the DoD reporting chain it reports to. The partner nations, under their memoranda of agreement. The performer, under DFARS 252.204-7012. Each vendor, under its support agreement.
+**External Dependencies:** The CSSP and the DoD reporting chain it reports to. The partner nations, under their memoranda of agreement. The DoD component privacy office. The performer and DC3, under DFARS 252.204-7012. Each vendor, under its support agreement.
 
 **Security Impact:** Moderate
 
@@ -325,7 +325,7 @@
 
 ### RS-1.7: Cyber Defense Service Provider Alignment
 
-**Design Intent:** The CSSP's service agreement divides the work. The CSSP monitors around the clock, triages, and supplies threat intelligence. The CSSP runs the pre-approved containment playbooks when an incident cannot wait for the Security Team, and the Security Team carries out every other response action inside KESTREL. The security monitoring platform forwards all telemetry to the CSSP. The CSSP's analysts also read that telemetry and the cloud's native threat protection in place through their host pool. The ISSM receives the CSSP's directives and advisories and tracks each one to completion.
+**Design Intent:** The CSSP's service agreement divides the work. The CSSP monitors around the clock, triages, and supplies threat intelligence, and its advisories land on incident records automatically. The CSSP runs the pre-approved containment playbooks when an incident cannot wait for the Security Team. The Security Team directs every other response action, which the owning team carries out or the Security Team runs through an approved playbook under Privileged Access Control (`ID-4.1`). The security monitoring platform forwards all telemetry to the CSSP, and a stalled feed alerts. The ISSM receives the CSSP's directives and tracks each one to completion.
 
 **NIST Control Mapping:**
 
@@ -445,7 +445,7 @@
 
 ### RS-2.2: Incident-Scoped Log Analysis and Investigation
 
-**Design Intent:** Analysts investigate in the security monitoring platform's workbench, which holds every telemetry source in one place. Related alerts are folded into one incident, and each investigation's queries and findings are saved with the incident record.
+**Design Intent:** Analysts investigate in the security monitoring platform's workbench, which holds every telemetry source in one place. Related alerts are folded into one incident, and each investigation's queries and findings are saved with the incident record. When an investigation needs more detail, the owning team raises logging on the affected components within one hour of the request and returns it to baseline at closure. On fleet equipment this goes only through the vendor's engineering path, with Fleet Operations' concurrence.
 
 **NIST Control Mapping:**
 
@@ -498,7 +498,7 @@
 
 ### RS-2.3: Evidence Preservation and Forensic Capabilities
 
-**Design Intent:** Evidence collection is automated for cloud resources and data center hosts, capturing disk snapshots, memory, and the related logs. All of it goes to an evidence store in the backup repository under retention lock, with chain of custody recorded. Fleet equipment is imaged only during a maintenance window or after the aircraft has landed. Evidence handling follows the requirements of the DoD reporting chain and any law enforcement referral.
+**Design Intent:** Evidence collection is automated for cloud resources and on-premises hosts, capturing disk snapshots, memory, and the related logs. Evidence goes to a dedicated retention-locked evidence store in the data center, readable only by the Security Team and excluded from backup replication. Captures from fleet equipment and key-handling hosts exclude key material, and datalink crypto modules and HSMs are never imaged, so no row 13 material reaches the store. Analysts examine copies offline on an isolated forensic workstation that cannot reach production. Fleet equipment is imaged only during a maintenance window or after the aircraft has landed. Chain of custody follows the DoD reporting chain's requirements.
 
 **NIST Control Mapping:**
 
@@ -562,7 +562,7 @@
 
 ### RS-2.4: Asset Criticality and Business Impact Assessment
 
-**Design Intent:** Each asset's mission criticality comes from its inventory tags and the Risk focus area's business impact analysis. The command link, the ground control stations, and the identity provider rank highest. That criticality feeds directly into each incident's severity.
+**Design Intent:** Each asset's mission criticality comes from its inventory tags and the Risk focus area's business impact analysis. The command link, the ground control stations, the identity provider, the HSMs and PKI, and the pipeline's signing and registry path rank highest. That criticality feeds directly into each incident's severity.
 
 **NIST Control Mapping:**
 
@@ -603,7 +603,7 @@
 
 ### RS-2.5: Automated Severity Scoring and Escalation
 
-**Design Intent:** Severity is computed from asset criticality, data sensitivity, scope, and whether the incident can affect an aircraft. The AI incident taxonomy adds training data poisoning, model theft, jailbreak abuse, AI agent misuse, and a compromised foundation model deployment. Each severity has its own paging and escalation route, and a response metrics dashboard tracks time to triage, contain, and recover.
+**Design Intent:** Severity is computed from asset criticality, data sensitivity, scope, and whether the incident can affect an aircraft. The AI incident taxonomy adds training data poisoning, prompt injection, including through retrieved reports, model theft, jailbreak abuse, and AI agent misuse. It also covers personal information leaking through model output, concept drift, a tampered or misbehaving onboard edge model, and a compromised foundation model deployment. Each severity has its own paging and escalation route, and a response metrics dashboard tracks time to triage, contain, and recover.
 
 **NIST Control Mapping:**
 
@@ -668,7 +668,7 @@
 
 ### RS-3.1: SOAR Capabilities
 
-**Design Intent:** Playbooks in the security monitoring platform run the program's decided responses as code and update the service desk record at each step. Actions that disrupt production need a Security Team approval inside the playbook. Fully automatic actions are limited to what Endpoint Response allows, namely isolating a host outside production. The CSSP may run the containment playbooks from its host pool, and each run pages the Security Team's on-call at once. The Security Team reviews or reverses each run by the next business day.
+**Design Intent:** Playbooks in the security monitoring platform run the program's decided responses as code and update the service desk record at each step. Actions that disrupt production need a Security Team approval inside the playbook, except a CSSP run when an incident cannot wait. The playbook's service identity can take only the listed actions, cannot change policy beyond quarantine, and cannot touch break-glass accounts, Tier 0, or fleet systems. Fully automatic actions are limited to isolating a host outside production. The CSSP may run the containment playbooks from its host pool, and each run pages the Security Team at once. The Security Team reviews or reverses each run by the next business day.
 
 **NIST Control Mapping:**
 
@@ -720,7 +720,7 @@
 
 ### RS-3.2: Automated Containment and Isolation Procedures
 
-**Design Intent:** Network containment moves a workload into a quarantine policy at the cloud hub, or into the SDN fabric's quarantine segment in the data center. Identity containment disables the account, revokes its sessions and tokens, and suspends any workload or AI agent identity. Both run from playbooks, and the Security Team approves before either touches production. The CSSP may run them on its own authority when an incident cannot wait for the Security Team. Neither the Security Team's playbooks nor the CSSP's may touch fleet systems.
+**Design Intent:** Network containment moves a workload into a quarantine policy at the cloud hub, or into the SDN fabric's quarantine segment in the data center. Identity containment disables the account, revokes its sessions and tokens, and suspends any workload or AI agent identity. Both run from playbooks, the owning team is told at once, and the Security Team approves before either touches production. The CSSP may run them on its own authority when an incident cannot wait. No playbook touches fleet systems or the operating sites' admission control.
 
 **NIST Control Mapping:**
 
@@ -732,7 +732,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Segmentation Policy, Network Firewall, Network Access Control (NAC), DNS Infrastructure, Identity Lifecycle and Governance, Human Authentication, Privileged Access Management, Compute, Device/Workstation, Application/API
+**Affected Components:** Segmentation Policy, Network Firewall, Network Access Control (NAC), DNS Infrastructure, Identity Lifecycle and Governance, Human Authentication, Privileged Access Management, Compute, Device/Workstation
 
 **External Dependencies:** The CSSP, whose containment role its service agreement defines.
 
@@ -764,7 +764,7 @@
 
 ### RS-3.3: Human-in-the-Loop Containment
 
-**Design Intent:** No containment action may touch a ground control station, the launch and recovery equipment, or a datalink while an aircraft under that station's control is airborne. Such actions wait until Fleet Operations' operations lead approves them or the aircraft has landed. Cutting the ground segment conduit is pre-approved, since it carries only file transfers and cannot affect a flight. The manual runbook covers safe recovery of airborne aircraft, either by handing them to another station or recovering them, before a station is isolated.
+**Design Intent:** No containment action may touch a ground control station, the launch and recovery equipment, or a datalink while an aircraft under that station's control is airborne. Such actions wait until the operations lead or the shift lead at that site approves them, or the aircraft has landed. The aircraft's lost-link procedure is the fallback, using the same airborne window as CCSD tailoring action 2. Fleet Operations may cut an operating site's conduit at the data center side, and the site's services keep working. Cutting it holds any flight plans queued on F34, so it needs the operations lead's concurrence while a plan is pending. It also blinds OT monitoring, so the IRP limits how long it lasts. The manual runbook covers safe recovery of airborne aircraft before a station is isolated.
 
 **NIST Control Mapping:**
 
@@ -816,7 +816,7 @@
 
 ### RS-3.4: Eradication and Threat Removal
 
-**Design Intent:** Eradication removes the adversary's persistence, rotates every credential and secret the incident touched, and verifies the exploited weakness is closed before the incident can close. A compromised model version is withdrawn, and the registry blocks any rollback to it. A compromised station or aircraft has its datalink keys replaced.
+**Design Intent:** The owning team carries out eradication at the ISSM's direction, and Fleet Operations does so only in a maintenance window or after landing. Eradication removes the adversary's persistence, rotates every credential and secret the incident touched, and verifies the exploited weakness is closed before the incident can close. A compromised model version is withdrawn, and the registry blocks any rollback to it. A compromised signing key is revoked under the KMP, every package it signed is re-certified and re-signed, and aircraft are reloaded in maintenance windows. A lost aircraft's datalink keys are always superseded fleet-wide under Certificate Lifecycle and Revocation (`DA-3.9`).
 
 **NIST Control Mapping:**
 
@@ -869,7 +869,7 @@
 
 ### RS-3.5: Classified Data Spillage Response
 
-**Design Intent:** The likeliest spill is classified content arriving through a high-to-low product, or pasted into a language model prompt, which the content filters are tuned to catch. The ISSM traces every copy, including index entries, embeddings, model training snapshots, and backups. The ISSM then suspends access to them and has each one sanitized. The ISSM reports the spill to the AO, the PSO, and the IL6 enclave's owner.
+**Design Intent:** The likeliest spills are classified content arriving through a high-to-low product, caught by KESTREL's content and marking checks, or pasted into a language model prompt. The ISSM traces every copy, namely index entries, embeddings, training snapshots, and models trained on them. Copies also include onboard models, IL6 baselines, prompt and response logs, the CSSP's retained telemetry, and backups at the alternate site and in the second region. The Data Team, Platform Team, ML Team, IT Operations, and Fleet Operations for onboard models suspend access and sanitize each copy. Cloud copies are cryptographically erased. A locked backup is sanitized by destroying its backup set's key, since retention lock prevents deletion. Every affected copy stays held until the PSO and the AO release it. The ISSM reports the spill out of band to the AO, the PSO, the original classification authority, the CSSP, and the IL6 enclave's owner.
 
 **NIST Control Mapping:**
 
@@ -880,9 +880,9 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Object/File Storage, Backup/Archive Repository, Virtual Machine/Server, Identity Lifecycle and Governance, Segmentation Policy, Cross-Domain/Boundary Transfer
+**Affected Components:** Object/File Storage, Backup/Archive Repository, Removable Media, Virtual Machine/Server, Managed Device (Laptop/Desktop), Identity Lifecycle and Governance, Segmentation Policy, Cross-Domain/Boundary Transfer
 
-**External Dependencies:** The IL6 enclave's owner, whose release review and security office join any spill traced to a high-to-low product. The PSO, who receives every spill report.
+**External Dependencies:** The IL6 enclave's owner, whose release review and security office join any spill traced to a high-to-low product. The PSO, who receives every spill report. The IL5 cloud provider, which supports sanitizing cloud storage and model deployments.
 
 **Security Impact:** High
 
@@ -934,7 +934,7 @@
 
 ### RS-3.6: Recovery and Return-to-Operations Validation
 
-**Design Intent:** Restoration uses only backups, images, and model versions from before the earliest confirmed adversary activity, and each source is checked for the incident's indicators before it is used. A recovered system stays under heightened monitoring for 30 days.
+**Design Intent:** Restoration uses only backups, images, and model versions from before the earliest confirmed adversary activity, and each source is checked for the incident's indicators before it is used. With no clean source, systems are rebuilt from infrastructure as code or golden images with a selective data restore. A recovered system stays under heightened monitoring for 30 days.
 
 **NIST Control Mapping:**
 
@@ -976,7 +976,7 @@
 
 ### RS-3.7: Systemic Lessons Learned Process
 
-**Design Intent:** Every high-severity incident and every exercise ends with a lessons-learned review. It produces findings against the detection that missed, the procedure that failed, or the design weakness behind the incident. Each finding becomes a tracked item, and design findings go to the PMO ISSE.
+**Design Intent:** Every incident of severity 2 and above ends with a lessons-learned review, while exercises feed their findings through the exercise program. The review produces findings against the detection that missed, the procedure that failed, or the design weakness behind the incident. Each finding becomes a tracked item, and design findings go to the PMO ISSE.
 
 **NIST Control Mapping:**
 

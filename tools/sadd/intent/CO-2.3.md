@@ -1,5 +1,5 @@
 ## Design Intent
-The ISSM leads an annual security review across the whole boundary, including the cloud, the data center, the alternate site, and the fleet. It records a determination and evidence for every control in that year's scope and confirms that earlier fixes still hold. Its findings go to the risk register and the POA&M, and its report goes to the AO.
+The SCA conducts the annual security review under the Security Assessment Plan, across the cloud, the data center, the alternate site, and the fleet through spares and the simulator. The ISSM coordinates access and evidence. It confirms that earlier fixes still hold. Determinations are delivered in the SAR, and findings go to the POA&M and the risk register.
 
 ## External Dependencies
-None outside the boundary.
+The SCA, who conducts the review, and the penetration testing provider, whose results it uses.

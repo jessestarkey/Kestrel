@@ -6,7 +6,7 @@
 
 ### AI-1.1: AI Use Case Intake and Onboarding
 
-**Design Intent:** Every AI use case and every new model enters through the application intake path with an AI section added. It names the sponsoring intelligence mission lead, the data the use case needs, any action it can take, and a proposed risk tier. The AI/ML Governance Review Board (`GV-4.4`) approves the use case, with any conditions, before any corpus is assembled.
+**Design Intent:** Every AI use case and every new model enters through the application intake path with an AI section added. It names the sponsor, the data the use case needs, any action it can take, and a proposed risk tier. The sponsor is the intelligence mission lead for a mission use case and the ISSM for a security use case such as AI-assisted alert triage. The AI/ML Governance Review Board (`GV-4.4`) approves the use case, with any conditions, before any corpus is assembled.
 
 **NIST Control Mapping:**
 
@@ -69,7 +69,7 @@
 
 ### AI-1.2: Privacy Requirements Definition
 
-**Design Intent:** Incidental imagery of people is the only personal information in KESTREL's collection. Training sets keep it only where a detection task needs it, and no model is trained to identify individuals. The privacy officer approves each new training set's handling, and the AISP records that removing a record later means retraining rather than deleting from the weights.
+**Design Intent:** Incidental imagery of people is the only personal information in KESTREL's collection. Training sets keep it only where a detection task needs it, and no model is trained to identify individuals. The AISP sets a recall threshold for the person-detection model as a privacy requirement, since its misses decide what reaches dev/test data. The privacy officer approves each new training set's handling, and removing a record later means retraining rather than editing the weights.
 
 **NIST Control Mapping:**
 
@@ -126,7 +126,7 @@
 
 ### AI-1.3: Model Selection and Justification
 
-**Design Intent:** Each model choice is recorded with the criteria it was assessed against, namely the publisher's security practice, licensing, the serialization format, and fitness for the mission. Foundation models come only from the cloud provider's IL5-authorized catalog. Every detection and embedding model starts from a pretrained checkpoint on the approved catalog or is trained from scratch, and each choice records the risks the program accepted.
+**Design Intent:** Each model choice is recorded with the criteria it was assessed against, namely the publisher's security practice, licensing, the serialization format, and fitness for the mission. Foundation models come only from the cloud provider's IL5-authorized catalog. Every detection, embedding, and person-detection model starts from a pretrained checkpoint on the approved catalog or is trained from scratch. Each choice records the risks the program accepted.
 
 **NIST Control Mapping:**
 
@@ -180,7 +180,7 @@
 
 ### AI-1.4: Approved AI Component Catalog
 
-**Design Intent:** One approved AI component catalog lists the model families, pretrained checkpoints, frameworks, and model registries KESTREL may use. The ML team proposes additions, and the AI/ML Governance Review Board approves them. The package mirror and the model registry accept only what the catalog lists.
+**Design Intent:** One approved AI component catalog lists the model families, pretrained checkpoints, datasets, guardrail models, frameworks, and model registries KESTREL may use. The ML Team lead owns it, and the AI/ML Governance Review Board approves additions. It is reviewed each year and on any red team finding, CVE, or supply chain incident that touches a listed item. The ML Team lead can suspend an item at once, and the ISSO confirms the suspension within 24 hours. The package mirror and the model registry accept only what the catalog lists.
 
 **NIST Control Mapping:**
 
@@ -243,7 +243,7 @@
 
 ### AI-1.5: Model Provenance and Integrity Verification
 
-**Design Intent:** Every pretrained checkpoint is checked against its publisher's signature or published digest when it enters the model registry, and it is refused if either fails. Each foundation model deployment records the exact version the cloud provider serves. A version KESTREL did not approve raises an alert.
+**Design Intent:** Every pretrained checkpoint is checked against its publisher's signature or published digest when it enters the model registry, and it is refused if the check fails. Each foundation model deployment records the exact version the cloud provider serves. A version KESTREL did not approve raises an alert.
 
 **NIST Control Mapping:**
 
@@ -381,7 +381,7 @@
 
 ### AI-1.8: OT and Safety-Critical AI Governance
 
-**Design Intent:** No KESTREL model may command an aircraft, its flight controls, or its payload. Onboard detection models only cue the operator, and every AI agent output that would affect a flight, such as the mission-planning agent's drafts, takes effect only after an operator approves it. The AI/ML Governance Review Board enforces this list at intake, and agent tool scoping enforces it technically. Airworthiness certification remains a separate process.
+**Design Intent:** No KESTREL model may command an aircraft, its flight controls, or its payload. Onboard detection models only cue the operator. The mission-planning agent's drafts take effect only after an operator approves them in the planning queue, the only path to a station (F34). The AI/ML Governance Review Board enforces this at intake, and agent tool scoping enforces it technically. Before an onboard model or the agent is fielded, and each year after, it gets an OT-adjacent AI risk assessment. That assessment combines its threat model, robustness requirements, and a safety-impact determination from the program's airworthiness and systems-safety authority. High findings go to the board and the ISSO.
 
 **NIST Control Mapping:**
 
@@ -392,7 +392,7 @@
 
 **Affected Components:** Industrial Controller/SCADA, AI/ML System
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The program's airworthiness and systems-safety authority, which makes the safety-impact determination.
 
 **Security Impact:** High
 
@@ -446,7 +446,7 @@
 
 ### AI-2.1: Data Poisoning Prevention and Detection
 
-**Design Intent:** Training data comes only from KESTREL's own collection, analyst corrections, federated updates from the aircraft, and products released from the IL6 enclave. The Data Team screens every batch before it enters the ML training zone. The screening checks provenance, flags outliers and duplicates, and checks for label shifts against the existing corpus. A new external dataset needs AI intake first.
+**Design Intent:** Before the ATO, training data is government-furnished prior collection the AO admits under the interim authorization to test, received over F28, plus synthetic and simulator data. After it, training data comes only from KESTREL's own collection, analyst corrections, federated updates from the aircraft, and IL6 releases. The Data Team screens every batch for provenance, outliers, duplicates, and label shifts before it enters the ML training zone. A flagged batch is held automatically and any run that would read it fails. A new external dataset needs AI intake first.
 
 **NIST Control Mapping:**
 
@@ -500,7 +500,7 @@
 
 ### AI-2.2: Label Integrity Verification
 
-**Design Intent:** Labels come from the Data Team's cleared annotators and from analyst corrections, and from no outside labeling service. A sample of every batch is labeled twice, and low agreement holds the batch. Each correction is bound to the analyst who made it, so one analyst's corrections can be reviewed or withdrawn together.
+**Design Intent:** Labels come from three named sources, never from an outside labeling service. These are the Data Team's own annotators, analyst corrections, and model corrections released from the IL6 enclave over F13. A sample of every batch is labeled twice, and low agreement holds the batch. Each correction is bound in its provenance record to its source, either the analyst who made it or its IL6 release record. One source's corrections can therefore be reviewed or withdrawn together.
 
 **NIST Control Mapping:**
 
@@ -511,7 +511,7 @@
 
 **Affected Components:** Self-Hosted Model, Base/Pretrained Model, Fine-Tuned Model, Object/File Storage
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The IL6 enclave's owner, whose release review approves the model corrections it sends.
 
 **Security Impact:** Moderate
 
@@ -541,7 +541,7 @@
 
 ### AI-2.3: Training Data Privacy Controls
 
-**Design Intent:** Incidental imagery of people is blurred or cropped out of training data unless the detection task needs it. Training sets carry no analyst names or other personal fields. The Data Team applies these controls as it releases data into the ML training zone, and the provenance record notes which technique it applied.
+**Design Intent:** Incidental imagery of people is blurred or cropped out of training data unless the detection task needs it. The ML Team's person-detection model finds it once certified, and until then a Data Team reviewer blurs or crops by hand. Training sets carry no analyst names or other personal fields, and raw stores in the ML training zone are readable only by the Data Team. The provenance record notes which technique each release used.
 
 **NIST Control Mapping:**
 
@@ -629,7 +629,7 @@
 
 ### AI-3.1: Secure Experimentation Environment
 
-**Design Intent:** Experimentation workspaces in ML Dev/Test are individual, scoped to the datasets each data scientist is approved for, and reached only through the identity-aware proxy. Downloads are disabled, and the workspaces have no route to any prod spoke. Mission data therefore never reaches a laptop or production.
+**Design Intent:** Experimentation workspaces in ML Dev/Test give each data scientist an individual notebook server, scoped to the datasets they are approved for. They are reached only from the ML VDI host pool, so notebook output renders inside the session and never on the laptop. Downloads are disabled, servers end after a set lifetime, and the workspaces have no route to any prod spoke beyond F25's shared services.
 
 **NIST Control Mapping:**
 
@@ -642,7 +642,7 @@
 
 **Affected Components:** Compute, Object/File Storage, Identity Lifecycle and Governance, Self-Hosted Model, Base/Pretrained Model, Fine-Tuned Model
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The performer, whose CMMC Level 2 laptops display the ML host pool's sessions under the interconnection agreement.
 
 **Security Impact:** Moderate
 
@@ -766,7 +766,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Object/File Storage, Self-Hosted Model, Base/Pretrained Model, Fine-Tuned Model
+**Affected Components:** Object/File Storage, Managed Device (Laptop/Desktop), Self-Hosted Model, Base/Pretrained Model, Fine-Tuned Model
 
 **External Dependencies:** The performer, whose CMMC Level 2 controls protect source clones on its laptops.
 
@@ -800,7 +800,7 @@
 
 ### AI-4.1: Ephemeral, Containerized Training Environments
 
-**Design Intent:** Each training run gets its own containers on the training cluster's GPU nodes, built from an approved image and isolated from concurrent runs. Each run's scratch storage is destroyed when the run ends.
+**Design Intent:** Each training run gets its own containers on the training cluster's GPU nodes, built from an approved image and isolated from concurrent runs. Each run's scratch storage is destroyed when it ends, and nodes are deallocated or their GPU memory cleared before reuse.
 
 **NIST Control Mapping:**
 
@@ -842,7 +842,7 @@
 
 ### AI-4.2: Least-Privilege Training Infrastructure Access
 
-**Design Intent:** Each training pipeline identity reads only the dataset snapshots its run declares and writes only to its own model registry namespace. Human access to the training cluster is eligible rather than standing, activated through the privileged access platform.
+**Design Intent:** Each training pipeline identity reads only the dataset snapshots its run declares and writes only to its own run's output, which the release runners collect. ML engineers hold no privileged roles on the training cluster. The Platform Team performs privileged operations on their behalf under Just in Time Access (`ID-4.3`), from its admin VDI host pool. That access is reviewed twice a year.
 
 **NIST Control Mapping:**
 
@@ -885,7 +885,7 @@
 
 ### AI-4.3: Training Cluster Network Segmentation and Egress Control
 
-**Design Intent:** The training cluster sits in ML Dev/Test, which the cloud hub isolates from every prod spoke. Its only outbound paths are the package mirror, the model registry, and the ML training zone across the circuit, so neither the corpus nor the weights have another way out.
+**Design Intent:** The training cluster sits in ML Dev/Test, which the cloud hub isolates from every prod spoke. It reaches only F25's shared services, pulling images and approved checkpoints from the registry and mirror, and the ML training zone across the circuit. Trained weights leave only when the release runners collect them, so neither the corpus nor the weights have another way out. Any transfer from the cluster sized like a corpus or a set of weights alerts the Security Team.
 
 **NIST Control Mapping:**
 
@@ -1009,7 +1009,7 @@
 
 ### AI-4.6: AI Dependency Vulnerability Scanning
 
-**Design Intent:** The resolved dependency set of every training and serving image is scanned against current vulnerability data on each build and daily afterward. Frameworks, tokenizers, and accelerator toolkits come only through the package mirror.
+**Design Intent:** The resolved dependency set of every training and serving image is scanned against current vulnerability data on each build and daily afterward. A vulnerable pin is remediated on the VPMP's clock for its severity. Frameworks, tokenizers, and accelerator toolkits come only through the package mirror.
 
 **NIST Control Mapping:**
 
@@ -1091,7 +1091,7 @@
 
 ### AI-4.8: Training Infrastructure IaC Scanning
 
-**Design Intent:** The infrastructure as code for the training cluster, the dataset snapshots, and the model registry is scanned in the pipeline with the same policy as all other infrastructure code.
+**Design Intent:** The infrastructure as code for the training cluster, the dataset snapshots, and the model registry is scanned in the pipeline. It is checked against a training-platform baseline documented in the AISP, on top of the policy every other infrastructure module meets.
 
 **NIST Control Mapping:**
 
@@ -1171,7 +1171,7 @@
 
 ### AI-4.10: Training Pipeline API/Interface Testing
 
-**Design Intent:** The training platform's job, dataset, and registry interfaces are tested from their schemas for authorization flaws. One check confirms that a pipeline identity cannot mount a snapshot or write a namespace that is not its own.
+**Design Intent:** The training platform's job, dataset, and registry interfaces are tested from their schemas for authorization flaws. One check confirms that a pipeline identity cannot mount a snapshot or write another run's output.
 
 **NIST Control Mapping:**
 
@@ -1295,7 +1295,7 @@
 
 ### AI-4.13: Reproducibility Controls
 
-**Design Intent:** Every training environment pins its dependency versions and image digest, and the run record captures both. Certification to Field reproduces a sample of runs to confirm the pins hold.
+**Design Intent:** Every training environment pins its dependency versions and image digest. Each run hashes its assembled environment at start, compares it with the pipeline's approved baseline, and halts on a mismatch. The verified hash goes in the run record and the AI-BOM. Sampled reproduction of runs belongs to Experiment Tracking and Reproducibility (`AI-3.2`).
 
 **NIST Control Mapping:**
 
@@ -1337,7 +1337,7 @@
 
 ### AI-4.14: Training Artifact Signing
 
-**Design Intent:** Every trained artifact is signed as the pipeline's last step, with keys held in the HSMs, and the signature binds the artifact to its run record and dataset snapshot. Serving platforms and aircraft load only signed artifacts.
+**Design Intent:** Every trained artifact is signed as the pipeline's last step, with keys held in the cloud HSM-backed tier under Key Management Policies and Infrastructure (`DA-3.3`). The signature binds the artifact to its run record and dataset snapshot. Serving platforms and aircraft load only signed artifacts.
 
 **NIST Control Mapping:**
 
@@ -1420,7 +1420,7 @@
 
 ### AI-4.16: Training Job Audit Logging
 
-**Design Intent:** Every training job's submission, configuration, data access, and output is logged to the security monitoring platform, where the ML team's administrators cannot change it.
+**Design Intent:** Every training job's submission, configuration, data access, and output is logged to the security monitoring platform, where the training platform's administrators cannot change it. The logs are kept for the AU-11 period in the ConMon plan, and the ISSO reviews them each week.
 
 **NIST Control Mapping:**
 
@@ -1503,7 +1503,7 @@
 
 ### AI-4.18: Hyperparameter Change Alerting
 
-**Design Intent:** Each model's certification sets an approved envelope for retraining, including hyperparameter ranges. A run whose hyperparameters change outside that envelope alerts the ML team and the PMO ISSE, and its output needs full Certification to Field instead of passing on the pipeline's evidence.
+**Design Intent:** Each model's certification sets an approved envelope for retraining, including hyperparameter ranges. A run whose hyperparameters change outside that envelope alerts the ML Team and the PMO ISSE, and its output needs full Certification to Field. Edge models never use the envelope fast path.
 
 **NIST Control Mapping:**
 
@@ -1629,7 +1629,7 @@
 
 ### AI-5.2: Prompt Injection Testing
 
-**Design Intent:** Every language model use case is tested for prompt injection through each path content reaches it. For the LLM analyst assistant, that includes injected instructions planted in mission reports and in products released from the IL6 enclave. For AI agents, it includes injected instructions in tool responses.
+**Design Intent:** Every language model use case is tested for prompt injection through each path content reaches it. For the LLM analyst assistant, that includes injected instructions planted in mission reports and in products released from the IL6 enclave. For AI agents, it includes injected instructions in tool responses. For AI-assisted alert triage, it includes attacker-written content in the logs and alerts F32 carries. Each successful injection is tracked to a fix that constrains it, and the test is re-run before the finding closes.
 
 **NIST Control Mapping:**
 
@@ -1834,7 +1834,7 @@
 
 ### AI-5.7: Red Teaming
 
-**Design Intent:** An independent AI red team attacks every new AI use case and every change of foundation model in combination, such as a planted report that steers the assistant into misusing an agent's tool. The PMO ISSE scopes each exercise, and the red team works outside the performer.
+**Design Intent:** An independent AI red team attacks every new AI use case and every change of foundation model in combination. One example is a planted report that steers the assistant into misusing an agent's tool. The PMO ISSE scopes each exercise, and the red team works outside the performer.
 
 **NIST Control Mapping:**
 
@@ -2001,7 +2001,7 @@
 
 ### AI-6.3: Red-Team Findings Sign-Off
 
-**Design Intent:** Every red team finding above the AISP's must-fix severity needs a validated fix, or a risk acceptance, before the use case can be certified. The PMO ISSE signs off on each closure.
+**Design Intent:** Every red team finding above the AISP's must-fix severity needs a validated fix, or a risk acceptance, before the use case can be certified. The PMO ISSE signs off on each closure. Any acceptance routes under Risk Acceptance Process (`RK-1.4`), and anything above Very Low goes to the AO, since every finding touches CCSD row 8.
 
 **NIST Control Mapping:**
 
@@ -2042,7 +2042,7 @@
 
 ### AI-6.4: Risk Acceptance and Approval Log
 
-**Design Intent:** Every risk acceptance made at AI certification is logged with its rationale, approver, compensating measures, and expiry. Each one also feeds the program's risk register, so the AO sees every accepted AI risk.
+**Design Intent:** The PMO ISSE decides pass or fail at the gate. Each proposed acceptance is scored and routed under Risk Acceptance Process (`RK-1.4`). Every gate acceptance touches CCSD row 8 or row 10, so anything above Very Low goes to the AO. Every acceptance is logged with its rationale, approver, compensating measures, and expiry, and feeds the program's risk register.
 
 **NIST Control Mapping:**
 
@@ -2084,7 +2084,7 @@
 
 ### AI-6.5: Model Deployment Risk Threshold Evaluation
 
-**Design Intent:** The pipeline combines each model's results across jailbreak, injection, evasion, poisoning, out-of-distribution, and privacy tests into one score against its risk tier's thresholds. Retraining within the approved envelope passes on that score alone. Anything outside it goes to the PMO ISSE for a decision.
+**Design Intent:** The pipeline combines each model's results across jailbreak, injection, evasion, poisoning, out-of-distribution, and privacy tests into one score against its risk tier's thresholds. Retraining within the approved envelope passes on that score alone, except for edge models, which always take full Certification to Field. Anything outside the envelope goes to the PMO ISSE, and any risk acceptance routes under RK-1.4.
 
 **NIST Control Mapping:**
 
@@ -2137,7 +2137,7 @@
 
 ### AI-6.6: Rollback/Kill-Switch Readiness Check
 
-**Design Intent:** Before certification, each model's rollback is rehearsed in stage, and so is its kill switch: cloud endpoints fall back to the prior certified version, and AI agents are disabled. For edge models, the rehearsal runs on a spare aircraft, which falls back to its stored prior model or turns onboard detection off. The cutover times are recorded in the evidence.
+**Design Intent:** Before certification, each model's rollback is rehearsed in stage, and so is its kill switch. Cloud endpoints fall back to the prior certified version, and AI agents are disabled. For edge models, the rehearsal runs on a spare aircraft, which falls back to its stored prior model or turns onboard detection off. The cutover times are compared with the recovery time the model committed to, and a model that misses it is not promoted.
 
 **NIST Control Mapping:**
 
@@ -2179,7 +2179,7 @@
 
 ### AI-6.7: Model Registration and Inventory Logging
 
-**Design Intent:** Every certified model version is registered in the model registry and the asset inventory. Each record lists its owner, certification record, where it serves, and which aircraft carry it.
+**Design Intent:** Every certified model version is registered in the model registry and the asset inventory. Each record lists its owner, publisher, criticality, the classification of its corpus and inputs, its certification record, where it serves, and which aircraft carry it.
 
 **NIST Control Mapping:**
 
@@ -2221,7 +2221,7 @@
 
 ### AI-6.8: Model Optimization Governance
 
-**Design Intent:** Edge models are quantized or pruned versions of the cloud detection models. Each optimized artifact is certified as its own version and re-tested for accuracy and robustness, rather than inheriting the cloud model's certification. The approved optimization methods are listed in the AISP.
+**Design Intent:** Edge models are quantized or pruned versions of the cloud detection models. Each optimized artifact is certified as its own version through full Certification to Field and re-tested for accuracy and robustness, never through the envelope fast path. The AISP lists the approved optimization methods, and an unlisted one needs the ISSO's and the review board's approval. Each optimization is recorded against the model in the registry.
 
 **NIST Control Mapping:**
 
@@ -2369,7 +2369,7 @@
 
 ### AI-7.3: Secure Model Evaluation Environment
 
-**Design Intent:** Candidates are evaluated in a disposable environment in ML Dev/Test, which has no route to any prod spoke. The held-out evaluation data is readable only by the evaluation pipeline, so no one tuning a model can see it.
+**Design Intent:** Candidates are evaluated in a disposable environment in ML Dev/Test, which has no route to any prod spoke beyond F25's shared services. The held-out evaluation data is readable only by the evaluation pipeline, so no one tuning a model can see it.
 
 **NIST Control Mapping:**
 
@@ -2412,7 +2412,7 @@
 
 ### AI-7.4: Continuous Authentication of Feedback/Retraining Data
 
-**Design Intent:** Retraining signal is accepted only from authenticated sources. Analyst corrections are bound to the analyst's identity and the inference session they correct. Federated updates are authenticated by each aircraft's device identity. Products released from the IL6 enclave are treated as untrusted input, so they pass the same checks as everything else.
+**Design Intent:** Retraining signal is accepted only from authenticated sources. Analyst corrections are bound to the analyst's identity and the inference session they correct. Federated updates are authenticated by each aircraft's device identity, and onboard training computes them against a copy, so the certified model an aircraft runs never changes in flight. IL6 releases are untrusted input and pass the same checks as everything else.
 
 **NIST Control Mapping:**
 
@@ -2539,7 +2539,7 @@
 
 ### AI-8.3: Third-Party/Foundation Model API Dependency Governance
 
-**Design Intent:** Each foundation model is a CSP-hosted deployment inside KESTREL's boundary, reached by private endpoint with provider-side prompt logging disabled. Prompts may carry report excerpts at IL5 but never raw collection. Each deployment pins its model version, and a version change or deprecation notice triggers re-testing before the use case moves to it.
+**Design Intent:** Each foundation model is a CSP-hosted deployment inside KESTREL's boundary, reached by private endpoint. Calls authenticate with workload identity, and key-based authentication is disabled, so no API key exists. Processing stays in United States regions within the provider's IL5 authorization, the SA-9(5) parameter CCSD tailoring action 5 sets. The ISSM reviews the provider's continuous monitoring deliverables and confirms each year that prompt logging stays off. Each deployment pins its version, and a retirement notice triggers re-testing before the use case moves.
 
 **NIST Control Mapping:**
 
@@ -2549,7 +2549,7 @@
 - **SR-6 (partial):** claimed partial for the recurring supplier review, beside Model Selection and Justification's pre-adoption assessment. The base is cited because SR-6(1) tests delivered elements, and contractual flow-down stays with the Manage pillar.
 - **Declined:** SA-9(2) is a provider disclosure at acquisition, and the network permission decision is the CM-7 claim Platform Service Network Integration holds. RA-3(1) stays with Model Selection and Justification.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Third-Party API Model, Foundation Model, Application and Service Account Identity
 
@@ -2594,7 +2594,7 @@
 
 ### AI-8.4: Retrieval-Augmented Generation (RAG) and Vector Store Security
 
-**Design Intent:** The mission report index takes documents only from the shared report zone, each tagged with its source and release markings. Retrieval enforces the requesting user's entitlements, so a partner-restricted report never reaches a context it should not. Products released from the IL6 enclave are marked as untrusted content in the prompt.
+**Design Intent:** The mission report index takes documents only from the shared report zone, each tagged with its source and release markings. Retrieval enforces the requesting user's entitlements, and release markings carry into answers so foreign disclosure review sees them. Products released from the IL6 enclave are marked as untrusted content in the prompt. Any future retrieval corpus follows the same rules.
 
 **NIST Control Mapping:**
 
@@ -2741,7 +2741,7 @@
 
 ### AI-8.7: Agentic Tool-Call/Action Output Validation
 
-**Design Intent:** Every AI agent tool call is checked against the tools and parameters its task authorized before it runs, and tools run in a sandboxed container. The mission-planning agent is the first: its tools only read mission data and write drafts to an operator's approval queue. Plans are also checked against approved areas and airspace.
+**Design Intent:** Every AI agent tool call is checked against the tools and parameters its task authorized before it runs, and each tool runs in its own isolated container. The mission-planning agent reads shared reports and collection requests, never either team's raw collection. Its tools write drafts only to the planning queue in Mission Team 2 Prod, where an operator approves them. Plans are also checked against approved areas and airspace.
 
 **NIST Control Mapping:**
 
@@ -2751,7 +2751,7 @@
 - **SC-39 (partial):** claimed partial for a separate execution focus area per dispatched tool call, the same base-level isolation Ephemeral, Containerized Training Environments applies to training jobs.
 - **Declined:** AC-6 stays with Agent Tool/API Access Scoping, which decides tool classes. SI-10 belongs to Input Validation. SC-7(21) is not claimed, since SC-39 names per-call isolation more precisely. AC-4 is not reopened for sandbox egress, which the segmentation outcomes enforce. AU-12 stays with the Detection focus area's Application/API Logging.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Application/API, AI Agent, AI Agent Identity, Container
 
@@ -2796,7 +2796,7 @@
 
 ### AI-8.8: Inference-Time PII Handling
 
-**Design Intent:** Prompts and inference logs are scanned for personal information, which is redacted from the logs. Inference logs follow the retention schedule the privacy officer approved, and the foundation model's provider keeps nothing.
+**Design Intent:** Prompts and inference logs are scanned for personal information, which is redacted from inputs before they reach a model and from the logs. Inference logs follow the DMP's retention schedule, and the foundation model's provider keeps nothing.
 
 **NIST Control Mapping:**
 
@@ -2808,7 +2808,7 @@
 
 **Affected Components:** Application/API, AI Interface/Inference Endpoint, Storage/Database
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The IL5 cloud provider, which keeps no prompts or responses under its provisional authorization.
 
 **Security Impact:** Moderate
 
@@ -2849,7 +2849,7 @@
 
 **Affected Components:** Application/API, AI Interface/Inference Endpoint
 
-**External Dependencies:** The IL5 cloud provider, which hosts each foundation model deployment inside KESTREL's tenant under its provisional authorization. The provider supplies the in-tenant content filters.
+**External Dependencies:** The IL5 cloud provider, which hosts each foundation model deployment inside KESTREL's tenant under its provisional authorization. The provider supplies the in-tenant content filters, and Microsoft decides KESTREL's application for modified content filtering.
 
 **Security Impact:** Moderate
 
@@ -2879,7 +2879,7 @@
 
 ### AI-8.10: System Prompt Governance
 
-**Design Intent:** Every system prompt is kept in its use case's repository and versioned with the release. Changes are reviewed like code and deployed only through the pipeline. A change that alters a prompt's role or limits triggers re-testing against jailbreak and injection.
+**Design Intent:** Every system prompt is kept in its use case's repository and versioned with the release. Changes are reviewed like code, signed off by the ISSO, and deployed only through the pipeline. Each change passes an injection-hardening review, and a prompt that fails it cannot deploy. A change that alters a prompt's role or limits triggers re-testing against jailbreak and injection. Every prompt is audited against its approved version each year.
 
 **NIST Control Mapping:**
 
@@ -2887,7 +2887,7 @@
 - **CM-2(2) (partial):** claimed partial for keeping system prompts current in a version-controlled repository, an artifact class neither infrastructure nor training configuration covers.
 - **CM-4 (partial):** claimed partial for analyzing what a prompt change grants, removes, or could disclose, alongside Change Risk Assessment's provisioned-asset slice. Security Impact Analysis (SIA) holds the system-level analysis this feeds.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Prompt/Instruction Layer, Application/API
 
@@ -2943,7 +2943,7 @@
 
 ### AI-8.11: Model Artifact Encryption and Watermarking
 
-**Design Intent:** Every model artifact is encrypted at rest under program keys, in the registry, on serving nodes, and on aircraft. Edge models carry a watermark, so a copy recovered from a lost aircraft can be traced to its version and tail number.
+**Design Intent:** Every model artifact is encrypted at rest under program keys, in the registry, on serving nodes, and on aircraft. Edge models carry a watermark applied per version before certification, so a recovered copy can be traced to its version.
 
 **NIST Control Mapping:**
 
@@ -2984,14 +2984,14 @@
 
 ### AI-8.12: On-Device Extraction Resistance
 
-**Design Intent:** Onboard models run in the aircraft's trusted execution environment, stored encrypted with keys held in its crypto module. They are zeroized if the aircraft detects tampering or is declared lost. An aircraft that might be captured therefore yields neither usable weights nor keys.
+**Design Intent:** Onboard models run in the aircraft's trusted execution environment, stored encrypted with keys only its crypto module can use. They are zeroized on tamper or crash detection, or on command while the link holds. Otherwise the weights stay encrypted, so a captured aircraft yields neither usable weights nor keys.
 
 **NIST Control Mapping:**
 
 - **SC-39(1) (partial):** claimed partial for running inference in a hardware-isolated enclave, the hardware separation earlier SC-39 claimants named. Confidential Computing and Column Level Encryption holds the cloud slice.
 - **Declined:** the SC-39 base is not reopened. SC-28(1) stays with Model Artifact Encryption and Watermarking, while this outcome keeps decryption and execution inside the enclave.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** Edge/Embedded AI Device, Compute, Self-Hosted Model
 
@@ -3025,14 +3025,14 @@
 
 ### AI-8.13: Offline/Air-Gapped Model Integrity Verification
 
-**Design Intent:** Every model leaving the cloud for a disconnected destination travels as a signed offline package. Destinations include the ground control stations and the IL6 enclave. Each package carries its weights, digest, AI-BOM, and certification record, and it is verified at the station before loading and at the transfer gateway before staging.
+**Design Intent:** Every model leaving the cloud for a disconnected destination travels as a signed offline package with its weights, digest, AI-BOM, model card, and certification record. After Certification to Field, each edge package is counter-signed with the fleet key in the data center's HSMs. The station verifies it before loading, and the aircraft verifies it again at load. The transfer gateway verifies packages before IL6 staging.
 
 **NIST Control Mapping:**
 
 - **SI-7(6) (partial):** claimed partial for cryptographically detecting changes to the offline model package between assembly and load. Artifact Bundle Integrity Verification holds release bundles, while a model package must also match weights, tokenizer, and configuration to each other.
 - **Declined:** CM-14 and SI-7(15) are not reopened, since Training Artifact Signing and the other signing outcomes hold them and this package carries their signatures. Media transport belongs to Media Protection Policy and Procedures.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** Self-Hosted Model, Object/File Storage, Compute, Edge/Embedded AI Device
 
@@ -3066,7 +3066,7 @@
 
 ### AI-8.14: Rollback/Kill-Switch Mechanism
 
-**Design Intent:** Each model endpoint can cut back to its previous certified version in minutes. Each AI agent and each language model use case has a kill switch the owning team and the Security Team can operate. Each aircraft keeps its prior certified edge model, and the operator can turn onboard detection off.
+**Design Intent:** Each model endpoint can cut back to its previous certified version in minutes. The owning team operates each AI agent's and language model use case's kill switch directly. The Security Team and the CSSP trigger it only through the pre-approved containment playbook that suspends a workload or AI agent identity. Each aircraft keeps its prior certified edge model, and the operator can turn onboard detection off.
 
 **NIST Control Mapping:**
 
@@ -3110,7 +3110,7 @@
 
 ### AI-9.1: Model Drift Detection and Alerting
 
-**Design Intent:** Each fielded model's output distribution and confidence are tracked, along with its accuracy against analyst corrections as they return. Drift past the model card's limits alerts the ML team and the owning mission team.
+**Design Intent:** Each fielded model's output distribution and confidence are tracked, along with its accuracy against analyst corrections as they return. The person-detection model's misses are tracked through the zones' sanitizing pipelines. Drift past the model card's limits alerts the ML Team and the owning mission team, and opens a retraining cycle.
 
 **NIST Control Mapping:**
 
@@ -3288,7 +3288,7 @@
 
 ### AI-9.5: Canary Prompt Testing
 
-**Design Intent:** A versioned set of canary inputs runs daily against every fielded model and use case, with known answers expected. These include images for the detection models and prompts for the language model use cases. A changed answer alerts the owning team, which catches a silent model or prompt change.
+**Design Intent:** A versioned set of canary inputs runs daily against every fielded model and use case, with known answers expected. These include images for the detection models and prompts for the language model use cases. Edge models are checked on the spares. A changed answer alerts the owning team, which catches a silent model or prompt change.
 
 **NIST Control Mapping:**
 
@@ -3329,7 +3329,7 @@
 
 ### AI-9.6: Trusted Model Registry Source Validation
 
-**Design Intent:** Every serving platform's loaded models are resolved to their registry and digest each day and compared with the model registry. A model loaded from anywhere else alerts the Security Team.
+**Design Intent:** Every serving platform's loaded models are resolved to their registry and digest each day and compared with the model registry. Edge models are checked on the spares, and on each aircraft when it is next in a maintenance window. A model loaded from anywhere else alerts the Security Team.
 
 **NIST Control Mapping:**
 
@@ -3413,7 +3413,7 @@
 
 ### AI-9.8: Model Decommissioning and Disposal
 
-**Design Intent:** Retiring a model deletes its weights and the embeddings derived from it, revokes its endpoint identities, and removes it from every aircraft. Its record is kept for as long as its certification evidence must be. The AISP sets the disposal method for each asset type.
+**Design Intent:** Retiring a model deletes its weights and the embeddings derived from it, revokes its endpoint identities, and removes it from every aircraft. The IL6 enclave's owner is told to retire its baseline copies, and the provider confirms deletion of a retired foundation model deployment. Its record is kept for as long as its certification evidence must be. The AISP sets the disposal method for each asset type.
 
 **NIST Control Mapping:**
 
@@ -3424,7 +3424,7 @@
 
 **Affected Components:** AI/ML System, Vector Store/Embedding Index, Artifact/Model Registry
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The IL6 enclave's owner, which retires its baseline copies. The IL5 cloud provider, which confirms deletion.
 
 **Security Impact:** High
 
@@ -3465,7 +3465,7 @@
 
 ### AI-9.9: Operational Adversarial Re-Testing
 
-**Design Intent:** Each fielded model and use case is re-tested against current jailbreak, injection, and evasion techniques each quarter. It is also re-tested when the cloud provider changes a foundation model underneath it. Results go to the PMO ISSE, and a failure reopens certification.
+**Design Intent:** Each fielded model and use case is re-tested against current jailbreak, injection, and evasion techniques each quarter, and the mission-planning agent each month. It is also re-tested when the provider retires a pinned foundation model version. Results go to the PMO ISSE, and a failure reopens certification.
 
 **NIST Control Mapping:**
 
@@ -3520,7 +3520,7 @@
 
 ### AI-10.1: AI/ML Security Plan (AISP)
 
-**Design Intent:** The ML team authors KESTREL's AISP, with each mission team writing the sections for its use cases. The PMO ISSE writes the T&E methodology, since it runs Certification to Field and AI Cyber T&E. The AI/ML Governance Review Board reviews the AISP, and the Configuration Control Board approves it. It is revised each year and whenever a threshold, the component catalog, or a foundation model changes.
+**Design Intent:** The ML Team authors KESTREL's AISP, with each mission team writing the sections for its use cases. The PMO ISSE writes the T&E methodology and names a government AI test lead, so certification does not rest on one person. It follows the DoD AI Cybersecurity Risk Management Tailoring Guide the CCSD applies. The ISSM and the AI/ML Governance Review Board review it, and the Configuration Control Board approves it. It is revised each year and whenever a threshold, the component catalog, or a foundation model changes.
 
 **NIST Control Mapping:**
 

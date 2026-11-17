@@ -6,7 +6,7 @@
 
 ### DI-1.1: Asset Inventory and Discovery
 
-**Design Intent:** The service desk platform's configuration management database is KESTREL's one asset inventory. The cloud provider's resource inventory feeds it for every spoke. Agents feed it for the data center and the alternate site, with the SDN controller adding the data center's network devices, so nothing depends on manual entry. Every spoke is its own subscription under KESTREL's tenant, and a subscription created outside the landing zone raises an alert. License tracking covers every licensed product and model, such as each payload vendor's conversion software, the service desk platform, and each foundation model's terms of use.
+**Design Intent:** The service desk platform's configuration management database is KESTREL's one asset inventory. The cloud provider's resource inventory feeds it for every spoke. Agents feed it for every on-premises host, and the SDN controller adds the data center's network devices. Every spoke is its own subscription under KESTREL's tenant, and a subscription created outside the landing zone alerts. License tracking covers every licensed product and model, and peer-to-peer file sharing software is prohibited. An inventory dashboard shows coverage and unmanaged assets.
 
 **NIST Control Mapping:**
 
@@ -83,7 +83,7 @@
 
 ### DI-1.2: OT/Legacy Passive Protocol-Aware Discovery
 
-**Design Intent:** Passive sensors on the ground segment network fingerprint the ground control stations, launch and recovery equipment, and payload processing workstation from their own traffic. They never probe a device, so discovery cannot disturb a station during a flight. Aircraft are inventoried by tail number from Fleet Operations' records and reconciled each time one connects to a station. Every sensor reports to the same inventory as the IT estate.
+**Design Intent:** Passive sensors on the ground segment network fingerprint the ground control stations, launch and recovery equipment, and operating site services from their own traffic. They parse the UAS command and telemetry protocols, and maintenance records fill what they cannot see. They never probe a device, so discovery cannot disturb a station during a flight. Sensors sit at each operating site and are checked for coverage after each change. Aircraft are inventoried by tail number and reconciled each time one connects. Fleet records reach the inventory over F22.
 
 **NIST Control Mapping:**
 
@@ -197,7 +197,7 @@
 
 ### DI-1.4: Security Team Visibility
 
-**Design Intent:** The Security Team and the CSSP's analysts get read access to the asset inventory, discovery results, and tags, and no right to change them. Inventory and tag data flow into the security monitoring platform, so every alert there carries its asset's owner, team, and criticality. The same data feeds vulnerability prioritization and incident response.
+**Design Intent:** The Security Team gets read access to the asset inventory, discovery results, and tags, and no right to change them. Inventory and tag data flow into the security monitoring platform, so every alert there carries its asset's owner, team, and criticality. The CSSP's analysts see that context only through the platform's enrichment, in their host pool. The same data feeds vulnerability prioritization and incident response.
 
 **NIST Control Mapping:**
 
@@ -208,7 +208,7 @@
 
 **Affected Components:** Identity Lifecycle and Governance, Application/API
 
-**External Dependencies:** The CSSP, whose analysts read asset context through the CSSP host pool.
+**External Dependencies:** None outside the boundary.
 
 **Security Impact:** Low
 
@@ -240,7 +240,7 @@
 
 ### DI-2.1: Secure Resource Provisioning
 
-**Design Intent:** Every cloud resource is created by infrastructure as code through the shared pipeline from the Platform Team's landing zone modules. Those modules set secure defaults, and policy-as-code checks block a resource that departs from them. A second reviewer approves each infrastructure change, as with application code. Console creation is denied outside break-glass. Data center and alternate site servers are built from the same kind of templates through the configuration automation platform.
+**Design Intent:** Every cloud resource is created by infrastructure as code through the shared pipeline from the Platform Team's landing zone modules. Those modules set secure defaults, and policy-as-code checks block a resource that departs from them. A second reviewer approves each infrastructure change, as with application code. Console creation is denied outside break-glass. Every on-premises server is built from the same kind of templates through the configuration automation platform.
 
 **NIST Control Mapping:**
 
@@ -250,7 +250,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Infrastructure-as-Code (IaC)
 
-**External Dependencies:** The parent organization's facility, which hosts the alternate site's equipment under the facility agreement.
+**External Dependencies:** None outside the boundary.
 
 **Security Impact:** Moderate
 
@@ -280,7 +280,7 @@
 
 ### DI-2.2: Asset Lifecycle Change Control
 
-**Design Intent:** A merged pull request is the change record for anything defined as code, and the service desk holds the record for everything else. Each change is tested in the owning team's stage cluster before it reaches production. Changes to the hubs' shared rule base, the identity provider, or a new interconnection go to the Configuration Control Board. Emergency changes run through the privileged access platform and receive a retrospective review within two business days.
+**Design Intent:** A merged pull request is the change record for anything defined as code, and the service desk holds the record for everything else. Each change carries a security impact note feeding Security Impact Analysis (SIA) (`GV-5.11`). Cloud changes are tested in the owning team's stage cluster. Tier 0 and data center changes go first to the alternate site's standby or a lab, and a change with neither has a recorded exception and extra verification. A post-change compliance scan closes the record. Changes to the shared rule base, the identity provider, or an interconnection go to the Configuration Control Board. Emergency changes run through the privileged access platform and get a review within two business days.
 
 **NIST Control Mapping:**
 
@@ -357,7 +357,7 @@
 
 ### DI-2.3: Resource Decommissioning Governance
 
-**Design Intent:** Cloud resources are removed through the same infrastructure as code that created them. Removal revokes their workload identities and deletes their spoke vault secrets and encryption keys. Data center drives are sanitized on site before they leave, and HSMs are zeroized. An aircraft or ground control station leaving service has its keys zeroized and its onboard storage wiped. Orphaned resources are those whose owning team or tag no longer resolves. Refresh planning tracks the payload processing workstation's replacement against its 2027-09-30 deadline, and a slip goes to the AO before the workstation connects.
+**Design Intent:** Cloud resources are removed through the same infrastructure as code that created them, which revokes their workload identities and deletes their vault secrets and keys. On-premises drives are sanitized on site before they leave, and HSMs are zeroized. An aircraft or station leaving service has its keys zeroized, its storage wiped, and its device certificates revoked. Orphaned resources are those whose owning team or tag no longer resolves. Refresh planning forecasts each asset's end of support with enough lead time to replace it, such as the payload processing workstation before 2027-09-30.
 
 **NIST Control Mapping:**
 
@@ -412,7 +412,7 @@
 
 ### DI-2.4: Controlled Maintenance and Support
 
-**Design Intent:** Data center and alternate site hardware maintenance is scheduled through the service desk, escorted, and recorded, and failed drives stay on site for sanitization. Fleet Operations maintains the ground control stations and launch equipment only in scheduled windows, with vendor sessions brokered and recorded under Access Process for Third-Party Support (`ID-4.7`). Diagnostic tools and media are approved and scanned before use. Spare stations and aircraft parts cover the mission's tolerance, and they double as the test articles for penetration testing.
+**Design Intent:** On-premises hardware maintenance is scheduled through the service desk, escorted, and recorded, and failed drives stay on site for sanitization. Fleet Operations maintains fleet equipment only in scheduled windows, with vendor sessions brokered under Access Process for Third-Party Support (`ID-4.7`). Diagnostic tools and media are approved and scanned before use. Spares cover the mission's tolerance, and the HSMs, identity servers, and hub firewalls have support agreements with replacement times. A spare used for penetration testing is reimaged and re-verified against its baseline before it returns to the pool.
 
 **NIST Control Mapping:**
 
@@ -429,7 +429,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Device/Workstation, OT/ICS Device
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider maintains the cloud hardware. The aircraft and ground equipment manufacturers provide support under their maintenance agreements.
+**External Dependencies:** The IL5 cloud provider, which maintains the cloud hardware under its provisional authorization. The aircraft and ground equipment manufacturers, under their maintenance agreements. The parent organization's facility and the PSO, for escorted maintenance at the alternate site.
 
 **Security Impact:** Moderate
 
@@ -483,7 +483,7 @@
 
 ### DI-3.1: Secure Configurations
 
-**Design Intent:** DISA STIGs and SRGs are the hardening basis, with the Cloud Computing SRG's IL5 requirements for the cloud. The landing zone defines the hub and ten spokes as subscriptions under one tenant, each with its own guardrail policies. The Platform Team's infrastructure as code modules encode that design, so a new spoke is built the same way as the existing ten. Both hubs, the access proxy, the VDI brokers, and the cross domain transfer gateway fail closed.
+**Design Intent:** DISA STIGs and SRGs are the hardening basis, with the Cloud Computing SRG's IL5 requirements for the cloud. The landing zone defines the hub and ten spokes as subscriptions under one tenant, each with its own guardrail policies. The Platform Team's modules encode that design, so a new spoke is built the same way. Every firewall, the access proxy, the VDI brokers, and the cross domain transfer gateway fail closed and preserve their state for recovery.
 
 **NIST Control Mapping:**
 
@@ -495,7 +495,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Infrastructure-as-Code (IaC)
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization.
+**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. DISA, which publishes the STIG and SRG content.
 
 **Security Impact:** High
 
@@ -558,7 +558,7 @@
 
 ### DI-3.2: Secure Compute Baselines
 
-**Design Intent:** One VDI golden image serves every host pool, and each pool adds only its own tools. Virtual machine images cover the experimentation workspaces, the payload vendors' conversion servers, and the data center's other servers. Container base images are hardened and minimal, built from the package mirror, and rebuilt rather than patched in place. Every managed Kubernetes cluster shares one baseline, whether it is a dev, test, stage, prod, or training cluster. BMC hardening applies to the physical servers in the data center and at the alternate site.
+**Design Intent:** One VDI golden image serves every host pool, and each pool adds only its own tools. Virtual machine images cover the signals conversion server and every other on-premises server. Container base images are hardened and minimal, built from the package mirror, and rebuilt rather than patched in place. Every managed Kubernetes cluster shares one baseline, whether it is a dev, test, stage, prod, notebook, or serving cluster. Every cloud virtual machine and node pool is separated from non-DoD tenants, as the Cloud Computing SRG requires at IL5. BMC hardening applies to every physical server.
 
 **NIST Control Mapping:**
 
@@ -635,7 +635,7 @@
 
 ### DI-3.3: Secure Storage Baselines
 
-**Design Intent:** Every cloud database and storage service disables public access, accepts connections only from private endpoints in its own spoke, and sends access logs to the security monitoring platform. On premises, each data lake zone's access policy admits only its own team's workloads, the Data Team, and the ML training zone where F18 allows. The backup repository is reachable only from the backup service.
+**Design Intent:** Every cloud database and storage service disables public access, accepts connections only from private endpoints in its own spoke, and sends access logs to the security monitoring platform. On premises, each data lake zone's access policy admits its own team's workloads, the Data Team, and the ML training zone where F18 allows. It also admits the data catalog's read-only scan identity and the backup service. The object store's array has its exports, legacy protocols, and management interfaces hardened. Self-hosted database and analytics engines drop default accounts and turn on native audit. Each zone's policy is checked against its baseline after every change, so access that crosses the vendor split is caught. The backup repository is reachable only from the backup service.
 
 **NIST Control Mapping:**
 
@@ -740,7 +740,7 @@
 
 ### DI-3.5: Secure OT/Legacy Device Baselines
 
-**Design Intent:** Fleet Operations adopts each manufacturer's hardening guidance for the ground control stations, launch and recovery equipment, and aircraft. An asset that cannot be hardened to a current baseline gets a compensating control baseline instead. The payload processing workstation would get one only if it connects before its replacement fields. It would then run isolated in the OT zone with application allow-listing, per CCSD tailoring action 3. Approved firmware for each aircraft and station model is tracked in the inventory.
+**Design Intent:** Fleet Operations adopts each manufacturer's hardening guidance for the ground control stations, launch and recovery equipment, aircraft, and operating site services. Windows-based stations take the DISA STIG unless the manufacturer documents a conflict, plus allow-listing and anti-malware where supported. An asset that cannot reach a current baseline gets a compensating control baseline instead. The payload processing workstation connects only if the AO re-dates CCSD tailoring action 3. It would then run isolated in its own OT zone with application allow-listing. Approved firmware for each model is tracked in the inventory.
 
 **NIST Control Mapping:**
 
@@ -792,16 +792,109 @@
 
 ## DI-4: Configuration Policy Orchestration
 
+### DI-4.1: Device Compliance
+
+**Design Intent:** KESTREL's own endpoints are its privileged access workstations, which a Tier 0 management plane enrolls, scans against a compliance policy, and remediates. A workstation that falls out of compliance loses Tier 0 sign-in until it is fixed. Devices KESTREL does not own never join its network. Performer laptops reach it only through the identity-aware access proxy and the VDI brokers, after a posture check. Parent organization devices use the proxy alone (F38), and vendor devices only the vendor host pool (F37). The interconnection agreement, the performer's CMMC Level 2 attestation, and the CMP record the terms. KESTREL has no mobile devices, and its workstations never travel.
+
+**NIST Control Mapping:**
+
+- **AC-19 (partial):** carried by Unified Endpoint Management and Compliance Remediation, which set mobile configuration requirements and authorize connections. Partial because mobile devices are a subset of the fleet, and the Identity focus area's conditional access enforces the outcome.
+- **AC-19(5) (partial):** carried by Compliance Policy Definitions and Configuration Compliance Scanning, whose disk-encryption criterion expresses full-device encryption as a compliance state. Partial on the same grounds as AC-19.
+- **AC-20 (partial):** carried by Personally-Owned Device (BYOD) Posture Determination, which sets terms for external systems, usually a documented prohibition. Partial because partner and contractor systems run through the Identity focus area, which with Network and Environment also enforces the decision.
+- **AC-20(3) (partial):** cited only where the AO permits non-organizationally-owned devices under restrictions. Partial for AC-20's reason and because it applies only to a conditional allowance.
+- **AC-20(1) (partial):** any AO exception admits a device only after its controls are verified and the approval recorded in the CMP. Partial for AC-20's reason, and exercised only when an exception exists.
+- **AC-20(2) (partial):** the determination states whether program portable storage may be used on external systems. Partial because it also depends on the Governance focus area's Rules of Behavior and Acceptable Use Policy.
+- **CM-2(7) (partial):** carried by High-Risk Travel Device Configuration, which issues minimal configurations for high-risk travel and inspects or reimages devices on return. Partial because the PSO decides which locations are high risk.
+- **CM-6(1) (partial):** cited because UEM automatically applies, manages, and verifies device settings. Partial because this is the Device/Workstation share, independent of the server and cloud drift outcomes and Secure Resource Provisioning.
+- **CM-6(2) (partial):** cited for Compliance Remediation's automated response to drifted or unauthorized device configuration.
+- **Declined:** SC-28(1) stays with the Data focus area's Default Data at Rest Encryption, which holds the disk encryption itself.
+
+**Deployment Type:** Cloud, On-Premises, Hybrid
+
+**Affected Components:** Managed Device (Laptop/Desktop)
+
+**External Dependencies:** The performer and the parent organization, which manage their own devices and attest their compliance under their interconnection agreements.
+
+**Security Impact:** Moderate
+
+**Activities:**
+
+- **DI-4.1.1: Personally-Owned Device (BYOD) Posture Determination**
+    - **Description:** Decide whether personally-owned devices may connect to the program's systems and networks at all, starting from a posture of prohibition, and record that determination in the CMP together with any AO-approved exception, the systems and data it covers, and the conditions attached to it.
+    - **Control Type:** Documentation
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Low
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries the outcome's AC-20 (partial) mapping and, for a conditional allowance, its AC-20(3) (partial) mapping. It also carries the outcome's AC-20(1) (partial) and AC-20(2) (partial) mappings. Record the determination explicitly, since a documented prohibition is assessable while silence is not. Write any AO exception with specific systems, data, and device conditions. Enforcement belongs to Identity conditional access and network admission controls.
+
+- **DI-4.1.2: Unified Endpoint Management**
+    - **Description:** Stand up the unified endpoint management (UEM/MDM) platform and enroll the program's managed laptops, desktops, and mobile devices under it, establishing the platform that automatically applies and enforces device configuration policy across the enrolled fleet.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Extensive
+    - **Cost:** One-Time: High; Recurring: Moderate
+    - **Time Estimation:** Long-term (6+ months)
+    - **Supplemental Guidance:** This platform is the substrate the outcome's CM-6(1) (partial) mapping rests on, enforcing Compliance Policy Definitions automatically. It also carries the outcome's AC-19 (partial) mapping alongside Compliance Remediation. Estimates are the heaviest in the capability because it is a new platform touching every user, enrolled in waves with an ongoing per-device subscription.
+
+- **DI-4.1.3: Compliance Policy Definitions**
+    - **Description:** Define the compliance policy the UEM platform evaluates each managed device against, namely disk encryption enabled, passcode and screen-lock complexity, minimum OS and patch level, jailbreak or root status, and required security agents present, and document those compliance criteria in the CMP.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Low
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** These definitions are the baseline the outcome's CM-6(1) (partial) mapping enforces, derived from Baseline Configuration Standards. The disk-encryption criterion is where the outcome's AC-19(5) (partial) mapping originates. Revise the policy as approved OS versions and device-security requirements change.
+
+- **DI-4.1.4: Configuration Compliance Scanning**
+    - **Description:** Continuously evaluate every enrolled device against the defined compliance policy and flag each non-compliant device, so that drift away from the device baseline surfaces as an actionable compliance state rather than going unnoticed.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity is the verification dimension of the outcome's CM-6(1) (partial) mapping and carries the verification half of the outcome's AC-19(5) (partial) mapping. The UEM platform evaluates each enrolled device against Compliance Policy Definitions automatically, and Compliance Remediation acts on what it flags.
+
+- **DI-4.1.5: Compliance Remediation**
+    - **Description:** Remediate non-compliant devices automatically by re-pushing the required configuration, quarantine or block through conditional access any device that cannot be brought back into compliance until it is, and document the remediation actions and enforcement thresholds in the CMP.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Moderate; Recurring: Low
+    - **Time Estimation:** Medium-term (3–6 months)
+    - **Supplemental Guidance:** This activity carries the outcome's CM-6(2) (partial) mapping, since re-enforcing policy or cutting off access is CM-6(2)'s response to unauthorized changes. It also carries the enforcement half of the outcome's AC-19 (partial) mapping alongside Unified Endpoint Management. Conditional-access blocking runs through the Identity focus area, and the remediation thresholds and actions are documented in the CMP.
+
+- **DI-4.1.6: High-Risk Travel Device Configuration**
+    - **Description:** Issue managed laptops and mobile devices traveling to locations the PSO designates as high risk with a dedicated, minimal travel configuration, inspect or reimage each device before it reconnects to program systems on return, and document the travel configuration and return procedure in the CMP.
+    - **Control Type:** Process
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Low
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries the outcome's CM-2(7) (partial) mapping. Assume a device taken to a high-risk location was exposed, so it leaves with only what the trip needs and returns to a fresh image. Most programs use a pool of stripped-down loaner devices. The PSO supplies the high-risk location list and traveler briefing.
+
 ### DI-4.2: Policy Service Restrictions
 
-**Design Intent:** The permitted services, ports, and protocols for each asset type are set in the CMP and enforced twice. Host firewalls enforce them on every KESTREL-owned host, and the hubs' shared rule base enforces them on the network. The scope is every spoke, the data center, the privileged access workstations, and the VDI desktops. Fleet equipment follows its manufacturer's service list.
+**Design Intent:** The permitted services, ports, and protocols for each asset type are set in the CMP and enforced twice. Host firewalls enforce them on every KESTREL-owned host, and the shared rule base enforces them on the network. The scope is every spoke, every on-premises host, the privileged access workstations, and the VDI desktops. Fleet equipment follows its manufacturer's service list.
 
 **NIST Control Mapping:**
 
 - **CM-7 (partial):** cited at the base for the ongoing, environment-wide policy on which services, ports, and protocols may run on live assets. Partial and independent of the definition-time CM-7 claims held by Secure Compute Baselines and Secure Platform Services and Application Baselines.
 - **Declined:** CM-7(1) review belongs to Unapproved Service Usage Monitoring and Alerting, and CM-7(2) and CM-7(5) belong to Execution and Device Control.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Compute, Device/Workstation, Application/API
 
@@ -842,7 +935,7 @@
 - **CM-7(1) (partial):** cited at the enhancement because reviewing the live environment for unnecessary or nonsecure functions is CM-7(1)'s subject. Partial because this outcome reviews, identifies, and alerts, while disabling flagged services runs through response and patch content. The Network and Environment and Application focus areas hold the other surfaces of this enhancement.
 - **Declined:** CM-7(2) and CM-7(5) belong to Execution and Device Control.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Compute, Device/Workstation, Application/API
 
@@ -876,18 +969,18 @@
 
 ### DI-4.4: Compute Configuration Monitoring
 
-**Design Intent:** Configuration scans compare every virtual machine, VDI desktop, and cluster against its baseline, and admission control rejects workloads that depart from the cluster baseline. Drift alerts go to the owning team and the Security Team. A compute compliance dashboard shows posture by team and spoke for the Platform Team, the Security Team, and the CSSP.
+**Design Intent:** Configuration scans compare every virtual machine, VDI desktop, and cluster against its baseline, reading the cloud provider's configuration state, and admission control rejects workloads that depart from the cluster baseline. Drift alerts go to the owning team and the Security Team. A compute compliance dashboard shows posture by team and spoke for the Platform Team, the Security Team, the CSSP, and the PMO ISSE.
 
 **NIST Control Mapping:**
 
 - **CM-6(1) (partial):** cited at the enhancement because automated scanning of live compute against its baseline is CM-6(1)'s manage-and-verify function. Partial because it is the compute member of a joint claim with Secure Resource Provisioning, Storage Configuration Monitoring, and Platform Services and Application Configuration Monitoring.
 - **Declined:** CM-2 stays with Secure Compute Baselines, and CM-7 stays with that capability and Unapproved Service Usage Monitoring and Alerting, since this outcome only measures against them.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Virtual Machine/Server, Container, Container Orchestration Control Plane, Virtual Desktop Infrastructure (VDI), Application/API
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The IL5 cloud provider, whose configuration state these scans read.
 
 **Security Impact:** Moderate
 
@@ -917,14 +1010,14 @@
 
 ### DI-4.5: Storage Configuration Monitoring
 
-**Design Intent:** Cloud configuration checks watch every cloud database and storage service for public access, disabled logging, or a loosened resource firewall. On premises, each data lake zone's access policy is compared against its baseline, so access that crosses the vendor split is caught. Findings feed a storage compliance dashboard.
+**Design Intent:** Cloud configuration checks watch every cloud database and storage service for public access, disabled logging, or a loosened resource firewall. The data lake zones on premises are checked under Secure Storage Baselines (`DI-3.3`) instead. Findings feed a storage compliance dashboard.
 
 **NIST Control Mapping:**
 
 - **CM-6(1) (partial):** cited at the enhancement because continuous checking of live storage and database services against baseline is CM-6(1)'s manage-and-verify function. Partial as the storage member of the joint claim with Secure Resource Provisioning and the compute and platform monitoring outcomes.
 - **Declined:** CM-2 stays with Secure Storage Baselines, since this outcome only measures against it.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, Hybrid
 
 **Affected Components:** Database Service, Object/File Storage
 
@@ -965,7 +1058,7 @@
 - **CM-6(1) (partial):** cited at the enhancement because automated evaluation of live platform and hosting configuration against baseline is CM-6(1)'s manage-and-verify function. Partial as the platform member of the joint claim with Secure Resource Provisioning and the compute and storage monitoring outcomes.
 - **Declined:** CM-2 and CM-7 stay with Secure Platform Services and Application Baselines and Unapproved Service Usage Monitoring and Alerting, since this outcome only evaluates against them.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Serverless/Platform Service, First-Party/Custom Application Code, Self-Hosted Third-Party Application (COTS)
 
@@ -999,7 +1092,7 @@
 
 ### DI-4.7: OT Baseline Configuration Drift Detection
 
-**Design Intent:** The ground segment's passive sensors capture each station's and launch system's configuration from its traffic, and Fleet Operations exports configuration during maintenance windows where the equipment allows. Both are compared against the manufacturer baseline. Drift alerts go to Fleet Operations and the Security Team, and nothing is changed automatically on fleet equipment.
+**Design Intent:** Fleet Operations exports each station's and launch system's configuration during maintenance windows and compares it against the manufacturer baseline. The passive sensors add firmware and protocol behavior between windows. Each aircraft's firmware and loaded model version are checked against Secure OT/Legacy Device Baselines (`DI-3.5`) when it connects to a station or enters maintenance. Drift alerts go to Fleet Operations and the Security Team, and nothing is changed automatically on fleet equipment.
 
 **NIST Control Mapping:**
 
@@ -1040,7 +1133,7 @@
 
 ### DI-4.8: Vulnerability and Patch Management
 
-**Design Intent:** The VPMP sets KESTREL's remediation deadlines, with priority raised for assets in the DMZ, Tier 0, and the fleet. Patches move from dev to test to stage before production. Container images are rebuilt and redeployed rather than patched in place. Data center and alternate site servers are patched one node of each redundant pair at a time. Fleet patches must be validated by the manufacturer, tried on a spare, and loaded in a maintenance window. The payload processing workstation's flaws run under CCSD tailoring action 3 until 2027-09-30.
+**Design Intent:** The VPMP sets KESTREL's remediation deadlines, with priority raised for the DMZ, Tier 0, and the fleet. Patches move from dev to test to stage before production. Tier 0 and on-premises patches go to the alternate site's standby first. Container images are rebuilt rather than patched. Redundant pairs are patched one node at a time. HSM and datalink crypto module firmware moves only to FIPS 140-3 validated versions. Fleet patches must be validated by the manufacturer, tried on a spare, and loaded in a maintenance window. An asset that cannot be patched follows Unpatchable/Legacy Asset Compensating Controls (`DI-4.9`).
 
 **NIST Control Mapping:**
 
@@ -1153,7 +1246,7 @@
 
 ### DI-4.9: Unpatchable/Legacy Asset Compensating Controls
 
-**Design Intent:** Any asset that cannot be patched gets its own segment, intrusion prevention at its only path, and tighter monitoring. The payload processing workstation is the only candidate, and only if its replacement slips past 2027-09-30. It would sit in its own OT zone segment under application allow-listing. A single conduit would carry its converted recordings to Mission Team 1's data lake zone and nothing else. The data center hub's intrusion prevention signatures would shield its known vulnerabilities at that conduit. The passive sensors and the security monitoring platform would watch it under tighter alert thresholds than the rest of the fleet.
+**Design Intent:** Any asset that cannot be patched gets its own segment, virtual patching at its only path, and tighter monitoring. If no such asset is fielded, the pattern is validated on a spare station. The payload processing workstation is the one candidate, and it connects only if the AO re-dates CCSD tailoring action 3. It would then sit in its own OT zone under application allow-listing, with an inbound conduit from the station zone and an outbound one to the IT/OT DMZ. Both cross the ground segment firewall, whose threat signatures shield its known vulnerabilities. Its recordings would land in Mission Team 1's zone over F3, under tighter alert thresholds than the rest of the fleet.
 
 **NIST Control Mapping:**
 
@@ -1208,7 +1301,7 @@
 
 ### DI-5.1: Execution and Device Control
 
-**Design Intent:** Application allow-listing runs deny-by-default on the privileged access workstations, the VDI desktops, and every data center and cloud virtual machine. The privileged access workstations accept no removable media, and the VDI desktops already block drive and USB redirection. Cameras and microphones are disabled on the privileged access workstations and in the VDI image.
+**Design Intent:** Application allow-listing runs deny-by-default on the privileged access workstations, the VDI desktops, and every on-premises and cloud virtual machine, with attack surface reduction rules on Windows hosts. Across the IT estate, removable media is blocked except at the media intake station, which reads only encrypted government media. The ground segment's mission storage modules and key loaders follow Secure OT/Legacy Device Baselines (`DI-3.5`) instead. Cameras and microphones are disabled on the privileged access workstations and in the VDI image.
 
 **NIST Control Mapping:**
 
@@ -1225,7 +1318,7 @@
 
 **Affected Components:** Device/Workstation, Virtual Machine/Server
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, which supplies the endpoint protection service under its IL5 authorization.
 
 **Security Impact:** High
 
@@ -1277,7 +1370,7 @@
 
 ### DI-5.2: Malicious Code Protection
 
-**Design Intent:** Behavioral anti-malware runs on every privileged access workstation, VDI desktop, and virtual machine. Runtime protection sensors run on every Kubernetes cluster, including the training cluster's GPU nodes. Web and network protection on the VDI desktops allow only the management endpoints those desktops need. Malicious-domain filtering already happens at both sides' DNS resolvers.
+**Design Intent:** Behavioral anti-malware runs on every privileged access workstation, VDI desktop, and virtual machine. Runtime protection sensors run on every Kubernetes cluster, including the notebook and serving node pools. Managed training compute runs only scanned images. Web and network protection on the VDI desktops allow only the management endpoints those desktops need. Malicious-domain filtering already happens at both sides' DNS resolvers.
 
 **NIST Control Mapping:**
 
@@ -1288,7 +1381,7 @@
 
 **Affected Components:** Device/Workstation, Virtual Machine/Server, Container
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, which supplies the endpoint protection service under its IL5 authorization.
 
 **Security Impact:** Moderate
 
@@ -1351,7 +1444,7 @@
 
 ### DI-5.3: Host Hardening and Integrity Protection
 
-**Design Intent:** Exploit protection, tamper protection, and default-deny host firewalls apply to every privileged access workstation, VDI desktop, and virtual machine. The Security Team owns the tamper protection policy, so a Platform Team administrator cannot switch off the agent that watches their own activity.
+**Design Intent:** Exploit protection, tamper protection, and default-deny host firewalls apply to every privileged access workstation, VDI desktop, and virtual machine. Virtualization-based security isolates the EDR agent and credential stores on every workstation, desktop, and Windows server. The Tier 0 administrators own the tamper protection policy, and the Security Team must approve any change to it. A Platform Team administrator therefore cannot switch off the agent watching their own activity.
 
 **NIST Control Mapping:**
 
@@ -1364,7 +1457,7 @@
 
 **Affected Components:** Device/Workstation, Virtual Machine/Server
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, which supplies the endpoint protection service under its IL5 authorization.
 
 **Security Impact:** Moderate
 
@@ -1416,7 +1509,7 @@
 
 ### DI-5.4: Endpoint Detection
 
-**Design Intent:** EDR sensors run in blocking mode on every agentable host and report to the security monitoring platform, which forwards their telemetry to the CSSP. Hosts that run payload vendor software start in audit mode until the vendor software is profiled. File integrity monitoring covers the identity provider, PKI, privileged access platform, and privileged access workstations. Boot integrity attestation covers the privileged access workstations and data center servers, with trusted launch for cloud virtual machines. The SDN controller reports any device it does not know.
+**Design Intent:** Authenticated vulnerability scans cover every host in every location on a continuously updated feed. Scan credentials for Tier 0 hosts are vaulted in the privileged access platform and used only from a Tier 0 scanner. EDR sensors run in blocking mode on every agentable host and report to the cloud endpoint service over F21, whose alerts reach the security monitoring platform and the CSSP. Hosts running payload vendor software start in audit mode until the software is profiled. File integrity monitoring covers Tier 0 and the privileged access platform. Boot integrity attestation covers every physical server and workstation, with trusted launch for cloud virtual machines.
 
 **NIST Control Mapping:**
 
@@ -1439,7 +1532,7 @@
 
 **Affected Components:** Device/Workstation, Virtual Machine/Server
 
-**External Dependencies:** The CSSP, which supplies threat intelligence indicators and joins the Security Team's threat hunts.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, which supplies the endpoint protection service under its IL5 authorization. The CSSP, which supplies threat intelligence indicators and joins the Security Team's threat hunts.
 
 **Security Impact:** High
 
@@ -1557,7 +1650,7 @@
 
 ### DI-5.5: Endpoint Response
 
-**Design Intent:** The Security Team takes every endpoint response action under the IRP, namely isolation, file remediation, and live response, and live response sessions are recorded. The CSSP may also isolate a host through a pre-approved playbook when an incident cannot wait, which pages the Security Team at once. Automated response is limited to isolating a non-production host, and a production host is isolated only with its owning team told at once. No one isolates fleet equipment through this outcome.
+**Design Intent:** The Security Team takes endpoint response actions under the IRP, namely isolation, file remediation, and live response. It does so under Privileged Access Control (`ID-4.1`)'s EDR responder exception, and live response sessions are recorded. Tier 0 hosts sit in their own device group, where those actions are bound to roles usable only from the privileged access workstations. That group is excluded from CSSP playbooks and automated isolation. Elsewhere the CSSP may isolate a host through a pre-approved playbook, which pages the Security Team. Automated response isolates only non-production hosts, and nothing here acts on fleet equipment.
 
 **NIST Control Mapping:**
 
@@ -1572,7 +1665,7 @@
 
 **Affected Components:** Device/Workstation, Virtual Machine/Server
 
-**External Dependencies:** The CSSP, under the detection and response split in its service agreement.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, which supplies the endpoint protection service under its IL5 authorization. The CSSP, under the detection and response split in its service agreement.
 
 **Security Impact:** Moderate
 
@@ -1703,7 +1796,7 @@
 
 ### DI-7.1: Vulnerability and Patch Management Plan (VPMP)
 
-**Design Intent:** The Security Team authors KESTREL's VPMP, since it owns the POA&M and continuous monitoring, with IT Operations writing the patch windows and Fleet Operations the fleet procedures. The Configuration Control Board approves the VPMP, and risk acceptances under it go to the AO. It is revised each year and whenever an exception such as CCSD tailoring action 3 changes.
+**Design Intent:** The Security Team authors KESTREL's VPMP, since it owns the POA&M and continuous monitoring, with IT Operations writing the patch windows and Fleet Operations the fleet procedures. The Configuration Control Board approves the VPMP, and risk acceptances under it route through Risk Acceptance Process (`RK-1.4`). It is revised each year and whenever an exception such as CCSD tailoring action 3 changes.
 
 **NIST Control Mapping:**
 
@@ -1752,11 +1845,3 @@
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity supersedes the One-Time issuance from VPMP Development and Authoring. Use accumulated exceptions as a standing input, since a tier routinely risk-accepted signals an unrealistic SLA to correct in the plan.
-
-## Scoped Out
-
-These outcomes drop out of KESTREL's design, each for the reason given.
-
-| Outcome | Reason |
-|---|---|
-| DI-4.1: Device Compliance | Out of scope. KESTREL owns no laptops, desktops, or mobile devices. Performers reach it from their own CMMC Level 2 laptops and the program office from the parent organization's managed devices, and each owner enforces its own devices' compliance. |

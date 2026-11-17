@@ -1,5 +1,5 @@
 ## Design Intent
-One dashboard combines every scanner's and tester's findings for each application, deduplicated and ranked by risk. The owning teams, the Security Team, and the PMO ISSE all work from it. The CSSP's analysts can read it through their host pool.
+One dashboard combines every scanner's and tester's findings for each application, deduplicated and ranked by risk. It is built in the security monitoring platform, so the owning teams, the Security Team, the PMO ISSE, and the CSSP's analysts all read it there.
 
 ## External Dependencies
-The CSSP, whose analysts read the dashboard through the CSSP host pool.
+None outside the boundary.

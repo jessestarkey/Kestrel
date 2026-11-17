@@ -71,7 +71,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
+**Dependencies:** DE-2.1, DE-2.7, DE-3.1, RK-2.3
 
 **Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
@@ -152,7 +152,7 @@
 
 ### DE-1.6: User/Entity Behavior Analytics (UEBA) / Insider Threat Detection
 
-**Selected Tool / Product / Service:** Splunk User Behavior Analytics, Microsoft Purview Insider Risk Management
+**Selected Tool / Product / Service:** Splunk Enterprise Security
 
 **Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
 
@@ -166,7 +166,7 @@
 
 **Target Date / Sprint:** 2028-07-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -182,7 +182,7 @@
 
 **Selected Tool / Product / Service:** Corelight sensors, Nozomi Networks Guardian, Palo Alto Threat Prevention with on-box signatures
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Corelight sensors watch the data center and the alternate site, and Palo Alto threat prevention watches the hubs. Nozomi sensors watch each operating site's ground segment once the fleet integrates in Phase 3.
 
 **Accountable Team:** Security Team
 
@@ -190,9 +190,9 @@
 
 **Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C14](index.md#6-contracting-and-procurement-cross-references), [C13](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references)
 
@@ -238,41 +238,13 @@
 | DE-1.8.6: Cloud Infrastructure Identity Threat Monitoring | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
 | DE-1.8.7: Identity Security Posture Scoring | 2 | Technical | Visualize | Level 2 | Periodic (Monthly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 
-### DE-1.9: User Activity Monitoring
-
-**Selected Tool / Product / Service:** CyberArk Privileged Session Manager, Splunk Enterprise
-
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
-
-**Accountable Team:** Security Team
-
-**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
-
-**Funding Line:** FY28 O&M, platform and security operations
-
-**Rollout Phase:** Phase 2, Protect and Operate
-
-**Target Date / Sprint:** 2028-03-31
-
-**Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
-
-**Status:** Not Started
-
-**Activity-Level Metadata:**
-
-| Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
-|---|---|---|---|---|---|---|---|---|
-| DE-1.9.1: User Activity Monitoring Deployment on Classified Endpoints | 2 | Technical | None | Level 1 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-| DE-1.9.2: Monitoring Policy, Trigger, and Reviewer Definition | 2 | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| DE-1.9.3: Review, Triage, and Insider Threat Program Referral | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-
 ## DE-2: Comprehensive Logging
 
 ### DE-2.1: Infrastructure and Identity Logging
 
-**Selected Tool / Product / Service:** Splunk Enterprise, Azure Monitor and VNet flow logs
+**Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Microsoft Entra ID, Splunk Enterprise, Azure Policy
 
-**Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
+**Environment-Specific Tailoring:** Azure Monitor diagnostic settings send every subscription's and the tenant's activity logs to Splunk over the circuits. Splunk forwarders collect the directory, SDN controller, hypervisor, BMC, and CyberArk logs on premises. Azure Policy and a Splunk source check flag any source missing its logging.
 
 **Accountable Team:** Platform Team
 
@@ -284,7 +256,7 @@
 
 **Target Date / Sprint:** 2027-09-30
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -301,9 +273,9 @@
 
 ### DE-2.2: Data Service Logging
 
-**Selected Tool / Product / Service:** Splunk Enterprise, Azure Monitor and VNet flow logs
+**Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Azure Policy, NetApp StorageGRID with S3 Object Lock, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
+**Environment-Specific Tailoring:** Diagnostic settings enable data-plane logs on every cloud database, storage service, vault, and queue as the pipeline creates it, and Azure Policy flags any that lose them. StorageGRID audit logs cover every data lake zone. Splunk's own audit events are forwarded to the CSSP.
 
 **Accountable Team:** Platform Team
 
@@ -315,7 +287,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -338,7 +310,7 @@
 
 **Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Defender for Containers, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
+**Environment-Specific Tailoring:** AKS audit logs, Defender for Containers runtime events, and Artifactory registry events go to Splunk. The landing zone modules enable them when a cluster is created, and Azure Policy flags any that lose them. Azure Machine Learning sends its compute logs through its own diagnostic settings.
 
 **Accountable Team:** Platform Team
 
@@ -368,7 +340,7 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise, Azure API Management, Semantic Kernel
 
-**Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
+**Environment-Specific Tailoring:** A shared logging library in each team's code sends authorization, data access, and release events to Splunk. Semantic Kernel agents log every tool call with its parameters and approval. API Management logs every request, and COTS output is normalized at ingest.
 
 **Accountable Team:** Mission teams and ML Team, with the Platform Team
 
@@ -430,7 +402,7 @@
 
 **Selected Tool / Product / Service:** Azure Application Gateway WAF v2, Azure API Management, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
+**Environment-Specific Tailoring:** Application Gateway WAF logs and API Management's rate-limit and schema rejection events go to Splunk. Splunk correlates them per source and per partner.
 
 **Accountable Team:** Platform Team
 
@@ -458,7 +430,7 @@
 
 **Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Cisco ACI and APIC, Panorama with the PAN-OS provider for OpenTofu, Infoblox NIOS, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
+**Environment-Specific Tailoring:** NSG flow logs, ACI flow telemetry, and every Palo Alto firewall's traffic and configuration logs go to Splunk, including the alternate site and ground segment firewalls. Infoblox and Azure DNS query logs cover every resolver. Splunk stitches each connection across the circuits.
 
 **Accountable Team:** Platform Team
 
@@ -488,7 +460,7 @@
 
 **Selected Tool / Product / Service:** Nozomi Networks Guardian, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Azure Monitor collects cloud logs and forwards them to Splunk over the circuit. Splunk universal forwarders collect data center and alternate site logs, and the IT/OT DMZ collects fleet logs.
+**Environment-Specific Tailoring:** Nozomi sensors at each operating site and the stations' own logs are collected in the IT/OT DMZ and normalized for Splunk. The payload processing workstation's log is translated only if the AO re-dates CCSD tailoring action 3.
 
 **Accountable Team:** Fleet Operations
 
@@ -518,7 +490,7 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise, Splunk Enterprise Security, Splunk SOAR, Azure OpenAI Service
 
-**Environment-Specific Tailoring:** Splunk runs in the data center, with a forwarding tier at the alternate site so collection continues if the data center is lost.
+**Environment-Specific Tailoring:** Splunk Enterprise and Enterprise Security run in the data center, with a forwarding tier at the alternate site. SOAR automation is limited to enrichment, ticketing, notification, and isolating non-production hosts. AI-assisted triage calls the Azure OpenAI deployment over F32 and takes no action.
 
 **Accountable Team:** Security Team
 
@@ -549,11 +521,11 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise, NetApp StorageGRID with S3 Object Lock
 
-**Environment-Specific Tailoring:** Splunk runs in the data center, with a forwarding tier at the alternate site so collection continues if the data center is lost.
+**Environment-Specific Tailoring:** Splunk keeps security logs searchable for 12 months, then rolls them to StorageGRID for 18 more under AU-11. An archived sample is restored and searched each year. All telemetry is also forwarded to the CSSP.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** NE-2.1, DA-2.4
+**Dependencies:** DE-3.1
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -580,11 +552,11 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise, NetApp StorageGRID with S3 Object Lock, CyberArk Privileged Access Manager
 
-**Environment-Specific Tailoring:** Splunk runs in the data center, with a forwarding tier at the alternate site so collection continues if the data center is lost.
+**Environment-Specific Tailoring:** Splunk writes each record to an object-locked StorageGRID bucket in compliance mode and hashes each batch. No role holds the delete capability, and the logging administrator role sits with named Security Team members. Break-glass access through CyberArk alerts.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** NE-2.1, DA-2.4
+**Dependencies:** DE-3.1, ID-4.1
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -606,13 +578,13 @@
 
 ### DE-3.4: Time Synchronization
 
-**Selected Tool / Product / Service:** Microchip SyncServer S650
+**Selected Tool / Product / Service:** Microchip SyncServer S650, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Splunk runs in the data center, with a forwarding tier at the alternate site so collection continues if the data center is lost.
+**Environment-Specific Tailoring:** GNSS-disciplined time servers in the data center serve every on-premises host, with a secondary at the alternate site. Ground segment devices fall back to each site's holdover reference. Cloud workloads use the provider's time service, and Splunk alerts on drift between the sides.
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** NE-2.1, DA-2.4
+**Dependencies:** NE-2.1
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -620,7 +592,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C20](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C20](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 

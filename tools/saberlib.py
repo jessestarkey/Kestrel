@@ -20,7 +20,7 @@ PROSE = {
 DESIGN = set()
 
 MANUAL_OUT = {
-    'DI-4.1': "Out of scope. KESTREL owns no laptops, desktops, or mobile devices. Performers reach it from their own CMMC Level 2 laptops and the program office from the parent organization's managed devices, and each owner enforces its own devices' compliance.",
+    'DE-1.9': "Out of scope. KESTREL has no classified endpoints, so CNSSD 504's user activity monitoring does not apply. Privileged session recording belongs to Privileged Credential Vaulting and Session Brokering (`ID-4.4`).",
     'NE-2.9': 'Out of scope by design. The ground segment conduit carries traffic both ways, namely recordings out (F3) and certified edge models in (F6), so a firewalled conduit with protocol inspection protects it instead of a data diode.',
     'NE-3.6': 'Out of scope. KESTREL runs no email service, and the AO approved removing SI-8 (CCSD tailoring action 1).',
 }
@@ -109,11 +109,13 @@ def scope(o):
         return False, MANUAL_OUT[oid], [], []
     dep = []
     for t, txt in bullets(o['f'].get('Deployment Type', [])):
-        if not txt.lower().startswith('omitted'):
+        if not re.match(r'(omitted|excluded)\b', txt.lower()):
             dep += [d for d in split_items(t) if d in DEPLOY]
     dep = [d for d in DEPLOY if d in dep]
     comps = []
-    for t, _ in bullets(o['f'].get('Affected Components', [])):
+    for t, txt in bullets(o['f'].get('Affected Components', [])):
+        if re.match(r'(omitted|excluded)\b', txt.lower()):
+            continue
         for c in split_items(t):
             if c in FOOT or (c in PARENTS and any(s in FOOT for s in PARENTS[c])):
                 comps.append(c)

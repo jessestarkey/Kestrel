@@ -12,7 +12,7 @@
 
 **Accountable Team:** IT Operations
 
-**Dependencies:** ID-1.3, DoD PKI CAC issuance, the PSO
+**Dependencies:** ID-1.3, DoD PKI CAC issuance
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -73,9 +73,9 @@
 
 ### ID-1.3: Centralized Identity Platform
 
-**Selected Tool / Product / Service:** Active Directory Domain Services, Microsoft Entra Connect Sync, Microsoft Entra ID, Microsoft Entra ID Governance
+**Selected Tool / Product / Service:** Active Directory Domain Services, Microsoft Entra Connect Sync, Microsoft Entra ID
 
-**Environment-Specific Tailoring:** Active Directory in the data center is the system of record, with a warm standby at the alternate site, so the data center and the fleet keep identity if the cloud is unreachable. Entra ID is its cloud projection through Entra Connect Sync.
+**Environment-Specific Tailoring:** Active Directory in the data center is the system of record, with a warm standby at the alternate site. Entra ID is its cloud copy through Entra Connect Sync and the federation and policy service for cloud sign-in. If the cloud is unreachable, directory logon, the stations' local CAC checks, and break-glass keep working.
 
 **Accountable Team:** Platform Team (Tier 0 administrators)
 
@@ -131,7 +131,7 @@
 
 **Selected Tool / Product / Service:** Active Directory Domain Services, Active Directory Certificate Services, Entrust nShield 5 HSMs, Microsoft Defender for Identity, Microsoft Entra Connect Sync, Windows LAPS, group Managed Service Accounts, CyberArk Privileged Access Manager
 
-**Environment-Specific Tailoring:** The root certificate authority's keys sit in the nShield HSMs, with a standby issuing authority and a second HSM at the alternate site. Directory synchronization runs only over the circuit, and Windows LAPS rotates local administrator passwords.
+**Environment-Specific Tailoring:** The root certificate authority is offline and off the domain, its key in the nShield HSMs, used only in two-person ceremonies. Issuing authorities, domain controllers, and sync servers are Tier 0, with standbys at the alternate site. Directory synchronization runs only over the circuit, and Windows LAPS rotates local administrator passwords.
 
 **Accountable Team:** Platform Team (Tier 0 administrators)
 
@@ -255,7 +255,7 @@
 
 **Environment-Specific Tailoring:** Entra ID Governance runs the campaigns for cloud and directory access, and CyberArk's reviews cover vaulted privileged accounts. Operator access is reviewed with Fleet Operations' operations lead.
 
-**Accountable Team:** Security Team (ISSM)
+**Accountable Team:** Security Team (ISSM), with the Platform Team running the tools
 
 **Dependencies:** ID-1.3, ID-1.7
 
@@ -319,7 +319,7 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra certificate-based authentication, Active Directory Domain Services, Active Directory Certificate Services, the aircraft and ground equipment manufacturer's tools
 
-**Environment-Specific Tailoring:** Cloud sign-in uses Entra certificate-based authentication with the CAC. Data center sign-in uses Active Directory smart card logon. Ground control stations always check the CAC locally, against a revocation list refreshed daily and before each flight.
+**Environment-Specific Tailoring:** People sign in with CACs through Entra certificate-based authentication in the cloud and Active Directory smart card logon on premises. Stations check the CAC locally against a cached revocation list. At a station whose aircraft is airborne, failed logons delay and alert rather than lock, as the AMP records.
 
 **Accountable Team:** Platform Team, with Fleet Operations for the stations
 
@@ -386,9 +386,9 @@
 
 ### ID-2.3: Single Sign on (SSO)
 
-**Selected Tool / Product / Service:** Microsoft Entra ID, Microsoft Entra Conditional Access
+**Selected Tool / Product / Service:** Microsoft Entra ID, Microsoft Entra Conditional Access, Active Directory Federation Services
 
-**Environment-Specific Tailoring:** Every application federates with Entra ID by OIDC, or by SAML where a COTS product supports nothing else, including data center applications reached over the circuit. Administrative consoles never share the user session.
+**Environment-Specific Tailoring:** Cloud applications federate with Entra ID by OIDC, or by SAML where a COTS product supports nothing else. Data center applications federate with AD FS on the on-premises directory, so they keep working if the circuit fails. Partner systems reach the partner API with mutual TLS under ID-3.4. Administrative consoles never share the user session.
 
 **Accountable Team:** Platform Team
 
@@ -400,7 +400,7 @@
 
 **Target Date / Sprint:** 2027-09-30
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -450,11 +450,11 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra Conditional Access, Microsoft Entra ID Protection, Pomerium Enterprise
 
-**Environment-Specific Tailoring:** Conditional Access reads the performer's device compliance signal, shared under the interconnection agreement, for every proxy and VDI session. The Boundary Cloud Access Point supplies the network origin, partner sessions from unexpected networks step up, and identity threat detection's risk feeds every decision. The badge correlation alert joins as a signal in Phase 3.
+**Environment-Specific Tailoring:** Conditional Access reads the performer's and the parent organization's device compliance signals for every proxy and VDI session. The Boundary Cloud Access Point supplies the network origin, and partner calls from unexpected networks are denied. Identity threat detection's risk feeds every decision, and badge correlation joins in Phase 3.
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** ID-1.3, ID-1.4, DA-3.7, NE-2.7, the performer device compliance feed
+**Dependencies:** ID-1.3, ID-1.4, DA-3.7, NE-2.7, the performer device compliance feed, Parent organization's managed devices
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -479,7 +479,7 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra Conditional Access, Microsoft Entra ID Protection, Azure Virtual Desktop
 
-**Environment-Specific Tailoring:** Cloud and VDI sessions follow the AMP's timeouts under continuous access evaluation. Ground control stations lock after 15 minutes except while their aircraft is airborne, under CCSD tailoring action 2, from fleet integration in Phase 3.
+**Environment-Specific Tailoring:** Cloud and VDI sessions follow the AMP's timeouts under continuous access evaluation, with concurrent session limits per account type. Ground control stations lock after 15 minutes except while their aircraft is airborne, under CCSD tailoring action 2, and are not logged out for inactivity then. Both apply from fleet integration in Phase 3.
 
 **Accountable Team:** Platform Team, with Fleet Operations for the stations
 
@@ -514,7 +514,7 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra Workload ID, AKS workload identity
 
-**Environment-Specific Tailoring:** Every cloud workload, including the pipeline's runners, uses AKS workload identity federated to Entra ID, scoped to its own spoke. Data center services are covered by ID-3.2 and fleet devices by ID-3.7.
+**Environment-Specific Tailoring:** Cloud workloads use AKS workload identity or a managed identity federated to Entra ID, scoped to their own spoke. Azure ML compute and Container Instances groups use managed identities. Runner service accounts are scoped by AP-2.22 to their team's dev/test spoke, apart from the protected release runner. Data center services are covered by ID-3.2 and fleet devices by ID-3.7.
 
 **Accountable Team:** Platform Team
 
@@ -609,7 +609,7 @@
 
 **Selected Tool / Product / Service:** Istio service mesh add-on for AKS, Keyfactor Command, Active Directory Certificate Services
 
-**Environment-Specific Tailoring:** The Istio mesh issues workload certificates in every cluster from an intermediate under the program PKI, and data center services use certificates from Keyfactor. Traffic across the circuit is mutually authenticated end to end.
+**Environment-Specific Tailoring:** The Istio mesh issues workload certificates in every cluster from an intermediate under the program PKI, and data center services use certificates from Keyfactor. The partner API also trusts the partner and ECA issuers on ID-1.2's list. Provider-managed services authenticate callers by workload identity, and user-facing edge services present DoD PKI server certificates.
 
 **Accountable Team:** Platform Team
 
@@ -637,7 +637,7 @@
 
 **Selected Tool / Product / Service:** GitLab Secret Detection, Defender for Cloud CSPM, GitGuardian public monitoring
 
-**Environment-Specific Tailoring:** Secret scanning covers the repositories, pipeline logs, container images, and cloud storage. A finding in a release candidate fails Certification to Field.
+**Environment-Specific Tailoring:** Secret scanning covers the repositories, pipeline logs, container images, cloud storage, and service desk tickets. A finding in a release candidate fails Certification to Field.
 
 **Accountable Team:** Platform Team
 
@@ -662,9 +662,9 @@
 
 ### ID-3.6: Secrets and Credentials Protection
 
-**Selected Tool / Product / Service:** Azure Key Vault Premium, GitLab Secret Detection, Entrust nShield 5 HSMs
+**Selected Tool / Product / Service:** Azure Key Vault Premium, GitLab Secret Detection, CyberArk Privileged Access Manager, Entrust nShield 5 HSMs
 
-**Environment-Specific Tailoring:** Each spoke's Key Vault holds only that spoke's secrets and rotates them automatically. Datalink and root keys stay in the nShield HSMs instead.
+**Environment-Specific Tailoring:** Each spoke's Key Vault holds only that spoke's secrets and rotates them automatically. CyberArk vaults the data center, alternate site, and fleet secrets. Datalink and root keys stay in the nShield HSMs and the datalink crypto modules.
 
 **Accountable Team:** Platform Team
 
@@ -676,7 +676,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -817,7 +817,7 @@
 
 **Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Entrust nShield 5 HSMs
 
-**Environment-Specific Tailoring:** CyberArk vaults the built-in administrative accounts on the HSMs, network appliances, hypervisors, and out-of-band controllers, and brokers and records every session that uses one. Two-person actions use CyberArk dual control, and HSM key operations use the nShield card quorum.
+**Environment-Specific Tailoring:** CyberArk vaults the built-in administrative accounts on the HSMs, network appliances, hypervisors, out-of-band controllers, database engines, and the ground segment, and brokers and records every session that uses one. Two-person actions use CyberArk dual control, and HSM key operations use the nShield card quorum.
 
 **Accountable Team:** Platform Team (Tier 0 administrators)
 
@@ -880,7 +880,7 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra ID, YubiKey 5 FIPS Series, Active Directory Certificate Services, Active Directory Domain Services, the aircraft and ground equipment manufacturer's tools, Splunk Enterprise, Azure Monitor and VNet flow logs
 
-**Environment-Specific Tailoring:** The two cloud accounts use different sign-in methods, the cloud certificate comes from a dedicated break-glass CA, and cloud and alternate-site use alerts directly through Azure Monitor as well as Splunk. The directory set holds a domain account, each domain controller's DSRM password, and a local administrator per privileged access workstation, and every station has its own local account, all console-only under CCSD tailoring action 6. Cloud and directory sets are sealed in the data center and at the alternate site from Phase 1, and station accounts at each operating site when the fleet integrates in Phase 3.
+**Environment-Specific Tailoring:** The two cloud accounts use different sign-in methods, the cloud certificate comes from a dedicated break-glass CA, and cloud and alternate-site use alerts directly through Azure Monitor as well as Splunk. The directory set holds a domain account, each domain controller's DSRM password, and a local administrator per privileged access workstation, and every station has its own local account, all console-only under CCSD tailoring action 6, still pending AO approval, with offline smart cards as the fallback if it is declined. Cloud and directory sets are sealed in the data center and at the alternate site from Phase 1, and station accounts at each operating site when the fleet integrates in Phase 3.
 
 **Accountable Team:** Platform Team (Tier 0 administrators), with Fleet Operations
 
@@ -914,9 +914,9 @@
 
 ### ID-4.7: Access Process for Third-Party Support
 
-**Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Jira Service Management Data Center
+**Selected Tool / Product / Service:** CyberArk Privileged Access Manager, CyberArk Privileged Session Manager, Jira Service Management Data Center, Azure Virtual Desktop
 
-**Environment-Specific Tailoring:** Vendor engineers connect through CyberArk only for an open Jira Service Management case, for at most eight hours, with every session recorded. Fleet vendors connect only within a maintenance window.
+**Environment-Specific Tailoring:** Vendor engineers connect from a dedicated vendor host pool in Azure Virtual Desktop, on ECA Medium Hardware credentials, through CyberArk only for an open Jira Service Management case. Sessions last at most eight hours and are recorded. Fleet vendors work only within a maintenance window, on site under escort or through that path.
 
 **Accountable Team:** Platform Team, with each system-owning team lead as sponsor
 
@@ -928,7 +928,7 @@
 
 **Target Date / Sprint:** 2027-09-30
 
-**Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C07](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 

@@ -6,7 +6,7 @@
 
 ### DA-1.1: Data Discovery, Labeling, and Classification
 
-**Design Intent:** KESTREL's label set combines the CUI category, dissemination markings such as releasability to partner nations, the owning mission team, and the payload vendor whose terms apply. The Data Team labels every record at ingest and keeps the catalog. Discovery scans run across the data lake zones, the cloud databases, the report index, the service desk, and backups. They find anything unlabeled or labeled inconsistently with its content.
+**Design Intent:** KESTREL's label set combines the CUI category, dissemination markings such as releasability to partner nations, the owning mission team, and the payload vendor whose terms apply. The Data Team labels every record at ingest, including prior collection over F28, writing labels as object metadata, and keeps the catalog. Content classifiers scan the databases and structured files. Imagery and recordings are checked by their labels against the label inventory. Discovery covers every store, namely the data lake zones, ML Dev/Test, the model registry, the cloud databases, the report index, the service desk, the security monitoring platform, backups, and the fleet's storage modules. Each result is checked against CCSD Section 2, and a store or type with no row is a finding.
 
 **NIST Control Mapping:**
 
@@ -18,7 +18,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Object/File Storage, Self-Hosted Third-Party Application (COTS), Database Service, Analytics/Warehouse Service
+**Affected Components:** Object/File Storage, Self-Hosted Third-Party Application (COTS), Managed Device (Laptop/Desktop), Database Service, Analytics/Warehouse Service
 
 **External Dependencies:** None outside the boundary.
 
@@ -50,7 +50,7 @@
 
 ### DA-1.2: Attribute-Based Data and Application Access Enforcement (ABAC)
 
-**Design Intent:** One policy engine decides data access from user and data attributes, namely team, payload vendor rights, role, partner nation, and the record's labels. Its enforcement points are every application and partner-facing API, each data lake zone, and the report index's retrieval. KESTREL holds no classified compartments, so the payload vendor split is enforced like a compartment, and flows between zones are allowed only where F18 permits. Policy changes are tested against a fixed set of access cases before deployment.
+**Design Intent:** One policy decides data access from user and data attributes, namely team, payload vendor rights, role, partner nation, and the record's labels. Team and role come from the identity provider, vendor rights from the Data Team's catalog, partner nation from partner sponsorship, and releasability from the foreign disclosure officer's approval. A policy engine replica on each side of the circuit fails closed. Its enforcement points are every application, the partner API, each data lake zone, and the report index's retrieval. The payload vendor split is enforced like a compartment, and flows between zones are allowed only where F18 permits. Policy changes are tested against fixed access cases before deployment.
 
 **NIST Control Mapping:**
 
@@ -141,7 +141,7 @@
 
 ### DA-1.3: Data Provenance and Lineage Verification
 
-**Design Intent:** Every feed is tagged with its origin at ingest, and provenance is written to an append-only log the Data Team cannot edit. Feeds include aircraft recordings, federated updates, analyst corrections, and products released from the IL6 enclave. Training snapshots and partner releases verify provenance before they use a record, so data of unknown origin never trains a model or reaches a partner.
+**Design Intent:** Every feed is tagged with its origin at ingest, and ingest rejects any feed missing from the Data Team's source register. Feeds include aircraft recordings, federated updates, analyst corrections, IL6 releases, and prior collection over F28. Provenance goes to an append-only ledger whose entries are hash-chained and signed, so an edit by any administrator is detectable. Training snapshots and partner releases verify provenance before they use a record, so data of unknown origin never trains a model or reaches a partner.
 
 **NIST Control Mapping:**
 
@@ -196,7 +196,7 @@
 
 ### DA-1.4: Database and Storage Threat Detection
 
-**Design Intent:** The cloud provider's threat detection runs on every cloud database and storage service. Access analytics in the security monitoring platform cover the data lake zones on premises. Alerts cover unusual reads, bulk exports, and access from an unexpected spoke, and the Security Team investigates each one.
+**Design Intent:** The cloud provider's threat detection runs on every cloud database and storage service. Access analytics in the security monitoring platform cover the data lake zones on premises and the report index's logs. Alerts cover unusual reads, bulk exports, and access from an unexpected spoke. The CSSP triages each one, the zone's intelligence mission lead joins the investigation, and the IRP sets when it becomes an incident.
 
 **NIST Control Mapping:**
 
@@ -209,7 +209,7 @@
 
 **Affected Components:** Database Service, Object/File Storage, Virtual Machine/Server
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider supplies the database threat detection service.
+**External Dependencies:** The IL5 cloud provider, which supplies the database threat detection service under its provisional authorization. The CSSP, which triages these alerts around the clock.
 
 **Security Impact:** Moderate
 
@@ -250,7 +250,7 @@
 
 ### DA-1.5: Data Loss Prevention (DLP) and Monitoring
 
-**Design Intent:** KESTREL's data leaves only by named paths, so DLP watches each one. The partner-facing APIs and the cross domain transfer gateway check every release against its markings, and anything not releasable is blocked. The experimentation workspaces and VDI desktops block downloads and clipboard. Insider risk analytics flag bulk reads across zones, and the data security dashboard shows all of it to the Security Team.
+**Design Intent:** KESTREL's data leaves only by named paths, so DLP watches each one. The partner API and the cross domain transfer gateway check every release against its markings and block anything not releasable. Pushes to the source repository are scanned for mission data and secrets before they reach a branch performer laptops can clone. The workspaces and VDI desktops block downloads and clipboard. Telemetry to the CSSP (F11) leaves under the service agreement's feed terms. Analytics flag bulk reads across zones, and the data security dashboard serves the Security Team, the PMO ISSE, and the data owners.
 
 **NIST Control Mapping:**
 
@@ -261,7 +261,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Network Infrastructure, Application/API, Object/File Storage, Database Service
+**Affected Components:** Managed Device (Laptop/Desktop), Network Infrastructure, Application/API, Object/File Storage, Database Service
 
 **External Dependencies:** None outside the boundary.
 
@@ -315,7 +315,7 @@
 
 ### DA-1.6: Data Rights Management (DRM)
 
-**Design Intent:** Report documents released to partner nations carry rights protection that limits them to the receiving nation and expires them on the foreign disclosure officer's terms. Machine-readable detections released through the partner API are not wrapped, since partner systems consume them directly. Their release is governed by the release review and the memoranda of agreement instead.
+**Design Intent:** Report documents released to partner nations carry rights protection from KESTREL's Microsoft 365 DoD tenant. It limits each document to the receiving nation and expires it on the foreign disclosure officer's terms. Wrapped reports travel through the partner API, and each partner's cross-cloud configuration is a term of its memorandum of agreement. Machine-readable detections are not wrapped, since partner systems consume them directly under the release review and the memoranda.
 
 **NIST Control Mapping:**
 
@@ -324,9 +324,9 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Application/API, Object/File Storage, Human Authentication
+**Affected Components:** Managed Device (Laptop/Desktop), Application/API, Object/File Storage, Human Authentication
 
-**External Dependencies:** Each partner nation, whose systems must honor the rights protection under its memorandum of agreement.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, inherited at IL5. Each partner nation, whose systems must honor the rights protection under its memorandum of agreement.
 
 **Security Impact:** Low
 
@@ -367,7 +367,7 @@
 
 ### DA-1.7: Dataset De-Identification and Disclosure Review
 
-**Design Intent:** KESTREL releases no datasets outside the program today. Any future dataset release, such as one to a partner nation or a research laboratory, needs de-identification of incidental imagery of people. It also needs a re-identification test and approval from the privacy officer and the foreign disclosure officer. KESTREL publishes no public content beyond its vulnerability disclosure listing.
+**Design Intent:** KESTREL releases no datasets outside the program today. Partner API products and IL6 baselines are released under their own reviews, not as datasets. A future dataset release needs de-identification of incidental imagery of people, a re-identification test, and approval from the privacy officer and the foreign disclosure officer. The privacy officer's approved de-identification techniques already apply to training and test data. The PMO ISSE is the only designated poster of public content, which is limited to the vulnerability disclosure listing. Anything posted passes OPSEC and foreign disclosure review first and is rechecked each year.
 
 **NIST Control Mapping:**
 
@@ -382,7 +382,7 @@
 
 **Affected Components:** Database Service, Object/File Storage
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The DoD Vulnerability Disclosure Program, which publishes the listing.
 
 **Security Impact:** Moderate
 
@@ -423,7 +423,7 @@
 
 ### DA-1.8: Media Protection Policy and Procedures
 
-**Design Intent:** Removable media is prohibited except for the aircraft's mission storage modules, which are marked CUI, logged when they leave an aircraft, and transported in controlled containers. Failed drives and retired storage modules are sanitized on site before disposal. KESTREL holds no classified data, so no media is downgraded, and data moves to and from the IL6 enclave only through the cross domain solution.
+**Design Intent:** Removable media is prohibited except for three classes. The aircraft's mission storage modules are encrypted under keys in the aircraft's crypto module, readable only at the ground control station and the IT/OT DMZ. They are marked CUI, logged when they leave an aircraft, carried by a named custodian in controlled containers, and stored in the station's locked store. Encrypted government media carries prior collection to the media intake station. Datalink key loaders are held under two-person custody. Failed drives and retired modules are sanitized on site, retired or repaired HSMs and datalink modules are zeroized, and cloud media sanitization is inherited from the provider.
 
 **NIST Control Mapping:**
 
@@ -442,9 +442,9 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Virtual Machine/Server, Industrial Controller/SCADA
+**Affected Components:** Removable Media, Managed Device (Laptop/Desktop), Virtual Machine/Server, Industrial Controller/SCADA
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The IL5 cloud provider, which sanitizes cloud media under its provisional authorization.
 
 **Security Impact:** High
 
@@ -574,7 +574,7 @@
 
 ### DA-2.1: Classification-Tied Document/Field-Level Encryption
 
-**Design Intent:** Each data lake zone encrypts with its own key, so a workload that escapes the network controls still cannot read another team's or vendor's data. Fields holding personal information in the service desk and the cloud databases are encrypted at the field level. Scans confirm that every labeled record sits under the key its label requires.
+**Design Intent:** Each data lake zone encrypts under its own key, which the record's owning team or vendor label selects. A workload that escapes the network controls still cannot read another team's or vendor's data. Personal fields in KESTREL-built databases are encrypted at the column level, and the service desk database uses transparent encryption under a customer-managed key. Scans confirm that every labeled record sits under the key its label requires.
 
 **NIST Control Mapping:**
 
@@ -583,7 +583,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Object/File Storage, Database Service, Application/API
+**Affected Components:** Object/File Storage, Database Service, Application/API, Managed Device (Laptop/Desktop)
 
 **External Dependencies:** None outside the boundary.
 
@@ -626,7 +626,7 @@
 
 ### DA-2.2: TLS Encryption Enforcement
 
-**Design Intent:** Every service accepts only TLS 1.2 or later, with TLS 1.3 preferred, using the approved cipher suites. Service-to-service connections use mutual TLS with program PKI certificates. Plaintext connection attempts are blocked and logged.
+**Design Intent:** Every service KESTREL terminates accepts only TLS 1.2 or later, with TLS 1.3 preferred and CNSA cipher suites. Service-to-service connections use mutual TLS with program PKI certificates, and user-facing edge services present DoD PKI server certificates. Provider-managed endpoints present the provider's certificates under its minimum TLS setting. Plaintext connection attempts are blocked and logged.
 
 **NIST Control Mapping:**
 
@@ -679,7 +679,7 @@
 
 ### DA-2.3: Secure File Transfer and Management Protocols
 
-**Design Intent:** Files move only over HTTPS or SFTP, including recordings crossing the ground segment conduit. Administrative SSH and RDP run only through the privileged access platform or a VDI session, never directly. Every transfer is logged to the security monitoring platform. The payload processing workstation's transfer is the one exception, under CCSD tailoring action 3.
+**Design Intent:** Files move only over HTTPS or SFTP, including recordings crossing the ground segment conduit. Administrative SSH and RDP run only through the privileged access platform or a VDI session, never directly. Every transfer is logged to the security monitoring platform. If the payload processing workstation's replacement slips and the AO re-dates CCSD tailoring action 3, its transfer is the one exception.
 
 **NIST Control Mapping:**
 
@@ -787,7 +787,7 @@
 
 ### DA-2.5: Encryption Key Ownership and Control
 
-**Design Intent:** KESTREL owns and controls the keys for every store holding mission data, models, or backups. Those keys come from the HSM-backed key management service under keys rooted in the on-premises HSMs. Platform-managed keys are allowed only for dev/test data that is synthetic or sanitized. The KMP maps each data class to its key ownership tier.
+**Design Intent:** KESTREL owns and controls the keys for every store holding mission data, models, or backups. Cloud keys come from the HSM-backed key management tier under keys rooted in the on-premises HSMs, and on-premises stores draw their keys from the HSMs directly. Platform-managed keys are allowed only for synthetic or sanitized dev/test data, never in ML Dev/Test. The KMP maps each data class to its key ownership tier.
 
 **NIST Control Mapping:**
 
@@ -830,7 +830,7 @@
 
 ### DA-3.1: FIPS 140 / Approved Cryptographic Module Baseline
 
-**Design Intent:** KESTREL uses only FIPS 140-3 validated modules, with Level 3 for the HSMs and the datalink crypto modules that protect CCSD row 13's key material. The KMP lists the approved algorithms, key lengths, and protocols. Scans of code, configuration, and traffic flag non-compliant use. KESTREL holds no classified data, so NSA-approved cryptography applies only within the cross domain solution, which its provider operates.
+**Design Intent:** KESTREL uses only FIPS 140-3 validated modules, with Level 3 for the HSMs and the datalink crypto modules that protect CCSD row 13's key material. The KMP lists the approved algorithms, key lengths, and protocols. Scans of code, configuration, and traffic flag non-compliant use. As a national security system, KESTREL uses the CNSA algorithms CNSSP 15 requires and follows its CNSA 2.0 transition. KESTREL protects no classified information, so NSA-approved cryptography sits on the IL6 side, owned by the enclave and the cross domain service provider.
 
 **NIST Control Mapping:**
 
@@ -944,7 +944,7 @@
 
 ### DA-3.3: Key Management Policies and Infrastructure
 
-**Design Intent:** Cloud workloads draw their keys from the cloud provider's HSM-backed key management tier, and production uses only that tier. The on-premises HSMs hold the root keys, the program PKI, code signing, and the datalink key material. One key policy covers both, managed by the Platform Team's Tier 0 administrators.
+**Design Intent:** Cloud workloads in every spoke holding mission data, including ML Dev/Test, draw keys only from the cloud provider's HSM-backed tier. That tier also holds the pipeline's release and dev/test signing keys. The on-premises HSMs hold the root keys, the program PKI, the fleet signing key, and the datalink key material, with the alternate site's HSM as standby. One key policy covers both, managed by the Tier 0 administrators.
 
 **NIST Control Mapping:**
 
@@ -985,7 +985,7 @@
 
 ### DA-3.4: HSM and Hardware Root-of-Trust Management
 
-**Design Intent:** The on-premises HSMs generate and hold KESTREL's most consequential keys, namely the root certificate authority, code signing, and CCSD row 13's datalink key material. These keys never exist outside an HSM or a datalink crypto module. HSM administration needs two people, and every HSM operation is logged to the security monitoring platform.
+**Design Intent:** The on-premises HSMs generate and hold KESTREL's most consequential keys, namely the root certificate authority, the fleet signing key, and CCSD row 13's datalink key material. A standby HSM at the alternate site holds their backups, which travel over F19 only as blobs wrapped under the HSMs' security world, unusable outside an HSM. These keys never exist in the clear outside an HSM, a datalink crypto module, or a key loader in transit. Loaders are accounted for and zeroized after each fill. HSM administration needs two people, and every HSM operation is logged to the security monitoring platform.
 
 **NIST Control Mapping:**
 
@@ -1039,7 +1039,7 @@
 
 ### DA-3.5: Key Lifecycle Automation
 
-**Design Intent:** Key rotation is automated on the KMP's cadence for every key class, and datalink keys rotate on Fleet Operations' schedule. The hierarchy runs from HSM-held root keys to the cloud's customer-managed keys. Keys whose loss would destroy data, such as backup keys, are escrowed in the HSMs under split knowledge.
+**Design Intent:** Key rotation is automated on the KMP's cadence for every key class, and datalink keys rotate on Fleet Operations' schedule. Cloud keys imported from the HSMs rotate by a scheduled re-import, and they are available in the second IL5 region used for recovery. Keys whose loss would destroy data, such as backup keys, are escrowed in the alternate site's HSM under split knowledge. Recovering an escrowed key needs the ISSM's and a Tier 0 administrator's approval.
 
 **NIST Control Mapping:**
 
@@ -1103,7 +1103,7 @@
 
 ### DA-3.6: Key Access Separation of Duties
 
-**Design Intent:** Key administrators, key users, and key auditors are separate roles. The Platform Team's Tier 0 administrators manage keys, workload identities use them, and the Security Team audits them. No identity holds two of these roles, and key operations by any other identity alert the Security Team.
+**Design Intent:** Key administrators, key users, and key auditors are separate roles. Tier 0 administrators manage keys, workload identities and Fleet Operations' key loading staff use them, and the Security Team audits them. No identity holds two of these roles. Changing a key service's access policy needs a second Tier 0 approver and alerts the Security Team, and key operations by any other identity alert too.
 
 **NIST Control Mapping:**
 
@@ -1144,7 +1144,7 @@
 
 ### DA-3.7: Certificate Policies and Integration
 
-**Design Intent:** The program PKI issues KESTREL's device, workload, and code-signing certificates from issuing authorities under the HSM-held root. A certificate management service distributes them. User and partner certificates come from DoD PKI and External Certificate Authorities, whose trust anchors the identity provider holds.
+**Design Intent:** The program PKI issues KESTREL's device, workload, and code-signing certificates from issuing authorities under the HSM-held root, and the PMO ISSE confirms the root's approval under DoDI 8520.02. A certificate management service distributes them. User, partner, and edge server certificates come from DoD PKI and External Certificate Authorities, whose trust anchors the identity provider holds.
 
 **NIST Control Mapping:**
 
@@ -1224,7 +1224,7 @@
 
 ### DA-3.9: Certificate Lifecycle and Revocation
 
-**Design Intent:** A certificate inventory and dashboard track every certificate KESTREL issues or trusts, and alerts fire on approaching expiry or on issuance nobody requested. Revocation procedures cover every case, including an aircraft declared lost, whose device certificates are revoked at once.
+**Design Intent:** A certificate inventory and dashboard track every certificate KESTREL issues or trusts, and alerts fire on approaching expiry or on issuance nobody requested. Revocation procedures cover every case. A Tier 0 administrator authorizes each revocation, and the revocation list and status responses publish within an hour. An aircraft declared lost has its device certificates revoked at once, and the datalink keys it shared are always superseded fleet-wide.
 
 **NIST Control Mapping:**
 
@@ -1276,7 +1276,7 @@
 
 ### DA-3.10: Secrets Vault Access Controls
 
-**Design Intent:** Each spoke's vault grants each workload identity only the secrets it needs. Humans hold no standing vault access and activate it just in time through the privileged access platform.
+**Design Intent:** Each spoke's vault grants each workload identity only the secrets it needs. Humans hold no standing vault access and activate it just in time inside an admin VDI session, under Just in Time Access (`ID-4.3`).
 
 **NIST Control Mapping:**
 

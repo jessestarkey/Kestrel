@@ -1,5 +1,5 @@
 ## Design Intent
-KESTREL admits no third-party OAuth or SaaS application to its identities by default. A foundation model the cloud provider hosts inside KESTREL's tenant receives no delegated user access, so it is not a third-party application in this outcome's sense. Discovery runs against IL5 production egress to catch any other service in use.
+KESTREL admits one SaaS service to its identities, its Microsoft 365 DoD tenant, through intake and with administrator consent. User consent is blocked at the tenant, so only an administrator can grant an application access, and only through intake. A foundation model the cloud provider hosts inside KESTREL's tenant receives no delegated user access, so it is not a third-party application. KESTREL has almost no general egress, so discovery watches the egress allow-list for any other service.
 
 ## External Dependencies
-None outside the boundary.
+KESTREL's Microsoft 365 DoD tenant, admitted under its IL5 authorization.

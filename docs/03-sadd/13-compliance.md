@@ -6,7 +6,7 @@
 
 ### CO-1.1: Regulatory Compliance Mapping
 
-**Design Intent:** The PMO ISSE inventories what binds KESTREL and on what authority. That includes DoDI 8510.01 and the Cloud Computing SRG at IL5, and the CUI program under DoDI 5200.48. It also includes DFARS 252.204-7012 and the CMMC clauses for the performer, the Privacy Act and DoDI 5400.11, and the foreign disclosure rules governing partner releases. Each is broken into requirements and mapped to the outcomes that satisfy it, and gaps go to the gap register. The inventory is checked each quarter for new or revised issuances.
+**Design Intent:** The PMO ISSE inventories what binds KESTREL and on what authority. That includes DoDI 8510.01, CNSSI 1253, the Cloud Computing SRG at IL5, and the CUI program under DoDI 5200.48. It also includes intelligence oversight under EO 12333 and DoDM 5240.01, the Privacy Act and DoDI 5400.11, and DoDI 5400.16 for PIAs. It covers DoDI 8530.01, DoDM 8140.03, OMB M-21-31, and DFARS 252.204-7012 for the performer. Each is mapped to the outcomes that satisfy it, gaps go to the requirement register, and unowned gaps to the POA&M. The watch runs with the AI regulatory mapping (`GV-4.5`) and is checked each quarter. It also lists airworthiness, Section 508, and foreign disclosure, tracked outside the SADD.
 
 **NIST Control Mapping:**
 
@@ -57,7 +57,7 @@
 
 ### CO-1.2: Automated Technical Control Compliance Monitoring
 
-**Design Intent:** Scheduled scans evaluate every surface against its baseline. Authenticated scans with DISA SCAP content cover hosts, configuration checks cover the cloud, benchmark checks cover containers, and manufacturer baselines cover fleet equipment. Their machine-readable results feed one compliance status view. Drift from a baseline alerts the owning team, and each finding is tracked to closure under the VPMP's deadlines.
+**Design Intent:** Scheduled scans evaluate every surface against its baseline. Authenticated scans with DISA SCAP content cover hosts, configuration checks cover the cloud, and benchmark checks cover containers. Fleet equipment is checked against its manufacturer baseline only in maintenance windows or on landed aircraft, never by active scan in flight, and its drift alerts the owner without automated correction. Results feed one compliance status view. Each finding is tracked to closure under the VPMP's deadlines, and bound to a POA&M item if it will miss one.
 
 **NIST Control Mapping:**
 
@@ -66,7 +66,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Compute, Database Service, Object/File Storage, Network Infrastructure, Directory/Platform Core Infrastructure, First-Party/Custom Application Code, Self-Hosted Third-Party Application (COTS), Industrial Controller/SCADA, Legacy IT (Unpatchable, Non-Industrial), AI/ML System
+**Affected Components:** Compute, Database Service, Object/File Storage, Network Infrastructure, Directory/Platform Core Infrastructure, Managed Device (Laptop/Desktop), First-Party/Custom Application Code, Self-Hosted Third-Party Application (COTS), Industrial Controller/SCADA, Legacy IT (Unpatchable, Non-Industrial)
 
 **External Dependencies:** DISA, which publishes the STIGs and SCAP content the scans use.
 
@@ -109,7 +109,7 @@
 
 ### CO-1.3: Compliance Evidence Collection and Retention
 
-**Design Intent:** One program evidence repository receives the pipeline's evidence store, continuous monitoring results, and each team's process records. Each artifact is tagged to its control and outcome. Artifacts are held for their record class's retention, and authorization evidence is held for the life of the authorization. Before each assessment cycle, the ISSOs check the repository for gaps and stale artifacts, and a compliance posture dashboard shows its state.
+**Design Intent:** One program evidence repository receives the pipeline's evidence store, continuous monitoring results, and each team's process records. The repository is append-only for artifacts, with access limited by role. Fleet and OT evidence is entered by hand after each maintenance window. Each artifact is tagged to its control and outcome and held for its records schedule, at least one year after the system is retired. Before each assessment cycle, the ISSOs check the repository for gaps and stale artifacts, and a compliance posture dashboard shows its state.
 
 **NIST Control Mapping:**
 
@@ -175,7 +175,7 @@
 
 ### CO-2.1: Continuous Monitoring Plan (ConMon)
 
-**Design Intent:** The ISSM authors KESTREL's continuous monitoring plan. It names the metrics monitored, how often each is collected, how often each control is assessed, and who receives the results. The AO approves it, and it is revised each year and with every significant change. Security status goes to the AO each month in summary and each quarter in full.
+**Design Intent:** The ISSM authors KESTREL's continuous monitoring plan, and the program manager reviews it as system owner. It names the metrics monitored, how often each is collected, how often each control is assessed, and who receives the results. The AO approves it, and it is revised each year and with every significant change. It also watches for a slip of the replacement payload processing workstation past 2027-09-30, which needs the AO to re-date CCSD tailoring action 3, and tracks action 6's annual review. Security status goes to the AO each month in summary and each quarter in full.
 
 **NIST Control Mapping:**
 
@@ -230,7 +230,7 @@
 
 ### CO-2.2: Control Assessment Scheduling
 
-**Design Intent:** Every control is assessed at least once in a three-year cycle, with a third of the families each year. Controls that change often, such as identity, configuration, vulnerability, and AI model controls, are assessed each quarter or continuously. The SCA runs the independent assessments, and the ISSOs run self-assessments between them. Completion is tracked, so a slipped cycle reaches the AO.
+**Design Intent:** Every control is assessed at least once in a three-year cycle, with a third of the families each year. Controls that change often, and the High-integrity key, signing, and datalink controls, are assessed each quarter or continuously. The SCA runs the independent assessments, and the ISSOs run self-assessments between them. Controls inherited from the cloud provider's IL5 authorization and the other providers in Inherited Control Validation (`GV-5.12`) are accepted on each provider's current assessment. Completion is tracked, so a slipped cycle reaches the AO.
 
 **NIST Control Mapping:**
 
@@ -285,7 +285,7 @@
 
 ### CO-2.3: Annual Security Review
 
-**Design Intent:** The ISSM leads an annual security review across the whole boundary, including the cloud, the data center, the alternate site, and the fleet. It records a determination and evidence for every control in that year's scope and confirms that earlier fixes still hold. Its findings go to the risk register and the POA&M, and its report goes to the AO.
+**Design Intent:** The SCA conducts the annual security review under the Security Assessment Plan, across the cloud, the data center, the alternate site, and the fleet through spares and the simulator. The ISSM coordinates access and evidence. It confirms that earlier fixes still hold. Determinations are delivered in the SAR, and findings go to the POA&M and the risk register.
 
 **NIST Control Mapping:**
 
@@ -298,7 +298,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The SCA, who conducts the review, and the penetration testing provider, whose results it uses.
 
 **Security Impact:** Moderate
 
@@ -341,7 +341,7 @@
 
 ### CO-3.1: Internal Audit Program
 
-**Design Intent:** An auditor appointed by the program manager, independent of the performer teams, audits whether KESTREL's plans and procedures are carried out as written. Audits cover areas such as change records, access reviews, backup restore tests, and AI board decisions. The audit schedule reaches every governing plan at least once every two years. Findings are tracked until the fix is verified, and the audit charter is reviewed each year.
+**Design Intent:** The parent organization's internal review office, outside the program's reporting line, audits whether KESTREL's plans and procedures are carried out as written. Audits cover areas such as change records, access reviews, backup restore tests, and AI board decisions. The audit schedule reaches every governing plan at least once every two years. Findings are tracked until the fix is verified, and the audit charter is reviewed each year.
 
 **NIST Control Mapping:**
 
@@ -352,7 +352,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The parent organization's internal review office, which conducts the audits.
 
 **Security Impact:** Moderate
 
@@ -404,7 +404,7 @@
 
 ### CO-3.2: External Audit Coordination
 
-**Design Intent:** The ISSM is the single intake point for external audits and inspections. These include inspectors general, GAO, cyber readiness inspections, and DCMA or DIBCAC reviews of the performer. The ISSM confirms each request's authority, scope, and deadline. Evidence is packaged from the program evidence repository rather than assembled anew, and findings are tracked to closure in the POA&M.
+**Design Intent:** The program manager receives each external audit and inspection request, and the ISSM assembles the evidence. These include inspectors general, GAO, and JFHQ-DODIN's Command Cyber Operational Readiness Inspections. DCMA and DIBCAC reviews cover the performer's CMMC laptops that KESTREL relies on. Each request's authority, scope, and deadline are confirmed. Evidence is packaged from the program evidence repository and reviewed for CUI marking and releasability before it leaves the program. Findings are tracked to closure in the POA&M.
 
 **NIST Control Mapping:**
 
@@ -414,7 +414,7 @@
 
 **Affected Components:** Backup/Archive Repository, First-Party/Custom Application Code, Virtual Machine/Server, Serverless/Platform Service
 
-**External Dependencies:** Inspectors general, GAO, DoD cyber readiness inspectors, DCMA, and DIBCAC, whose audits and inspections KESTREL responds to.
+**External Dependencies:** Inspectors general, GAO, JFHQ-DODIN, DCMA, and DIBCAC, whose audits and inspections KESTREL responds to.
 
 **Security Impact:** Moderate
 
@@ -457,7 +457,7 @@
 
 ### CO-4.1: Privacy Program Management
 
-**Design Intent:** The privacy officer is accountable for KESTREL's privacy program under DoDI 5400.11. The personal information it holds is user account records, service desk records, and incidental imagery of people in the collection. The privacy policy covers how each is collected, used, kept, and disposed of. Users can request correction of their own account records through the service desk. The program is reviewed each year.
+**Design Intent:** The privacy officer is accountable for KESTREL's privacy program under DoDI 5400.11, at the Privacy Overlay's Low tier. The personal information it holds is user account records, service desk records, partner credential records, user identifiers in security telemetry, and incidental imagery of people. The privacy policy covers how each is collected, used, kept, and disposed of. Analysts handling raw imagery, Data Team stewards, and service desk staff take role-based privacy training. Users correct KESTREL-held attributes through the service desk, while CAC and partner attributes are corrected at their source. The program is reviewed each year.
 
 **NIST Control Mapping:**
 
@@ -525,7 +525,7 @@
 
 ### CO-4.2: Privacy Impact Assessments (PIA)
 
-**Design Intent:** KESTREL maintains a privacy impact assessment on DD Form 2930. It is reassessed whenever a new collection, sensor, AI use case, or partner release would process personal information. Incidental imagery is never retrieved by personal identifier, so KESTREL operates no system of records. Any capability that would retrieve by person must complete a new assessment first. The responsible AI policy prohibits identifying individuals, so such a capability also needs AI/ML Governance Review Board approval.
+**Design Intent:** KESTREL maintains a privacy impact assessment on DD Form 2930. It is reassessed whenever a new collection, sensor, AI use case, or partner release would process personal information. Incidental imagery is never retrieved by personal identifier, so it forms no system of records. User account and service desk records are retrieved by identifier and fall under the DoD-wide SORN the component privacy office names in the PIA. Privacy Requirements Definition (`AI-1.2`) bars training any model to identify individuals. Lifting that bar needs the AI/ML Governance Review Board, a revised PIA, and a CCSD revision. Any change that would retrieve imagery by person, or raise the overlay tier, also triggers CCSD revision.
 
 **NIST Control Mapping:**
 

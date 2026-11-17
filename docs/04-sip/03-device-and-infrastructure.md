@@ -67,7 +67,7 @@
 
 ### DI-1.3: Resource Tagging and Ownership Strategy
 
-**Selected Tool / Product / Service:** Jira Service Management Assets, Azure Policy, Open Policy Agent (Gatekeeper and Conftest)
+**Selected Tool / Product / Service:** Jira Service Management Assets, Azure Policy, Gatekeeper and Conftest
 
 **Environment-Specific Tailoring:** Tags are required from the first build. Azure Policy and the pipeline's Conftest checks audit them in Phase 1 and block untagged cloud resources in Phase 2. On-premises servers are tagged when built, and Fleet Operations tags fleet equipment when it is received.
 
@@ -99,7 +99,7 @@
 
 **Selected Tool / Product / Service:** Jira Service Management Assets, Splunk Enterprise Security
 
-**Environment-Specific Tailoring:** The Security Team and the CSSP's analysts read the inventory in Jira Service Management Assets without the right to change it. A lookup in Splunk Enterprise Security adds each asset's owner, team, and criticality to every alert, for every location the inventory covers.
+**Environment-Specific Tailoring:** The Security Team reads the inventory in Jira Service Management Assets without the right to change it. A lookup in Splunk Enterprise Security adds each asset's owner, team, and criticality to every alert, which is how the CSSP's analysts see that context.
 
 **Accountable Team:** Platform Team, with the Security Team
 
@@ -153,6 +153,8 @@
 
 **Pinned:** DI-2.1.1 and DI-2.1.2: Built in when the platform is created, since retrofitting it later costs far more. Every resource built before it would need rework.
 
+**Exception:** DI-2.1.1: The bootstrap build runs before GitLab exists, under the exception recorded at AP-2.13.3.
+
 ### DI-2.2: Asset Lifecycle Change Control
 
 **Selected Tool / Product / Service:** GitLab Ultimate, Jira Service Management Data Center, CyberArk Privileged Access Manager, CyberArk Privileged Session Manager
@@ -187,7 +189,7 @@
 
 **Selected Tool / Product / Service:** OpenTofu, Jira Service Management Data Center, Blancco Drive Eraser, Entrust nShield 5 HSMs, the aircraft and ground equipment manufacturer's tools, the payload vendors' software and SBOMs
 
-**Environment-Specific Tailoring:** Cloud resources are destroyed by the OpenTofu that created them, which revokes their workload identities and deletes their vault secrets and keys. Data center and alternate site drives are wiped with Blancco on site, and HSMs are zeroized. Payload Vendor A fields the replacement payload processing workstation by 2027-09-30, when CCSD tailoring action 3 expires, so the legacy workstation retires before the fleet integrates. If it slips, the PMO ISSE asks the AO to re-date action 3.
+**Environment-Specific Tailoring:** Cloud resources are destroyed by the OpenTofu that created them, which revokes their workload identities and deletes their vault secrets and keys. Data center and alternate site drives are wiped with Blancco on site, and HSMs are zeroized. Payload Vendor A fields the replacement by 2027-09-30, before the fleet integrates, so the legacy workstation is never connected. If it slips, the workstation connects only after the AO re-dates CCSD tailoring action 3.
 
 **Accountable Team:** Platform Team, with Fleet Operations for the fleet
 
@@ -280,7 +282,7 @@
 
 **Selected Tool / Product / Service:** Packer, Iron Bank hardened images from Platform One, Azure Kubernetes Service, kube-bench, Azure Virtual Desktop, Ansible Automation Platform
 
-**Environment-Specific Tailoring:** Packer builds the cloud's VDI and server images and the data center's from the same STIG roles. The IT/OT DMZ's staging servers use the data center server image. Container base images come from Iron Bank, every AKS cluster shares one baseline checked by kube-bench, and Ansible hardens the physical servers' BMCs.
+**Environment-Specific Tailoring:** Packer builds the cloud's VDI and server images and the data center's from the same STIG roles. The IT/OT DMZ's staging servers use the data center server image. Container base images come from Iron Bank, and every AKS cluster shares one baseline checked by kube-bench. Every cloud virtual machine and node pool uses an isolated size, as IL5 requires in the US Gov regions. Ansible hardens the physical servers' BMCs.
 
 **Accountable Team:** Platform Team
 
@@ -310,7 +312,7 @@
 
 **Selected Tool / Product / Service:** Azure Policy, Azure SQL Database, NetApp StorageGRID with S3 Object Lock, Ansible Automation Platform, DISA SCAP Compliance Checker and STIG Viewer
 
-**Environment-Specific Tailoring:** Azure Policy denies public access and requires private endpoints on every cloud storage and database service. On premises, each data lake zone's StorageGRID bucket policy admits only its own team's workloads, the Data Team, and the ML training zone where F18 allows. Ansible applies the database STIGs to the data center's databases.
+**Environment-Specific Tailoring:** Azure Policy denies public access and requires private endpoints on every cloud storage and database service. Each StorageGRID zone's bucket policy admits its own team's workloads, the Data Team, the ML training zone, the catalog's scan identity, and the backup service. An Ansible job checks each policy after every change. Ansible applies the database STIGs on premises.
 
 **Accountable Team:** Platform Team
 
@@ -394,6 +396,39 @@
 
 ## DI-4: Configuration Policy Orchestration
 
+### DI-4.1: Device Compliance
+
+**Selected Tool / Product / Service:** Microsoft Configuration Manager, Microsoft Defender for Endpoint, Pomerium Enterprise, Azure Virtual Desktop
+
+**Environment-Specific Tailoring:** Configuration Manager in the Tier 0 enclave enrolls each privileged access workstation, scans it against its compliance policy, and remediates it, and a non-compliant workstation loses Tier 0 sign-in. Devices KESTREL does not own reach it only through Pomerium and Azure Virtual Desktop after a posture check, under the interconnection agreement and the CMP. KESTREL has no mobile devices, and its workstations never travel.
+
+**Accountable Team:** Platform Team (Tier 0 administrators)
+
+**Dependencies:** DI-3.2, ID-4.2
+
+**Funding Line:** FY27 O&M, platform and security operations
+
+**Rollout Phase:** Phase 1, Foundation
+
+**Target Date / Sprint:** 2027-09-30
+
+**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C22](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references)
+
+**Status:** Not Started
+
+**Activity-Level Metadata:**
+
+| Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
+|---|---|---|---|---|---|---|---|---|
+| DI-4.1.1: Personally-Owned Device (BYOD) Posture Determination | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| DI-4.1.2: Unified Endpoint Management | 1 | Technical | Automate | Level 1 | Continuous | Extensive | One-Time: High; Recurring: Moderate | Long-term (6+ months) |
+| DI-4.1.3: Compliance Policy Definitions | 1 | Technical | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| DI-4.1.4: Configuration Compliance Scanning | 1 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| DI-4.1.5: Compliance Remediation | 1 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| DI-4.1.6: High-Risk Travel Device Configuration | N/A | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Not applicable:** DI-4.1.6: KESTREL's privileged access workstations never travel, so no travel configuration is needed.
+
 ### DI-4.2: Policy Service Restrictions
 
 **Selected Tool / Product / Service:** Windows Defender Firewall, firewalld on Red Hat Enterprise Linux, Microsoft Configuration Manager, Ansible Automation Platform, Panorama with the PAN-OS provider for OpenTofu
@@ -450,9 +485,9 @@
 
 ### DI-4.4: Compute Configuration Monitoring
 
-**Selected Tool / Product / Service:** Tenable Security Center (ACAS), DISA SCAP Compliance Checker and STIG Viewer, Azure Machine Configuration, Defender for Cloud CSPM, Open Policy Agent (Gatekeeper and Conftest), Splunk Enterprise
+**Selected Tool / Product / Service:** Tenable Security Center (ACAS), DISA SCAP Compliance Checker and STIG Viewer, Azure Machine Configuration, Defender for Cloud CSPM, Gatekeeper and Conftest, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Azure Machine Configuration and Defender for Cloud CSPM check cloud machines, and ACAS STIG audits check data center and alternate site hosts. Gatekeeper rejects workloads that depart from the cluster baseline. A Splunk dashboard shows posture by team and spoke for the Platform Team, the Security Team, and the CSSP.
+**Environment-Specific Tailoring:** Azure Machine Configuration and Defender for Cloud CSPM check cloud machines, and ACAS STIG audits check data center and alternate site hosts. Gatekeeper rejects workloads that depart from the cluster baseline. A Splunk dashboard shows posture by team and spoke for the Platform Team, the Security Team, the PMO ISSE, and the CSSP.
 
 **Accountable Team:** Platform Team
 
@@ -477,13 +512,13 @@
 
 ### DI-4.5: Storage Configuration Monitoring
 
-**Selected Tool / Product / Service:** Defender for Cloud CSPM, Azure Policy, Ansible Automation Platform, Splunk Enterprise
+**Selected Tool / Product / Service:** Defender for Cloud CSPM, Azure Policy, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Defender for Cloud CSPM and Azure Policy compliance watch every cloud storage and database service. An Ansible job compares each StorageGRID zone's bucket policy with its baseline, so access that crosses the vendor split is caught. Findings feed a Splunk storage dashboard.
+**Environment-Specific Tailoring:** Defender for Cloud CSPM and Azure Policy compliance watch every cloud storage and database service. The data lake zones on premises are checked under DI-3.3 instead. Findings feed a Splunk storage dashboard.
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-3.3, DE-3.1
+**Dependencies:** DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -491,7 +526,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C21](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -654,7 +689,7 @@
 
 **Selected Tool / Product / Service:** Defender for Servers, Azure Arc-enabled servers, Microsoft Defender for Endpoint, Defender for Containers
 
-**Environment-Specific Tailoring:** Defender for Servers licenses Defender for Endpoint on every server, through Azure Arc for the data center, the alternate site, and the IT/OT DMZ. Microsoft 365 licensing covers it on the privileged access workstations and VDI desktops. Defender for Containers protects every AKS cluster, including the training cluster's GPU nodes.
+**Environment-Specific Tailoring:** Defender for Servers licenses Defender for Endpoint on every server, through Azure Arc for the data center, the alternate site, and the IT/OT DMZ. KESTREL's Microsoft 365 DoD tenant licenses it on the privileged access workstations and VDI desktops. Defender for Containers protects every AKS cluster, including the notebook and serving node pools. Azure ML training images are scanned before use under AP-2.5.
 
 **Accountable Team:** Platform Team
 

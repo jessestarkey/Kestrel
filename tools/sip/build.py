@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(HERE)); sys.path.insert(0, HERE)
 import saberlib as S
 from saberlib import REPO, PILLAR, parse, scope
 from catalog import PRODUCTS, CONTRACTS, GOV, OSS, SRC
-from selections import CAP, OUT, PINS, NA, RERATE, ONE, SHARED, STRICT, EXCEPT
+from selections import CAP, OUT, PINS, NA, RERATE, ONE, SHARED, STRICT, EXCEPT, REVIEW
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--framework', default=os.path.join(os.path.dirname(REPO), 'security-framework'))
@@ -46,6 +46,8 @@ def funding(team, fys, phases):
         line = 'program management'
     elif team.startswith('Fleet Operations'):
         line = 'RDT&E, fleet integration'
+    elif team.startswith(('ML Team', 'Mission', 'Data Team')):
+        line = 'RDT&E, mission and ML'
     elif 'Fleet Operations' in team and 'FY28' in fys:
         line = 'O&M, platform and security operations, with the fleet slice as RDT&E fleet integration'
     elif any(t in team for t in ('ML Team', 'Mission', 'Data Team')):
@@ -137,7 +139,8 @@ for fname in sorted(os.listdir(S.FW)):
                     sys.exit(f'{aid} is Maturity Level 1, required for ATO, but lands in Phase {p}')
                 aph[aid] = p
                 act_count[p] += 1
-                if lv == 1:
+                # A yearly review pinned past the first build doesn't hold up dependents.
+                if lv == 1 and PINS.get(aid, (0, ''))[1] != REVIEW:
                     l1_last[oid] = max(l1_last.get(oid, 0), p)
             phase = min(aph.values())
             starts[oid] = phase; dep_refs[oid] = re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+)?)\b', sel['deps'])
@@ -206,9 +209,9 @@ ph = ['| Phase | Target Timeframe | Dependencies Satisfied / Rationale | Funding
       '|---|---|---|---|---|']
 RATIONALE = {
     1: 'Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, and the governance bodies and core plans.',
-    2: 'Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, adds application security gates, data protection, backup and recovery, detection content, and incident response, and brings AI governance up before any AI build.',
-    3: 'Needs Phase 2 gates and detection. Builds the AI lifecycle controls, model serving guardrails, and the fleet and ground segment controls, and ends with the SCA assessment and the ATO decision.',
-    4: 'Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, RASP, and post-quantum migration planning.',
+    2: 'Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, and adds application security gates, data protection, backup and recovery, detection content, and incident response. Stands up the data curation path and the training pipeline.',
+    3: 'Needs Phase 2 gates and detection. Runs AI Cyber T&E and Certification to Field for the first models. Builds serving guardrails, retraining, and the fleet and ground segment controls. Ends with the SCA assessment and the ATO decision.',
+    4: 'Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, and RASP.',
 }
 for p, (name, start, end, fund) in PHASES.items():
     major = ', '.join(f'{c} ({phase_fa[p][c]})' for c in codes if phase_fa[p][c])

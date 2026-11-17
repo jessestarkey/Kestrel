@@ -12,7 +12,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, the CSSP service agreement
+**Dependencies:** DE-3.1, Cyber defense service provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -40,7 +40,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, the CSSP service agreement
+**Dependencies:** DE-3.1, Cyber defense service provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -69,7 +69,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, the CSSP service agreement
+**Dependencies:** DE-3.1, Cyber defense service provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -97,7 +97,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, the CSSP service agreement
+**Dependencies:** DE-3.1, Cyber defense service provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -124,7 +124,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, the CSSP service agreement
+**Dependencies:** DE-3.1, Cyber defense service provider, Paging service
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -151,7 +151,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, the CSSP service agreement
+**Dependencies:** DE-3.1, Cyber defense service provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -180,7 +180,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, the CSSP service agreement
+**Dependencies:** DE-3.1
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -352,11 +352,11 @@
 
 **Selected Tool / Product / Service:** Splunk SOAR, Splunk SOAR containment playbooks under the CSSP agreement
 
-**Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
+**Environment-Specific Tailoring:** Splunk SOAR runs the playbooks and updates Jira Service Management at each step. Its service identity can take only the listed actions. The CSSP runs the containment playbooks from its host pool, and each run pages the Security Team.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** RS-1.1, RS-1.7, DI-5.5
+**Dependencies:** RS-1.1, RS-1.7, DE-3.1
 
 **Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
@@ -378,13 +378,13 @@
 
 ### RS-3.2: Automated Containment and Isolation Procedures
 
-**Selected Tool / Product / Service:** Splunk SOAR, Panorama with the PAN-OS provider for OpenTofu, Microsoft Entra ID, Microsoft Defender XDR
+**Selected Tool / Product / Service:** Splunk SOAR, Panorama with the PAN-OS provider for OpenTofu, Cisco ACI and APIC, Microsoft Entra ID, Microsoft Defender XDR
 
-**Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
+**Environment-Specific Tailoring:** Panorama moves a cloud workload into a quarantine policy, and ACI moves a data center host into a quarantine endpoint group. Entra ID and Defender XDR disable accounts and revoke sessions. The Security Team approves before either touches production, except a CSSP playbook run when an incident cannot wait, which pages it.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** RS-1.1, RS-1.7, DI-5.5
+**Dependencies:** RS-3.1, DI-5.5
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -392,7 +392,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -407,11 +407,11 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center
 
-**Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
+**Environment-Specific Tailoring:** The IRP's fleet section sets the airborne rule, the operations lead's approval, and the time limit on cutting a site's conduit. Fleet containment is manual and run by Fleet Operations.
 
 **Accountable Team:** Fleet Operations, with the Security Team
 
-**Dependencies:** RS-1.1, RS-1.7, DI-5.5
+**Dependencies:** RS-1.1
 
 **Funding Line:** FY28 RDT&E, fleet integration
 
@@ -433,13 +433,13 @@
 
 ### RS-3.4: Eradication and Threat Removal
 
-**Selected Tool / Product / Service:** Splunk SOAR, Panorama with the PAN-OS provider for OpenTofu, Microsoft Entra ID, Microsoft Defender XDR
+**Selected Tool / Product / Service:** Splunk SOAR, Azure Key Vault Premium, CyberArk Privileged Access Manager, JFrog Artifactory, Entrust nShield 5 HSMs
 
-**Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
+**Environment-Specific Tailoring:** Owning teams eradicate at the ISSM's direction, rotating every touched credential through Key Vault and CyberArk. Artifactory blocks a withdrawn model version. A compromised signing key is revoked and every package re-signed, and a lost aircraft's datalink keys are superseded fleet-wide.
 
-**Accountable Team:** Security Team
+**Accountable Team:** Owning teams, at the ISSM's direction
 
-**Dependencies:** RS-1.1, RS-1.7, DI-5.5
+**Dependencies:** RS-3.2, DA-3.9
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -447,7 +447,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -461,13 +461,13 @@
 
 ### RS-3.5: Classified Data Spillage Response
 
-**Selected Tool / Product / Service:** Microsoft Purview Data Map, Splunk Enterprise Security, Confluence Data Center
+**Selected Tool / Product / Service:** Self-hosted OpenMetadata, Splunk Enterprise Security, Confluence Data Center
 
-**Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
+**Environment-Specific Tailoring:** The ISSM traces every copy with OpenMetadata and Splunk. Owning teams sanitize their copies, and locked backups are sanitized by destroying their backup set's key. Copies stay held until the PSO and the AO release them.
 
-**Accountable Team:** Security Team
+**Accountable Team:** Security Team (ISSM), with the owning teams
 
-**Dependencies:** RS-1.1, RS-1.7, DI-5.5
+**Dependencies:** RS-1.1, DA-1.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -475,7 +475,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
 **Status:** Not Started
 
@@ -492,11 +492,11 @@
 
 **Selected Tool / Product / Service:** Veeam Data Platform, JFrog Artifactory, Splunk Enterprise Security
 
-**Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
+**Environment-Specific Tailoring:** Restores come only from Veeam copies and Artifactory versions older than the earliest confirmed activity, each checked for the incident's indicators. Without a clean source, systems are rebuilt from OpenTofu and golden images. Splunk watches a recovered system closely for 30 days.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** RS-1.1, RS-1.7, DI-5.5
+**Dependencies:** RC-1.2, RS-3.4
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -519,11 +519,11 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center, Jira Software Data Center
 
-**Environment-Specific Tailoring:** Network containment uses Panorama quarantine policy in the cloud and ACI quarantine endpoint groups in the data center. Fleet containment is manual and follows RS-3.3.
+**Environment-Specific Tailoring:** Every incident of severity 2 or higher ends with a lessons-learned review in Confluence. Each finding becomes a Jira item, and design findings go to the PMO ISSE.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** RS-1.1, RS-1.7, DI-5.5
+**Dependencies:** RS-1.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -552,7 +552,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** The SADD's Response design decisions
+**Dependencies:** GV-5.1, RS-1.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 

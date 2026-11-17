@@ -6,7 +6,7 @@
 
 ### RC-1.1: Backup Coverage Strategy
 
-**Design Intent:** Backup coverage follows three criticality tiers. Tier 1 holds the identity provider, the PKI and HSM backups, the hubs' rule base, and the ground segment's configuration. Tier 2 holds the data lake, the model registry, the mission teams' applications and databases, and the security monitoring platform. Tier 3 holds dev/test, training scratch, and experimentation. The coverage list also includes the system's security documentation. Gaps across supported, unsupported, and OT systems are reviewed each year.
+**Design Intent:** Backup coverage follows three criticality tiers. Tier 1 holds every service whose loss stops identity, signing, release, or flight control. Today those are the identity provider, the PKI, the privileged access platform, the hubs' rule base, the ground segment's configuration, and the spoke secrets vaults. The source repository, pipeline configuration, and artifact and model registry are Tier 1 too. HSM key backups go only to the standby HSM at the alternate site, wrapped, and never enter the backup platform. That keeps CCSD row 17 at Moderate confidentiality. Tier 2 holds the data lake, the mission teams' applications and databases, the service desk, and the security monitoring platform. Tier 3 holds dev/test, training scratch, and experimentation. Gaps are recorded with an owner and a disposition, and coverage is re-reviewed on every significant change and each year.
 
 **NIST Control Mapping:**
 
@@ -58,7 +58,7 @@
 
 ### RC-1.2: Automated Backup for Supported Services
 
-**Design Intent:** The backup platform protects every supported service class automatically, including virtual machines, cloud databases, storage, the directory, the data lake, and the model registry. Schedules and retention come from each resource's tier. Infrastructure as code is backed up by its repository, so rebuilding is a pipeline run.
+**Design Intent:** The backup platform protects every supported service class automatically, including virtual machines, cloud databases with point-in-time restore, storage, the directory, the data lake, and the model registry. Cloud services are protected by the provider's native backup, kept immutable and copied to the second region. Schedules and retention come from each resource's tier, and both the pipeline and the configuration automation platform bind each resource to its tier. Infrastructure as code is backed up with its repository.
 
 **NIST Control Mapping:**
 
@@ -140,7 +140,7 @@
 
 ### RC-1.4: OT/Legacy Configuration and Engineering Backup
 
-**Design Intent:** Fleet Operations captures each ground control station's configuration, the launch and recovery equipment's logic, and each aircraft's firmware and model versions during maintenance windows, using the manufacturers' offline tools. The payload processing workstation is backed up as a full disk image, since its software cannot be reinstalled on a supported system. Restores to fleet equipment happen only in a maintenance window with Fleet Operations present.
+**Design Intent:** Fleet Operations captures each ground control station's configuration, the launch and recovery equipment's logic, and each aircraft's firmware and model versions during maintenance windows, using the manufacturers' offline tools. Captures exclude the datalink crypto modules' key material, which is restored only by a key loader fill under HSM and Hardware Root-of-Trust Management (`DA-3.4`). Each capture is kept with its prior versions, date, and change record in the backup and archive. Station configuration changes only in windows, which holds Tier 1's recovery point. Restores happen in a maintenance window with Fleet Operations present. Outside a window, only the operations lead may authorize an emergency restore, never to a station with an aircraft airborne under its control.
 
 **NIST Control Mapping:**
 
@@ -150,7 +150,7 @@
 
 **Deployment Type:** On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Industrial Controller/SCADA, Legacy IT (Unpatchable, Non-Industrial), Backup/Archive Repository, OT/ICS Zone-Conduit Segmentation (IEC 62443)
+**Affected Components:** Industrial Controller/SCADA, Legacy IT (Unpatchable, Non-Industrial), Managed Device (Laptop/Desktop), Backup/Archive Repository, OT/ICS Zone-Conduit Segmentation (IEC 62443)
 
 **External Dependencies:** The aircraft and ground equipment manufacturers, whose offline backup tools capture the equipment's configuration.
 
@@ -234,7 +234,7 @@
 
 ### RC-1.6: Backup Health and Operations Monitoring
 
-**Design Intent:** Every backup job's completion, duration, and failure is monitored, and a failure alerts the Platform Team's backup operators. Restorability is verified on a sample each week. A backup and recovery dashboard shows each tier's current state.
+**Design Intent:** Every backup job's completion, duration, and failure is monitored. A failure alerts the Platform Team's backup operators, and IT Operations runs the routine backup checks. Restorability is verified on a sample each week. A backup and recovery dashboard shows each tier's current state.
 
 **NIST Control Mapping:**
 
@@ -298,7 +298,7 @@
 
 ### RC-1.7: Backup Compliance and Coverage Monitoring
 
-**Design Intent:** Each week the inventory is compared with what is actually protected and at which tier's settings. Any resource below its tier's requirements opens a ticket to the Platform Team.
+**Design Intent:** Each week the asset inventory in the service desk's configuration database is compared with what is actually protected and at which tier's settings. Any resource below its tier's requirements opens a ticket to its owning team, and fleet capture gaps go to Fleet Operations.
 
 **NIST Control Mapping:**
 
@@ -341,7 +341,7 @@
 
 ### RC-2.1: Backup Access and Operations Security
 
-**Design Intent:** Backup administration belongs to a small set of named operators in the Platform Team, separate from the administrators of the systems they protect. Deleting backups, shortening retention, or changing a policy needs a second approver through the privileged access platform, and the Security Team audits every such action.
+**Design Intent:** Backup administration belongs to a small set of named operators in the Platform Team, separate from the administrators of the systems they protect. Deleting backups, shortening retention, or changing a policy needs a second approver. On premises that approval runs through the privileged access platform. In the cloud, the backup vault's own multi-user authorization enforces it, with its guard held by the Tier 0 administrators. The Security Team audits every such action.
 
 **NIST Control Mapping:**
 
@@ -383,7 +383,7 @@
 
 ### RC-2.2: Backup Data Encryption
 
-**Design Intent:** Backups are encrypted in transit and at rest under KESTREL-controlled keys rooted in the HSMs. The backup keys are escrowed under split knowledge as the KMP requires, so losing a key never means losing the backups.
+**Design Intent:** Backups are encrypted in transit and at rest under KESTREL-controlled keys rooted in the HSMs. Each backup set has its own data key, so destroying one key sanitizes one set without touching the rest. Each mission team's zone is backed up under its own key and vault, so a restore lands only in that team's zone. Backup keys are escrowed under split knowledge and rotated on a cadence the KMP sets against the longest retention.
 
 **NIST Control Mapping:**
 
@@ -424,7 +424,7 @@
 
 ### RC-2.3: Backup Immutability and Redundancy
 
-**Design Intent:** Every backup is locked against change or deletion until its retention expires, even by a fully privileged account. Copies leave the data center on two paths. One goes to the alternate site, and the other goes to immutable storage in the cloud provider's second IL5 region, so no single site or region holds every copy.
+**Design Intent:** Every backup is locked against change or deletion until its retention expires, even by a fully privileged account. A spill caught in a locked copy is sanitized by destroying that backup set's key. Copies leave the data center on two paths, to the alternate site and to immutable storage in the cloud provider's second IL5 region, so no single site or region holds every copy. While the cloud hub is down, the data center keeps local copies and the alternate site's standby runs on its last replication.
 
 **NIST Control Mapping:**
 
@@ -435,7 +435,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Backup/Archive Repository, Private Connectivity/Dedicated Circuit, Cloud Account/Subscription/Tenant Boundary
+**Affected Components:** Backup/Archive Repository, Removable Media, Private Connectivity/Dedicated Circuit, Cloud Account/Subscription/Tenant Boundary
 
 **External Dependencies:** The IL5 cloud provider, whose native backup service and second IL5 region KESTREL relies on under its provisional authorization. The parent organization, which hosts KESTREL's alternate site under a facility agreement.
 
@@ -469,7 +469,7 @@
 
 ### RC-3.1: Recovery Objective Definition (RTO/RPO)
 
-**Design Intent:** Tier 1 has a recovery time of 4 hours and a recovery point of 15 minutes. Tier 2 has 24 hours for both. Tier 3 has a recovery time of 7 days and a recovery point of 24 hours. Raw collection has an extra safety net, since aircraft storage modules keep each recording until the data lake confirms it. These objectives are checked against every recovery test, and any tier that misses is raised to the AO.
+**Design Intent:** Tier 1 has a recovery time of 4 hours and a recovery point of 15 minutes. Tier 2 has 24 hours for both. Tier 3 has a recovery time of 7 days and a recovery point of 24 hours. Raw collection has an extra safety net, since aircraft storage modules keep each recording until the backup holding it completes. The objectives come from the business impact analysis (`RK-3.2`), and the program manager approves them. Every recovery test is checked against them, and any tier that misses is raised to the AO.
 
 **NIST Control Mapping:**
 
@@ -511,7 +511,7 @@
 
 ### RC-3.2: Backup Recovery Testing
 
-**Design Intent:** Each quarter, the Platform Team restores a sample from every tier using only the written procedure, and measures the result against the tier's objectives. A full restore of the identity provider and of one mission team's prod spoke runs once a year. Models are restored from the registry and verified against their signatures.
+**Design Intent:** Each quarter, the Platform Team restores a sample from every tier using only the written procedure, and measures the result against the tier's objectives. The sample rotates through exported services and fleet captures, which Fleet Operations restores to spares or the simulator. A full restore of the identity provider and of one mission team's prod spoke runs once a year. The registry is restored and every model, signed release, and baseline is verified against its signature, protecting CCSD rows 8 and 10.
 
 **NIST Control Mapping:**
 
@@ -553,7 +553,7 @@
 
 ### RC-3.3: Disaster Recovery Capabilities
 
-**Design Intent:** The cloud spokes can be rebuilt in the cloud provider's second IL5 region from infrastructure as code and the replicated backups. The data center's Tier 1 services fail over to a warm standby at the alternate site, so identity and the PKI keep working if the data center is lost. A full failover exercise runs each year and a contingency plan tabletop runs each half year, and their findings update the CP.
+**Design Intent:** A region rebuild starts by restoring the repository and pipeline runners in the cloud provider's second IL5 region from backup. It then runs the landing zone modules to rebuild the cloud spokes, and the circuits are re-homed to a hub there. The data center's Tier 1 services fail over to warm standbys at the alternate site, namely identity, the PKI, DNS, and the privileged access platform. Its other Tier 1 services are restored in the second IL5 region within Tier 1's recovery time. Recovery runs from the alternate site's privileged access workstations, on break-glass accounts if needed. A full failover exercise runs each year and a contingency plan tabletop each half year, and their findings update the CP.
 
 **NIST Control Mapping:**
 
@@ -608,7 +608,7 @@
 
 ### RC-3.4: Alternate Site and Telecommunications Readiness
 
-**Design Intent:** The alternate site is a parent organization facility that hosts KESTREL's warm standby, a second HSM, and a copy of the backups. A second dedicated circuit on a separate path links it to the cloud. The agreement names who may activate it and how quickly it must accept the workload.
+**Design Intent:** The alternate site is a parent organization facility, far enough from the data center that no regional event reaches both. It hosts KESTREL's warm standbys, a second HSM, and a copy of the backups. If the data center is lost, its Tier 2 services are restored into recovery spokes in the second IL5 region, data lake first, with each mission team's zone in its own spoke. The data center's two circuits come from different carriers on diverse paths to different meet-me points, so no single carrier, path, or meet-me point isolates it. Every carrier agreement carries priority restoration and the carrier's contingency plan. Production traffic fails from one data center circuit to the other each quarter. The facility agreement names who may activate the site, how quickly it accepts the workload, and KESTREL's priority access in an area-wide emergency.
 
 **NIST Control Mapping:**
 
@@ -632,9 +632,9 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Compute, Storage/Database, Application/API, Directory/Platform Core Infrastructure, Network Infrastructure, Industrial Controller/SCADA
+**Affected Components:** Compute, Storage/Database, Application/API, Directory/Platform Core Infrastructure, Network Infrastructure, Managed Device (Laptop/Desktop), Industrial Controller/SCADA
 
-**External Dependencies:** The parent organization, which hosts KESTREL's alternate site under a facility agreement. The circuit provider, which supplies the second dedicated circuit on a separate path.
+**External Dependencies:** The parent organization, which hosts KESTREL's alternate site under a facility agreement. The circuit carriers. DISA, which carries the circuits over DISN through the access point's meet-me points. The IL5 cloud provider, whose second region holds the Tier 2 recovery spokes under its provisional authorization.
 
 **Security Impact:** Moderate
 
@@ -664,7 +664,7 @@
 
 ### RC-3.5: Manual/Fail-Safe Operational Fallback Readiness
 
-**Design Intent:** The fleet keeps flying without the cloud or the data center. Operators fly from the ground control stations with local smart card sign-in, and aircraft keep recordings on their storage modules until the lake returns. Analysts work from the last delivered products, and mission planning reverts to manual if the planning agent is unavailable. The program manager authorizes activating fallback, and operators drill it each year.
+**Design Intent:** The fleet keeps flying without the cloud or the data center. Operators fly from the ground control stations with local smart card sign-in. Aircraft keep recordings on their storage modules until the lake returns, which bounds how long the fleet can fly without it. If the data center is lost, analysts work from the last delivered products, and mission planning reverts to manual if the planning agent is unavailable. The program manager authorizes entering and ending fallback. Every contingency role, from operators to restore operators and Tier 0, trains within a set period of assignment, on system change, and each year.
 
 **NIST Control Mapping:**
 
@@ -675,7 +675,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Compute, First-Party/Custom Application Code, Self-Hosted Third-Party Application (COTS), Industrial Controller/SCADA
+**Affected Components:** Compute, First-Party/Custom Application Code, Self-Hosted Third-Party Application (COTS), Managed Device (Laptop/Desktop), Industrial Controller/SCADA
 
 **External Dependencies:** None outside the boundary.
 
@@ -720,7 +720,7 @@
 
 ### RC-4.1: Contingency Plan (CP)
 
-**Design Intent:** The Platform Team authors KESTREL's CP, with Fleet Operations writing the fleet sections and each team writing its restoration order. The ISSM reviews it, and the Configuration Control Board approves it. It holds the contingency roster and says what is shared with the CSSP, partners, and the AO during a disruption. It is revised each year and after every exercise.
+**Design Intent:** The Platform Team authors KESTREL's CP, with Fleet Operations writing the fleet sections and each team writing its restoration order. It defines the known state each tier is restored to and the checks a restored system passes before returning to service. It names the critical assets from the business impact analysis and plans for the data center never returning. It names the recovery coordinator, the restore team, the alternate site and carrier liaisons, and the operations lead as the fleet's operations authority. Each has a backup, with contacts reachable without the identity provider. The ISSM reviews it, and the Configuration Control Board approves it. Anything shared with partners goes through the foreign disclosure officer, and activating the alternate site is an AO review trigger. It is revised each year and after every exercise.
 
 **NIST Control Mapping:**
 

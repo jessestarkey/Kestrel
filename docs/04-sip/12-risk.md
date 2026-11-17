@@ -8,15 +8,15 @@
 
 **Selected Tool / Product / Service:** Jira Software Data Center, eMASS, Confluence Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The PMO ISSE defines one method based on NIST SP 800-30, scoring likelihood and impact on five-point scales. Impact is anchored to the CCSD's categorization, mission effects, and privacy harm. Anything that could cost an aircraft, compromise the command link, expose row 13's keys, or tamper with a certified model or signed release scores at the top.
 
-**Accountable Team:** Security Team (ISSM)
+**Accountable Team:** Program Office (PMO ISSE)
 
-**Dependencies:** GV-5.4
+**Dependencies:** GV-1.2
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 program management
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2028-03-31
 
@@ -28,25 +28,25 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RK-1.1.1: Risk Assessment Methodology Definition | 2 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RK-1.1.1: Risk Assessment Methodology Definition | 1 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RK-1.1.2: Methodology Application Guidance and Training | 2 | Process | None | Level 2 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| RK-1.1.3: Methodology Periodic Review and Update | 2 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| RK-1.1.3: Methodology Periodic Review and Update | 1 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
 
 ### RK-1.2: Risk Appetite and Tolerance Definition
 
 **Selected Tool / Product / Service:** Jira Software Data Center, eMASS, Confluence Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The program manager drafts the risk appetite statement and the AO approves it. The AO accepts every risk, and a standing AO delegation recorded in the authorization decision lets the PMO ISSE accept Low ones. Risk above Very Low to flight safety, the command link, keys, or the High-integrity models and releases goes to the AO.
 
-**Accountable Team:** Security Team (ISSM)
+**Accountable Team:** Program Office (program manager)
 
-**Dependencies:** GV-5.4
+**Dependencies:** RK-1.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 program management
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -56,9 +56,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RK-1.2.1: Risk Appetite/Tolerance Statement Development | 2 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| RK-1.2.2: Tolerance-to-Acceptance-Authority Tier Alignment | 2 | Process | None | Level 1 | One-Time | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
-| RK-1.2.3: Periodic Review and Revision | 2 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| RK-1.2.1: Risk Appetite/Tolerance Statement Development | 1 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RK-1.2.2: Tolerance-to-Acceptance-Authority Tier Alignment | 1 | Process | None | Level 1 | One-Time | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| RK-1.2.3: Periodic Review and Revision | 1 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
 
 ### RK-1.3: Risk Register and Tracking
 
@@ -94,17 +94,17 @@
 
 **Selected Tool / Product / Service:** Jira Software Data Center, eMASS, Confluence Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Acceptances are requested and scored in Jira and recorded in eMASS. A Low risk goes to the PMO ISSE under the AO's delegation, and anything above Very Low on CCSD rows 6, 8, 10, or 13 goes to the AO.
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** GV-5.4
+**Dependencies:** RK-1.2
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -114,9 +114,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RK-1.4.1: Risk Acceptance Request and Approval Workflow | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| RK-1.4.2: Risk Acceptance Documentation and Expiration Tracking | 2 | Documentation | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
-| RK-1.4.3: Risk Acceptance Periodic Re-Review | 2 | Process | None | Level 1 | Periodic (Semi-Annual) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| RK-1.4.1: Risk Acceptance Request and Approval Workflow | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RK-1.4.2: Risk Acceptance Documentation and Expiration Tracking | 1 | Documentation | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| RK-1.4.3: Risk Acceptance Periodic Re-Review | 1 | Process | None | Level 1 | Periodic (Semi-Annual) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
 
 ### RK-1.5: Security Assessment Plan
 
@@ -268,7 +268,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-1.3
+**Dependencies:** DE-3.1
 
 **Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
@@ -296,7 +296,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-1.3
+**Dependencies:** DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -324,13 +324,13 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-1.3
+**Dependencies:** DE-3.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 3, Mission, AI, and Fleet
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2028-07-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -340,9 +340,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RK-2.3.1: Inter-Org/ISAC Indicator Sharing Participation | 3 | Process | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-| RK-2.3.2: Strategic Indicator Curation and Quality Vetting | 3 | Process | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-| RK-2.3.3: Indicator Hand-Off to Operate Pillar's IOC Feed Management | 3 | Technical | Automate | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RK-2.3.1: Inter-Org/ISAC Indicator Sharing Participation | 2 | Process | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| RK-2.3.2: Strategic Indicator Curation and Quality Vetting | 2 | Process | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| RK-2.3.3: Indicator Hand-Off to Operate Pillar's IOC Feed Management | 2 | Technical | Automate | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 ## RK-3: Enterprise Risk Prioritization
 

@@ -6,7 +6,7 @@
 
 ### NE-1.1: Network Centralization and Standardization
 
-**Design Intent:** Both hubs and the SDN controller take their rules and routes from one rule base, defined once as policy as code in the Platform Team's repository and deployed to each side by the pipeline. A rule change is a pull request with a second reviewer, and changes to the shared rule base go to the Configuration Control Board. The pipeline compares each hub's running policy with the repository and alerts on any difference.
+**Design Intent:** The hubs, the alternate site firewall, and the SDN controller take their rules from one shared rule base. It is kept as policy as code in the Platform Team's repository and deployed by the pipeline over F35. Each operating site's ground segment firewall keeps its own rule set in Fleet Operations' repository, since the conduit stays a separate boundary. It is loaded from a maintenance console in a window. A rule change is a pull request with a second reviewer, and changes to the shared rule base go to the Configuration Control Board. The pipeline compares every firewall's running policy with its repository and alerts on any difference.
 
 **NIST Control Mapping:**
 
@@ -15,7 +15,7 @@
 - **CM-6(1) (partial):** carried by Firewall/Routing Configuration Drift Detection and Alerting, which automatically scans live firewall and routing configuration against the documented baseline. The compute, storage, platform-service, and end-user-device slices belong to other outcomes.
 - **Declined:** SI-4 is not claimed because network telemetry collection and the posture dashboard belong to Network Telemetry and Security Posture Visualization.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Routing/Switching Fabric, Network Firewall
 
@@ -71,14 +71,14 @@
 
 ### NE-1.2: Network Infrastructure Device Hardening
 
-**Design Intent:** Hardening baselines come from the DISA STIGs for the SDN switches and controller, both hubs' firewalls, the alternate site firewall, and the ground segment network's switches. Management interfaces sit only on the out-of-band network and accept only administrators coming through the privileged access platform. The cloud and data center run dual-stack, with every hub rule written for both address families. The ground segment stays IPv4 only and drops IPv6 at its conduit.
+**Design Intent:** Hardening baselines come from the DISA STIGs for every network device, namely the SDN switches and controller, every firewall, and the ground segment switches. Management interfaces sit only on an out-of-band network and accept only administrators coming through the privileged access platform. IPv6 is enabled where a service supports it, with every rule written for both address families. Elsewhere it is disabled and filtered, and the ground segment drops it at its conduit.
 
 **NIST Control Mapping:**
 
 - **CM-6 (partial):** claimed at the base for the configuration of the network device itself, which Network Device Hardening Baseline Definition documents and the two implementation activities apply. Other CM-6 claims cover other asset classes, such as Baseboard Management Controller (BMC) Hardening. The base is cited because switches and routers are configured through their own management interfaces rather than the automated pipeline CM-6(1) describes.
 - **Declined:** CM-7 is not claimed, since Insecure Services and Protocols holds CM-7(1) for disabling nonsecure protocols and the Ports, Protocols, and Services Matrix (PPSM) holds CM-7(3).
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Routing/Switching Fabric, Wireless/RF Infrastructure, Load Balancer/Reverse Proxy/API Gateway
 
@@ -123,7 +123,7 @@
 
 ### NE-1.3: Insecure Services and Protocols
 
-**Design Intent:** Flow telemetry from both hubs and the SDN fabric is checked for cleartext and obsolete protocols, such as Telnet, FTP, SMBv1, unsigned LDAP, and TLS below 1.2. Each one found is disabled. The payload processing workstation stays connected past its replacement date only if the AO re-dates CCSD tailoring action 3. If its operating system then cannot negotiate current TLS, its transfer to the data lake is the one registered exception, confined to its single conduit.
+**Design Intent:** Flow telemetry from every firewall and the SDN fabric is checked for cleartext and obsolete protocols, such as Telnet, FTP, SMBv1, unsigned LDAP, and TLS below 1.2. Each one found is disabled. In the ground segment, the passive sensors find them without probing, and any the manufacturer requires get compensating controls. The payload processing workstation connects only if the AO re-dates CCSD tailoring action 3. Its transfer would then be the one registered exception, confined to its conduit.
 
 **NIST Control Mapping:**
 
@@ -175,7 +175,7 @@
 
 ### NE-1.4: Network Macro Segmentation
 
-**Design Intent:** The macro segments are the cloud's ten spokes, the data center's SDN segments, and the ground segment's OT zone. The data center's segments match the cloud's teams, with one segment per mission team's data lake zone. The DMZ, the VDI spoke, and Tier 0 are the high-risk classes, each isolated in its own segment. The data center's BMCs, SDN controller management, and HSM management sit on an out-of-band network. It is reachable only through the privileged access platform's session hosts, which Tier 0 reaches from the privileged access workstations.
+**Design Intent:** The macro segments are the cloud's ten spokes, the data center's SDN segments, the alternate site's zones, the IT/OT DMZ, and the ground segment's OT zone. The data center's segments match the cloud's teams, and each mission team's data lake zone is reachable only from that team's spokes and the ML training zone. The DMZ, the VDI spoke, and Tier 0 are the high-risk classes, each isolated in its own segment. Management interfaces at every site sit on an out-of-band network reached only through the privileged access platform's session hosts. Cloud control planes are reached the same way, over the circuit through a private link.
 
 **NIST Control Mapping:**
 
@@ -183,7 +183,7 @@
 - **SC-7(13) (partial):** carried by Out-of-Band Management Network Isolation, which places management and support components on a physically separate subnetwork with a managed interface. It is partial because the enhancement also reaches defensive-analysis and forensics infrastructure, which the Operate pillar sites unless the program hosts it locally.
 - **SC-7(21) (partial):** claimed for High-Risk Workload Isolation, which separates mission-differentiated workload classes into distinct subnetworks. Micro-segmentation isolates through flow rules instead, so it maps to AC-4 and SC-7(5). IT/OT Zone and Conduit Segmentation (IEC 62443) and Secrets Vault Network Security Hardening hold other independent slices.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Segmentation Policy, Compute
 
@@ -239,7 +239,7 @@
 
 ### NE-1.5: Network Micro Segmentation
 
-**Design Intent:** Each team maps the flows its workloads need, and those flows become allow rules on workload security groups, with everything else denied. Inside each cluster, Kubernetes network policies deny traffic between namespaces by default. Flow logs feed the security monitoring platform, which flags rules nothing has used for 90 days. The penetration testers try to cross the vendor split and the dev/test to prod deny at every engagement.
+**Design Intent:** Each team maps the flows its workloads need, and those flows become allow rules on cloud workload security groups and the data center's SDN endpoint groups, with everything else denied. Inside each cluster, Kubernetes network policies deny traffic between namespaces by default. Flow logs feed the security monitoring platform, which flags rules nothing has used for 90 days. The penetration testers try to cross the vendor split and the dev/test to prod deny at every engagement.
 
 **NIST Control Mapping:**
 
@@ -247,7 +247,7 @@
 - **SC-7(5) (partial):** claimed for Allow and Deny Rules, whose deny-by-default, allow-by-exception posture is exactly this enhancement. IT/OT Zone and Conduit Segmentation holds the OT conduit slice.
 - **Declined:** SC-7(21) belongs to High-Risk Workload Isolation, while micro-segmentation isolates through AC-4 and SC-7(5). CM-6(1) stays with Firewall/Routing Configuration Drift Detection and Alerting. CA-8 is held by the Application focus area's Penetration Testing outcome. Security grouping is a construct rather than a control, and flow-log monitoring uses the existing SI-4 telemetry platform.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Compute, Segmentation Policy, Application/API
 
@@ -325,7 +325,7 @@
 
 ### NE-1.6: IT/OT Zone and Conduit Segmentation (IEC 62443)
 
-**Design Intent:** The ground segment has four zones, namely aircraft and datalinks, ground control stations, launch and recovery, and the payload processing workstation. The station and aircraft zones carry security level target 3, and the others carry 2. One conduit joins the ground segment to the data center through an IT/OT DMZ. Recordings and model packages are staged there, so no session spans IT and OT. The passive sensors watch every zone-to-zone flow, and the penetration testers validate the zones on spares.
+**Design Intent:** The ground segment at each operating site has five zones, namely aircraft and datalinks, ground control stations, launch and recovery, the operating site services, and the payload processing workstation's reserved zone. The station, aircraft, and launch zones carry security level target 3, and the others carry 2. The IT/OT DMZ carries 3. Each site has its own conduit, terminating on its ground segment firewall and carried to the IT/OT DMZ in an encrypted tunnel over DISN (F33). Recordings and model packages are staged in the DMZ, so no session spans IT and OT. The workstation's zone stays empty unless the AO re-dates CCSD tailoring action 3.
 
 **NIST Control Mapping:**
 
@@ -335,11 +335,11 @@
 - **SC-7(5) (partial):** claimed for the same activity, since conduit allow-listing denies all unauthorized zone-to-zone traffic by default. IT/OT Demilitarized Zone extends it to the IT/OT interface, and Network Micro Segmentation holds the IT slice. IEC 62443 unifies isolation and flow control, which the framework splits across two outcomes for IT.
 - **Declined:** SI-4 is not reopened for Zone-to-Zone Data Flow Monitoring, since its passive feed comes from OT/Legacy Passive Monitoring, which holds SI-4(13) and SI-4(5).
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** OT/ICS Device, OT/ICS Zone-Conduit Segmentation (IEC 62443)
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** DISA, which provides each operating site's DISN transport.
 
 **Security Impact:** High
 
@@ -413,7 +413,7 @@
 
 ### NE-1.7: Network Access Control (NAC/802.1X)
 
-**Design Intent:** Every wired port in the data center, at the alternate site, and at the operating sites requires 802.1X, with device certificates from the program PKI. Posture checks gate admission for the privileged access workstations and servers. Ground control stations and launch equipment that cannot run a supplicant are admitted by registered hardware address to their own zone only. A device that fails is quarantined, and the Security Team is alerted. Each operating site keeps admitting devices while it is cut off from the data center.
+**Design Intent:** Every wired port in the data center, at the alternate site, and at the operating sites requires 802.1X with EAP-TLS and device certificates from the program PKI. Posture checks gate admission for the privileged access workstations and servers. Ground control stations and launch equipment that cannot run a supplicant are admitted by registered hardware address to their own zone only. A device that fails is quarantined, and the Security Team is alerted. Each operating site keeps admitting devices while it is cut off from the data center.
 
 **NIST Control Mapping:**
 
@@ -421,7 +421,7 @@
 - **SC-7(20) (partial):** claimed for Rogue Device Detection and Quarantine, which moves a device that fails authentication or posture checks into an isolated segment. That is the enhancement's dynamic isolation, and no other outcome claims it.
 - **Declined:** IA-3(1) is held by OT/Legacy Device Identity Controls for gateway-proxied device authentication. The SC-7 base is already held elsewhere in this focus area. CM-8(3) gains no slice, since quarantine findings route into the existing discovery process as Unmanaged/Rogue Device Discovery does.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** Network Access Control (NAC), Device/Workstation, OT/ICS Device
 
@@ -477,7 +477,7 @@
 
 ### NE-1.8: Wireless Network Access Control
 
-**Design Intent:** The command and payload datalinks are KESTREL's only authorized wireless. No wireless LAN exists in the data center or at the operating sites, and embedded radios are disabled on every server, workstation, and station. WPA2/3-Enterprise therefore has nothing to authenticate today. Wireless sensors at the data center, the alternate site, and each operating site look for rogue access points and alert the Security Team.
+**Design Intent:** The command and payload datalinks are KESTREL's only authorized wireless, and their authenticated encryption under Telemetry, Tracking, and Command (TT&C) Link Security (`NE-2.8`) meets the wireless authentication requirement. No wireless LAN exists anywhere in KESTREL. Embedded radios are disabled on every server, workstation, and station, apart from the station datalink radios. Wireless sensors at the data center, the alternate site, and each operating site look for rogue access points and alert the Security Team.
 
 **NIST Control Mapping:**
 
@@ -487,7 +487,7 @@
 - **SI-4(14) (full):** claimed for Rogue Access Point Detection, since the enhancement names a wireless intrusion detection system outright. No other outcome claims it, and no SI-4 base claim covers the radio-frequency environment.
 - **Declined:** AC-18(4) is answered by the Identity focus area's privilege controls. AC-18(5) covers antenna siting and power, which belong to physical and facility security.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** Wireless/RF Infrastructure, Device/Workstation, OT/ICS Device
 
@@ -534,18 +534,18 @@
 
 ### NE-2.1: Private Connectivity
 
-**Design Intent:** Every provider-managed service is reached only through a private endpoint in its own spoke, with public access disabled. That includes the foundation model, the spoke vaults, and the portal database. Configuration checks alert if public access returns. Both dedicated circuits terminate on the cloud hub, one on the data center hub and one on the alternate site firewall. The carrier path is not trusted, so traffic crosses each circuit inside encrypted tunnels between the firewalls. Its routing sessions are authenticated, and prefix filters accept only KESTREL's own address ranges.
+**Design Intent:** Every provider-managed service is reached only through a private endpoint in its own spoke, with public access disabled. That includes the foundation model, the spoke vaults, and the portal database. Configuration checks alert if public access returns. Three dedicated circuits ride DISN through the Boundary Cloud Access Point to the cloud hub. The data center hub has two, from different carriers on diverse paths to different meet-me points, and the alternate site firewall has one. The carrier path is not trusted, so traffic crosses each circuit inside encrypted tunnels between the firewalls. Routing sessions are authenticated, and prefix filters accept only KESTREL's own ranges.
 
 **NIST Control Mapping:**
 
 - **SC-7(4) (partial):** a private endpoint is the managed interface for an externally reached service, which Private Network Endpoint Deployment builds and Public Network Access Disablement makes the only path. Dedicated Private Circuit Connectivity covers the external telecommunication service, and Routing Protocol and Control Plane Protection covers the enhancement's control plane parts, such as route origin authorization. It is partial because exception review runs through the PPSM baseline, and Authorized Cloud Access Point Integration holds a further slice.
 - **Declined:** SC-8 is not claimed for routing-update authentication, since transmission protection is the Data focus area's. Private Network Endpoint Monitoring uses the existing SI-4 telemetry platform rather than a new citation.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Private Connectivity/Dedicated Circuit, Routing/Switching Fabric, Serverless/Platform Service, Storage/Database
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider supplies the private endpoint service and the dedicated circuit's cloud side.
+**External Dependencies:** The IL5 cloud provider, which supplies the private endpoint service and the circuits' cloud side under its provisional authorization. DISA, which carries the circuits over DISN through the access point. The circuit carriers.
 
 **Security Impact:** Moderate
 
@@ -724,7 +724,7 @@
 
 ### NE-2.4: Network Firewall
 
-**Design Intent:** The cloud hub's next-generation firewall sits at the center of the ten spokes, each peered only to the hub. Custom routes send every spoke's traffic, east-west and outbound, through it. The data center hub is a redundant appliance pair in front of the SDN fabric. Outbound web traffic is limited to an allow-list of update and package sources, all reached through the package mirror. Both hubs inspect outbound TLS. East-west flows already protected by mutual TLS between workload identities are exempt from decryption.
+**Design Intent:** The cloud hub's next-generation firewall sits at the center of the ten spokes, each peered only to the hub, and runs as a highly available pair. Its rules deny traffic from any dev/test spoke to any prod spoke, apart from F25's shared services, and between the two mission teams' spokes. Every site perimeter is a redundant pair. Outbound traffic is limited to an allow-list of named classes over F29 and F30. These are package sources through the mirror, PKI revocation, the time reference, the threat feed, the Microsoft 365 DoD tenant, and the paging service. The CSSP's feeds use F11 and F31. Both hubs inspect outbound TLS, and east-west mutual TLS between workload identities is exempt from decryption.
 
 **NIST Control Mapping:**
 
@@ -733,11 +733,11 @@
 - **SC-7(10) (partial):** claimed for TLS Inspection Advanced Filtering, which decrypts outbound TLS to inspect for policy violations and exfiltration. Training Cluster Network Segmentation and Egress Control holds a disjoint slice for training-cluster egress.
 - **Declined:** SC-8 is not claimed, since TLS inspection terminates encryption rather than protecting it. The peering and routing activities only force traffic to the SC-7(3) access point. CM-2 and CM-6(1) stay with Network Centralization and Standardization, whose baseline the firewall policies build on.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Network Firewall, Routing/Switching Fabric
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider supplies the virtual machines and networking the cloud hub's firewalls run on.
+**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider supplies the virtual machines and networking the cloud hub's firewalls run on. KESTREL's Microsoft 365 DoD tenant, an allow-listed destination.
 
 **Security Impact:** High
 
@@ -842,7 +842,7 @@
 - **SC-5(2) (partial):** claimed for Network Layer DDoS Protection, since absorbing layer-3 and layer-4 floods through capacity, bandwidth, and redundancy is this enhancement's mechanism, a partial claim alongside the outcome's other SC-5 slices.
 - **SC-5(3) (partial):** claimed for DDoS Protection Monitoring and Alerts, which detects denial-of-service indicators in both directions and watches utilization headroom. Link-Anomaly and Jamming-Indicator Monitoring and Alerting holds the RF link slice.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** DDoS Protection, Application/API
 
@@ -898,7 +898,7 @@
 
 ### NE-2.6: Web Application Firewall
 
-**Design Intent:** The WAF in the DMZ's edge services fronts every user-facing application in blocking mode, with managed rules plus custom rules for each application. Today those are the identity-aware access proxy, the analyst portal, the signals workbench, and the partner API. Every partner-facing API is checked against its published schema and rate-limited per partner. Nothing on premises faces users directly, so no on-premises reverse-proxy WAF is needed.
+**Design Intent:** The WAF in the DMZ's edge services fronts every user-facing application in blocking mode, with managed rules plus custom rules for each application. Today those are the identity-aware access proxy, the service desk behind it, the analyst portal, the signals workbench, the LLM analyst assistant's front end, and the partner API. API calls are checked against the registered schema and admitted only on routes in the runtime API inventory. Bot management and per-partner rate limits throttle abusive clients. On-premises web consoles are reachable only from the VDI pools and the privileged access workstations, so no on-premises reverse-proxy WAF is needed.
 
 **NIST Control Mapping:**
 
@@ -909,7 +909,7 @@
 - **CM-7(1) (partial):** claimed for API Gateway Runtime Policy Enforcement, which refuses to route any interface absent from the runtime inventory. Runtime API Inventory and Governance identifies those routes and decides their disposition, so the two are assessed as a pair. Insecure Services and Protocols holds a disjoint slice.
 - **Declined:** SC-5(2) and SC-5(3) belong to DDoS Protection. The SC-7 base is already held at three scopes in this focus area, and SC-7(5) and SC-7(8) are held by Network Micro Segmentation and Network Firewall. SI-3 stays with the Device and Infrastructure focus area's host anti-malware. WAF Service Selection and WAF Policy and Service Endpoint Associations only deploy and attach the mechanism.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Web Application Firewall, Load Balancer/Reverse Proxy/API Gateway, First-Party/Custom Application Code, Self-Hosted Third-Party Application (COTS), API/Interface Contract
 
@@ -1009,7 +1009,7 @@
 
 ### NE-2.7: Secure Remote Access
 
-**Design Intent:** Performers reach KESTREL only through the identity-aware access proxy for developer tools and the VDI brokers for desktops. Neither offers a network tunnel, so no laptop joins KESTREL's network and split tunneling cannot occur. The VDI desktops reach management ports only during an approved just-in-time window, or through the privileged access platform's session hosts. Sessions end after 15 idle minutes, and the Security Team can end any session at once. Recorded sessions and broker logs go to the security monitoring platform.
+**Design Intent:** Every remote population reaches KESTREL through a named path that offers no network tunnel. Performers use the identity-aware access proxy for developer tools and the VDI brokers for desktops. CSSP analysts use their own VDI host pool, and program office staff use the access proxy over F38 from the parent organization's managed devices. Vendors use the vendor host pool over F37. Penetration testers get time-bound accounts on the same paths. Management ports open only for a just-in-time window or to the privileged access platform's session hosts. Session keys and certificates are managed under the KMP. Sessions end after 15 idle minutes, and the Security Team can end any session at once.
 
 **NIST Control Mapping:**
 
@@ -1023,11 +1023,11 @@
 - **SC-10 (full):** carried by Idle Network Connection Termination, which ends a session's network connection at its close or after inactivity. No other outcome claims it.
 - **Declined:** AC-17(4) is not claimed, since Privileged Credential Vaulting and Session Brokering governs privileged remote actions.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Remote Access/VPN Gateway, Virtual Desktop Infrastructure (VDI), Virtual Machine/Server, Identity Platform
 
-**External Dependencies:** The performer, whose CMMC Level 2 laptops originate these sessions under the interconnection agreement.
+**External Dependencies:** The performer and the parent organization, whose devices originate these sessions under their interconnection agreements. The equipment and payload vendors, under their support agreements. The CSSP and the penetration testing provider, under their agreements.
 
 **Security Impact:** High
 
@@ -1134,7 +1134,7 @@
 
 ### NE-2.8: Telemetry, Tracking, and Command (TT&C) Link Security
 
-**Design Intent:** KESTREL's equivalent of a TT&C link is the aircraft datalinks, so CCSDS SDLS itself does not apply. The command uplink is authenticated and encrypted, so an aircraft executes only commands from a KESTREL ground control station. The telemetry and payload downlink is encrypted and integrity-protected. The keys are CCSD row 13's key material, held in the HSMs and the datalink crypto modules. Stations alert operators to link anomalies and jamming indicators, and those alerts also reach the Security Team.
+**Design Intent:** KESTREL's equivalent of a TT&C link is the aircraft datalinks, so CCSDS SDLS itself does not apply. The command uplink is authenticated, encrypted, and protected against replay, so an aircraft executes only fresh commands from a KESTREL ground control station. The telemetry and payload downlink is encrypted and integrity-protected. The links use CNSA algorithms under CNSSP 15 on FIPS 140-3 modules, protecting CCSD row 6's High integrity with row 13's key material. Stations alert operators to link anomalies and jamming indicators, and those alerts also reach the Security Team.
 
 **NIST Control Mapping:**
 
@@ -1144,7 +1144,7 @@
 - **SC-40 (partial):** the framework's only claim of the control. The uplink and downlink activities defeat imitative and spoofed signals, and Link-Anomaly and Jamming-Indicator Monitoring and Alerting detects interference. It is partial because spread spectrum and frequency hopping belong to the radio design.
 - **Declined:** the IA-3 base adds nothing beyond the enhancement. SC-8(2) is unneeded, since protection is re-established after an outage, and SC-8(3) and SC-8(4) are not implemented anywhere. SC-5(1), SC-5(2), and the SC-5 base do not fit RF interference, which SC-5(3) already covers. AC-17 stays with Secure Remote Access for ground segment operator access. SC-12, SC-13, and SC-28(3) belong to the Data focus area's Cryptographic Management capability.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** OT/ICS Device, Network Infrastructure, Cryptographic Hardware/HSM
 
@@ -1189,7 +1189,7 @@
 
 ### NE-2.10: Cross Domain Solution (CDS) Transfer Procedures
 
-**Design Intent:** KESTREL uses the enterprise cross domain solution a DoD cross domain service provider operates, and that provider owns product selection and accreditation. Low-to-high baselines need Certification to Field approval before the transfer gateway stages them. High-to-low products pass the enclave's release review and then KESTREL's own content checks. The provider's transfer logs and the gateway's logs both go to the security monitoring platform. Manual media transfer across the domains is prohibited.
+**Design Intent:** KESTREL uses the enterprise cross domain solution a DoD cross domain service provider operates. That provider owns product selection, accreditation, and the guard's filtering, which KESTREL inherits. The transfer gateway sits alone in a DMZ subnet that reaches only the solution's low side and the feedback endpoints. Low-to-high baselines need Certification to Field approval before the gateway stages them, and the guard releases each approved baseline by verified type. High-to-low products pass the enclave's release review, then KESTREL's malware scan, format and schema validation, and marking check. They reach the feedback endpoints as untrusted input. Both sides' logs go to the security monitoring platform, and manual media transfer is prohibited.
 
 **NIST Control Mapping:**
 
@@ -1203,7 +1203,7 @@
 - **AC-4(31) (partial):** carried by the inspection activity, whose block, strip, and quarantine outcomes keep failed content out of the receiving domain, a partial slice of the filter. None of these claims reopens the AC-4 base or the AC-4(21) diode claim.
 - **Declined:** AC-4(14) is not claimed, since the accredited product's own filter definitions fix the format specifications. CDS Accreditation and Periodic Reassessment and CDS Product Selection and Baseline List Compliance carry no citation, since authorization evidence for the SC-46 mechanism belongs in the traceability artifact. SA-4 stays with the Manage pillar and the Application focus area. CA-2(1) is assessment evidence rather than a design-intent control.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Cross-Domain/Boundary Transfer, Application/API, Storage/Database
 
@@ -1292,7 +1292,7 @@
 
 ### NE-2.11: Industrial Protocol Filtering (DPI)
 
-**Design Intent:** The ground segment firewall parses the command and control protocol the ground control stations use with the launch and recovery equipment. It allows only the commands each station is approved to send. Command and control traffic never crosses the conduit to the data center, so any seen there is blocked and alerted. Fleet Operations and the Security Team tune the rules after each maintenance window.
+**Design Intent:** Each operating site's ground segment firewall parses the command and control protocol the stations use with the launch and recovery equipment. It allows only the commands each station is approved to send. A DPI fault on that path falls back to a fixed allow-list rather than blocking, so launch and recovery are never cut off, and the fault alerts. Command and control protocol traffic never crosses the conduit to the data center, so any seen there is blocked and alerted. The signed flight plan files F34 delivers are files, not command traffic. Fleet Operations and the Security Team tune the rules after each maintenance window.
 
 **NIST Control Mapping:**
 
@@ -1301,9 +1301,9 @@
 - **SI-4(4) (partial):** the function-code allow-list sets the criteria for unauthorized traffic, DPI Rule Tuning and False-Positive Management refines them, and Unauthorized Command Blocking and Alerting monitors and alerts against them. The other SI-4 claims elsewhere do not address traffic criteria.
 - **Declined:** the AC-4 base stays with the segmentation outcomes that admit flows to a conduit. AC-4(8), AC-4(21), and AC-4(26) stay with Cross Domain Solution (CDS) Transfer Procedures and Unidirectional Gateways, while this outcome judges commands inside permitted flows.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Industrial Controller/SCADA
+**Affected Components:** Industrial Controller/SCADA, Industrial Protocol Filtering (OT DPI)
 
 **External Dependencies:** The ground equipment manufacturers, who document the command sets their equipment accepts.
 
@@ -1357,7 +1357,7 @@
 
 ### NE-2.12: Ports, Protocols, and Services Matrix (PPSM)
 
-**Design Intent:** Every port, protocol, and service crossing KESTREL's boundary is registered in the DoD PPSM registry and aligned to its Category Assurance List entry. These include the Boundary Cloud Access Point flows, the dedicated circuits, the CSSP feed, the cross domain transfers, and the partner API. The DMZ's internet-facing services are also registered for DISA's internet access points. The approved baseline is the same policy-as-code rule base the hubs run, so the pipeline checks the deployed rules against the registration on every change. The Security Team recertifies the registration each year.
+**Design Intent:** Every port, protocol, and service crossing KESTREL's boundary is registered in the DoD PPSM registry and aligned to its Category Assurance List entry. These include the Boundary Cloud Access Point flows, the outbound service classes, the CSSP feed, the cross domain transfers, and the partner API. The DMZ's internet-facing services are also registered for DISA's internet access points. The approved baseline is a separate CMP record with each entry's justification and approver. The pipeline compares both the rule base and observed reachability with it on every change, and the Security Team recertifies it each year.
 
 **NIST Control Mapping:**
 
@@ -1421,7 +1421,7 @@
 
 ### NE-2.13: Authorized Cloud Access Point Integration
 
-**Design Intent:** Every inbound flow from outside KESTREL's own sites reaches it only through the Boundary Cloud Access Point and then the cloud hub. That includes analysts, partners, performers, and the CSSP. The mission-owner stack behind it is the cloud hub's firewall and intrusion prevention, followed by the DMZ's edge services and WAF. Administration uses its own path through the VDI brokers and the privileged access workstations. KESTREL was registered with the access point's operator before it accepted traffic. DISA also approved the dedicated circuits to the data center and the alternate site as a direct connection.
+**Design Intent:** Every flow to or from outside KESTREL's own sites crosses a named managed interface, as the Cloud Computing SRG requires at IL5 (CCSD Section 6). For the cloud, that is the Boundary Cloud Access Point and then the cloud hub, and the dedicated circuits reach the hub over DISN through the same access point. For the data center, it is the data center hub, for the CSSP feed and its DISN egress. Inbound users, partners, performers, vendors, and the CSSP all arrive this way. IL6 products over F13 arrive instead through the enterprise cross domain solution, then the cloud hub. The mission-owner stack is the hub's firewall and intrusion prevention, then the DMZ's edge services and WAF. The VDI brokers have their own listener and subnet. KESTREL is registered with the access point's operator before it accepts traffic.
 
 **NIST Control Mapping:**
 
@@ -1431,11 +1431,11 @@
 - **SC-2 (partial):** Segregated Management Path keeps administration off the mission traffic path. Privileged Access Workstations and Administrative Tiering holds the device and tier slice.
 - **Declined:** SC-7(5) and SC-7(21) stay with the segmentation outcomes. Provider and access point operator controls are inherited and verified by Inherited Control Validation.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, Hybrid
 
 **Affected Components:** Network Firewall, Load Balancer/Reverse Proxy/API Gateway, Web Application Firewall, Intrusion Detection/Prevention System (IDPS), Private Connectivity/Dedicated Circuit, Remote Access/VPN Gateway
 
-**External Dependencies:** The Boundary Cloud Access Point, which DoD operates and which approves KESTREL's connection.
+**External Dependencies:** The Boundary Cloud Access Point and DISA, which approve KESTREL's connection and carry its DISN paths.
 
 **Security Impact:** High
 
@@ -1489,14 +1489,14 @@
 
 ### NE-3.1: Network Telemetry and Security Posture Visualization
 
-**Design Intent:** Cloud flow logs, the SDN fabric's flow telemetry, both hubs' logs, and the ground segment sensors all report to the security monitoring platform. Its network posture dashboard shows segmentation coverage, hub rule health, and DDoS and WAF alerts. The Platform Team, the Security Team, and the CSSP all read the same dashboard.
+**Design Intent:** Cloud flow logs, the SDN fabric's flow telemetry, every firewall's logs, and the ground segment sensors all report to the security monitoring platform. Its network posture dashboard shows segmentation coverage, rule health, and DDoS and WAF alerts. The Platform Team, the Security Team, and the CSSP all read the same dashboard.
 
 **NIST Control Mapping:**
 
 - **SI-4 (partial):** claimed at the base for Centralized Network Telemetry and Analytics Platform, which establishes central network monitoring rather than a specific detection function. Other monitoring surfaces, such as Endpoint Detection, hold other slices, and the IDPS outcome holds SI-4(1). The dashboard presents posture other outcomes produce, so it adds no citation.
 - **Declined:** AU-12 is not claimed, since the Operate pillar's Network Security Logging claims the records this platform carries.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Network Telemetry/Monitoring Platform
 
@@ -1530,7 +1530,7 @@
 
 ### NE-3.2: IDPS
 
-**Design Intent:** Intrusion prevention runs on both hubs, blocking at the DMZ's inbound paths, the circuit, and the ground segment conduit. East-west rules between spokes start in alert mode and move to blocking as the Security Team tunes them. Rule sets cover the exposure KESTREL actually has, namely web applications, the partner API, identity services, and the protocols crossing the conduit.
+**Design Intent:** Intrusion prevention runs on every firewall, blocking at the DMZ's inbound paths, the circuits, and each operating site's conduit. On premises, sensors fed by the SDN fabric's mirrored traffic add detection behind the hub. East-west rules between spokes start in alert mode and move to blocking as the Security Team tunes them. Rule sets cover the exposure KESTREL actually has, namely web applications, the partner API, identity services, and the protocols crossing the conduits.
 
 **NIST Control Mapping:**
 
@@ -1538,7 +1538,7 @@
 - **SI-4(7) (partial):** claimed for IDPS Mode Configuration, since deny mode drops a malicious session and reports it automatically. Endpoint Detection holds the disjoint host-process slice.
 - **Declined:** SI-4(13) belongs to OT/Legacy Passive Monitoring's baseline profiling. No SC-7 claim is made, since the tier rides the existing hub firewall at the SC-7(3) access point. SI-3 stays with the Device and Infrastructure focus area's host anti-malware.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Intrusion Detection/Prevention System (IDPS), Network Firewall
 
@@ -1605,7 +1605,7 @@
 
 ### NE-3.3: Trusted DNS Service
 
-**Design Intent:** KESTREL's own resolvers in the cloud, the data center, the alternate site, and each operating site are the only ones hosts may use. Outbound queries are filtered by policy, and the resolvers validate DNSSEC. KESTREL's public names, one for each user-facing application, are hosted in the cloud provider's DNS service and signed. Resolver traffic across the circuits stays inside their encrypted tunnels.
+**Design Intent:** KESTREL's own resolvers in the cloud, the data center, the alternate site, and each operating site are the only ones hosts may use. Outbound queries are filtered by policy, and the resolvers validate DNSSEC. KESTREL's public names are delegated under the program's DoD parent zone, signed, and point only at the access point's published addresses, with DoD publishing their delegation records. Resolver traffic across the circuits stays inside their encrypted tunnels.
 
 **NIST Control Mapping:**
 
@@ -1614,11 +1614,11 @@
 - **SC-22 (partial):** claimed for Managed DNS Service Selection, which provisions resolution redundantly and separates authoritative from recursive roles. SC-22 has no enhancements, and Custom DNS for Restricted Resolution holds the enclave slice.
 - **Declined:** Managed DNS Firewall Rules opens no control, since DNS Advanced Protection owns malicious-domain blocking and Network Firewall holds SC-7(8). SI-4 is left to DNS Advanced Protection, the IDPS SI-4(1) view, and the Operate pillar. SC-8 is the Data focus area's, and Insecure Services and Protocols finds remaining cleartext resolution.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** DNS Infrastructure, Compute, Device/Workstation, Application/API
 
-**External Dependencies:** The IL5 cloud provider, whose controls KESTREL inherits under its provisional authorization. The provider hosts KESTREL's public zone.
+**External Dependencies:** DISA, which operates the DoD parent zone and publishes KESTREL's delegation records.
 
 **Security Impact:** Moderate
 
@@ -1670,7 +1670,7 @@
 
 ### NE-3.4: Private DNS Service
 
-**Design Intent:** Each spoke's private zone holds its internal names, and the private endpoint zones resolve every managed service to its endpoint. Each side's resolvers forward the other side's names across the circuit, so a circuit outage leaves local resolution working. Each operating site resolves only its own names and the IT/OT DMZ, through a local resolver pair, so a lost conduit leaves resolution working.
+**Design Intent:** Each spoke's private zone holds its internal names, and the private endpoint zones resolve every managed service to its endpoint. Every resolver forwards the other sites' names across the circuits, so an outage leaves local resolution working. The alternate site's standby DNS takes over the data center's names if it is lost. Each operating site resolves only its own names and the IT/OT DMZ, through a local resolver pair, so a lost conduit leaves resolution working.
 
 **NIST Control Mapping:**
 
@@ -1678,7 +1678,7 @@
 - **SC-22 (partial):** claimed for Custom DNS for Restricted Resolution, which builds redundancy from local resolvers in an enclave with no upstream. Managed DNS Service Selection holds the disjoint connected-estate slice.
 - **Declined:** the SC-20 base stays with Trusted DNS Service for external queries. Private Connectivity's SC-7(4) claim is inherited, not reopened, since resolution only steers clients to its interface. SI-4 belongs to DNS Advanced Protection and IDPS.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** DNS Infrastructure, Compute, Storage/Database, Application/API
 
@@ -1723,7 +1723,7 @@
 
 ### NE-3.5: DNS Advanced Protection
 
-**Design Intent:** Both sides' resolvers block known-malicious, newly registered, and algorithmically generated domains using a threat feed. Query logs go to the security monitoring platform, where analytics look for tunneling, beaconing, and exfiltration. Records are checked continuously against the asset inventory, so a record pointing at a removed resource is caught before someone else can claim the address.
+**Design Intent:** Every KESTREL resolver blocks known-malicious, newly registered, and algorithmically generated domains using a threat feed. Query logs go to the security monitoring platform, where analytics look for tunneling, beaconing, and exfiltration. Records are checked continuously against the asset inventory, so a record pointing at a removed resource is caught before someone else can claim the address.
 
 **NIST Control Mapping:**
 
@@ -1731,7 +1731,7 @@
 - **SI-4(18) (partial):** claimed for Malicious DNS Activity Monitoring, since a resolver watching for tunneling and data in query names is interior analysis of a covert exfiltration channel. Data Loss Prevention (DLP) and Monitoring holds the disjoint egress-content slice.
 - **Declined:** Both sibling DNS outcomes decline SI-4 so this one can claim it. SC-7(10) is not reopened, since DNS tunnels never form the TLS session it inspects. SC-20, SC-21, SC-22, and SC-20(2) stay with the sibling DNS outcomes. SI-4(7) does not fit preventive list-based blocking and is held elsewhere. SI-4(24) belongs to Endpoint Detection, and SI-4(1) to IDPS. CM-8 stays with Resource Decommissioning Governance, which Dangling DNS Records Detection feeds.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** DNS Infrastructure, Compute, Device/Workstation, Application/API
 
@@ -1776,7 +1776,7 @@
 
 ### NE-3.7: External Attack Surface Management
 
-**Design Intent:** The Security Team watches KESTREL's public names and addresses continuously from outside, and it reviews what it finds against the inventory each month. KESTREL's source code is held on performer laptops, so the Security Team also watches public code hosting and paste sites for its code, secrets, and credentials. Each finding opens a service desk ticket to the owning team.
+**Design Intent:** The Security Team watches KESTREL's public names and addresses continuously from outside, and it reviews what it finds against the inventory each month. A tenant-level check finds any cloud subscription or resource created outside KESTREL's management group, and a deny policy blocks new ones. KESTREL's source code is held on performer laptops, so the Security Team also watches public code hosting and paste sites for its code, secrets, and credentials. Each finding opens a service desk ticket to the owning team.
 
 **NIST Control Mapping:**
 
@@ -1784,11 +1784,11 @@
 - **AU-13 (partial), AU-13(1) (partial):** claimed for Leaked Credential and Exposed Secret Monitoring, which watches external public sites with automated mechanisms. It is the external counterpart Secrets and Credentials Detection anticipated. Both are partial because credentials are only one class of disclosed information.
 - **Declined:** CM-8(3) and CM-8 are not claimed, since unrecorded assets feed Asset Management's discovery process and resources that should be retired go to Resource Decommissioning Governance.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Compute, Storage/Database, Application/API, Network Infrastructure, Identity Platform
 
-**External Dependencies:** The CSSP, which reports external exposures and leaked credentials it sees in its threat intelligence.
+**External Dependencies:** A commercial exposure and leak monitoring service. The CSSP, which reports external exposures and leaked credentials it sees in its threat intelligence.
 
 **Security Impact:** High
 
@@ -1848,7 +1848,7 @@
 - **SI-4(5) (partial):** claimed for Anomaly Alerting and Operator Notification, which alerts personnel without an automated response. SI-4(7) would require terminating the event, which could itself cause a safety consequence on a live process. Endpoint Detection's EDR Passive/Audit Mode and others hold slices for other system classes.
 - **Declined:** SI-4(7) is held elsewhere and would act on a live process. The SI-4 base is not reopened, the same discipline Network Firewall applies to SC-7. SI-4(11) covers outbound traffic at external interfaces rather than interior OT conversations. SI-4(4) stays with Industrial Protocol Filtering (DPI), which enforces inline. CM-6 stays with OT Baseline Configuration Drift Detection, and CM-8 and CM-8(3) with OT/Legacy Passive Protocol-Aware Discovery. AU-6 does not fit an alert raised at detection. This outcome feeds Zone-to-Zone Data Flow Monitoring.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** OT/ICS Device, OT/ICS Passive Network Monitoring, Device/Workstation
 
@@ -1912,7 +1912,7 @@
 - **SI-4(5) (partial):** claimed for Spoofing/Jamming Alerting and Operator Notification, which alerts personnel without a response obligation. Endpoint Detection's EDR Passive/Audit Mode and others hold slices for other system classes.
 - **Declined:** SI-4(7) is not claimed, since an automated receiver reset or source switchover in flight could cause the harm monitoring exists to prevent. SC-5 does not fit external RF jamming, which SI-4(5) already captures. SA-8 belongs to the platform's design-time engineering. SC-45, SC-45(1), and SC-45(2) stay with Time Synchronization, which trusts its source rather than testing it. CP-12 belongs to whatever outcome builds a PNT-loss safe mode. Anti-spoofing hardware, like SR-9(1) anti-tamper work, is out of scope.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Cyber-Physical System (OT/ICS)
 
 **Affected Components:** Industrial Controller/SCADA, OT/ICS Passive Network Monitoring, Network Telemetry/Monitoring Platform, Device/Workstation
 

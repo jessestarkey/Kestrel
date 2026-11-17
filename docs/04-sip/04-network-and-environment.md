@@ -8,7 +8,7 @@
 
 **Selected Tool / Product / Service:** Panorama with the PAN-OS provider for OpenTofu, Cisco ACI and APIC, OpenTofu, GitLab Ultimate
 
-**Environment-Specific Tailoring:** One Panorama rule base, held as OpenTofu in GitLab, drives both hubs and the alternate site firewall. The APIC takes the data center fabric's policy from the same repository. A change is a merge request with a second reviewer, and changes to the shared rule base go to the Configuration Control Board. The ground segment firewall keeps its own rule set under Fleet Operations, since the conduit stays a separate boundary.
+**Environment-Specific Tailoring:** One Panorama rule base, held as OpenTofu in GitLab, drives both hubs and the alternate site firewall over F35. The APIC takes the data center fabric's policy from the same repository. A change is a merge request with a second reviewer, and shared rule base changes go to the Configuration Control Board. Fleet Operations keeps each ground segment firewall's rule set in its own repository, loaded in a window.
 
 **Accountable Team:** Platform Team
 
@@ -122,7 +122,7 @@
 
 ### NE-1.5: Network Micro Segmentation
 
-**Selected Tool / Product / Service:** Azure CNI Powered by Cilium network policy, Cisco ACI and APIC, Azure Monitor and VNet flow logs, Open Policy Agent (Gatekeeper and Conftest), Splunk Enterprise, the penetration testing provider
+**Selected Tool / Product / Service:** Azure CNI Powered by Cilium network policy, Cisco ACI and APIC, Azure Monitor and VNet flow logs, Gatekeeper and Conftest, Splunk Enterprise, the penetration testing provider
 
 **Environment-Specific Tailoring:** Workload security groups in each spoke and ACI contracts in the data center carry each team's mapped flows, with everything else denied. AKS clusters use Cilium network policy that denies traffic between namespaces from their creation, and Gatekeeper rejects a namespace without one. Flow logs go to Splunk, which flags rules unused for 90 days. The penetration testers try the vendor split and the dev/test to prod deny in each annual test.
 
@@ -159,7 +159,7 @@
 
 **Selected Tool / Product / Service:** Palo Alto Networks PA-Series, Nozomi Networks Guardian
 
-**Environment-Specific Tailoring:** The zones and conduits are designed and validated on the spare stations and the simulator in Phase 2. Device identity and maintenance windows then build on them. Each operating site's conduit allow-lists are applied when the fleet integrates. The IT/OT DMZ's staging servers are built behind the data center hub in Phase 2, giving fleet recordings and host logs their path.
+**Environment-Specific Tailoring:** The zones and conduits are designed and validated on the spare stations and the simulator in Phase 2. Device identity and maintenance windows then build on them. Each operating site's conduit allow-lists are applied when the fleet integrates. The IT/OT DMZ's staging servers are built behind the data center hub in Phase 2. Fleet recordings and host logs leave through them, and certified model packages enter.
 
 **Accountable Team:** Fleet Operations, with the Platform Team for the IT/OT DMZ
 
@@ -221,7 +221,7 @@
 
 **Environment-Specific Tailoring:** Bastille sensors detect rogue access points and unauthorized radios at the data center and the alternate site from Phase 2. They extend to each operating site when the fleet integrates. Alerts reach the Security Team through Splunk. No wireless LAN exists, so WPA2/3-Enterprise has nothing to authenticate, and any future one must use it.
 
-**Accountable Team:** Security Team
+**Accountable Team:** Platform Team, with the Security Team for alerts
 
 **Dependencies:** DE-3.1
 
@@ -251,7 +251,7 @@
 
 **Selected Tool / Product / Service:** Azure Private Link, Azure ExpressRoute, ExpressRoute circuits from two carriers, Palo Alto Networks VM-Series, Palo Alto Networks PA-Series, Azure Policy
 
-**Environment-Specific Tailoring:** Every provider-managed service gets a private endpoint in its own spoke, and Azure Policy denies public network access. The data center and alternate site circuits come from different carriers and terminate on the cloud hub and each site's firewall. ExpressRoute private peering is not encrypted, so IPsec tunnels in FIPS-CC mode run between the firewalls inside each circuit. The cloud hub terminates them on an active/passive VM-Series pair, sized for the bulk flows F4 and F20. BGP sessions are authenticated, and prefix filters accept only KESTREL's address ranges.
+**Environment-Specific Tailoring:** Every provider-managed service gets a private endpoint in its own spoke, and Azure Policy denies public network access. The data center's two circuits come from different carriers on diverse paths, the alternate site has a third, and all ride DISN through the access point to different meet-me points, and terminate on the cloud hub and each site's firewall. ExpressRoute private peering is not encrypted, so IPsec tunnels in FIPS-CC mode run between the firewalls inside each circuit. The cloud hub terminates them on an active/passive VM-Series pair, sized for the bulk flows F4 and F20. BGP sessions are authenticated, and prefix filters accept only KESTREL's address ranges.
 
 **Accountable Team:** Platform Team
 
@@ -281,11 +281,11 @@
 
 **Selected Tool / Product / Service:** Azure API Management, Azure Kubernetes Service, Azure Machine Learning, Azure Application Gateway WAF v2
 
-**Environment-Specific Tailoring:** AKS, Azure Machine Learning, and API Management are injected into their spokes' subnets, so their traffic follows the hub's routes. Application Gateway runs as a private deployment with no public IP, and its listeners exist only in the DMZ. GV-5.12 confirms the private deployment in Azure Government before the first gateway is built. Mission team services publish only internal listeners. The Platform Team reviews internal connections each quarter and removes any that no longer match a documented flow.
+**Environment-Specific Tailoring:** AKS, Azure Machine Learning, Container Instances, and API Management are injected into their spokes' subnets, so their traffic follows the hub's routes. Application Gateway runs as a private deployment with no public IP, and its listeners exist only in the DMZ. GV-5.12 confirms the private deployment in Azure Government before the first gateway is built. Mission team services publish only internal listeners. The Platform Team reviews internal connections each quarter and removes any that no longer match a documented flow.
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** NE-2.4
+**Dependencies:** NE-2.4, GV-5.12
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -344,7 +344,7 @@
 
 **Selected Tool / Product / Service:** Palo Alto Networks VM-Series, Palo Alto Networks PA-Series, Panorama with the PAN-OS provider for OpenTofu
 
-**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub, with every spoke peered only to it and user-defined routes sending all traffic through it. A PA-Series pair fronts the data center's ACI fabric. From Phase 1, custom URL categories limit outbound web traffic to the update and package sources the package mirror uses. Both hubs decrypt outbound TLS from Phase 2 with a program PKI certificate, exempting mutual TLS between workload identities.
+**Environment-Specific Tailoring:** VM-Series firewalls form the cloud hub, with every spoke peered only to it and user-defined routes sending all traffic through it. A PA-Series pair fronts the data center's ACI fabric. From Phase 1, outbound traffic is limited to F29's and F30's allow-listed classes. Both hubs decrypt outbound TLS from Phase 2, exempting mutual TLS between workload identities.
 
 **Accountable Team:** Platform Team
 
@@ -445,7 +445,7 @@
 
 **Selected Tool / Product / Service:** Pomerium Enterprise, Azure Virtual Desktop, Azure Private Link, Defender for Servers, CyberArk Privileged Access Manager
 
-**Environment-Specific Tailoring:** Pomerium admits developers to GitLab, CI, and the experimentation workspaces from the first commit, behind the DMZ's WAF. Azure Virtual Desktop admits operators and CSSP analysts through private endpoints in the DMZ, with public access disabled. The performer hosts their names in its own DNS, pointing at DMZ addresses KESTREL supplies under the interconnection agreement. Neither path offers a network tunnel, so no laptop joins KESTREL's network. Defender for Servers opens cloud management ports only for a just-in-time window. On-premises management ports accept only CyberArk's session hosts. Sessions end after 15 idle minutes, and the Security Team can end any session at once.
+**Environment-Specific Tailoring:** Pomerium admits developers to GitLab and CI, and program office staff to approvals over F38, behind the DMZ's WAF. Azure Virtual Desktop admits operators, data scientists, vendors over F37, and CSSP analysts to their host pools through private endpoints. Neither path offers a network tunnel. Defender for Servers opens cloud management ports only for a just-in-time window, and on-premises ports accept only CyberArk's session hosts.
 
 **Accountable Team:** Platform Team
 
@@ -603,7 +603,7 @@
 
 **Selected Tool / Product / Service:** the DISA Boundary Cloud Access Point, the Platform Team's landing zone modules derived from Mission Landing Zone, Palo Alto Networks VM-Series, Azure Policy
 
-**Environment-Specific Tailoring:** Every user flow arrives through DISA's internet access points, the Boundary Cloud Access Point, and the cloud hub. Azure Policy denies Azure public IP resources in every spoke. From Phase 1 the mission-owner stack is the VM-Series hub with Threat Prevention and outbound URL filtering, followed by the DMZ's WAF. Administration uses its own path through the VDI brokers and the privileged access workstations. DISA approves the access point connection and the two dedicated circuits before the DMZ accepts traffic.
+**Environment-Specific Tailoring:** Every user flow arrives through DISA's internet access points, the Boundary Cloud Access Point, and the cloud hub. Azure Policy denies Azure public IP resources in every spoke. From Phase 1 the mission-owner stack is the VM-Series hub with Threat Prevention and outbound URL filtering, followed by the DMZ's WAF. Administration uses its own path through the VDI brokers and the privileged access workstations. The dedicated circuits reach the hub over DISN through the same access point. DISA approves the connection before the DMZ accepts traffic.
 
 **Accountable Team:** Platform Team
 
@@ -695,7 +695,7 @@
 
 **Selected Tool / Product / Service:** Infoblox NIOS, Infoblox NIOS virtual appliances in Azure, Azure DNS
 
-**Environment-Specific Tailoring:** Infoblox NIOS appliances resolve for the data center and the alternate site, and NIOS virtual appliances in Platform Prod resolve for the cloud. Hosts may use no other resolver, outbound queries are filtered by policy, and every resolver validates DNSSEC. KESTREL's public names sit in a signed Azure DNS zone. Resolver traffic across the circuits stays inside their IPsec tunnels.
+**Environment-Specific Tailoring:** Infoblox NIOS appliances resolve for the data center and the alternate site, and NIOS virtual appliances in Platform Prod resolve for the cloud. Hosts may use no other resolver, outbound queries are filtered by policy, and every resolver validates DNSSEC. KESTREL's public names sit signed under the program's DoD parent zone, and Azure DNS holds only the private zones. Resolver traffic across the circuits stays inside their IPsec tunnels.
 
 **Accountable Team:** Platform Team
 

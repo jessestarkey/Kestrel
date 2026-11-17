@@ -6,7 +6,7 @@
 
 ### RK-1.1: Risk Assessment Methodology
 
-**Design Intent:** The PMO ISSE defines one semi-quantitative method based on NIST SP 800-30, scoring likelihood and impact on five-point scales and combining them in a matrix. Impact is anchored to the CCSD's categorization and to mission effects. Anything that could cost an aircraft, compromise the command link, or expose CCSD row 13's key material scores at the top. The Security Team and the team leads are trained on the method, and the PMO ISSE reviews it each year.
+**Design Intent:** The PMO ISSE defines one semi-quantitative method based on NIST SP 800-30, scoring likelihood and impact on five-point scales and combining them in a matrix. Impact is anchored to the CCSD's categorization, to mission effects, and to privacy harm to individuals. Anything that could cost an aircraft, compromise the command link, expose CCSD row 13's key material, or tamper with a certified model or signed release scores at the top. The Security Team and the team leads are trained on the method, and the PMO ISSE reviews it each year.
 
 **NIST Control Mapping:**
 
@@ -58,7 +58,7 @@
 
 ### RK-1.2: Risk Appetite and Tolerance Definition
 
-**Design Intent:** KESTREL's appetite is lowest for risk to flight safety, the command link, and key material, where only Very Low residual risk is tolerated without AO action. It is moderate for analytic availability and for development environments. Each tolerance band maps to an acceptance authority. The ISSM may accept Low, the program manager Moderate, and only the AO High or Very High. The statement is reviewed each year with the steering committee.
+**Design Intent:** The program manager drafts KESTREL's risk appetite statement, and the AO approves it. Appetite is lowest for flight safety, the command link, key material, and the High-integrity models and releases (CCSD rows 6, 8, 10, and 13). Any residual risk above Very Low there goes to the AO. Elsewhere it is moderate for analytic availability and for development environments. The ISSM and ISSOs score each request and recommend. The AO accepts every risk, and a standing AO delegation recorded in the authorization decision lets the PMO ISSE accept Low ones. If the PMO ISSE is unavailable, the request waits for the AO. The statement is reviewed each year with the steering committee.
 
 **NIST Control Mapping:**
 
@@ -111,7 +111,7 @@
 
 ### RK-1.3: Risk Register and Tracking
 
-**Design Intent:** The ISSM keeps one risk register that receives risks from every source. Sources include threat models and the architecture risk register, penetration tests, the SCA, continuous monitoring, AI certification acceptances, and supply chain assessments. Each risk carries an owner, a score, a treatment, and a review date, and it links to its POA&M items and SCTM controls. The steering committee reviews the register each month, and a risk posture dashboard shows it to leadership.
+**Design Intent:** The ISSM keeps one risk register that receives risks from every source. Sources include threat models and the architecture risk register, penetration tests, the SCA, continuous monitoring, AI certification acceptances, and supply chain assessments. Each risk carries an owner, a score, a treatment, and a review date, and links to its POA&M items and SCTM controls. The POA&M lives in eMASS and the register in the program's work tracker, linked once by record ID. The steering committee reviews the register each month, and a risk posture dashboard shows it to leadership.
 
 **NIST Control Mapping:**
 
@@ -123,7 +123,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** DISA's eMASS, which holds the POA&M.
 
 **Security Impact:** Moderate
 
@@ -186,7 +186,7 @@
 
 ### RK-1.4: Risk Acceptance Process
 
-**Design Intent:** A risk owner proposes an acceptance through the service desk, and the ISSM scores it against the tolerance bands, which route it to the right authority. Every acceptance records its rationale, compensating measures, and an expiry no later than one year. CCSD tailoring action 3, which expires on 2027-09-30, is the model. Acceptances are re-reviewed before they expire, and an expired acceptance becomes an open finding.
+**Design Intent:** A risk owner proposes an acceptance through the service desk. The ISSM scores it against the tolerance bands. A Low or Very Low risk goes to the PMO ISSE under the AO's delegation, and everything else goes to the AO. A risk above Very Low that touches CCSD rows 6, 8, 10, or 13 always goes to the AO. The accepting authority is never the team whose delivery the finding blocks. Every acceptance records its rationale, compensating measures, and an expiry no later than one year. Acceptances are re-reviewed each quarter and before they expire, and a second extension goes to the AO. An expired acceptance becomes an open finding.
 
 **NIST Control Mapping:**
 
@@ -197,7 +197,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** DISA's eMASS, where accepted risks are recorded.
 
 **Security Impact:** Moderate
 
@@ -238,7 +238,7 @@
 
 ### RK-1.5: Security Assessment Plan
 
-**Design Intent:** The SCA authors the Security Assessment Plan for each assessment cycle. It covers the cloud, the data center, the alternate site, the fleet through spares and the simulator, and the AI models through their evidence annexes. The ISSM and the PMO ISSE review its scope against the SCTM, and the AO approves it. It is revised each cycle and whenever the boundary changes.
+**Design Intent:** The SCA authors the Security Assessment Plan for each assessment cycle. It covers the cloud, the data center, the alternate site, the fleet through spares and the simulator, and the AI models through their evidence annexes and testing in stage. Controls inherited from each provider under Inherited Control Validation (`GV-5.12`) are assessed by reviewing their packages. The ISSM and the PMO ISSE review its scope against the SCTM, and the AO approves it. It is revised each cycle and whenever the boundary changes.
 
 **NIST Control Mapping:**
 
@@ -249,7 +249,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** The SCA, who assesses KESTREL independently for the AO.
+**External Dependencies:** The SCA, who assesses KESTREL independently for the AO. DISA's eMASS, which holds the plan.
 
 **Security Impact:** Moderate
 
@@ -290,7 +290,7 @@
 
 ### RK-1.6: Security Assessment Report (SAR)
 
-**Design Intent:** The SCA writes the SAR, recording a determination and its evidence for every control assessed. The ISSM checks it for factual accuracy without changing any determination, and the SCA delivers it to the AO with the package.
+**Design Intent:** The SCA writes the SAR, recording a determination and its evidence for every control assessed, and checks its coverage against the Security Assessment Plan. The ISSM checks it for factual accuracy without changing any determination. It is marked and handled as CUI and distributed only to the AO, the program manager as system owner, the ISSM, and the PMO ISSE. It goes into the package the ISSM submits.
 
 **NIST Control Mapping:**
 
@@ -301,7 +301,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** The SCA, who assesses KESTREL independently for the AO.
+**External Dependencies:** The SCA, who assesses KESTREL independently for the AO. DISA's eMASS, which holds the SAR.
 
 **Security Impact:** High
 
@@ -342,7 +342,7 @@
 
 ### RK-1.7: Risk Assessment Report (RAR)
 
-**Design Intent:** The SCA writes the RAR. It reads the SAR's findings, the open risk register, and the current threat picture together to show what they mean for KESTREL's mission. It is reviewed with the ISSM and the PMO ISSE and delivered to the AO alongside the SAR.
+**Design Intent:** The SCA writes the RAR. It reads the SAR's findings, the open risk register, and the current threat picture together to show what they mean for KESTREL's mission. It is reviewed with the ISSM, the PMO ISSE, and the risk owners and delivered to the AO alongside the SAR. The SCA reissues it when a reauthorization trigger fires or the threat brief reports a material change.
 
 **NIST Control Mapping:**
 
@@ -353,7 +353,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** The SCA, who assesses KESTREL independently for the AO.
+**External Dependencies:** The SCA, who assesses KESTREL independently for the AO. DISA's eMASS, which holds the RAR.
 
 **Security Impact:** High
 
@@ -394,7 +394,7 @@
 
 ### RK-1.8: Plan of Action and Milestones (POA&M)
 
-**Design Intent:** The ISSM opens a POA&M item for every weakness KESTREL intends to fix, whether it comes from the SAR, a penetration test, continuous monitoring, or a STIG finding. Each item carries its owner, corrective action, resources, and dated milestones. Milestones are reviewed each month and reported to the AO each quarter. An item closes only when its fix is verified and the evidence is attached.
+**Design Intent:** The ISSM opens a POA&M item in eMASS for every weakness KESTREL intends to fix. Sources include the SAR, penetration tests, continuous monitoring, STIG findings, AI Cyber T&E, CSSP directives, and inspections. Each item carries its owner, corrective action, resources, and dated milestones. Milestones are reviewed each month and reported to the AO each quarter. An item closes only when an ISSO verifies the fix by the original test, with the evidence filed in the evidence repository and linked.
 
 **NIST Control Mapping:**
 
@@ -406,7 +406,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** DISA's eMASS, which holds the POA&M.
 
 **Security Impact:** High
 
@@ -447,7 +447,7 @@
 
 ### RK-1.9: Emerging Technology Risk Assessment
 
-**Design Intent:** The chief engineer and the PMO ISSE watch the technologies likely to reach KESTREL, such as new foundation models and agent frameworks, new payload sensors, new datalink and satellite communications, and post-quantum cryptography. Each one is assessed before adoption through the intake path, and the risks it brings that the current controls do not cover go into the register.
+**Design Intent:** The chief engineer and the PMO ISSE watch every technology class likely to reach KESTREL. Today those are new foundation models and agent frameworks, new payload sensors, and new datalink and satellite communications. Each one that reaches an adoption decision is assessed first. AI candidates go through the AI/ML Governance Review Board, and everything else through the ISSM's Security Impact Analysis (SIA) (`GV-5.11`). Risks the current controls do not cover go into the register. The post-quantum transition is a mandate, owned by Post-Quantum Cryptography Readiness (`DA-3.2`).
 
 **NIST Control Mapping:**
 
@@ -500,7 +500,7 @@
 
 ### RK-2.1: Threat Intelligence Program
 
-**Design Intent:** The Security Team runs KESTREL's threat intelligence function, with a named analyst role. Its requirements focus on adversaries targeting ISR and unmanned systems, attacks on datalinks and navigation, and attacks on AI supply chains and models. Sources are the CSSP, DoD intelligence products, and the performer's DIB threat sharing. The Security Team reviews the program and its sources each year.
+**Design Intent:** The Security Team runs KESTREL's threat intelligence function, with a named threat intelligence analyst. Its requirements focus on adversaries targeting ISR and unmanned systems, attacks on datalinks and navigation, and attacks on AI supply chains and models. Sources are the CSSP and DoD intelligence products, much of them classified. A cleared government point of contact and the CSSP provide sanitized products, and only releasable content enters KESTREL. The Security Team reviews the program and its sources each year.
 
 **NIST Control Mapping:**
 
@@ -511,7 +511,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** The CSSP and DoD intelligence producers, which supply threat intelligence. DC3's DIB Cybersecurity program, through the performer.
+**External Dependencies:** The CSSP and DoD intelligence producers, which supply threat intelligence through a cleared government point of contact.
 
 **Security Impact:** Moderate
 
@@ -552,7 +552,7 @@
 
 ### RK-2.2: Threat Landscape Monitoring
 
-**Design Intent:** The intelligence analyst tracks the actors and campaigns likely to target KESTREL's mission and the techniques they are adopting. These include datalink jamming and spoofing and MITRE ATLAS techniques against models. A monthly threat brief goes to the steering committee and the risk register, and urgent changes go to the ISSM at once.
+**Design Intent:** The Security Team's threat intelligence analyst tracks the actors and campaigns likely to target KESTREL's mission and the techniques they are adopting. These include datalink jamming and spoofing and MITRE ATLAS techniques against models. Each new technique is mapped against the detections already built, and any that would succeed becomes a finding. A monthly threat brief goes to the steering committee and the risk register, and urgent changes go to the ISSM at once.
 
 **NIST Control Mapping:**
 
@@ -605,7 +605,7 @@
 
 ### RK-2.3: Indicator Sharing and Enrichment
 
-**Design Intent:** KESTREL shares and receives indicators through the CSSP and, for the performer's side, through DC3's DIB Cybersecurity program. The analyst vets each incoming indicator for quality and relevance before it reaches detection. Vetted indicators go to the indicator feeds in the security monitoring platform.
+**Design Intent:** KESTREL receives indicators from the CSSP as STIX over TAXII into the security monitoring platform (F31), each with source, confidence, and expiry. The Security Team's threat intelligence analyst vets each one for quality and relevance before it reaches detection. Outbound, KESTREL shares indicators only through the CSSP, after the ISSM's release determination, and none cross the cross domain solution. DC3's DIB Cybersecurity program covers only the performer's own network and laptops, and its indicators reach KESTREL only after vetting.
 
 **NIST Control Mapping:**
 
@@ -618,7 +618,7 @@
 
 **Affected Components:** Self-Hosted Third-Party Application (COTS), Security Information and Event Management (SIEM) Platform, Cross-Domain/Boundary Transfer
 
-**External Dependencies:** The CSSP, and DC3's DIB Cybersecurity program through the performer.
+**External Dependencies:** The CSSP, under its service agreement. DC3's DIB Cybersecurity program, for the performer's own systems.
 
 **Security Impact:** Moderate
 
@@ -661,7 +661,7 @@
 
 ### RK-3.1: Risk-Based Remediation Prioritization
 
-**Design Intent:** One ranking orders remediation across every team. It combines the risk score, the asset's mission criticality, known exploitation, and exposure, so a known exploited flaw on a DMZ-facing or fleet asset outranks everything else. The team leads and the ISSM agree priorities each week, and the PMO ISSE recalibrates the model each quarter against what was actually exploited.
+**Design Intent:** One ranking orders remediation across every team. It combines the risk score, the asset's mission criticality, known exploitation, exposure, and effort, so a known exploited flaw on a DMZ, Tier 0, or fleet asset outranks everything else. Deadlines from IAVM directives and CYBERCOM orders are fixed inputs, and OT maintenance windows are a constraint. The team leads and the ISSM agree priorities each week and record any deviation from the ranking. The PMO ISSE recalibrates the model each quarter against the deviation log and what was actually exploited.
 
 **NIST Control Mapping:**
 
@@ -713,7 +713,7 @@
 
 ### RK-3.2: Business Impact Analysis (BIA)
 
-**Design Intent:** The business impact analysis works through KESTREL's mission processes, namely flying and controlling the aircraft, collecting and ingesting data, detecting and analyzing, releasing to partners, and retraining models. The intelligence mission leads and Fleet Operations set how long each process can be lost. The results set the criticality tiers that Recovery's recovery objectives and the incident severity model use. The analysis is reviewed each year and after any significant change.
+**Design Intent:** The program manager owns the business impact analysis, which covers every mission process, today flying and controlling the aircraft, collecting and ingesting data, detecting and analyzing, releasing to partners, and retraining models. The intelligence mission leads and Fleet Operations' operations lead set how long each can be lost and map each to its CCSD rows. The analysis traces each process to identity, the PKI, the hubs and circuits, and the security monitoring platform. Results are recorded as inventory tags that set the recovery tiers and incident severity. It is reviewed each year and after any significant change.
 
 **NIST Control Mapping:**
 

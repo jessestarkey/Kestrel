@@ -6,7 +6,7 @@
 
 ### AP-1.1: Capability Gap Identification and Planning
 
-**Design Intent:** The PMO ISSE measures each team's application security practice against this SADD's Application outcomes and records the gaps in the Security Implementation Plan. Each gap gets an owning team and a target date, and the gap list is reviewed at every Certification to Field threshold review.
+**Design Intent:** The PMO ISSE measures each team's application security practice against this SADD's Application outcomes and records the gaps in the Security Implementation Plan. Each gap gets an owning team and a target date, and the gap list is reviewed whenever the ASP's Certification to Field thresholds are reviewed. The program managers hold a discrete application security budget line that funds closing the gaps.
 
 **NIST Control Mapping:**
 
@@ -69,7 +69,7 @@
 
 ### AP-1.2: Application Intake and Onboarding
 
-**Design Intent:** Every new application, service, or COTS product enters KESTREL through one intake request in the service desk, before design or purchase. The request names the owning team, its product owner, the data it handles, and the payload vendor terms it falls under. It also names the spoke it will run in. Intake opens the threat model and the significant change review, and nothing deploys without a completed intake record.
+**Design Intent:** Every new application, service, or COTS product enters KESTREL through one intake request in the program's work tracker, before design or purchase. The request names the owning team, its product owner, the data it handles, the payload vendor terms it falls under, and its spoke or host. The PMO ISSE approves each request before work starts. Intake opens the threat model and the security impact analysis, and nothing deploys without a completed intake record.
 
 **NIST Control Mapping:**
 
@@ -309,15 +309,15 @@
 
 ### AP-2.1: IDE Security Tools
 
-**Design Intent:** The performer agreement requires security plugins in the development environments its developers use for KESTREL work. The plugins flag vulnerable patterns and secrets as code is written. They are an aid to the developer, while the pipeline's scans remain the authoritative check.
+**Design Intent:** The performer agreement requires security plugins in the development environments its developers use for KESTREL work. The plugins flag vulnerable patterns and secrets as code is written, and they never send KESTREL code outside the boundary. An AI coding assistant therefore waits until KESTREL hosts one. The plugins aid the developer, while the pipeline's scans remain the authoritative check.
 
 **NIST Control Mapping:**
 
 - **SA-11(1) (partial):** claimed partial for editor-resident analysis, with SAST holding the pipeline half that produces retained results. Editor findings are advisory, since a dismissible analysis cannot carry an assessment obligation.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** First-Party/Custom Application Code
+**Affected Components:** First-Party/Custom Application Code, Managed Device (Laptop/Desktop)
 
 **External Dependencies:** The performer, which under the interconnection agreement equips the laptops its developers use for KESTREL work.
 
@@ -360,7 +360,7 @@
 
 ### AP-2.2: Secure Coding Standards and Build Hardening
 
-**Design Intent:** The ASP's coding standard names the approved languages and frameworks, prefers memory-safe languages for new services, and lists the functions and patterns developers may not use. Every build applies the standard's compiler and packaging hardening settings, and the pipeline fails a build that drops them.
+**Design Intent:** The ASP's coding standard names the approved languages and frameworks, prefers memory-safe languages for new services, and lists the functions and patterns developers may not use. Every build applies the standard's compiler and packaging hardening settings, and the pipeline fails a build that drops them. Applications show users generic errors, and diagnostic detail goes only to logs authorized staff can read.
 
 **NIST Control Mapping:**
 
@@ -425,7 +425,7 @@
 
 ### AP-2.3: SAST
 
-**Design Intent:** SAST runs on every merge request and every merge in the shared pipeline, with rules tuned to each team's languages and frameworks. A finding at or above the ASP's threshold blocks the merge, and every exception the PMO ISSE approves is recorded against the finding.
+**Design Intent:** SAST runs on every merge request and every merge in the shared pipeline, with rules tuned to each team's languages and frameworks. A finding at or above the ASP's threshold blocks the merge. Exceptions are approved under Risk Acceptance Process (`RK-1.4`) and recorded against the finding.
 
 **NIST Control Mapping:**
 
@@ -486,7 +486,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** First-Party/Custom Application Code, CI/CD Pipeline
+**Affected Components:** First-Party/Custom Application Code, CI/CD Pipeline, Managed Device (Laptop/Desktop)
 
 **External Dependencies:** The performer, which under the interconnection agreement equips the laptops its developers use for KESTREL work. Its developers run the pre-commit hooks.
 
@@ -546,7 +546,7 @@
 
 - **RA-5 (partial):** claimed for the pre-deployment container image scanning surface, alongside Endpoint Detection's Vulnerability Scanning for live hosts. The base control is cited because RA-5's enhancements address cadence, breadth, privileged access, and trends rather than this surface.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Container, Third-Party Dependency (Embedded Library/Package), CI/CD Pipeline, Artifact/Model Registry
 
@@ -580,7 +580,7 @@
 
 ### AP-2.6: Malware Scanning
 
-**Design Intent:** The package mirror scans every package and base image it fetches, and the pipeline scans every build artifact before release. Vendor deliveries, such as payload vendor software and fleet firmware, are scanned at intake before anyone installs them.
+**Design Intent:** The package mirror scans every package and base image it fetches, and the pipeline scans every build artifact before release. Runners suppress package install scripts. Vendor software deliveries, such as the payload vendors' conversion software and COTS updates, are scanned at intake before anyone installs them. Fleet firmware intake follows Secure OT/Legacy Device Baselines (`DI-3.5`).
 
 **NIST Control Mapping:**
 
@@ -591,7 +591,7 @@
 
 **Affected Components:** Third-Party Dependency (Embedded Library/Package), CI/CD Pipeline, Artifact/Model Registry, Object/File Storage
 
-**External Dependencies:** The aircraft, ground equipment, and payload vendors, whose deliveries are scanned at intake.
+**External Dependencies:** The payload vendors and COTS suppliers, whose deliveries are scanned at intake.
 
 **Security Impact:** Moderate
 
@@ -621,7 +621,7 @@
 
 ### AP-2.7: Trusted Internal Package Repository
 
-**Design Intent:** The package mirror in Platform Prod is the only source builds resolve from, and the hub blocks every other route to public package indexes. Each ecosystem's proxy draws only from its approved upstream indexes. KESTREL's internal package names are reserved in the mirror, so a public package with the same name cannot replace one.
+**Design Intent:** The package mirror in Platform Prod is the only source builds resolve from, and the hub blocks every other route to public package indexes. The mirror fetches only over F30, from each ecosystem's approved upstream, and checks each publisher's digest or signature before caching. Newly published versions wait out a quarantine window before builds may use them. KESTREL's internal package names are reserved in the mirror, so a public package with the same name cannot replace one.
 
 **NIST Control Mapping:**
 
@@ -674,7 +674,7 @@
 
 ### AP-2.8: Dependency Review
 
-**Design Intent:** Every pull request that changes a dependency manifest is reviewed automatically for known vulnerabilities, license terms, and package health. A component that fails the ASP's criteria cannot merge without an approved exception.
+**Design Intent:** Every pull request that changes a dependency manifest is reviewed automatically for known vulnerabilities, license terms, and package health. A component that fails the ASP's criteria cannot merge without an exception approved under Risk Acceptance Process (`RK-1.4`).
 
 **NIST Control Mapping:**
 
@@ -727,7 +727,7 @@
 
 ### AP-2.9: External Runtime Service and Client-Side Code Governance
 
-**Design Intent:** Every user-facing application serves all of its own client code from KESTREL, with no third-party scripts, fonts, or analytics. Content security policies block anything else. No application calls an external runtime service other than those the cloud provider hosts inside the boundary, and any proposal to add one goes through intake.
+**Design Intent:** Every user-facing application serves all of its own client code from KESTREL, with no third-party scripts, fonts, or analytics, and content security policies block anything else. Every provider-hosted service an application calls goes into an inventory before release, with the data it receives, the credential it uses, and its residency. Residency stays within the SA-9(5) parameter CCSD tailoring action 5 sets. Today those are the foundation model deployment, the managed databases, the event streams, and the rights protection service in the Microsoft 365 DoD tenant.
 
 **NIST Control Mapping:**
 
@@ -736,11 +736,11 @@
 - **SI-7 (partial):** claimed for verifying externally hosted client-side code and refusing a mismatch, tracked jointly with Host Hardening and Integrity Protection's agent self-protection slice.
 - **Declined:** SI-7(1) is not claimed, because the framework's SI-7(1) claims cover checks the program runs against objects it holds, while subresource integrity is enforced by a browser the program does not operate.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Client-Side/Browser-Executed Code
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The IL5 cloud provider and KESTREL's Microsoft 365 DoD tenant, whose hosted services the inventory records.
 
 **Security Impact:** Moderate
 
@@ -896,7 +896,7 @@
 
 ### AP-2.12: Vendor SBOM Intake
 
-**Design Intent:** Contracts with every software supplier require an SBOM with each delivery and each update. That includes the payload vendors, the service desk vendor, and the ground equipment manufacturers. Each SBOM is checked for format and completeness and recorded against its product in the inventory. Where a supplier cannot provide one, the gap is recorded and the product's monitoring is tightened.
+**Design Intent:** Contracts with every software supplier require an SBOM with each delivery and each update, such as the payload vendors' and the service desk vendor's. Each SBOM is checked for format and completeness and recorded against its product in the inventory. Where a supplier cannot provide one, the gap is recorded and the product's monitoring is tightened. Fleet suppliers' SBOMs follow Secure OT/Legacy Device Baselines (`DI-3.5`).
 
 **NIST Control Mapping:**
 
@@ -904,11 +904,11 @@
 - **SR-4(4) (partial):** claimed because validating an acquired product's composition against the supplier's declaration is the pedigree analysis the enhancement describes.
 - **Declined:** correlation carries no independent RA-5 claim, since it consumes vulnerability data rather than scanning.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Self-Hosted Third-Party Application (COTS), Database Service
 
-**External Dependencies:** The payload vendors, the service desk vendor, and the aircraft and ground equipment manufacturers, which supply SBOMs under their contracts.
+**External Dependencies:** The payload vendors, the service desk vendor, and other COTS suppliers, which supply SBOMs under their contracts.
 
 **Security Impact:** Moderate
 
@@ -949,14 +949,14 @@
 
 ### AP-2.13: Image Signing
 
-**Design Intent:** The pipeline signs every image and release package automatically, with keys held in the HSMs. Admission control in every cluster rejects an unsigned image or one signed by any other key. The ground control stations and aircraft verify each edge model package's signature before loading it.
+**Design Intent:** The pipeline signs every image and release package with HSM-backed keys, a release key kept separate from the dev/test key, under the KMP. Admission control in every prod spoke admits only images carrying the release signature and a Certification to Field attestation, which protects CCSD row 10's High integrity. Edge model packages are counter-signed for the fleet under Offline/Air-Gapped Model Integrity Verification (`AI-8.13`).
 
 **NIST Control Mapping:**
 
 - **CM-14 (partial):** claimed for container images, refusing deployment of images unsigned by a recognized key. Signed/Verified Pipeline Definitions holds the pipeline-definition scope.
 - **SI-7(15) (partial):** claimed for cryptographic authentication of container images before installation, partial because it covers containers only. It is distinct from the SI-7, SI-7(1), SI-7(9), and SI-7(10) claims held for agents, files, and boot integrity.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Container, CI/CD Pipeline, Artifact/Model Registry
 
@@ -1009,7 +1009,7 @@
 - **SR-4(2) (partial):** recording each base image digest and following it through derived images is the tracking the enhancement describes.
 - **Declined:** SI-2 is not claimed, since staleness alerting feeds the flaw remediation process Vulnerability and Patch Management (Configuration Policy Orchestration) holds.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Container, Third-Party Dependency (Embedded Library/Package), CI/CD Pipeline, Artifact/Model Registry, Database Service
 
@@ -1050,7 +1050,7 @@
 - **CM-6(1) (partial):** claimed as an independent pre-deployment slice that verifies settings before they are applied, while the other claimants verify existing resources. The rules encode the baselines Baseline Configuration Standards defines, so any divergence is a defect here.
 - **Declined:** CM-3(2) stays with Asset Lifecycle Change Control, since this outcome checks a proposed template rather than validating an implemented change.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Infrastructure-as-Code (IaC), Compute, Storage/Database, Network Infrastructure
 
@@ -1091,7 +1091,7 @@
 - **CM-6 (partial):** the base is cited for identifying, documenting, and approving deviations, which Hardening Exception and Waiver Tracking supplies, held partial for the container benchmark only.
 - **CM-6(1) (partial):** claimed for the automated benchmark check, a pre-deployment slice distinct from Secure Compute Baselines' container definitions and Configuration Policy Orchestration's runtime verification, which hold other parts.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Container, CI/CD Pipeline
 
@@ -1131,7 +1131,7 @@
 
 - **AC-4 (partial), SC-7(5) (partial):** each claimed as a pre-deployment slice alongside the runtime claims of Network Micro Segmentation and IT/OT Zone and Conduit Segmentation. It verifies before admission that policy denies by default and matches the baseline Communication Requirements Mapping produces.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Segmentation Policy, Container, Infrastructure-as-Code (IaC)
 
@@ -1165,14 +1165,14 @@
 
 ### AP-2.18: Pre-Merge Sensitive Repo File Change Detection
 
-**Design Intent:** Pipeline definitions, infrastructure as code, admission policy, dependency manifests, ownership files, and the hubs' rule base are sensitive paths. A change to any of them needs approval from the Platform Team and the Security Team in addition to the team's own reviewer, and each one raises an alert in the security monitoring platform.
+**Design Intent:** Pipeline definitions, infrastructure as code, admission policy, dependency manifests, ownership files, and the hubs' rule base are sensitive paths. A change to any of them needs approval from the Platform Team and the Security Team in addition to the team's own reviewer. Each one raises an alert in the security monitoring platform.
 
 **NIST Control Mapping:**
 
 - **CM-3(1) (partial):** claimed for automatically documenting a sensitive repository change, notifying approvers, and holding it until review. Asset Lifecycle Change Control keeps the broader CM-3 (partial) claim, which this outcome feeds.
 - **CM-3(4) (partial):** routing sensitive-path changes to security reviewers places a security representative in the change decision.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** CI/CD Pipeline, Infrastructure-as-Code (IaC), Third-Party Dependency (Embedded Library/Package)
 
@@ -1206,14 +1206,14 @@
 
 ### AP-2.19: Policy-as-Code Evaluation
 
-**Design Intent:** One policy engine evaluates the pipeline's gates and every cluster's admission decisions. Its rules are version-controlled policy in the Platform Team's repository, changed only by reviewed pull requests. Admission runs in deny mode in every prod spoke and in stage, so stage rejects what production would.
+**Design Intent:** One policy engine evaluates the pipeline's gates and every cluster's admission decisions. Its rules are version-controlled policy in the Platform Team's repository, changed only by reviewed pull requests. Admission runs in deny mode in every prod spoke and in stage, so stage rejects what production would. If the engine is unreachable, admission fails closed.
 
 **NIST Control Mapping:**
 
 - **CM-3(1) (partial):** claimed for automatically blocking non-compliant deployments and recording exceptions, shared with Pre-Merge Sensitive Repo File Change Detection's repository slice.
 - **SA-15 (partial):** claimed for documenting and controlling changes to tool configuration through version-controlled policy rules, one subject slice alongside Application Threat Modeling and others.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Container Orchestration Control Plane, CI/CD Pipeline, Segmentation Policy
 
@@ -1265,7 +1265,7 @@
 - **SA-11(2) (partial):** claimed for keeping threat models current as the system evolves, a slice of the threat modeling dimension tracked jointly with Application Threat Modeling and AI Threat Modeling. All holders of the enhancement are tracked jointly.
 - **Declined:** CM-4 is not claimed, because it covers change impact analysis for deployed resources and the authorized system, not application designs.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code
 
@@ -1308,7 +1308,7 @@
 - **SC-39 (partial):** a separate execution focus area per build job is process isolation, cited at the base because neither enhancement describes container-level job isolation. It is tracked jointly with the Artificial Intelligence focus area's other environment-isolation claims.
 - **Declined:** SC-7(21) isolates components at the network layer, while this outcome isolates concurrent processes on shared compute, which SC-39 names precisely.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Container, CI/CD Pipeline
 
@@ -1342,7 +1342,7 @@
 
 ### AP-2.22: Least-Privilege CI/Build Infrastructure Access
 
-**Design Intent:** Each team's pipeline identity reaches only its own repositories, its own registry namespace, and its own dev/test spoke. Only the release identity can deploy to a prod spoke, the IL6 transfer gateway, or the edge release path, and it acts only after Certification to Field approves the release.
+**Design Intent:** Each team's pipeline identity reaches only its own repositories, its own registry namespace, and its own dev/test spoke. The Data Team builds and tests in Platform Dev/Test, on synthetic samples only. Only the release identity can deploy to a release target. These are the prod spokes (F5), the edge release path (F6), and the IL6 transfer gateway (F12). F35's on-premises targets are the data center's application hosts, the IT/OT DMZ, the security monitoring platform, and the firewalls. It acts only after Certification to Field approves the release. Build infrastructure access is reviewed twice a year.
 
 **NIST Control Mapping:**
 
@@ -1352,7 +1352,7 @@
 - **SA-3(1) (partial):** claimed for the access dimension of protecting the build environment, while Ephemeral/Isolated Build Environments holds the other dimensions.
 - **Declined:** AC-6(7) is not re-claimed, since the review runs as a campaign inside Access Reviews, which holds AC-6(7) in full.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Application and Service Account Identity, CI/CD Pipeline, Compute, Artifact/Model Registry
 
@@ -1427,7 +1427,7 @@
 
 ### AP-2.24: Build Provenance and Attestation (SLSA)
 
-**Design Intent:** Every build emits signed provenance naming its source revision, runner, pipeline definition, and inputs. Admission control and Certification to Field both verify it. The target is SLSA Build Level 3, which the in-cloud ephemeral runners make reachable.
+**Design Intent:** Every build emits signed provenance naming its source revision, runner, pipeline definition, and inputs. Admission control and Certification to Field both verify it. KESTREL commits to SLSA Build Level 3, which the in-cloud ephemeral runners make reachable, and records any shortfall as a dated gap.
 
 **NIST Control Mapping:**
 
@@ -1469,7 +1469,7 @@
 
 ### AP-2.25: CI Credential and Secrets Management
 
-**Design Intent:** Pipeline jobs authenticate with short-lived credentials bound to their workload identity, and they fetch any remaining secret from their spoke's vault at run time. No long-lived credential is stored in a pipeline variable or repository.
+**Design Intent:** Pipeline jobs authenticate with short-lived credentials bound to their workload identity, and they fetch any remaining secret from the vault of the spoke the job targets at run time. No long-lived credential is stored in a pipeline variable or repository.
 
 **NIST Control Mapping:**
 
@@ -1477,7 +1477,7 @@
 - **IA-5(7) (partial):** claimed for keeping static authenticators out of pipeline configuration. It joins the group jointly tracked with Secret Scanning and the Identity focus area.
 - **SA-3(1) (partial):** claimed for the credential dimension of protecting the build environment, while Ephemeral/Isolated Build Environments holds the other dimensions.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Cloud Workload/Native Platform Identity, CI/CD Pipeline
 
@@ -1513,7 +1513,7 @@
 
 ### AP-3.1: Test Data Management and Preproduction Data Controls
 
-**Design Intent:** Dev, test, and stage clusters in every application team's spoke run on synthetic or sanitized data, never live mission data. The Data Team produces the sanitized sets by removing incidental imagery of people and anything identifying a source. Stage carries production's configuration but not production's data.
+**Design Intent:** Dev, test, and stage clusters in the mission team and Platform dev/test spokes run on synthetic or sanitized data, never live mission data. The Data Team produces the sanitized sets by removing incidental imagery of people and anything identifying a source. ML Dev/Test is the one exception, holding live mission data under Secure Experimentation Environment (`AI-3.1`) and F18's release approval. Stage carries production's configuration but not production's data.
 
 **NIST Control Mapping:**
 
@@ -1554,7 +1554,7 @@
 
 ### AP-3.2: DAST
 
-**Design Intent:** Every candidate build of a user-facing application is scanned by DAST in its team's stage cluster, both unauthenticated and with test accounts for each role. Findings above the ASP's threshold block Certification to Field.
+**Design Intent:** Every candidate build of a user-facing application is scanned by DAST in its team's stage cluster, both unauthenticated and with test accounts for each role. Today those are the analyst portal, the signals workbench, the partner API, the LLM analyst assistant's front end, and the service desk. Findings above the ASP's threshold block Certification to Field.
 
 **NIST Control Mapping:**
 
@@ -1563,7 +1563,7 @@
 - **SA-11(9) (partial):** carried by Interactive Application Security Testing (IAST) Instrumentation. It is partial because unsupported runtimes are recorded as a gap.
 - **RA-5 (partial):** claimed for the deployed-application scanning surface, an independent slice alongside Container Scanning and others. The base is cited for the reason those slices give.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code
 
@@ -1626,7 +1626,7 @@
 - **CM-6 (partial):** claimed for establishing application-layer settings and documenting approved deviations, which the checklist mapping and gate exception path supply. The ASD STIG governs how the application is built and configured, which no other baseline claimant such as Baseline Configuration Standards reaches.
 - **CM-6(1) (partial):** the automated application-layer checklist evaluation, split from the base the same way Container Hardening Verification splits its own, which holds another slice.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code
 
@@ -1671,7 +1671,7 @@
 
 ### AP-3.4: API Security Testing
 
-**Design Intent:** Every API with a published schema is tested from that schema in stage, including authorization tests for each role and partner. Today those are the partner API, the feedback endpoints, and the model endpoints the mission teams call.
+**Design Intent:** Every API with a published schema is tested from that schema in stage, including authorization tests for each role and partner. Today those are the partner API, the feedback endpoints, and the model endpoints the mission teams call. Business logic tests cover the multi-step approvals, namely the foreign disclosure officer's partner release and the operator's approval of agent drafts. They also try cross-team object access across the payload vendor split.
 
 **NIST Control Mapping:**
 
@@ -1681,7 +1681,7 @@
 - **SI-10(6) (partial):** verifies that injection payloads never reach an interpreter. Web Application Firewall holds its own edge-filtering claims on this enhancement.
 - **Declined:** authorization abuse testing opens no AC-3 or AC-6 claim, since it verifies enforcement the Identity focus area establishes. Rate limiting tests likewise verify the SC-5-family protections Network and Environment holds.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** API/Interface Contract
 
@@ -1791,7 +1791,7 @@
 
 ### AP-3.6: Fuzz Testing
 
-**Design Intent:** Coverage-guided fuzzing targets every parser that takes untrusted input. These include the feedback endpoints that accept released products from the IL6 enclave, the partner API, and the ingest code that parses each payload vendor's raw formats. Fuzzing runs on each change to those parsers and continuously in the dev/test spokes.
+**Design Intent:** Coverage-guided fuzzing targets every parser that takes untrusted input. These include the feedback endpoints that accept released products from the IL6 enclave, the partner API, and the ingest code that parses each payload vendor's raw formats. Fuzzing runs on each change to those parsers and continuously on the pipeline's runners. Vendor-format parsers are fuzzed in Platform Dev/Test from synthetic samples, so raw vendor data never leaves its zone.
 
 **NIST Control Mapping:**
 
@@ -1886,7 +1886,7 @@
 
 ### AP-4.2: Artifact Bundle Integrity Verification
 
-**Design Intent:** The digest of every member of a release bundle is recorded when the bundle is assembled. Each digest is checked again at deployment to a prod spoke, at staging for the IL6 transfer, and at loading on a ground control station. A bundle that fails any check is stopped and reported to the Security Team.
+**Design Intent:** The digest of every member of a release bundle is recorded when the bundle is assembled. Each digest is checked again at deployment to every release target, at staging for the IL6 transfer, and at loading on a ground control station. A bundle that fails any check is stopped and reported to the Security Team.
 
 **NIST Control Mapping:**
 
@@ -1927,7 +1927,7 @@
 
 ### AP-4.3: Approver and Reviewer Audit Log
 
-**Design Intent:** Every review, approval, dismissal, and override in the source repository is forwarded to the security monitoring platform, where the Platform Team's administrators cannot change it. Each approval is checked against the approver's entitlement at the time, so an approval from someone not entitled to give it is flagged.
+**Design Intent:** Every review, approval, dismissal, and override in the source repository is forwarded to the security monitoring platform, where the Platform Team's administrators cannot change it. Each batch is hashed so an alteration is detectable. Each approval is checked against the approver's entitlement at the time. Identities resolve to the person through the identity provider, and a merge whose approver is also its author is refused.
 
 **NIST Control Mapping:**
 
@@ -1978,7 +1978,7 @@
 - **CM-6(1) (partial):** automated evaluation of the composed release, where an overriding manifest can make compliant components a non-compliant deployment. Per-component checks such as Container Hardening Verification hold other slices.
 - **Declined:** CM-6 is not claimed at the base, since ASD STIG Compliance and Container Hardening Verification hold deviation handling, and deviations here use Hardening Exception and Waiver Tracking.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code, Container
 
@@ -2012,7 +2012,7 @@
 
 ### AP-4.5: Deployment Risk Threshold Evaluation
 
-**Design Intent:** The pipeline combines each release's findings into one risk score against thresholds the PMO ISSE sets in the ASP. A release within the thresholds proceeds on the pipeline's evidence. A release outside them goes to the PMO ISSE, who approves it, sends it back, or escalates it for risk acceptance.
+**Design Intent:** The pipeline combines each release's findings into one risk score against thresholds the PMO ISSE sets in the ASP. A release within the thresholds proceeds on the pipeline's evidence. A release outside them goes to the PMO ISSE, who approves it, sends it back, or routes it for acceptance under Risk Acceptance Process (`RK-1.4`). Every release is CCSD row 10, so any residual risk above Very Low goes to the AO.
 
 **NIST Control Mapping:**
 
@@ -2020,7 +2020,7 @@
 - **RA-7 (partial):** release-level response to findings per the program's risk tolerance, one slice the Manage pillar's Risk Acceptance Process enumerates alongside the others.
 - **Declined:** CA-6 is not claimed, because the go/no-go gate operates inside an authorization the AO already granted.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Application/API, Compute
 
@@ -2074,7 +2074,7 @@
 - **CM-5(1) (partial):** the flag platform's automated enforcement and change record, while Branch Protection Policy Report holds the source-platform share.
 - **Declined:** the CP-10 base belongs to the Operate pillar's recovery focus area. CP-12 does not apply, since a rollback runs a certified configuration. CM-3 and CM-3(2) stay with Asset Lifecycle Change Control. SI-2 belongs to Patch Testing, Staged Rollout, and Rollback. CM-2(3) stays with Registry Hygiene Report.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code, Container, Database Service
 
@@ -2119,7 +2119,7 @@
 
 ### AP-4.7: Application Registration and Inventory Logging
 
-**Design Intent:** Deployment to a prod spoke fails unless the application is registered in the asset inventory with its owning team, product owner, data handled, and current version. Registration happens once at intake and updates automatically with each release.
+**Design Intent:** Deployment to any release target fails unless the application is registered in the asset inventory with its owning team, product owner, data handled, and current version. Registration happens once at intake and updates automatically with each release.
 
 **NIST Control Mapping:**
 
@@ -2163,7 +2163,7 @@
 
 ### AP-5.1: Architecture Risk Tracking
 
-**Design Intent:** Design risks that a threat model identified and the program chose to accept go into one architecture risk register. Each carries its owner, rationale, compensating measures, and review date. The register feeds the program's risk register, so the AO sees every accepted design risk.
+**Design Intent:** Design risks that a threat model identified and the AO accepted, or the PMO ISSE accepted under the standing delegation, go into one architecture risk register. Each carries its owner, rationale, compensating measures, and review date. The register feeds the program's risk register, so the AO sees every accepted design risk.
 
 **NIST Control Mapping:**
 
@@ -2213,7 +2213,7 @@
 - **CA-7(3) (partial):** trend analysis over successive STIG results, telling the program whether implementations or check cadence need to change. Unified Vulnerability Dashboard holds the cross-tool RA-5(6) comparison.
 - **Declined:** CM-6 and CM-6(1) stay with ASD STIG Compliance, whose machine-readable output feeds this register.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code
 
@@ -2254,7 +2254,7 @@
 - **SR-4 (partial):** monitoring that running artifacts still carry their recorded provenance. It is a fourth slice tracked jointly with Base Image Lineage Report and the other provenance outcomes, which record provenance at build time.
 - **Declined:** SR-4(2) stays with Base Image Lineage Report. CM-14 is held by the signing outcomes, and a validly signed image from an untrusted registry is still this outcome's finding. CM-7(5) belongs to Execution and Device Control, and CM-8(3) to Deployment Inventory Report.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Artifact/Model Registry, Container
 
@@ -2296,7 +2296,7 @@
 - **SI-12 (partial):** the build-artifact retention slice, alongside Model Registry Hygiene Report, with program records management left to the Manage pillar.
 - **Declined:** CM-2 is not reopened, since citing CM-2(3) claims only retention depth. SI-12(3) and MP-6 cover sanitization, the Data focus area's subject, while cleanup here is ordinary deletion.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Artifact/Model Registry, Container
 
@@ -2330,7 +2330,7 @@
 
 ### AP-5.5: Deployment Inventory Report
 
-**Design Intent:** The deployment inventory reads the versions actually running in every prod spoke and the edge model versions each aircraft reports at connection. It compares them with what Certification to Field approved, so anything running that was never certified is flagged.
+**Design Intent:** The deployment inventory reads the versions actually running on every release target. It compares them with what Certification to Field approved, so anything running that was never certified is flagged. Edge model versions on the aircraft are tracked under Model Registration and Inventory Logging (`AI-6.7`).
 
 **NIST Control Mapping:**
 
@@ -2338,7 +2338,7 @@
 - **CM-8(3) (partial):** detecting unauthorized application versions on otherwise compliant hosts, which other discovery outcomes such as Asset Inventory and Discovery cannot see.
 - **Declined:** CM-8 base and CM-8(1) are not reopened, and CM-8(4) stays with Resource Tagging and Ownership Strategy. CM-2 and CM-6(1) stay with Runtime Security Baseline, which checks settings rather than which release is present. CA-7 stays with Unified Vulnerability Dashboard.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code, Compute
 
@@ -2372,7 +2372,7 @@
 
 ### AP-5.6: Unified Vulnerability Dashboard
 
-**Design Intent:** One dashboard combines every scanner's and tester's findings for each application, deduplicated and ranked by risk. The owning teams, the Security Team, and the PMO ISSE all work from it. The CSSP's analysts can read it through their host pool.
+**Design Intent:** One dashboard combines every scanner's and tester's findings for each application, deduplicated and ranked by risk. It is built in the security monitoring platform, so the owning teams, the Security Team, the PMO ISSE, and the CSSP's analysts all read it there.
 
 **NIST Control Mapping:**
 
@@ -2381,11 +2381,11 @@
 - **CA-7 (partial):** status reporting for the application portfolio's vulnerability posture, alongside AMP Compliance Verification and others, with the Continuous Monitoring Plan (ConMon) holding strategy and metrics. Unlike Deployment Risk Threshold Evaluation's per-release score, this is the continuing view across everything fielded.
 - **Declined:** RA-5(4) stays with External Attack Surface Management. The RA-5 base is not claimed, since this outcome performs no scanning.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** Application/API, Compute, Database Service
 
-**External Dependencies:** The CSSP, whose analysts read the dashboard through the CSSP host pool.
+**External Dependencies:** None outside the boundary.
 
 **Security Impact:** Moderate
 
@@ -2426,7 +2426,7 @@
 
 ### AP-5.7: Runtime API Inventory and Governance
 
-**Design Intent:** The DMZ's edge services and the cloud hub report every API endpoint actually answering requests. Each is compared with the schemas registered at intake, so an undocumented route or a retired version still answering is flagged to its owning team.
+**Design Intent:** The DMZ's edge services, the API gateway, and the service mesh report every API endpoint actually answering requests, east-west calls included. Each is compared with the schemas registered at intake, so an undocumented route or a retired version still answering is flagged to its owning team.
 
 **NIST Control Mapping:**
 
@@ -2434,7 +2434,7 @@
 - **CM-7(1) (partial):** identifying undeclared HTTP routes and deciding their fate, a surface host and wire monitoring cannot see. Web Application Firewall holds the enforcement dimension of the same obligation through API Gateway Runtime Policy Enforcement.
 - **Declined:** AC-3 and AC-6 stay with the Identity focus area, whose mechanisms the record names. The SC-5 family is not reopened, since this outcome enumerates rather than limits. CM-8(4) stays with Resource Tagging and Ownership Strategy. AC-4 governs cross-domain flows, not which interfaces exist.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** API/Interface Contract, Load Balancer/Reverse Proxy/API Gateway
 
@@ -2475,7 +2475,7 @@
 - **IA-5(7) (partial):** finds static authenticators in the deployed runtime, such as image layers, environment variables, mounted configuration, and job definitions, which source gates cannot see. It joins the jointly tracked group, with Secret Scanning holding the source gate.
 - **Declined:** no IA-5 base claim is opened, because rotation runs through the Identity focus area's vault machinery.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code, Compute, Application and Service Account Identity
 
@@ -2509,14 +2509,14 @@
 
 ### AP-5.9: Runtime Application Self-Protection (RASP)
 
-**Design Intent:** RASP instruments every internet-reachable application, starting in monitor mode and moving to blocking once each application's rules are tuned. Today those applications are the analyst portal, the signals workbench, and the partner API. RASP events go to the security monitoring platform.
+**Design Intent:** RASP instruments every internet-reachable application, starting in monitor mode and moving to blocking once each application's rules are tuned. Today those applications are the analyst portal, the signals workbench, the partner API, and the LLM analyst assistant's front end. RASP events go to the security monitoring platform.
 
 **NIST Control Mapping:**
 
 - **SI-7(17) (partial):** in-process instrumentation enforcing policy is application self-protection at runtime. It is partial because client-side, mobile, and desktop software falls outside the focus area and is recorded as a gap, and neither Web Application Firewall nor host protection can see input reaching a query.
 - **Declined:** SI-4 is not claimed, since this outcome enforces rather than adds a monitoring surface. SI-10 stays with the application, verified by API Security Testing and compensated by Web Application Firewall.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** Cloud, On-Premises, Hybrid
 
 **Affected Components:** First-Party/Custom Application Code, Compute
 
@@ -2550,7 +2550,7 @@
 
 ### AP-5.10: Vulnerability Disclosure Program
 
-**Design Intent:** KESTREL's internet-reachable endpoints are enrolled in the DoD Vulnerability Disclosure Program, which sets what researchers may test. Reports it relays reach the Security Team, which triages them and tracks each one to closure like a penetration test finding.
+**Design Intent:** KESTREL's internet-reachable endpoints fall under the DoD Vulnerability Disclosure Program, which sets what researchers may test. The PMO ISSE confirms with DC3 that the CAC-gated endpoints behind the access point are in scope. Reports it relays reach the Security Team, which triages them and tracks each one to closure like a penetration test finding.
 
 **NIST Control Mapping:**
 

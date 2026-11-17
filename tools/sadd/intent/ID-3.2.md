@@ -1,5 +1,5 @@
 ## Design Intent
-Use governed service accounts only where native identity is not available, namely the data center's services and connections that cross the dedicated circuit. Each has a named owner and certificate-based authentication from the program PKI.
+Use governed service accounts only for data center and alternate site services that have no native identity. Each has a named owner and certificate-based authentication from the program PKI.
 
 ## External Dependencies
 None outside the boundary.

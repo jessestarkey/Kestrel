@@ -6,7 +6,7 @@
 
 ### DE-1.1: Platform-Native Threat Detection
 
-**Design Intent:** The cloud provider's native detection services are on for every subscription, cluster, database, storage service, and the tenant, and the directory's own threat detection is on in the data center. The Security Team reviews their coverage against MITRE ATT&CK each quarter and tunes noisy alerts. Gaps they find go to custom rules in the security monitoring platform. The CSSP's analysts read the native detection consoles directly through their host pool.
+**Design Intent:** The cloud provider's native detection services are on for every subscription, cluster, database, storage service, and the tenant. The directory's own threat detection is on in the data center and at the alternate site. Each quarter, the Security Team reviews their coverage against MITRE ATT&CK and tunes noisy alerts through detection content in the pipeline. Gaps they find go to custom rules in the security monitoring platform. The CSSP's analysts read the native detection consoles directly through their host pool.
 
 **NIST Control Mapping:**
 
@@ -18,7 +18,7 @@
 
 **Affected Components:** Compute, Database Service, Object/File Storage, Directory/Platform Core Infrastructure
 
-**External Dependencies:** The IL5 cloud provider, whose native detection and logging services KESTREL inherits under its provisional authorization. The CSSP, which reads the native detection consoles.
+**External Dependencies:** The IL5 cloud provider, whose native detection and logging services KESTREL inherits under its provisional authorization. KESTREL's Microsoft 365 DoD tenant, whose endpoint and identity detection it inherits at IL5. The CSSP, which reads the native detection consoles.
 
 **Security Impact:** Moderate
 
@@ -81,7 +81,7 @@
 
 ### DE-1.2: Adversary Emulation and Detection Validation
 
-**Design Intent:** A breach and attack simulation platform runs known techniques against the cloud spokes, the data center, and identity each month, and confirms which ones the security monitoring platform caught. The Security Team and the CSSP run a purple team exercise each quarter. Every missed technique becomes a tracked detection fix. Fleet systems are emulated only on spares or the simulator.
+**Design Intent:** A breach and attack simulation platform runs known techniques against the cloud spokes, the data center, and identity each month, and confirms which ones the security monitoring platform caught. The Security Team and the CSSP run a purple team exercise each quarter. Once a year, an unannounced campaign emulates a named actor from the threat model under rules of engagement agreed with each owning team. A missed technique closes only when it is re-run and the detection fires. Fleet systems are emulated only on spares or the simulator.
 
 **NIST Control Mapping:**
 
@@ -92,7 +92,7 @@
 
 **Affected Components:** Compute, Device/Workstation, Identity Platform, Network Infrastructure, Application/API
 
-**External Dependencies:** The CSSP, which joins each purple team exercise.
+**External Dependencies:** The CSSP, which joins each purple team exercise. The penetration testing provider, which runs the annual campaign.
 
 **Security Impact:** Moderate
 
@@ -144,7 +144,7 @@
 
 ### DE-1.3: Correlated Threat Detection and Analytics
 
-**Design Intent:** The security monitoring platform is the one place every telemetry source lands, and it correlates endpoint, identity, network, cloud, application, and ground segment events with each other. Threat intelligence and indicator feeds from the CSSP enrich every alert. Detection rules are written as code in the Security Team's repository and deployed through the pipeline after review.
+**Design Intent:** The security monitoring platform is the one place every telemetry source lands, and it correlates endpoint, identity, network, cloud, application, and ground segment events. Indicators from the CSSP arrive over F31, carry a confidence tier and an expiry, and age out unless renewed. Vetted indicators are pushed to the firewalls, the DNS filters, and EDR. Detection rules are written as code in the Security Team's repository and deployed through the pipeline over F35 after review.
 
 **NIST Control Mapping:**
 
@@ -283,7 +283,7 @@
 
 ### DE-1.5: Deception Technology
 
-**Design Intent:** Canary credentials sit in every spoke's vault and in the directory, decoy hosts sit in each data center segment, and a decoy dataset sits in each data lake zone. None of them has a legitimate user. Any touch alerts the Security Team at the highest priority, with the decoy's location attached.
+**Design Intent:** Canary credentials sit in every spoke's vault and in the directory, decoy hosts sit in each data center segment, and a decoy dataset sits in each data lake zone. None of them has a legitimate user, and backup and Data Team pipeline jobs are excluded from touching them. Any touch alerts the Security Team and the CSSP at the highest priority, with the decoy's location attached.
 
 **NIST Control Mapping:**
 
@@ -294,7 +294,7 @@
 
 **Affected Components:** Virtual Machine/Server, Directory/Platform Core Infrastructure, Application and Service Account Identity, Object/File Storage, Device/Workstation, Segmentation Policy
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The CSSP, which receives deception alerts around the clock.
 
 **Security Impact:** Low
 
@@ -335,7 +335,7 @@
 
 ### DE-1.6: User/Entity Behavior Analytics (UEBA) / Insider Threat Detection
 
-**Design Intent:** Behavioral baselines cover every person role, including analysts, administrators, data scientists, developers, and partner accounts. Bulk reads, access outside normal hours, and reads of another team's or vendor's data raise a user's risk score. The Security Team investigates high scores and refers insider threat indicators to the PSO's program.
+**Design Intent:** Behavioral baselines cover every person role, including analysts, administrators, data scientists, developers, and partner accounts. They also cover pipeline, workload, and AI agent identities. Bulk reads, access outside normal hours, and reads of another team's or vendor's data raise a risk score. The PSO, program counsel, and the privacy officer set the monitored population, retention, and who may see a score before profiling starts, and thresholds are recorded in the CMP. The Security Team investigates high scores and refers insider threat indicators to the PSO's program.
 
 **NIST Control Mapping:**
 
@@ -388,7 +388,7 @@
 
 ### DE-1.7: Network/OT Intrusion and Anomaly Detection
 
-**Design Intent:** Intrusion detection runs on the data center hub and on sensors fed by the SDN fabric's mirrored traffic, covering the paths the cloud hub never sees. In the ground segment, the passive sensors' anomaly detection is the intrusion detection. Alerts are triaged by the Security Team, and ground segment alerts also go to Fleet Operations.
+**Design Intent:** Intrusion detection runs on sensors fed by the SDN fabric's mirrored traffic and the alternate site's internal paths, covering what the cloud hub never sees. In the ground segment, the passive sensors' anomaly detection is the intrusion detection. The CSSP triages first. Platform Team network engineers adjudicate IT alerts, and Fleet Operations' OT maintainers adjudicate ground segment ones. Evidence is captured at triage before sensor buffers roll, and the IRP sets when an anomaly becomes an incident.
 
 **NIST Control Mapping:**
 
@@ -399,7 +399,7 @@
 
 **Affected Components:** Intrusion Detection/Prevention System (IDPS), OT/ICS Device
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The CSSP, which triages network alerts around the clock.
 
 **Security Impact:** Moderate
 
@@ -440,7 +440,7 @@
 
 ### DE-1.8: Identity Threat Detection
 
-**Design Intent:** The identity provider's sign-in and directory logs and the cloud tenant's entitlement changes all feed the security monitoring platform. Risky sign-ins include a partner from an unexpected network, an operator signed in at a station they are not badged into, and a performer laptop that suddenly reports as non-compliant. A compromised account is disabled at once, and an identity posture score is reported each month.
+**Design Intent:** The identity provider's sign-in and directory logs and the cloud tenant's entitlement changes all feed the security monitoring platform. Risky sign-ins include a partner from an unexpected network, a performer laptop that suddenly reports as non-compliant, and the badge correlation of Physical and Logical Access Convergence (`ID-1.10`). The exposure and leak monitoring service checks breach sources for KESTREL credentials and alerts on a match. The Security Team confirms each event class is present and reviews them weekly. A compromised account is contained under Automated Containment and Isolation Procedures (`RS-3.2`), where the CSSP may disable it at once through its playbook. An identity posture score is reported each month.
 
 **NIST Control Mapping:**
 
@@ -453,7 +453,7 @@
 
 **Affected Components:** Identity Platform, Cloud Account/Subscription/Tenant Boundary, Application/API, Device/Workstation
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** The PSO's physical access control systems, through ID-1.10. The performer's device management, which supplies each laptop's compliance signal. The exposure and leak monitoring service.
 
 **Security Impact:** High
 
@@ -536,65 +536,11 @@
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity is tagged Visualize because it surfaces posture as an actionable metric. It carries no independent control citation and reports rather than enforces, with each score component remediated by the owning Identity focus area outcome. Track the trend rather than the absolute number.
 
-### DE-1.9: User Activity Monitoring
-
-**Design Intent:** KESTREL has no classified endpoints, so CNSSD 504's user activity monitoring mandate does not apply. KESTREL still records every privileged session on the privileged access workstations and in the VDI host pools. The Security Team reviews those recordings when an alert fires, and on a sample each month. Indicators go to the PSO's insider threat program.
-
-**NIST Control Mapping:**
-
-- **AU-14 (partial):** covers recording and reviewing session content for general users on classified endpoints. Privileged Credential Vaulting and Session Brokering holds the privileged-session slice.
-- **AU-14(1) (full):** user activity monitoring starts session audits at system start-up, so no session begins unobserved.
-- **PM-12 (partial):** a second technical contribution, alongside User/Entity Behavior Analytics (UEBA) / Insider Threat Detection, to the insider threat program the PSO owns outside the SABER.
-- **Declined:** AC-2(12) belongs to User/Entity Behavior Analytics (UEBA) / Insider Threat Detection, since this outcome captures rather than scores. AC-8 is held by the Identity focus area, whose banner carries the monitoring notice.
-
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
-
-**Affected Components:** Virtual Desktop Infrastructure (VDI), Privileged Access Workstation (PAW), Security Information and Event Management (SIEM) Platform
-
-**External Dependencies:** The PSO's insider threat program, which receives referrals and owns every case.
-
-**Security Impact:** High
-
-**Activities:**
-
-- **DE-1.9.1: User Activity Monitoring Deployment on Classified Endpoints**
-    - **Description:** Deploy the user activity monitoring agent on every classified endpoint so that capture begins at system start-up, protect the agent and its captured data from tampering by the users it monitors, and alert when an endpoint stops reporting.
-    - **Control Type:** Technical
-    - **Cross-Cutting Discipline:** None
-    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
-    - **ConMon Activity:** Continuous
-    - **Level of Effort:** High
-    - **Cost:** One-Time: Moderate; Recurring: Moderate
-    - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's AU-14 (partial) and AU-14(1) (full) mappings. Alert on loss of reporting, since a user who disables the agent has disabled the control.
-
-- **DE-1.9.2: Monitoring Policy, Trigger, and Reviewer Definition**
-    - **Description:** Define with the PSO and program counsel what activity is captured, the triggers that bring captured activity to review, who may review it, and how long it is retained, and document the result as the program's user activity monitoring policy.
-    - **Control Type:** Documentation
-    - **Cross-Cutting Discipline:** None
-    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
-    - **ConMon Activity:** Periodic (Annual)
-    - **Level of Effort:** Moderate
-    - **Cost:** One-Time: Low; Recurring: Low
-    - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** The PSO and counsel set monitoring policy, not the engineers deploying the agent. Triggers such as marking matches, removable media, printing, and off-pattern activity bring sessions to review, while the rest is retained for investigations. Restrict reviewers, since they see the most sensitive record the program holds.
-
-- **DE-1.9.3: Review, Triage, and Insider Threat Program Referral**
-    - **Description:** Review the activity each trigger surfaces against the monitoring policy, dispose of benign matches with a recorded reason, and refer substantiated concerns to the insider threat program the PSO owns rather than investigating them within the security operations team.
-    - **Control Type:** Process
-    - **Cross-Cutting Discipline:** None
-    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
-    - **ConMon Activity:** Periodic (Event-Driven)
-    - **Level of Effort:** Moderate
-    - **Cost:** One-Time: Low; Recurring: Moderate
-    - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's PM-12 (partial) contribution. Security operations establishes what happened, while the insider threat program decides what it means about a person. A referral that is also an incident, such as spillage, runs through the Response focus area at the same time.
-
 ## DE-2: Comprehensive Logging
 
 ### DE-2.1: Infrastructure and Identity Logging
 
-**Design Intent:** Control-plane activity logs from every subscription and the tenant, together with the identity provider's authentication and directory change logs, flow to the security monitoring platform. Configuration checks alert when a source stops sending. Identity logs are kept longer than the default, as the log retention strategy sets.
+**Design Intent:** Control-plane activity logs from every subscription and the tenant flow to the security monitoring platform. So do the identity provider's authentication and directory change logs, and the on-premises management planes, namely the SDN controller, hypervisors, BMCs, and the privileged access platform. A policy-as-code check evaluates every source continuously and flags any without its required logging. Identity logs follow the retention DE-3.2 sets. The Security Team reviews the audit and accountability procedures each year.
 
 **NIST Control Mapping:**
 
@@ -681,7 +627,7 @@
 
 ### DE-2.2: Data Service Logging
 
-**Design Intent:** Data-plane audit logs are on for every cloud database, storage service, vault, queue, and the data lake zones. Every read of a vault secret and every data lake access is logged with the identity that made it. The pipeline turns these logs on when it creates a resource, so no data service starts without them.
+**Design Intent:** Data-plane audit logs are on for every cloud database, storage service, vault, queue, and data lake zone. Every read of a vault secret and every data lake access is logged with the identity that made it. The pipeline turns these logs on when it creates a resource, and a policy-as-code check flags any instance that later loses them, on premises too. The log platform's own reads, deletes, and retention changes are logged and forwarded to the CSSP's copy.
 
 **NIST Control Mapping:**
 
@@ -788,7 +734,7 @@
 
 ### DE-2.3: Container and Orchestration Platform Logging
 
-**Design Intent:** Every cluster's API server audit log, container runtime events, and image pull records go to the security monitoring platform. The pipeline enables these when it creates a cluster, so the dev, test, stage, prod, and training clusters are all covered.
+**Design Intent:** Every cluster's API server audit log, container runtime events, and image pull records go to the security monitoring platform. So do registry push, tag, promotion, and deletion events and each workload's deployed digest. The pipeline enables these when it creates a cluster, and a policy-as-code check flags any cluster that later loses them. The managed training service sends its compute logs through its own diagnostic settings.
 
 **NIST Control Mapping:**
 
@@ -862,7 +808,7 @@
 
 ### DE-2.4: Application/API Logging
 
-**Design Intent:** Every application emits structured security events in a common format, including the authenticated user, each authorization decision, and each data access and release. Every AI agent also logs each tool call with its parameters, its result, and the human approval behind it. Every model endpoint logs its callers and quota decisions.
+**Design Intent:** First-party applications emit structured security events through a shared logging library, including the authenticated user, each authorization decision, and each data access and release. COTS output is normalized at ingest. Every AI agent logs each tool call with its parameters, its result, and the human approval behind it. API gateways log every request, and the feedback endpoints log every message they accept. Every model endpoint logs its callers and quota decisions.
 
 **NIST Control Mapping:**
 
@@ -970,7 +916,7 @@
 
 ### DE-2.5: Host and Endpoint Logging
 
-**Design Intent:** Log agents and EDR run on every virtual machine, privileged access workstation, and VDI desktop. They collect Windows security events and Linux system and audit logs, and they report agent health so a silenced agent is noticed.
+**Design Intent:** Log agents and EDR run on every server, physical or virtual, every privileged access workstation, and every VDI desktop. They collect Windows security events, including process creation with command line, and Linux system and audit logs, under the audit policy the hardening baseline sets. They report agent health so a silenced agent is noticed.
 
 **NIST Control Mapping:**
 
@@ -981,7 +927,7 @@
 
 **Affected Components:** Virtual Machine/Server, Device/Workstation
 
-**External Dependencies:** None outside the boundary.
+**External Dependencies:** KESTREL's Microsoft 365 DoD tenant, which supplies the endpoint protection service under its IL5 authorization.
 
 **Security Impact:** High
 
@@ -1085,7 +1031,7 @@
 
 ### DE-2.7: Network Security Logging
 
-**Design Intent:** Flow logs from every spoke, the SDN fabric's flow telemetry, both hubs' allow and deny events, and both sides' DNS query logs go to the security monitoring platform. They are stitched into one view of each connection across the circuit.
+**Design Intent:** Flow logs from every spoke, the SDN fabric's flow telemetry, and every firewall's allow, deny, and rule-change events go to the security monitoring platform. That includes the alternate site firewall and each ground segment firewall. Every resolver's query logs, from the cloud to each operating site, go there too. They are stitched into one view of each connection across the circuits.
 
 **NIST Control Mapping:**
 
@@ -1159,7 +1105,7 @@
 
 ### DE-2.8: OT/Legacy Telemetry Ingestion and Normalization
 
-**Design Intent:** The ground segment's passive sensors and the ground control stations' own logs are collected in the IT/OT DMZ, normalized to the platform's schema, and forwarded to the security monitoring platform. So is the payload processing workstation's legacy event log, which is translated from its older format.
+**Design Intent:** The ground segment's passive sensors and the ground control stations' own logs are collected in the IT/OT DMZ, normalized to the platform's schema, and forwarded to the security monitoring platform. The payload processing workstation connects only if the AO re-dates CCSD tailoring action 3. If it does, its legacy event log is translated from its older format the same way.
 
 **NIST Control Mapping:**
 
@@ -1213,7 +1159,7 @@
 
 ### DE-3.1: SIEM Capabilities
 
-**Design Intent:** The security monitoring platform runs on premises and receives every source class the logging outcomes produce. Its correlation rules come from the Security Team's rule repository, and its response automation is limited to what Endpoint Response allows. Dashboards serve the Security Team and the CSSP. AI-assisted triage summarizes alerts through a CSP-hosted foundation model, but it only advises and takes no action.
+**Design Intent:** The security monitoring platform runs on premises, with a forwarding tier at the alternate site so collection continues if the data center is lost. It receives every source class the logging outcomes produce. Its automation is limited to enrichment, ticketing, notification, and isolating non-production hosts, under Automated Containment and Isolation Procedures (`RS-3.2`) and the IRP. Dashboards serve the Security Team and the CSSP. AI-assisted triage summarizes alerts through the foundation model over F32, cites the records it draws on, and takes no action. The Security Team owns that use case, and it passes AI Cyber T&E before going live.
 
 **NIST Control Mapping:**
 
@@ -1304,7 +1250,7 @@
 
 ### DE-3.2: Log Retention Strategy
 
-**Design Intent:** Security logs stay searchable for 12 months and then move to the archive for 18 more, following OMB M-21-31. Alert and investigation records are kept for as long as their case or POA&M item requires, if longer. All security telemetry is also forwarded to the CSSP, which keeps its own copy under its service agreement.
+**Design Intent:** Security logs stay searchable for 12 months and then move to the archive for 18 more. That is KESTREL's AU-11 parameter, with OMB M-21-31 adopted as the benchmark. Alert and investigation records are kept for as long as their case or POA&M item requires, if longer. Archived logs are restored and read each year to prove they can be. All security telemetry is also forwarded to the CSSP, which keeps its own copy under its service agreement.
 
 **NIST Control Mapping:**
 
@@ -1370,7 +1316,7 @@
 
 ### DE-3.3: Audit Log Integrity Protection
 
-**Design Intent:** Log storage is write-once until retention expires, so no one, including the platform's own administrators, can change or delete a record early. Security Team members administer the platform's content, while the Platform Team runs its infrastructure, and neither can do the other's job. A source that goes silent or an ingestion failure alerts the Security Team.
+**Design Intent:** Every record is written on arrival to an object-locked store in compliance mode, and each batch is hashed so later alteration is detectable. No role holds the index delete capability. A logging administrator role, held by named Security Team members under ID-4.1's stated exception, owns retention, collection, and content. Platform Team infrastructure administrators get no rights over indexes, retention, or the object lock. Break-glass use alerts. Storage nearing capacity alerts, and a full store halts nothing and buffers at the forwarders. A silent source or an ingestion failure alerts the Security Team and the CSSP.
 
 **NIST Control Mapping:**
 
@@ -1426,7 +1372,7 @@
 
 ### DE-3.4: Time Synchronization
 
-**Design Intent:** The data center runs its own time servers, disciplined by GNSS and checked against DoD's authoritative time service. Every data center host, network device, and ground segment device syncs to them. Cloud workloads use the provider's time service, and drift between the two sides is monitored. Timestamps everywhere are UTC in one format, and drift alerts the Platform Team.
+**Design Intent:** The data center runs its own time servers, disciplined by GNSS and checked against DoD's authoritative time service, with a secondary source at the alternate site. Every on-premises host and network device syncs to them. Ground segment devices fall back to each operating site's holdover reference when the conduit is down. Offsets for controllers that cannot be disciplined are recorded at ingest. Cloud workloads use the provider's time service, and drift between the sides is monitored. Timestamps everywhere are UTC in one format, and drift alerts the Platform Team.
 
 **NIST Control Mapping:**
 
@@ -1499,3 +1445,11 @@
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity carries the compare-and-synchronize half of the outcome's SC-45(1) (full) mapping and the whole of its AU-12(1) (partial) mapping. Derive the tolerance from what correlation needs. Measure continuously, since drift returns whenever a host loses its sync path.
+
+## Scoped Out
+
+These outcomes drop out of KESTREL's design, each for the reason given.
+
+| Outcome | Reason |
+|---|---|
+| DE-1.9: User Activity Monitoring | Out of scope. KESTREL has no classified endpoints, so CNSSD 504's user activity monitoring does not apply. Privileged session recording belongs to Privileged Credential Vaulting and Session Brokering (`ID-4.4`). |

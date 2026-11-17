@@ -306,11 +306,11 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 program management
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2027-09-30
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -320,10 +320,10 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| GV-3.1.1: Vendor Security Questionnaire/Assessment Process | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| GV-3.1.2: Vendor Risk Tiering and Periodic Reassessment | 2 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-3.1.3: Vendor Assessment Findings Remediation Tracking | 2 | Process | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-3.1.4: Third-Party Application Registration in Authoritative Inventory | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-3.1.1: Vendor Security Questionnaire/Assessment Process | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| GV-3.1.2: Vendor Risk Tiering and Periodic Reassessment | 1 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-3.1.3: Vendor Assessment Findings Remediation Tracking | 1 | Process | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-3.1.4: Third-Party Application Registration in Authoritative Inventory | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 ### GV-3.2: Contract Security Requirements
 
@@ -335,9 +335,9 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2028-03-31
 
@@ -349,10 +349,12 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| GV-3.2.1: Standard Security Clause Library | 2 | Documentation | None | Level 1 | Periodic (Annual) | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| GV-3.2.1: Standard Security Clause Library | 1 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | GV-3.2.2: Contract Security Requirement Flow-Down Verification | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-3.2.3: Contract Security Compliance Monitoring | 2 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | GV-3.2.4: CUI Protection Requirements for External Systems | 2 | Documentation | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-3.2.1: The CNSA 2.0 clause must exist before the first contract awards in Phase 1.
 
 ### GV-3.3: Supply Chain Risk Assessment and Dependency Mapping
 
@@ -392,9 +394,9 @@
 
 **Dependencies:** GV-1.5
 
-**Funding Line:** FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2028-03-31
 
@@ -406,11 +408,13 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| GV-3.4.1: Trusted Supplier and Authorized Reseller Sourcing Requirements | 2 | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-| GV-3.4.2: Counterfeit and Tamper Detection at Receipt | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
+| GV-3.4.1: Trusted Supplier and Authorized Reseller Sourcing Requirements | 1 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| GV-3.4.2: Counterfeit and Tamper Detection at Receipt | 1 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
 | GV-3.4.3: Periodic Counterfeit Component Rescan | 2 | Process | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | GV-3.4.4: Firmware Provenance and Integrity Verification | 2 | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | GV-3.4.5: Component Disposal and Sanitization Verification | 2 | Process | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-3.4.1 and GV-3.4.2: Phase 1 receives the HSMs, firewalls, and workstations, so receipt inspection must exist first.
 
 ### GV-3.5: Supply Chain Risk Management Plan (SCRM)
 
@@ -482,9 +486,9 @@
 
 **Funding Line:** FY28 program management
 
-**Rollout Phase:** Phase 3, Mission, AI, and Fleet
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2028-07-31
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
@@ -494,9 +498,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| GV-4.2.1: AI Program Architecture and Trust Zone Mapping | 3 | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-4.2.2: MITRE ATLAS Program-Level Threat Ranking | 3 | Process | None | Level 1 | Periodic (Annual) | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-| GV-4.2.3: Assessment Review, Distribution, and Consumption | 3 | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-4.2.1: AI Program Architecture and Trust Zone Mapping | 2 | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-4.2.2: MITRE ATLAS Program-Level Threat Ranking | 2 | Process | None | Level 1 | Periodic (Annual) | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| GV-4.2.3: Assessment Review, Distribution, and Consumption | 2 | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 ### GV-4.3: Responsible AI Policy and Principles
 
@@ -530,15 +534,15 @@
 
 **Selected Tool / Product / Service:** Jira Software Data Center, Confluence Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The program office charters the AI/ML Governance Review Board in late Phase 1, so it can approve the first use cases before training starts. Until GV-4.2 and GV-4.3 arrive in Phase 2, the board judges use cases against the AISP. It reports to the security steering committee once that forms.
 
 **Accountable Team:** Program Office (chief engineer)
 
-**Dependencies:** GV-1.4
+**Dependencies:** GV-1.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2028-03-31
 
@@ -550,10 +554,12 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| GV-4.4.1: Review Board Charter and Membership Definition | 2 | Documentation | None | Level 2 | One-Time | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-4.4.2: Use-Case Review/Approval Workflow | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-4.4.3: Review Board Decision Tracking and Escalation | 2 | Process | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-4.4.1: Review Board Charter and Membership Definition | 1 (pinned) | Documentation | None | Level 2 | One-Time | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-4.4.2: Use-Case Review/Approval Workflow | 1 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-4.4.3: Review Board Decision Tracking and Escalation | 1 (pinned) | Process | None | Level 1 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-4.4.4: AI/ML Governance Posture Report | 2 | Process | None | Level 2 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** GV-4.4.1, GV-4.4.2, and GV-4.4.3: KESTREL's design depends on it from the first build, since the review board approves the first AI use cases before Phase 2.
 
 ### GV-4.5: AI/ML Regulatory Mapping (NIST AI RMF, DoD RAI)
 
@@ -828,7 +834,7 @@
 
 **Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
 
-**Accountable Team:** Security Team (ISSM)
+**Accountable Team:** Security Team (ISSM), with the PMO ISSE for the attestation
 
 **Dependencies:** GV-1.2
 
@@ -944,9 +950,9 @@
 
 ### GV-5.12: Inherited Control Validation
 
-**Selected Tool / Product / Service:** eMASS, Confluence Data Center, compliance-trestle (OSCAL)
+**Selected Tool / Product / Service:** eMASS, Confluence Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The Security Team checks each provider service against Azure Government's IL5 audit scope in both US Gov regions before KESTREL relies on it. The checks include Application Gateway private deployment, the isolated GPU size and its quota for Azure Machine Learning, Container Instances, Azure OpenAI, AI Search, and the Istio add-on. Microsoft's approval of modified content filtering is tracked here too. Status is then monitored from Phase 2.
 
 **Accountable Team:** Security Team (ISSM)
 
@@ -958,7 +964,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished and open source components
+**Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
 **Status:** Not Started
 

@@ -65,6 +65,12 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | AC-18 | Partial | NE-1.8 | Protect / Network and Environment |
 | AC-18(1) | Partial | NE-1.8 | Protect / Network and Environment |
 | AC-18(3) | Partial | NE-1.8 | Protect / Network and Environment |
+| AC-19 | Partial | DI-4.1 | Protect / Device and Infrastructure |
+| AC-19(5) | Partial | DI-4.1 | Protect / Device and Infrastructure |
+| AC-20 | Partial | DI-4.1 | Protect / Device and Infrastructure |
+| AC-20(1) | Partial | DI-4.1 | Protect / Device and Infrastructure |
+| AC-20(2) | Partial | DI-4.1 | Protect / Device and Infrastructure |
+| AC-20(3) | Partial | DI-4.1 | Protect / Device and Infrastructure |
 | AC-21 | Partial | DA-1.2 | Protect / Data |
 | AC-22 | Full | DA-1.7 | Protect / Data |
 | AC-24 | Partial | DA-1.2 | Protect / Data |
@@ -105,8 +111,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | AU-12(3) | Full | RS-2.2 | Operate / Response |
 | AU-13 | Partial | NE-3.7 | Protect / Network and Environment |
 | AU-13(1) | Partial | NE-3.7 | Protect / Network and Environment |
-| AU-14 | Partial | ID-4.4, DE-1.9 | Protect / Identity, Operate / Detection |
-| AU-14(1) | Full | DE-1.9 | Operate / Detection |
+| AU-14 | Partial | ID-4.4 | Protect / Identity |
 | AU-14(3) | Partial | ID-4.4 | Protect / Identity |
 | CA-1 | Partial | GV-1.1, CO-2.1 | Manage / Governance, Manage / Compliance |
 | CA-2 | Partial | RK-1.5, RK-1.6, CO-2.2, CO-2.3 | Manage / Risk, Manage / Compliance |
@@ -133,6 +138,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | CM-2(2) | Partial | DI-3.1, AI-3.2, AI-4.13, AI-8.10 | Protect / Device and Infrastructure, Protect / Artificial Intelligence |
 | CM-2(3) | Partial | DI-4.8, AP-5.4, AI-9.7, RC-1.4 | Protect / Device and Infrastructure, Protect / Application, Protect / Artificial Intelligence, Operate / Recovery |
 | CM-2(6) | Partial | AP-2.21 | Protect / Application |
+| CM-2(7) | Partial | DI-4.1 | Protect / Device and Infrastructure |
 | CM-3 | Partial | DI-2.2, NE-1.1, AI-8.10, GV-1.5 | Protect / Device and Infrastructure, Protect / Network and Environment, Protect / Artificial Intelligence, Manage / Governance |
 | CM-3(1) | Partial | AP-2.18, AP-2.19, AI-4.17 | Protect / Application, Protect / Artificial Intelligence |
 | CM-3(2) | Full | DI-2.2 | Protect / Device and Infrastructure |
@@ -145,8 +151,8 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | CM-5(4) | Partial | AP-4.3 | Protect / Application |
 | CM-5(5) | Partial | AP-2.22, AI-4.2 | Protect / Application, Protect / Artificial Intelligence |
 | CM-6 | Partial | ID-1.4, ID-1.5, DI-3.2, DI-4.7, NE-1.2, AP-2.16, AP-3.3 | Protect / Identity, Protect / Device and Infrastructure, Protect / Network and Environment, Protect / Application |
-| CM-6(1) | Partial | DI-2.1, DI-4.4, DI-4.5, DI-4.6, NE-1.1, AP-2.15, AP-2.16, AP-3.3, AP-4.4, AI-4.8, AI-4.18 | Protect / Device and Infrastructure, Protect / Network and Environment, Protect / Application, Protect / Artificial Intelligence |
-| CM-6(2) | Partial | AI-4.18, AI-9.3 | Protect / Artificial Intelligence |
+| CM-6(1) | Partial | DI-2.1, DI-4.1, DI-4.4, DI-4.5, DI-4.6, NE-1.1, AP-2.15, AP-2.16, AP-3.3, AP-4.4, AI-4.8, AI-4.18 | Protect / Device and Infrastructure, Protect / Network and Environment, Protect / Application, Protect / Artificial Intelligence |
+| CM-6(2) | Partial | DI-4.1, AI-4.18, AI-9.3 | Protect / Device and Infrastructure, Protect / Artificial Intelligence |
 | CM-7 | Partial | DI-3.2, DI-3.4, DI-4.2, NE-2.2, NE-2.7 | Protect / Device and Infrastructure, Protect / Network and Environment |
 | CM-7(1) | Partial | DI-4.3, NE-1.3, NE-2.6, AP-5.7 | Protect / Device and Infrastructure, Protect / Network and Environment, Protect / Application |
 | CM-7(2) | Partial | DI-5.1 | Protect / Device and Infrastructure |
@@ -311,7 +317,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | PM-9 | Partial | RK-1.1, RK-1.2 | Manage / Risk |
 | PM-10 | Partial | GV-5.7 | Manage / Governance |
 | PM-11 | Partial | GV-4.1, GV-4.4, RK-3.2 | Manage / Governance, Manage / Risk |
-| PM-12 | Partial | DE-1.6, DE-1.9 | Operate / Detection |
+| PM-12 | Partial | DE-1.6 | Operate / Detection |
 | PM-14 | Full | CO-3.1 | Manage / Compliance |
 | PM-15 | Partial | RK-2.2, RK-2.3 | Manage / Risk |
 | PM-16 | Partial | RK-2.1, RK-2.3 | Manage / Risk |

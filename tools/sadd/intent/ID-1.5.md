@@ -1,5 +1,5 @@
 ## Design Intent
-Harden the directory, its domain controllers, and the PKI's issuing certificate authorities as Tier 0. The root certificate authority and its keys sit in the HSMs that hold CCSD row 13's key material, so this outcome protects KESTREL's one High confidentiality type directly. Directory synchronization to the cloud runs only over the dedicated circuit.
+Keep the root certificate authority offline and off the domain. Its key sits in an HSM and is used only in two-person ceremonies to sign issuing authorities and revocation lists. Harden the directory, its domain controllers, the issuing authorities, and the directory sync servers as Tier 0, at the data center and at the alternate site's standby. Directory synchronization to the cloud runs only over the dedicated circuit.
 
 ## External Dependencies
 None outside the boundary.

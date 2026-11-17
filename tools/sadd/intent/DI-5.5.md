@@ -1,5 +1,5 @@
 ## Design Intent
-The Security Team takes every endpoint response action under the IRP, namely isolation, file remediation, and live response, and live response sessions are recorded. The CSSP may also isolate a host through a pre-approved playbook when an incident cannot wait, which pages the Security Team at once. Automated response is limited to isolating a non-production host, and a production host is isolated only with its owning team told at once. No one isolates fleet equipment through this outcome.
+The Security Team takes endpoint response actions under the IRP, namely isolation, file remediation, and live response. It does so under Privileged Access Control (`ID-4.1`)'s EDR responder exception, and live response sessions are recorded. Tier 0 hosts sit in their own device group, where those actions are bound to roles usable only from the privileged access workstations. That group is excluded from CSSP playbooks and automated isolation. Elsewhere the CSSP may isolate a host through a pre-approved playbook, which pages the Security Team. Automated response isolates only non-production hosts, and nothing here acts on fleet equipment.
 
 ## External Dependencies
-The CSSP, under the detection and response split in its service agreement.
+KESTREL's Microsoft 365 DoD tenant, which supplies the endpoint protection service under its IL5 authorization. The CSSP, under the detection and response split in its service agreement.

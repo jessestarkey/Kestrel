@@ -6,7 +6,7 @@
 
 ### GV-1.1: Security Policy Framework
 
-**Design Intent:** KESTREL's policy tier is one system security policy that the program manager issues beneath DoD issuances and the parent organization's enterprise policy. Its standards are the governing plans this SADD names, namely the AMP, CMP, VPMP, ASP, AISP, DMP, KMP, IRP, CP, and SCRM. Its procedures are the runbooks beneath them. Each policy statement maps to the control families it satisfies, and the policy applies to everyone and everything inside the boundary.
+**Design Intent:** KESTREL's policy tier is one system security policy that the program manager issues beneath DoD issuances and the parent organization's enterprise policy. Its standards are the governing plans this SADD names, namely the AMP, CMP, VPMP, ASP, AISP, DMP, KMP, IRP, CP, SCRM plan, ConMon plan, privacy policy, and responsible AI policy. Its procedures are the runbooks beneath them. Each policy statement maps to the control families it satisfies. The policy covers everything inside the boundary, naming the UAS fleet and ground segment, the alternate site, and the performer laptops that hold source code.
 
 **NIST Control Mapping:**
 
@@ -67,7 +67,7 @@
 
 ### GV-1.2: Security Roles and Responsibilities
 
-**Design Intent:** The roles are the AO and the program manager for the government, and the PMO ISSE, who owns the security design and Certification to Field. The performer ISSM owns the authorization package, and the ISSOs own day-to-day compliance. The SCA assesses, the PSO owns personnel and physical security, and each team lead owns their team's systems. A responsibility matrix in the SSP records who decides what. It is reviewed each year and on any change of role holder.
+**Design Intent:** The program manager is the government system owner, under the AO. The information owners are those CCSD Section 2 names, with the intelligence mission leads owning the mission data. The PMO ISSE owns the security design and Certification to Field. The performer ISSM owns the authorization package, and the ISSOs own day-to-day compliance. The SCA assesses, and the PSO owns personnel and physical security. The foreign disclosure officer, the privacy officer, the supply chain lead, the CSSP, and each team lead hold their named roles. A responsibility matrix in the SSP records who decides what. It records that the Security Team and the CSSP hold no administrative roles beyond the exceptions in Privileged Access Control (`ID-4.1`). It is reviewed each year and on any change of role holder, organization, contract, or boundary.
 
 **NIST Control Mapping:**
 
@@ -120,7 +120,7 @@
 
 ### GV-1.3: ISSO/ISSM Appointment Letters
 
-**Design Intent:** The AO appoints the performer ISSM, and the ISSM appoints each ISSO, each by a signed letter. Each letter names the person, the role, the KESTREL boundary it covers, the authority it confers, and its effective date. The ISSM tracks every letter and reissues it whenever a role holder or the boundary changes, such as when the alternate site was added.
+**Design Intent:** The program manager appoints the performer ISSM, and the ISSM appoints each ISSO, each by a signed letter. Each letter names the person, the role, the KESTREL boundary it covers, the authority it confers, and its effective date. The ISSM tracks every letter and reissues it whenever a role holder or the boundary changes.
 
 **NIST Control Mapping:**
 
@@ -235,7 +235,7 @@
 
 ### GV-1.5: Configuration Control Board
 
-**Design Intent:** The chief engineer chairs the Configuration Control Board. Its members are the PMO ISSE, the ISSM, the Platform Team lead, Fleet Operations' operations lead, and the lead of any team whose change is on the agenda. It meets weekly. It approves changes to the hubs' rule base, the identity provider, interconnections, and every governing plan, and it sends significant changes through Security Impact Analysis. Its decisions are logged with their rationale.
+**Design Intent:** The chief engineer chairs the Configuration Control Board. Its members are the PMO ISSE, the ISSM, the Platform Team lead, Fleet Operations' operations lead, and the lead of any team whose change is on the agenda. It meets weekly, with an out-of-cycle emergency path whose decisions get the retrospective review in Asset Lifecycle Change Control (`DI-2.2`). It approves changes to the hubs' rule base, the identity provider, interconnections, system prompts' roles and limits, and every governing plan the AO does not approve. It sends significant changes through Security Impact Analysis, and its decisions are logged with their rationale.
 
 **NIST Control Mapping:**
 
@@ -339,7 +339,7 @@
 
 ### GV-2.1: Policy Lifecycle Management
 
-**Design Intent:** Policies and plans are written and versioned in the program's document repository, reviewed by the ISSM, and approved by the Configuration Control Board. Each is reviewed every year, and earlier when an incident, assessment, or significant change calls for it. Superseded versions are retired and archived. Policies a machine can enforce, such as the hub rule base, admission rules, and landing zone guardrails, are written as policy as code.
+**Design Intent:** Policies and plans are written and versioned in the program's document repository and reviewed by the ISSM. The program manager signs the system security policy. The Configuration Control Board approves standards and governing plans, except those the AO approves, such as the ConMon plan. The ISSM approves procedures and runbooks. Each is reviewed every year, and earlier when an incident, assessment, or significant change calls for it. Superseded versions are retired and archived, and policies a machine can enforce are written as policy as code.
 
 **NIST Control Mapping:**
 
@@ -413,7 +413,7 @@
 
 ### GV-2.2: Policy Exception Management
 
-**Design Intent:** A team requests an exception through the service desk, naming the requirement, the reason, the compensating measures, and an end date. The ISSM assesses the risk. Exceptions that affect a control in the authorization go to the AO, as CCSD tailoring action 3 did. Expired exceptions alert the ISSM, and exception trends are reported to the steering committee each quarter.
+**Design Intent:** A team requests an exception through the service desk, naming the requirement, the reason, the compensating measures, and an end date. The ISSM assesses the risk, and approval follows Risk Acceptance Process (`RK-1.4`). The PMO ISSE may therefore approve only Low exceptions outside CCSD rows 6, 8, 10, and 13, and the AO approves the rest. At expiry an exception is remediated, re-justified, or escalated, and an expired one becomes an open finding. Exception trends are reported to the steering committee each quarter.
 
 **NIST Control Mapping:**
 
@@ -464,7 +464,7 @@
 
 ### GV-2.3: Security Awareness and Training Program
 
-**Design Intent:** Every person with access completes DoD cyber awareness and CUI training before getting an account, and each year after. Privileged users and security roles also meet DoDM 8140.03 qualification for their work roles. The parent organization's and performer's email systems run phishing exercises. KESTREL tests IT Operations against pretexted account-reset requests. The identity provider suspends any account whose training has lapsed.
+**Design Intent:** Every person with access completes DoD cyber awareness and CUI training before getting an account, and each year after. Role-based training covers privileged users, security roles, developers, UAS operators, OT maintainers, the ML and Data Teams, and receiving staff, who learn to spot counterfeit parts. Privileged users and security roles also meet DoDM 8140.03 qualification for their work roles. The parent organization's and performer's email systems run phishing exercises, inherited, and their results come back to target follow-up training. KESTREL tests IT Operations against pretexted account-reset requests. The identity provider suspends any account whose training has lapsed.
 
 **NIST Control Mapping:**
 
@@ -534,7 +534,7 @@
 
 ### GV-2.4: Rules of Behavior and Acceptable Use Policy
 
-**Design Intent:** Every user acknowledges KESTREL's rules of behavior before an account is issued, and again each year. Privileged users sign additional privileged rules, and partner users sign the partner rules their nation's agreement requires. The identity provider records each acknowledgment, and a missing or expired one suspends the account. Violations go to the ISSM and, where they suggest insider risk, to the PSO.
+**Design Intent:** Every user signs rules of behavior before getting an account and again each year. The rules cover social media, use of external sites, and reuse of KESTREL identifiers elsewhere, alongside handling CUI and reporting incidents. An account whose acknowledgment lapses is suspended, and violations are referred to the PSO.
 
 **NIST Control Mapping:**
 
@@ -589,7 +589,7 @@
 
 ### GV-3.1: Vendor Security Risk Assessment
 
-**Design Intent:** Every supplier answers a security questionnaire before contract award. Suppliers are tiered by what they can reach. Tier 1 covers anyone touching the fleet, mission data, or keys, such as the cloud provider, the aircraft manufacturer, and the payload vendors. Tier 1 suppliers are reassessed each year and the rest every three years. Findings are tracked to closure. Every self-hosted third-party product is registered in the asset inventory once its assessment passes.
+**Design Intent:** Commercial suppliers answer a security questionnaire before contract award, including the Phase 1 awards. DoD and provider services, such as the IL5 cloud provider and the CSSP, are relied on through their authorizations under Inherited Control Validation (`GV-5.12`) instead. Suppliers are tiered by what they can reach. Tier 1 covers anyone touching the fleet, mission data, or keys, and is reassessed each year, the rest every three years. Findings are tracked to closure, and one a vendor will not close escalates to the steering committee. Every self-hosted third-party product is registered in the asset inventory once its assessment passes.
 
 **NIST Control Mapping:**
 
@@ -602,7 +602,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device, Self-Hosted Third-Party Application (COTS)
 
-**External Dependencies:** The payload vendors, the aircraft and ground equipment manufacturers, the service desk vendor, the cloud provider, the CSSP, and the other suppliers in the vendor population.
+**External Dependencies:** The payload vendors, the aircraft and ground equipment manufacturers, the data center hardware and HSM vendors, the service desk vendor, and the other commercial suppliers.
 
 **Security Impact:** Moderate
 
@@ -654,7 +654,7 @@
 
 ### GV-3.2: Contract Security Requirements
 
-**Design Intent:** The clause library carries DFARS 252.204-7012 and the CMMC clauses, the cloud computing clause, and SBOM delivery. It also carries vulnerability disclosure, incident reporting timelines, and data rights terms for each payload vendor. The supply chain lead verifies that each contract carries the clauses its tier requires and that the prime contract flows them down to subcontractors. The performer's CMMC Level 2 status covers CUI held on its laptops, and it is rechecked at each renewal.
+**Design Intent:** The clause library carries DFARS 252.204-7012 and the CMMC clauses, the cloud computing clause, SBOM delivery, vulnerability disclosure, incident reporting timelines, CNSA 2.0 support, and data rights terms for each payload vendor. It also carries the acquisition security requirements, namely functional properties, design information, and the developer's configuration and supply chain duties. The supply chain lead verifies each contract carries the clauses its tier requires, flows them down, and monitors compliance each year, not only at renewal. CUI held by the performer and the penetration testing provider is covered under their clauses.
 
 **NIST Control Mapping:**
 
@@ -739,7 +739,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** The payload vendors, the aircraft and ground equipment manufacturers, the service desk vendor, the cloud provider, the CSSP, and the other suppliers in the vendor population.
+**External Dependencies:** The aircraft and ground equipment manufacturers, the payload vendors, the cloud provider, the foundation model's publisher, and the HSM vendor, whose supply chains the assessment maps.
 
 **Security Impact:** Moderate
 
@@ -780,7 +780,7 @@
 
 ### GV-3.4: Hardware and Firmware Provenance Verification
 
-**Design Intent:** Aircraft, stations, and payloads are bought only from their manufacturers, and data center hardware and HSMs only from authorized resellers. Everything is inspected for tampering and counterfeit parts at receipt. Firmware is accepted only with a valid manufacturer signature. Retired components are sanitized, and the sanitization is verified and recorded before disposal.
+**Design Intent:** Aircraft, stations, and payloads are bought only from their manufacturers, and data center hardware and HSMs only from authorized resellers. Everything is inspected for tampering and counterfeit parts at receipt and on return from vendor service. Stations and aircraft avionics are rescanned for counterfeit components at a fixed interval, under CCSD tailoring action 4. Suspect parts are quarantined and reported to the source and to GIDEP. Firmware is accepted only with a valid manufacturer signature, or a published hash where it is unsigned, and each verified version is recorded in the inventory. Retired components are sanitized, verified, and recorded before disposal.
 
 **NIST Control Mapping:**
 
@@ -796,9 +796,9 @@
 - **SR-12 (partial):** claimed for physically dispositioning retired hardware and firmware, including OT devices, so components cannot be harvested or exploited. Resource Decommissioning Governance holds data sanitization, and Model Decommissioning and Disposal holds the model slice.
 - **Declined:** SR-9(1) is developmental anti-tamper engineering no outcome performs, recorded as a gap. PE-3 and the physical protection family belong to the PSO.
 
-**Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
+**Deployment Type:** On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Virtual Machine/Server, Cryptographic Hardware/HSM, Object/File Storage, Network Infrastructure, Device/Workstation, OT/ICS Device, Application/API, AI/ML System
+**Affected Components:** Virtual Machine/Server, Cryptographic Hardware/HSM, Object/File Storage, Removable Media, Network Infrastructure, Device/Workstation, OT/ICS Device
 
 **External Dependencies:** The aircraft, ground equipment, and data center hardware manufacturers and their authorized resellers.
 
@@ -863,7 +863,7 @@
 
 ### GV-3.5: Supply Chain Risk Management Plan (SCRM)
 
-**Design Intent:** The Program Office's supply chain lead authors KESTREL's SCRM plan with the SCRM team it names. The ISSM and the PMO ISSE review it, and the Configuration Control Board approves it. It is revised each year and whenever a Tier 1 supplier changes.
+**Design Intent:** The Program Office's supply chain lead authors KESTREL's SCRM plan with the SCRM team it names. The ISSM and the PMO ISSE review it, and the Configuration Control Board approves it under GV-2.1's tiers. It is revised each year and whenever a Tier 1 supplier changes.
 
 **NIST Control Mapping:**
 
@@ -920,7 +920,7 @@
 
 ### GV-4.1: AI/ML Use Case Inventory
 
-**Design Intent:** The AI use case inventory lists every AI use case KESTREL runs or has proposed, with its sponsor, models, data, any actions it can take, and its risk tier. Today those are the onboard and cloud detection models, the embedding model, the LLM analyst assistant, and the mission-planning agent. The risk tier rises with mission impact and with any ability to act, such as drafting flight plans. The inventory is reviewed each quarter against the model registry.
+**Design Intent:** The AI use case inventory lists every AI use case KESTREL runs or has proposed, with its sponsor, models, data, any actions it can take, and its risk tier. Today those are the onboard and cloud detection models, the embedding model, the person-detection model, the LLM analyst assistant, the mission-planning agent, and AI-assisted alert triage. The risk tier rises with mission impact and with any ability to act. Each quarter a discovery sweep checks procurement records, cloud AI service usage, and AI features vendors have switched on in owned products, against the model registry.
 
 **NIST Control Mapping:**
 
@@ -1077,7 +1077,7 @@
 
 ### GV-4.4: AI/ML Governance Review Board
 
-**Design Intent:** The chief engineer chairs the AI/ML Governance Review Board. Its members are the PMO ISSE, the privacy officer, program legal counsel, the ML team lead, and the sponsoring intelligence mission lead, with the foreign disclosure officer joining when partner release is involved. The board decides each use case within ten business days by approving it, approving it with conditions, or rejecting it, against the responsible AI policy and the use case's risk tier. Decisions and conditions are tracked to closure, and a posture report goes to the steering committee each quarter.
+**Design Intent:** The chief engineer chairs the AI/ML Governance Review Board, chartered by the program office. Its members are the PMO ISSE, the privacy officer, program legal counsel, the ML Team lead, and the sponsoring intelligence mission lead, with the foreign disclosure officer joining for partner release. The lowest risk tier gets a desk review by the PMO ISSE. The board decides other use cases within ten business days by approving, approving with conditions, or rejecting them. Until the responsible AI policy is issued, it judges against the AISP. Disputed decisions escalate to the steering committee, and a posture report goes there each quarter.
 
 **NIST Control Mapping:**
 
@@ -1192,7 +1192,7 @@
 
 ### GV-4.6: AI/ML Vendor/Model Risk Assessment
 
-**Design Intent:** The board receives each AI supplier risk finding and decides what to do about it. Findings come from model selection, label integrity, foundation model dependency governance, and vendor assessment. Each AI supplier is tiered, and acceptances of supplier risk are logged with the AO's visibility. Each foundation model and other vendor-delivered model is registered in the inventory once its risk is accepted.
+**Design Intent:** The board receives each AI supplier risk finding and decides its treatment. Findings come from model selection, label integrity, foundation model dependency governance, and vendor assessment. Each AI supplier is tiered, and any acceptance of supplier risk routes through Risk Acceptance Process (`RK-1.4`). Each foundation model and other vendor-delivered model is registered in the inventory once its risk is treated.
 
 **NIST Control Mapping:**
 
@@ -1247,7 +1247,7 @@
 
 ### GV-5.1: Security Architecture and Design Document (SADD)
 
-**Design Intent:** The PMO ISSE authors this SADD from the AO-approved CCSD, generating its carried fields from the SABER and writing its design intents by hand. The chief engineer and the ISSM review it, and the AO accepts it as KESTREL's design basis. It is rebuilt whenever the CCSD, the system description, or the SABER version changes.
+**Design Intent:** The PMO ISSE authors this SADD from the AO-approved CCSD, generating its carried fields from the SABER and writing its design intents by hand. The chief engineer and the ISSM review it, and the AO approves it as KESTREL's design basis. Its approval depends on the AO approving CCSD version 1.1, whose changes it already designs. It is reviewed each year. It is rebuilt whenever a CCSD revision changes the approved control set, or the system description or the SABER version changes.
 
 **NIST Control Mapping:**
 
@@ -1301,7 +1301,7 @@
 
 ### GV-5.2: Security Implementation Plan
 
-**Design Intent:** The PMO ISSE and the performer team leads write the Security Implementation Plan from this SADD. It records the tools chosen for each outcome, the rollout order, and the effort and cost. The Configuration Control Board approves it, and it is revised each quarter as outcomes are built.
+**Design Intent:** The PMO ISSE and the performer team leads write the Security Implementation Plan from this SADD. It records the tools chosen for each outcome, the rollout order, and the effort and cost. The program manager approves it and each revision, and it is revised each quarter as outcomes are built.
 
 **NIST Control Mapping:**
 
@@ -1352,7 +1352,7 @@
 
 ### GV-5.3: System Security Plan (SSP)
 
-**Design Intent:** The ISSM authors KESTREL's SSP with the ISSOs, recording what was actually built against each SADD outcome. The PMO ISSE reviews it, and the AO approves it with the package. It is maintained in OSCAL, so the SCTM and assessment tools can read it, and it is revised with every significant change.
+**Design Intent:** The ISSM authors KESTREL's SSP with the ISSOs, recording what is built against each SADD outcome. The PMO ISSE reviews it. The AO approves an initial SSP before the interim authorization to test, from the CCSD and SADD, and the full SSP with the package. It is maintained in OSCAL, so the SCTM and assessment tools can read it, and it is revised with every significant change.
 
 **NIST Control Mapping:**
 
@@ -1534,7 +1534,7 @@
 
 ### GV-5.6: System Interconnection Agreements (ISA/MOU/MOA)
 
-**Design Intent:** Each interconnection in the system description has a signed agreement that documents both sides' interfaces and controls. These cover the cloud provider, the Boundary Cloud Access Point, the CSSP, the cross domain service provider, each partner nation, the performer, the penetration testing provider, and the alternate site's facility. Each agreement is reviewed each year and whenever its connection changes.
+**Design Intent:** Every system-to-system exchange in the system description has a signed interconnection agreement documenting both sides' interfaces and controls. These cover the CSSP, the cross domain service provider with the IL6 enclave's AO as a party, and each partner nation. They also cover the performer, the parent organization's managed devices, DoD PKI and the External Certificate Authorities, the DNS threat feed vendor, and the paging service. Each agreement also covers onward exchanges, such as partner dissemination and CSSP reporting. Public package indexes get no agreement, since the mirror only pulls from them. Provider authorizations sit under Inherited Control Validation (`GV-5.12`), and contracts under Contract Security Requirements (`GV-3.2`). Each agreement is reviewed each year and whenever its connection changes.
 
 **NIST Control Mapping:**
 
@@ -1544,9 +1544,9 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Remote Access/VPN Gateway, Private Connectivity/Dedicated Circuit, Cross-Domain/Boundary Transfer, Object/File Storage, External/Federated Trust, API/Interface Contract, Industrial Controller/SCADA
+**Affected Components:** Remote Access/VPN Gateway, Private Connectivity/Dedicated Circuit, Cross-Domain/Boundary Transfer, Object/File Storage, Removable Media, External/Federated Trust, API/Interface Contract, Industrial Controller/SCADA
 
-**External Dependencies:** Every interconnected party listed in the system description, as a signatory to its agreement.
+**External Dependencies:** Each signatory to an agreement, namely the CSSP, the cross domain service provider, the IL6 enclave's AO, and each partner nation. Also the performer, the parent organization, DoD PKI and the External Certificate Authorities, the DNS threat feed vendor, and the paging service.
 
 **Security Impact:** Moderate
 
@@ -1587,7 +1587,7 @@
 
 ### GV-5.7: Authorization to Operate (ATO) Process
 
-**Design Intent:** The ISSM submits the package to the AO, and AO determinations and conditions are tracked to closure in the POA&M. Before full authorization, an interim authorization to test covers integration on spare aircraft and the simulator, so no live mission data or flight depends on an unauthorized system.
+**Design Intent:** The ISSM submits the package to the AO, and AO determinations and conditions are tracked to closure in the POA&M. Before full authorization, an interim authorization to test covers Phases 1 to 3. It covers integration on spare aircraft and the simulator, the access point and CSSP connections from Phase 1, and the government-furnished prior collection the AO admits over F28 for training. It names its duration and connections, and it ends at the ATO decision or on any condition the AO sets.
 
 **NIST Control Mapping:**
 
@@ -1724,7 +1724,7 @@
 
 ### GV-5.9: Security Controls Traceability Matrix (SCTM)
 
-**Design Intent:** The ISSM maintains the SCTM in OSCAL, carrying each control in the tailored set to its SADD outcome, its implementation in the SSP, its inheritance status, and its evidence. It starts from this SADD's control coverage table. It is validated against the SSP before each submission and updated with every change.
+**Design Intent:** The ISSM maintains the SCTM in OSCAL. It has a row for every control in the CNSSI 1253 selection, its overlays, and the tailoring actions. Each row carries the control to its SADD outcome, its implementation in the SSP, its inheritance status, and its evidence. This SADD's coverage table fills only the outcome column, and every unclaimed row becomes a gap register entry. It is validated against the SSP before each submission and updated with every change.
 
 **NIST Control Mapping:**
 
@@ -1786,7 +1786,7 @@
 
 ### GV-5.10: Ongoing Authorization
 
-**Design Intent:** Continuous monitoring results feed the ISSM's view of KESTREL's authorization posture. The triggers for AO review are agreed in advance. They include a new interconnection, partner nation, spoke, payload vendor, or foundation model, any change to the CCSD's information types, and activation of the alternate site. The ISSM reports authorization status to the AO each quarter.
+**Design Intent:** Continuous monitoring results feed the ISSM's view of KESTREL's authorization posture. The triggers for AO review are agreed in advance. They include a new interconnection, partner nation, spoke, payload vendor, or foundation model, and any change to the CCSD's information types. Activation of the alternate site is another. So are a slip of the replacement payload processing workstation past 2027-09-30, which needs the AO to re-date CCSD tailoring action 3, and tailoring action 6's annual review. The ISSM reports authorization status to the AO each quarter.
 
 **NIST Control Mapping:**
 
@@ -1838,7 +1838,7 @@
 
 ### GV-5.11: Security Impact Analysis (SIA)
 
-**Design Intent:** Every change the Configuration Control Board sees gets a Security Impact Analysis record, which asks whether the change alters anything the authorization was granted against. Standard changes run against a standing classification. Significant changes go to the AO before they are made, and each change's controls are verified afterward.
+**Design Intent:** Every change process feeds one Security Impact Analysis intake, namely asset, network, identity, application release, model and prompt, and fleet maintenance changes. Pipeline releases and retraining within the approved envelope get a standing classification recorded automatically. Anything else goes to the ISSM, who asks whether it alters anything the authorization was granted against. Significant changes go to the SCA and the AO before they are made. Each analysis flags the SSP, SCTM, and CCSD updates it needs, and each change's controls are verified afterward.
 
 **NIST Control Mapping:**
 
@@ -1902,7 +1902,7 @@
 
 ### GV-5.12: Inherited Control Validation
 
-**Design Intent:** Before KESTREL inherits any control, the ISSM confirms the provider's authorization is current. The providers are the cloud provider's IL5 provisional authorization, the Boundary Cloud Access Point, the CSSP, the cross domain service provider, and the alternate site's facility. Each provider's customer responsibility matrix is merged into the SCTM. Provider authorization status is checked each quarter, and the reciprocity terms are recorded with each agreement.
+**Design Intent:** Before KESTREL inherits any control, the ISSM confirms the provider's authorization or certification is current. The providers are the cloud provider and the Microsoft 365 DoD tenant, each authorized at IL5. They also include the Boundary Cloud Access Point, DoD PKI, the CSSP's certification, the cross domain service provider, and the alternate site's facility. Each provider's customer responsibility matrix is merged into the SCTM. Provider status is checked each quarter, and the reciprocity terms are recorded with each agreement.
 
 **NIST Control Mapping:**
 
@@ -1914,7 +1914,7 @@
 
 **Affected Components:** Compute, Storage/Database, Network Infrastructure, Identity Platform, Device/Workstation, Application/API, AI/ML System, OT/ICS Device
 
-**External Dependencies:** The IL5 cloud provider and DISA, which publishes its provisional authorization. The Boundary Cloud Access Point, the CSSP, the cross domain service provider, and the parent organization's facility, for the controls KESTREL inherits from each.
+**External Dependencies:** The IL5 cloud provider and DISA, which publishes its provisional authorization. Microsoft, for KESTREL's Microsoft 365 DoD tenant. The Boundary Cloud Access Point, DoD PKI, the CSSP, the cross domain service provider, and the parent organization's facility, for the controls KESTREL inherits from each.
 
 **Security Impact:** High
 

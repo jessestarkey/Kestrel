@@ -1,5 +1,5 @@
 ## Design Intent
-The on-premises identity provider and directory in the mission data center is KESTREL's one identity system of record. It serves the IL5 cloud over the dedicated circuit, so identity keeps working for the data center and the fleet if the cloud is unreachable. Separate administrative units keep each team's identities apart, along with partner, operator, and platform administrator identities.
+The on-premises directory in the mission data center is KESTREL's identity system of record, and its cloud copy is the federation and access policy service for cloud sign-in. If the cloud is unreachable, directory logon, the stations' local CAC checks, and the break-glass accounts keep working. Cloud-federated sign-in waits for the circuit. Separate organizational units in the directory, mirrored as administrative units in the cloud copy, keep each team's identities apart.
 
 ## External Dependencies
-None outside the boundary. The identity provider is program-owned.
+The IL5 cloud provider's identity service, inherited under its provisional authorization.

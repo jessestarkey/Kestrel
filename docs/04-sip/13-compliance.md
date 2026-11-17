@@ -34,9 +34,9 @@
 
 ### CO-1.2: Automated Technical Control Compliance Monitoring
 
-**Selected Tool / Product / Service:** Tenable Security Center (ACAS), DISA SCAP Compliance Checker and STIG Viewer, Defender for Cloud CSPM, Azure Blob Storage with immutability policies, Confluence Data Center
+**Selected Tool / Product / Service:** Tenable Security Center (ACAS), DISA SCAP Compliance Checker and STIG Viewer, Defender for Cloud CSPM
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** ACAS runs authenticated scans with DISA SCAP content on every host, and Defender for Cloud checks the cloud and containers against their benchmarks. Fleet equipment is checked against its manufacturer baseline only in maintenance windows, with no automated correction.
 
 **Accountable Team:** Security Team
 
@@ -44,11 +44,11 @@
 
 **Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
 **Status:** Not Started
 
@@ -64,7 +64,7 @@
 
 **Selected Tool / Product / Service:** Azure Blob Storage with immutability policies, Confluence Data Center, GitLab Ultimate
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** One evidence repository in immutable Blob storage receives the pipeline's evidence, ConMon results, and each team's records, append-only. Fleet and OT evidence is entered by hand after each maintenance window. A dashboard shows gaps and stale artifacts.
 
 **Accountable Team:** Security Team
 
@@ -151,17 +151,17 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center, eMASS, Jira Software Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The SCA conducts the annual security review under the Security Assessment Plan, across the cloud, the data center, the alternate site, and the fleet through spares and the simulator. Determinations go in the SAR, and findings go to the POA&M in eMASS and the risk register.
 
-**Accountable Team:** Security Team (ISSM)
+**Accountable Team:** SCA, with the Security Team (ISSM) for access and evidence
 
-**Dependencies:** GV-5.9
+**Dependencies:** RK-1.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 program management
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -171,9 +171,9 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| CO-2.3.1: Annual Review Scope and Methodology Definition | 2 | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| CO-2.3.2: Annual Review Execution and Findings Documentation | 2 | Process | None | Level 1 | Periodic (Annual) | High | One-Time: Moderate; Recurring: High | Medium-term (3–6 months) |
-| CO-2.3.3: Annual Review Findings Integration into Risk Register/POA&M | 2 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| CO-2.3.1: Annual Review Scope and Methodology Definition | 3 | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| CO-2.3.2: Annual Review Execution and Findings Documentation | 3 | Process | None | Level 1 | Periodic (Annual) | High | One-Time: Moderate; Recurring: High | Medium-term (3–6 months) |
+| CO-2.3.3: Annual Review Findings Integration into Risk Register/POA&M | 3 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 ## CO-3: Audit Management
 
@@ -185,7 +185,7 @@
 
 **Accountable Team:** Program Office
 
-**Dependencies:** GV-1.1 governing plans approved
+**Dependencies:** GV-1.1, GV-2.1
 
 **Funding Line:** FY28 program management
 
@@ -214,7 +214,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** GV-1.1 governing plans approved
+**Dependencies:** GV-1.1, GV-2.1
 
 **Funding Line:** FY28 O&M, platform and security operations
 

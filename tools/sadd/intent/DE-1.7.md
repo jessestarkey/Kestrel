@@ -1,5 +1,5 @@
 ## Design Intent
-Intrusion detection runs on the data center hub and on sensors fed by the SDN fabric's mirrored traffic, covering the paths the cloud hub never sees. In the ground segment, the passive sensors' anomaly detection is the intrusion detection. Alerts are triaged by the Security Team, and ground segment alerts also go to Fleet Operations.
+Intrusion detection runs on sensors fed by the SDN fabric's mirrored traffic and the alternate site's internal paths, covering what the cloud hub never sees. In the ground segment, the passive sensors' anomaly detection is the intrusion detection. The CSSP triages first. Platform Team network engineers adjudicate IT alerts, and Fleet Operations' OT maintainers adjudicate ground segment ones. Evidence is captured at triage before sensor buffers roll, and the IRP sets when an anomaly becomes an incident.
 
 ## External Dependencies
-None outside the boundary.
+The CSSP, which triages network alerts around the clock.

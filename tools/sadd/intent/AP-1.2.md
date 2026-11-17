@@ -1,5 +1,5 @@
 ## Design Intent
-Every new application, service, or COTS product enters KESTREL through one intake request in the service desk, before design or purchase. The request names the owning team, its product owner, the data it handles, and the payload vendor terms it falls under. It also names the spoke it will run in. Intake opens the threat model and the significant change review, and nothing deploys without a completed intake record.
+Every new application, service, or COTS product enters KESTREL through one intake request in the program's work tracker, before design or purchase. The request names the owning team, its product owner, the data it handles, the payload vendor terms it falls under, and its spoke or host. The PMO ISSE approves each request before work starts. Intake opens the threat model and the security impact analysis, and nothing deploys without a completed intake record.
 
 ## External Dependencies
 None outside the boundary.
