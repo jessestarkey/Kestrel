@@ -448,9 +448,9 @@
 
 ### GV-4.1: AI/ML Use Case Inventory
 
-**Selected Tool / Product / Service:** Jira Software Data Center, Confluence Data Center
+**Selected Tool / Product / Service:** Jira Software Data Center, Confluence Data Center, Jira Service Management Assets
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The inventory is a Jira project, and each use case links to the Jira Service Management Assets records of the model versions it runs on. Platform models are listed with their sponsor and removal review date. The quarterly discovery sweep reads Azure AI service usage and the procurement records against the model registry.
 
 **Accountable Team:** Program Office (chief engineer)
 
@@ -470,9 +470,10 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| GV-4.1.1: AI/ML System/Use-Case Discovery and Inventory Intake Process | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-4.1.1: AI/ML Use Case Discovery and Inventory Intake Process | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-4.1.2: Risk Tiering Methodology and Criteria Definition | 2 | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-4.1.3: Inventory Periodic Review and Reassessment | 2 | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| GV-4.1.4: Use Case to Model Linkage | 2 | Process | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 ### GV-4.2: Program-Level AI Threat Assessment
 

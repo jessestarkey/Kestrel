@@ -6,7 +6,7 @@
 
 ### AI-1.1: AI Use Case Intake and Onboarding
 
-**Design Intent:** Every AI use case and every new model enters through the application intake path with an AI section added. It names the sponsor, the data the use case needs, any action it can take, and a proposed risk tier. The sponsor is the intelligence mission lead for a mission use case and the ISSM for a security use case such as AI-assisted alert triage. The engineering lead sponsors a development use case such as the coding agent. The AI/ML Governance Review Board (`GV-4.4`) approves the use case, with any conditions, before any corpus is assembled.
+**Design Intent:** Every AI use case and every new model enters through the application intake path with an AI section added. It names the sponsor, the data the use case needs, any action it can take, and a proposed risk tier. The sponsor is the intelligence mission lead for a mission use case and the ISSM for a security use case such as AI-assisted alert triage. The engineering lead sponsors a development use case such as the coding agent. A model adopted before any use case enters as a platform model with a sponsor and a deadline for its first use case. It is reached only from ML Dev/Test, with no ML Prod deployment, until a use case is certified on it. The AI/ML Governance Review Board (`GV-4.4`) approves the use case, with any conditions, before any corpus is assembled.
 
 **NIST Control Mapping:**
 
@@ -24,7 +24,7 @@
 **Activities:**
 
 - **AI-1.1.1: Intake Request Submission and Initial Use-Case Registration**
-    - **Description:** Establish a single submission path through which a data scientist or product owner proposes a new ML use case or a materially new use of a model the program already fields, record the decision the model supports, the named model owner and program sponsor accountable for its security, and the expected delivery timeline as a provisional use-case record, and document the intake form's required fields in the AISP.
+    - **Description:** Establish a single submission path through which a data scientist or product owner proposes a new ML use case, a materially new use of a model the program already fields, or a model adopted ahead of any use case, record the decision the model supports, the named model owner and program sponsor accountable for its security, and the expected delivery timeline as a provisional use-case record, and document the intake form's required fields in the AISP.
     - **Control Type:** Process
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -66,6 +66,17 @@
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity carries no control claim of its own, since it is the mechanical consequence of the board's decision. It is Level 1 because a handoff that does not fire leaves the mandatory outcomes below it attached to nothing. Carry the answers and the assigned tier forward so privacy and threat work start from the existing profile and are scoped to the tier.
+
+- **AI-1.1.5: Platform Model Intake and Expiry**
+    - **Description:** Route a model adopted ahead of any use case into the AI/ML governance process as a platform model, so the board records its sponsor, a provisional tier at the highest tier its likely uses could reach, an experimentation-only condition, and a removal review date, and document the expiry rule in the AISP.
+    - **Control Type:** Process
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Low
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries part of the outcome's SA-3 (partial) mapping for a model with no use case yet, such as a foundation model or a shared embedding model. Admitting it is the board's recorded decision under Use-Case Review/Approval Workflow, and experimentation excludes training or fine-tuning on mission data. The provisional tier sets which suites characterize it, and the removal review keeps unused models from accumulating without an owner.
 
 ### AI-1.2: Privacy Requirements Definition
 
@@ -2084,7 +2095,7 @@
 
 ### AI-6.5: Model Deployment Risk Threshold Evaluation
 
-**Design Intent:** The pipeline combines each model's results across jailbreak, injection, evasion, poisoning, out-of-distribution, and privacy tests into one score against its risk tier's thresholds. Retraining within the approved envelope passes on that score alone, except for edge models, which always take full Certification to Field. Anything outside the envelope goes to the PMO ISSE, and any risk acceptance routes under RK-1.4.
+**Design Intent:** The pipeline combines each model's results across jailbreak, injection, evasion, poisoning, out-of-distribution, and privacy tests into one score against the thresholds of each use case it serves. A model already certified takes only the new use case's acceptance tests when it gains one. Retraining within the approved envelope passes on that score alone, except for edge models, which always take full Certification to Field. Anything outside the envelope goes to the PMO ISSE, and any risk acceptance routes under RK-1.4.
 
 **NIST Control Mapping:**
 
@@ -2114,7 +2125,7 @@
     - **Supplemental Guidance:** This activity carries the outcome's RA-3 (partial) mapping. Normalize unlike inputs, such as attacker advantage, retained accuracy, jailbreak rate, and open findings, before combining them. Set weights as a mission judgment following the robustness and privacy baselines, and score a not-applicable suite differently from a passed one. Revise the scheme when suites, mission, or AO expectations change.
 
 - **AI-6.5.2: Automated Model Promotion Go/No-Go Gate Enforcement**
-    - **Description:** Compute each candidate's score at the gate and block its promotion to the registry channel serving traffic whenever the score exceeds the documented threshold or any individually disqualifying condition is present, recording the score and its inputs with the model version.
+    - **Description:** Compute each candidate's score at the gate against the thresholds of each use case it is certified for, and block its promotion to the registry channel serving traffic whenever the score exceeds a threshold or any individually disqualifying condition is present, recording the score and its inputs with the model version.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** Automate
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -2179,7 +2190,7 @@
 
 ### AI-6.7: Model Registration and Inventory Logging
 
-**Design Intent:** Every certified model version is registered in the model registry and the asset inventory. Each record lists its owner, publisher, criticality, the classification of its corpus and inputs, its certification record, where it serves, and which aircraft carry it.
+**Design Intent:** Every certified model version is registered in the model registry and the asset inventory. Each record lists its owner, publisher, criticality, the classification of its corpus and inputs, its certification record, the use cases it is certified for, where it serves, and which aircraft carry it.
 
 **NIST Control Mapping:**
 
@@ -2198,7 +2209,7 @@
 **Activities:**
 
 - **AI-6.7.1: Model Registration in Authoritative Inventory**
-    - **Description:** Write the certified model version into the program's authoritative inventory as a required condition of the gate passing, capturing its registry identifier and artifact digest, the training run and dataset versions behind it, the serving configuration it was certified with, and the environments it is approved for.
+    - **Description:** Write the certified model version into the program's authoritative inventory as a required condition of the gate passing, capturing its registry identifier and artifact digest, the training run and dataset versions behind it, the serving configuration it was certified with, and the environments it is approved for and the use cases it is certified for.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** Automate
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -2206,7 +2217,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's CM-8(1) (partial) mapping. Link training run and dataset versions from Dataset Lineage and Version Control and Experiment Tracking and Reproducibility, so an incident can find every model built on a contaminated corpus. Record the certified serving configuration beside the digest, since a different prompt or tool set is a different system.
+    - **Supplemental Guidance:** This activity carries the outcome's CM-8(1) (partial) mapping. Link training run and dataset versions from Dataset Lineage and Version Control and Experiment Tracking and Reproducibility, so an incident can find every model built on a contaminated corpus. Record the certified serving configuration beside the digest, since a different prompt or tool set is a different system. Add a use case to the record only when its own acceptance testing passes.
 
 - **AI-6.7.2: Model Inventory Record Enrichment**
     - **Description:** Attach to each model record its accountable owner, the mission criticality of the decisions it informs, the classification of both its training corpus and its inference inputs, and the vendor or publisher of the architecture or pretrained checkpoint it derives from, resolving each value to the taxonomy that already defines it rather than restating it.

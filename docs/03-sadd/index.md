@@ -200,12 +200,12 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 | Protect | [DI: Device and Infrastructure](03-device-and-infrastructure.md) | 29 / 0 | 111 | Written |
 | Protect | [NE: Network and Environment](04-network-and-environment.md) | 28 / 2 | 124 | Written |
 | Protect | [AP: Application](05-application.md) | 55 / 0 | 151 | Written |
-| Protect | [AI: Artificial Intelligence](06-artificial-intelligence.md) | 80 / 1 | 186 | Written |
+| Protect | [AI: Artificial Intelligence](06-artificial-intelligence.md) | 80 / 1 | 187 | Written |
 | Protect | [DA: Data](07-data.md) | 27 / 0 | 81 | Written |
 | Operate | [DE: Detection](08-detection.md) | 20 / 1 | 94 | Written |
 | Operate | [RS: Response](09-response.md) | 20 / 0 | 60 | Written |
 | Operate | [RC: Recovery](10-recovery.md) | 16 / 0 | 41 | Written |
-| Manage | [GV: Governance](11-governance.md) | 33 / 0 | 116 | Written |
+| Manage | [GV: Governance](11-governance.md) | 33 / 0 | 117 | Written |
 | Manage | [RK: Risk](12-risk.md) | 14 / 0 | 44 | Written |
 | Manage | [CO: Compliance](13-compliance.md) | 10 / 0 | 33 | Written |
 

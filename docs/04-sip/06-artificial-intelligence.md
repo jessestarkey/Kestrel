@@ -8,17 +8,17 @@
 
 **Selected Tool / Product / Service:** Jira Service Management Data Center, Confluence Data Center
 
-**Environment-Specific Tailoring:** Every AI use case and new model enters through the application intake request with an AI section. It names the sponsor, the data needed, any action the use case can take, and a proposed risk tier. The path opens in late Phase 1, so the first use cases are approved before training starts.
+**Environment-Specific Tailoring:** Every AI use case and new model enters through the application intake request with an AI section. It names the sponsor, the data needed, any action the use case can take, and a proposed risk tier. The path opens in late Phase 1, so the first use cases are approved before training starts. A platform model is recorded with its sponsor, provisional tier, and removal review date.
 
 **Accountable Team:** ML Team
 
 **Dependencies:** GV-4.4, AP-1.2
 
-**Funding Line:** FY27 RDT&E, mission and ML
+**Funding Line:** FY27 and FY28 RDT&E, mission and ML
 
-**Rollout Phase:** Phase 1, Foundation
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
-**Target Date / Sprint:** 2027-09-30
+**Target Date / Sprint:** 2028-03-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -32,6 +32,7 @@
 | AI-1.1.2: Self-Reported AI Risk and Data Profile Questionnaire | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | AI-1.1.3: Governance Risk-Tier Routing and Review Board Submission | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | AI-1.1.4: Routing and Handoff to Scoping, Requirements, and Design | 1 | Technical | Automate | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| AI-1.1.5: Platform Model Intake and Expiry | 2 | Process | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 ### AI-1.2: Privacy Requirements Definition
 
@@ -1354,7 +1355,7 @@
 
 **Selected Tool / Product / Service:** JFrog Artifactory, Jira Service Management Assets
 
-**Environment-Specific Tailoring:** Every certified model version is registered in Artifactory and in Jira Service Management Assets. Each record lists its owner, certification record, where it serves, and which aircraft carry it.
+**Environment-Specific Tailoring:** Every certified model version is registered in Artifactory and in Jira Service Management Assets. Each record lists its owner, certification record, the use cases it is certified for, where it serves, and which aircraft carry it.
 
 **Accountable Team:** ML Team
 

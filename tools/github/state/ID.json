@@ -889,6 +889,11 @@
    "number": 178,
    "id": 6339973779,
    "node": "I_kwDOVqDm9M8AAAABeeRSkw"
+  },
+  "ID-3.3.9": {
+   "number": 1072,
+   "id": 6513998585,
+   "node": "I_kwDOVqDm9M8AAAABhEO6-Q"
   }
  },
  "links": [
@@ -1068,7 +1073,8 @@
   "ID-5.1.3",
   "ID-5.2",
   "ID-5.2.1",
-  "ID-5.2.2"
+  "ID-5.2.2",
+  "ID-3.3.9"
  ],
  "items": {
   "ID": "PVTI_lAHOCZ5vBc4BrOtizhH_mrE",
@@ -1248,7 +1254,8 @@
   "ID-5.1.3": "PVTI_lAHOCZ5vBc4BrOtizhH_m2Y",
   "ID-5.2": "PVTI_lAHOCZ5vBc4BrOtizhH_mzw",
   "ID-5.2.1": "PVTI_lAHOCZ5vBc4BrOtizhH_m28",
-  "ID-5.2.2": "PVTI_lAHOCZ5vBc4BrOtizhH_m3k"
+  "ID-5.2.2": "PVTI_lAHOCZ5vBc4BrOtizhH_m3k",
+  "ID-3.3.9": "PVTI_lAHOCZ5vBc4BrOtizhKgWyw"
  },
  "fields_set": [
   "ID",
@@ -1428,7 +1435,8 @@
   "ID-1.9.5",
   "ID-3.2.6",
   "ID-5.1.3",
-  "ID-3.7.1"
+  "ID-3.7.1",
+  "ID-3.3.9"
  ],
  "dates_set": [
   "ID",
@@ -1608,7 +1616,8 @@
   "ID-1.9.5",
   "ID-3.2.6",
   "ID-5.1.3",
-  "ID-3.7.1"
+  "ID-3.7.1",
+  "ID-3.3.9"
  ],
  "deps": [
   "ID-2.1<-ID-1.3",
@@ -1653,7 +1662,33 @@
   "ID-2.5<-ID-1.4",
   "ID-2.5<-NE-2.7",
   "ID-3.5<-NE-3.7",
-  "ID-3.7<-NE-1.6"
+  "ID-3.7<-NE-1.6",
+  "ID-1.2<-DA-3.7",
+  "ID-1.5<-DA-3.4",
+  "ID-1.5<-DA-3.7",
+  "ID-2.1<-DA-3.7",
+  "ID-2.2<-DA-3.4",
+  "ID-2.2<-DA-3.7",
+  "ID-2.2<-DA-3.8",
+  "ID-2.3<-DA-3.7",
+  "ID-2.4<-DA-3.7",
+  "ID-2.5<-DA-3.7",
+  "ID-2.6<-DA-3.7",
+  "ID-3.1<-DA-3.3",
+  "ID-3.1<-DA-3.7",
+  "ID-3.2<-DA-3.3",
+  "ID-3.2<-DA-3.7",
+  "ID-3.3<-AI-1.1",
+  "ID-3.3<-AI-8.7",
+  "ID-3.4<-DA-3.3",
+  "ID-3.4<-DA-3.7",
+  "ID-3.4<-DA-3.8",
+  "ID-3.5<-AP-2.4",
+  "ID-3.6<-DA-3.3",
+  "ID-3.6<-DA-3.4",
+  "ID-3.6<-DA-3.10",
+  "ID-3.6<-DA-3.11",
+  "ID-3.7<-DA-3.7"
  ],
  "status": {
   "ID": "Ready",
@@ -1831,7 +1866,8 @@
   "ID-5.1.3": "Backlog",
   "ID-5.2": "Backlog",
   "ID-5.2.1": "Backlog",
-  "ID-5.2.2": "Backlog"
+  "ID-5.2.2": "Backlog",
+  "ID-3.3.9": "Backlog"
  },
  "date_values": {
   "ID": [
@@ -2537,6 +2573,10 @@
   "ID-5.2.2": [
    "2027-10-01",
    "2028-03-31"
+  ],
+  "ID-3.3.9": [
+   "2028-04-01",
+   "2028-07-31"
   ]
  }
 }

@@ -920,7 +920,7 @@
 
 ### GV-4.1: AI/ML Use Case Inventory
 
-**Design Intent:** The AI use case inventory lists every AI use case KESTREL runs or has proposed, with its sponsor, models, data, any actions it can take, and its risk tier. Today those are the onboard and cloud detection models, the embedding model, the person-detection model, the LLM analyst assistant, the mission-planning agent, and AI-assisted alert triage. The risk tier rises with mission impact and with any ability to act. Each quarter a discovery sweep checks procurement records, cloud AI service usage, and AI features vendors have switched on in owned products, against the model registry.
+**Design Intent:** The AI use case inventory lists every AI use case KESTREL runs or has proposed, with its sponsor, models, data, any actions it can take, and its risk tier. Today the use cases are onboard and cloud detection, imagery sanitizing, the LLM analyst assistant with its report search, the mission-planning agent, AI-assisted alert triage, and the coding agent. Each entry names the model versions it runs on, so a change to one model resolves to every use case it affects. The risk tier rises with mission impact and with any ability to act. Each quarter a discovery sweep checks procurement records, cloud AI service usage, and AI features vendors have switched on in owned products, against the model registry.
 
 **NIST Control Mapping:**
 
@@ -939,7 +939,7 @@
 
 **Activities:**
 
-- **GV-4.1.1: AI/ML System/Use-Case Discovery and Inventory Intake Process**
+- **GV-4.1.1: AI/ML Use Case Discovery and Inventory Intake Process**
     - **Description:** Establish the inventory's intake path with the Artificial Intelligence focus area's AI Use Case Intake and Onboarding submissions as its primary feed, and run periodic discovery across procurement records, cloud AI service usage, and the features vendors have enabled inside products the program already owns, so that AI/ML already in use but never submitted is found rather than assumed absent.
     - **Control Type:** Process
     - **Cross-Cutting Discipline:** None
@@ -971,6 +971,17 @@
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity carries the update elements of the outcome's PM-5 (partial) and RA-3 (partial) mappings. Trigger reassessment on repurposing or data changes, and re-run it when Risk Appetite and Tolerance Definition revises thresholds. Retire stale entries, and route a raised tier back through Use-Case Review/Approval Workflow.
+
+- **GV-4.1.4: Use Case to Model Linkage**
+    - **Description:** Record against each use case in the inventory the model versions it runs on, and against each platform model the use cases certified on it, so that withdrawing or compromising a model resolves to every use case it affects.
+    - **Control Type:** Process
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Low
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries part of the outcome's PM-5 (partial) mapping. Link to the model records Model Registration in Authoritative Inventory and Third-Party Model Registration in Authoritative Inventory keep rather than copying them. Operational Adversarial Re-Testing and incident response both read the link to find which use cases a model change reaches.
 
 ### GV-4.2: Program-Level AI Threat Assessment
 
@@ -1233,7 +1244,7 @@
     - **Supplemental Guidance:** This activity carries the response element of the outcome's RA-7 (partial) mapping and claims neither CA-5 nor PM-4. It is Level 1 because an undisposed finding is an unanswered control obligation. Realistic dispositions are acceptance, substitution with Model Selection and Justification's runner-up, or withdrawal through the AI/ML Governance Review Board.
 
 - **GV-4.6.3: Third-Party Model Registration in Authoritative Inventory**
-    - **Description:** Register each vendor-hosted or supplier-delivered model the program adopts in the program's authoritative inventory once its organizational risk tier is recorded, capturing the vendor, the model name and version, the endpoint the program reaches it through, its accountable owner, mission criticality, and classification, and linking to its organizational risk tier and its data governance terms rather than restating them.
+    - **Description:** Register each vendor-hosted or supplier-delivered model the program adopts in the program's authoritative inventory once its organizational risk tier is recorded, capturing the vendor, the model name and version, the endpoint the program reaches it through, its accountable owner, mission criticality, classification, and the use cases certified on it, and linking to its organizational risk tier and its data governance terms rather than restating them.
     - **Control Type:** Process
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
