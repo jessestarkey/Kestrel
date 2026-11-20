@@ -2,7 +2,7 @@
 
 > **Notional system.** KESTREL is fictional. The names, dates, and decisions below are invented to show a SADD in progress, and nothing here describes a real program or a real authorization.
 
-This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO approved in the [CCSD](../02-ccsd.md) into an architecture KESTREL's engineers can build, using the SABER v1.3 as the outcome catalog. It is split across files so each focus area can be read and revised on its own. This file holds the document-wide sections, and each focus area's file holds its part of Section 5.
+This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO approved in the [CCSD](../02-ccsd.md) into an architecture KESTREL's engineers can build, using the SABER v2.0 (in progress) as the outcome catalog. It is split across files so each focus area can be read and revised on its own. This file holds the document-wide sections, and each focus area's file holds its part of Section 5.
 
 ---
 
@@ -11,10 +11,10 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SADD Version | 0.3 |
+| SADD Version | 0.4 |
 | Date | 2026-11-17 |
 | Prepared By | KESTREL PMO ISSE |
-| Approved By | Pending. Version 0.3 is submitted to the KESTREL AO for approval as version 1.0. |
+| Approved By | Pending. Version 0.4 is submitted to the KESTREL AO for approval as version 1.0. |
 | Classification / Handling | CUI |
 | Security Categorization | Confidentiality High, Integrity High, Availability Moderate (see Section 2) |
 
@@ -25,6 +25,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | 0.1 | 2026-11-11 | KESTREL PMO ISSE | Initial draft with the document-wide sections and the Identity focus area |
 | 0.2 | 2026-11-11 | KESTREL PMO ISSE | Wrote the remaining eleven focus areas, for AO approval |
 | 0.3 | 2026-11-17 | KESTREL PMO ISSE | Applied the independent reviews of every focus area. Brought privileged access workstations into scope and took classified endpoint monitoring out. Added flows F29 to F38, the Microsoft 365 DoD tenant, and a second data center circuit |
+| 0.4 | 2026-11-20 | KESTREL PMO ISSE | Moved to SABER v2.0 (in progress), adding agent memory and capability composition to the design and scoping multi-agent orchestration out. Added the developer coding agent and flow F39. |
 
 ---
 
@@ -185,7 +186,7 @@ KESTREL is a hybrid ISR analytics platform inside one IL5 authorization boundary
 
 Each focus area file follows the SABER template's outcome block. Every in-scope outcome carries six fields, and every activity beneath it carries its description and the SABER's seven activity fields.
 
-- **Carried from the SABER v1.3 unchanged:** NIST Control Mapping, Security Impact, and every activity field. Deployment Type and Affected Components are carried as well, but narrowed to the values KESTREL actually fields.
+- **Carried from the SABER v2.0 (in progress) unchanged:** NIST Control Mapping, Security Impact, and every activity field. Deployment Type and Affected Components are carried as well, but narrowed to the values KESTREL actually fields.
 - **Written for KESTREL:** Design Intent and External Dependencies. Design Intent says what the outcome requires in KESTREL's terms. It overrides an activity's carried description where the two differ, such as an activity that applies to only part of KESTREL's footprint.
 - **Scoped out:** an outcome is dropped when none of its deployment types or affected components are in KESTREL's footprint, or when tailoring removes it. Each focus area file ends with its dropped outcomes and the reason for each.
 
@@ -195,11 +196,11 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 
 | Pillar | Focus Area | Outcomes In / Out | Activities | Status |
 |---|---|---|---|---|
-| Protect | [ID: Identity](02-identity.md) | 32 / 0 | 140 | Written |
+| Protect | [ID: Identity](02-identity.md) | 32 / 0 | 141 | Written |
 | Protect | [DI: Device and Infrastructure](03-device-and-infrastructure.md) | 29 / 0 | 111 | Written |
 | Protect | [NE: Network and Environment](04-network-and-environment.md) | 28 / 2 | 124 | Written |
-| Protect | [AP: Application](05-application.md) | 55 / 0 | 150 | Written |
-| Protect | [AI: Artificial Intelligence](06-artificial-intelligence.md) | 79 / 0 | 181 | Written |
+| Protect | [AP: Application](05-application.md) | 55 / 0 | 151 | Written |
+| Protect | [AI: Artificial Intelligence](06-artificial-intelligence.md) | 80 / 1 | 186 | Written |
 | Protect | [DA: Data](07-data.md) | 27 / 0 | 81 | Written |
 | Operate | [DE: Detection](08-detection.md) | 20 / 1 | 94 | Written |
 | Operate | [RS: Response](09-response.md) | 20 / 0 | 60 | Written |
@@ -267,7 +268,7 @@ This table rolls up the External Dependencies field from every focus area.
 
 ## 7. Control Mapping Coverage Summary
 
-The coverage table is generated from every in-scope outcome's NIST Control Mapping and lives in [control-coverage.md](control-coverage.md). It covers all twelve focus areas already, since the mappings are carried from the SABER. KESTREL's in-scope outcomes claim 497 controls and enhancements.
+The coverage table is generated from every in-scope outcome's NIST Control Mapping and lives in [control-coverage.md](control-coverage.md). It covers all twelve focus areas already, since the mappings are carried from the SABER. KESTREL's in-scope outcomes claim 498 controls and enhancements.
 
 ---
 
@@ -278,8 +279,8 @@ The coverage table is generated from every in-scope outcome's NIST Control Mappi
 | ID: Identity | 32 | 1 |
 | DI: Device and Infrastructure | 29 | 4 |
 | NE: Network and Environment | 32 | 1 |
-| AP: Application | 79 | 6 |
-| AI: Artificial Intelligence | 93 | 2 |
+| AP: Application | 80 | 6 |
+| AI: Artificial Intelligence | 97 | 2 |
 | DA: Data | 23 | 2 |
 | DE: Detection | 14 | 4 |
 | RS: Response | 9 | 1 |
@@ -287,7 +288,7 @@ The coverage table is generated from every in-scope outcome's NIST Control Mappi
 | GV: Governance | 3 | 1 |
 | RK: Risk | 2 | 1 |
 | CO: Compliance | 3 | 1 |
-| **Total** | **322** | **25** |
+| **Total** | **327** | **25** |
 
 **Automate:** automation concentrates where KESTREL releases things, namely the build pipeline, Certification to Field, and the model lifecycle. These are the gates every release to production, the aircraft, and the IL6 enclave must pass.
 
@@ -317,7 +318,7 @@ SI-8 is not a gap. The AO removed it in CCSD tailoring action 1, and its one own
 
 ## 10. Approval and Periodic Review
 
-**Approved By:** Pending. Version 0.3 is submitted to the KESTREL AO for approval as version 1.0.
+**Approved By:** Pending. Version 0.4 is submitted to the KESTREL AO for approval as version 1.0.
 
 **Review Cadence:** Annually, and whenever a revision trigger below occurs.
 

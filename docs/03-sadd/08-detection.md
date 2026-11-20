@@ -808,7 +808,7 @@
 
 ### DE-2.4: Application/API Logging
 
-**Design Intent:** First-party applications emit structured security events through a shared logging library, including the authenticated user, each authorization decision, and each data access and release. COTS output is normalized at ingest. Every AI agent logs each tool call with its parameters, its result, and the human approval behind it. API gateways log every request, and the feedback endpoints log every message they accept. Every model endpoint logs its callers and quota decisions.
+**Design Intent:** First-party applications emit structured security events through a shared logging library, including the authenticated user, each authorization decision, and each data access and release. COTS output is normalized at ingest. Every AI agent logs each tool call with its parameters, its result, the human approval behind it, and the delegation chain. A trace identifier follows each task end to end, and the coding agent's event stream goes to the security monitoring platform. API gateways log every request, and the feedback endpoints log every message they accept. Every model endpoint logs its callers and quota decisions.
 
 **NIST Control Mapping:**
 
@@ -904,7 +904,7 @@
     - **Supplemental Guidance:** This activity carries part of the outcome's AU-12 (partial) mapping. It is separate from Web Application Activities Logging so security events stay findable rather than buried in request logs. Record authorization denials and input-validation rejections, which only the application observes.
 
 - **DE-2.4.8: Agentic AI Tool-Call and Action Logging**
-    - **Description:** Instrument each agentic tool-calling loop to emit a structured record of every tool call and action it takes, carrying the timestamp, tool called, parameters, result, agent session identifier, and, where applicable, the session termination reason.
+    - **Description:** Instrument each agentic tool-calling loop to emit a structured record of every tool call and action it takes, carrying the timestamp, tool called, parameters, result, plan step, approval decision, delegation chain, policy decision and reason, agent session identifier, trace identifier, and, where applicable, the session termination reason.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -912,7 +912,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries part of the outcome's AU-12 (partial) mapping for agentic tool calls, recorded whether dispatched, blocked, or escalated. It is separate from Application Security Event Logging because a tool call needs its own schema of action, parameters, and result. Record each decision from Agentic Tool-Call/Action Output Validation and the principal Delegated Authority Attribution resolves. This record set is what AI/ML Incident Runbook Development and Red Team Finding Remediation Tracking and Validation read to investigate and confirm agentic incidents.
+    - **Supplemental Guidance:** This activity carries part of the outcome's AU-12 (partial) mapping for agentic tool calls, recorded whether dispatched, blocked, or escalated. It is separate from Application Security Event Logging because a tool call needs its own schema of action, parameters, and result. Record each decision from Agentic Tool-Call/Action Output Validation and the principal Delegated Authority Attribution resolves. Carry one trace identifier through every sub-agent and tool call, so an investigator can rebuild the whole run. This record set is what AI/ML Incident Runbook Development and Red Team Finding Remediation Tracking and Validation read to investigate and confirm agentic incidents.
 
 ### DE-2.5: Host and Endpoint Logging
 

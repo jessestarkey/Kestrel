@@ -8,11 +8,11 @@
 
 **Selected Tool / Product / Service:** Microsoft Defender for Cloud, Microsoft Defender for Identity, Microsoft Defender XDR
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Defender for Cloud covers every subscription, cluster, and data service, and the tenant. Defender for Identity watches the domain controllers in the data center and at the alternate site. The CSSP reads the consoles through its host pool.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, Cyber defense service provider, IL5 cloud provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -36,13 +36,13 @@
 
 ### DE-1.2: Adversary Emulation and Detection Validation
 
-**Selected Tool / Product / Service:** AttackIQ Enterprise, Splunk Enterprise Security
+**Selected Tool / Product / Service:** AttackIQ Enterprise, Splunk Enterprise Security, the penetration testing provider
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** AttackIQ runs monthly against the cloud spokes, the data center, and identity. The penetration testing provider runs the annual campaign under agreed rules of engagement. Fleet systems are emulated only on spares or the simulator.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, Cyber defense service provider, Penetration testing provider
 
 **Funding Line:** FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
@@ -50,7 +50,7 @@
 
 **Target Date / Sprint:** 2029-03-31
 
-**Contracting / Procurement Reference:** [C18](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C18](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C28](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -65,21 +65,21 @@
 
 ### DE-1.3: Correlated Threat Detection and Analytics
 
-**Selected Tool / Product / Service:** Splunk Enterprise Security, Microsoft Defender XDR, GitLab Ultimate
+**Selected Tool / Product / Service:** Splunk Enterprise Security, Microsoft Defender XDR, GitLab Ultimate, Panorama with the PAN-OS provider for OpenTofu, Infoblox Threat Defense
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Splunk Enterprise Security correlates every source, and detection rules are written as code in GitLab. Vetted CSSP indicators are pushed to Panorama, Infoblox Threat Defense, and Defender. Ground segment correlation starts in Phase 3, when those events arrive.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2.1, DE-2.7, DE-3.1, RK-2.3
+**Dependencies:** DE-2.1, DE-2.7, DE-3.1, RK-2.3, Cyber defense service provider
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
+**Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2029-03-31
+**Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C12](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -92,17 +92,19 @@
 | DE-1.3.3: Custom XDR/Platform-Native Detection Rule Creation | 2 | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | DE-1.3.4: Threat Intelligence Enrichment | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: High | Short-term (1–3 months) |
 | DE-1.3.5: Indicator of Compromise (IOC) Feed Management | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: High | Short-term (1–3 months) |
-| DE-1.3.6: Detection-Rule-as-Code / Version-Controlled Rule Deployment Pipeline | 4 | Technical | Automate | Level 3 | Continuous | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| DE-1.3.6: Detection-Rule-as-Code / Version-Controlled Rule Deployment Pipeline | 2 (pinned) | Technical | Automate | Level 3 | Continuous | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+
+**Pinned:** DE-1.3.6: Detection content deploys through the pipeline from Phase 2, under the detection content role ID-4.1 defines.
 
 ### DE-1.4: Enterprise Threat Hunting Program
 
 **Selected Tool / Product / Service:** Splunk Enterprise Security, Microsoft Defender XDR
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Hunts run in Splunk across the cloud, the data center, and identity. Ground segment hunts use the Nozomi sensors' passive data.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, Cyber defense service provider
 
 **Funding Line:** FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
@@ -126,11 +128,11 @@
 
 **Selected Tool / Product / Service:** Acalvio ShadowPlus
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The Security Team designs the decoys in Acalvio and receives their alerts. The Platform Team and the Tier 0 administrators place the canary credentials in every spoke's Key Vault and in the directory. Decoy hosts sit in each data center segment, and a decoy dataset sits in each lake zone. Backup jobs and Data Team pipelines are excluded from touching them.
 
-**Accountable Team:** Security Team
+**Accountable Team:** Security Team, with the Platform Team placing the decoys
 
-**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, Cyber defense service provider
 
 **Funding Line:** FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
@@ -158,7 +160,7 @@
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, PSO's insider threat program
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -184,11 +186,11 @@
 
 **Environment-Specific Tailoring:** Corelight sensors watch the data center and the alternate site, and Palo Alto threat prevention watches the hubs. Nozomi sensors watch each operating site's ground segment once the fleet integrates in Phase 3.
 
-**Accountable Team:** Security Team
+**Accountable Team:** Security Team, with Fleet Operations for the ground segment
 
-**Dependencies:** DE-2.7, DE-3.1
+**Dependencies:** DE-2.7, DE-3.1, Cyber defense service provider
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -203,18 +205,20 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | DE-1.7.1: Network Intrusion Detection System (NIDS) Deployment | 2 | Technical | None | Level 2 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
-| DE-1.7.2: OT/ICS-Aware Anomaly Detection | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| DE-1.7.2: OT/ICS-Aware Anomaly Detection | 3 (pinned) | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | DE-1.7.3: Anomaly Alert Triage and Escalation Workflow | 2 | Process | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+
+**Pinned:** DE-1.7.2: The Nozomi sensors arrive when the fleet integrates in Phase 3.
 
 ### DE-1.8: Identity Threat Detection
 
-**Selected Tool / Product / Service:** Microsoft Entra ID Protection, Microsoft Defender for Identity, Splunk Enterprise Security
+**Selected Tool / Product / Service:** Microsoft Entra ID Protection, Microsoft Defender for Identity, Splunk Enterprise Security, Tenable Attack Surface Management, GitGuardian public monitoring
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Entra ID and Defender for Identity sign-in risk feed Splunk Enterprise Security, with laptop compliance from the performer device management. GitGuardian and Tenable ASM watch breach and leak sources for KESTREL credentials. Badge correlation with station sign-ins starts in Phase 3, when the fleet logs arrive.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1
+**Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, ID-1.10, Cyber defense service provider, Exposure and leak monitoring service, Performer laptops and device management
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -222,7 +226,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C29](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -248,7 +252,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DE-3.1
+**Dependencies:** DE-3.1, IL5 cloud provider
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -275,7 +279,7 @@
 
 **Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Azure Policy, NetApp StorageGRID with S3 Object Lock, Splunk Enterprise
 
-**Environment-Specific Tailoring:** Diagnostic settings enable data-plane logs on every cloud database, storage service, vault, and queue as the pipeline creates it, and Azure Policy flags any that lose them. StorageGRID audit logs cover every data lake zone. Splunk's own audit events are forwarded to the CSSP.
+**Environment-Specific Tailoring:** Diagnostic settings enable data-plane logs on every cloud database, storage service, vault, and queue when the pipeline creates it. Azure Policy flags any that lose them. StorageGRID audit logs cover every data lake zone. Splunk's own audit events are forwarded to the CSSP.
 
 **Accountable Team:** Platform Team
 
@@ -308,7 +312,7 @@
 
 ### DE-2.3: Container and Orchestration Platform Logging
 
-**Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Defender for Containers, Splunk Enterprise
+**Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Defender for Containers, Splunk Enterprise, JFrog Artifactory
 
 **Environment-Specific Tailoring:** AKS audit logs, Defender for Containers runtime events, and Artifactory registry events go to Splunk. The landing zone modules enable them when a cluster is created, and Azure Policy flags any that lose them. Azure Machine Learning sends its compute logs through its own diagnostic settings.
 
@@ -322,7 +326,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -338,9 +342,9 @@
 
 ### DE-2.4: Application/API Logging
 
-**Selected Tool / Product / Service:** Splunk Enterprise, Azure API Management, Semantic Kernel
+**Selected Tool / Product / Service:** Splunk Enterprise, Azure API Management, Semantic Kernel, OpenHands
 
-**Environment-Specific Tailoring:** A shared logging library in each team's code sends authorization, data access, and release events to Splunk. Semantic Kernel agents log every tool call with its parameters and approval. API Management logs every request, and COTS output is normalized at ingest.
+**Environment-Specific Tailoring:** A shared logging library in each team's code sends authorization, data access, and release events to Splunk. API Management logs every request, and each model endpoint logs its callers and quota decisions. The feedback endpoints log every message they accept. Semantic Kernel agents log each tool call with its parameters and approval from Phase 3, when they arrive. The OpenHands event stream goes to Splunk from the same phase. COTS output is normalized at ingest.
 
 **Accountable Team:** Mission teams and ML Team, with the Platform Team
 
@@ -367,13 +371,15 @@
 | DE-2.4.5: Structured Application Logging | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | DE-2.4.6: APM Telemetry | 4 | Technical | None | Level 3 | Continuous | Moderate | One-Time: Moderate; Recurring: High | Medium-term (3–6 months) |
 | DE-2.4.7: Application Security Event Logging | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| DE-2.4.8: Agentic AI Tool-Call and Action Logging | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| DE-2.4.8: Agentic AI Tool-Call and Action Logging | 3 (pinned) | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** DE-2.4.8: The mission-planning agent and the coding agent arrive in Phase 3, so their tool-call logging starts with them.
 
 ### DE-2.5: Host and Endpoint Logging
 
 **Selected Tool / Product / Service:** Splunk Enterprise, Microsoft Defender for Endpoint
 
-**Environment-Specific Tailoring:** Splunk universal forwarders and Defender for Endpoint collect host logs in the cloud, the data center, and the alternate site from Phase 1. Fleet host logs arrive through the IT/OT DMZ once it is built in Phase 2.
+**Environment-Specific Tailoring:** Splunk universal forwarders and Defender for Endpoint collect host logs from every server, privileged access workstation, and VDI desktop. That covers the cloud, the data center, and the alternate site.
 
 **Accountable Team:** Platform Team
 
@@ -430,7 +436,7 @@
 
 **Selected Tool / Product / Service:** Azure Monitor and VNet flow logs, Cisco ACI and APIC, Panorama with the PAN-OS provider for OpenTofu, Infoblox NIOS, Splunk Enterprise
 
-**Environment-Specific Tailoring:** NSG flow logs, ACI flow telemetry, and every Palo Alto firewall's traffic and configuration logs go to Splunk, including the alternate site and ground segment firewalls. Infoblox and Azure DNS query logs cover every resolver. Splunk stitches each connection across the circuits.
+**Environment-Specific Tailoring:** NSG flow logs, ACI flow telemetry, and every Palo Alto firewall's logs go to Splunk, including the alternate site's. Infoblox and Azure DNS query logs cover every resolver. Ground segment firewalls and resolvers join through the IT/OT DMZ in Phase 3. Splunk stitches each connection across the circuits.
 
 **Accountable Team:** Platform Team
 
@@ -438,9 +444,9 @@
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C12](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -490,11 +496,11 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise, Splunk Enterprise Security, Splunk SOAR, Azure OpenAI Service
 
-**Environment-Specific Tailoring:** Splunk Enterprise and Enterprise Security run in the data center, with a forwarding tier at the alternate site. SOAR automation is limited to enrichment, ticketing, notification, and isolating non-production hosts. AI-assisted triage calls the Azure OpenAI deployment over F32 and takes no action.
+**Environment-Specific Tailoring:** Splunk Enterprise and Enterprise Security run in the data center, with a forwarding tier at the alternate site. SOAR automation is limited to enrichment, ticketing, notification, and isolating non-production hosts. AI-assisted triage calls the Azure OpenAI deployment over F32 and takes no action. It goes live in Phase 4, after its model passes AI Cyber T&E and Certification to Field in Phase 3.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** NE-2.1, DA-2.4
+**Dependencies:** NE-2.1, DA-2.4, Cyber defense service provider, IL5 cloud provider
 
 **Funding Line:** FY27, FY28, and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
 
@@ -521,11 +527,11 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise, NetApp StorageGRID with S3 Object Lock
 
-**Environment-Specific Tailoring:** Splunk keeps security logs searchable for 12 months, then rolls them to StorageGRID for 18 more under AU-11. An archived sample is restored and searched each year. All telemetry is also forwarded to the CSSP.
+**Environment-Specific Tailoring:** Splunk keeps security logs searchable for 12 months, then rolls them to StorageGRID for 18 more under AU-11. Alert and investigation records are kept longer where their case or POA&M item requires. An archived sample is restored and searched each year. All telemetry is also forwarded to the CSSP.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-3.1
+**Dependencies:** DE-3.1, Cyber defense service provider
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -580,17 +586,17 @@
 
 **Selected Tool / Product / Service:** Microchip SyncServer S650, Splunk Enterprise
 
-**Environment-Specific Tailoring:** GNSS-disciplined time servers in the data center serve every on-premises host, with a secondary at the alternate site. Ground segment devices fall back to each site's holdover reference. Cloud workloads use the provider's time service, and Splunk alerts on drift between the sides.
+**Environment-Specific Tailoring:** GNSS-disciplined time servers in the data center serve every on-premises host, checked against DoD's authoritative time service. A secondary sits at the alternate site. Ground segment devices join in Phase 3, falling back to each site's holdover reference. Cloud workloads use the provider's time service, and Splunk alerts on drift between the sides.
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** NE-2.1
+**Dependencies:** NE-2.1, DoD authoritative time service
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C20](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 

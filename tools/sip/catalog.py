@@ -33,7 +33,7 @@ CONTRACTS = {
     'C22': ('Pomerium Enterprise, self-hosted', f'{STD}, SBOM delivery, vulnerability disclosure', 'Standard Security Clause Library', 'Open'),
     'C23': ('Bastille Enterprise RF detection', f'{STD}, firmware signing', 'Standard Security Clause Library', 'Open'),
     'C24': ('Yubico YubiKey 5 FIPS Series', f'{STD}, FIPS 140-3 validation', 'Standard Security Clause Library', 'Open'),
-    'C25': ('ExpressRoute circuits from two carriers on separate paths', f'{STD}, path diversity', 'New clause needed (path diversity)', 'Open'),
+    'C25': ("Two diverse data center circuits and the alternate site's circuit", f'{STD}, path diversity, priority restoration', 'New clause needed (path diversity, priority restoration)', 'Open'),
     'C26': ('Aircraft, ground control station, and launch equipment manufacturer', f'{STD}, DFARS 252.204-7021, SBOM delivery, firmware signing, onboard TEE support', 'New clause needed (onboard TEE support)', 'Open'),
     'C27': ('Payload Vendor A and Payload Vendor B', f'{STD}, DFARS 252.204-7021, SBOM delivery, data rights terms', 'Standard Security Clause Library', 'Open'),
     'C28': ('Penetration testing provider, including AI red team', f'{STD}, DFARS 252.204-7021, rules of engagement', 'New clause needed (AI red team scope)', 'Open'),
@@ -41,6 +41,7 @@ CONTRACTS = {
     'C30': ('Blancco Drive Eraser', f'{STD}', 'Standard Security Clause Library', 'Open'),
     'C31': ('CSSP service agreement amendment for containment playbooks', 'Containment role and playbook terms', 'New clause needed (CSSP containment role)', 'Open'),
     'C32': ('Trellix Application Control for the legacy payload processing workstation', f'{STD}, support for the workstation operating system', 'Standard Security Clause Library', 'Option, exercised only if the replacement workstation slips'),
+    'C33': ('Paging service', f'{STD}, page content limited to an incident ID and severity', 'Standard Security Clause Library', 'Open'),
 }
 
 GOV = 'Government-furnished'
@@ -153,7 +154,7 @@ PRODUCTS = {
     'pomerium': ('Pomerium Enterprise', 'C22'),
     'bastille': ('Bastille Enterprise', 'C23'),
     'yubikey': ('YubiKey 5 FIPS Series', 'C24'),
-    'circuits': ('ExpressRoute circuits from two carriers', 'C25'),
+    'circuits': ("ExpressRoute circuits from two carriers and the alternate site's circuit", 'C25'),
     'oem': ("the aircraft and ground equipment manufacturer's tools", 'C26'),
     'oemtee': ("the aircraft's onboard trusted execution environment", 'C26'),
     'oemcrypto': ('the datalink crypto modules', 'C26'),
@@ -164,6 +165,7 @@ PRODUCTS = {
     'blancco': ('Blancco Drive Eraser', 'C30'),
     'csspplay': ('Splunk SOAR containment playbooks under the CSSP agreement', 'C31'),
     'trellix': ('Trellix Application Control', 'C32'),
+    'paging': ('the paging service', 'C33'),
     # Government-furnished
     'acas': ('Tenable Security Center (ACAS)', GOV),
     'scap': ('DISA SCAP Compliance Checker and STIG Viewer', GOV),
@@ -203,6 +205,7 @@ PRODUCTS = {
     'art': ('Adversarial Robustness Toolbox', OSS),
     'presidio': ('Microsoft Presidio', OSS),
     'sk': ('Semantic Kernel', OSS),
+    'openhands': ('OpenHands', OSS),
     'llmguard': ('Self-hosted LLM Guard', OSS),
     'jupyterhub': ('JupyterHub on AKS', OSS),
     'evidently': ('Self-hosted Evidently', OSS),
@@ -212,7 +215,6 @@ PRODUCTS = {
     'gx': ('Great Expectations', OSS),
     'onnx': ('ONNX Runtime quantization', OSS),
     'oras': ('ORAS offline bundles', OSS),
-    'velociraptor': ('Velociraptor', OSS),
     'threatdragon': ('OWASP Threat Dragon with MITRE ATLAS', OSS),
     'trestle': ('compliance-trestle (OSCAL)', OSS),
     'sonarlint': ('SonarQube for IDE', OSS),

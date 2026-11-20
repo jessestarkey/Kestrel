@@ -29,7 +29,7 @@ The government's program office directs KESTREL, eight performer teams build and
 | Team | Party | Owns |
 | :--- | :--- | :--- |
 | **Program Office** | Government | Direction and approval. Its program managers, chief engineer, and PMO ISSE own the requirements and the security design, and the PMO ISSE runs Certification to Field. A government product owner for each performer team owns that team's backlog and accepts its work. Intelligence mission leads define mission requirements and are the owners of the mission data. The foreign disclosure officer approves every release to partners. Program legal counsel advises on contracts, data rights, and AI use, and the privacy officer and supply chain lead complete the office. |
-| **Platform Team** | Performer | Cloud and data center infrastructure, namely the cloud and data center hubs and their shared rule base, the SDN fabric, DNS, the circuits, backup, the DMZ, and the VDI spoke. It also owns the shared services every other team builds through, namely the source repository and CI/CD pipeline, the artifact and model registry, the package mirror, and the test tooling every team's tests run on. Tier 0, meaning the identity provider, PKI, and HSMs, is held by a small named subset of its administrators. |
+| **Platform Team** | Performer | Cloud and data center infrastructure, namely the cloud and data center hubs and their shared rule base, the SDN fabric, DNS, the circuits, backup, the DMZ, and the VDI spoke. It also owns the shared services every other team builds through, namely the source repository and CI/CD pipeline, the artifact and model registry, the package mirror, the coding agent service, and the test tooling every team's tests run on. Tier 0, meaning the identity provider, PKI, and HSMs, is held by a small named subset of its administrators. |
 | **IT Operations** | Performer | The service desk and routine operations, namely user tickets, access requests, CAC problems, partner onboarding, scheduled patch windows, backup checks, and runbooks. Its changes go through the pipeline or the privileged access platform, never through direct console access. |
 | **Security Team** | Performer | The ISSM, who receives an appointment letter from the government, the ISSOs, and the on-premises security analysts. It owns the authorization package, the POA&M, and continuous monitoring. It also carries out hands-on incident response, tunes detection for OT and KESTREL-specific systems, and works with the CSSP. It holds read and audit access to the systems it watches but none of the administrative roles it checks, apart from the EDR responder, logging administrator, and detection content roles that Privileged Access Control (`ID-4.1`) names. |
 | **Fleet Operations** | Performer | The aircraft, ground control stations, launch and recovery equipment, and ground segment network. Its UAS operators fly the missions, and its OT maintainers work within scheduled maintenance windows, coordinating vendor support. It loads certified edge models onto the aircraft and operates the payload processing workstation. |
@@ -118,7 +118,7 @@ KESTREL's network is hub and spoke, with one hub in the IL5 cloud and one in the
 | DMZ | Platform | Everything the Boundary Cloud Access Point reaches, namely edge services, the identity-aware access proxy, the VDI brokers, and the cross domain transfer gateway |
 | VDI | Platform | Virtual desktops, in one host pool per team or party that needs one |
 | Platform Dev/Test | Platform | Dev, test, and stage clusters for platform and infrastructure changes, and for the Data Team's ingest code on synthetic samples only |
-| Platform Prod | Platform | The shared pipeline, registry, package mirror, DNS resolvers, and service desk, plus the test agent server from Phase 4 |
+| Platform Prod | Platform | The shared pipeline, registry, package mirror, DNS resolvers, service desk, and coding agent service, plus the test agent server from Phase 4 |
 | ML Dev/Test | ML | Model training, federated aggregation, experimentation workspaces, and dev, test, and stage clusters |
 | ML Prod | ML | Model serving endpoints, including the CSP-hosted foundation model |
 | Mission Team 1 Dev/Test | Mission Team 1 | Dev, test, and stage clusters for Team 1's applications |
@@ -148,16 +148,16 @@ This spoke holds everything users and outside systems reach first. It holds no m
 | :--- | :--- | :--- | :--- |
 | Edge services | Terminate analyst and partner traffic, inspect it, and route it to the mission teams' applications | Cloud | Load Balancer/Reverse Proxy/API Gateway, Web Application Firewall, DDoS Protection |
 | Identity-aware access proxy | Admits performer developers to the source repository and CI interfaces, and program office staff to pipeline approvals and backlogs, after CAC authentication and a device posture check, with no network-level access to any spoke | Cloud | Remote Access/VPN Gateway |
-| VDI brokers | Admit performer operators, data scientists, vendor engineers, and CSSP analysts to their host pools after CAC authentication, or ECA Medium Hardware credentials for vendor engineers, with a device posture check for performer laptops | Cloud | Remote Access/VPN Gateway, Virtual Desktop Infrastructure (VDI) |
+| VDI brokers | Admit performer operators, data scientists, developers using the coding agent, vendor engineers, and CSSP analysts to their host pools after CAC authentication, or ECA Medium Hardware credentials for vendor engineers, with a device posture check for performer laptops | Cloud | Remote Access/VPN Gateway, Virtual Desktop Infrastructure (VDI) |
 | Cross domain transfer gateway | Stages outbound baselines for the IL6 enclave and receives released products from it, and is the only component that talks to the cross domain solution | Cloud | Cross-Domain/Boundary Transfer |
 
 ### VDI
 
 | Component | What it does | Deployment Type | Affected Components |
 | :--- | :--- | :--- | :--- |
-| VDI host pools | Hardened desktops with one host pool and its own access roles per team or party. The platform pool serves Tier 1 administration, with privileged elevation only inside the session. The ML pool reaches the experimentation workspaces, so notebook output stays in the session. The vendor pool reaches only the privileged access platform's brokered sessions for an open support case. The CSSP pool gives the CSSP's analysts read access to the security monitoring platform and the cloud's native threat protection, and lets them run the pre-approved containment playbooks, with no administrative access | Cloud | Virtual Desktop Infrastructure (VDI) |
+| VDI host pools | Hardened desktops with one host pool and its own access roles per team or party. The platform pool serves Tier 1 administration, with privileged elevation only inside the session. The ML pool reaches the experimentation workspaces, so notebook output stays in the session. The developer pool reaches the coding agent, so the code it works on stays in the session. The vendor pool reaches only the privileged access platform's brokered sessions for an open support case. The CSSP pool gives the CSSP's analysts read access to the security monitoring platform and the cloud's native threat protection, and lets them run the pre-approved containment playbooks, with no administrative access | Cloud | Virtual Desktop Infrastructure (VDI) |
 
-The desktops block clipboard, drive, and USB redirection, and they reach only management endpoints. A compromised laptop therefore sees the session's display but never holds its credentials or tokens. Four host pools exist today, for the Platform Team, the ML Team's data scientists, vendor support, and the CSSP. A mission team or the ML Team gets its own administration pool if it takes on running its own production spoke.
+The desktops block clipboard, drive, and USB redirection, and they reach only management endpoints. A compromised laptop therefore sees the session's display but never holds its credentials or tokens. Five host pools exist today, for the Platform Team, the ML Team's data scientists, developers using the coding agent, vendor support, and the CSSP. A mission team or the ML Team gets its own administration pool if it takes on running its own production spoke.
 
 ### Platform Team Spokes
 
@@ -169,6 +169,7 @@ Platform Prod holds the services every team builds and releases through. Platfor
 | Artifact and model registry | Platform Prod | Stores signed container images, packages, and trained model versions with their lineage | Cloud | Artifact/Model Registry |
 | Package mirror | Platform Prod | Proxies and caches third-party packages and base images, so builds never pull directly from the internet | Cloud | Artifact/Model Registry, Third-Party Dependency (Embedded Library/Package) |
 | Cloud DNS resolvers | Platform Prod | Resolve private endpoint names for every spoke and filter outbound lookups against known malicious domains | Cloud | DNS Infrastructure |
+| Coding agent service | Platform Prod | Runs the self-hosted coding agent for developers. The service clones and pushes code for the developer and makes every model call, while each session's sandbox container reaches only the package mirror's cached packages | Cloud | AI Agent, AI Agent Identity, Container |
 | Service desk platform | Platform Prod | Self-hosted enterprise service desk where IT Operations handles tickets, access requests, and change records | Cloud | Self-Hosted Third-Party Application (COTS) |
 
 ### ML Team Spokes
@@ -215,6 +216,8 @@ This segment holds the authoritative mission data and the services every other s
 | PKI and HSMs | Issues device, workload, and code-signing certificates and protects the signing keys | On-Premises | PKI/Certificate Authority, Cryptographic Hardware/HSM |
 | Security monitoring platform | Collects and correlates logs from every spoke and segment, forwards telemetry to the CSSP, and is the working view for the Security Team and the CSSP's analysts | On-Premises, Hybrid | Security Information and Event Management (SIEM) Platform |
 | Backup and archive | Keeps recovery copies of the data lake, registries, and configuration under retention lock | On-Premises | Backup/Archive Repository |
+| Evidence store | Holds forensic captures under retention lock, readable only by the Security Team and excluded from backup replication | On-Premises | Object/File Storage |
+| Forensic workstation | Examines copies of evidence offline on a segment that cannot reach production, for the Security Team | On-Premises | Managed Device (Laptop/Desktop) |
 | Cloud interconnect | Carries all traffic between the data center and the IL5 environment over two dedicated circuits from different carriers, on diverse paths to different meet-me points | Hybrid | Private Connectivity/Dedicated Circuit |
 | Data center network hub | Next-generation firewall in front of the SDN fabric, facing the circuits, the ground segment conduit, and the cyber defense service provider | On-Premises, Hybrid | Network Firewall, Intrusion Detection/Prevention System (IDPS) |
 | SDN fabric and controller | Routes and segments traffic between the data center's services under one controller, with segments matching the cloud's teams, and exports flow telemetry to the security monitoring platform | On-Premises | Routing/Switching Fabric, Segmentation Policy, Network Telemetry/Monitoring Platform |
@@ -275,7 +278,7 @@ The table lists every flow that crosses a spoke, segment, or boundary. Flows ins
 | F12 | Cross domain transfer gateway | IL6 classified enclave | Periodic baselines of applications, models, and reference data | Authorization boundary, low to high | Cloud hub egress inspection, enterprise cross domain solution |
 | F13 | IL6 classified enclave | Cross domain transfer gateway | Analyst reports and model corrections approved for release at IL5, passed on to each team's feedback endpoints | Authorization boundary, high to low | Enterprise cross domain solution, release review on the high side, cloud hub inspection |
 | F14 | Performer laptops | Platform Prod | Source code pushes and pulls, and CI results | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, identity-aware proxy with CAC and device posture, protected branches with second-person review |
-| F15 | Performer laptops | Platform and ML VDI host pools | Remote desktop display and input only | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, VDI brokers with CAC and device posture, smart card redirection only, recorded administrative sessions |
+| F15 | Performer laptops | Platform, ML, and developer VDI host pools | Remote desktop display and input only | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, VDI brokers with CAC and device posture, smart card redirection only, recorded administrative sessions |
 | F16 | Mission team prod spokes | ML Prod | Inference requests to the detection and embedding models, and responses | Spoke to spoke | Cloud hub inspection, workload identity, mutual TLS |
 | F17 | CSSP analysts | Security monitoring platform | Remote desktop display and input, with read access to the monitoring platform and the cloud's native threat protection, and pre-approved containment playbooks | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, VDI brokers with CAC, CSSP host pool, data center hub inspection, recorded sessions |
 | F18 | Mission team data lake zones | ML training zone | Data each zone's owner has released for training | Data lake zone | Data Team curation only, release approval from the zone's owner, payload vendor terms, dataset provenance record |
@@ -299,6 +302,7 @@ The table lists every flow that crosses a spoke, segment, or boundary. Flows ins
 | F36 | Data catalog | Every data store, on premises and in the cloud | Metadata and classification scans, read-only | On-premises to cloud and within the data center | Read-only scan identity per store, dedicated circuit, IPsec tunnel between the hubs, hub inspection, no write access |
 | F37 | Vendor engineers' devices | Vendor VDI host pool | Remote desktop display and input for an open support case, then a brokered session | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, VDI brokers with ECA Medium Hardware credentials, privileged access platform brokering, recorded sessions |
 | F38 | Program Office staff on the parent organization's managed devices | Identity-aware access proxy | Pipeline approvals, Certification to Field evidence, backlogs, and release approvals | Authorization boundary | Boundary Cloud Access Point, cloud hub inspection, identity-aware proxy with CAC and device posture |
+| F39 | Coding agent service and its sandboxes | Source repository, package mirror, and foundation model deployment | The service's clones and pushes for the developer and its prompts with code excerpts, and the sandboxes' pulls of cached approved packages | Spoke to spoke | Cloud hub inspection, egress allowed only to these services, short-lived developer token held by the service, workload identity and private endpoint to the foundation model, provider-side prompt logging disabled, sandboxes reach only the mirror and hold no credential, no upstream package fetch |
 
 Flows F12 and F13 are KESTREL's only connections to a classified system, and both pass through an enterprise cross domain solution operated by a DoD cross domain service provider. Each baseline going low to high passes Certification to Field first. Each product coming high to low passes the enclave's own release review before transfer, and KESTREL treats what arrives as untrusted input to its feedback endpoints. Cross Domain Solution (CDS) Transfer Procedures (`NE-2.10`) govern how KESTREL uses it, and an agreement under System Interconnection Agreements (ISA/MOU/MOA) (`GV-5.6`) covers both directions.
 
@@ -308,7 +312,7 @@ Flow F17 adds a path into KESTREL for the CSSP's analysts alongside the telemetr
 
 Flow F18 is the only path from a mission team's zone into the ML training zone. The Data Team carries it out, and each zone's intelligence mission lead approves what may be released for training.
 
-Flows F9 and F16 are where the mission teams' AI use cases meet the ML team's models. They cross the cloud hub, so each mission team reaches only the endpoints its use cases are approved for.
+Flows F9 and F16 are where the mission teams' AI use cases meet the ML team's models, and F32 and F39 are where alert triage and the coding agent do. They cross the cloud hub, so each use case reaches only the endpoints it is approved for.
 
 ## Users and Roles
 
@@ -320,7 +324,7 @@ Flows F9 and F16 are where the mission teams' AI use cases meet the ML team's mo
 | Signals analysts | Mission Team 2's signals workbench and the LLM analyst assistant, about 120 users |
 | UAS operators | Ground control stations and the operator functions of the portal, and approval of the mission-planning agent's drafts |
 | Coalition partners | Partner API only, from five partner nations under program sponsorship |
-| Software developers | Their own team's repositories and CI interfaces from performer laptops through the identity-aware proxy, with no privileged roles |
+| Software developers | Their own team's repositories and CI interfaces from performer laptops through the identity-aware proxy, with no privileged roles. The coding agent is reached only from the developer VDI host pool, so its work never reaches the laptops |
 | Data scientists and ML engineers | The ML team's experimentation workspaces and training cluster from the ML VDI host pool, reached from performer laptops. Mission data never reaches the laptops |
 | Platform administrators | Tier 1 administration from the platform team's VDI host pool, reached from performer laptops. Tier 0 and the cloud tenant-owner roles only from the privileged access workstations in the data center or at the alternate site |
 | Security Team | The ISSM, ISSOs, and security analysts, with read and audit access across KESTREL and full use of the security monitoring platform, and no administrative roles apart from the EDR responder, logging administrator, and detection content roles |
@@ -338,6 +342,7 @@ Coalition partners authenticate with External Certificate Authority or federated
 - **Pipeline identities** let CI/CD jobs build, sign, and publish artifacts without stored human credentials.
 - **Workload identities** let production services read the data lake and the mission report index.
 - **The mission-planning agent** has its own identity, scoped to reading mission data and drafting plans. It cannot task an aircraft without an operator's approval.
+- **The coding agent** has its own identity and acts for the developer who started the session. It pushes only to unprotected branches, so its changes merge only through second-person review.
 - **Aircraft and ground station device identities** authenticate the datalinks and the loading of model packages.
 
 ## Interconnections and External Dependencies

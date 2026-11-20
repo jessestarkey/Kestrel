@@ -25,9 +25,9 @@ SADD = '../03-sadd'
 
 # Phase -> (name, start, end, funding status)
 PHASES = {
-    1: ('Foundation', '2027-01-01', '2027-09-30', 'Funded (FY27 base)'),
-    2: ('Protect and Operate', '2027-10-01', '2028-03-31', 'Funded (FY28 base)'),
-    3: ('Mission, AI, and Fleet', '2028-04-01', '2028-09-30', 'Pending approval (FY28 RDT&E and O&M)'),
+    1: ('Foundation', '2027-01-01', '2027-09-30', 'Funded (FY27 base RDT&E and O&M)'),
+    2: ('Protect and Operate', '2027-10-01', '2028-03-31', 'Funded (FY28 base RDT&E and O&M)'),
+    3: ('Mission, AI, and Fleet', '2028-04-01', '2028-09-30', 'Pending approval (FY28 RDT&E and O&M increment)'),
     4: ('Maturity', '2028-10-01', '2029-03-31', 'Unfunded (FY29 request)'),
 }
 # Fiscal years each phase spans. The federal fiscal year starts on 1 October.
@@ -208,8 +208,8 @@ codes = [s[2] for s in stats]
 ph = ['| Phase | Target Timeframe | Dependencies Satisfied / Rationale | Funding Status | Major Outcomes in This Phase |',
       '|---|---|---|---|---|']
 RATIONALE = {
-    1: 'Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, and the governance bodies and core plans.',
-    2: 'Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, and adds application security gates, data protection, backup and recovery, detection content, and incident response. Stands up the data curation path and the training pipeline.',
+    1: 'Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, Tier 1 backups, an interim IRP, and the governance bodies and core plans.',
+    2: 'Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, and adds application security gates, data protection, the remaining backup tiers and recovery, detection content, and incident response. Stands up the data curation path and the training pipeline.',
     3: 'Needs Phase 2 gates and detection. Runs AI Cyber T&E and Certification to Field for the first models. Builds serving guardrails, retraining, and the fleet and ground segment controls. Ends with the SCA assessment and the ATO decision.',
     4: 'Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, and RASP.',
 }

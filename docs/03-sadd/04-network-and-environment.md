@@ -1647,7 +1647,7 @@
     - **Supplemental Guidance:** This activity carries no independent control citation, since DNS Advanced Protection owns malicious-domain blocking and Network Firewall holds SC-7(8). SC-7(5) is not reopened because a resolver works from policy lists rather than deny-by-default. It is standing enforcement, so it is not tagged Automate.
 
 - **NE-3.3.3: Managed DNS Hosted Domains**
-    - **Description:** Host the focus areas the program owns as authoritative zones on the managed service, sign each zone so its responses carry data origin authentication and integrity verification artifacts, and publish the delegation-signer records that let a resolver verify the chain of trust from the parent focus area into any child zone.
+    - **Description:** Host the domains the program owns as authoritative zones on the managed service, sign each zone so its responses carry data origin authentication and integrity verification artifacts, and publish the delegation-signer records that let a resolver verify the chain of trust from the parent domain into any child zone.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -1761,7 +1761,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SI-4(18) (partial) mapping, treating the resolver as the interior point and DNS tunneling as the covert channel. It is tagged Automate because query analysis at volume needs tools. Detections go to the Centralized Network Telemetry and Analytics Platform for Operate pillar triage. Suppress noisy detections for content delivery or telemetry services to the specific parent focus area only.
+    - **Supplemental Guidance:** This activity carries the outcome's SI-4(18) (partial) mapping, treating the resolver as the interior point and DNS tunneling as the covert channel. It is tagged Automate because query analysis at volume needs tools. Detections go to the Centralized Network Telemetry and Analytics Platform for Operate pillar triage. Suppress noisy detections for content delivery or telemetry services to the specific parent domain only.
 
 - **NE-3.5.3: Dangling DNS Records Detection**
     - **Description:** Reconcile every record in the program's authoritative and private zones against the resource it resolves to on a continuous cycle, and flag each alias, CNAME, or address record whose target has been deprovisioned or released so the record is retired before someone else can claim that target and answer for the program's name.

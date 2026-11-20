@@ -29,6 +29,7 @@ This plan consolidates KESTREL's identity assurance levels, authentication and s
 | 0.2 | 2026-11-12 | KESTREL ISSM | Named the selected products, fixed station revocation timing, named the break-glass custodians, and moved privileged unlocks to Tier 0 |
 | 0.3 | 2026-11-12 | KESTREL ISSM | Replaced temporary fallback keys with CAC PIN reset and reissue, and redesigned break-glass around method diversity in the cloud and console-only passwords for the directory and stations, under a tailored exception |
 | 0.4 | 2026-11-12 | KESTREL ISSM | Added DSRM and workstation local administrators to the directory break-glass set, a local account per station, direct cloud alerting, automatic session end, AD-owned group membership, and Splunk-computed dormancy, and recorded the exception as CCSD tailoring action 6. Then scoped the seven-day revocation list to a dedicated break-glass CA, kept station sessions open while aircraft fly, and excluded break-glass from dormancy |
+| 0.5 | 2026-11-20 | KESTREL ISSM | Added capability composition review, narrowing delegation, and expiring tool approvals for AI agents, under SABER v2.0, and registered the coding agent |
 
 ---
 
@@ -112,7 +113,7 @@ OT and legacy devices that can hold a certificate get a constrained lifecycle. C
 
 **Service accounts.** A service account is created only where Entra Workload ID cannot be used, through a Jira Service Management request naming its owner, purpose, scope, and expiry. It is a group Managed Service Account wherever the service supports one. The Platform Team lead and an ISSO both approve it.
 
-**AI agents.** Every AI agent is registered as its own Entra workload identity, running under AKS workload identity, after the AI/ML Governance Review Board approves its use case. Registration records the owning team, the use case, every tool and data scope the agent may use, the human role that approves its actions, and a review date no more than one year out. The mission-planning agent is the first.
+**AI agents.** Every AI agent is registered as its own Entra workload identity, running under AKS workload identity, after the AI/ML Governance Review Board approves its use case. Registration records the owning team, the use case, every tool and data scope the agent may use, the human role that approves its actions, and a review date no more than one year out. Registration also reviews whether the scope combines untrusted input, sensitive data, and the ability to send data out or change state. Any such combination needs the AO's acceptance. An agent acts with the requesting user's authority, narrowed at each hop, and never holds a credential in its model context. Each tool approval expires at the review date. The mission-planning agent and the coding agent are the first two.
 
 **Baseline access.** A new identity receives only the right to sign in and to reach the training and rules of behavior pages. Everything else comes from a role in Section 5, after training and the rules of behavior acknowledgment are complete.
 
@@ -138,7 +139,7 @@ Team membership is part of every role, so a role never spans two mission teams' 
 | Operators | Operator roles and approval rights for AI agent actions | Quarterly | Fleet Operations' operations lead |
 | Partners | Every partner user | Quarterly | Each user's KESTREL sponsor |
 | External parties | CSSP analysts, penetration testers, and vendor engineers | Quarterly | The sponsor named in each agreement or case |
-| Team members | Analysts, developers, data scientists, and data engineers | Semiannually | Each team's product owner |
+| Team members | Analysts, developers, data scientists, and data engineers, including developers' approval of the coding agent's merge requests | Semiannually | Each team's product owner |
 | Workloads and agents | Service accounts, workload identities, and AI agents | Semiannually | Each owning team lead |
 
 Entra ID Governance runs every campaign except the vaulted privileged accounts, which CyberArk's own reviews cover, and IT Operations applies the removals in Active Directory. A completed review certifies that each person or workload still needs the access, holds the right role, and has had unused entitlements removed. Access a reviewer has not confirmed within 14 days of the campaign's close is removed.

@@ -8,7 +8,7 @@
 
 **Selected Tool / Product / Service:** Jira Service Management Data Center, Confluence Data Center
 
-**Environment-Specific Tailoring:** Every AI use case and new model enters through the application intake request with an AI section. It names the sponsoring mission lead, the data needed, any action the use case can take, and a proposed risk tier. The path opens in late Phase 1, so the first use cases are approved before training starts.
+**Environment-Specific Tailoring:** Every AI use case and new model enters through the application intake request with an AI section. It names the sponsor, the data needed, any action the use case can take, and a proposed risk tier. The path opens in late Phase 1, so the first use cases are approved before training starts.
 
 **Accountable Team:** ML Team
 
@@ -1689,11 +1689,11 @@
 
 ### AI-8.7: Agentic Tool-Call/Action Output Validation
 
-**Selected Tool / Product / Service:** Semantic Kernel, Azure Container Instances, Open Policy Agent policy decision service
+**Selected Tool / Product / Service:** Semantic Kernel, Azure Container Instances, Open Policy Agent policy decision service, OpenHands
 
-**Environment-Specific Tailoring:** OPA checks every tool call the mission-planning agent makes against the tools and parameters its task authorized. Each tool runs in its own Azure Container Instances group in Mission Team 2 Prod, with hypervisor isolation and customer-managed keys. Its tools read only shared reports and collection requests, and write drafts to an operator's approval queue.
+**Environment-Specific Tailoring:** OPA checks every tool call the mission-planning agent makes against the tools and parameters its task authorized. Each tool runs in its own Azure Container Instances group in Mission Team 2 Prod, with hypervisor isolation and customer-managed keys. Its tools read only shared reports and collection requests, and write drafts to an operator's approval queue. The coding agent's commands and file actions reach OPA through a custom OpenHands security analyzer, and its sandbox's egress reaches only Artifactory, read-only. The OpenHands server clones, pushes, and calls Azure OpenAI. OPA is the only route from the mission-planning agent to its tools, and it denies any call it cannot evaluate. Tool responses are checked against their schemas before they return to the model.
 
-**Accountable Team:** Mission Team 2
+**Accountable Team:** Mission Team 2, with the Platform Team for the coding agent
 
 **Dependencies:** AI-1.8, AI-8.10, GV-5.12
 
@@ -1714,6 +1714,7 @@
 | AI-8.7.1: Tool-Call Schema and Parameter Validation Against Action Contract | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | AI-8.7.2: Provenance-Gated Escalation to Human Approval | 3 | Technical | Automate | Level 2 | Periodic (Event-Driven) | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | AI-8.7.3: Sandboxed Tool-Call Execution Environment | 3 | Technical | Automate | Level 2 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
+| AI-8.7.4: Tool Gateway Mediation and Execution Integrity | 3 | Technical | Automate | Level 2 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
 
 ### AI-8.8: Inference-Time PII Handling
 
@@ -1889,7 +1890,7 @@
 
 **Selected Tool / Product / Service:** KServe, GitLab feature flags, the aircraft and ground equipment manufacturer's tools, Splunk SOAR containment playbooks under the CSSP agreement
 
-**Environment-Specific Tailoring:** KServe serves from isolated-size node pools in ML Prod, and each endpoint can return to its previous certified version in minutes. The owning team operates each kill switch directly. The Security Team and the CSSP trigger one only through the containment playbook that suspends a workload or AI agent identity. Each aircraft keeps its prior certified edge model.
+**Environment-Specific Tailoring:** KServe serves from isolated-size node pools in ML Prod, and each endpoint can return to its previous certified version in minutes. The owning team operates each kill switch directly. The Security Team and the CSSP trigger one only through the containment playbook that suspends a workload or AI agent identity. Each aircraft keeps its prior certified edge model. An agent that misbehaves is first limited to read-only drafting, then suspended, and its session record is kept as evidence.
 
 **Accountable Team:** ML Team
 
@@ -1911,6 +1912,37 @@
 |---|---|---|---|---|---|---|---|---|
 | AI-8.14.1: Model Version Rollback Capability | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
 | AI-8.14.2: Kill-Switch Trigger Integration | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| AI-8.14.3: Graduated Agent Containment | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+
+### AI-8.15: Agent Memory Security
+
+**Selected Tool / Product / Service:** Semantic Kernel, OpenHands
+
+**Environment-Specific Tailoring:** Semantic Kernel holds the mission-planning agent's working memory in process for one session and discards it at session end. No persistent memory store is deployed, and the AISP records the one-session rule. OpenHands conversation storage is disabled, so the coding agent keeps nothing after a session ends.
+
+**Accountable Team:** Mission Team 2, with the Platform Team for the coding agent
+
+**Dependencies:** ID-3.3
+
+**Funding Line:** FY28 RDT&E, mission and ML
+
+**Rollout Phase:** Phase 3, Mission, AI, and Fleet
+
+**Target Date / Sprint:** 2028-07-31
+
+**Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
+
+**Status:** Not Started
+
+**Activity-Level Metadata:**
+
+| Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
+|---|---|---|---|---|---|---|---|---|
+| AI-8.15.1: Agent Memory Scope and Retention Definition | 3 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| AI-8.15.2: Memory Write Authorization and Provenance Labeling | N/A | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| AI-8.15.3: Memory Content Screening and Poisoning Detection | N/A | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+
+**Not applicable:** AI-8.15.2: No KESTREL agent writes persistent memory. The first that does is approved under AI-8.15.1 and brings this activity with it. AI-8.15.3: No KESTREL agent writes persistent memory. The first that does is approved under AI-8.15.1 and brings this activity with it.
 
 ## AI-9: Operations and Continuous Monitoring
 
@@ -2136,7 +2168,7 @@
 
 **Selected Tool / Product / Service:** PyRIT, garak, Adversarial Robustness Toolbox
 
-**Environment-Specific Tailoring:** Each fielded model and use case is re-tested each quarter against new jailbreak, injection, and evasion techniques, and the mission-planning agent each month. It is also re-tested whenever the provider changes a foundation model underneath it. Results go to the PMO ISSE, and a failure reopens certification.
+**Environment-Specific Tailoring:** Each fielded model and use case is re-tested each quarter against new jailbreak, injection, and evasion techniques, and the mission-planning agent each month. It is also re-tested whenever the provider changes a foundation model underneath it. Results go to the PMO ISSE, and a failure reopens certification. A change to an agent's tools, memory, or input trust also triggers a re-test.
 
 **Accountable Team:** Program Office (PMO ISSE), with the ML Team and mission teams
 
@@ -2157,7 +2189,7 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | AI-9.9.1: Scheduled Adversarial Suite Re-Execution Against Fielded Models | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| AI-9.9.2: Out-of-Cycle Re-Testing on Provider Model Change or Suite Update | 3 | Technical | Automate | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| AI-9.9.2: Out-of-Cycle Re-Testing on Model, Agent, or Suite Change | 3 | Technical | Automate | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | AI-9.9.3: Operational Threshold Breach Re-Assessment | 3 | Process | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 ## AI-10: AI/ML Security Planning

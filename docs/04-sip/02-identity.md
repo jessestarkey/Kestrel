@@ -576,7 +576,7 @@
 
 **Selected Tool / Product / Service:** Microsoft Entra Workload ID, AKS workload identity
 
-**Environment-Specific Tailoring:** Each AI agent's identity is an Entra workload identity on AKS in its mission team's prod spoke, with no rights beyond the tools its use case approves.
+**Environment-Specific Tailoring:** Each AI agent's identity is an Entra workload identity on AKS in the spoke that runs it, with no rights beyond the tools its use case approves. Capability Composition Review records the AO's acceptance of the mission-planning agent's and the coding agent's scopes. The coding agent's identity is a workload identity in Platform Prod that acts for the developer. Each tool approval expires after one year.
 
 **Accountable Team:** Mission Team 2, with the Platform Team
 
@@ -604,6 +604,7 @@
 | ID-3.3.6: Delegated Authority Attribution | 3 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-3.3.7: High-Risk Action Human Approval Gate | 3 | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | ID-3.3.8: Agentic Session Timeout and Forced Termination | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-3.3.9: Capability Composition Review | 3 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 ### ID-3.4: Server and Services Authentication
 

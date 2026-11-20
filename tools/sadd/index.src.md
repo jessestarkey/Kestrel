@@ -2,7 +2,7 @@
 
 > **Notional system.** KESTREL is fictional. The names, dates, and decisions below are invented to show a SADD in progress, and nothing here describes a real program or a real authorization.
 
-This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO approved in the [CCSD](../02-ccsd.md) into an architecture KESTREL's engineers can build, using the SABER v1.3 as the outcome catalog. It is split across files so each focus area can be read and revised on its own. This file holds the document-wide sections, and each focus area's file holds its part of Section 5.
+This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO approved in the [CCSD](../02-ccsd.md) into an architecture KESTREL's engineers can build, using the SABER v2.0 (in progress) as the outcome catalog. It is split across files so each focus area can be read and revised on its own. This file holds the document-wide sections, and each focus area's file holds its part of Section 5.
 
 ---
 
@@ -11,10 +11,10 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SADD Version | 0.3 |
+| SADD Version | 0.4 |
 | Date | 2026-11-17 |
 | Prepared By | KESTREL PMO ISSE |
-| Approved By | Pending. Version 0.3 is submitted to the KESTREL AO for approval as version 1.0. |
+| Approved By | Pending. Version 0.4 is submitted to the KESTREL AO for approval as version 1.0. |
 | Classification / Handling | CUI |
 | Security Categorization | Confidentiality High, Integrity High, Availability Moderate (see Section 2) |
 
@@ -25,6 +25,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | 0.1 | 2026-11-11 | KESTREL PMO ISSE | Initial draft with the document-wide sections and the Identity focus area |
 | 0.2 | 2026-11-11 | KESTREL PMO ISSE | Wrote the remaining eleven focus areas, for AO approval |
 | 0.3 | 2026-11-17 | KESTREL PMO ISSE | Applied the independent reviews of every focus area. Brought privileged access workstations into scope and took classified endpoint monitoring out. Added flows F29 to F38, the Microsoft 365 DoD tenant, and a second data center circuit |
+| 0.4 | 2026-11-20 | KESTREL PMO ISSE | Moved to SABER v2.0 (in progress), adding agent memory and capability composition to the design and scoping multi-agent orchestration out. Added the developer coding agent and flow F39. |
 
 ---
 
@@ -106,7 +107,7 @@ KESTREL is a hybrid ISR analytics platform inside one IL5 authorization boundary
 
 Each focus area file follows the SABER template's outcome block. Every in-scope outcome carries six fields, and every activity beneath it carries its description and the SABER's seven activity fields.
 
-- **Carried from the SABER v1.3 unchanged:** NIST Control Mapping, Security Impact, and every activity field. Deployment Type and Affected Components are carried as well, but narrowed to the values KESTREL actually fields.
+- **Carried from the SABER v2.0 (in progress) unchanged:** NIST Control Mapping, Security Impact, and every activity field. Deployment Type and Affected Components are carried as well, but narrowed to the values KESTREL actually fields.
 - **Written for KESTREL:** Design Intent and External Dependencies. Design Intent says what the outcome requires in KESTREL's terms. It overrides an activity's carried description where the two differ, such as an activity that applies to only part of KESTREL's footprint.
 - **Scoped out:** an outcome is dropped when none of its deployment types or affected components are in KESTREL's footprint, or when tailoring removes it. Each focus area file ends with its dropped outcomes and the reason for each.
 
@@ -211,7 +212,7 @@ SI-8 is not a gap. The AO removed it in CCSD tailoring action 1, and its one own
 
 ## 10. Approval and Periodic Review
 
-**Approved By:** Pending. Version 0.3 is submitted to the KESTREL AO for approval as version 1.0.
+**Approved By:** Pending. Version 0.4 is submitted to the KESTREL AO for approval as version 1.0.
 
 **Review Cadence:** Annually, and whenever a revision trigger below occurs.
 

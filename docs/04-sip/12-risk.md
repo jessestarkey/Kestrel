@@ -384,9 +384,9 @@
 
 **Dependencies:** RK-1.1
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY27 and FY28 program management
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2028-03-31
 
@@ -398,6 +398,8 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RK-3.2.1: BIA Methodology Definition and Criticality Tiering | 2 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RK-3.2.1: BIA Methodology Definition and Criticality Tiering | 1 (pinned) | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RK-3.2.2: BIA Execution per System/Mission-Critical Process | 2 | Process | None | Level 1 | Periodic (Annual) | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | RK-3.2.3: BIA Periodic Review and Update | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+
+**Pinned:** RK-3.2.1: Phase 1 backs up Tier 1 services, so the criticality tiers must exist first.

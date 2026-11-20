@@ -387,7 +387,7 @@
 
 ### ID-1.7: Identities and Entitlements Lifecycle
 
-**Design Intent:** Build entitlements as bundles for each user role in the system description, scoped to the team that role belongs to. Analysts get their own mission team's raw collection and detections, and every team gets the shared reports. IT Operations provisions accounts, but the approval comes from the requester's product owner or team lead, so no one approves and provisions the same access. Approving an AI agent's actions is an entitlement in the bundle of the role that approves them, so each approval can be reviewed rather than reached by anyone. Today that is the operator bundle, which approves the mission-planning agent's drafts.
+**Design Intent:** Build entitlements as bundles for each user role in the system description, scoped to the team that role belongs to. Analysts get their own mission team's raw collection and detections, and every team gets the shared reports. IT Operations provisions accounts, but the approval comes from the requester's product owner or team lead, so no one approves and provisions the same access. Approving an AI agent's actions is an entitlement in the bundle of the role that approves them, so each approval can be reviewed rather than reached by anyone. Today the operator bundle approves the mission-planning agent's drafts. The developer bundle's reviewers approve the coding agent's merge requests.
 
 **NIST Control Mapping:**
 
@@ -490,7 +490,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity is the safety net beneath Deprovisioning-on-Termination Automation, finding accounts never cleanly deprovisioned by scanning for absent ownership and inactivity.
+    - **Supplemental Guidance:** This activity is the safety net beneath Deprovisioning-on-Termination Automation, finding accounts never cleanly deprovisioned by scanning for absent ownership and inactivity. Exclude emergency accounts from the inactivity rule, since they sign in only when tested, and confirm their health through Emergency Account Testing and Maintenance Procedures instead.
 
 - **ID-1.8.4: Duplicate Identity Detection and Reconciliation**
     - **Description:** Detect multiple accounts or identifiers that resolve to the same real-world subject and reconcile them to a single authoritative identity so that entitlements and audit trails are not fragmented across duplicates.
@@ -846,7 +846,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Moderate
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity extends the outcome's IA-5 (partial) mapping to classified networks PIV and CAC do not reach. The NSS PKI is a separate hierarchy, so the program sponsors users to its registration authority and owns local token accountability. A lost or unreturned token is reported to the issuing authority the same day. It is Level 2, but mandatory for any program with users on SECRET or higher networks.
+    - **Supplemental Guidance:** This activity extends the outcome's IA-5 (partial) mapping to classified networks PIV and CAC do not reach. The NSS PKI is a separate hierarchy serving only classified networks, so an unclassified national security system whose users hold CACs does not use it, while a program with classified users sponsors them to its registration authority and owns local token accountability. A lost or unreturned token is reported to the issuing authority the same day. It is Level 2, but mandatory for any program with users on SECRET or higher networks.
 
 ### ID-2.3: Single Sign on (SSO)
 
@@ -1285,16 +1285,16 @@
 
 ### ID-3.3: AI Agent Identities
 
-**Design Intent:** Register every AI agent as its own identity, scoped to the data and tools its approved use case needs. No agent identity can reach a tool that tasks an aircraft or changes a system without a named human role approving the action first. The mission-planning agent is the first. It calls no tool server outside the boundary, acts on behalf of the requesting user, and its sessions end at a fixed limit.
+**Design Intent:** Register every AI agent as its own identity, scoped to the data and tools its approved use case needs. No agent identity can reach a tool that tasks an aircraft or changes a system without a named human role approving the action first. The mission-planning agent and the coding agent are the first two. Neither calls a tool server outside the boundary. Each acts for the requesting user, and its sessions end at a fixed limit. Each agent's scope is reviewed for the combination of untrusted input, sensitive data, and the ability to send data out or change state. The mission-planning agent holds all three, since the reports it reads come from collection an adversary can shape. The AO accepts that combination because the agent writes only drafts and an operator approves each one. A deterministic check also holds each plan to approved areas and airspace. The coding agent also holds all three, since it reads third-party code and issue text, holds source code, and pushes changes. The AO accepts it because its sandbox has no path to the internet and holds no credential. Nothing it pushes runs with a pipeline identity or merges before a person reviews it. Delegated scope narrows at each hop, and no credential enters the model's context.
 
 **NIST Control Mapping:**
 
-- **AC-6 (partial):** Agent Tool/API Access Scoping right-sizes which tools, APIs, and data sources an agent may invoke. It joins the focus area's other right-sizing activities, while other outcomes hold the rest of the control.
+- **AC-6 (partial):** Agent Tool/API Access Scoping right-sizes which tools, APIs, and data sources an agent may invoke. Capability Composition Review refuses a scope whose grants together form an exfiltration path. It joins the focus area's other right-sizing activities, while other outcomes hold the rest of the control.
 - **AU-10 (partial):** This partial claim covers Delegated Authority Attribution, which binds each agent action to the principal that invoked it, as the base control's process-acting-for-an-individual wording describes. AU-10's enhancements address data producers, custody, and reviewers instead.
 - **AC-3(2) (partial):** High-Risk Action Human Approval Gate requires a human approver before an agent executes defined high-risk actions. The broader enforcement is held by other outcomes.
 - **AC-12 (partial):** Agentic Session Timeout and Forced Termination bounds agent sessions and forces termination or re-authorization. Continuous Authentication holds the human session population, and the two are tracked jointly.
-- **SA-9 (partial):** This claim covers admitting external tool-providing servers to an agent's reachable set and monitoring their declared catalogs. Such servers assert their own callable actions at connection time, a risk distinct from a conventional API. Four other outcomes, including Contract Security Requirements, hold the other provider populations.
-- **Declined:** IA-9 is already satisfied by the base identity from Cloud Workload Identities or Application and Service Account Identities. AC-6 stays with Agent Tool/API Access Scoping. SI-15 and AC-4 belong to Agentic Tool-Call/Action Output Validation.
+- **SA-9 (partial):** This claim covers admitting external tool-providing servers and peer agents to an agent's reachable set and monitoring their declared catalogs. Such servers assert their own callable actions at connection time, a risk distinct from a conventional API. Four other outcomes, including Contract Security Requirements, hold the other provider populations.
+- **Declined:** IA-9 is already satisfied by the base identity from Cloud Workload Identities or Application and Service Account Identities. SI-15 and AC-4 belong to Agentic Tool-Call/Action Output Validation.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
@@ -1326,10 +1326,10 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries no independent citation and does not join the AC-2(6) tracking, which covers time-bound human elevation. Its per-task credential is sized against Agent Tool/API Access Scoping and gated by High-Risk Action Human Approval Gate. ConMon Activity is Continuous because issuance mints and expires a credential per task.
+    - **Supplemental Guidance:** This activity carries no independent citation and does not join the AC-2(6) tracking, which covers time-bound human elevation. Its per-task credential is sized against Agent Tool/API Access Scoping and gated by High-Risk Action Human Approval Gate. ConMon Activity is Continuous because issuance mints and expires a credential per task. Keep the credential out of the model's context. An executor outside the model presents it, and the agent sees only an opaque handle.
 
 - **ID-3.3.3: External Tool-Provider Registration and Approval**
-    - **Description:** Register each external tool-providing server an agent may connect to as its own reviewed entry, recording its operator, the tool catalog and data access it declares, and the residency and trust terms it is held to, and block an agent from adding a server's tools to its reachable set until that entry is approved.
+    - **Description:** Register each tool-providing server or peer agent as a reviewed entry recording its operator, declared catalog or agent card, data access, and trust terms, scan its declared text for embedded instructions, and admit none of its tools until the entry is approved.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** Automate
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -1337,7 +1337,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SA-9 (partial) mapping for the admission element. A tool-providing server declares its own catalog at connection time, and the agent reads that declaration as context, so an unreviewed server is an unreviewed input to the agent's reasoning. It is Level 1 because Agent Tool/API Access Scoping presupposes that servers have cleared this gate.
+    - **Supplemental Guidance:** This activity carries the outcome's SA-9 (partial) mapping for the admission element. A tool-providing server declares its own catalog at connection time, and the agent reads that declaration as context, so an unreviewed server is an unreviewed input to the agent's reasoning. Show the reviewer each tool's full description, not only its name, and reject a description that refers to another tool. It is Level 1 because Agent Tool/API Access Scoping presupposes that servers have cleared this gate.
 
 - **ID-3.3.4: Agent Tool/API Access Scoping**
     - **Description:** Continuously right-size which tools, APIs, and data sources each agent identity may invoke, removing unused and excessive tool grants so that an agent can reach only the capabilities its task requires.
@@ -1351,7 +1351,7 @@
     - **Supplemental Guidance:** This activity contributes the agent-scoping quarter of the outcome's AC-6 (partial) mapping by right-sizing the tools, APIs, and data sources an agent may invoke. It governs what an agent draws from servers External Tool-Provider Registration and Approval already admitted. Right-sizing only removes reach, and any scope growth routes back through the approval Agent Identity Registration recorded.
 
 - **ID-3.3.5: Tool-Provider Catalog Drift Detection**
-    - **Description:** Record a hash or signed baseline of each admitted server's declared tool catalog, names, descriptions, and parameter schemas at approval time, compare it against what the server presents on each connection, and hold any changed entry out of the agent's reachable set until it clears re-review.
+    - **Description:** Baseline each admitted server's tool catalog or peer agent's card by hash at approval, compare it on each connection, hold a changed entry out until re-review, and re-review every approval at a defined maximum age.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** Automate
     - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
@@ -1359,10 +1359,10 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SA-9 (partial) mapping for the ongoing-monitoring element, applied to a tool catalog. An admitted server's operator can later change a tool, widen a parameter, or embed an instruction in a description without tripping any credential control. Comparison runs against the declaration, while Agentic Tool-Call/Action Output Validation watches call behavior.
+    - **Supplemental Guidance:** This activity carries the outcome's SA-9 (partial) mapping for the ongoing-monitoring element, applied to a tool catalog. An admitted server's operator can later change a tool, widen a parameter, or embed an instruction in a description without tripping any credential control. Comparison runs against the declaration, while Agentic Tool-Call/Action Output Validation watches call behavior. Expire approvals at a fixed age, since an approval is only as current as the declaration it judged.
 
 - **ID-3.3.6: Delegated Authority Attribution**
-    - **Description:** Bind every agent action back to the human or system principal that invoked it through an on-behalf-of chain, so that each action is attributable to an accountable party rather than to the agent alone.
+    - **Description:** Bind every agent action back to the human or system principal that invoked it through an on-behalf-of token exchange that narrows the scope at each delegation hop, stays within a defined depth limit, and holds to the task that principal requested.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
@@ -1370,7 +1370,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity owns the outcome's AU-10 (partial) mapping, cited at the base level because AU-10's definition covers a process acting on behalf of an individual. It is partial because the Detection focus area's Application/API Logging captures and retains the records. This activity owns only binding each agent action to its invoking principal.
+    - **Supplemental Guidance:** This activity owns the outcome's AU-10 (partial) mapping, partial because Application/API Logging captures and retains the records. Bind each action to its invoking principal through a signed task record a sub-agent cannot rewrite. Deny any action outside that record, even one the scope allows. This closes the confused deputy path.
 
 - **ID-3.3.7: High-Risk Action Human Approval Gate**
     - **Description:** Require a human-in-the-loop approval before an agent executes any action in a defined set of high-risk or irreversible operations, rather than permitting fully autonomous execution.
@@ -1393,6 +1393,17 @@
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
     - **Supplemental Guidance:** This activity carries the outcome's AC-12 (partial) mapping, bounding how long an agent session runs even if its credential is re-minted. It also suspends a session whose actions approach a prohibited action in Agent Identity Registration's scope record, routing to the High-Risk Action Human Approval Gate decision point. Thresholds are reviewed annually and adjusted from red team findings.
+
+- **ID-3.3.9: Capability Composition Review**
+    - **Description:** Review each agent's registered scope for the combination of untrusted input, access to sensitive data, and the ability to send data out or change state, and approve no scope holding all three unless the legs are split across separately authorized components or the AO accepts the residual risk.
+    - **Control Type:** Process
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Low
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries part of the outcome's AC-6 (partial) mapping, since each grant can be least privilege while the set is not. An agent holding all three legs can be steered into sending out what it reads. Split the legs where possible, such as a reader with no outbound reach. An accepted exception needs enforcement outside the model, with human approval as support rather than the only control.
 
 ### ID-3.4: Server and Services Authentication
 
@@ -2019,7 +2030,7 @@
     - **Level of Effort:** Low
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity reuses the User Authentication Controls phishing-resistant policy rather than re-mapping IA-2(1)/IA-2(2). The authenticator must verify without the identity platform, such as an offline-capable hardware token, so an outage does not disable the second factor.
+    - **Supplemental Guidance:** This activity reuses the User Authentication Controls phishing-resistant policy rather than re-mapping IA-2(1)/IA-2(2). The authenticator must verify without the identity platform, such as an offline-capable hardware token, so an outage does not disable the second factor. Where the second factor's own infrastructure is part of what the emergency account recovers, such as an on-premises directory whose smart card logon depends on the failed PKI or an OT console that verifies operators locally, a console-only password may stand in as a documented exception the AO accepts. Bound it with logon restricted to named consoles, split-knowledge custody, an immediate alert on use, and rotation after every use, and keep internet-reachable cloud emergency accounts on two different phishing-resistant methods instead.
 
 - **ID-4.6.3: Emergency Session Scope and Time-Boxing**
     - **Description:** Constrain each activated emergency account to a restricted permission scope and a time-boxed session that deactivates automatically at its bound, and exclude these accounts from conditional-access and adaptive policy evaluation, so break-glass access grants only the capability the emergency requires while staying usable when the policy engine itself is down.
@@ -2030,7 +2041,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity is the automatic-deactivation core of the outcome's AC-2(2) (partial) mapping, keeping an activated account scoped and time-limited. Excluding these accounts from adaptive policy is deliberate, since that engine depends on the platform whose outage the path must survive. Minimal population, sealed custody, platform-independent authentication, alerting on every use, and post-use rotation compensate for the exemption.
+    - **Supplemental Guidance:** This activity is the automatic-deactivation core of the outcome's AC-2(2) (partial) mapping, keeping an activated account scoped and time-limited. Excluding these accounts from adaptive policy is deliberate, since that engine depends on the platform whose outage the path must survive. Minimal population, sealed custody, platform-independent authentication, alerting on every use, and post-use rotation compensate for the exemption. Where an emergency account works an OT console, end its session on the process's terms rather than a fixed clock, keeping it open while the controlled process, such as an airborne aircraft, still depends on that console.
 
 - **ID-4.6.4: Emergency Account Monitoring and Alerting**
     - **Description:** Generate a real-time, high-priority alert on any authentication or activation of an emergency account and route it to security operations, so that every break-glass use is surfaced immediately as an exceptional, reviewable event.

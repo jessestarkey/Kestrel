@@ -249,7 +249,7 @@
 
 ### NE-2.1: Private Connectivity
 
-**Selected Tool / Product / Service:** Azure Private Link, Azure ExpressRoute, ExpressRoute circuits from two carriers, Palo Alto Networks VM-Series, Palo Alto Networks PA-Series, Azure Policy
+**Selected Tool / Product / Service:** Azure Private Link, Azure ExpressRoute, ExpressRoute circuits from two carriers and the alternate site's circuit, Palo Alto Networks VM-Series, Palo Alto Networks PA-Series, Azure Policy
 
 **Environment-Specific Tailoring:** Every provider-managed service gets a private endpoint in its own spoke, and Azure Policy denies public network access. The data center's two circuits come from different carriers on diverse paths and land at different meet-me points. The alternate site has a third. All three ride DISN through the access point and terminate on the cloud hub and each site's firewall. ExpressRoute private peering is not encrypted, so IPsec tunnels in FIPS-CC mode run between the firewalls inside each circuit. The cloud hub terminates them on an active/passive VM-Series pair, sized for the bulk flows F4 and F20. BGP sessions are authenticated, and prefix filters accept only KESTREL's address ranges.
 
@@ -445,7 +445,7 @@
 
 **Selected Tool / Product / Service:** Pomerium Enterprise, Azure Virtual Desktop, Azure Private Link, Defender for Servers, CyberArk Privileged Access Manager
 
-**Environment-Specific Tailoring:** Pomerium admits developers to GitLab and CI, and program office staff to approvals over F38, behind the DMZ's WAF. Azure Virtual Desktop admits operators, data scientists, vendors over F37, and CSSP analysts to their host pools through private endpoints. Neither path offers a network tunnel. Defender for Servers opens cloud management ports only for a just-in-time window, and on-premises ports accept only CyberArk's session hosts.
+**Environment-Specific Tailoring:** Pomerium admits developers to GitLab and CI, and program office staff to approvals over F38, behind the DMZ's WAF. Azure Virtual Desktop admits operators, data scientists, developers using the coding agent, vendors over F37, and CSSP analysts to their host pools through private endpoints. Neither path offers a network tunnel. Defender for Servers opens cloud management ports only for a just-in-time window, and on-premises ports accept only CyberArk's session hosts.
 
 **Accountable Team:** Platform Team
 

@@ -134,9 +134,9 @@
 
 ### AP-2.1: IDE Security Tools
 
-**Selected Tool / Product / Service:** SonarQube for IDE
+**Selected Tool / Product / Service:** SonarQube for IDE, OpenHands, Open Policy Agent policy decision service, Azure Virtual Desktop, Azure OpenAI Service, JFrog Artifactory, GitLab Ultimate
 
-**Environment-Specific Tailoring:** The performer installs SonarQube for IDE in standalone mode, with telemetry disabled, on the laptops its developers use for KESTREL work. The plugins aid the developer, while the pipeline's scans stay the authoritative check. No plugin may send KESTREL code outside the boundary, so an AI assistant waits until KESTREL hosts one behind the identity-aware proxy.
+**Environment-Specific Tailoring:** The performer installs SonarQube for IDE in standalone mode, with telemetry disabled, on the laptops its developers use for KESTREL work. The plugins aid the developer, while the pipeline's scans stay the authoritative check. No plugin may send KESTREL code outside the boundary. The coding agent is a self-hosted OpenHands service in Platform Prod, reached from the developer AVD pool. A custom OpenHands security analyzer sends every sandbox command and file action to OPA, and blocks it when OPA denies it or cannot be reached. The sandbox holds no credential. The OpenHands server clones and pushes for the developer with a short-lived GitLab token, and makes every Azure OpenAI call. Artifactory serves the sandboxes cached, approved packages with upstream fetch disabled. GitLab gives agent-authored branches no pipeline identity until a reviewer approves. Repository microagents and setup scripts take effect only after the developer approves them. The Jupyter kernel, the browsing agent, and conversation storage are disabled. It arrives in Phase 3, after AI Agent Identities and the tool-call checks are in place.
 
 **Accountable Team:** Platform Team, through the performer agreement
 
@@ -148,7 +148,7 @@
 
 **Target Date / Sprint:** 2029-03-31
 
-**Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
 **Status:** Not Started
 
@@ -159,6 +159,9 @@
 | AP-2.1.1: IDE Plugin/Tool Selection and Rollout | 2 | Technical | None | Level 2 | One-Time | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | AP-2.1.2: AI-Powered Code Security Assistant Deployment | 4 | Technical | Automate | Level 3 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | AP-2.1.3: Developer Real-Time Finding Triage Workflow | 2 | Process | None | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| AP-2.1.4: AI Coding Agent Guardrails | 3 (pinned) | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** AP-2.1.4: The coding agent arrives in Phase 3, once AI Agent Identities and Agentic Tool-Call/Action Output Validation can govern it.
 
 ### AP-2.2: Secure Coding Standards and Build Hardening
 
@@ -627,7 +630,7 @@
 
 **Selected Tool / Product / Service:** GitLab Ultimate, Splunk Enterprise
 
-**Environment-Specific Tailoring:** GitLab code owners make pipeline definitions, infrastructure as code, admission policy, dependency manifests, and the hubs' rule base sensitive paths. A change to one needs Platform Team and Security Team approval beyond the team's own reviewer. Each one raises an alert in Splunk.
+**Environment-Specific Tailoring:** GitLab code owners make pipeline definitions, infrastructure as code, admission policy, dependency manifests, AI agent instruction and tool configuration files, and the hubs' rule base sensitive paths. A change to one needs Platform Team and Security Team approval beyond the team's own reviewer. Each one raises an alert in Splunk.
 
 **Accountable Team:** Platform Team
 

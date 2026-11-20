@@ -1,0 +1,1601 @@
+{
+ "issues": {
+  "DA": {
+   "number": 960,
+   "id": 6456249327,
+   "node": "I_kwDOVqDm9M8AAAABgNKL7w"
+  },
+  "DA-1": {
+   "number": 961,
+   "id": 6456249803,
+   "node": "I_kwDOVqDm9M8AAAABgNKNyw"
+  },
+  "DA-1.1": {
+   "number": 962,
+   "id": 6456250338,
+   "node": "I_kwDOVqDm9M8AAAABgNKP4g"
+  },
+  "DA-1.1.1": {
+   "number": 963,
+   "id": 6456250882,
+   "node": "I_kwDOVqDm9M8AAAABgNKSAg"
+  },
+  "DA-1.1.2": {
+   "number": 964,
+   "id": 6456251341,
+   "node": "I_kwDOVqDm9M8AAAABgNKTzQ"
+  },
+  "DA-1.2": {
+   "number": 965,
+   "id": 6456251801,
+   "node": "I_kwDOVqDm9M8AAAABgNKVmQ"
+  },
+  "DA-1.2.1": {
+   "number": 966,
+   "id": 6456252279,
+   "node": "I_kwDOVqDm9M8AAAABgNKXdw"
+  },
+  "DA-1.2.2": {
+   "number": 967,
+   "id": 6456252872,
+   "node": "I_kwDOVqDm9M8AAAABgNKZyA"
+  },
+  "DA-1.2.3": {
+   "number": 968,
+   "id": 6456253376,
+   "node": "I_kwDOVqDm9M8AAAABgNKbwA"
+  },
+  "DA-1.2.4": {
+   "number": 969,
+   "id": 6456253841,
+   "node": "I_kwDOVqDm9M8AAAABgNKdkQ"
+  },
+  "DA-1.2.5": {
+   "number": 970,
+   "id": 6456254312,
+   "node": "I_kwDOVqDm9M8AAAABgNKfaA"
+  },
+  "DA-1.2.6": {
+   "number": 971,
+   "id": 6456254754,
+   "node": "I_kwDOVqDm9M8AAAABgNKhIg"
+  },
+  "DA-1.3": {
+   "number": 972,
+   "id": 6456255212,
+   "node": "I_kwDOVqDm9M8AAAABgNKi7A"
+  },
+  "DA-1.3.1": {
+   "number": 973,
+   "id": 6456255650,
+   "node": "I_kwDOVqDm9M8AAAABgNKkog"
+  },
+  "DA-1.3.2": {
+   "number": 974,
+   "id": 6456256148,
+   "node": "I_kwDOVqDm9M8AAAABgNKmlA"
+  },
+  "DA-1.3.3": {
+   "number": 975,
+   "id": 6456256675,
+   "node": "I_kwDOVqDm9M8AAAABgNKoow"
+  },
+  "DA-1.4": {
+   "number": 976,
+   "id": 6456257196,
+   "node": "I_kwDOVqDm9M8AAAABgNKqrA"
+  },
+  "DA-1.4.1": {
+   "number": 977,
+   "id": 6456257641,
+   "node": "I_kwDOVqDm9M8AAAABgNKsaQ"
+  },
+  "DA-1.4.2": {
+   "number": 978,
+   "id": 6456258065,
+   "node": "I_kwDOVqDm9M8AAAABgNKuEQ"
+  },
+  "DA-1.4.3": {
+   "number": 979,
+   "id": 6456258525,
+   "node": "I_kwDOVqDm9M8AAAABgNKv3Q"
+  },
+  "DA-1.5": {
+   "number": 980,
+   "id": 6456259000,
+   "node": "I_kwDOVqDm9M8AAAABgNKxuA"
+  },
+  "DA-1.5.1": {
+   "number": 981,
+   "id": 6456259555,
+   "node": "I_kwDOVqDm9M8AAAABgNKz4w"
+  },
+  "DA-1.5.2": {
+   "number": 982,
+   "id": 6456260048,
+   "node": "I_kwDOVqDm9M8AAAABgNK10A"
+  },
+  "DA-1.5.3": {
+   "number": 983,
+   "id": 6456260596,
+   "node": "I_kwDOVqDm9M8AAAABgNK39A"
+  },
+  "DA-1.5.4": {
+   "number": 984,
+   "id": 6456261062,
+   "node": "I_kwDOVqDm9M8AAAABgNK5xg"
+  },
+  "DA-1.6": {
+   "number": 985,
+   "id": 6456261503,
+   "node": "I_kwDOVqDm9M8AAAABgNK7fw"
+  },
+  "DA-1.6.1": {
+   "number": 986,
+   "id": 6456262030,
+   "node": "I_kwDOVqDm9M8AAAABgNK9jg"
+  },
+  "DA-1.6.2": {
+   "number": 987,
+   "id": 6456262589,
+   "node": "I_kwDOVqDm9M8AAAABgNK_vQ"
+  },
+  "DA-1.6.3": {
+   "number": 988,
+   "id": 6456263110,
+   "node": "I_kwDOVqDm9M8AAAABgNLBxg"
+  },
+  "DA-1.7": {
+   "number": 989,
+   "id": 6456263621,
+   "node": "I_kwDOVqDm9M8AAAABgNLDxQ"
+  },
+  "DA-1.7.1": {
+   "number": 990,
+   "id": 6456264070,
+   "node": "I_kwDOVqDm9M8AAAABgNLFhg"
+  },
+  "DA-1.7.2": {
+   "number": 991,
+   "id": 6456264648,
+   "node": "I_kwDOVqDm9M8AAAABgNLHyA"
+  },
+  "DA-1.7.3": {
+   "number": 992,
+   "id": 6456265120,
+   "node": "I_kwDOVqDm9M8AAAABgNLJoA"
+  },
+  "DA-1.8": {
+   "number": 993,
+   "id": 6456265675,
+   "node": "I_kwDOVqDm9M8AAAABgNLLyw"
+  },
+  "DA-1.8.1": {
+   "number": 994,
+   "id": 6456266226,
+   "node": "I_kwDOVqDm9M8AAAABgNLN8g"
+  },
+  "DA-1.8.2": {
+   "number": 995,
+   "id": 6456266763,
+   "node": "I_kwDOVqDm9M8AAAABgNLQCw"
+  },
+  "DA-1.8.3": {
+   "number": 996,
+   "id": 6456267232,
+   "node": "I_kwDOVqDm9M8AAAABgNLR4A"
+  },
+  "DA-1.8.4": {
+   "number": 997,
+   "id": 6456267721,
+   "node": "I_kwDOVqDm9M8AAAABgNLTyQ"
+  },
+  "DA-1.9": {
+   "number": 998,
+   "id": 6456268142,
+   "node": "I_kwDOVqDm9M8AAAABgNLVbg"
+  },
+  "DA-1.9.1": {
+   "number": 999,
+   "id": 6456268789,
+   "node": "I_kwDOVqDm9M8AAAABgNLX9Q"
+  },
+  "DA-1.9.2": {
+   "number": 1000,
+   "id": 6456269265,
+   "node": "I_kwDOVqDm9M8AAAABgNLZ0Q"
+  },
+  "DA-1.9.3": {
+   "number": 1001,
+   "id": 6456269786,
+   "node": "I_kwDOVqDm9M8AAAABgNLb2g"
+  },
+  "DA-1.9.4": {
+   "number": 1002,
+   "id": 6456270340,
+   "node": "I_kwDOVqDm9M8AAAABgNLeBA"
+  },
+  "DA-1.9.5": {
+   "number": 1003,
+   "id": 6456270953,
+   "node": "I_kwDOVqDm9M8AAAABgNLgaQ"
+  },
+  "DA-2": {
+   "number": 1004,
+   "id": 6456271582,
+   "node": "I_kwDOVqDm9M8AAAABgNLi3g"
+  },
+  "DA-2.1": {
+   "number": 1005,
+   "id": 6456272177,
+   "node": "I_kwDOVqDm9M8AAAABgNLlMQ"
+  },
+  "DA-2.1.1": {
+   "number": 1006,
+   "id": 6456272725,
+   "node": "I_kwDOVqDm9M8AAAABgNLnVQ"
+  },
+  "DA-2.1.2": {
+   "number": 1007,
+   "id": 6456273306,
+   "node": "I_kwDOVqDm9M8AAAABgNLpmg"
+  },
+  "DA-2.1.3": {
+   "number": 1008,
+   "id": 6456273788,
+   "node": "I_kwDOVqDm9M8AAAABgNLrfA"
+  },
+  "DA-2.2": {
+   "number": 1009,
+   "id": 6456274374,
+   "node": "I_kwDOVqDm9M8AAAABgNLtxg"
+  },
+  "DA-2.2.1": {
+   "number": 1010,
+   "id": 6456274977,
+   "node": "I_kwDOVqDm9M8AAAABgNLwIQ"
+  },
+  "DA-2.2.2": {
+   "number": 1011,
+   "id": 6456275499,
+   "node": "I_kwDOVqDm9M8AAAABgNLyKw"
+  },
+  "DA-2.2.3": {
+   "number": 1012,
+   "id": 6456276064,
+   "node": "I_kwDOVqDm9M8AAAABgNL0YA"
+  },
+  "DA-2.3": {
+   "number": 1013,
+   "id": 6456276549,
+   "node": "I_kwDOVqDm9M8AAAABgNL2RQ"
+  },
+  "DA-2.3.1": {
+   "number": 1014,
+   "id": 6456277150,
+   "node": "I_kwDOVqDm9M8AAAABgNL4ng"
+  },
+  "DA-2.3.2": {
+   "number": 1015,
+   "id": 6456277681,
+   "node": "I_kwDOVqDm9M8AAAABgNL6sQ"
+  },
+  "DA-2.3.3": {
+   "number": 1016,
+   "id": 6456278240,
+   "node": "I_kwDOVqDm9M8AAAABgNL84A"
+  },
+  "DA-2.4": {
+   "number": 1017,
+   "id": 6456278797,
+   "node": "I_kwDOVqDm9M8AAAABgNL_DQ"
+  },
+  "DA-2.4.1": {
+   "number": 1018,
+   "id": 6456279357,
+   "node": "I_kwDOVqDm9M8AAAABgNMBPQ"
+  },
+  "DA-2.4.2": {
+   "number": 1019,
+   "id": 6456279790,
+   "node": "I_kwDOVqDm9M8AAAABgNMC7g"
+  },
+  "DA-2.4.3": {
+   "number": 1020,
+   "id": 6456280331,
+   "node": "I_kwDOVqDm9M8AAAABgNMFCw"
+  },
+  "DA-2.5": {
+   "number": 1021,
+   "id": 6456280883,
+   "node": "I_kwDOVqDm9M8AAAABgNMHMw"
+  },
+  "DA-2.5.1": {
+   "number": 1022,
+   "id": 6456281470,
+   "node": "I_kwDOVqDm9M8AAAABgNMJfg"
+  },
+  "DA-2.5.2": {
+   "number": 1023,
+   "id": 6456282099,
+   "node": "I_kwDOVqDm9M8AAAABgNML8w"
+  },
+  "DA-3": {
+   "number": 1024,
+   "id": 6456282659,
+   "node": "I_kwDOVqDm9M8AAAABgNMOIw"
+  },
+  "DA-3.1": {
+   "number": 1025,
+   "id": 6456283245,
+   "node": "I_kwDOVqDm9M8AAAABgNMQbQ"
+  },
+  "DA-3.1.1": {
+   "number": 1026,
+   "id": 6456283782,
+   "node": "I_kwDOVqDm9M8AAAABgNMShg"
+  },
+  "DA-3.1.2": {
+   "number": 1027,
+   "id": 6456284296,
+   "node": "I_kwDOVqDm9M8AAAABgNMUiA"
+  },
+  "DA-3.1.3": {
+   "number": 1028,
+   "id": 6456284750,
+   "node": "I_kwDOVqDm9M8AAAABgNMWTg"
+  },
+  "DA-3.1.4": {
+   "number": 1029,
+   "id": 6456285286,
+   "node": "I_kwDOVqDm9M8AAAABgNMYZg"
+  },
+  "DA-3.2": {
+   "number": 1030,
+   "id": 6456285715,
+   "node": "I_kwDOVqDm9M8AAAABgNMaEw"
+  },
+  "DA-3.2.1": {
+   "number": 1031,
+   "id": 6456286298,
+   "node": "I_kwDOVqDm9M8AAAABgNMcWg"
+  },
+  "DA-3.2.2": {
+   "number": 1032,
+   "id": 6456286799,
+   "node": "I_kwDOVqDm9M8AAAABgNMeTw"
+  },
+  "DA-3.2.3": {
+   "number": 1033,
+   "id": 6456287368,
+   "node": "I_kwDOVqDm9M8AAAABgNMgiA"
+  },
+  "DA-3.3": {
+   "number": 1034,
+   "id": 6456287807,
+   "node": "I_kwDOVqDm9M8AAAABgNMiPw"
+  },
+  "DA-3.3.1": {
+   "number": 1035,
+   "id": 6456288257,
+   "node": "I_kwDOVqDm9M8AAAABgNMkAQ"
+  },
+  "DA-3.3.2": {
+   "number": 1036,
+   "id": 6456288755,
+   "node": "I_kwDOVqDm9M8AAAABgNMl8w"
+  },
+  "DA-3.4": {
+   "number": 1037,
+   "id": 6456289290,
+   "node": "I_kwDOVqDm9M8AAAABgNMoCg"
+  },
+  "DA-3.4.1": {
+   "number": 1038,
+   "id": 6456289732,
+   "node": "I_kwDOVqDm9M8AAAABgNMpxA"
+  },
+  "DA-3.4.2": {
+   "number": 1039,
+   "id": 6456290246,
+   "node": "I_kwDOVqDm9M8AAAABgNMrxg"
+  },
+  "DA-3.4.3": {
+   "number": 1040,
+   "id": 6456290734,
+   "node": "I_kwDOVqDm9M8AAAABgNMtrg"
+  },
+  "DA-3.5": {
+   "number": 1041,
+   "id": 6456291319,
+   "node": "I_kwDOVqDm9M8AAAABgNMv9w"
+  },
+  "DA-3.5.1": {
+   "number": 1042,
+   "id": 6456291871,
+   "node": "I_kwDOVqDm9M8AAAABgNMyHw"
+  },
+  "DA-3.5.2": {
+   "number": 1043,
+   "id": 6456292291,
+   "node": "I_kwDOVqDm9M8AAAABgNMzww"
+  },
+  "DA-3.5.3": {
+   "number": 1044,
+   "id": 6456292802,
+   "node": "I_kwDOVqDm9M8AAAABgNM1wg"
+  },
+  "DA-3.5.4": {
+   "number": 1045,
+   "id": 6456293352,
+   "node": "I_kwDOVqDm9M8AAAABgNM36A"
+  },
+  "DA-3.6": {
+   "number": 1046,
+   "id": 6456293918,
+   "node": "I_kwDOVqDm9M8AAAABgNM6Hg"
+  },
+  "DA-3.6.1": {
+   "number": 1047,
+   "id": 6456294450,
+   "node": "I_kwDOVqDm9M8AAAABgNM8Mg"
+  },
+  "DA-3.6.2": {
+   "number": 1048,
+   "id": 6456295039,
+   "node": "I_kwDOVqDm9M8AAAABgNM-fw"
+  },
+  "DA-3.7": {
+   "number": 1049,
+   "id": 6456295609,
+   "node": "I_kwDOVqDm9M8AAAABgNNAuQ"
+  },
+  "DA-3.7.1": {
+   "number": 1050,
+   "id": 6456296088,
+   "node": "I_kwDOVqDm9M8AAAABgNNCmA"
+  },
+  "DA-3.7.2": {
+   "number": 1051,
+   "id": 6456296563,
+   "node": "I_kwDOVqDm9M8AAAABgNNEcw"
+  },
+  "DA-3.8": {
+   "number": 1052,
+   "id": 6456297375,
+   "node": "I_kwDOVqDm9M8AAAABgNNHnw"
+  },
+  "DA-3.8.1": {
+   "number": 1053,
+   "id": 6456297995,
+   "node": "I_kwDOVqDm9M8AAAABgNNKCw"
+  },
+  "DA-3.8.2": {
+   "number": 1054,
+   "id": 6456298460,
+   "node": "I_kwDOVqDm9M8AAAABgNNL3A"
+  },
+  "DA-3.9": {
+   "number": 1055,
+   "id": 6456299013,
+   "node": "I_kwDOVqDm9M8AAAABgNNOBQ"
+  },
+  "DA-3.9.1": {
+   "number": 1056,
+   "id": 6456299517,
+   "node": "I_kwDOVqDm9M8AAAABgNNP_Q"
+  },
+  "DA-3.9.2": {
+   "number": 1057,
+   "id": 6456300137,
+   "node": "I_kwDOVqDm9M8AAAABgNNSaQ"
+  },
+  "DA-3.9.3": {
+   "number": 1058,
+   "id": 6456300685,
+   "node": "I_kwDOVqDm9M8AAAABgNNUjQ"
+  },
+  "DA-3.10": {
+   "number": 1059,
+   "id": 6456301205,
+   "node": "I_kwDOVqDm9M8AAAABgNNWlQ"
+  },
+  "DA-3.10.1": {
+   "number": 1060,
+   "id": 6456301700,
+   "node": "I_kwDOVqDm9M8AAAABgNNYhA"
+  },
+  "DA-3.10.2": {
+   "number": 1061,
+   "id": 6456302238,
+   "node": "I_kwDOVqDm9M8AAAABgNNang"
+  },
+  "DA-3.11": {
+   "number": 1062,
+   "id": 6456302752,
+   "node": "I_kwDOVqDm9M8AAAABgNNcoA"
+  },
+  "DA-3.11.1": {
+   "number": 1063,
+   "id": 6456303276,
+   "node": "I_kwDOVqDm9M8AAAABgNNerA"
+  },
+  "DA-3.11.2": {
+   "number": 1064,
+   "id": 6456304002,
+   "node": "I_kwDOVqDm9M8AAAABgNNhgg"
+  },
+  "DA-3.12": {
+   "number": 1065,
+   "id": 6456304535,
+   "node": "I_kwDOVqDm9M8AAAABgNNjlw"
+  },
+  "DA-3.12.1": {
+   "number": 1066,
+   "id": 6456305152,
+   "node": "I_kwDOVqDm9M8AAAABgNNmAA"
+  },
+  "DA-3.12.2": {
+   "number": 1067,
+   "id": 6456305692,
+   "node": "I_kwDOVqDm9M8AAAABgNNoHA"
+  },
+  "DA-3.13": {
+   "number": 1068,
+   "id": 6456306238,
+   "node": "I_kwDOVqDm9M8AAAABgNNqPg"
+  },
+  "DA-3.13.1": {
+   "number": 1069,
+   "id": 6456306784,
+   "node": "I_kwDOVqDm9M8AAAABgNNsYA"
+  },
+  "DA-3.13.2": {
+   "number": 1070,
+   "id": 6456307325,
+   "node": "I_kwDOVqDm9M8AAAABgNNufQ"
+  },
+  "DA-3.13.3": {
+   "number": 1071,
+   "id": 6456307824,
+   "node": "I_kwDOVqDm9M8AAAABgNNwcA"
+  }
+ },
+ "links": [
+  "DA-1",
+  "DA-1.1",
+  "DA-1.1.1",
+  "DA-1.1.2",
+  "DA-1.2",
+  "DA-1.2.1",
+  "DA-1.2.2",
+  "DA-1.2.3",
+  "DA-1.2.4",
+  "DA-1.2.5",
+  "DA-1.2.6",
+  "DA-1.3",
+  "DA-1.3.1",
+  "DA-1.3.2",
+  "DA-1.3.3",
+  "DA-1.4",
+  "DA-1.4.1",
+  "DA-1.4.2",
+  "DA-1.4.3",
+  "DA-1.5",
+  "DA-1.5.1",
+  "DA-1.5.2",
+  "DA-1.5.3",
+  "DA-1.5.4",
+  "DA-1.6",
+  "DA-1.6.1",
+  "DA-1.6.2",
+  "DA-1.6.3",
+  "DA-1.7",
+  "DA-1.7.1",
+  "DA-1.7.2",
+  "DA-1.7.3",
+  "DA-1.8",
+  "DA-1.8.1",
+  "DA-1.8.2",
+  "DA-1.8.3",
+  "DA-1.8.4",
+  "DA-1.9",
+  "DA-1.9.1",
+  "DA-1.9.2",
+  "DA-1.9.3",
+  "DA-1.9.4",
+  "DA-1.9.5",
+  "DA-2",
+  "DA-2.1",
+  "DA-2.1.1",
+  "DA-2.1.2",
+  "DA-2.1.3",
+  "DA-2.2",
+  "DA-2.2.1",
+  "DA-2.2.2",
+  "DA-2.2.3",
+  "DA-2.3",
+  "DA-2.3.1",
+  "DA-2.3.2",
+  "DA-2.3.3",
+  "DA-2.4",
+  "DA-2.4.1",
+  "DA-2.4.2",
+  "DA-2.4.3",
+  "DA-2.5",
+  "DA-2.5.1",
+  "DA-2.5.2",
+  "DA-3",
+  "DA-3.1",
+  "DA-3.1.1",
+  "DA-3.1.2",
+  "DA-3.1.3",
+  "DA-3.1.4",
+  "DA-3.2",
+  "DA-3.2.1",
+  "DA-3.2.2",
+  "DA-3.2.3",
+  "DA-3.3",
+  "DA-3.3.1",
+  "DA-3.3.2",
+  "DA-3.4",
+  "DA-3.4.1",
+  "DA-3.4.2",
+  "DA-3.4.3",
+  "DA-3.5",
+  "DA-3.5.1",
+  "DA-3.5.2",
+  "DA-3.5.3",
+  "DA-3.5.4",
+  "DA-3.6",
+  "DA-3.6.1",
+  "DA-3.6.2",
+  "DA-3.7",
+  "DA-3.7.1",
+  "DA-3.7.2",
+  "DA-3.8",
+  "DA-3.8.1",
+  "DA-3.8.2",
+  "DA-3.9",
+  "DA-3.9.1",
+  "DA-3.9.2",
+  "DA-3.9.3",
+  "DA-3.10",
+  "DA-3.10.1",
+  "DA-3.10.2",
+  "DA-3.11",
+  "DA-3.11.1",
+  "DA-3.11.2",
+  "DA-3.12",
+  "DA-3.12.1",
+  "DA-3.12.2",
+  "DA-3.13",
+  "DA-3.13.1",
+  "DA-3.13.2",
+  "DA-3.13.3"
+ ],
+ "items": {
+  "DA": "PVTI_lAHOCZ5vBc4BrOtizhJqQHg",
+  "DA-1": "PVTI_lAHOCZ5vBc4BrOtizhJqQJo",
+  "DA-1.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQL4",
+  "DA-1.1.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQOs",
+  "DA-1.1.2": "PVTI_lAHOCZ5vBc4BrOtizhJqRAw",
+  "DA-1.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQMM",
+  "DA-1.2.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQPQ",
+  "DA-1.2.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQRE",
+  "DA-1.2.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQa8",
+  "DA-1.2.4": "PVTI_lAHOCZ5vBc4BrOtizhJqQb0",
+  "DA-1.2.5": "PVTI_lAHOCZ5vBc4BrOtizhJqQdE",
+  "DA-1.2.6": "PVTI_lAHOCZ5vBc4BrOtizhJqQd8",
+  "DA-1.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQM8",
+  "DA-1.3.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQUA",
+  "DA-1.3.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSSs",
+  "DA-1.3.3": "PVTI_lAHOCZ5vBc4BrOtizhJqSTc",
+  "DA-1.4": "PVTI_lAHOCZ5vBc4BrOtizhJqQNw",
+  "DA-1.4.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQZU",
+  "DA-1.4.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQaQ",
+  "DA-1.4.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQbU",
+  "DA-1.5": "PVTI_lAHOCZ5vBc4BrOtizhJqQPs",
+  "DA-1.5.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQUk",
+  "DA-1.5.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQXA",
+  "DA-1.5.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQX4",
+  "DA-1.5.4": "PVTI_lAHOCZ5vBc4BrOtizhJqQYk",
+  "DA-1.6": "PVTI_lAHOCZ5vBc4BrOtizhJqQQg",
+  "DA-1.6.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQcw",
+  "DA-1.6.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQdY",
+  "DA-1.6.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQeM",
+  "DA-1.7": "PVTI_lAHOCZ5vBc4BrOtizhJqQRk",
+  "DA-1.7.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQU8",
+  "DA-1.7.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQV0",
+  "DA-1.7.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQWw",
+  "DA-1.8": "PVTI_lAHOCZ5vBc4BrOtizhJqV8s",
+  "DA-1.8.1": "PVTI_lAHOCZ5vBc4BrOtizhJqV-c",
+  "DA-1.8.2": "PVTI_lAHOCZ5vBc4BrOtizhJqV_U",
+  "DA-1.8.3": "PVTI_lAHOCZ5vBc4BrOtizhJqWAI",
+  "DA-1.8.4": "PVTI_lAHOCZ5vBc4BrOtizhJqWA8",
+  "DA-1.9": "PVTI_lAHOCZ5vBc4BrOtizhJqV9Q",
+  "DA-1.9.1": "PVTI_lAHOCZ5vBc4BrOtizhJqV_A",
+  "DA-1.9.2": "PVTI_lAHOCZ5vBc4BrOtizhJqV_w",
+  "DA-1.9.3": "PVTI_lAHOCZ5vBc4BrOtizhJqWAw",
+  "DA-1.9.4": "PVTI_lAHOCZ5vBc4BrOtizhJqWBM",
+  "DA-1.9.5": "PVTI_lAHOCZ5vBc4BrOtizhJqWBk",
+  "DA-2": "PVTI_lAHOCZ5vBc4BrOtizhJqQKY",
+  "DA-2.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQMs",
+  "DA-2.1.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQOU",
+  "DA-2.1.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQw4",
+  "DA-2.1.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQxU",
+  "DA-2.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQNY",
+  "DA-2.2.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQSE",
+  "DA-2.2.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQS8",
+  "DA-2.2.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQ10",
+  "DA-2.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQQE",
+  "DA-2.3.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQ2U",
+  "DA-2.3.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQ28",
+  "DA-2.3.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQ4A",
+  "DA-2.4": "PVTI_lAHOCZ5vBc4BrOtizhJqQSY",
+  "DA-2.4.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQVY",
+  "DA-2.4.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQXg",
+  "DA-2.4.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQYU",
+  "DA-2.5": "PVTI_lAHOCZ5vBc4BrOtizhJqQTQ",
+  "DA-2.5.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQWY",
+  "DA-2.5.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQcI",
+  "DA-3": "PVTI_lAHOCZ5vBc4BrOtizhJqQK8",
+  "DA-3.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQvM",
+  "DA-3.1.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQxQ",
+  "DA-3.1.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQxo",
+  "DA-3.1.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQyg",
+  "DA-3.1.4": "PVTI_lAHOCZ5vBc4BrOtizhJqQzM",
+  "DA-3.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQwA",
+  "DA-3.2.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQy8",
+  "DA-3.2.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQzg",
+  "DA-3.2.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQ0w",
+  "DA-3.3": "PVTI_lAHOCZ5vBc4BrOtizhJqQwY",
+  "DA-3.3.1": "PVTI_lAHOCZ5vBc4BrOtizhJqQ0M",
+  "DA-3.3.2": "PVTI_lAHOCZ5vBc4BrOtizhJqQ1M",
+  "DA-3.4": "PVTI_lAHOCZ5vBc4BrOtizhJqSPg",
+  "DA-3.4.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSQ4",
+  "DA-3.4.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSRg",
+  "DA-3.4.3": "PVTI_lAHOCZ5vBc4BrOtizhJqSbc",
+  "DA-3.5": "PVTI_lAHOCZ5vBc4BrOtizhJqSQE",
+  "DA-3.5.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSZ8",
+  "DA-3.5.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSaw",
+  "DA-3.5.3": "PVTI_lAHOCZ5vBc4BrOtizhJqSbs",
+  "DA-3.5.4": "PVTI_lAHOCZ5vBc4BrOtizhJqScQ",
+  "DA-3.6": "PVTI_lAHOCZ5vBc4BrOtizhJqSQg",
+  "DA-3.6.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSUY",
+  "DA-3.6.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSVA",
+  "DA-3.7": "PVTI_lAHOCZ5vBc4BrOtizhJqSRY",
+  "DA-3.7.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSZY",
+  "DA-3.7.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSaU",
+  "DA-3.8": "PVTI_lAHOCZ5vBc4BrOtizhJqSSM",
+  "DA-3.8.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSt4",
+  "DA-3.8.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSug",
+  "DA-3.9": "PVTI_lAHOCZ5vBc4BrOtizhJqSS4",
+  "DA-3.9.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSWk",
+  "DA-3.9.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSXU",
+  "DA-3.9.3": "PVTI_lAHOCZ5vBc4BrOtizhJqSdc",
+  "DA-3.10": "PVTI_lAHOCZ5vBc4BrOtizhJqSUE",
+  "DA-3.10.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSXE",
+  "DA-3.10.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSY8",
+  "DA-3.11": "PVTI_lAHOCZ5vBc4BrOtizhJqSUo",
+  "DA-3.11.1": "PVTI_lAHOCZ5vBc4BrOtizhJqScE",
+  "DA-3.11.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSck",
+  "DA-3.12": "PVTI_lAHOCZ5vBc4BrOtizhJqSVU",
+  "DA-3.12.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSYU",
+  "DA-3.12.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSYo",
+  "DA-3.13": "PVTI_lAHOCZ5vBc4BrOtizhJqSWM",
+  "DA-3.13.1": "PVTI_lAHOCZ5vBc4BrOtizhJqSXs",
+  "DA-3.13.2": "PVTI_lAHOCZ5vBc4BrOtizhJqSYg",
+  "DA-3.13.3": "PVTI_lAHOCZ5vBc4BrOtizhJqSeI"
+ },
+ "fields_set": [
+  "DA",
+  "DA-1",
+  "DA-1.1",
+  "DA-1.1.1",
+  "DA-1.1.2",
+  "DA-1.2",
+  "DA-1.2.1",
+  "DA-1.2.2",
+  "DA-1.2.3",
+  "DA-1.2.4",
+  "DA-1.2.5",
+  "DA-1.2.6",
+  "DA-1.3",
+  "DA-1.3.1",
+  "DA-1.3.2",
+  "DA-1.3.3",
+  "DA-1.4",
+  "DA-1.4.1",
+  "DA-1.4.2",
+  "DA-1.4.3",
+  "DA-1.5",
+  "DA-1.5.1",
+  "DA-1.5.2",
+  "DA-1.5.3",
+  "DA-1.5.4",
+  "DA-1.6",
+  "DA-1.6.1",
+  "DA-1.6.2",
+  "DA-1.6.3",
+  "DA-1.7",
+  "DA-1.7.1",
+  "DA-1.7.2",
+  "DA-1.7.3",
+  "DA-1.8",
+  "DA-1.8.1",
+  "DA-1.8.2",
+  "DA-1.8.3",
+  "DA-1.8.4",
+  "DA-1.9",
+  "DA-1.9.1",
+  "DA-1.9.2",
+  "DA-1.9.3",
+  "DA-1.9.4",
+  "DA-1.9.5",
+  "DA-2",
+  "DA-2.1",
+  "DA-2.1.1",
+  "DA-2.1.2",
+  "DA-2.1.3",
+  "DA-2.2",
+  "DA-2.2.1",
+  "DA-2.2.2",
+  "DA-2.2.3",
+  "DA-2.3",
+  "DA-2.3.1",
+  "DA-2.3.2",
+  "DA-2.3.3",
+  "DA-2.4",
+  "DA-2.4.1",
+  "DA-2.4.2",
+  "DA-2.4.3",
+  "DA-2.5",
+  "DA-2.5.1",
+  "DA-2.5.2",
+  "DA-3",
+  "DA-3.1",
+  "DA-3.1.1",
+  "DA-3.1.2",
+  "DA-3.1.3",
+  "DA-3.1.4",
+  "DA-3.2",
+  "DA-3.2.1",
+  "DA-3.2.2",
+  "DA-3.2.3",
+  "DA-3.3",
+  "DA-3.3.1",
+  "DA-3.3.2",
+  "DA-3.4",
+  "DA-3.4.1",
+  "DA-3.4.2",
+  "DA-3.4.3",
+  "DA-3.5",
+  "DA-3.5.1",
+  "DA-3.5.2",
+  "DA-3.5.3",
+  "DA-3.5.4",
+  "DA-3.6",
+  "DA-3.6.1",
+  "DA-3.6.2",
+  "DA-3.7",
+  "DA-3.7.1",
+  "DA-3.7.2",
+  "DA-3.8",
+  "DA-3.8.1",
+  "DA-3.8.2",
+  "DA-3.9",
+  "DA-3.9.1",
+  "DA-3.9.2",
+  "DA-3.9.3",
+  "DA-3.10",
+  "DA-3.10.1",
+  "DA-3.10.2",
+  "DA-3.11",
+  "DA-3.11.1",
+  "DA-3.11.2",
+  "DA-3.12",
+  "DA-3.12.1",
+  "DA-3.12.2",
+  "DA-3.13",
+  "DA-3.13.1",
+  "DA-3.13.2",
+  "DA-3.13.3"
+ ],
+ "dates_set": [
+  "DA",
+  "DA-1",
+  "DA-1.1",
+  "DA-1.1.1",
+  "DA-1.1.2",
+  "DA-1.2",
+  "DA-1.2.1",
+  "DA-1.2.2",
+  "DA-1.2.3",
+  "DA-1.2.4",
+  "DA-1.2.5",
+  "DA-1.2.6",
+  "DA-1.3",
+  "DA-1.3.1",
+  "DA-1.3.2",
+  "DA-1.3.3",
+  "DA-1.4",
+  "DA-1.4.1",
+  "DA-1.4.2",
+  "DA-1.4.3",
+  "DA-1.5",
+  "DA-1.5.1",
+  "DA-1.5.2",
+  "DA-1.5.3",
+  "DA-1.5.4",
+  "DA-1.6",
+  "DA-1.6.1",
+  "DA-1.6.2",
+  "DA-1.6.3",
+  "DA-1.7",
+  "DA-1.7.1",
+  "DA-1.7.2",
+  "DA-1.7.3",
+  "DA-1.8",
+  "DA-1.8.1",
+  "DA-1.8.2",
+  "DA-1.8.3",
+  "DA-1.8.4",
+  "DA-1.9",
+  "DA-1.9.1",
+  "DA-1.9.2",
+  "DA-1.9.3",
+  "DA-1.9.4",
+  "DA-1.9.5",
+  "DA-2",
+  "DA-2.1",
+  "DA-2.1.1",
+  "DA-2.1.2",
+  "DA-2.1.3",
+  "DA-2.2",
+  "DA-2.2.1",
+  "DA-2.2.2",
+  "DA-2.2.3",
+  "DA-2.3",
+  "DA-2.3.1",
+  "DA-2.3.2",
+  "DA-2.3.3",
+  "DA-2.4",
+  "DA-2.4.1",
+  "DA-2.4.2",
+  "DA-2.4.3",
+  "DA-2.5",
+  "DA-2.5.1",
+  "DA-2.5.2",
+  "DA-3",
+  "DA-3.1",
+  "DA-3.1.1",
+  "DA-3.1.2",
+  "DA-3.1.3",
+  "DA-3.1.4",
+  "DA-3.2",
+  "DA-3.2.1",
+  "DA-3.2.2",
+  "DA-3.2.3",
+  "DA-3.3",
+  "DA-3.3.1",
+  "DA-3.3.2",
+  "DA-3.4",
+  "DA-3.4.1",
+  "DA-3.4.2",
+  "DA-3.4.3",
+  "DA-3.5",
+  "DA-3.5.1",
+  "DA-3.5.2",
+  "DA-3.5.3",
+  "DA-3.5.4",
+  "DA-3.6",
+  "DA-3.6.1",
+  "DA-3.6.2",
+  "DA-3.7",
+  "DA-3.7.1",
+  "DA-3.7.2",
+  "DA-3.8",
+  "DA-3.8.1",
+  "DA-3.8.2",
+  "DA-3.9",
+  "DA-3.9.1",
+  "DA-3.9.2",
+  "DA-3.9.3",
+  "DA-3.10",
+  "DA-3.10.1",
+  "DA-3.10.2",
+  "DA-3.11",
+  "DA-3.11.1",
+  "DA-3.11.2",
+  "DA-3.12",
+  "DA-3.12.1",
+  "DA-3.12.2",
+  "DA-3.13",
+  "DA-3.13.1",
+  "DA-3.13.2",
+  "DA-3.13.3"
+ ],
+ "date_values": {
+  "DA": [
+   "2027-01-01",
+   "2028-07-31"
+  ],
+  "DA-1": [
+   "2027-01-01",
+   "2028-07-31"
+  ],
+  "DA-1.1": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-1.1.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.1.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.2": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-1.2.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.2.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.2.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.2.4": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.2.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.2.6": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.3": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-1.3.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.3.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.3.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.4.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.4.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.4.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.5.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.5.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.5.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.5.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.6": [
+   "2027-10-01",
+   "2028-07-31"
+  ],
+  "DA-1.6.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.6.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.6.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.7": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.7.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.7.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.8": [
+   "2027-01-01",
+   "2028-07-31"
+  ],
+  "DA-1.8.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.8.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.8.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-1.9": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-1.9.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.9.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.9.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.9.4": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-1.9.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-2": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-2.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-2.1.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-2.1.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-2.1.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-2.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.2.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.2.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.2.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.3.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.3.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.3.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.4": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-2.4.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.4.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-2.4.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.5": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.5.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-2.5.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-3.1": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-3.1.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.1.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.1.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-3.2": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-3.2.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.2.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-3.2.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.3.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.3.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.4": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.4.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.4.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.4.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.5": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-3.5.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.5.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.5.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.5.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-3.6": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.6.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.6.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.7": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.7.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.7.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.8": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.8.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.8.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.9": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-3.9.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.9.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DA-3.9.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.10": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.10.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.10.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.11": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.11.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.11.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.12": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.12.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.12.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.13": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DA-3.13.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.13.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DA-3.13.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ]
+ },
+ "deps": [
+  "DA-1.1<-ID-2.4",
+  "DA-1.1<-DA-1.9",
+  "DA-1.2<-ID-2.4",
+  "DA-1.2<-DA-1.1",
+  "DA-1.3<-DA-1.1",
+  "DA-1.5<-DA-1.1",
+  "DA-1.5<-NE-2.10",
+  "DA-1.5<-NE-2.6",
+  "DA-1.6<-DA-1.1",
+  "DA-1.6<-ID-1.2",
+  "DA-1.7<-DA-1.1",
+  "DA-1.8<-DI-2.3",
+  "DA-2.1<-DA-3.3",
+  "DA-2.1<-DA-1.1",
+  "DA-2.2<-DA-3.7",
+  "DA-2.2<-DA-3.8",
+  "DA-2.3<-ID-4.4",
+  "DA-2.4<-DA-3.3",
+  "DA-2.4<-DA-3.5",
+  "DA-2.5<-DA-3.5",
+  "DA-3.2<-DA-3.3",
+  "DA-3.5<-DA-3.3",
+  "DA-3.5<-DA-3.4",
+  "DA-3.6<-DA-3.3",
+  "DA-3.7<-DA-3.4",
+  "DA-3.8<-DA-3.7",
+  "DA-3.9<-DA-3.7",
+  "DA-3.10<-ID-3.1",
+  "DA-3.10<-ID-4.3",
+  "DA-3.11<-NE-2.1",
+  "DA-3.12<-DA-3.10"
+ ],
+ "status": {
+  "DA": "Ready",
+  "DA-1": "Ready",
+  "DA-1.1": "Backlog",
+  "DA-1.1.1": "Backlog",
+  "DA-1.1.2": "Backlog",
+  "DA-1.2": "Backlog",
+  "DA-1.2.1": "Backlog",
+  "DA-1.2.2": "Backlog",
+  "DA-1.2.3": "Backlog",
+  "DA-1.2.4": "Backlog",
+  "DA-1.2.5": "Backlog",
+  "DA-1.2.6": "Backlog",
+  "DA-1.3": "Backlog",
+  "DA-1.3.1": "Backlog",
+  "DA-1.3.2": "Backlog",
+  "DA-1.3.3": "Backlog",
+  "DA-1.4": "Backlog",
+  "DA-1.4.1": "Backlog",
+  "DA-1.4.2": "Backlog",
+  "DA-1.4.3": "Backlog",
+  "DA-1.5": "Backlog",
+  "DA-1.5.1": "Backlog",
+  "DA-1.5.2": "Backlog",
+  "DA-1.5.3": "Backlog",
+  "DA-1.5.4": "Backlog",
+  "DA-1.6": "Backlog",
+  "DA-1.6.1": "Backlog",
+  "DA-1.6.2": "Backlog",
+  "DA-1.6.3": "Backlog",
+  "DA-1.7": "Backlog",
+  "DA-1.7.1": "Backlog",
+  "DA-1.7.3": "Backlog",
+  "DA-1.8": "Backlog",
+  "DA-1.8.1": "Backlog",
+  "DA-1.8.2": "Backlog",
+  "DA-1.8.3": "Backlog",
+  "DA-1.9": "Ready",
+  "DA-1.9.1": "Ready",
+  "DA-1.9.2": "Ready",
+  "DA-1.9.3": "Ready",
+  "DA-1.9.4": "Ready",
+  "DA-1.9.5": "Backlog",
+  "DA-2": "Ready",
+  "DA-2.1": "Backlog",
+  "DA-2.1.1": "Backlog",
+  "DA-2.1.2": "Backlog",
+  "DA-2.1.3": "Backlog",
+  "DA-2.2": "Backlog",
+  "DA-2.2.1": "Backlog",
+  "DA-2.2.2": "Backlog",
+  "DA-2.2.3": "Backlog",
+  "DA-2.3": "Backlog",
+  "DA-2.3.1": "Backlog",
+  "DA-2.3.2": "Backlog",
+  "DA-2.3.3": "Backlog",
+  "DA-2.4": "Backlog",
+  "DA-2.4.1": "Backlog",
+  "DA-2.4.2": "Backlog",
+  "DA-2.4.3": "Backlog",
+  "DA-2.5": "Backlog",
+  "DA-2.5.1": "Backlog",
+  "DA-2.5.2": "Backlog",
+  "DA-3": "Ready",
+  "DA-3.1": "Ready",
+  "DA-3.1.1": "Ready",
+  "DA-3.1.2": "Ready",
+  "DA-3.1.3": "Backlog",
+  "DA-3.2": "Backlog",
+  "DA-3.2.1": "Backlog",
+  "DA-3.2.2": "Backlog",
+  "DA-3.2.3": "Backlog",
+  "DA-3.3": "Ready",
+  "DA-3.3.1": "Ready",
+  "DA-3.3.2": "Ready",
+  "DA-3.4": "Ready",
+  "DA-3.4.1": "Ready",
+  "DA-3.4.2": "Ready",
+  "DA-3.4.3": "Ready",
+  "DA-3.5": "Backlog",
+  "DA-3.5.1": "Backlog",
+  "DA-3.5.2": "Backlog",
+  "DA-3.5.3": "Backlog",
+  "DA-3.5.4": "Backlog",
+  "DA-3.6": "Backlog",
+  "DA-3.6.1": "Backlog",
+  "DA-3.6.2": "Backlog",
+  "DA-3.7": "Backlog",
+  "DA-3.7.1": "Backlog",
+  "DA-3.7.2": "Backlog",
+  "DA-3.8": "Backlog",
+  "DA-3.8.1": "Backlog",
+  "DA-3.8.2": "Backlog",
+  "DA-3.9": "Backlog",
+  "DA-3.9.1": "Backlog",
+  "DA-3.9.2": "Backlog",
+  "DA-3.9.3": "Backlog",
+  "DA-3.10": "Backlog",
+  "DA-3.10.1": "Backlog",
+  "DA-3.10.2": "Backlog",
+  "DA-3.11": "Backlog",
+  "DA-3.11.1": "Backlog",
+  "DA-3.11.2": "Backlog",
+  "DA-3.12": "Backlog",
+  "DA-3.12.1": "Backlog",
+  "DA-3.12.2": "Backlog",
+  "DA-3.13": "Ready",
+  "DA-3.13.1": "Ready",
+  "DA-3.13.2": "Ready",
+  "DA-3.13.3": "Backlog"
+ }
+}

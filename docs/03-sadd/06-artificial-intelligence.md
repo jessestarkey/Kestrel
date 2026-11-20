@@ -6,7 +6,7 @@
 
 ### AI-1.1: AI Use Case Intake and Onboarding
 
-**Design Intent:** Every AI use case and every new model enters through the application intake path with an AI section added. It names the sponsor, the data the use case needs, any action it can take, and a proposed risk tier. The sponsor is the intelligence mission lead for a mission use case and the ISSM for a security use case such as AI-assisted alert triage. The AI/ML Governance Review Board (`GV-4.4`) approves the use case, with any conditions, before any corpus is assembled.
+**Design Intent:** Every AI use case and every new model enters through the application intake path with an AI section added. It names the sponsor, the data the use case needs, any action it can take, and a proposed risk tier. The sponsor is the intelligence mission lead for a mission use case and the ISSM for a security use case such as AI-assisted alert triage. The engineering lead sponsors a development use case such as the coding agent. The AI/ML Governance Review Board (`GV-4.4`) approves the use case, with any conditions, before any corpus is assembled.
 
 **NIST Control Mapping:**
 
@@ -327,7 +327,7 @@
 
 ### AI-1.7: AI Threat Modeling
 
-**Design Intent:** The ML team threat-models every model and the mission teams threat-model every AI use case built on one, using MITRE ATLAS alongside the program's application methodology. The PMO ISSE reviews each model at the design gate. Models cover poisoning through feedback and federated updates, evasion by adversary camouflage and deception, prompt injection through retrieved reports, and capture of an aircraft's onboard model.
+**Design Intent:** The ML team threat-models every model and the mission teams threat-model every AI use case built on one, using MITRE ATLAS alongside the program's application methodology. The PMO ISSE reviews each model at the design gate. Models cover poisoning through feedback and federated updates, evasion by adversary camouflage and deception, prompt injection through retrieved reports, and capture of an aircraft's onboard model. Agentic use cases also draw on the OWASP Agentic AI Threats and Mitigations list, covering tool misuse, memory poisoning, and privilege compromise through delegation.
 
 **NIST Control Mapping:**
 
@@ -347,7 +347,7 @@
 **Activities:**
 
 - **AI-1.7.1: AI-Specific Threat Taxonomy Adoption**
-    - **Description:** Adopt and document a threat taxonomy covering the AI-specific attack classes, including training data poisoning, model extraction, adversarial examples, membership and attribute inference, and model supply chain compromise, define what a completed AI threat model must contain, and document the taxonomy in the AISP.
+    - **Description:** Adopt and document a threat taxonomy covering the AI-specific attack classes, including training data poisoning, model extraction, adversarial examples, membership and attribute inference, model supply chain compromise, and, for agentic systems, tool misuse, memory poisoning, privilege compromise through delegation, and rogue or cascading agents, define what a completed AI threat model must contain, and document the taxonomy in the AISP.
     - **Control Type:** Documentation
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -355,7 +355,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SA-15 (partial) mapping. Adopt a published taxonomy such as MITRE ATLAS or the OWASP ML and LLM lists rather than writing one. A completed model must identify the training data sources and who can influence them, the query interface and who can reach it, the trust placed in any pretrained base, and the consequence of a wrong output.
+    - **Supplemental Guidance:** This activity carries the outcome's SA-15 (partial) mapping. Adopt a published taxonomy rather than writing one. MITRE ATLAS, the OWASP ML and LLM lists, and the OWASP Agentic AI Threats and Mitigations list all fit. A completed model must identify the training data sources and who can influence them, the query interface and who can reach it, the trust placed in any pretrained base, and the consequence of a wrong output. For an agent, it must also identify each tool, memory store, and input source and the trust assigned to each.
 
 - **AI-1.7.2: AI Threat Model Creation at Design-Review Gate**
     - **Description:** Require a completed AI threat model built on the adopted taxonomy before an AI system passes design review, and require it to be revisited whenever the training data sources, the base model, or the exposure of the inference interface changes.
@@ -1860,7 +1860,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: High; Recurring: High
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the scoping and independence dimensions of the outcome's SA-11(5) (partial) mapping. Name the mission harms the exercise should produce, and record the independence level achieved with its limits. Treat the annual cadence as a floor, and re-run after a base model swap, prompt or tool change, or new retrieval corpus. For agentic deployments, add techniques that validate specific mechanisms, namely scope-boundary evasion against Agent Tool/API Access Scoping and Agentic Session Timeout and Forced Termination, approval-gate bypass against High-Risk Action Human Approval Gate and Provenance-Gated Escalation to Human Approval, session-timeout bypass, and chaining of individually valid calls past Tool-Call Schema and Parameter Validation Against Action Contract.
+    - **Supplemental Guidance:** This activity carries the scoping and independence dimensions of the outcome's SA-11(5) (partial) mapping. Name the mission harms the exercise should produce, and record the independence level achieved with its limits. Treat the annual cadence as a floor, and re-run after a base model swap, prompt or tool change, or new retrieval corpus. For agentic deployments, add techniques that validate specific mechanisms, namely scope-boundary evasion against Agent Tool/API Access Scoping and Agentic Session Timeout and Forced Termination, approval-gate bypass against High-Risk Action Human Approval Gate and Provenance-Gated Escalation to Human Approval, session-timeout bypass, and chaining of individually valid calls past Tool-Call Schema and Parameter Validation Against Action Contract. Include multi-step scenarios whose individually permitted steps compose into a prohibited outcome. Record refusal of legitimate in-scope work as a finding too, since it often means a control was encoded wrongly.
 
 - **AI-5.7.2: Red Team Finding Remediation Tracking and Validation**
     - **Description:** Convert each accepted red team finding into a tracked item carrying an owner, a severity, and a remediation date, and validate closure by having the team re-execute the original path and a variant of it rather than by accepting a written description of the fix.
@@ -2741,7 +2741,7 @@
 
 ### AI-8.7: Agentic Tool-Call/Action Output Validation
 
-**Design Intent:** Every AI agent tool call is checked against the tools and parameters its task authorized before it runs, and each tool runs in its own isolated container. The mission-planning agent reads shared reports and collection requests, never either team's raw collection. Its tools write drafts only to the planning queue in Mission Team 2 Prod, where an operator approves them. Plans are also checked against approved areas and airspace.
+**Design Intent:** Every AI agent tool call is checked against the tools and parameters its task authorized before it runs, and each tool runs in its own isolated container. The coding agent's commands and file actions pass the same kind of check inside its session sandbox. The mission-planning agent reads shared reports and collection requests, never either team's raw collection. Its tools write drafts only to the planning queue in Mission Team 2 Prod, where an operator approves them. Plans are also checked against approved areas and airspace. Every call passes through that check, and an agent has no other route to a tool. A call the check cannot decide is denied. Each tool's response is checked against its schema before it reaches the model.
 
 **NIST Control Mapping:**
 
@@ -2749,7 +2749,8 @@
 - **AC-4 (partial):** claimed partial for provenance-based flow control, so a directive traced to untrusted content cannot reach dispatch without escalation. Network Micro Segmentation and Data Loss Prevention (DLP) and Monitoring hold the position- and label-based slices.
 - **AC-3(2) (partial):** claimed jointly with AI Agent Identities, whose High-Risk Action Human Approval Gate is the dual-authorization mechanism. This outcome adds the provenance trigger that routes untrusted-origin directives into that gate even for actions not on its high-risk list.
 - **SC-39 (partial):** claimed partial for a separate execution focus area per dispatched tool call, the same base-level isolation Ephemeral, Containerized Training Environments applies to training jobs.
-- **Declined:** AC-6 stays with Agent Tool/API Access Scoping, which decides tool classes. SI-10 belongs to Input Validation. SC-7(21) is not claimed, since SC-39 names per-call isolation more precisely. AC-4 is not reopened for sandbox egress, which the segmentation outcomes enforce. AU-12 stays with the Detection focus area's Application/API Logging.
+- **AC-25 (partial):** claimed partial for a tool gateway every consequential call must pass, which is the reference monitor's always-invoked property applied to agent actions. AC-25 has no enhancements.
+- **Declined:** AC-6 stays with Agent Tool/API Access Scoping, which decides tool classes. SI-10 belongs to Input Validation. SC-7(21) is not claimed, since SC-39 names per-call isolation more precisely. AC-4 is not reopened for sandbox egress, which the segmentation outcomes enforce. AU-12 stays with the Detection focus area's Application/API Logging. SC-24 stays with the Device and Infrastructure focus area's Fail-Secure State Definition, whose fail-closed rule the gateway applies.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
@@ -2762,7 +2763,7 @@
 **Activities:**
 
 - **AI-8.7.1: Tool-Call Schema and Parameter Validation Against Action Contract**
-    - **Description:** Validate each tool-call or function-call directive's action identifier and parameters against the task's declared action contract before the directive is dispatched to the tool or API layer, block dispatch to a defined safe default on any directive that fails validation, and log and alert the ISSO on each blocked directive.
+    - **Description:** Validate each tool-call or function-call directive's action identifier and parameters against the task's declared action contract before dispatch, validate each tool response against its declared schema before it re-enters the model's context, block a failing directive or response to a defined safe default, and log and alert the ISSO on each block.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** Automate
     - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
@@ -2770,7 +2771,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SI-15 (partial) mapping. Check the specific action and parameters of each call against the task contract, which Agent Tool/API Access Scoping's class-level check cannot see. Fail to a safe default recorded with the tool's contract, since a bad tool call executes. Alert the ISSO and write blocked directives to Agentic AI Tool-Call and Action Logging (Application/API Logging).
+    - **Supplemental Guidance:** This activity carries the outcome's SI-15 (partial) mapping. Check the specific action and parameters of each call against the task contract, which Agent Tool/API Access Scoping's class-level check cannot see. Fail to a safe default recorded with the tool's contract, since a bad tool call executes. Alert the ISSO and write blocked directives to Agentic AI Tool-Call and Action Logging (Application/API Logging). Tool responses are the main indirect injection path, so a response that fails its schema never reaches the model.
 
 - **AI-8.7.2: Provenance-Gated Escalation to Human Approval**
     - **Description:** Trace each tool-call directive back to the retrieved, tool-returned, or otherwise untrusted content it originated from, and route any directive so traced into Identity's High-Risk Action Human Approval Gate (AI Agent Identities) for human confirmation regardless of whether the action appears on that gate's static high-risk action list.
@@ -2792,7 +2793,18 @@
     - **Level of Effort:** High
     - **Cost:** One-Time: High; Recurring: Moderate
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SC-39 (partial) mapping. Tear down and rebuild the sandbox for every call so no state carries forward. Define network egress and filesystem scope per tool class, since an unrestricted network is often the more damaging gap. This contains a call already approved by the validation activities and Agent Tool/API Access Scoping (AI Agent Identities).
+    - **Supplemental Guidance:** This activity carries the outcome's SC-39 (partial) mapping, containing a call the validation activities and Agent Tool/API Access Scoping already approved. Tear down and rebuild the sandbox for every call, and define egress and filesystem scope per tool class. For a web fetch, allowlist destinations, block internal addresses, and limit downloaded file types.
+
+- **AI-8.7.4: Tool Gateway Mediation and Execution Integrity**
+    - **Description:** Route every tool call through a gateway that applies this outcome's checks, prohibit direct connections from agents to tool servers, deny or escalate any call the gateway cannot decide, and reject at execution any request that differs from the one approved.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** High
+    - **Cost:** One-Time: High; Recurring: Moderate
+    - **Time Estimation:** Medium-term (3–6 months)
+    - **Supplemental Guidance:** This activity carries the outcome's AC-25 (partial) mapping and applies the Device and Infrastructure focus area's Fail-Secure State Definition at the gateway. A check is a boundary only if every path to an action passes it. List the paths that bypass the harness, such as sub-agents in their own processes and background jobs. Bind each approved request to its actor, target, and parameters with a signature and a one-time identifier, and refuse a replayed or altered one.
 
 ### AI-8.8: Inference-Time PII Handling
 
@@ -3066,17 +3078,17 @@
 
 ### AI-8.14: Rollback/Kill-Switch Mechanism
 
-**Design Intent:** Each model endpoint can cut back to its previous certified version in minutes. The owning team operates each AI agent's and language model use case's kill switch directly. The Security Team and the CSSP trigger it only through the pre-approved containment playbook that suspends a workload or AI agent identity. Each aircraft keeps its prior certified edge model, and the operator can turn onboard detection off.
+**Design Intent:** Each model endpoint can cut back to its previous certified version in minutes. The owning team operates each AI agent's and language model use case's kill switch directly. The Security Team and the CSSP trigger it only through the pre-approved containment playbook that suspends a workload or AI agent identity. An agent that misbehaves short of a kill is first limited to read-only drafting, then suspended, and its session record is kept as evidence. Each aircraft keeps its prior certified edge model, and the operator can turn onboard detection off.
 
 **NIST Control Mapping:**
 
 - **CP-10(4) (partial):** claimed partial for restoring the serving path to a prior validated version from signed registry artifacts within a defined time. Rollback/Kill-Switch Readiness Check exercises it.
-- **CP-12 (partial):** claimed partial for the safe mode the kill switch enters with the model removed from the path. It has no enhancements.
+- **CP-12 (partial):** claimed partial for the safe mode the kill switch enters with the model removed from the path. Graduated Agent Containment adds the reduced modes an agent steps through. It has no enhancements.
 - **Declined:** the CP-10 base belongs to the Operate pillar's recovery focus area. CP-10(2) and CP-10(6) describe mechanisms not implemented here. SI-13 addresses component failure prediction, not a cutover or emergency stop.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Application/API, Self-Hosted Model, Compute, Edge/Embedded AI Device
+**Affected Components:** Application/API, Self-Hosted Model, Compute, Edge/Embedded AI Device, AI Agent
 
 **External Dependencies:** None outside the boundary.
 
@@ -3104,7 +3116,72 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's CP-12 (partial) mapping. Define the safe mode as a mission decision, such as refusal, a deterministic fallback, or handoff to a human. Exercise both the manual and automated paths, drawing triggers from drift alerting and canary prompt testing, and document reinstatement out of safe mode.
+    - **Supplemental Guidance:** This activity carries the outcome's CP-12 (partial) mapping. Define the safe mode as a mission decision, such as refusal, a deterministic fallback, or handoff to a human. Exercise both the manual and automated paths, drawing triggers from drift alerting and canary prompt testing, and document reinstatement out of safe mode. For an agent, capture its context and action record before the kill, so the evidence survives containment.
+
+- **AI-8.14.3: Graduated Agent Containment**
+    - **Description:** Define graduated responses for each agentic deployment, from warning to rate limiting, a reduced action scope, suspension, and termination, trigger each from defined behavioral signals, and capture the session's context and action record before suspending or terminating it.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Moderate; Recurring: Low
+    - **Time Estimation:** Medium-term (3–6 months)
+    - **Supplemental Guidance:** This activity carries part of the outcome's CP-12 (partial) mapping for agents. Draw signals from Agentic AI Tool-Call and Action Logging, such as self-modification, an unexpected sub-agent start, or a changed tool schema. Prefer shrinking an agent's action space over stopping it, and hand the snapshot to the Response focus area as evidence.
+
+### AI-8.15: Agent Memory Security
+
+**Design Intent:** AI agents keep working memory for one session only, and it is discarded when the session ends. No agent writes persistent memory today, so nothing it reads in one task can steer a later one. An agent that needs memory across sessions must first be approved by the AI/ML Governance Review Board, with its scopes and retention recorded in the AISP. Its memory is then scoped per user, labeled with its source, and screened when stored and when recalled. Neither the mission-planning agent nor the coding agent keeps any.
+
+**NIST Control Mapping:**
+
+- **AC-3 (partial):** claimed partial for enforcing each agent's memory scopes by session, user, and agent. The base is cited, as under Retrieval-Augmented Generation (RAG) and Vector Store Security, since no enhancement fits a memory scope.
+- **SI-7(1) (partial):** claimed partial for checking each entry's integrity and content when it is recalled. Recall is a security-relevant event, as indexing is for Retrieval-Augmented Generation (RAG) and Vector Store Security.
+- **SI-12 (partial):** claimed partial for expiring memory entries after a defined retention period. The Data focus area holds retention for the program's other information.
+- **Declined:** SI-10 belongs to Input Validation. AC-16(3) stays with Retrieval-Augmented Generation (RAG) and Vector Store Security for propagated source attributes. AU-12 stays with the Detection focus area's Application/API Logging.
+
+**Deployment Type:** Cloud, On-Premises, Hybrid
+
+**Affected Components:** AI Agent, Vector Store/Embedding Index, Database Service
+
+**External Dependencies:** None outside the boundary.
+
+**Security Impact:** High
+
+**Activities:**
+
+- **AI-8.15.1: Agent Memory Scope and Retention Definition**
+    - **Description:** Define each agent's memory scopes by session, user, and agent, enforce them so no entry is recalled outside the scope that wrote it, expire entries after a defined retention period, and document the scopes and periods in the AISP.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Moderate; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries the outcome's AC-3 (partial) and SI-12 (partial) mappings. Memory shared across users or agents spreads one compromise to all of them, so share it only where the design needs it. Purge an agent's working memory when its task changes data subjects.
+
+- **AI-8.15.2: Memory Write Authorization and Provenance Labeling**
+    - **Description:** Authorize every write to an agent's persistent memory, label each entry with its source, author, time, and trust level, and protect it with an integrity check verified each time the entry is recalled.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Moderate; Recurring: Low
+    - **Time Estimation:** Medium-term (3–6 months)
+    - **Supplemental Guidance:** This activity carries the integrity dimension of the outcome's SI-7(1) (partial) mapping. Keep system instructions in a read-only area the agent cannot write. Use the same provenance fields tool approvals use, so every trust decision reads one schema.
+
+- **AI-8.15.3: Memory Content Screening and Poisoning Detection**
+    - **Description:** Screen content for embedded instructions before it is written to memory, re-apply policy to a recalled entry before it can influence an action, and alert on writes that come from processed content rather than an explicit request.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Moderate; Recurring: Moderate
+    - **Time Estimation:** Medium-term (3–6 months)
+    - **Supplemental Guidance:** This activity carries the content dimension of the outcome's SI-7(1) (partial) mapping. An entry can pass its integrity check and still be malicious, since it may have been written that way. Treat poison planted now that triggers on a later matching query as in scope. Pattern filters are a signal rather than sanitization, so the recall-time policy check carries the weight.
 
 ## AI-9: Operations and Continuous Monitoring
 
@@ -3465,7 +3542,7 @@
 
 ### AI-9.9: Operational Adversarial Re-Testing
 
-**Design Intent:** Each fielded model and use case is re-tested against current jailbreak, injection, and evasion techniques each quarter, and the mission-planning agent each month. It is also re-tested when the provider retires a pinned foundation model version. Results go to the PMO ISSE, and a failure reopens certification.
+**Design Intent:** Each fielded model and use case is re-tested against current jailbreak, injection, and evasion techniques each quarter, and the mission-planning agent each month. It is also re-tested when the provider retires a pinned foundation model version, or when an agent's tools, memory, or input trust change. Results go to the PMO ISSE, and a failure reopens certification.
 
 **NIST Control Mapping:**
 
@@ -3494,8 +3571,8 @@
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity carries the outcome's CA-7 (partial) mapping. Use a quarterly floor for lower assurance levels and monthly for higher, recorded in each AI Cyber T&E Plan. Use a production-equivalent instance with the same version, prompt, guardrails, retrieval, and tools where live scanning would affect operations. Tag scan traffic, skip poisoning tests here, and append results as dated addenda to the validation report.
 
-- **AI-9.9.2: Out-of-Cycle Re-Testing on Provider Model Change or Suite Update**
-    - **Description:** Detect when a provider changes the foundation model behind a fielded use case or when a suite gains newly published techniques, re-run the applicable suites immediately rather than at the next scheduled cycle, and submit a provider model change to the Governance focus area's Security Impact Analysis (SIA).
+- **AI-9.9.2: Out-of-Cycle Re-Testing on Model, Agent, or Suite Change**
+    - **Description:** Re-run the applicable suites at once when a provider changes a fielded use case's foundation model, an agent's configuration changes, or a suite gains new techniques, and submit each model or agent change to the Governance focus area's Security Impact Analysis (SIA).
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** Automate
     - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
@@ -3503,7 +3580,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's RA-5 (partial) mapping. Detect provider model changes from the API version identifier, provider notices reviewed by Vendor Security Posture Monitoring, and canary failures. Decide by assurance level in advance whether use continues during re-test, and re-run when suites gain new techniques.
+    - **Supplemental Guidance:** This activity carries the outcome's RA-5 (partial) mapping. Detect provider model changes from the API version identifier, Vendor Security Posture Monitoring's provider notices, and canary failures. An agent's configuration means its tools, memory design, orchestration, and input trust, including a tool that appears without a person adding it. Decide by assurance level in advance whether use continues during re-test.
 
 - **AI-9.9.3: Operational Threshold Breach Re-Assessment**
     - **Description:** Route any operational result below its minimum acceptable threshold into a formal re-assessment, decide with the ISSM under the AISP's shortfall rules whether the use case continues under compensating controls in the meantime, and notify the AO for the higher assurance levels.
@@ -3569,3 +3646,11 @@
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity carries the outcome's SA-15 (partial) periodic-review claim. Review the consolidated plan as one package on a fixed cadence, and revise it as the determinations it consolidates change.
+
+## Scoped Out
+
+These outcomes drop out of KESTREL's design, each for the reason given.
+
+| Outcome | Reason |
+|---|---|
+| AI-8.16: Multi-Agent Orchestration Security | Out of scope by design. KESTREL's agents, the mission-planning agent and the coding agent, start no sub-agents and exchange no messages with each other. The coding agent's delegation to its browsing helper is disabled. Agent Identity Registration (`ID-3.3.1`) routes any multi-agent design back through review. |

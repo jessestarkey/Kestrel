@@ -8,11 +8,11 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center, Jira Service Management Data Center, Splunk SOAR
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Cloud runbooks use the provider's native response actions. Fleet runbooks are written with Fleet Operations and follow the airborne rule in RS-3.3. A lost aircraft's datalink keys are superseded fleet-wide.
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, Cyber defense service provider
+**Dependencies:** DE-3.1, Cyber defense service provider, IL5 cloud provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -65,11 +65,11 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center, Jira Service Management Data Center, Splunk SOAR
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** A tabletop runs twice a year, one with an aircraft or ground segment scenario and one with an AI scenario. The yearly functional exercise uses the real tools with the CSSP and the CP's owners. Fleet systems join only by simulator or discussion.
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, Cyber defense service provider
+**Dependencies:** RS-4.1, RC-4.1, Cyber defense service provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -118,7 +118,7 @@
 
 ### RS-1.5: Automated Notification Workflows
 
-**Selected Tool / Product / Service:** Jira Service Management Data Center, Splunk SOAR
+**Selected Tool / Product / Service:** Jira Service Management Data Center, Splunk SOAR, the paging service
 
 **Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
 
@@ -132,7 +132,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C33](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -147,11 +147,11 @@
 
 **Selected Tool / Product / Service:** Jira Service Management Data Center, Confluence Data Center, the CSSP
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The ISSM notifies the AO, and the CSSP reports up the DoD chain. The foreign disclosure officer notifies partner nations, and the privacy officer reports breaches of personal information. The performer reports incidents on its laptops to DC3.
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, Cyber defense service provider
+**Dependencies:** DE-3.1, Cyber defense service provider, Partner nations, DoD component privacy office, DoD intelligence producers and DC3's DIB Cybersecurity program, Performer laptops and device management
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -180,7 +180,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1
+**Dependencies:** DE-3.1, ID-4.1, Cyber defense service provider
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -207,7 +207,7 @@
 
 ### RS-2.1: Automated Incident Creation and Enrichment
 
-**Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center, Velociraptor
+**Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center
 
 **Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
 
@@ -221,7 +221,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -235,9 +235,9 @@
 
 ### RS-2.2: Incident-Scoped Log Analysis and Investigation
 
-**Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center, Velociraptor
+**Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Analysts investigate in Splunk Enterprise Security and save queries and findings with the Jira Service Management record. Owning teams raise logging within an hour of a request. On fleet equipment, logging changes go only through the vendor's engineering path with Fleet Operations' concurrence.
 
 **Accountable Team:** Security Team
 
@@ -249,7 +249,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -263,13 +263,13 @@
 
 ### RS-2.3: Evidence Preservation and Forensic Capabilities
 
-**Selected Tool / Product / Service:** Velociraptor, NetApp StorageGRID with S3 Object Lock, Microsoft Defender XDR
+**Selected Tool / Product / Service:** Microsoft Defender XDR, Splunk SOAR, NetApp StorageGRID with S3 Object Lock
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Defender XDR live response collects memory and files under the EDR responder role, and a playbook takes cloud disk snapshots. Evidence goes to a retention-locked StorageGRID bucket only the Security Team can read, excluded from replication. Analysts examine copies on an isolated forensic workstation that cannot reach production. Fleet equipment is imaged only in maintenance windows or after landing, and crypto modules and HSMs never.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-3.1, DI-1.3
+**Dependencies:** DE-3.1, DI-1.3, DI-5.5
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -277,7 +277,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C16](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), plus open source components
+**Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -292,13 +292,13 @@
 
 ### RS-2.4: Asset Criticality and Business Impact Assessment
 
-**Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center, Velociraptor
+**Selected Tool / Product / Service:** Jira Service Management Assets, Splunk Enterprise Security, Jira Service Management Data Center
 
 **Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-3.1, DI-1.3
+**Dependencies:** DE-3.1, DI-1.3, RK-3.2
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -306,7 +306,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
+**Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -319,13 +319,13 @@
 
 ### RS-2.5: Automated Severity Scoring and Escalation
 
-**Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center, Velociraptor
+**Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center, the paging service
 
 **Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** DE-3.1, DI-1.3
+**Dependencies:** DE-3.1, RS-2.4, Paging service
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -333,7 +333,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), plus open source components
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C33](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -350,21 +350,21 @@
 
 ### RS-3.1: SOAR Capabilities
 
-**Selected Tool / Product / Service:** Splunk SOAR, Splunk SOAR containment playbooks under the CSSP agreement
+**Selected Tool / Product / Service:** Splunk SOAR, Splunk SOAR containment playbooks under the CSSP agreement, the paging service
 
 **Environment-Specific Tailoring:** Splunk SOAR runs the playbooks and updates Jira Service Management at each step. Its service identity can take only the listed actions. The CSSP runs the containment playbooks from its host pool, and each run pages the Security Team.
 
 **Accountable Team:** Security Team
 
-**Dependencies:** RS-1.1, RS-1.7, DE-3.1
+**Dependencies:** RS-1.1, RS-1.7, DE-3.1, Paging service
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
+**Funding Line:** FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
+**Rollout Phase:** Phase 2, Protect and Operate
 
-**Target Date / Sprint:** 2029-03-31
+**Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C31](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C31](index.md#6-contracting-and-procurement-cross-references), [C33](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -372,15 +372,17 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RS-3.1.1: SOAR Playbook Development and Automation Configuration | 4 | Technical | Automate | Level 3 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
+| RS-3.1.1: SOAR Playbook Development and Automation Configuration | 2 (pinned) | Technical | Automate | Level 3 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
 | RS-3.1.2: SOAR-to-SIEM/Ticketing Integration | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | RS-3.1.3: Automated Response Action Approval Workflow | 2 | Process | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
+**Pinned:** RS-3.1.1: Containment playbooks run from Phase 2, for RS-3.2 and under the CSSP agreement, so they must be built then.
+
 ### RS-3.2: Automated Containment and Isolation Procedures
 
-**Selected Tool / Product / Service:** Splunk SOAR, Panorama with the PAN-OS provider for OpenTofu, Cisco ACI and APIC, Microsoft Entra ID, Microsoft Defender XDR
+**Selected Tool / Product / Service:** Splunk SOAR, Splunk SOAR containment playbooks under the CSSP agreement, Panorama with the PAN-OS provider for OpenTofu, Cisco ACI and APIC, Microsoft Entra ID, Microsoft Defender XDR
 
-**Environment-Specific Tailoring:** Panorama moves a cloud workload into a quarantine policy, and ACI moves a data center host into a quarantine endpoint group. Entra ID and Defender XDR disable accounts and revoke sessions. The Security Team approves before a playbook touches production, except a CSSP run when an incident cannot wait, which pages the Security Team.
+**Environment-Specific Tailoring:** Panorama moves a cloud workload into a quarantine policy, and ACI moves a data center host into a quarantine endpoint group. Entra ID and Defender XDR disable accounts and revoke sessions. The Security Team approves before a playbook touches production, except a CSSP run when an incident cannot wait. No playbook touches fleet systems or the operating sites' admission control.
 
 **Accountable Team:** Security Team
 
@@ -392,7 +394,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C31](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -411,7 +413,7 @@
 
 **Accountable Team:** Fleet Operations, with the Security Team
 
-**Dependencies:** RS-1.1
+**Dependencies:** RS-1.1, NE-1.6
 
 **Funding Line:** FY28 RDT&E, fleet integration
 
@@ -433,9 +435,9 @@
 
 ### RS-3.4: Eradication and Threat Removal
 
-**Selected Tool / Product / Service:** Splunk SOAR, Azure Key Vault Premium, CyberArk Privileged Access Manager, JFrog Artifactory, Entrust nShield 5 HSMs
+**Selected Tool / Product / Service:** Azure Key Vault Premium, CyberArk Privileged Access Manager, JFrog Artifactory, Entrust nShield 5 HSMs
 
-**Environment-Specific Tailoring:** Owning teams eradicate at the ISSM's direction, rotating every touched credential through Key Vault and CyberArk. Artifactory blocks a withdrawn model version. A compromised signing key is revoked and every package re-signed, and a lost aircraft's datalink keys are superseded fleet-wide.
+**Environment-Specific Tailoring:** Owning teams eradicate at the ISSM's direction, rotating every touched credential through Key Vault and CyberArk. Fleet Operations eradicates only in a maintenance window or after landing. Artifactory blocks a withdrawn model version. A compromised signing key is revoked and every package re-signed, and a lost aircraft's datalink keys are superseded fleet-wide.
 
 **Accountable Team:** Owning teams, at the ISSM's direction
 
@@ -447,7 +449,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C07](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), [C10](index.md#6-contracting-and-procurement-cross-references)
 
 **Status:** Not Started
 
@@ -467,7 +469,7 @@
 
 **Accountable Team:** Security Team (ISSM), with the owning teams
 
-**Dependencies:** RS-1.1, DA-1.1
+**Dependencies:** RS-1.1, DA-1.1, RC-2.2, PSO, IL6 enclave owner, IL5 cloud provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -490,9 +492,9 @@
 
 ### RS-3.6: Recovery and Return-to-Operations Validation
 
-**Selected Tool / Product / Service:** Veeam Data Platform, JFrog Artifactory, Splunk Enterprise Security
+**Selected Tool / Product / Service:** Veeam Data Platform, JFrog Artifactory, OpenTofu, Packer, Splunk Enterprise Security
 
-**Environment-Specific Tailoring:** Restores come only from Veeam copies and Artifactory versions older than the earliest confirmed activity, each checked for the incident's indicators. Without a clean source, systems are rebuilt from OpenTofu and golden images. Splunk watches a recovered system closely for 30 days.
+**Environment-Specific Tailoring:** Owning teams restore only from Veeam copies and Artifactory versions older than the earliest confirmed activity. The Security Team checks each source for the incident's indicators first. Without a clean source, systems are rebuilt from OpenTofu and Packer golden images. Splunk watches a recovered system closely for 30 days.
 
 **Accountable Team:** Security Team
 
@@ -504,7 +506,7 @@
 
 **Target Date / Sprint:** 2028-03-31
 
-**Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C15](index.md#6-contracting-and-procurement-cross-references), [C05](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), plus open source and source-available components
 
 **Status:** Not Started
 
@@ -548,15 +550,15 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** An interim IRP is approved in Phase 1 for the interim authorization to test. It covers declaring an incident, reporting to the CSSP, and who acts. The full IRP with its runbooks follows in Phase 2.
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** GV-5.1, RS-1.1
+**Dependencies:** GV-5.1, Cyber defense service provider
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
 
 **Target Date / Sprint:** 2028-03-31
 
@@ -568,6 +570,8 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RS-4.1.1: IRP Development and Authoring | 2 | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| RS-4.1.2: IRP Review and Approval | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RS-4.1.1: IRP Development and Authoring | 1 (pinned) | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| RS-4.1.2: IRP Review and Approval | 1 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RS-4.1.3: IRP Periodic Review and Revision | 2 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RS-4.1.1 and RS-4.1.2: The interim authorization to test needs an interim IRP, since the system reports incidents to the CSSP from Phase 1.

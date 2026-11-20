@@ -309,7 +309,7 @@
 
 ### AP-2.1: IDE Security Tools
 
-**Design Intent:** The performer agreement requires security plugins in the development environments its developers use for KESTREL work. The plugins flag vulnerable patterns and secrets as code is written, and they never send KESTREL code outside the boundary. An AI coding assistant therefore waits until KESTREL hosts one. The plugins aid the developer, while the pipeline's scans remain the authoritative check.
+**Design Intent:** The performer agreement requires security plugins in the development environments its developers use for KESTREL work. The plugins flag vulnerable patterns and secrets as code is written, and they never send KESTREL code outside the boundary. Developers who want AI help use KESTREL's own coding agent, reached only from the developer VDI pool. Each session runs in its own sandbox. A policy check outside the agent rules on every command and file action, and denies any it cannot decide. The sandbox reaches only cached approved packages, so it has no path to the internet, and it holds no credential. A broker outside the sandbox clones and pushes for the developer with a short-lived token, and makes every model call. It pushes only to unprotected branches. Pipelines on those branches run without the team's pipeline identity until a reviewer approves the change. A repository's agent instructions and setup scripts take effect only after the developer approves them, and destructive git operations are blocked. Its notebook kernel, browsing helper, and saved conversations are disabled. The plugins aid the developer, while the pipeline's scans remain the authoritative check.
 
 **NIST Control Mapping:**
 
@@ -317,7 +317,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** First-Party/Custom Application Code, Managed Device (Laptop/Desktop)
+**Affected Components:** First-Party/Custom Application Code, Managed Device (Laptop/Desktop), AI Agent
 
 **External Dependencies:** The performer, which under the interconnection agreement equips the laptops its developers use for KESTREL work.
 
@@ -357,6 +357,17 @@
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** Recorded dismissals improve the ruleset, since a rule everyone dismisses belongs in SAST's tuning baseline. The workflow stops at disposition, because a significant finding resurfaces in the gated pipeline scan.
+
+- **AP-2.1.4: AI Coding Agent Guardrails**
+    - **Description:** Run AI coding agents that execute commands inside a sandbox with default-deny command and path allowlists, block destructive repository operations, keep credentials out of their context, and require developer approval before repository-supplied agent instructions take effect.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Moderate; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries no independent citation, since it applies AI Agent Identities and Agentic Tool-Call/Action Output Validation to the developer workstation. A coding agent reads untrusted repositories, holds source and credentials, and reaches the network, so Capability Composition Review applies. Treat repository-supplied agent instructions and tool configurations as untrusted, block force pushes and hard resets, and cap sub-agents and worktrees at their parent's permissions. Give a browser- or desktop-driving agent its own session with screen redaction, and use an accredited in-enclave model where isolated.
 
 ### AP-2.2: Secure Coding Standards and Build Hardening
 
@@ -1165,7 +1176,7 @@
 
 ### AP-2.18: Pre-Merge Sensitive Repo File Change Detection
 
-**Design Intent:** Pipeline definitions, infrastructure as code, admission policy, dependency manifests, ownership files, and the hubs' rule base are sensitive paths. A change to any of them needs approval from the Platform Team and the Security Team in addition to the team's own reviewer. Each one raises an alert in the security monitoring platform.
+**Design Intent:** Pipeline definitions, infrastructure as code, admission policy, dependency manifests, ownership files, AI agent instruction files, and the hubs' rule base are sensitive paths. A change to any of them needs approval from the Platform Team and the Security Team in addition to the team's own reviewer. Each one raises an alert in the security monitoring platform.
 
 **NIST Control Mapping:**
 
@@ -1183,7 +1194,7 @@
 **Activities:**
 
 - **AP-2.18.1: Sensitive File/Path Change Detection Rules**
-    - **Description:** Define the repository paths whose modification requires security review, and configure the pull request checks that detect and flag any change touching them before the merge is permitted.
+    - **Description:** Define the repository paths whose modification requires security review, including the instruction and tool configuration files AI coding agents read, and configure the pull request checks that detect and flag any change touching them before the merge is permitted.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** Automate
     - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)

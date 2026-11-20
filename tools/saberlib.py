@@ -22,6 +22,7 @@ DESIGN = {'Managed Service Network Integration', 'Third-Party Runtime Service De
 MANUAL_OUT = {
     'DE-1.9': "Out of scope. KESTREL has no classified endpoints, so CNSSD 504's user activity monitoring does not apply. Privileged session recording belongs to Privileged Credential Vaulting and Session Brokering (`ID-4.4`).",
     'NE-2.9': 'Out of scope by design. The ground segment conduit carries traffic both ways, namely recordings out (F3) and certified edge models in (F6), so a firewalled conduit with protocol inspection protects it instead of a data diode.',
+    'AI-8.16': "Out of scope by design. KESTREL's agents, the mission-planning agent and the coding agent, start no sub-agents and exchange no messages with each other. The coding agent's delegation to its browsing helper is disabled. Agent Identity Registration (`ID-3.3.1`) routes any multi-agent design back through review.",
     'NE-3.6': 'Out of scope. KESTREL runs no email service, and the AO approved removing SI-8 (CCSD tailoring action 1).',
 }
 PILLAR = {'02': 'Protect', '03': 'Protect', '04': 'Protect', '05': 'Protect', '06': 'Protect', '07': 'Protect',

@@ -469,7 +469,7 @@
 
 ### RC-3.1: Recovery Objective Definition (RTO/RPO)
 
-**Design Intent:** Tier 1 has a recovery time of 4 hours and a recovery point of 15 minutes. Tier 2 has 24 hours for both. Tier 3 has a recovery time of 7 days and a recovery point of 24 hours. Raw collection has an extra safety net, since aircraft storage modules keep each recording until the backup holding it completes. The objectives come from the business impact analysis (`RK-3.2`), and the program manager approves them. Every recovery test is checked against them, and any tier that misses is raised to the AO.
+**Design Intent:** Tier 1 has a recovery time of 4 hours and a recovery point of 15 minutes. Tier 2 has 24 hours for both. Tier 3 has a recovery time of 7 days and a recovery point of 24 hours. Raw collection has an extra safety net, since aircraft storage modules keep each recording until the backup holding it completes. The objectives come from the business impact analysis (`RK-3.2`), and the program manager approves them. Provisional Tier 1 objectives cover the Phase 1 services until that analysis confirms them. Every recovery test is checked against them, and any tier that misses is raised to the AO.
 
 **NIST Control Mapping:**
 
@@ -608,7 +608,7 @@
 
 ### RC-3.4: Alternate Site and Telecommunications Readiness
 
-**Design Intent:** The alternate site is a parent organization facility, far enough from the data center that no regional event reaches both. It hosts KESTREL's warm standbys, a second HSM, and a copy of the backups. If the data center is lost, its Tier 2 services are restored into recovery spokes in the second IL5 region, data lake first, with each mission team's zone in its own spoke. The data center's two circuits come from different carriers on diverse paths to different meet-me points, so no single carrier, path, or meet-me point isolates it. Every carrier agreement carries priority restoration and the carrier's contingency plan. Production traffic fails from one data center circuit to the other each quarter. The facility agreement names who may activate the site, how quickly it accepts the workload, and KESTREL's priority access in an area-wide emergency.
+**Design Intent:** The alternate site is a parent organization facility, far enough from the data center that no regional event reaches both. It hosts KESTREL's warm standbys, a second HSM, and a copy of the backups. If the data center is lost, its Tier 2 services are restored into recovery spokes in the second IL5 region, data lake first, with each mission team's zone in its own spoke. The data center's two circuits come from different carriers on diverse paths to different meet-me points, so no single carrier, path, or meet-me point isolates it. Every carrier agreement carries priority restoration and the carrier's contingency plan. Production traffic fails from one data center circuit to the other each quarter. The alternate site has its own circuit to the cloud hub, also over DISN, and the yearly failover exercise proves it. The facility agreement names who may activate the site, how quickly it accepts the workload, and KESTREL's priority access in an area-wide emergency.
 
 **NIST Control Mapping:**
 
