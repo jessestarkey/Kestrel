@@ -168,7 +168,9 @@ def build_plan(code):
                 body += ['', phase_line, '', '| Field | Value |', '|---|---|'] + [f'| {k} | {v} |' for k, v in meta.items()]
                 fields = {'Outcome ID': oid, **meta}
                 if row['phase']:
-                    fields['Target Date'] = TARGET[row['phase']]
+                    # A story with its own later target, such as the SAR, carries it to its Phase 3 sub-tasks.
+                    t = TARGET[row['phase']]; st = f.get('Target Date / Sprint', '')
+                    fields['Target Date'] = st if row['phase'] == 3 and st > t else t
                 issues.append({'key': aid, 'type': 'sub-task', 'parent': oid, 'phase': row['phase'],
                                'state': 'open' if row['phase'] else 'closed',
                                'title': f'{aid}: {at}', 'body': '\n'.join(body) + '\n', 'fields': fields})

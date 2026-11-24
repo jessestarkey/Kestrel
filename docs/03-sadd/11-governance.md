@@ -413,7 +413,7 @@
 
 ### GV-2.2: Policy Exception Management
 
-**Design Intent:** A team requests an exception through the service desk, naming the requirement, the reason, the compensating measures, and an end date. The ISSM assesses the risk, and approval follows Risk Acceptance Process (`RK-1.4`). The PMO ISSE may therefore approve only Low exceptions outside CCSD rows 6, 8, 10, and 13, and the AO approves the rest. At expiry an exception is remediated, re-justified, or escalated, and an expired one becomes an open finding. Exception trends are reported to the steering committee each quarter.
+**Design Intent:** A team requests an exception through the service desk, naming the requirement, the reason, the compensating measures, and an end date. The ISSM assesses the risk, and approval follows Risk Acceptance Process (`RK-1.4`). The PMO ISSE may therefore approve Very Low exceptions, and Low ones outside CCSD rows 6, 8, 10, and 13. The AO approves the rest. At expiry an exception is remediated, re-justified, or escalated, and an expired one becomes an open finding. Exception trends are reported to the steering committee each quarter.
 
 **NIST Control Mapping:**
 
@@ -1088,7 +1088,7 @@
 
 ### GV-4.4: AI/ML Governance Review Board
 
-**Design Intent:** The chief engineer chairs the AI/ML Governance Review Board, chartered by the program office. Its members are the PMO ISSE, the privacy officer, program legal counsel, the ML Team lead, and the use case's sponsor, with the foreign disclosure officer joining for partner release. The lowest risk tier gets a desk review by the PMO ISSE. The board decides other use cases within ten business days by approving, approving with conditions, or rejecting them. Until the responsible AI policy is issued, it judges against the AISP. Disputed decisions escalate to the steering committee, and a posture report goes there each quarter.
+**Design Intent:** The chief engineer chairs the AI/ML Governance Review Board, chartered by the program office. Its members are the PMO ISSE, the privacy officer, program legal counsel, the ML Team lead, and the use case's sponsor, with the foreign disclosure officer joining for partner release. The lowest risk tier gets a desk review by the PMO ISSE. The board decides other use cases within ten business days by approving, approving with conditions, or rejecting them. Until the responsible AI policy is issued, it judges against the AISP. It admits a platform model for experimentation only. If no use case is certified on it by its recorded date, the board reviews it for removal. Disputed decisions escalate to the steering committee, and a posture report goes there each quarter.
 
 **NIST Control Mapping:**
 

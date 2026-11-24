@@ -11,11 +11,11 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SIP Version | 0.2 |
-| Date | 2026-11-20 |
+| SIP Version | 0.3 |
+| Date | 2026-11-24 |
 | Prepared By | KESTREL PMO ISSE, with the performer's team leads |
 | Approving Authority | KESTREL program manager, who controls the program's engineering staff, contracts, and budget |
-| Source SADD Version | 0.4, submitted for AO approval as 1.0 |
+| Source SADD Version | 0.5, submitted for AO approval as 1.0 |
 | Classification / Handling | CUI |
 
 ### Version History
@@ -24,12 +24,13 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 |---|---|---|---|
 | 0.1 | 2026-11-11 | KESTREL PMO ISSE | Initial draft against SADD 0.2 |
 | 0.2 | 2026-11-20 | KESTREL PMO ISSE | Phased every activity, applied the reviews of every focus area, and moved to SADD 0.4 and SABER v2.0, adding the coding agent |
+| 0.3 | 2026-11-24 | KESTREL PMO ISSE | Applied the Manage review, moving the interim ConMon plan, POA&M, PIA, and AI inventory into Phase 1 and the package into Phase 3, and wrote every Manage record from its intent |
 
 ---
 
 ## 1. Purpose and Source
 
-This plan carries KESTREL's SADD, version 0.4, into RMF Step 3. It records the products and services chosen for each of the SADD's {{NREC}} in-scope outcomes and the tailoring each choice needs across the cloud, the data center, the alternate site, and the fleet. It also names the team accountable for delivering each one and places it in a four-phase rollout built around KESTREL's funding, dependencies, and schedule. The SADD is still awaiting AO approval, so this plan is drafted against version 0.2 and is re-baselined when the SADD is approved as 1.0.
+This plan carries KESTREL's SADD, version 0.5, into RMF Step 3. It records the products and services chosen for each of the SADD's {{NREC}} in-scope outcomes and the tailoring each choice needs across the cloud, the data center, the alternate site, and the fleet. It also names the team accountable for delivering each one and places it in a four-phase rollout built around KESTREL's funding, dependencies, and schedule. The SADD is still awaiting AO approval, so this plan is drafted against version 0.5 and is re-baselined when the SADD is approved as 1.0.
 
 **Approving authority note:** the AO approves the SADD, but only the program manager commits the staff, contracts, and budget this plan assumes. The program manager therefore approves this plan.
 
@@ -43,7 +44,7 @@ This plan carries KESTREL's SADD, version 0.4, into RMF Step 3. It records the p
 
 ## 2. Rollout Phasing Strategy
 
-The phases follow dependencies first. Identity, keys, the pipeline, and logging come before anything that relies on them, and detection comes after the telemetry it reads. Phases are set per activity, since the activities under one outcome often differ in urgency. An activity's SABER Maturity Level sets its default. Level 1, which the SABER marks as required for ATO, keeps its outcome's place in the dependency sequence, which is its capability's unless the selections place the outcome separately, and must land by the end of Phase 3, when the ATO decision is due. Level 2 waits for Phase 2 at the earliest, and Level 3 waits for Phase 4. A pin moves an activity earlier only where KESTREL's design depends on it from the first build, or where building it in costs far less than retrofitting it. Early pins also cover what the interim authorization to test needs in Phase 1, and fleet work proven on the spare stations and the simulator before the fleet integrates. A pin also brings a scan or check forward to the phase of the gate, alert, or workflow that acts on it. It can also bring work forward to precede the first use it protects, such as fuzzing before the first high-to-low transfer. A pin moves one later only where the work cannot start until the fleet or the components it covers arrive, or cannot be used before Phase 2, such as a first periodic review. Phase 1 runs nine months rather than six, because it holds the foundation every team builds on. Each pin states its reason in its record. Three recovery records, RC-1.1, RC-1.2, and RC-3.1, start in Phase 1 on provisional objectives, ahead of the business impact analysis they depend on. The plan accepts the build's four warnings for them under the RC-1.1.1 pin. A record starts in the phase of its earliest activity and stays open until its last one lands, so one outcome remains one story. Work finishing in Phase 3 is due by 2028-07-31, two months before the ATO decision on 2028-09-30, so the SCA has time to assess it.
+The phases follow dependencies first. Identity, keys, the pipeline, and logging come before anything that relies on them, and detection comes after the telemetry it reads. Phases are set per activity, since the activities under one outcome often differ in urgency. An activity's SABER Maturity Level sets its default. Level 1, which the SABER marks as required for ATO, keeps its outcome's place in the dependency sequence, which is its capability's unless the selections place the outcome separately, and must land by the end of Phase 3, when the ATO decision is due. Level 2 waits for Phase 2 at the earliest, and Level 3 waits for Phase 4. A pin moves an activity earlier only where KESTREL's design depends on it from the first build, or where building it in costs far less than retrofitting it. Early pins also cover what the interim authorization to test needs in Phase 1, and fleet work proven on the spare stations and the simulator before the fleet integrates. A pin also brings a scan or check forward to the phase of the gate, alert, or workflow that acts on it. It can also bring work forward to precede the first use it protects, such as fuzzing before the first high-to-low transfer. A pin moves one later only where the work cannot start until the fleet or the components it covers arrive, or cannot be used before Phase 2, such as a first periodic review. Phase 1 runs nine months rather than six, because it holds the foundation every team builds on. Each pin states its reason in its record. Three recovery records, RC-1.1, RC-1.2, and RC-3.1, start in Phase 1 on provisional objectives, ahead of the business impact analysis they depend on. The plan accepts the build's four warnings for them under the RC-1.1.1 pin. The build also warns where work relies on the interim authorization to test or the interim IRP. Those records run on to the ATO decision and the full IRP. The remaining warnings mark Protect work that starts on another outcome's early activities, before its later ones land. The plan accepts all of them. A record starts in the phase of its earliest activity and stays open until its last one lands, so one outcome remains one story. Work finishing in Phase 3 is due by 2028-07-31, two months before the ATO decision on 2028-09-30, so the SCA has time to assess it. The assessment's own outputs follow it instead. The SAR and the annual review are due by 2028-08-31, the RAR by 2028-09-09, and the package by 2028-09-15, ahead of the decision on 2028-09-30.
 
 An interim authorization to test (`GV-5.7`) covers Phases 1 to 3. Integration during those phases uses synthetic data, spare aircraft, and the simulator, so no live mission data or flight depends on a system that is not yet authorized. Models train on government-furnished prior collection the AO admits under the interim authorization, plus synthetic and simulator data. They are re-certified once live collection arrives after the ATO.
 

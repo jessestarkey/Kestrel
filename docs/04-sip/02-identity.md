@@ -46,7 +46,7 @@
 
 **Dependencies:** ID-1.3, DA-3.7, GV-5.6
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -227,7 +227,7 @@
 
 **Dependencies:** ID-1.3, DE-3.1, the parent organization's and the performer's personnel systems
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -292,7 +292,7 @@
 
 **Dependencies:** DE-3.1, the PSO physical access control system
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -456,7 +456,7 @@
 
 **Dependencies:** ID-1.3, ID-1.4, DA-3.7, NE-2.7, the performer device compliance feed, Parent organization's managed devices
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -485,7 +485,7 @@
 
 **Dependencies:** ID-1.3, DA-3.7
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -582,7 +582,7 @@
 
 **Dependencies:** ID-3.1, ID-1.7, AI-1.1, AI-8.7
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -700,7 +700,7 @@
 
 **Dependencies:** DA-3.7, NE-1.6
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -855,7 +855,7 @@
 
 **Dependencies:** ID-1.3, ID-2.1, ID-4.4, ID-3.7
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -887,7 +887,7 @@
 
 **Dependencies:** ID-1.3, ID-2.1, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -984,7 +984,7 @@
 
 **Dependencies:** ID-5.1, DE-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 

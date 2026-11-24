@@ -163,7 +163,7 @@
 
 **Dependencies:** DA-1.1, ID-1.2
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -221,7 +221,7 @@
 
 **Dependencies:** DI-2.3
 
-**Funding Line:** FY27 and FY28 RDT&E, fleet integration
+**Funding Line:** FY27 and FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 

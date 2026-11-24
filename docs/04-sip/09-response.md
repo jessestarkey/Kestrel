@@ -36,11 +36,11 @@
 
 **Selected Tool / Product / Service:** Confluence Data Center, Jira Service Management Data Center, Splunk SOAR
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The ISSM leads every incident in Jira Service Management, and the CSSP contains what cannot wait through its playbooks. The Platform Team, IT Operations, the Data Team, and Fleet Operations act on their own systems at the ISSM's direction. Responders train on KESTREL's runbooks in the exercise environment each year.
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, Cyber defense service provider
+**Dependencies:** RS-4.1, Cyber defense service provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -93,11 +93,11 @@
 
 **Selected Tool / Product / Service:** Microsoft Defender for Cloud, Microsoft Entra ID
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Defender for Cloud's security contact on every subscription and the tenant is the Security Team's monitored address and the CSSP's operations center. The Security Team checks them each quarter.
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** DE-3.1, Cyber defense service provider
+**Dependencies:** Cyber defense service provider, IL5 cloud provider
 
 **Funding Line:** FY28 O&M, platform and security operations
 
@@ -120,7 +120,7 @@
 
 **Selected Tool / Product / Service:** Jira Service Management Data Center, Splunk SOAR, the paging service
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** A declared incident pages the on-call analyst through Jira Service Management and notifies the CSSP's operations center. Severe incidents also page the ISSM and the affected team's lead. If the service desk or the circuits are down, Splunk pages directly over F29 with only an incident ID and severity.
 
 **Accountable Team:** Security Team (ISSM)
 
@@ -176,7 +176,7 @@
 
 **Selected Tool / Product / Service:** Splunk SOAR containment playbooks under the CSSP agreement, Splunk Enterprise, Azure Virtual Desktop
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** The CSSP monitors around the clock, triages, and runs the pre-approved containment playbooks from its AVD host pool. Splunk forwards all telemetry to it, and a stalled feed alerts. The ISSM tracks each CSSP directive to completion in Jira Service Management.
 
 **Accountable Team:** Security Team (ISSM)
 
@@ -209,7 +209,7 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Correlated Splunk Enterprise Security alerts above the declaration threshold open an incident in Jira Service Management automatically. Each record carries the asset's owner, team, criticality, and recent changes from Assets.
 
 **Accountable Team:** Security Team
 
@@ -294,7 +294,7 @@
 
 **Selected Tool / Product / Service:** Jira Service Management Assets, Splunk Enterprise Security, Jira Service Management Data Center
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Each asset's criticality comes from its Assets tags and the business impact analysis. The command link, the stations, the identity provider, the HSMs and PKI, and the signing and registry path rank highest. Criticality feeds incident severity in Splunk Enterprise Security.
 
 **Accountable Team:** Security Team
 
@@ -321,7 +321,7 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise Security, Jira Service Management Data Center, the paging service
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Severity is computed from criticality, data sensitivity, scope, and any effect on an aircraft. The AI taxonomy covers poisoning, prompt injection, model theft, agent misuse, and a tampered edge model. Each severity has its own paging route, and a Splunk dashboard tracks time to triage, contain, and recover.
 
 **Accountable Team:** Security Team
 

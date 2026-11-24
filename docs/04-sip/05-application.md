@@ -142,7 +142,7 @@
 
 **Dependencies:** GV-5.6
 
-**Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 4 share unfunded
+**Funding Line:** FY28 and FY29 O&M, platform and security operations, with the Phase 3 share pending approval, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
 
@@ -490,7 +490,7 @@
 
 **Dependencies:** AP-2.21, DA-3.4
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -867,7 +867,7 @@
 
 **Dependencies:** DA-1.1, AI-2.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -1008,7 +1008,7 @@
 
 **Dependencies:** AP-2.21, AP-2.22, DI-2.1
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1069,7 +1069,7 @@
 
 **Dependencies:** AP-2.13
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -1347,7 +1347,7 @@
 
 **Dependencies:** AP-4.5, AP-4.7
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 

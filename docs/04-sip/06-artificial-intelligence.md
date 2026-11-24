@@ -299,7 +299,7 @@
 
 **Dependencies:** DA-1.1, DA-1.7, AI-1.2, AI-1.4
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -924,7 +924,7 @@
 
 **Dependencies:** AI-3.2
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -980,7 +980,7 @@
 
 **Dependencies:** AI-1.6, AI-8.10
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1007,7 +1007,7 @@
 
 **Dependencies:** AI-1.6, AI-8.4
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1034,7 +1034,7 @@
 
 **Dependencies:** AI-1.6, AI-4.14
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1061,7 +1061,7 @@
 
 **Dependencies:** AI-2.1, AI-4.14, AI-7.2
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 3 share pending approval, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
@@ -1088,7 +1088,7 @@
 
 **Dependencies:** AI-1.6, AI-4.14
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1115,7 +1115,7 @@
 
 **Dependencies:** AI-1.2, AI-4.14
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1142,7 +1142,7 @@
 
 **Dependencies:** AI-1.7, Penetration testing provider
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY28 program management, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1169,7 +1169,7 @@
 
 **Dependencies:** AI-1.6
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1198,7 +1198,7 @@
 
 **Dependencies:** AI-5.1, AI-5.3, AI-10.1
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY28 program management, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1225,7 +1225,7 @@
 
 **Dependencies:** AI-5.8
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY28 program management, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1252,7 +1252,7 @@
 
 **Dependencies:** AI-5.7
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY28 program management, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1279,7 +1279,7 @@
 
 **Dependencies:** AI-6.1, RK-1.4
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY28 program management, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1306,7 +1306,7 @@
 
 **Dependencies:** AI-6.1, AP-4.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY28 program management, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1334,7 +1334,7 @@
 
 **Dependencies:** AI-8.14
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1361,7 +1361,7 @@
 
 **Dependencies:** AP-4.7
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1388,7 +1388,7 @@
 
 **Dependencies:** AI-6.5
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1419,7 +1419,7 @@
 
 **Dependencies:** AI-4.1, DI-7.1
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1446,7 +1446,7 @@
 
 **Dependencies:** AI-2.1, AI-7.4
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1473,7 +1473,7 @@
 
 **Dependencies:** AI-4.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1500,7 +1500,7 @@
 
 **Dependencies:** ID-3.7, AI-2.2
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1529,7 +1529,7 @@
 
 **Dependencies:** AI-8.2, DE-3.1
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1556,7 +1556,7 @@
 
 **Dependencies:** NE-2.2
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1583,7 +1583,7 @@
 
 **Dependencies:** NE-2.1, AI-1.3, GV-5.12
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -1615,7 +1615,7 @@
 
 **Dependencies:** AI-8.3, DA-1.2, GV-5.12
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 3 share pending approval, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
@@ -1644,7 +1644,7 @@
 
 **Dependencies:** AI-8.2, AI-4.7
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1671,7 +1671,7 @@
 
 **Dependencies:** AI-8.5
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1698,7 +1698,7 @@
 
 **Dependencies:** AI-1.8, AI-8.10, GV-5.12
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1727,7 +1727,7 @@
 
 **Dependencies:** AI-8.5
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1754,7 +1754,7 @@
 
 **Dependencies:** AI-8.5, Microsoft's approval of modified content filtering, GV-5.12
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1781,7 +1781,7 @@
 
 **Dependencies:** AI-1.7
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -1812,7 +1812,7 @@
 
 **Dependencies:** AI-6.7, DA-3.4
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 3 share pending approval, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet, with work through Phase 4
 
@@ -1839,7 +1839,7 @@
 
 **Dependencies:** ID-3.7
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -1868,7 +1868,7 @@
 
 **Dependencies:** AI-4.14, AP-2.13, AP-4.5, NE-2.10
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -1897,7 +1897,7 @@
 
 **Dependencies:** AI-6.7
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1925,7 +1925,7 @@
 
 **Dependencies:** ID-3.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1957,7 +1957,7 @@
 
 **Dependencies:** AI-6.7, DE-3.1
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -1985,7 +1985,7 @@
 
 **Dependencies:** AI-6.7
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -2012,7 +2012,7 @@
 
 **Dependencies:** AI-4.12
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -2039,7 +2039,7 @@
 
 **Dependencies:** AI-8.1, DE-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -2066,7 +2066,7 @@
 
 **Dependencies:** AI-6.7
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -2093,7 +2093,7 @@
 
 **Dependencies:** AP-5.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -2120,7 +2120,7 @@
 
 **Dependencies:** AI-6.7
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -2147,7 +2147,7 @@
 
 **Dependencies:** AI-6.7, DI-2.3
 
-**Funding Line:** FY28 RDT&E, mission and ML
+**Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -2175,7 +2175,7 @@
 
 **Dependencies:** AI-6.5
 
-**Funding Line:** FY28 program management
+**Funding Line:** FY28 program management, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 

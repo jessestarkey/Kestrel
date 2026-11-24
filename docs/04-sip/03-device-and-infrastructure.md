@@ -44,7 +44,7 @@
 
 **Dependencies:** DI-1.1, NE-1.6
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -574,7 +574,7 @@
 
 **Dependencies:** DI-1.2, DI-3.5
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -601,7 +601,7 @@
 
 **Dependencies:** DI-3.2, DI-7.1, DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -636,7 +636,7 @@
 
 **Dependencies:** DI-3.5, NE-1.6, DE-2.8
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -666,7 +666,7 @@
 
 **Dependencies:** DI-3.2, DE-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 

@@ -54,7 +54,8 @@ def funding(team, fys, phases):
         line = 'RDT&E, mission and ML'
     else:
         line = 'O&M, platform and security operations'
-    return f"{series(fys)} {line}" + (', with the Phase 4 share unfunded' if 4 in phases else '')
+    return (f"{series(fys)} {line}" + (', with the Phase 3 share pending approval' if 3 in phases else '')
+            + (', with the Phase 4 share unfunded' if 4 in phases else ''))
 
 
 def contracting(keys):
@@ -120,7 +121,7 @@ for fname in sorted(os.listdir(S.FW)):
             oid, ot = [x.strip() for x in o['title'].split(':', 1)]
             sel = dict(CAP[cid]); sel.update(OUT.get(oid, {}))
             # Tailoring copied from the capability usually describes a sibling, not this outcome.
-            if sel['tailoring'] == CAP[cid]['tailoring'] and sel['tailoring'] != ONE and oid not in SHARED:
+            if sel['tailoring'] == CAP[cid]['tailoring'] and oid not in SHARED:
                 inherited[code].append(oid)
             # Each activity takes a phase from its maturity level: Level 1 keeps the
             # outcome's base phase, Level 2 waits for Phase 2 at the earliest, and
@@ -156,7 +157,7 @@ for fname in sorted(os.listdir(S.FW)):
                     contract_use[c].append(oid)
             pname = PHASES[phase][0]
             # A record whose fleet slice waits for Phase 3 stays open through it, via 'through'.
-            last = max(max(aph.values()), sel.get('through', 0)); end = ASSESS_READY if last == 3 else PHASES[last][2]
+            last = max(max(aph.values()), sel.get('through', 0)); end = sel.get('target') or (ASSESS_READY if last == 3 else PHASES[last][2])
             span = f'Phase {phase}, {pname}' + (f', with work through Phase {last}' if last > phase else '')
             fys = sorted({y for p in list(aph.values()) + [last] for y in FY[p]})
             body += [f'### {oid}: {ot}', '',

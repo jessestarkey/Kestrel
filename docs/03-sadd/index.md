@@ -11,10 +11,10 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SADD Version | 0.4 |
+| SADD Version | 0.5 |
 | Date | 2026-11-17 |
 | Prepared By | KESTREL PMO ISSE |
-| Approved By | Pending. Version 0.4 is submitted to the KESTREL AO for approval as version 1.0. |
+| Approved By | Pending. Version 0.5 is submitted to the KESTREL AO for approval as version 1.0. |
 | Classification / Handling | CUI |
 | Security Categorization | Confidentiality High, Integrity High, Availability Moderate (see Section 2) |
 
@@ -26,6 +26,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | 0.2 | 2026-11-11 | KESTREL PMO ISSE | Wrote the remaining eleven focus areas, for AO approval |
 | 0.3 | 2026-11-17 | KESTREL PMO ISSE | Applied the independent reviews of every focus area. Brought privileged access workstations into scope and took classified endpoint monitoring out. Added flows F29 to F38, the Microsoft 365 DoD tenant, and a second data center circuit |
 | 0.4 | 2026-11-20 | KESTREL PMO ISSE | Moved to SABER v2.0 (in progress), adding agent memory and capability composition to the design and scoping multi-agent orchestration out. Added the developer coding agent and flow F39. |
+| 0.5 | 2026-11-24 | KESTREL PMO ISSE | Separated model and use case governance, admitted platform models, and corrected the exception approval wording |
 
 ---
 
@@ -318,7 +319,7 @@ SI-8 is not a gap. The AO removed it in CCSD tailoring action 1, and its one own
 
 ## 10. Approval and Periodic Review
 
-**Approved By:** Pending. Version 0.4 is submitted to the KESTREL AO for approval as version 1.0.
+**Approved By:** Pending. Version 0.5 is submitted to the KESTREL AO for approval as version 1.0.
 
 **Review Cadence:** Annually, and whenever a revision trigger below occurs.
 

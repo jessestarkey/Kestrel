@@ -156,13 +156,13 @@
 
 **Selected Tool / Product / Service:** Splunk Enterprise Security
 
-**Environment-Specific Tailoring:** None. One configuration serves the cloud, the data center, and the alternate site.
+**Environment-Specific Tailoring:** Splunk Enterprise Security baselines every person role and the pipeline, workload, and agent identities. The PSO, program counsel, and the privacy officer set the monitored population and thresholds in the CMP before profiling starts. Insider threat indicators go to the PSO's program.
 
 **Accountable Team:** Security Team
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, PSO's insider threat program
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -190,7 +190,7 @@
 
 **Dependencies:** DE-2.7, DE-3.1, Cyber defense service provider
 
-**Funding Line:** FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
+**Funding Line:** FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -350,7 +350,7 @@
 
 **Dependencies:** DE-3.1
 
-**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 4 share unfunded
+**Funding Line:** FY28 and FY29 RDT&E, mission and ML, with the Phase 3 share pending approval, with the Phase 4 share unfunded
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 4
 
@@ -442,7 +442,7 @@
 
 **Dependencies:** DE-3.1
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
@@ -472,7 +472,7 @@
 
 **Dependencies:** DE-3.1, NE-1.6
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -592,7 +592,7 @@
 
 **Dependencies:** NE-2.1, DoD authoritative time service
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 

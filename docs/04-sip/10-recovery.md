@@ -98,9 +98,9 @@
 
 **Accountable Team:** Fleet Operations
 
-**Dependencies:** RC-1.2, DA-3.4, Aircraft, ground station, payload, and launch equipment vendors
+**Dependencies:** RC-1.2, DA-3.4, Aircraft and ground equipment manufacturers
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 3, Mission, AI, and Fleet
 
@@ -333,7 +333,7 @@
 
 **Dependencies:** RC-1.2, RC-3.1
 
-**Funding Line:** FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration
+**Funding Line:** FY28 O&M, platform and security operations, with the fleet slice as RDT&E fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
@@ -415,7 +415,7 @@
 
 **Dependencies:** RC-3.1
 
-**Funding Line:** FY28 RDT&E, fleet integration
+**Funding Line:** FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
 **Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
