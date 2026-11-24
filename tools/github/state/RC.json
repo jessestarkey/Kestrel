@@ -1,0 +1,916 @@
+{
+ "issues": {
+  "RC": {
+   "number": 1284,
+   "id": 6523994974,
+   "node": "I_kwDOVqDm9M8AAAABhNxDXg"
+  },
+  "RC-1": {
+   "number": 1285,
+   "id": 6523995236,
+   "node": "I_kwDOVqDm9M8AAAABhNxEZA"
+  },
+  "RC-1.1": {
+   "number": 1286,
+   "id": 6523995488,
+   "node": "I_kwDOVqDm9M8AAAABhNxFYA"
+  },
+  "RC-1.1.1": {
+   "number": 1287,
+   "id": 6523995800,
+   "node": "I_kwDOVqDm9M8AAAABhNxGmA"
+  },
+  "RC-1.1.2": {
+   "number": 1288,
+   "id": 6523996110,
+   "node": "I_kwDOVqDm9M8AAAABhNxHzg"
+  },
+  "RC-1.1.3": {
+   "number": 1289,
+   "id": 6523996388,
+   "node": "I_kwDOVqDm9M8AAAABhNxI5A"
+  },
+  "RC-1.2": {
+   "number": 1290,
+   "id": 6523996646,
+   "node": "I_kwDOVqDm9M8AAAABhNxJ5g"
+  },
+  "RC-1.2.1": {
+   "number": 1291,
+   "id": 6523996910,
+   "node": "I_kwDOVqDm9M8AAAABhNxK7g"
+  },
+  "RC-1.2.2": {
+   "number": 1292,
+   "id": 6523997185,
+   "node": "I_kwDOVqDm9M8AAAABhNxMAQ"
+  },
+  "RC-1.3": {
+   "number": 1293,
+   "id": 6523997505,
+   "node": "I_kwDOVqDm9M8AAAABhNxNQQ"
+  },
+  "RC-1.3.1": {
+   "number": 1294,
+   "id": 6523997850,
+   "node": "I_kwDOVqDm9M8AAAABhNxOmg"
+  },
+  "RC-1.3.2": {
+   "number": 1295,
+   "id": 6523998175,
+   "node": "I_kwDOVqDm9M8AAAABhNxP3w"
+  },
+  "RC-1.4": {
+   "number": 1296,
+   "id": 6523998487,
+   "node": "I_kwDOVqDm9M8AAAABhNxRFw"
+  },
+  "RC-1.4.1": {
+   "number": 1297,
+   "id": 6523998747,
+   "node": "I_kwDOVqDm9M8AAAABhNxSGw"
+  },
+  "RC-1.4.2": {
+   "number": 1298,
+   "id": 6523998997,
+   "node": "I_kwDOVqDm9M8AAAABhNxTFQ"
+  },
+  "RC-1.4.3": {
+   "number": 1299,
+   "id": 6523999295,
+   "node": "I_kwDOVqDm9M8AAAABhNxUPw"
+  },
+  "RC-1.5": {
+   "number": 1300,
+   "id": 6523999591,
+   "node": "I_kwDOVqDm9M8AAAABhNxVZw"
+  },
+  "RC-1.5.1": {
+   "number": 1301,
+   "id": 6523999853,
+   "node": "I_kwDOVqDm9M8AAAABhNxWbQ"
+  },
+  "RC-1.5.2": {
+   "number": 1302,
+   "id": 6524000114,
+   "node": "I_kwDOVqDm9M8AAAABhNxXcg"
+  },
+  "RC-1.6": {
+   "number": 1303,
+   "id": 6524000390,
+   "node": "I_kwDOVqDm9M8AAAABhNxYhg"
+  },
+  "RC-1.6.1": {
+   "number": 1304,
+   "id": 6524000647,
+   "node": "I_kwDOVqDm9M8AAAABhNxZhw"
+  },
+  "RC-1.6.2": {
+   "number": 1305,
+   "id": 6524000891,
+   "node": "I_kwDOVqDm9M8AAAABhNxaew"
+  },
+  "RC-1.6.3": {
+   "number": 1306,
+   "id": 6524001161,
+   "node": "I_kwDOVqDm9M8AAAABhNxbiQ"
+  },
+  "RC-1.6.4": {
+   "number": 1307,
+   "id": 6524001478,
+   "node": "I_kwDOVqDm9M8AAAABhNxcxg"
+  },
+  "RC-1.7": {
+   "number": 1308,
+   "id": 6524001763,
+   "node": "I_kwDOVqDm9M8AAAABhNxd4w"
+  },
+  "RC-1.7.1": {
+   "number": 1309,
+   "id": 6524002087,
+   "node": "I_kwDOVqDm9M8AAAABhNxfJw"
+  },
+  "RC-1.7.2": {
+   "number": 1310,
+   "id": 6524002346,
+   "node": "I_kwDOVqDm9M8AAAABhNxgKg"
+  },
+  "RC-2": {
+   "number": 1311,
+   "id": 6524002604,
+   "node": "I_kwDOVqDm9M8AAAABhNxhLA"
+  },
+  "RC-2.1": {
+   "number": 1312,
+   "id": 6524002864,
+   "node": "I_kwDOVqDm9M8AAAABhNxiMA"
+  },
+  "RC-2.1.1": {
+   "number": 1313,
+   "id": 6524003155,
+   "node": "I_kwDOVqDm9M8AAAABhNxjUw"
+  },
+  "RC-2.1.2": {
+   "number": 1314,
+   "id": 6524003426,
+   "node": "I_kwDOVqDm9M8AAAABhNxkYg"
+  },
+  "RC-2.2": {
+   "number": 1315,
+   "id": 6524003663,
+   "node": "I_kwDOVqDm9M8AAAABhNxlTw"
+  },
+  "RC-2.2.1": {
+   "number": 1316,
+   "id": 6524003906,
+   "node": "I_kwDOVqDm9M8AAAABhNxmQg"
+  },
+  "RC-2.2.2": {
+   "number": 1317,
+   "id": 6524004202,
+   "node": "I_kwDOVqDm9M8AAAABhNxnag"
+  },
+  "RC-2.3": {
+   "number": 1318,
+   "id": 6524004469,
+   "node": "I_kwDOVqDm9M8AAAABhNxodQ"
+  },
+  "RC-2.3.1": {
+   "number": 1319,
+   "id": 6524004732,
+   "node": "I_kwDOVqDm9M8AAAABhNxpfA"
+  },
+  "RC-2.3.2": {
+   "number": 1320,
+   "id": 6524005052,
+   "node": "I_kwDOVqDm9M8AAAABhNxqvA"
+  },
+  "RC-3": {
+   "number": 1321,
+   "id": 6524005319,
+   "node": "I_kwDOVqDm9M8AAAABhNxrxw"
+  },
+  "RC-3.1": {
+   "number": 1322,
+   "id": 6524005589,
+   "node": "I_kwDOVqDm9M8AAAABhNxs1Q"
+  },
+  "RC-3.1.1": {
+   "number": 1323,
+   "id": 6524005892,
+   "node": "I_kwDOVqDm9M8AAAABhNxuBA"
+  },
+  "RC-3.1.2": {
+   "number": 1324,
+   "id": 6524006176,
+   "node": "I_kwDOVqDm9M8AAAABhNxvIA"
+  },
+  "RC-3.2": {
+   "number": 1325,
+   "id": 6524006471,
+   "node": "I_kwDOVqDm9M8AAAABhNxwRw"
+  },
+  "RC-3.2.1": {
+   "number": 1326,
+   "id": 6524006757,
+   "node": "I_kwDOVqDm9M8AAAABhNxxZQ"
+  },
+  "RC-3.2.2": {
+   "number": 1327,
+   "id": 6524007055,
+   "node": "I_kwDOVqDm9M8AAAABhNxyjw"
+  },
+  "RC-3.3": {
+   "number": 1328,
+   "id": 6524007349,
+   "node": "I_kwDOVqDm9M8AAAABhNxztQ"
+  },
+  "RC-3.3.1": {
+   "number": 1329,
+   "id": 6524007621,
+   "node": "I_kwDOVqDm9M8AAAABhNx0xQ"
+  },
+  "RC-3.3.2": {
+   "number": 1330,
+   "id": 6524007870,
+   "node": "I_kwDOVqDm9M8AAAABhNx1vg"
+  },
+  "RC-3.3.3": {
+   "number": 1331,
+   "id": 6524008129,
+   "node": "I_kwDOVqDm9M8AAAABhNx2wQ"
+  },
+  "RC-3.4": {
+   "number": 1332,
+   "id": 6524008365,
+   "node": "I_kwDOVqDm9M8AAAABhNx3rQ"
+  },
+  "RC-3.4.1": {
+   "number": 1333,
+   "id": 6524008765,
+   "node": "I_kwDOVqDm9M8AAAABhNx5PQ"
+  },
+  "RC-3.4.2": {
+   "number": 1334,
+   "id": 6524009029,
+   "node": "I_kwDOVqDm9M8AAAABhNx6RQ"
+  },
+  "RC-3.5": {
+   "number": 1335,
+   "id": 6524009332,
+   "node": "I_kwDOVqDm9M8AAAABhNx7dA"
+  },
+  "RC-3.5.1": {
+   "number": 1336,
+   "id": 6524009589,
+   "node": "I_kwDOVqDm9M8AAAABhNx8dQ"
+  },
+  "RC-3.5.2": {
+   "number": 1337,
+   "id": 6524009844,
+   "node": "I_kwDOVqDm9M8AAAABhNx9dA"
+  },
+  "RC-3.5.3": {
+   "number": 1338,
+   "id": 6524010137,
+   "node": "I_kwDOVqDm9M8AAAABhNx-mQ"
+  },
+  "RC-4": {
+   "number": 1339,
+   "id": 6524010409,
+   "node": "I_kwDOVqDm9M8AAAABhNx_qQ"
+  },
+  "RC-4.1": {
+   "number": 1340,
+   "id": 6524010686,
+   "node": "I_kwDOVqDm9M8AAAABhNyAvg"
+  },
+  "RC-4.1.1": {
+   "number": 1341,
+   "id": 6524010952,
+   "node": "I_kwDOVqDm9M8AAAABhNyByA"
+  },
+  "RC-4.1.2": {
+   "number": 1342,
+   "id": 6524011235,
+   "node": "I_kwDOVqDm9M8AAAABhNyC4w"
+  },
+  "RC-4.1.3": {
+   "number": 1343,
+   "id": 6524011535,
+   "node": "I_kwDOVqDm9M8AAAABhNyEDw"
+  },
+  "RC-4.1.4": {
+   "number": 1344,
+   "id": 6524011830,
+   "node": "I_kwDOVqDm9M8AAAABhNyFNg"
+  },
+  "RC-4.1.5": {
+   "number": 1345,
+   "id": 6524012156,
+   "node": "I_kwDOVqDm9M8AAAABhNyGfA"
+  }
+ },
+ "links": [
+  "RC-1",
+  "RC-1.1",
+  "RC-1.1.1",
+  "RC-1.1.2",
+  "RC-1.1.3",
+  "RC-1.2",
+  "RC-1.2.1",
+  "RC-1.2.2",
+  "RC-1.3",
+  "RC-1.3.1",
+  "RC-1.3.2",
+  "RC-1.4",
+  "RC-1.4.1",
+  "RC-1.4.2",
+  "RC-1.4.3",
+  "RC-1.5",
+  "RC-1.5.1",
+  "RC-1.5.2",
+  "RC-1.6",
+  "RC-1.6.1",
+  "RC-1.6.2",
+  "RC-1.6.3",
+  "RC-1.6.4",
+  "RC-1.7",
+  "RC-1.7.1",
+  "RC-1.7.2",
+  "RC-2",
+  "RC-2.1",
+  "RC-2.1.1",
+  "RC-2.1.2",
+  "RC-2.2",
+  "RC-2.2.1",
+  "RC-2.2.2",
+  "RC-2.3",
+  "RC-2.3.1",
+  "RC-2.3.2",
+  "RC-3",
+  "RC-3.1",
+  "RC-3.1.1",
+  "RC-3.1.2",
+  "RC-3.2",
+  "RC-3.2.1",
+  "RC-3.2.2",
+  "RC-3.3",
+  "RC-3.3.1",
+  "RC-3.3.2",
+  "RC-3.3.3",
+  "RC-3.4",
+  "RC-3.4.1",
+  "RC-3.4.2",
+  "RC-3.5",
+  "RC-3.5.1",
+  "RC-3.5.2",
+  "RC-3.5.3",
+  "RC-4",
+  "RC-4.1",
+  "RC-4.1.1",
+  "RC-4.1.2",
+  "RC-4.1.3",
+  "RC-4.1.4",
+  "RC-4.1.5"
+ ],
+ "items": {
+  "RC": "PVTI_lAHOCZ5vBc4BrOtizhKpB88",
+  "RC-1": "PVTI_lAHOCZ5vBc4BrOtizhKpB-Y",
+  "RC-1.1": "PVTI_lAHOCZ5vBc4BrOtizhKpB_E",
+  "RC-1.1.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCDg",
+  "RC-1.1.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCEM",
+  "RC-1.1.3": "PVTI_lAHOCZ5vBc4BrOtizhKpCEc",
+  "RC-1.2": "PVTI_lAHOCZ5vBc4BrOtizhKpB_c",
+  "RC-1.2.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCBY",
+  "RC-1.2.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCE4",
+  "RC-1.3": "PVTI_lAHOCZ5vBc4BrOtizhKpB_8",
+  "RC-1.3.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCD4",
+  "RC-1.3.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCEQ",
+  "RC-1.4": "PVTI_lAHOCZ5vBc4BrOtizhKpCAc",
+  "RC-1.4.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCCk",
+  "RC-1.4.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCC4",
+  "RC-1.4.3": "PVTI_lAHOCZ5vBc4BrOtizhKpCDI",
+  "RC-1.5": "PVTI_lAHOCZ5vBc4BrOtizhKpCA0",
+  "RC-1.5.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCCw",
+  "RC-1.5.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCDE",
+  "RC-1.6": "PVTI_lAHOCZ5vBc4BrOtizhKpCB8",
+  "RC-1.6.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCDY",
+  "RC-1.6.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCFw",
+  "RC-1.6.3": "PVTI_lAHOCZ5vBc4BrOtizhKpCGE",
+  "RC-1.6.4": "PVTI_lAHOCZ5vBc4BrOtizhKpCGY",
+  "RC-1.7": "PVTI_lAHOCZ5vBc4BrOtizhKpCCg",
+  "RC-1.7.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCFM",
+  "RC-1.7.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCFg",
+  "RC-2": "PVTI_lAHOCZ5vBc4BrOtizhKpB-g",
+  "RC-2.1": "PVTI_lAHOCZ5vBc4BrOtizhKpB_U",
+  "RC-2.1.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCBk",
+  "RC-2.1.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCE0",
+  "RC-2.2": "PVTI_lAHOCZ5vBc4BrOtizhKpB_0",
+  "RC-2.2.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCBA",
+  "RC-2.2.2": "PVTI_lAHOCZ5vBc4BrOtizhKpC_I",
+  "RC-2.3": "PVTI_lAHOCZ5vBc4BrOtizhKpCAI",
+  "RC-2.3.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCDc",
+  "RC-2.3.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCDs",
+  "RC-3": "PVTI_lAHOCZ5vBc4BrOtizhKpB-o",
+  "RC-3.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCAY",
+  "RC-3.1.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCB0",
+  "RC-3.1.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCCI",
+  "RC-3.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCAo",
+  "RC-3.2.1": "PVTI_lAHOCZ5vBc4BrOtizhKpC-k",
+  "RC-3.2.2": "PVTI_lAHOCZ5vBc4BrOtizhKpC-o",
+  "RC-3.3": "PVTI_lAHOCZ5vBc4BrOtizhKpCQM",
+  "RC-3.3.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCRY",
+  "RC-3.3.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCSY",
+  "RC-3.3.3": "PVTI_lAHOCZ5vBc4BrOtizhKpCS4",
+  "RC-3.4": "PVTI_lAHOCZ5vBc4BrOtizhKpCQc",
+  "RC-3.4.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCUI",
+  "RC-3.4.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCUU",
+  "RC-3.5": "PVTI_lAHOCZ5vBc4BrOtizhKpCQ4",
+  "RC-3.5.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCRo",
+  "RC-3.5.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCSA",
+  "RC-3.5.3": "PVTI_lAHOCZ5vBc4BrOtizhKpCSo",
+  "RC-4": "PVTI_lAHOCZ5vBc4BrOtizhKpCO8",
+  "RC-4.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCPg",
+  "RC-4.1.1": "PVTI_lAHOCZ5vBc4BrOtizhKpCQ0",
+  "RC-4.1.2": "PVTI_lAHOCZ5vBc4BrOtizhKpCRE",
+  "RC-4.1.3": "PVTI_lAHOCZ5vBc4BrOtizhKpCRc",
+  "RC-4.1.4": "PVTI_lAHOCZ5vBc4BrOtizhKpCR0",
+  "RC-4.1.5": "PVTI_lAHOCZ5vBc4BrOtizhKpCSQ"
+ },
+ "fields_set": [
+  "RC",
+  "RC-1",
+  "RC-1.1",
+  "RC-1.1.1",
+  "RC-1.1.2",
+  "RC-1.1.3",
+  "RC-1.2",
+  "RC-1.2.1",
+  "RC-1.2.2",
+  "RC-1.3",
+  "RC-1.3.1",
+  "RC-1.3.2",
+  "RC-1.4",
+  "RC-1.4.1",
+  "RC-1.4.2",
+  "RC-1.4.3",
+  "RC-1.5",
+  "RC-1.5.1",
+  "RC-1.5.2",
+  "RC-1.6",
+  "RC-1.6.1",
+  "RC-1.6.2",
+  "RC-1.6.3",
+  "RC-1.6.4",
+  "RC-1.7",
+  "RC-1.7.1",
+  "RC-1.7.2",
+  "RC-2",
+  "RC-2.1",
+  "RC-2.1.1",
+  "RC-2.1.2",
+  "RC-2.2",
+  "RC-2.2.1",
+  "RC-2.2.2",
+  "RC-2.3",
+  "RC-2.3.1",
+  "RC-2.3.2",
+  "RC-3",
+  "RC-3.1",
+  "RC-3.1.1",
+  "RC-3.1.2",
+  "RC-3.2",
+  "RC-3.2.1",
+  "RC-3.2.2",
+  "RC-3.3",
+  "RC-3.3.1",
+  "RC-3.3.2",
+  "RC-3.3.3",
+  "RC-3.4",
+  "RC-3.4.1",
+  "RC-3.4.2",
+  "RC-3.5",
+  "RC-3.5.1",
+  "RC-3.5.2",
+  "RC-3.5.3",
+  "RC-4",
+  "RC-4.1",
+  "RC-4.1.1",
+  "RC-4.1.2",
+  "RC-4.1.3",
+  "RC-4.1.4",
+  "RC-4.1.5"
+ ],
+ "dates_set": [
+  "RC",
+  "RC-1",
+  "RC-1.1",
+  "RC-1.1.1",
+  "RC-1.1.2",
+  "RC-1.1.3",
+  "RC-1.2",
+  "RC-1.2.1",
+  "RC-1.2.2",
+  "RC-1.3",
+  "RC-1.3.1",
+  "RC-1.3.2",
+  "RC-1.4",
+  "RC-1.4.1",
+  "RC-1.4.2",
+  "RC-1.4.3",
+  "RC-1.5",
+  "RC-1.5.1",
+  "RC-1.5.2",
+  "RC-1.6",
+  "RC-1.6.1",
+  "RC-1.6.2",
+  "RC-1.6.3",
+  "RC-1.6.4",
+  "RC-1.7",
+  "RC-1.7.1",
+  "RC-1.7.2",
+  "RC-2",
+  "RC-2.1",
+  "RC-2.1.1",
+  "RC-2.1.2",
+  "RC-2.2",
+  "RC-2.2.1",
+  "RC-2.2.2",
+  "RC-2.3",
+  "RC-2.3.1",
+  "RC-2.3.2",
+  "RC-3",
+  "RC-3.1",
+  "RC-3.1.1",
+  "RC-3.1.2",
+  "RC-3.2",
+  "RC-3.2.1",
+  "RC-3.2.2",
+  "RC-3.3",
+  "RC-3.3.1",
+  "RC-3.3.2",
+  "RC-3.3.3",
+  "RC-3.4",
+  "RC-3.4.1",
+  "RC-3.4.2",
+  "RC-3.5",
+  "RC-3.5.1",
+  "RC-3.5.2",
+  "RC-3.5.3",
+  "RC-4",
+  "RC-4.1",
+  "RC-4.1.1",
+  "RC-4.1.2",
+  "RC-4.1.3",
+  "RC-4.1.4",
+  "RC-4.1.5"
+ ],
+ "date_values": {
+  "RC": [
+   "2027-01-01",
+   "2028-07-31"
+  ],
+  "RC-1": [
+   "2027-01-01",
+   "2028-07-31"
+  ],
+  "RC-1.1": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "RC-1.1.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-1.1.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.1.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.2": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "RC-1.2.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-1.2.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-1.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.3.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.3.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.4": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "RC-1.4.1": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "RC-1.4.2": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "RC-1.4.3": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "RC-1.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.5.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.5.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.6": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "RC-1.6.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-1.6.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-1.6.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.6.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.7": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.7.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-1.7.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-2": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "RC-2.1": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "RC-2.1.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-2.1.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-2.2": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "RC-2.2.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-2.2.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-2.3": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "RC-2.3.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-2.3.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3": [
+   "2027-01-01",
+   "2028-07-31"
+  ],
+  "RC-3.1": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "RC-3.1.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "RC-3.1.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.2": [
+   "2027-10-01",
+   "2028-07-31"
+  ],
+  "RC-3.2.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.2.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.3.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.3.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.3.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.4.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.4.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.5": [
+   "2027-10-01",
+   "2028-07-31"
+  ],
+  "RC-3.5.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.5.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-3.5.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-4.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-4.1.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-4.1.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-4.1.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-4.1.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "RC-4.1.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ]
+ },
+ "deps": [
+  "RC-1.1<-DI-1.3",
+  "RC-1.1<-RC-3.1",
+  "RC-1.2<-DI-1.3",
+  "RC-1.2<-DA-3.5",
+  "RC-1.2<-RC-3.1",
+  "RC-1.3<-RC-1.2",
+  "RC-1.4<-RC-1.2",
+  "RC-1.4<-DA-3.4",
+  "RC-1.5<-RC-1.2",
+  "RC-1.6<-RC-1.2",
+  "RC-1.6<-DE-3.1",
+  "RC-1.7<-RC-1.2",
+  "RC-1.7<-DI-1.1",
+  "RC-2.1<-RC-1.2",
+  "RC-2.1<-DA-3.5",
+  "RC-2.1<-DE-3.1",
+  "RC-2.2<-RC-1.2",
+  "RC-2.2<-DA-3.5",
+  "RC-2.3<-RC-1.2",
+  "RC-2.3<-DA-3.5",
+  "RC-3.2<-RC-1.2",
+  "RC-3.2<-RC-3.1",
+  "RC-3.3<-RC-1.2",
+  "RC-3.3<-RC-3.1",
+  "RC-3.3<-RC-3.4",
+  "RC-3.3<-RC-4.1",
+  "RC-3.3<-NE-2.1",
+  "RC-3.4<-RC-3.1",
+  "RC-3.4<-NE-2.1",
+  "RC-3.5<-RC-3.1",
+  "RC-4.1<-RC-3.1"
+ ],
+ "status": {
+  "RC": "Ready",
+  "RC-1": "Ready",
+  "RC-1.1": "Backlog",
+  "RC-1.1.1": "Backlog",
+  "RC-1.1.2": "Backlog",
+  "RC-1.1.3": "Backlog",
+  "RC-1.2": "Blocked",
+  "RC-1.2.1": "Blocked",
+  "RC-1.2.2": "Blocked",
+  "RC-1.3": "Backlog",
+  "RC-1.3.1": "Backlog",
+  "RC-1.3.2": "Backlog",
+  "RC-1.4": "Backlog",
+  "RC-1.4.1": "Backlog",
+  "RC-1.4.2": "Backlog",
+  "RC-1.4.3": "Backlog",
+  "RC-1.5": "Backlog",
+  "RC-1.5.1": "Backlog",
+  "RC-1.5.2": "Backlog",
+  "RC-1.6": "Backlog",
+  "RC-1.6.1": "Backlog",
+  "RC-1.6.2": "Backlog",
+  "RC-1.6.3": "Backlog",
+  "RC-1.6.4": "Backlog",
+  "RC-1.7": "Backlog",
+  "RC-1.7.1": "Backlog",
+  "RC-1.7.2": "Backlog",
+  "RC-2": "Ready",
+  "RC-2.1": "Backlog",
+  "RC-2.1.1": "Backlog",
+  "RC-2.1.2": "Backlog",
+  "RC-2.2": "Backlog",
+  "RC-2.2.1": "Backlog",
+  "RC-2.2.2": "Backlog",
+  "RC-2.3": "Blocked",
+  "RC-2.3.1": "Blocked",
+  "RC-2.3.2": "Backlog",
+  "RC-3": "Ready",
+  "RC-3.1": "Ready",
+  "RC-3.1.1": "Ready",
+  "RC-3.1.2": "Backlog",
+  "RC-3.2": "Backlog",
+  "RC-3.2.1": "Backlog",
+  "RC-3.2.2": "Backlog",
+  "RC-3.3": "Backlog",
+  "RC-3.3.1": "Backlog",
+  "RC-3.3.2": "Backlog",
+  "RC-3.3.3": "Backlog",
+  "RC-3.4": "Backlog",
+  "RC-3.4.1": "Backlog",
+  "RC-3.4.2": "Backlog",
+  "RC-3.5": "Backlog",
+  "RC-3.5.1": "Backlog",
+  "RC-3.5.2": "Backlog",
+  "RC-3.5.3": "Backlog",
+  "RC-4": "Backlog",
+  "RC-4.1": "Backlog",
+  "RC-4.1.1": "Backlog",
+  "RC-4.1.2": "Backlog",
+  "RC-4.1.3": "Backlog",
+  "RC-4.1.4": "Backlog",
+  "RC-4.1.5": "Backlog"
+ }
+}

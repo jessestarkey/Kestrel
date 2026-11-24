@@ -1,0 +1,1715 @@
+{
+ "issues": {
+  "DE": {
+   "number": 1081,
+   "id": 6516332721,
+   "node": "I_kwDOVqDm9M8AAAABhGdYsQ"
+  },
+  "DE-1": {
+   "number": 1082,
+   "id": 6516333315,
+   "node": "I_kwDOVqDm9M8AAAABhGdbAw"
+  },
+  "DE-1.1": {
+   "number": 1083,
+   "id": 6516333923,
+   "node": "I_kwDOVqDm9M8AAAABhGddYw"
+  },
+  "DE-1.1.1": {
+   "number": 1084,
+   "id": 6516334597,
+   "node": "I_kwDOVqDm9M8AAAABhGdgBQ"
+  },
+  "DE-1.1.2": {
+   "number": 1085,
+   "id": 6516335230,
+   "node": "I_kwDOVqDm9M8AAAABhGdifg"
+  },
+  "DE-1.1.3": {
+   "number": 1086,
+   "id": 6516335855,
+   "node": "I_kwDOVqDm9M8AAAABhGdk7w"
+  },
+  "DE-1.1.4": {
+   "number": 1087,
+   "id": 6516336358,
+   "node": "I_kwDOVqDm9M8AAAABhGdm5g"
+  },
+  "DE-1.1.5": {
+   "number": 1088,
+   "id": 6516336976,
+   "node": "I_kwDOVqDm9M8AAAABhGdpUA"
+  },
+  "DE-1.2": {
+   "number": 1089,
+   "id": 6516337576,
+   "node": "I_kwDOVqDm9M8AAAABhGdrqA"
+  },
+  "DE-1.2.1": {
+   "number": 1090,
+   "id": 6516338524,
+   "node": "I_kwDOVqDm9M8AAAABhGdvXA"
+  },
+  "DE-1.2.2": {
+   "number": 1091,
+   "id": 6516339113,
+   "node": "I_kwDOVqDm9M8AAAABhGdxqQ"
+  },
+  "DE-1.2.3": {
+   "number": 1092,
+   "id": 6516339712,
+   "node": "I_kwDOVqDm9M8AAAABhGd0AA"
+  },
+  "DE-1.2.4": {
+   "number": 1093,
+   "id": 6516340273,
+   "node": "I_kwDOVqDm9M8AAAABhGd2MQ"
+  },
+  "DE-1.3": {
+   "number": 1094,
+   "id": 6516340861,
+   "node": "I_kwDOVqDm9M8AAAABhGd4fQ"
+  },
+  "DE-1.3.1": {
+   "number": 1095,
+   "id": 6516341505,
+   "node": "I_kwDOVqDm9M8AAAABhGd7AQ"
+  },
+  "DE-1.3.2": {
+   "number": 1096,
+   "id": 6516342215,
+   "node": "I_kwDOVqDm9M8AAAABhGd9xw"
+  },
+  "DE-1.3.3": {
+   "number": 1097,
+   "id": 6516342785,
+   "node": "I_kwDOVqDm9M8AAAABhGeAAQ"
+  },
+  "DE-1.3.4": {
+   "number": 1098,
+   "id": 6516343411,
+   "node": "I_kwDOVqDm9M8AAAABhGeCcw"
+  },
+  "DE-1.3.5": {
+   "number": 1099,
+   "id": 6516344037,
+   "node": "I_kwDOVqDm9M8AAAABhGeE5Q"
+  },
+  "DE-1.3.6": {
+   "number": 1100,
+   "id": 6516344607,
+   "node": "I_kwDOVqDm9M8AAAABhGeHHw"
+  },
+  "DE-1.4": {
+   "number": 1101,
+   "id": 6516345184,
+   "node": "I_kwDOVqDm9M8AAAABhGeJYA"
+  },
+  "DE-1.4.1": {
+   "number": 1102,
+   "id": 6516345818,
+   "node": "I_kwDOVqDm9M8AAAABhGeL2g"
+  },
+  "DE-1.4.2": {
+   "number": 1103,
+   "id": 6516346396,
+   "node": "I_kwDOVqDm9M8AAAABhGeOHA"
+  },
+  "DE-1.4.3": {
+   "number": 1104,
+   "id": 6516346991,
+   "node": "I_kwDOVqDm9M8AAAABhGeQbw"
+  },
+  "DE-1.5": {
+   "number": 1105,
+   "id": 6516347556,
+   "node": "I_kwDOVqDm9M8AAAABhGeSpA"
+  },
+  "DE-1.5.1": {
+   "number": 1106,
+   "id": 6516348161,
+   "node": "I_kwDOVqDm9M8AAAABhGeVAQ"
+  },
+  "DE-1.5.2": {
+   "number": 1107,
+   "id": 6516348771,
+   "node": "I_kwDOVqDm9M8AAAABhGeXYw"
+  },
+  "DE-1.5.3": {
+   "number": 1108,
+   "id": 6516349403,
+   "node": "I_kwDOVqDm9M8AAAABhGeZ2w"
+  },
+  "DE-1.6": {
+   "number": 1109,
+   "id": 6516350014,
+   "node": "I_kwDOVqDm9M8AAAABhGecPg"
+  },
+  "DE-1.6.1": {
+   "number": 1110,
+   "id": 6516350689,
+   "node": "I_kwDOVqDm9M8AAAABhGee4Q"
+  },
+  "DE-1.6.2": {
+   "number": 1111,
+   "id": 6516351362,
+   "node": "I_kwDOVqDm9M8AAAABhGehgg"
+  },
+  "DE-1.6.3": {
+   "number": 1112,
+   "id": 6516351951,
+   "node": "I_kwDOVqDm9M8AAAABhGejzw"
+  },
+  "DE-1.7": {
+   "number": 1113,
+   "id": 6516352633,
+   "node": "I_kwDOVqDm9M8AAAABhGemeQ"
+  },
+  "DE-1.7.1": {
+   "number": 1114,
+   "id": 6516353217,
+   "node": "I_kwDOVqDm9M8AAAABhGeowQ"
+  },
+  "DE-1.7.2": {
+   "number": 1115,
+   "id": 6516353862,
+   "node": "I_kwDOVqDm9M8AAAABhGerRg"
+  },
+  "DE-1.7.3": {
+   "number": 1116,
+   "id": 6516354424,
+   "node": "I_kwDOVqDm9M8AAAABhGeteA"
+  },
+  "DE-1.8": {
+   "number": 1117,
+   "id": 6516355001,
+   "node": "I_kwDOVqDm9M8AAAABhGevuQ"
+  },
+  "DE-1.8.1": {
+   "number": 1118,
+   "id": 6516355649,
+   "node": "I_kwDOVqDm9M8AAAABhGeyQQ"
+  },
+  "DE-1.8.2": {
+   "number": 1119,
+   "id": 6516356224,
+   "node": "I_kwDOVqDm9M8AAAABhGe0gA"
+  },
+  "DE-1.8.3": {
+   "number": 1120,
+   "id": 6516356843,
+   "node": "I_kwDOVqDm9M8AAAABhGe26w"
+  },
+  "DE-1.8.4": {
+   "number": 1121,
+   "id": 6516357404,
+   "node": "I_kwDOVqDm9M8AAAABhGe5HA"
+  },
+  "DE-1.8.5": {
+   "number": 1122,
+   "id": 6516357997,
+   "node": "I_kwDOVqDm9M8AAAABhGe7bQ"
+  },
+  "DE-1.8.6": {
+   "number": 1123,
+   "id": 6516358682,
+   "node": "I_kwDOVqDm9M8AAAABhGe-Gg"
+  },
+  "DE-1.8.7": {
+   "number": 1124,
+   "id": 6516359294,
+   "node": "I_kwDOVqDm9M8AAAABhGfAfg"
+  },
+  "DE-2": {
+   "number": 1125,
+   "id": 6516359945,
+   "node": "I_kwDOVqDm9M8AAAABhGfDCQ"
+  },
+  "DE-2.1": {
+   "number": 1126,
+   "id": 6516360560,
+   "node": "I_kwDOVqDm9M8AAAABhGfFcA"
+  },
+  "DE-2.1.1": {
+   "number": 1127,
+   "id": 6516361183,
+   "node": "I_kwDOVqDm9M8AAAABhGfH3w"
+  },
+  "DE-2.1.2": {
+   "number": 1128,
+   "id": 6516361752,
+   "node": "I_kwDOVqDm9M8AAAABhGfKGA"
+  },
+  "DE-2.1.3": {
+   "number": 1129,
+   "id": 6516362339,
+   "node": "I_kwDOVqDm9M8AAAABhGfMYw"
+  },
+  "DE-2.1.4": {
+   "number": 1130,
+   "id": 6516362989,
+   "node": "I_kwDOVqDm9M8AAAABhGfO7Q"
+  },
+  "DE-2.1.5": {
+   "number": 1131,
+   "id": 6516363976,
+   "node": "I_kwDOVqDm9M8AAAABhGfSyA"
+  },
+  "DE-2.1.6": {
+   "number": 1132,
+   "id": 6516364555,
+   "node": "I_kwDOVqDm9M8AAAABhGfVCw"
+  },
+  "DE-2.2": {
+   "number": 1133,
+   "id": 6516365188,
+   "node": "I_kwDOVqDm9M8AAAABhGfXhA"
+  },
+  "DE-2.2.1": {
+   "number": 1134,
+   "id": 6516365811,
+   "node": "I_kwDOVqDm9M8AAAABhGfZ8w"
+  },
+  "DE-2.2.2": {
+   "number": 1135,
+   "id": 6516366518,
+   "node": "I_kwDOVqDm9M8AAAABhGfctg"
+  },
+  "DE-2.2.3": {
+   "number": 1136,
+   "id": 6516367082,
+   "node": "I_kwDOVqDm9M8AAAABhGfe6g"
+  },
+  "DE-2.2.4": {
+   "number": 1137,
+   "id": 6516367734,
+   "node": "I_kwDOVqDm9M8AAAABhGfhdg"
+  },
+  "DE-2.2.5": {
+   "number": 1138,
+   "id": 6516368273,
+   "node": "I_kwDOVqDm9M8AAAABhGfjkQ"
+  },
+  "DE-2.2.6": {
+   "number": 1139,
+   "id": 6516368952,
+   "node": "I_kwDOVqDm9M8AAAABhGfmOA"
+  },
+  "DE-2.2.7": {
+   "number": 1140,
+   "id": 6516369628,
+   "node": "I_kwDOVqDm9M8AAAABhGfo3A"
+  },
+  "DE-2.2.8": {
+   "number": 1141,
+   "id": 6516370259,
+   "node": "I_kwDOVqDm9M8AAAABhGfrUw"
+  },
+  "DE-2.3": {
+   "number": 1142,
+   "id": 6516370844,
+   "node": "I_kwDOVqDm9M8AAAABhGftnA"
+  },
+  "DE-2.3.1": {
+   "number": 1143,
+   "id": 6516371419,
+   "node": "I_kwDOVqDm9M8AAAABhGfv2w"
+  },
+  "DE-2.3.2": {
+   "number": 1144,
+   "id": 6516372017,
+   "node": "I_kwDOVqDm9M8AAAABhGfyMQ"
+  },
+  "DE-2.3.3": {
+   "number": 1145,
+   "id": 6516372847,
+   "node": "I_kwDOVqDm9M8AAAABhGf1bw"
+  },
+  "DE-2.3.4": {
+   "number": 1146,
+   "id": 6516373392,
+   "node": "I_kwDOVqDm9M8AAAABhGf3kA"
+  },
+  "DE-2.3.5": {
+   "number": 1147,
+   "id": 6516373998,
+   "node": "I_kwDOVqDm9M8AAAABhGf57g"
+  },
+  "DE-2.4": {
+   "number": 1148,
+   "id": 6516374519,
+   "node": "I_kwDOVqDm9M8AAAABhGf79w"
+  },
+  "DE-2.4.1": {
+   "number": 1149,
+   "id": 6516375105,
+   "node": "I_kwDOVqDm9M8AAAABhGf-QQ"
+  },
+  "DE-2.4.2": {
+   "number": 1150,
+   "id": 6516375740,
+   "node": "I_kwDOVqDm9M8AAAABhGgAvA"
+  },
+  "DE-2.4.3": {
+   "number": 1151,
+   "id": 6516376250,
+   "node": "I_kwDOVqDm9M8AAAABhGgCug"
+  },
+  "DE-2.4.4": {
+   "number": 1152,
+   "id": 6516376839,
+   "node": "I_kwDOVqDm9M8AAAABhGgFBw"
+  },
+  "DE-2.4.5": {
+   "number": 1153,
+   "id": 6516377392,
+   "node": "I_kwDOVqDm9M8AAAABhGgHMA"
+  },
+  "DE-2.4.6": {
+   "number": 1154,
+   "id": 6516378030,
+   "node": "I_kwDOVqDm9M8AAAABhGgJrg"
+  },
+  "DE-2.4.7": {
+   "number": 1155,
+   "id": 6516378689,
+   "node": "I_kwDOVqDm9M8AAAABhGgMQQ"
+  },
+  "DE-2.4.8": {
+   "number": 1156,
+   "id": 6516379296,
+   "node": "I_kwDOVqDm9M8AAAABhGgOoA"
+  },
+  "DE-2.5": {
+   "number": 1157,
+   "id": 6516380616,
+   "node": "I_kwDOVqDm9M8AAAABhGgTyA"
+  },
+  "DE-2.5.1": {
+   "number": 1158,
+   "id": 6516381232,
+   "node": "I_kwDOVqDm9M8AAAABhGgWMA"
+  },
+  "DE-2.5.2": {
+   "number": 1159,
+   "id": 6516381775,
+   "node": "I_kwDOVqDm9M8AAAABhGgYTw"
+  },
+  "DE-2.5.3": {
+   "number": 1160,
+   "id": 6516382363,
+   "node": "I_kwDOVqDm9M8AAAABhGgamw"
+  },
+  "DE-2.5.4": {
+   "number": 1161,
+   "id": 6516383004,
+   "node": "I_kwDOVqDm9M8AAAABhGgdHA"
+  },
+  "DE-2.6": {
+   "number": 1162,
+   "id": 6516383619,
+   "node": "I_kwDOVqDm9M8AAAABhGgfgw"
+  },
+  "DE-2.6.1": {
+   "number": 1163,
+   "id": 6516384293,
+   "node": "I_kwDOVqDm9M8AAAABhGgiJQ"
+  },
+  "DE-2.6.2": {
+   "number": 1164,
+   "id": 6516384838,
+   "node": "I_kwDOVqDm9M8AAAABhGgkRg"
+  },
+  "DE-2.6.3": {
+   "number": 1165,
+   "id": 6516385483,
+   "node": "I_kwDOVqDm9M8AAAABhGgmyw"
+  },
+  "DE-2.7": {
+   "number": 1166,
+   "id": 6516386185,
+   "node": "I_kwDOVqDm9M8AAAABhGgpiQ"
+  },
+  "DE-2.7.1": {
+   "number": 1167,
+   "id": 6516386753,
+   "node": "I_kwDOVqDm9M8AAAABhGgrwQ"
+  },
+  "DE-2.7.2": {
+   "number": 1168,
+   "id": 6516387330,
+   "node": "I_kwDOVqDm9M8AAAABhGguAg"
+  },
+  "DE-2.7.3": {
+   "number": 1169,
+   "id": 6516387923,
+   "node": "I_kwDOVqDm9M8AAAABhGgwUw"
+  },
+  "DE-2.7.4": {
+   "number": 1170,
+   "id": 6516388511,
+   "node": "I_kwDOVqDm9M8AAAABhGgynw"
+  },
+  "DE-2.7.5": {
+   "number": 1171,
+   "id": 6516389158,
+   "node": "I_kwDOVqDm9M8AAAABhGg1Jg"
+  },
+  "DE-2.8": {
+   "number": 1172,
+   "id": 6516389735,
+   "node": "I_kwDOVqDm9M8AAAABhGg3Zw"
+  },
+  "DE-2.8.1": {
+   "number": 1173,
+   "id": 6516390368,
+   "node": "I_kwDOVqDm9M8AAAABhGg54A"
+  },
+  "DE-2.8.2": {
+   "number": 1174,
+   "id": 6516390970,
+   "node": "I_kwDOVqDm9M8AAAABhGg8Og"
+  },
+  "DE-2.8.3": {
+   "number": 1175,
+   "id": 6516391531,
+   "node": "I_kwDOVqDm9M8AAAABhGg-aw"
+  },
+  "DE-3": {
+   "number": 1176,
+   "id": 6516392107,
+   "node": "I_kwDOVqDm9M8AAAABhGhAqw"
+  },
+  "DE-3.1": {
+   "number": 1177,
+   "id": 6516392771,
+   "node": "I_kwDOVqDm9M8AAAABhGhDQw"
+  },
+  "DE-3.1.1": {
+   "number": 1178,
+   "id": 6516393324,
+   "node": "I_kwDOVqDm9M8AAAABhGhFbA"
+  },
+  "DE-3.1.2": {
+   "number": 1179,
+   "id": 6516393867,
+   "node": "I_kwDOVqDm9M8AAAABhGhHiw"
+  },
+  "DE-3.1.3": {
+   "number": 1180,
+   "id": 6516394457,
+   "node": "I_kwDOVqDm9M8AAAABhGhJ2Q"
+  },
+  "DE-3.1.4": {
+   "number": 1181,
+   "id": 6516395022,
+   "node": "I_kwDOVqDm9M8AAAABhGhMDg"
+  },
+  "DE-3.1.5": {
+   "number": 1182,
+   "id": 6516395584,
+   "node": "I_kwDOVqDm9M8AAAABhGhOQA"
+  },
+  "DE-3.1.6": {
+   "number": 1183,
+   "id": 6516396244,
+   "node": "I_kwDOVqDm9M8AAAABhGhQ1A"
+  },
+  "DE-3.2": {
+   "number": 1184,
+   "id": 6516396823,
+   "node": "I_kwDOVqDm9M8AAAABhGhTFw"
+  },
+  "DE-3.2.1": {
+   "number": 1185,
+   "id": 6516397417,
+   "node": "I_kwDOVqDm9M8AAAABhGhVaQ"
+  },
+  "DE-3.2.2": {
+   "number": 1186,
+   "id": 6516398015,
+   "node": "I_kwDOVqDm9M8AAAABhGhXvw"
+  },
+  "DE-3.2.3": {
+   "number": 1187,
+   "id": 6516398655,
+   "node": "I_kwDOVqDm9M8AAAABhGhaPw"
+  },
+  "DE-3.2.4": {
+   "number": 1188,
+   "id": 6516399233,
+   "node": "I_kwDOVqDm9M8AAAABhGhcgQ"
+  },
+  "DE-3.3": {
+   "number": 1189,
+   "id": 6516399794,
+   "node": "I_kwDOVqDm9M8AAAABhGhesg"
+  },
+  "DE-3.3.1": {
+   "number": 1190,
+   "id": 6516400402,
+   "node": "I_kwDOVqDm9M8AAAABhGhhEg"
+  },
+  "DE-3.3.2": {
+   "number": 1191,
+   "id": 6516401084,
+   "node": "I_kwDOVqDm9M8AAAABhGhjvA"
+  },
+  "DE-3.3.3": {
+   "number": 1192,
+   "id": 6516401713,
+   "node": "I_kwDOVqDm9M8AAAABhGhmMQ"
+  },
+  "DE-3.4": {
+   "number": 1193,
+   "id": 6516402330,
+   "node": "I_kwDOVqDm9M8AAAABhGhomg"
+  },
+  "DE-3.4.1": {
+   "number": 1194,
+   "id": 6516402999,
+   "node": "I_kwDOVqDm9M8AAAABhGhrNw"
+  },
+  "DE-3.4.2": {
+   "number": 1195,
+   "id": 6516403641,
+   "node": "I_kwDOVqDm9M8AAAABhGhtuQ"
+  },
+  "DE-3.4.3": {
+   "number": 1196,
+   "id": 6516404287,
+   "node": "I_kwDOVqDm9M8AAAABhGhwPw"
+  },
+  "DE-3.4.4": {
+   "number": 1197,
+   "id": 6516404913,
+   "node": "I_kwDOVqDm9M8AAAABhGhysQ"
+  },
+  "DE-3.4.5": {
+   "number": 1198,
+   "id": 6516405475,
+   "node": "I_kwDOVqDm9M8AAAABhGh04w"
+  }
+ },
+ "links": [
+  "DE-1",
+  "DE-1.1",
+  "DE-1.1.1",
+  "DE-1.1.2",
+  "DE-1.1.3",
+  "DE-1.1.4",
+  "DE-1.1.5",
+  "DE-1.2",
+  "DE-1.2.1",
+  "DE-1.2.2",
+  "DE-1.2.3",
+  "DE-1.2.4",
+  "DE-1.3",
+  "DE-1.3.1",
+  "DE-1.3.2",
+  "DE-1.3.3",
+  "DE-1.3.4",
+  "DE-1.3.5",
+  "DE-1.3.6",
+  "DE-1.4",
+  "DE-1.4.1",
+  "DE-1.4.2",
+  "DE-1.4.3",
+  "DE-1.5",
+  "DE-1.5.1",
+  "DE-1.5.2",
+  "DE-1.5.3",
+  "DE-1.6",
+  "DE-1.6.1",
+  "DE-1.6.2",
+  "DE-1.6.3",
+  "DE-1.7",
+  "DE-1.7.1",
+  "DE-1.7.2",
+  "DE-1.7.3",
+  "DE-1.8",
+  "DE-1.8.1",
+  "DE-1.8.2",
+  "DE-1.8.3",
+  "DE-1.8.4",
+  "DE-1.8.5",
+  "DE-1.8.6",
+  "DE-1.8.7",
+  "DE-2",
+  "DE-2.1",
+  "DE-2.1.1",
+  "DE-2.1.2",
+  "DE-2.1.3",
+  "DE-2.1.4",
+  "DE-2.1.5",
+  "DE-2.1.6",
+  "DE-2.2",
+  "DE-2.2.1",
+  "DE-2.2.2",
+  "DE-2.2.3",
+  "DE-2.2.4",
+  "DE-2.2.5",
+  "DE-2.2.6",
+  "DE-2.2.7",
+  "DE-2.2.8",
+  "DE-2.3",
+  "DE-2.3.1",
+  "DE-2.3.2",
+  "DE-2.3.3",
+  "DE-2.3.4",
+  "DE-2.3.5",
+  "DE-2.4",
+  "DE-2.4.1",
+  "DE-2.4.2",
+  "DE-2.4.3",
+  "DE-2.4.4",
+  "DE-2.4.5",
+  "DE-2.4.6",
+  "DE-2.4.7",
+  "DE-2.4.8",
+  "DE-2.5",
+  "DE-2.5.1",
+  "DE-2.5.2",
+  "DE-2.5.3",
+  "DE-2.5.4",
+  "DE-2.6",
+  "DE-2.6.1",
+  "DE-2.6.2",
+  "DE-2.6.3",
+  "DE-2.7",
+  "DE-2.7.1",
+  "DE-2.7.2",
+  "DE-2.7.3",
+  "DE-2.7.4",
+  "DE-2.7.5",
+  "DE-2.8",
+  "DE-2.8.1",
+  "DE-2.8.2",
+  "DE-2.8.3",
+  "DE-3",
+  "DE-3.1",
+  "DE-3.1.1",
+  "DE-3.1.2",
+  "DE-3.1.3",
+  "DE-3.1.4",
+  "DE-3.1.5",
+  "DE-3.1.6",
+  "DE-3.2",
+  "DE-3.2.1",
+  "DE-3.2.2",
+  "DE-3.2.3",
+  "DE-3.2.4",
+  "DE-3.3",
+  "DE-3.3.1",
+  "DE-3.3.2",
+  "DE-3.3.3",
+  "DE-3.4",
+  "DE-3.4.1",
+  "DE-3.4.2",
+  "DE-3.4.3",
+  "DE-3.4.4",
+  "DE-3.4.5"
+ ],
+ "items": {
+  "DE": "PVTI_lAHOCZ5vBc4BrOtizhKiliA",
+  "DE-1": "PVTI_lAHOCZ5vBc4BrOtizhKilj4",
+  "DE-1.1": "PVTI_lAHOCZ5vBc4BrOtizhKills",
+  "DE-1.1.1": "PVTI_lAHOCZ5vBc4BrOtizhKilts",
+  "DE-1.1.2": "PVTI_lAHOCZ5vBc4BrOtizhKimMM",
+  "DE-1.1.3": "PVTI_lAHOCZ5vBc4BrOtizhKimds",
+  "DE-1.1.4": "PVTI_lAHOCZ5vBc4BrOtizhKimrM",
+  "DE-1.1.5": "PVTI_lAHOCZ5vBc4BrOtizhKim6U",
+  "DE-1.2": "PVTI_lAHOCZ5vBc4BrOtizhKilmk",
+  "DE-1.2.1": "PVTI_lAHOCZ5vBc4BrOtizhKilpA",
+  "DE-1.2.2": "PVTI_lAHOCZ5vBc4BrOtizhKinO8",
+  "DE-1.2.3": "PVTI_lAHOCZ5vBc4BrOtizhKinPg",
+  "DE-1.2.4": "PVTI_lAHOCZ5vBc4BrOtizhKinQY",
+  "DE-1.3": "PVTI_lAHOCZ5vBc4BrOtizhKilnw",
+  "DE-1.3.1": "PVTI_lAHOCZ5vBc4BrOtizhKilq4",
+  "DE-1.3.2": "PVTI_lAHOCZ5vBc4BrOtizhKilrQ",
+  "DE-1.3.3": "PVTI_lAHOCZ5vBc4BrOtizhKilsA",
+  "DE-1.3.4": "PVTI_lAHOCZ5vBc4BrOtizhKilxo",
+  "DE-1.3.5": "PVTI_lAHOCZ5vBc4BrOtizhKilx8",
+  "DE-1.3.6": "PVTI_lAHOCZ5vBc4BrOtizhKilyo",
+  "DE-1.4": "PVTI_lAHOCZ5vBc4BrOtizhKiloo",
+  "DE-1.4.1": "PVTI_lAHOCZ5vBc4BrOtizhKinQI",
+  "DE-1.4.2": "PVTI_lAHOCZ5vBc4BrOtizhKinQk",
+  "DE-1.4.3": "PVTI_lAHOCZ5vBc4BrOtizhKinQ8",
+  "DE-1.5": "PVTI_lAHOCZ5vBc4BrOtizhKilpI",
+  "DE-1.5.1": "PVTI_lAHOCZ5vBc4BrOtizhKiluc",
+  "DE-1.5.2": "PVTI_lAHOCZ5vBc4BrOtizhKimFw",
+  "DE-1.5.3": "PVTI_lAHOCZ5vBc4BrOtizhKimGQ",
+  "DE-1.6": "PVTI_lAHOCZ5vBc4BrOtizhKilpo",
+  "DE-1.6.1": "PVTI_lAHOCZ5vBc4BrOtizhKilwM",
+  "DE-1.6.2": "PVTI_lAHOCZ5vBc4BrOtizhKilws",
+  "DE-1.6.3": "PVTI_lAHOCZ5vBc4BrOtizhKilxQ",
+  "DE-1.7": "PVTI_lAHOCZ5vBc4BrOtizhKilqU",
+  "DE-1.7.1": "PVTI_lAHOCZ5vBc4BrOtizhKilsg",
+  "DE-1.7.2": "PVTI_lAHOCZ5vBc4BrOtizhKils4",
+  "DE-1.7.3": "PVTI_lAHOCZ5vBc4BrOtizhKiltY",
+  "DE-1.8": "PVTI_lAHOCZ5vBc4BrOtizhKinUQ",
+  "DE-1.8.1": "PVTI_lAHOCZ5vBc4BrOtizhKinVk",
+  "DE-1.8.2": "PVTI_lAHOCZ5vBc4BrOtizhKinWI",
+  "DE-1.8.3": "PVTI_lAHOCZ5vBc4BrOtizhKinWU",
+  "DE-1.8.4": "PVTI_lAHOCZ5vBc4BrOtizhKinW8",
+  "DE-1.8.5": "PVTI_lAHOCZ5vBc4BrOtizhKinXY",
+  "DE-1.8.6": "PVTI_lAHOCZ5vBc4BrOtizhKinZg",
+  "DE-1.8.7": "PVTI_lAHOCZ5vBc4BrOtizhKinbU",
+  "DE-2": "PVTI_lAHOCZ5vBc4BrOtizhKilkY",
+  "DE-2.1": "PVTI_lAHOCZ5vBc4BrOtizhKilnI",
+  "DE-2.1.1": "PVTI_lAHOCZ5vBc4BrOtizhKiluw",
+  "DE-2.1.2": "PVTI_lAHOCZ5vBc4BrOtizhKilvU",
+  "DE-2.1.3": "PVTI_lAHOCZ5vBc4BrOtizhKilwU",
+  "DE-2.1.4": "PVTI_lAHOCZ5vBc4BrOtizhKilw4",
+  "DE-2.1.5": "PVTI_lAHOCZ5vBc4BrOtizhKilxY",
+  "DE-2.1.6": "PVTI_lAHOCZ5vBc4BrOtizhKilxw",
+  "DE-2.2": "PVTI_lAHOCZ5vBc4BrOtizhKimAA",
+  "DE-2.2.1": "PVTI_lAHOCZ5vBc4BrOtizhKimCE",
+  "DE-2.2.2": "PVTI_lAHOCZ5vBc4BrOtizhKimDA",
+  "DE-2.2.3": "PVTI_lAHOCZ5vBc4BrOtizhKimEM",
+  "DE-2.2.4": "PVTI_lAHOCZ5vBc4BrOtizhKimFg",
+  "DE-2.2.5": "PVTI_lAHOCZ5vBc4BrOtizhKimGI",
+  "DE-2.2.6": "PVTI_lAHOCZ5vBc4BrOtizhKimHY",
+  "DE-2.2.7": "PVTI_lAHOCZ5vBc4BrOtizhKimIM",
+  "DE-2.2.8": "PVTI_lAHOCZ5vBc4BrOtizhKimI4",
+  "DE-2.3": "PVTI_lAHOCZ5vBc4BrOtizhKimAo",
+  "DE-2.3.1": "PVTI_lAHOCZ5vBc4BrOtizhKimJw",
+  "DE-2.3.2": "PVTI_lAHOCZ5vBc4BrOtizhKimKc",
+  "DE-2.3.3": "PVTI_lAHOCZ5vBc4BrOtizhKimKs",
+  "DE-2.3.4": "PVTI_lAHOCZ5vBc4BrOtizhKimLw",
+  "DE-2.3.5": "PVTI_lAHOCZ5vBc4BrOtizhKimMo",
+  "DE-2.4": "PVTI_lAHOCZ5vBc4BrOtizhKimBE",
+  "DE-2.4.1": "PVTI_lAHOCZ5vBc4BrOtizhKimEw",
+  "DE-2.4.2": "PVTI_lAHOCZ5vBc4BrOtizhKimGs",
+  "DE-2.4.3": "PVTI_lAHOCZ5vBc4BrOtizhKimH4",
+  "DE-2.4.4": "PVTI_lAHOCZ5vBc4BrOtizhKimIg",
+  "DE-2.4.5": "PVTI_lAHOCZ5vBc4BrOtizhKimJE",
+  "DE-2.4.6": "PVTI_lAHOCZ5vBc4BrOtizhKimJ8",
+  "DE-2.4.7": "PVTI_lAHOCZ5vBc4BrOtizhKimKk",
+  "DE-2.4.8": "PVTI_lAHOCZ5vBc4BrOtizhKimLI",
+  "DE-2.5": "PVTI_lAHOCZ5vBc4BrOtizhKimDk",
+  "DE-2.5.1": "PVTI_lAHOCZ5vBc4BrOtizhKimHM",
+  "DE-2.5.2": "PVTI_lAHOCZ5vBc4BrOtizhKimNo",
+  "DE-2.5.3": "PVTI_lAHOCZ5vBc4BrOtizhKimN8",
+  "DE-2.5.4": "PVTI_lAHOCZ5vBc4BrOtizhKimOc",
+  "DE-2.6": "PVTI_lAHOCZ5vBc4BrOtizhKinSc",
+  "DE-2.6.1": "PVTI_lAHOCZ5vBc4BrOtizhKinX4",
+  "DE-2.6.2": "PVTI_lAHOCZ5vBc4BrOtizhKinak",
+  "DE-2.6.3": "PVTI_lAHOCZ5vBc4BrOtizhKinbs",
+  "DE-2.7": "PVTI_lAHOCZ5vBc4BrOtizhKinS4",
+  "DE-2.7.1": "PVTI_lAHOCZ5vBc4BrOtizhKinUg",
+  "DE-2.7.2": "PVTI_lAHOCZ5vBc4BrOtizhKinVE",
+  "DE-2.7.3": "PVTI_lAHOCZ5vBc4BrOtizhKinWA",
+  "DE-2.7.4": "PVTI_lAHOCZ5vBc4BrOtizhKinWM",
+  "DE-2.7.5": "PVTI_lAHOCZ5vBc4BrOtizhKineg",
+  "DE-2.8": "PVTI_lAHOCZ5vBc4BrOtizhKinTQ",
+  "DE-2.8.1": "PVTI_lAHOCZ5vBc4BrOtizhKinU8",
+  "DE-2.8.2": "PVTI_lAHOCZ5vBc4BrOtizhKinWw",
+  "DE-2.8.3": "PVTI_lAHOCZ5vBc4BrOtizhKinXM",
+  "DE-3": "PVTI_lAHOCZ5vBc4BrOtizhKilkw",
+  "DE-3.1": "PVTI_lAHOCZ5vBc4BrOtizhKilmQ",
+  "DE-3.1.1": "PVTI_lAHOCZ5vBc4BrOtizhKil_o",
+  "DE-3.1.2": "PVTI_lAHOCZ5vBc4BrOtizhKimAM",
+  "DE-3.1.3": "PVTI_lAHOCZ5vBc4BrOtizhKimA0",
+  "DE-3.1.4": "PVTI_lAHOCZ5vBc4BrOtizhKimBk",
+  "DE-3.1.5": "PVTI_lAHOCZ5vBc4BrOtizhKimCc",
+  "DE-3.1.6": "PVTI_lAHOCZ5vBc4BrOtizhKimDM",
+  "DE-3.2": "PVTI_lAHOCZ5vBc4BrOtizhKilm4",
+  "DE-3.2.1": "PVTI_lAHOCZ5vBc4BrOtizhKiluE",
+  "DE-3.2.2": "PVTI_lAHOCZ5vBc4BrOtizhKilug",
+  "DE-3.2.3": "PVTI_lAHOCZ5vBc4BrOtizhKilvE",
+  "DE-3.2.4": "PVTI_lAHOCZ5vBc4BrOtizhKilv4",
+  "DE-3.3": "PVTI_lAHOCZ5vBc4BrOtizhKilng",
+  "DE-3.3.1": "PVTI_lAHOCZ5vBc4BrOtizhKilpY",
+  "DE-3.3.2": "PVTI_lAHOCZ5vBc4BrOtizhKilqE",
+  "DE-3.3.3": "PVTI_lAHOCZ5vBc4BrOtizhKilrs",
+  "DE-3.4": "PVTI_lAHOCZ5vBc4BrOtizhKiln8",
+  "DE-3.4.1": "PVTI_lAHOCZ5vBc4BrOtizhKilqs",
+  "DE-3.4.2": "PVTI_lAHOCZ5vBc4BrOtizhKilrI",
+  "DE-3.4.3": "PVTI_lAHOCZ5vBc4BrOtizhKilsU",
+  "DE-3.4.4": "PVTI_lAHOCZ5vBc4BrOtizhKilsw",
+  "DE-3.4.5": "PVTI_lAHOCZ5vBc4BrOtizhKiltM"
+ },
+ "fields_set": [
+  "DE",
+  "DE-1",
+  "DE-1.1",
+  "DE-1.1.1",
+  "DE-1.1.2",
+  "DE-1.1.3",
+  "DE-1.1.4",
+  "DE-1.1.5",
+  "DE-1.2",
+  "DE-1.2.1",
+  "DE-1.2.2",
+  "DE-1.2.3",
+  "DE-1.2.4",
+  "DE-1.3",
+  "DE-1.3.1",
+  "DE-1.3.2",
+  "DE-1.3.3",
+  "DE-1.3.4",
+  "DE-1.3.5",
+  "DE-1.3.6",
+  "DE-1.4",
+  "DE-1.4.1",
+  "DE-1.4.2",
+  "DE-1.4.3",
+  "DE-1.5",
+  "DE-1.5.1",
+  "DE-1.5.2",
+  "DE-1.5.3",
+  "DE-1.6",
+  "DE-1.6.1",
+  "DE-1.6.2",
+  "DE-1.6.3",
+  "DE-1.7",
+  "DE-1.7.1",
+  "DE-1.7.2",
+  "DE-1.7.3",
+  "DE-1.8",
+  "DE-1.8.1",
+  "DE-1.8.2",
+  "DE-1.8.3",
+  "DE-1.8.4",
+  "DE-1.8.5",
+  "DE-1.8.6",
+  "DE-1.8.7",
+  "DE-2",
+  "DE-2.1",
+  "DE-2.1.1",
+  "DE-2.1.2",
+  "DE-2.1.3",
+  "DE-2.1.4",
+  "DE-2.1.5",
+  "DE-2.1.6",
+  "DE-2.2",
+  "DE-2.2.1",
+  "DE-2.2.2",
+  "DE-2.2.3",
+  "DE-2.2.4",
+  "DE-2.2.5",
+  "DE-2.2.6",
+  "DE-2.2.7",
+  "DE-2.2.8",
+  "DE-2.3",
+  "DE-2.3.1",
+  "DE-2.3.2",
+  "DE-2.3.3",
+  "DE-2.3.4",
+  "DE-2.3.5",
+  "DE-2.4",
+  "DE-2.4.1",
+  "DE-2.4.2",
+  "DE-2.4.3",
+  "DE-2.4.4",
+  "DE-2.4.5",
+  "DE-2.4.6",
+  "DE-2.4.7",
+  "DE-2.4.8",
+  "DE-2.5",
+  "DE-2.5.1",
+  "DE-2.5.2",
+  "DE-2.5.3",
+  "DE-2.5.4",
+  "DE-2.6",
+  "DE-2.6.1",
+  "DE-2.6.2",
+  "DE-2.6.3",
+  "DE-2.7",
+  "DE-2.7.1",
+  "DE-2.7.2",
+  "DE-2.7.3",
+  "DE-2.7.4",
+  "DE-2.7.5",
+  "DE-2.8",
+  "DE-2.8.1",
+  "DE-2.8.2",
+  "DE-2.8.3",
+  "DE-3",
+  "DE-3.1",
+  "DE-3.1.1",
+  "DE-3.1.2",
+  "DE-3.1.3",
+  "DE-3.1.4",
+  "DE-3.1.5",
+  "DE-3.1.6",
+  "DE-3.2",
+  "DE-3.2.1",
+  "DE-3.2.2",
+  "DE-3.2.3",
+  "DE-3.2.4",
+  "DE-3.3",
+  "DE-3.3.1",
+  "DE-3.3.2",
+  "DE-3.3.3",
+  "DE-3.4",
+  "DE-3.4.1",
+  "DE-3.4.2",
+  "DE-3.4.3",
+  "DE-3.4.4",
+  "DE-3.4.5"
+ ],
+ "dates_set": [
+  "DE",
+  "DE-1",
+  "DE-1.1",
+  "DE-1.1.1",
+  "DE-1.1.2",
+  "DE-1.1.3",
+  "DE-1.1.4",
+  "DE-1.1.5",
+  "DE-1.2",
+  "DE-1.2.1",
+  "DE-1.2.2",
+  "DE-1.2.3",
+  "DE-1.2.4",
+  "DE-1.3",
+  "DE-1.3.1",
+  "DE-1.3.2",
+  "DE-1.3.3",
+  "DE-1.3.4",
+  "DE-1.3.5",
+  "DE-1.3.6",
+  "DE-1.4",
+  "DE-1.4.1",
+  "DE-1.4.2",
+  "DE-1.4.3",
+  "DE-1.5",
+  "DE-1.5.1",
+  "DE-1.5.2",
+  "DE-1.5.3",
+  "DE-1.6",
+  "DE-1.6.1",
+  "DE-1.6.2",
+  "DE-1.6.3",
+  "DE-1.7",
+  "DE-1.7.1",
+  "DE-1.7.2",
+  "DE-1.7.3",
+  "DE-1.8",
+  "DE-1.8.1",
+  "DE-1.8.2",
+  "DE-1.8.3",
+  "DE-1.8.4",
+  "DE-1.8.5",
+  "DE-1.8.6",
+  "DE-1.8.7",
+  "DE-2",
+  "DE-2.1",
+  "DE-2.1.1",
+  "DE-2.1.2",
+  "DE-2.1.3",
+  "DE-2.1.4",
+  "DE-2.1.5",
+  "DE-2.1.6",
+  "DE-2.2",
+  "DE-2.2.1",
+  "DE-2.2.2",
+  "DE-2.2.3",
+  "DE-2.2.4",
+  "DE-2.2.5",
+  "DE-2.2.6",
+  "DE-2.2.7",
+  "DE-2.2.8",
+  "DE-2.3",
+  "DE-2.3.1",
+  "DE-2.3.2",
+  "DE-2.3.3",
+  "DE-2.3.4",
+  "DE-2.3.5",
+  "DE-2.4",
+  "DE-2.4.1",
+  "DE-2.4.2",
+  "DE-2.4.3",
+  "DE-2.4.4",
+  "DE-2.4.5",
+  "DE-2.4.6",
+  "DE-2.4.7",
+  "DE-2.4.8",
+  "DE-2.5",
+  "DE-2.5.1",
+  "DE-2.5.2",
+  "DE-2.5.3",
+  "DE-2.5.4",
+  "DE-2.6",
+  "DE-2.6.1",
+  "DE-2.6.2",
+  "DE-2.6.3",
+  "DE-2.7",
+  "DE-2.7.1",
+  "DE-2.7.2",
+  "DE-2.7.3",
+  "DE-2.7.4",
+  "DE-2.7.5",
+  "DE-2.8",
+  "DE-2.8.1",
+  "DE-2.8.2",
+  "DE-2.8.3",
+  "DE-3",
+  "DE-3.1",
+  "DE-3.1.1",
+  "DE-3.1.2",
+  "DE-3.1.3",
+  "DE-3.1.4",
+  "DE-3.1.5",
+  "DE-3.1.6",
+  "DE-3.2",
+  "DE-3.2.1",
+  "DE-3.2.2",
+  "DE-3.2.3",
+  "DE-3.2.4",
+  "DE-3.3",
+  "DE-3.3.1",
+  "DE-3.3.2",
+  "DE-3.3.3",
+  "DE-3.4",
+  "DE-3.4.1",
+  "DE-3.4.2",
+  "DE-3.4.3",
+  "DE-3.4.4",
+  "DE-3.4.5"
+ ],
+ "date_values": {
+  "DE": [
+   "2027-01-01",
+   "2029-03-31"
+  ],
+  "DE-1": [
+   "2027-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.1.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.1.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.1.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.1.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.1.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.2": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.2.1": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.2.2": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.2.3": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.2.4": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.3.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.3.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.3.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.3.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.3.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.3.6": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.4": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.4.1": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.4.2": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.4.3": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.5": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.5.1": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.5.2": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.5.3": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-1.6": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-1.6.1": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-1.6.2": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-1.6.3": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-1.7": [
+   "2027-10-01",
+   "2028-07-31"
+  ],
+  "DE-1.7.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.7.2": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-1.7.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.8": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.8.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.8.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.8.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.8.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.8.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.8.6": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-1.8.7": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2": [
+   "2027-01-01",
+   "2029-03-31"
+  ],
+  "DE-2.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.1.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.1.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.1.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.1.4": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.1.5": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.1.6": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.2": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DE-2.2.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.2.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.2.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.2.4": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.2.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.2.6": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.2.7": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.2.8": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.3": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DE-2.3.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.3.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.3.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.3.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.3.5": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.4": [
+   "2027-10-01",
+   "2029-03-31"
+  ],
+  "DE-2.4.1": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.4.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.4.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.4.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.4.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.4.6": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-2.4.7": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.4.8": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-2.5": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.5.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.5.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.5.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.5.4": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.6": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DE-2.6.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.6.2": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.6.3": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.7": [
+   "2027-01-01",
+   "2028-07-31"
+  ],
+  "DE-2.7.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.7.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.7.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-2.7.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.7.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-2.8": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-2.8.1": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-2.8.2": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-2.8.3": [
+   "2028-04-01",
+   "2028-07-31"
+  ],
+  "DE-3": [
+   "2027-01-01",
+   "2029-03-31"
+  ],
+  "DE-3.1": [
+   "2027-01-01",
+   "2029-03-31"
+  ],
+  "DE-3.1.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.1.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.1.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.1.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-3.1.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-3.1.6": [
+   "2028-10-01",
+   "2029-03-31"
+  ],
+  "DE-3.2": [
+   "2027-01-01",
+   "2028-03-31"
+  ],
+  "DE-3.2.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.2.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.2.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.2.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-3.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.3.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.3.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.3.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.4": [
+   "2027-01-01",
+   "2028-07-31"
+  ],
+  "DE-3.4.1": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.4.2": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.4.3": [
+   "2027-01-01",
+   "2027-09-30"
+  ],
+  "DE-3.4.4": [
+   "2027-10-01",
+   "2028-03-31"
+  ],
+  "DE-3.4.5": [
+   "2027-10-01",
+   "2028-03-31"
+  ]
+ },
+ "deps": [
+  "DE-1.1<-DE-2.1",
+  "DE-1.1<-DE-2.5",
+  "DE-1.1<-DE-2.7",
+  "DE-1.1<-DE-3.1",
+  "DE-1.2<-DE-2.1",
+  "DE-1.2<-DE-2.5",
+  "DE-1.2<-DE-2.7",
+  "DE-1.2<-DE-3.1",
+  "DE-1.3<-DE-2.1",
+  "DE-1.3<-DE-2.7",
+  "DE-1.3<-DE-3.1",
+  "DE-1.4<-DE-2.1",
+  "DE-1.4<-DE-2.5",
+  "DE-1.4<-DE-2.7",
+  "DE-1.4<-DE-3.1",
+  "DE-1.5<-DE-2.1",
+  "DE-1.5<-DE-2.5",
+  "DE-1.5<-DE-2.7",
+  "DE-1.5<-DE-3.1",
+  "DE-1.6<-DE-2.1",
+  "DE-1.6<-DE-2.5",
+  "DE-1.6<-DE-2.7",
+  "DE-1.6<-DE-3.1",
+  "DE-1.7<-DE-2.7",
+  "DE-1.7<-DE-3.1",
+  "DE-1.8<-DE-2.1",
+  "DE-1.8<-DE-2.5",
+  "DE-1.8<-DE-2.7",
+  "DE-1.8<-DE-3.1",
+  "DE-1.8<-ID-1.10",
+  "DE-2.1<-DE-3.1",
+  "DE-2.2<-DE-3.1",
+  "DE-2.3<-DE-3.1",
+  "DE-2.4<-DE-3.1",
+  "DE-2.5<-DE-3.1",
+  "DE-2.5<-DI-5.4",
+  "DE-2.6<-DE-3.1",
+  "DE-2.7<-DE-3.1",
+  "DE-2.8<-DE-3.1",
+  "DE-2.8<-NE-1.6",
+  "DE-3.1<-NE-2.1",
+  "DE-3.1<-DA-2.4",
+  "DE-3.2<-DE-3.1",
+  "DE-3.3<-DE-3.1",
+  "DE-3.3<-ID-4.1",
+  "DE-3.4<-NE-2.1"
+ ],
+ "status": {
+  "DE": "Ready",
+  "DE-1": "Backlog",
+  "DE-1.1": "Backlog",
+  "DE-1.1.1": "Backlog",
+  "DE-1.1.2": "Backlog",
+  "DE-1.1.3": "Backlog",
+  "DE-1.1.4": "Backlog",
+  "DE-1.1.5": "Backlog",
+  "DE-1.2": "Backlog",
+  "DE-1.2.1": "Backlog",
+  "DE-1.2.2": "Backlog",
+  "DE-1.2.3": "Backlog",
+  "DE-1.2.4": "Backlog",
+  "DE-1.3": "Backlog",
+  "DE-1.3.1": "Backlog",
+  "DE-1.3.2": "Backlog",
+  "DE-1.3.3": "Backlog",
+  "DE-1.3.4": "Backlog",
+  "DE-1.3.5": "Backlog",
+  "DE-1.3.6": "Backlog",
+  "DE-1.4": "Backlog",
+  "DE-1.4.1": "Backlog",
+  "DE-1.4.2": "Backlog",
+  "DE-1.4.3": "Backlog",
+  "DE-1.5": "Backlog",
+  "DE-1.5.1": "Backlog",
+  "DE-1.5.2": "Backlog",
+  "DE-1.5.3": "Backlog",
+  "DE-1.6": "Backlog",
+  "DE-1.6.1": "Backlog",
+  "DE-1.6.2": "Backlog",
+  "DE-1.6.3": "Backlog",
+  "DE-1.7": "Backlog",
+  "DE-1.7.1": "Backlog",
+  "DE-1.7.2": "Backlog",
+  "DE-1.7.3": "Backlog",
+  "DE-1.8": "Backlog",
+  "DE-1.8.1": "Backlog",
+  "DE-1.8.2": "Backlog",
+  "DE-1.8.3": "Backlog",
+  "DE-1.8.4": "Backlog",
+  "DE-1.8.5": "Backlog",
+  "DE-1.8.6": "Backlog",
+  "DE-1.8.7": "Backlog",
+  "DE-2": "Ready",
+  "DE-2.1": "Blocked",
+  "DE-2.1.1": "Blocked",
+  "DE-2.1.2": "Blocked",
+  "DE-2.1.3": "Blocked",
+  "DE-2.1.4": "Blocked",
+  "DE-2.1.5": "Blocked",
+  "DE-2.1.6": "Blocked",
+  "DE-2.2": "Backlog",
+  "DE-2.2.1": "Backlog",
+  "DE-2.2.2": "Backlog",
+  "DE-2.2.3": "Backlog",
+  "DE-2.2.4": "Backlog",
+  "DE-2.2.5": "Backlog",
+  "DE-2.2.6": "Backlog",
+  "DE-2.2.7": "Backlog",
+  "DE-2.2.8": "Backlog",
+  "DE-2.3": "Backlog",
+  "DE-2.3.1": "Backlog",
+  "DE-2.3.2": "Backlog",
+  "DE-2.3.3": "Backlog",
+  "DE-2.3.4": "Backlog",
+  "DE-2.3.5": "Backlog",
+  "DE-2.4": "Backlog",
+  "DE-2.4.1": "Backlog",
+  "DE-2.4.2": "Backlog",
+  "DE-2.4.3": "Backlog",
+  "DE-2.4.4": "Backlog",
+  "DE-2.4.5": "Backlog",
+  "DE-2.4.6": "Backlog",
+  "DE-2.4.7": "Backlog",
+  "DE-2.4.8": "Backlog",
+  "DE-2.5": "Backlog",
+  "DE-2.5.1": "Backlog",
+  "DE-2.5.2": "Backlog",
+  "DE-2.5.3": "Backlog",
+  "DE-2.5.4": "Backlog",
+  "DE-2.6": "Backlog",
+  "DE-2.6.1": "Backlog",
+  "DE-2.6.2": "Backlog",
+  "DE-2.6.3": "Backlog",
+  "DE-2.7": "Backlog",
+  "DE-2.7.1": "Backlog",
+  "DE-2.7.2": "Backlog",
+  "DE-2.7.3": "Backlog",
+  "DE-2.7.4": "Backlog",
+  "DE-2.7.5": "Backlog",
+  "DE-2.8": "Backlog",
+  "DE-2.8.1": "Backlog",
+  "DE-2.8.2": "Backlog",
+  "DE-2.8.3": "Backlog",
+  "DE-3": "Ready",
+  "DE-3.1": "Blocked",
+  "DE-3.1.1": "Blocked",
+  "DE-3.1.2": "Blocked",
+  "DE-3.1.3": "Blocked",
+  "DE-3.1.4": "Backlog",
+  "DE-3.1.5": "Backlog",
+  "DE-3.1.6": "Backlog",
+  "DE-3.2": "Blocked",
+  "DE-3.2.1": "Blocked",
+  "DE-3.2.2": "Blocked",
+  "DE-3.2.3": "Blocked",
+  "DE-3.2.4": "Backlog",
+  "DE-3.3": "Backlog",
+  "DE-3.3.1": "Backlog",
+  "DE-3.3.2": "Backlog",
+  "DE-3.3.3": "Backlog",
+  "DE-3.4": "Blocked",
+  "DE-3.4.1": "Blocked",
+  "DE-3.4.2": "Blocked",
+  "DE-3.4.3": "Blocked",
+  "DE-3.4.4": "Backlog",
+  "DE-3.4.5": "Backlog"
+ }
+}
