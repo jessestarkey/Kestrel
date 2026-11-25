@@ -605,6 +605,7 @@
 - **PE-3 (partial):** This outcome owns only the identity-platform integration slice, binding physical credentials to identity records and correlating physical with logical activity. The PSO holds the physical access program, and PE-3's enhancements govern those operations.
 - **PE-2 (partial):** This claim covers the same integration slice as PE-3, while the rest stays with the PSO. PE-2's enhancements likewise govern physical operations this outcome does not own.
 - **AC-2 (partial):** This outcome extends the account lifecycle to badge and physical credentials. Account Lifecycle and Identity Data Quality holds the general machinery.
+- **AU-6(6) (full):** the only claim of the control. Physical-Logical Access Correlation correlates physical access events with logical access activity, which is the enhancement's subject.
 
 **Deployment Type:** On-Premises, Hybrid
 
@@ -647,7 +648,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Moderate
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** A physical-logical mismatch strongly indicates a shared, stolen, or spoofed credential. The Adaptive, Risk-Based Access Control outcome can consume this signal for access-time enforcement.
+    - **Supplemental Guidance:** This activity carries the outcome's AU-6(6) (full) mapping. A physical-logical mismatch strongly indicates a shared, stolen, or spoofed credential. The Adaptive, Risk-Based Access Control outcome can consume this signal for access-time enforcement.
 
 - **ID-1.10.4: Physical Access Reconciliation and Audit**
     - **Description:** Reconcile PACS-held physical-access assignments against authoritative identity records on a defined cadence and audit for badge credentials that no longer map to a valid, currently-authorized identity.
@@ -909,6 +910,7 @@
 **NIST Control Mapping:**
 
 - **AC-3(7) (partial):** The non-privileged roles and group-based baseline are a role-based access control policy. Privileged Access Control holds the privileged half.
+- **AC-3 (partial):** the role and group model is the system-wide authorization policy each non-privileged access decision enforces. Privileged Access Control holds the privileged half, and Artificial Intelligence outcomes hold their own content and agent slices.
 - **AC-6 (partial):** Default Permissions sets the least-privilege baseline for non-privileged identities, alongside other least-privilege claims such as Identities and Entitlements Lifecycle's right-sizing.
 - **AC-14 (full):** Unauthenticated Action Inventory identifies and justifies each action permitted without authentication.
 
@@ -964,7 +966,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This baseline binds roles to resources through groups and carries the group-membership half of the outcome's AC-3(7) (partial) mapping. Entitlement Management packages these same groups for assignment.
+    - **Supplemental Guidance:** This baseline binds roles to resources through groups. It carries the group-membership half of the outcome's AC-3(7) (partial) mapping and its AC-3 (partial) mapping. Entitlement Management packages these same groups for assignment.
 
 - **ID-2.4.5: Unauthenticated Action Inventory**
     - **Description:** Identify every action a user can perform on the system without identifying or authenticating, document the justification for each, and remove any that lacks one.
@@ -984,6 +986,7 @@
 **NIST Control Mapping:**
 
 - **AC-3(13) (partial):** the policy engine enforces access on subject, device, location, and risk attributes at request time. The Data focus area's Attribute-Based Data and Application Access Enforcement (ABAC) holds the data and application layers.
+- **AC-2(11) (partial):** the risk-based policies restrict when and how each account may be used, by device, location, and risk. Other outcomes set the conditions for privileged and emergency accounts.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
@@ -1015,7 +1018,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity delivers the outcome's AC-3(13) (partial) mapping by defining the conditions the engine evaluates. Its step-up decisions invoke Fallback/Step-Up Authenticator Policy, while Continuous Authentication handles mid-session risk.
+    - **Supplemental Guidance:** This activity delivers the outcome's AC-3(13) (partial) and AC-2(11) (partial) mappings by defining the conditions the engine evaluates. Its step-up decisions invoke Fallback/Step-Up Authenticator Policy, while Continuous Authentication handles mid-session risk.
 
 ### ID-2.6: Continuous Authentication
 
@@ -1832,6 +1835,7 @@
 - **AC-3(2) (partial):** Two-Person Integrity for Designated Privileged Actions gates dual authorization at the broker, alongside the agent and safety-critical slices other outcomes hold.
 - **AU-14 (partial):** Privileged Session Recording and Monitoring records session content for the privileged sessions this outcome brokers. User Activity Monitoring holds the general user population, and legal-counsel consultation is handled in the AMP.
 - **AU-14(3) (partial):** cited for a reviewer's ability to watch and end a privileged session in progress. It is partial on the same basis as AU-14.
+- **SI-4(20) (partial):** Privileged Session Recording and Monitoring adds monitoring of privileged users beyond what other identities receive. Identity Threat Detection and User/Entity Behavior Analytics (UEBA) / Insider Threat Detection watch the same population by other means.
 - **AC-17(4) (partial):** recorded commands give remote privileged access its assessable evidence, with justifying needs recorded in the AMP. Secure Remote Access holds the network path.
 - **Declined:** AC-6(3) stays with Privileged Access Workstation Deployment and Hardening, which restricts origin devices. AC-17(3) stays with Private Remote Access, since this broker sits on an internal path. AC-2(6) does not fit, since a checkout releases a credential rather than changing a standing account's privilege.
 
@@ -1876,7 +1880,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Moderate
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's AU-14 (partial) mapping for recording and its AU-14(3) (partial) mapping for real-time viewing and intervention. The checkout shows who held the credential, and the recording shows what they did. Retention and integrity draw on the Operate pillar's Log Retention Strategy and Audit Log Integrity Protection. This activity also carries the outcome's AC-17(4) (partial) mapping, so record remote privileged access needs and their rationale in the AMP.
+    - **Supplemental Guidance:** This activity carries the outcome's AU-14 (partial) mapping for recording, its AU-14(3) (partial) mapping for real-time viewing and intervention, and its SI-4(20) (partial) mapping for added monitoring of privileged users. The checkout shows who held the credential, and the recording shows what they did. Retention and integrity draw on the Operate pillar's Log Retention Strategy and Audit Log Integrity Protection. This activity also carries the outcome's AC-17(4) (partial) mapping, so record remote privileged access needs and their rationale in the AMP.
 
 - **ID-4.4.4: Two-Person Integrity for Designated Privileged Actions**
     - **Description:** Designate in the AMP the privileged actions the program's authorizing authority requires two authorized individuals to perform, such as security configuration changes, deletion or alteration of audit records, and cryptographic key operations, and enforce a second individual's approval or concurrent presence at the broker before each executes.

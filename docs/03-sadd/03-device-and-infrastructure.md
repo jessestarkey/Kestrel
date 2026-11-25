@@ -1523,9 +1523,12 @@
 - **SI-4(7) (partial):** carried by EDR Blocking/Enforcement Mode for automatically killing, quarantining, or blocking malicious processes.
 - **SI-4(24) (partial):** shared by Custom File Indicators and Custom Network Indicators for file and network IOCs.
 - **SI-7(1) (partial):** carried by Endpoint File Integrity Monitoring for detecting unauthorized changes to critical files.
+- **SI-7(2) (partial):** carried by the same activity, whose alerts notify personnel automatically when an integrity check finds an unauthorized change.
+- **SI-7(5) (partial):** carried by the same activity, which triggers the program's defined automated response when an integrity check fails. Data Poisoning Prevention and Detection holds the training corpus slice.
 - **SI-7(7) (partial):** carried by the same activity, which routes change alerts into incident response. Partial because incident handling belongs to Automated Incident Creation and Enrichment.
 - **SI-7(9) (partial):** carried by Boot Integrity and Device Health Attestation for measured-boot, TPM-backed verification.
 - **SI-7(10) (partial):** carried by the same activity for secure-boot protection of boot firmware.
+- **SI-6 (partial):** carried by Boot Integrity and Device Health Attestation, which verifies at startup that a device's security functions are intact and surfaces any that fail. Canary Prompt Testing holds the model-serving slice.
 - **Declined:** Unmanaged/Rogue Device Discovery carries no citation, since it feeds the existing CM-8(3) discovery and NAC quarantine rather than re-claiming them.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
@@ -1558,7 +1561,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SI-7(1) mapping, checking system file, directory, and registry integrity. It surfaces changes outside the authorized process rather than re-claiming Asset Lifecycle Change Control's CM-3. It also carries the outcome's SI-7(7) (partial) mapping by forwarding each change into Automated Incident Creation and Enrichment.
+    - **Supplemental Guidance:** This activity carries the outcome's SI-7(1), SI-7(2), and SI-7(5) (partial) mappings, checking system file, directory, and registry integrity and alerting when it fails. It surfaces changes outside the authorized process rather than re-claiming Asset Lifecycle Change Control's CM-3. It also carries the outcome's SI-7(7) (partial) mapping by forwarding each change into Automated Incident Creation and Enrichment.
 
 - **DI-5.4.3: Advanced Threat Hunting**
     - **Description:** Conduct proactive, analyst-driven hunts across endpoint telemetry to search for indicators of compromise and adversary tradecraft that evade automated detection, and route confirmed findings to Endpoint Response and the incident-response process.
@@ -1646,7 +1649,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries SI-7(9) for measured-boot attestation and SI-7(10) for secure-boot firmware protection, both partial for the TPM-capable fleet. They stay distinct from Endpoint File Integrity Monitoring's SI-7(1) and Tamper Protection's SI-7 base. It is Level 2 because it depends on TPM-capable hardware.
+    - **Supplemental Guidance:** This activity carries SI-7(9) for measured-boot attestation, SI-7(10) for secure-boot firmware protection, and SI-6 for verifying security functions at startup, all partial for the TPM-capable fleet. They stay distinct from Endpoint File Integrity Monitoring's SI-7(1) and Tamper Protection's SI-7 base. It is Level 2 because it depends on TPM-capable hardware.
 
 ### DI-5.5: Endpoint Response
 

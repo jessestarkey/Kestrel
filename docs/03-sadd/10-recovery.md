@@ -63,6 +63,7 @@
 **NIST Control Mapping:**
 
 - **CP-9 (partial):** carries the execution share of the shared CP-9 (partial) claim for the platform-supported population. Supported is a property of the chosen backup product, so the boundary against Backup Unsupported Services is re-drawn at each coverage review.
+- **CP-10(2) (partial):** Backup Schedule/Retention/Scope Parameter Configuration captures transaction logs for transaction-based services, so a restore can reach a point in time. The recovery outcomes run the restore itself.
 - **Declined:** CP-9(8) belongs to Backup Data Protection's encryption outcome, with keys managed through Backup Encryption Key Lifecycle Management.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
@@ -87,7 +88,7 @@
     - **Supplemental Guidance:** This activity carries the core of the outcome's CP-9 (partial) mapping. Deploying jobs as code makes every environment match, including the disaster recovery region nobody would configure by hand. Version job definitions with the policy standard, so a tier's frequency change propagates everywhere.
 
 - **RC-1.2.2: Backup Schedule/Retention/Scope Parameter Configuration**
-    - **Description:** Set each job's frequency, retention period, and capture scope from the tier the coverage baseline assigned, and choose application-consistent capture wherever a crash-consistent copy would restore a database nobody can open.
+    - **Description:** Set each job's frequency, retention period, and capture scope from the tier the coverage baseline assigned, and choose application-consistent capture wherever a crash-consistent copy would restore a database nobody can open, capturing transaction logs for transaction-based services so they recover to a point in time.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -95,7 +96,7 @@
     - **Level of Effort:** Low
     - **Cost:** One-Time: Low; Recurring: Moderate
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** Consistency decides whether a copy is usable, and a crash-consistent snapshot of a running database needs repair before it can be read. Set retention per tier, since retention drives this capability's recurring cost. Read any longer records-management floor from the Data focus area's DMP. Exclude scratch volumes, caches, and replicas, which slow every restore without adding anything recoverable.
+    - **Supplemental Guidance:** This activity carries the outcome's CP-10(2) (partial) mapping through transaction log capture. Consistency decides whether a copy is usable, and a crash-consistent snapshot of a running database needs repair before it can be read. Set retention per tier, since retention drives this capability's recurring cost, and read any longer records-management floor from the Data focus area's DMP. Exclude scratch volumes, caches, and replicas, which slow every restore without adding anything recoverable.
 
 ### RC-1.3: Backup Unsupported Services
 
@@ -731,7 +732,7 @@
 - **CP-2(8) (full):** claimed for identifying critical assets in the plan, closing the deferral the Response focus area and this focus area's earlier outcomes recorded. Assets are read from the shared register and the Manage pillar's Business Impact Analysis (BIA) rather than rated again.
 - **CP-7(6) (full):** planning for circumstances that preclude return to the primary site, reserved here by Alternate Site and Telecommunications Readiness and often missing outright.
 - **CP-10 (full):** claimed full on the reservation Recovery and Return-to-Operations Validation recorded. The plan provides for recovery to a known state, defining that state, the restoration sequence, and the reconstitution steps. The focus area's restoration mechanisms claim no part of it.
-- **Declined:** CP-10(4) is held by the Artificial Intelligence and Application focus areas for component-level restoration. CP-10(2) and CP-10(6) describe implemented mechanisms this plan does not build. The nearest work to CP-10(6) is Backup Data Protection's CP-9 enhancements. CP-10(1), CP-10(3), and CP-10(5) were withdrawn in Rev 5.
+- **Declined:** CP-10(4) is held by the Artificial Intelligence and Application focus areas for component-level restoration. CP-10(2) is held by Automated Backup for Supported Services, and CP-10(6) describes an implemented mechanism this plan does not build. The nearest work to CP-10(6) is Backup Data Protection's CP-9 enhancements. CP-10(1), CP-10(3), and CP-10(5) were withdrawn in Rev 5.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 

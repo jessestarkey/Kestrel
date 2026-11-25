@@ -659,7 +659,7 @@
 **NIST Control Mapping:**
 
 - **SA-1 (partial):** the acquisition family's procedures half, while Security Policy Framework holds the policy tier.
-- **SA-4 (partial):** claimed for the contractual instrument and the documentation, responsibility-allocation, and acceptance-criteria clauses. The Application focus area's Security Requirements Definition and Model Selection and Justification hold the rest, namely the requirement content. Per-acquisition enhancements are tailoring choices in the clause library, and SA-4(1), SA-4(2), and SA-4(8) stay uncited until it carries them as standing clauses.
+- **SA-4 (partial):** claimed for the contractual instrument and the documentation, responsibility-allocation, and acceptance-criteria clauses. The Application focus area's Security Requirements Definition and Model Selection and Justification hold the rest, namely the requirement content. Per-acquisition enhancements are tailoring choices in the clause library, and SA-4(8) stays uncited until it carries it as a standing clause.
 - **SA-9 (partial):** claimed for provider compliance clauses, oversight roles, and monitoring of the general provider population. Narrower populations are held by the Artificial Intelligence, Application, and Identity focus areas and by Inherited Control Validation.
 - **SR-3(3) (full):** sub-tier flow down is exactly the flow-down verification activity. The base SR-3 is held by Supply Chain Risk Assessment and Dependency Mapping.
 - **SR-5 (partial):** claimed for the contract tools element, while Hardware and Firmware Provenance Verification holds the procurement-methods element.
@@ -667,8 +667,12 @@
 - **PM-17 (full):** the only claim of the control, carried by CUI Protection Requirements for External Systems.
 - **SA-4(9) (full):** the clause library requires the developer to identify intended functions, ports, protocols, and services early. The resulting CM-7 decision stays with Platform Service Network Integration.
 - **SA-4(10) (full):** the clause library restricts PIV acquisitions to the FIPS 201 approved products list.
+- **SA-4(1) (full):** the clause library requires the developer to describe the functional properties of the security controls it delivers.
+- **SA-4(2) (full):** the clause library requires design and implementation information for those controls.
+- **SA-4(5) (full):** the clause library requires delivery in a secure, documented configuration.
+- **SA-9(2) (full):** the clause library requires each external service provider to identify the functions, ports, protocols, and services it uses. The program-side CM-7 decision stays with Platform Service Network Integration.
 - **SA-15(3) (full):** claimed here because only a contract clause can oblige the developer to perform criticality analysis. Supply Chain Risk Assessment and Dependency Mapping reads the results.
-- **Declined:** SA-9(2) is a provider disclosure clause, cited here once the library carries it, since it is in the Moderate and High baselines. The program-side CM-7 decision stays with Platform Service Network Integration. SR-5(1) is unheld, and SR-5(2) belongs to Dependency Review and Model Selection and Justification. PS-7 belongs to the PSO, apart from the Identity focus area's access-granting slice.
+- **Declined:** SR-5(1) is unheld, and SR-5(2) belongs to Dependency Review and Model Selection and Justification. PS-7 belongs to the PSO, apart from the Identity focus area's access-granting slice.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
@@ -681,7 +685,7 @@
 **Activities:**
 
 - **GV-3.2.1: Standard Security Clause Library**
-    - **Description:** Build and maintain the library of reusable security clauses acquisitions draw from, covering the security functional and assurance requirements, documentation and its protection, allocation of responsibility for security, privacy, and supply chain risk management, acceptance criteria, right-to-audit and assessment access, compromise and audit-result notification obligations, personnel and data handling terms, and the obligation to flow the same clauses down to subcontractors, and record the clause library in the SCRM.
+    - **Description:** Build and maintain the library of reusable security clauses acquisitions draw from, covering the security functional and assurance requirements, control design and secure delivered configuration, provider disclosure of ports and services, documentation and its protection, allocation of responsibility for security, privacy, and supply chain risk management, acceptance criteria, right-to-audit and assessment access, compromise and audit-result notification obligations, personnel and data handling terms, and the obligation to flow the same clauses down to subcontractors, and record the clause library in the SCRM.
     - **Control Type:** Documentation
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -689,7 +693,7 @@
     - **Level of Effort:** High
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SA-4 (partial), SA-9 (partial), SR-5 (partial), and SR-8 (full) mappings, plus its SA-4(9) (full), SA-4(10) (full), and SA-15(3) (full) mappings. Include a right-to-assess clause, and draft clauses with contracting and legal counsel. Tier the library so a clause set matches the acquisition.
+    - **Supplemental Guidance:** This activity carries the outcome's SA-4 (partial), SA-9 (partial), SR-5 (partial), and SR-8 (full) mappings, plus its SA-4(1), SA-4(2), SA-4(5), SA-4(9), SA-4(10), SA-9(2), and SA-15(3) (full) mappings. Include a right-to-assess clause, and draft clauses with contracting and legal counsel. Tier the library so a clause set matches the acquisition.
 
 - **GV-3.2.2: Contract Security Requirement Flow-Down Verification**
     - **Description:** Verify before award, and at each modification, that the executed contract carries the clause set its acquisition tier requires, and that the prime contractor has flowed the same obligations down into its subcontracts.
@@ -1551,7 +1555,7 @@
 
 - **CA-3 (full):** the only claim of the control, with its three elements mapping onto the activities without residue. Identification documents the interface, development and approval puts it under agreement, and periodic review updates it.
 - **CA-3(7) (partial):** claimed for identifying transitive downstream exchanges. Stopping those exchanges is boundary enforcement held by the Network and Environment focus area, so the claim stays partial.
-- **Declined:** CA-3(6) is a runtime boundary check closest to Cross Domain Solution (CDS) Transfer Procedures. CA-9 is held by Platform Service Network Integration for internal connections.
+- **Declined:** CA-3(6) is a runtime boundary check, held by Cross Domain Solution (CDS) Transfer Procedures. CA-9 is held by Platform Service Network Integration for internal connections.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
@@ -1604,7 +1608,7 @@
 
 - **CA-6 (partial):** claimed for assigning the AO, accepting inherited common controls, and authorizing operation and common controls. Ongoing Authorization holds the update element.
 - **PM-10 (partial):** claimed for managing system state through an authorization process tied to organizational risk management. Security Roles and Responsibilities and ISSO/ISSM Appointment Letters hold the rest, namely role designation.
-- **Declined:** CA-6(1) assumes multiple AOs within one organization, which the framework does not assume, the same basis on which IR-8(1) is left to tailoring. CA-6(2) is claimed by Inherited Control Validation. CA-5 and PM-4 are reserved for the Risk focus area's Plan of Action and Milestones (POA&M), which this outcome reads. CA-2 is the Compliance focus area's.
+- **Declined:** CA-6(1) assumes multiple AOs within one organization, which the framework does not assume. CA-6(2) is claimed by Inherited Control Validation. CA-5 and PM-4 are reserved for the Risk focus area's Plan of Action and Milestones (POA&M), which this outcome reads. CA-2 is the Compliance focus area's.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 

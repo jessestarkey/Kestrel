@@ -1166,6 +1166,7 @@
 - **AU-6 (partial):** the platform-executed review, analysis, and reporting across every record class except identity, which Identity Threat Detection holds. The two are tracked jointly. Detection content is authored by the Intelligent Detection Systems capability.
 - **AU-6(1) (full):** carried by AI-Powered Analysis Integration and Detection/Correlation Rule Configuration, which integrate review through automated mechanisms. Identity Threat Detection, Endpoint Response, and Production Abuse Monitoring each reserved it for this capability.
 - **AU-6(3) (full):** carried by Data Source Connections and Detection/Correlation Rule Configuration, which correlate records across repositories. The same outcomes, including the Extended Detection and Response (XDR) activity, reserved it here.
+- **AU-6(5) (partial):** carried by Detection/Correlation Rule Configuration, which analyzes audit records together with the vulnerability scan, performance, and monitoring data the platform receives. Correlated Threat Detection and Analytics authors the analytics.
 - **AU-7 (full):** the framework's only AU-7 claim, for report generation and for preserving original record content and order beside the normalized copy.
 - **AU-7(1) (full):** the field-level process, sort, and search capability investigations run through.
 - **AU-12(1) (partial):** the compilation half, assembling a system-wide trail from every source class. Time Synchronization holds the tolerance half, and the two are tracked jointly.
@@ -1213,7 +1214,7 @@
     - **Level of Effort:** High
     - **Cost:** One-Time: Moderate; Recurring: Moderate
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries part of the outcome's AU-6 (partial), AU-6(1) (full), and AU-6(3) (full) mappings and part of its SI-4(12) (partial) mapping. It configures the engine, thresholds, and alert routing, while Correlated Threat Detection and Analytics authors the detection logic. It is not tagged Automate because it is a configuration activity.
+    - **Supplemental Guidance:** This activity carries part of the outcome's AU-6 (partial), AU-6(1) (full), AU-6(3) (full), and AU-6(5) (partial) mappings and part of its SI-4(12) (partial) mapping. It configures the engine, thresholds, and alert routing, while Correlated Threat Detection and Analytics authors the detection logic. It is not tagged Automate because it is a configuration activity.
 
 - **DE-3.1.4: Response Action Automation**
     - **Description:** Enable the response actions a matched rule may take on its own, covering enrichment, ticket creation, tagging, suppression, and notification, and explicitly bound which of them may fire before an analyst has read the alert.

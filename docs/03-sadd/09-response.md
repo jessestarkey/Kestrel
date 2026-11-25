@@ -64,6 +64,8 @@
 
 - **IR-2 (full):** the only claim of the control in the framework. Develop Team Training delivers role-based training on assignment, on a defined cycle, and when the system changes.
 - **IR-4(11) (full):** the integrated response team itself, cited at the enhancement because its subject is the team rather than the handling of any one incident.
+- **IR-2(1) (full):** Develop Team Training builds simulated incidents into responder training. Incident Response Plan Testing and Exercises holds the exercise program under IR-3.
+- **IR-2(2) (full):** the same activity runs that training in an exercise environment built on the program's own tools.
 - **Declined:** AT-3 is not claimed, since IR-2 is the purpose-built control here and the Manage pillar's Role-Based Specialized Training holds general role-based training. IR-4(6) and IR-4(7) cover the insider threat dimension, which splits like IR-9(4) does, with the personnel half at the PSO and the detection half at User/Entity Behavior Analytics (UEBA) / Insider Threat Detection.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
@@ -88,7 +90,7 @@
     - **Supplemental Guidance:** This activity carries the outcome's IR-4(11) (full) mapping. Plan coverage per facility and per enclave, since a responder who cannot be admitted to a facility is not deployable to it. Assign decisions such as isolating a production system or notifying outside the program in advance. IR-4(14) is not claimed, and IR-8 is left to the focus area's Incident Response Plan (IRP) outcome.
 
 - **RS-1.2.2: Develop Team Training**
-    - **Description:** Build and deliver role-specific incident response training against the program's own systems, runbooks, and reporting deadlines, require it of each responder before they take an on-call rotation, and repeat it on the program's defined cycle and whenever the response procedures materially change.
+    - **Description:** Build and deliver role-specific incident response training against the program's own systems, runbooks, and reporting deadlines, using simulated incidents in an exercise environment, require it of each responder before they take an on-call rotation, and repeat it on the program's defined cycle and whenever the response procedures materially change.
     - **Control Type:** Process
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -96,7 +98,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Moderate
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's IR-2 (full) mapping. Train responders before they join the rotation rather than at the next annual cycle, and revise the material whenever Incident Response Development revises a runbook. IR-2(1) is delivered through the Incident Response Plan Testing and Exercises outcome under IR-3, IR-2(2) is unlikely to be tailored in, and IR-2(3) belongs with the Privacy Compliance capability.
+    - **Supplemental Guidance:** This activity carries the outcome's IR-2, IR-2(1), and IR-2(2) (full) mappings. Train responders before they join the rotation rather than at the next annual cycle, and revise the material whenever Incident Response Development revises a runbook. The simulated incidents can share the environment Incident Response Plan Testing and Exercises uses, and IR-2(3) belongs with the Privacy Compliance capability.
 
 - **RS-1.2.3: AI Incident Escalation Path and Model Owner Accountability**
     - **Description:** Name the model owner as the accountable role for a model implicated in an incident, extend the response team's escalation path to route an AI-specific incident to the Manage pillar's AI/ML Governance Review Board at the severity threshold the focus area's severity model sets, record the external reporting triggers an AI incident carries beyond the program's standing regulatory obligations, and document the escalation path and accountability role in the IRP.
@@ -1025,7 +1027,8 @@
 
 - **IR-1 (partial):** the incident-response-specific procedures slice. The Manage pillar's Security Policy Framework holds the family-level policy, and IR-1 has no enhancements in SP 800-53 Rev 5.
 - **IR-8 (full):** claimed full because IR-8's subject is the plan itself, and the three activities cover IR-8a through IR-8d. The plan elements are drawn from determinations the focus area's other capabilities reached, such as Organize Team Structure and Severity Scoring Model Definition.
-- **Declined:** IR-8's one enhancement, IR-8(1), covers breaches of personally identifiable information, which is an AO tailoring decision rather than an assumed element. The IR-7 base is held in full by Cyber Defense Service Provider Alignment.
+- **IR-8(1) (partial):** the plan's procedures cover breaches of personally identifiable information, since the privacy baseline selects the enhancement for any system that processes it. Incident Reporting and External Communications holds the breach notification workflow.
+- **Declined:** The IR-7 base is held in full by Cyber Defense Service Provider Alignment.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
@@ -1046,7 +1049,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the plan-development clause of the outcome's IR-8 (full) mapping together with its protection clause, IR-8d. Mark, store, and restrict the plan, since it would help an adversary who obtained it. Author it after the determinations it consolidates exist. IRP Periodic Review and Revision keeps it current afterward.
+    - **Supplemental Guidance:** This activity carries the plan-development clause of the outcome's IR-8 (full) mapping together with its protection clause, IR-8d, and the IR-8(1) (partial) mapping for breach procedures. Mark, store, and restrict the plan, since it would help an adversary who obtained it. Author it after the determinations it consolidates exist. IRP Periodic Review and Revision keeps it current afterward.
 
 - **RS-4.1.2: IRP Review and Approval**
     - **Description:** Route the drafted IRP through stakeholder review, secure formal approval from the accountable authority, and distribute the approved plan to the response personnel and organizational elements it names.

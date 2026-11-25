@@ -17,7 +17,7 @@ This matrix carries every control in KESTREL's approved set to the SADD outcomes
 | Date | 2026-11-25 |
 | Prepared By | KESTREL ISSM, with the PMO ISSE |
 | Source CCSD Version | 1.0, with 1.1 pending |
-| Source SADD Version | 0.6 |
+| Source SADD Version | 0.7 |
 | Source SIP Version | 0.4 |
 | SSP Validation | Pending. The SSP is drafted in Phase 1, and the matrix is validated against it before each submission. |
 | Classification / Handling | CUI |
@@ -52,14 +52,14 @@ That gives 423 controls in the set. The cloud, OT, and IL5 overlays would add ro
 
 | Designation | Controls |
 |---|---|
-| System-Specific | 348 |
-| Hybrid | 20 |
+| System-Specific | 347 |
+| Hybrid | 21 |
 | Inherited | 49 |
 | Not applicable | 5 |
 | Unassigned | 1 |
 | **Total** | **423** |
 
-The SADD claims 332 of these controls. It also claims 166 controls outside the set, listed at the end.
+The SADD claims 348 of these controls. It also claims 166 controls outside the set, listed at the end.
 
 ---
 
@@ -67,24 +67,15 @@ The SADD claims 332 of these controls. It also claims 166 controls outside the s
 
 These rows go to the SADD's gap register (Section 9) for disposition.
 
-**Held but unclaimed (38).** An outcome already does this, or is where it belongs, but its mapping does not claim the control. Each needs a claim added to the outcome, or a recorded reason it stays unclaimed.
+**Held but unclaimed (22).** An outcome already does this, or is where it belongs, but its mapping does not claim the control. Each needs a claim added to the outcome, or a recorded reason it stays unclaimed.
 
 | Control | Held By | How |
 |---|---|---|
-| AC-2(11) | ID-2.5 | Conditional access sets the usage conditions on each account. |
 | AC-3(14) | CO-4.2 | The privacy officer handles individual access requests. |
-| AC-4(4) | NE-2.4 | Both hubs decrypt outbound TLS for inspection. |
 | AU-3(1) | DE-2.1 | Logging adds the detail each source class needs. |
 | AU-3(3) | DE-2.4 | Application logs limit the personal information they record. |
 | AU-5(2) | DE-3.1 | A silent log source alerts within the hour. |
-| AU-6(5) | DE-3.1 | Splunk correlates scan, performance, and log data. |
-| AU-6(6) | ID-1.10 | Physical and logical access events are correlated. |
-| CA-3(6) | GV-5.6 | The interconnection agreements authorize each transfer, still to be confirmed. |
 | CM-3(6) | DA-3.13 | Cryptographic changes go through the KMP and the Configuration Control Board. |
-| CP-10(2) | RC-1.2 | Point-in-time restore recovers transactions within each tier's recovery point. |
-| IR-2(1) | RS-1.2 | Responders train on simulated incidents. |
-| IR-2(2) | RS-1.2 | Training runs in the exercise environment. |
-| IR-8(1) | RS-4.1 | The IRP covers breaches of personal information. |
 | MA-2(2) | DI-2.4 | Maintenance is scheduled and recorded in Jira Service Management. |
 | MA-4(3) | ID-4.7 | Vendor sessions run from the vendor host pool, built to KESTREL's baseline. |
 | MA-5(1) | DI-2.4 | Uncleared vendor engineers are escorted at all times. |
@@ -94,18 +85,11 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | PT-5(2) | CO-4.2 | The Privacy Act statement is given where data is collected. |
 | PT-7 | CO-4.2 | The PIA identifies any special category of personal information. |
 | PT-7(2) | CO-1.1 | Intelligence oversight bars collection on First Amendment activity. |
-| SA-4(1) | GV-3.2 | A contract clause requiring functional properties of security controls belongs in the contract security requirements, still to be confirmed. |
-| SA-4(2) | GV-3.2 | A contract clause requiring design and implementation information belongs in the contract security requirements, still to be confirmed. |
-| SA-4(5) | GV-3.2 | A contract clause requiring delivery in a secure configuration belongs in the contract security requirements, still to be confirmed. |
 | SA-8(33) | AI-1.2 | Privacy requirements minimize personal data by design. |
-| SA-9(2) | GV-3.2 | A contract clause requiring each external service to identify its functions, ports, and protocols belongs in the contract security requirements, still to be confirmed. |
 | SA-16 | GV-3.2 | A contract clause requiring developer-provided training belongs in the contract security requirements, still to be confirmed. |
 | SA-21 | GV-3.2 | A contract clause requiring screening of developers belongs in the contract security requirements, still to be confirmed. |
 | SC-7(24) | DA-1.5 | Data loss prevention watches personal information at the boundary. |
-| SI-4(10) | NE-2.4 | Both hubs decrypt outbound TLS for inspection. |
-| SI-4(20) | DE-1.9 | User activity monitoring covers privileged users. |
 | SI-5(1) | RK-2.3 | CSSP advisories arrive automatically as STIX over TAXII. |
-| SI-7(2) | DI-5.4 | File integrity monitoring alerts on violations. |
 | SI-18 | CO-4.2 | The PIA sets how personal data accuracy is maintained. |
 | SI-18(4) | CO-4.2 | The privacy officer handles correction requests. |
 | SR-9(1) | GV-3.4 | Supplier assessments cover multiple stages of the supply chain, still to be confirmed. |
@@ -114,14 +98,10 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 
 - AC-18(5)
 
-**Narrow owners (6).** These rest only on narrow outcomes. The SCTM does not read them as system-wide, and each still needs a system-wide owner named.
+**Narrow owners (2).** These rest only on narrow outcomes. The SCTM does not read them as system-wide, and each still needs a system-wide owner named.
 
-- AC-3: AI-3.4, AI-8.4, AI-8.15 (Partial)
 - CM-6(2): DI-4.1, AI-4.18, AI-9.3 (Partial)
 - SA-5: AI-5.8, AI-6.2 (Partial)
-- SC-4: AI-4.1 (Partial)
-- SI-6: AI-9.5 (Partial)
-- SI-7(5): AI-2.1 (Partial)
 
 ---
 
@@ -138,13 +118,13 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | AC-2(3) |  | System-Specific | ID-1.8, ID-3.2, RS-3.2 (Partial) |  |  |
 | AC-2(4) |  | System-Specific | DE-2.1 (Partial) |  |  |
 | AC-2(5) |  | System-Specific | ID-2.6 (Partial) |  |  |
-| AC-2(11) |  | System-Specific | None |  | Held by ID-2.5, which does not claim it. Conditional access sets the usage conditions on each account. |
+| AC-2(11) |  | System-Specific | ID-2.5 (Partial) |  |  |
 | AC-2(12) |  | System-Specific | ID-4.6, DA-1.5, DE-1.6 (Partial) |  |  |
 | AC-2(13) |  | System-Specific | RS-3.2 (Full) |  |  |
-| AC-3 |  | System-Specific | AI-3.4, AI-8.4, AI-8.15 (Partial) |  | Its only owners are narrow outcomes. A system-wide owner is still to be named. |
+| AC-3 |  | System-Specific | ID-2.4, AI-3.4, AI-8.4, AI-8.15 (Partial) |  |  |
 | AC-3(14) |  | System-Specific | None |  | Held by CO-4.2, which does not claim it. The privacy officer handles individual access requests. |
 | AC-4 |  | System-Specific | NE-1.5, NE-1.6, AP-2.17, AI-8.7, DA-1.5 (Partial) |  |  |
-| AC-4(4) |  | System-Specific | None |  | Held by NE-2.4, which does not claim it. Both hubs decrypt outbound TLS for inspection. |
+| AC-4(4) |  | System-Specific | NE-2.4 (Partial) |  |  |
 | AC-5 |  | System-Specific | AP-4.3, DA-3.6 (Partial) |  |  |
 | AC-6 |  | System-Specific | ID-1.7, ID-2.4, ID-3.1, ID-3.2, ID-3.3, AP-2.22, AI-3.1, AI-4.2, AI-7.3 (Partial) |  |  |
 | AC-6(1) |  | System-Specific | DI-1.4, DA-3.10, RC-2.1 (Partial) |  |  |
@@ -207,8 +187,8 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | AU-6 |  | Hybrid | DE-1.8, DE-3.1 (Partial) | the CSSP | Review and analysis of forwarded telemetry. |
 | AU-6(1) |  | System-Specific | DE-3.1 (Full) |  |  |
 | AU-6(3) |  | System-Specific | DE-3.1 (Full) |  |  |
-| AU-6(5) |  | System-Specific | None |  | Held by DE-3.1, which does not claim it. Splunk correlates scan, performance, and log data. |
-| AU-6(6) |  | System-Specific | None |  | Held by ID-1.10, which does not claim it. Physical and logical access events are correlated. |
+| AU-6(5) |  | System-Specific | DE-3.1 (Partial) |  |  |
+| AU-6(6) |  | System-Specific | ID-1.10 (Full) |  |  |
 | AU-7 |  | System-Specific | DE-3.1 (Full) |  |  |
 | AU-7(1) |  | System-Specific | DE-3.1 (Full) |  |  |
 | AU-8 |  | System-Specific | DE-3.4 (Full) |  |  |
@@ -231,7 +211,7 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | CA-2(1) |  | System-Specific | CO-2.2 (Full) |  |  |
 | CA-2(2) |  | System-Specific | CO-2.3 (Full) |  |  |
 | CA-3 |  | System-Specific | GV-5.6 (Full) |  |  |
-| CA-3(6) |  | System-Specific | None |  | Held by GV-5.6, which does not claim it. The interconnection agreements authorize each transfer, still to be confirmed. |
+| CA-3(6) |  | System-Specific | NE-2.10 (Partial) |  |  |
 | CA-5 |  | System-Specific | AP-5.2, RK-1.8 (Partial) |  |  |
 | CA-6 |  | System-Specific | GV-5.7, GV-5.10 (Partial) |  |  |
 | CA-7 |  | System-Specific | ID-5.2, AP-5.6, AI-9.1, AI-9.9, RC-1.6, CO-2.1 (Partial) |  |  |
@@ -315,7 +295,7 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | CP-9(5) |  | System-Specific | RC-2.3 (Full) |  |  |
 | CP-9(8) |  | System-Specific | RC-2.2 (Full) |  |  |
 | CP-10 |  | System-Specific | RC-4.1 (Full) |  |  |
-| CP-10(2) |  | System-Specific | None |  | Held by RC-1.2, which does not claim it. Point-in-time restore recovers transactions within each tier's recovery point. |
+| CP-10(2) |  | System-Specific | RC-1.2 (Partial) |  |  |
 | CP-10(4) |  | System-Specific | AP-4.6, AI-6.6, AI-8.14 (Partial) |  |  |
 
 ### IA
@@ -355,8 +335,8 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 |---|---|---|---|---|---|
 | IR-1 |  | System-Specific | RS-4.1, GV-1.1 (Partial) |  |  |
 | IR-2 |  | System-Specific | RS-1.2 (Full) |  |  |
-| IR-2(1) |  | System-Specific | None |  | Held by RS-1.2, which does not claim it. Responders train on simulated incidents. |
-| IR-2(2) |  | System-Specific | None |  | Held by RS-1.2, which does not claim it. Training runs in the exercise environment. |
+| IR-2(1) |  | System-Specific | RS-1.2 (Full) |  |  |
+| IR-2(2) |  | System-Specific | RS-1.2 (Full) |  |  |
 | IR-2(3) |  | Inherited | None | the DoD component privacy office | Breach response training under the component privacy program. |
 | IR-3 |  | System-Specific | RS-1.3 (Full) |  |  |
 | IR-3(2) |  | System-Specific | RS-1.3 (Full) |  |  |
@@ -372,7 +352,7 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | IR-7 |  | System-Specific | RS-1.7 (Full) |  |  |
 | IR-7(1) |  | System-Specific | RS-1.7 (Partial) |  |  |
 | IR-8 |  | System-Specific | RS-4.1 (Full) |  |  |
-| IR-8(1) |  | System-Specific | None |  | Held by RS-4.1, which does not claim it. The IRP covers breaches of personal information. |
+| IR-8(1) |  | System-Specific | RS-4.1 (Partial) |  |  |
 
 ### MA
 
@@ -537,16 +517,16 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | SA-2 |  | System-Specific | AP-1.1, AP-1.3 (Partial) |  |  |
 | SA-3 |  | System-Specific | AP-1.1, AP-1.2, AI-1.1 (Partial) |  |  |
 | SA-4 |  | System-Specific | AP-1.3, AI-1.3, GV-3.2 (Partial) |  |  |
-| SA-4(1) |  | System-Specific | None |  | Held by GV-3.2, which does not claim it. A contract clause requiring functional properties of security controls belongs in the contract security requirements, still to be confirmed. |
-| SA-4(2) |  | System-Specific | None |  | Held by GV-3.2, which does not claim it. A contract clause requiring design and implementation information belongs in the contract security requirements, still to be confirmed. |
-| SA-4(5) |  | System-Specific | None |  | Held by GV-3.2, which does not claim it. A contract clause requiring delivery in a secure configuration belongs in the contract security requirements, still to be confirmed. |
+| SA-4(1) |  | System-Specific | GV-3.2 (Full) |  |  |
+| SA-4(2) |  | System-Specific | GV-3.2 (Full) |  |  |
+| SA-4(5) |  | System-Specific | GV-3.2 (Full) |  |  |
 | SA-4(9) |  | System-Specific | GV-3.2 (Full) |  |  |
 | SA-4(10) |  | System-Specific | GV-3.2 (Full) |  |  |
 | SA-5 |  | System-Specific | AI-5.8, AI-6.2 (Partial) |  | Its only owners are narrow outcomes. A system-wide owner is still to be named. |
 | SA-8 |  | System-Specific | AP-1.3 (Partial) |  |  |
 | SA-8(33) |  | System-Specific | None |  | Held by AI-1.2, which does not claim it. Privacy requirements minimize personal data by design. |
 | SA-9 |  | System-Specific | ID-3.3, AP-2.9, AI-8.3, GV-3.2, GV-5.12 (Partial) |  |  |
-| SA-9(2) |  | System-Specific | None |  | Held by GV-3.2, which does not claim it. A contract clause requiring each external service to identify its functions, ports, and protocols belongs in the contract security requirements, still to be confirmed. |
+| SA-9(2) |  | System-Specific | GV-3.2 (Full) |  |  |
 | SA-9(5) | Action 5: added | System-Specific | AP-2.9, AI-8.3 (Partial) |  |  |
 | SA-10 |  | System-Specific | AP-2.23, AI-4.12 (Partial) |  |  |
 | SA-11 |  | System-Specific | AP-3.2, AI-5.1, AI-5.2, AI-5.3, AI-5.4, AI-5.5 (Partial) |  |  |
@@ -564,7 +544,7 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | SC-1 |  | System-Specific | DA-3.13, GV-1.1 (Partial) |  |  |
 | SC-2 |  | System-Specific | ID-4.2, NE-2.13 (Partial) |  |  |
 | SC-3 |  | System-Specific | DI-5.3 (Full) |  |  |
-| SC-4 |  | System-Specific | AI-4.1 (Partial) |  | Its only owners are narrow outcomes. A system-wide owner is still to be named. |
+| SC-4 |  | Hybrid | AI-4.1 (Partial) | Azure Government | Isolation of shared hardware through the isolated VM sizes IL5 requires. |
 | SC-5 |  | Hybrid | NE-2.5, NE-2.6, AI-8.2 (Partial) | DISA | Network-layer flood absorption at the internet access points and the Boundary Cloud Access Point. |
 | SC-7 |  | Hybrid | NE-1.4, NE-1.6, NE-2.3 (Partial) | DISA | Boundary protection at the Boundary Cloud Access Point. |
 | SC-7(3) |  | System-Specific | NE-2.4 (Partial) |  |  |
@@ -605,18 +585,18 @@ These rows go to the SADD's gap register (Section 9) for disposition.
 | SI-4(2) |  | System-Specific | ID-1.4, ID-1.6, DI-5.4, DA-1.4, DE-1.1 (Partial) |  |  |
 | SI-4(4) |  | System-Specific | NE-2.11 (Partial) |  |  |
 | SI-4(5) |  | System-Specific | DI-5.4, NE-3.8, NE-3.9, DA-1.4, DE-1.8 (Partial) |  |  |
-| SI-4(10) |  | System-Specific | None |  | Held by NE-2.4, which does not claim it. Both hubs decrypt outbound TLS for inspection. |
+| SI-4(10) |  | System-Specific | NE-2.4 (Partial) |  |  |
 | SI-4(12) |  | System-Specific | AI-9.4, DE-3.1 (Partial) |  |  |
 | SI-4(14) |  | System-Specific | NE-1.8 (Full) |  |  |
-| SI-4(20) |  | System-Specific | None |  | Held by DE-1.9, which does not claim it. User activity monitoring covers privileged users. |
+| SI-4(20) |  | System-Specific | ID-4.4 (Partial) |  |  |
 | SI-4(22) |  | System-Specific | NE-2.12 (Partial) |  |  |
 | SI-5 |  | System-Specific | DI-4.8, DE-1.3 (Partial) |  |  |
 | SI-5(1) |  | System-Specific | None |  | Held by RK-2.3, which does not claim it. CSSP advisories arrive automatically as STIX over TAXII. |
-| SI-6 |  | System-Specific | AI-9.5 (Partial) |  | Its only owners are narrow outcomes. A system-wide owner is still to be named. |
+| SI-6 |  | System-Specific | DI-5.4, AI-9.5 (Partial) |  |  |
 | SI-7 |  | System-Specific | DI-5.3, AP-2.9 (Partial) |  |  |
 | SI-7(1) |  | System-Specific | DI-5.4, AI-2.1, AI-4.13, AI-7.2, AI-8.4, AI-8.15, AI-9.3 (Partial) |  |  |
-| SI-7(2) |  | System-Specific | None |  | Held by DI-5.4, which does not claim it. File integrity monitoring alerts on violations. |
-| SI-7(5) |  | System-Specific | AI-2.1 (Partial) |  | Its only owners are narrow outcomes. A system-wide owner is still to be named. |
+| SI-7(2) |  | System-Specific | DI-5.4 (Partial) |  |  |
+| SI-7(5) |  | System-Specific | DI-5.4, AI-2.1 (Partial) |  |  |
 | SI-7(7) |  | System-Specific | DI-5.4 (Partial) |  |  |
 | SI-7(15) |  | System-Specific | AP-2.13, AI-1.5, AI-3.3, AI-4.14, GV-3.4 (Partial) |  |  |
 | SI-8 | Action 1: removed | Removed | None |  |  |

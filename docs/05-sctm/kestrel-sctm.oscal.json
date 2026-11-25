@@ -15,7 +15,7 @@
         {
           "name": "source-sadd",
           "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-          "value": "0.6"
+          "value": "0.7"
         },
         {
           "name": "source-sip",
@@ -814,9 +814,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "ID-2.5"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -829,13 +834,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "73a99cce-cf06-5ff8-a0ce-13f95cba3a82",
-              "description": "Held by ID-2.5, which does not claim it. Conditional access sets the usage conditions on each account.",
+              "description": "Implemented by ID-2.5 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by ID-2.5, which does not claim it. Conditional access sets the usage conditions on each account."
+          ]
         },
         {
           "uuid": "37943eeb-e161-56f6-9f09-fa5a04a84c30",
@@ -923,17 +927,12 @@
             {
               "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "AI-3.4 AI-8.4 AI-8.15"
+              "value": "ID-2.4 AI-3.4 AI-8.4 AI-8.15"
             },
             {
               "name": "sadd-claim",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
               "value": "partial"
-            },
-            {
-              "name": "gap",
-              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "narrow"
             }
           ],
           "links": [
@@ -946,13 +945,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "0672b4ea-be28-52e1-947c-3742b7bc96a2",
-              "description": "Implemented by AI-3.4, AI-8.4, AI-8.15 (Partial), as each outcome's SIP record describes.",
+              "description": "Implemented by ID-2.4, AI-3.4, AI-8.4, AI-8.15 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Its only owners are narrow outcomes. A system-wide owner is still to be named."
+          ]
         },
         {
           "uuid": "57c4c7b5-5802-5ad7-aac3-491471bff34e",
@@ -1034,9 +1032,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "NE-2.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -1049,13 +1052,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "8ae88ea9-94ab-503d-bdd7-3e783cf9e3fc",
-              "description": "Held by NE-2.4, which does not claim it. Both hubs decrypt outbound TLS for inspection.",
+              "description": "Implemented by NE-2.4 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by NE-2.4, which does not claim it. Both hubs decrypt outbound TLS for inspection."
+          ]
         },
         {
           "uuid": "29258b36-3162-5f91-9645-5d7ef093d6f6",
@@ -2997,9 +2999,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DE-3.1"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -3012,13 +3019,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "39a86029-41a2-5ebe-a0cf-82c4c60b7280",
-              "description": "Held by DE-3.1, which does not claim it. Splunk correlates scan, performance, and log data.",
+              "description": "Implemented by DE-3.1 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DE-3.1, which does not claim it. Splunk correlates scan, performance, and log data."
+          ]
         },
         {
           "uuid": "cb88d3ac-be2f-5f6a-b1a2-2bfb511b3ec0",
@@ -3030,9 +3036,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "ID-1.10"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -3045,13 +3056,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "51890242-a077-5925-9d67-f3dc8ef37b34",
-              "description": "Held by ID-1.10, which does not claim it. Physical and logical access events are correlated.",
+              "description": "Implemented by ID-1.10 (Full), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by ID-1.10, which does not claim it. Physical and logical access events are correlated."
+          ]
         },
         {
           "uuid": "4c556161-56b3-529a-b61a-86db4670175b",
@@ -3692,9 +3702,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "NE-2.10"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -3707,13 +3722,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "a2871229-f508-5398-ba63-25b67b3f7d93",
-              "description": "Held by GV-5.6, which does not claim it. The interconnection agreements authorize each transfer, still to be confirmed.",
+              "description": "Implemented by NE-2.10 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by GV-5.6, which does not claim it. The interconnection agreements authorize each transfer, still to be confirmed."
+          ]
         },
         {
           "uuid": "fb34426f-ecd9-578f-982e-21373c2d1223",
@@ -6436,9 +6450,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "RC-1.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -6451,13 +6470,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "1f5afb25-ffd6-52a6-8623-10a266df15b8",
-              "description": "Held by RC-1.2, which does not claim it. Point-in-time restore recovers transactions within each tier's recovery point.",
+              "description": "Implemented by RC-1.2 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by RC-1.2, which does not claim it. Point-in-time restore recovers transactions within each tier's recovery point."
+          ]
         },
         {
           "uuid": "5ca48196-c678-5691-ac78-9013525af5ae",
@@ -7545,9 +7563,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "RS-1.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -7560,13 +7583,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "344426fa-d7bd-5022-984f-3ccbf89e68da",
-              "description": "Held by RS-1.2, which does not claim it. Responders train on simulated incidents.",
+              "description": "Implemented by RS-1.2 (Full), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by RS-1.2, which does not claim it. Responders train on simulated incidents."
+          ]
         },
         {
           "uuid": "1bc7a592-1333-5b9c-b797-6b2a3281c1f7",
@@ -7578,9 +7600,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "RS-1.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -7593,13 +7620,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "d7bafa54-e514-5e1d-8bcb-90a3b8cb1b8b",
-              "description": "Held by RS-1.2, which does not claim it. Training runs in the exercise environment.",
+              "description": "Implemented by RS-1.2 (Full), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by RS-1.2, which does not claim it. Training runs in the exercise environment."
+          ]
         },
         {
           "uuid": "b47aec60-c0e6-59cd-b038-0b5e7b155e4f",
@@ -8172,9 +8198,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "RS-4.1"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -8187,13 +8218,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "196a691e-525b-5e0f-9180-f1b3f27c752b",
-              "description": "Held by RS-4.1, which does not claim it. The IRP covers breaches of personal information.",
+              "description": "Implemented by RS-4.1 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by RS-4.1, which does not claim it. The IRP covers breaches of personal information."
+          ]
         },
         {
           "uuid": "06452c47-cde8-57c2-8004-6661c328958a",
@@ -12356,9 +12386,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "GV-3.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -12371,13 +12406,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "480d8a5a-5274-5080-bfe3-5157b72391a3",
-              "description": "Held by GV-3.2, which does not claim it. A contract clause requiring functional properties of security controls belongs in the contract security requirements, still to be confirmed.",
+              "description": "Implemented by GV-3.2 (Full), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by GV-3.2, which does not claim it. A contract clause requiring functional properties of security controls belongs in the contract security requirements, still to be confirmed."
+          ]
         },
         {
           "uuid": "aad0d31c-f055-572d-9b91-cd993251eb8d",
@@ -12389,9 +12423,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "GV-3.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -12404,13 +12443,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "1fb1718e-825c-56e4-a86f-b08f9cb869be",
-              "description": "Held by GV-3.2, which does not claim it. A contract clause requiring design and implementation information belongs in the contract security requirements, still to be confirmed.",
+              "description": "Implemented by GV-3.2 (Full), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by GV-3.2, which does not claim it. A contract clause requiring design and implementation information belongs in the contract security requirements, still to be confirmed."
+          ]
         },
         {
           "uuid": "de219643-9656-5226-bf91-7051f63acc04",
@@ -12422,9 +12460,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "GV-3.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -12437,13 +12480,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "8e42f05c-463f-5961-a86e-5e29e6d43663",
-              "description": "Held by GV-3.2, which does not claim it. A contract clause requiring delivery in a secure configuration belongs in the contract security requirements, still to be confirmed.",
+              "description": "Implemented by GV-3.2 (Full), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by GV-3.2, which does not claim it. A contract clause requiring delivery in a secure configuration belongs in the contract security requirements, still to be confirmed."
+          ]
         },
         {
           "uuid": "0bfb7a43-281e-5362-9945-b1df73ac123a",
@@ -12679,9 +12721,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "GV-3.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -12694,13 +12741,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "8e74b9f6-2958-539a-af4b-fcf015accc03",
-              "description": "Held by GV-3.2, which does not claim it. A contract clause requiring each external service to identify its functions, ports, and protocols belongs in the contract security requirements, still to be confirmed.",
+              "description": "Implemented by GV-3.2 (Full), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by GV-3.2, which does not claim it. A contract clause requiring each external service to identify its functions, ports, and protocols belongs in the contract security requirements, still to be confirmed."
+          ]
         },
         {
           "uuid": "58770fec-94b9-59b3-8508-6204c5bf889e",
@@ -13150,7 +13196,7 @@
             {
               "name": "designation",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "system-specific"
+              "value": "hybrid"
             },
             {
               "name": "sadd-outcomes",
@@ -13161,11 +13207,6 @@
               "name": "sadd-claim",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
               "value": "partial"
-            },
-            {
-              "name": "gap",
-              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "narrow"
             }
           ],
           "links": [
@@ -13182,9 +13223,16 @@
               "implementation-status": {
                 "state": "planned"
               }
+            },
+            {
+              "component-uuid": "6b3f78d9-f76b-59c8-8880-398898cc4092",
+              "uuid": "ec8c8f33-8e6f-5cc8-9cfc-817ad2ee0eec",
+              "description": "Isolation of shared hardware through the isolated VM sizes IL5 requires, under its IL5 provisional authorization, in both US Gov regions. Validated under GV-5.12.",
+              "implementation-status": {
+                "state": "implemented"
+              }
             }
-          ],
-          "remarks": "Its only owners are narrow outcomes. A system-wide owner is still to be named."
+          ]
         },
         {
           "uuid": "9a89d7bd-4752-578f-9400-e5b32c8465ff",
@@ -14532,9 +14580,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "NE-2.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -14547,13 +14600,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "73c7e077-4332-5ba8-8e64-c7311a32ca02",
-              "description": "Held by NE-2.4, which does not claim it. Both hubs decrypt outbound TLS for inspection.",
+              "description": "Implemented by NE-2.4 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by NE-2.4, which does not claim it. Both hubs decrypt outbound TLS for inspection."
+          ]
         },
         {
           "uuid": "c1b7e4da-7d5a-54c4-975c-6709f26a8a8d",
@@ -14639,9 +14691,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "ID-4.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -14654,13 +14711,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "ba4d812c-7483-5151-9c42-cca89b1cbeef",
-              "description": "Held by DE-1.9, which does not claim it. User activity monitoring covers privileged users.",
+              "description": "Implemented by ID-4.4 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DE-1.9, which does not claim it. User activity monitoring covers privileged users."
+          ]
         },
         {
           "uuid": "e04fb182-88ea-5fbf-a389-4a135a302da4",
@@ -14781,17 +14837,12 @@
             {
               "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "AI-9.5"
+              "value": "DI-5.4 AI-9.5"
             },
             {
               "name": "sadd-claim",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
               "value": "partial"
-            },
-            {
-              "name": "gap",
-              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "narrow"
             }
           ],
           "links": [
@@ -14804,13 +14855,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "019bcf8a-9123-527a-9d09-54fcf8ddc8bc",
-              "description": "Implemented by AI-9.5 (Partial), as each outcome's SIP record describes.",
+              "description": "Implemented by DI-5.4, AI-9.5 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Its only owners are narrow outcomes. A system-wide owner is still to be named."
+          ]
         },
         {
           "uuid": "b09ff27a-78a9-5b75-b3db-b348bad5e4b8",
@@ -14896,9 +14946,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DI-5.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -14911,13 +14966,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "72d629b6-5fa5-5a2b-9c11-13f5f663440d",
-              "description": "Held by DI-5.4, which does not claim it. File integrity monitoring alerts on violations.",
+              "description": "Implemented by DI-5.4 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DI-5.4, which does not claim it. File integrity monitoring alerts on violations."
+          ]
         },
         {
           "uuid": "20b5aa67-d495-5c8e-bb5b-9e43a87fbcaf",
@@ -14931,17 +14985,12 @@
             {
               "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "AI-2.1"
+              "value": "DI-5.4 AI-2.1"
             },
             {
               "name": "sadd-claim",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
               "value": "partial"
-            },
-            {
-              "name": "gap",
-              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "narrow"
             }
           ],
           "links": [
@@ -14954,13 +15003,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "e643d7ee-a1c3-5c14-ab01-c636ee4f71c1",
-              "description": "Implemented by AI-2.1 (Partial), as each outcome's SIP record describes.",
+              "description": "Implemented by DI-5.4, AI-2.1 (Partial), as each outcome's SIP record describes.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Its only owners are narrow outcomes. A system-wide owner is still to be named."
+          ]
         },
         {
           "uuid": "f83fcb5f-768c-5b88-91b6-83d9fff84f97",

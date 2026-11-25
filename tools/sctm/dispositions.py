@@ -61,6 +61,7 @@ INHERITED = {
     'MA-5': (['azure'], 'Maintenance personnel for the cloud hardware'),
     'MA-6': (['azure'], 'Timely maintenance of the cloud hardware'),
     'MP-6': (['azure'], 'Sanitization of cloud storage media'),
+    'SC-4': (['azure'], 'Isolation of shared hardware through the isolated VM sizes IL5 requires'),
 }
 
 # Selected controls that do not apply to KESTREL, with the reason.
@@ -117,4 +118,4 @@ MET_UNCLAIMED = {
 
 # Controls whose only owners are narrow outcomes. The SADD's gap register asks the SCTM not to
 # read them as system-wide, so each row carries this note until a system-wide owner is named.
-NARROW = {'SI-7(5)', 'SI-6', 'SC-4', 'CM-6(2)', 'SA-5', 'AC-3', 'MP-8', 'SI-19(3)'}
+NARROW = {'CM-6(2)', 'SA-5', 'MP-8', 'SI-19(3)'}

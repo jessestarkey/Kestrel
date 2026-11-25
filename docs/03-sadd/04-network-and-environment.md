@@ -731,6 +731,8 @@
 - **SC-7(3) (partial):** the hub-and-spoke topology reduces external and inter-spoke connections to one managed access point, where the firewall controls traffic. On-Premises Perimeter Firewall Deployment holds the same claim for each physical site. The enhancement fits this mechanism exactly, and citing it avoids a fourth SC-7 base claim.
 - **SC-7(8) (partial):** claimed for HTTP/HTTPS Traffic URL Filtering, which routes outbound web traffic through the firewall's filtering proxy to permit or deny by URL and category. Authorized Cloud Access Point Integration holds the cloud enclave's slice.
 - **SC-7(10) (partial):** claimed for TLS Inspection Advanced Filtering, which decrypts outbound TLS to inspect for policy violations and exfiltration. Training Cluster Network Segmentation and Egress Control holds a disjoint slice for training-cluster egress.
+- **AC-4(4) (partial):** claimed for TLS Inspection Advanced Filtering, which decrypts outbound TLS so the firewall's flow policy applies to its content. Other outcomes hold the remaining encrypted paths.
+- **SI-4(10) (partial):** carried by the same activity, which gives monitoring visibility into outbound encrypted traffic at the shared path.
 - **Declined:** SC-8 is not claimed, since TLS inspection terminates encryption rather than protecting it. The peering and routing activities only force traffic to the SC-7(3) access point. CM-2 and CM-6(1) stay with Network Centralization and Standardization, whose baseline the firewall policies build on.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
@@ -829,7 +831,7 @@
     - **Level of Effort:** High
     - **Cost:** One-Time: High; Recurring: Moderate
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SC-7(10) (partial) mapping by decrypting TLS so the firewall can inspect for exfiltration before re-encrypting. SC-8 is not claimed because it terminates encryption. It is Level 2, strengthening the boundary control in Firewall Policies and Filtering Rules.
+    - **Supplemental Guidance:** This activity carries the outcome's SC-7(10), AC-4(4), and SI-4(10) (partial) mappings by decrypting TLS so the firewall can inspect for exfiltration before re-encrypting. AC-4(4) and SI-4(10) are mandatory where the baseline is High. SC-8 is not claimed because it terminates encryption. It is Level 2, strengthening the boundary control in Firewall Policies and Filtering Rules.
 
 ### NE-2.5: DDoS Protection
 
@@ -1201,6 +1203,7 @@
 - **AC-4(17) (partial):** carried by that activity, binding each filter decision to the source and destination domains the request workflow validates, another partial slice of the filter.
 - **AC-4(26) (partial):** claimed for Transfer Audit Logging and Review, which records and audits filtering actions and results for cross-domain transfers.
 - **AC-4(31) (partial):** carried by the inspection activity, whose block, strip, and quarantine outcomes keep failed content out of the receiving domain, a partial slice of the filter. None of these claims reopens the AC-4 base or the AC-4(21) diode claim.
+- **CA-3(6) (partial):** carried by CDS Transfer Request and Approval Workflow, which verifies that the requester and destination domain are authorized before the CDS releases a transfer. The interconnection agreements set the authorizations it checks.
 - **Declined:** AC-4(14) is not claimed, since the accredited product's own filter definitions fix the format specifications. CDS Accreditation and Periodic Reassessment and CDS Product Selection and Baseline List Compliance carry no citation, since authorization evidence for the SC-46 mechanism belongs in the traceability artifact. SA-4 stays with the Manage pillar and the Application focus area. CA-2(1) is assessment evidence rather than a design-intent control.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
@@ -1233,7 +1236,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Moderate
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SC-46 (partial) mapping by operating the accredited CDS as the authorization gate every transfer must pass. It is Process and not tagged Automate, because cross-domain release requires human review.
+    - **Supplemental Guidance:** This activity carries the outcome's SC-46 (partial) and CA-3(6) (partial) mappings by operating the accredited CDS as the authorization gate every transfer must pass. It is Process and not tagged Automate, because cross-domain release requires human review.
 
 - **NE-2.10.3: Policy-Based Automated Transfer Release**
     - **Description:** Define the release rules the guard applies without human intervention for each high-volume or continuous transfer flow that a per-transfer human queue cannot absorb, expressed as verified data type identifiers, structural conformance to an enumerated format, source and destination pairing, and the marking the content carries, and route every transfer that falls outside those rules into the human approval workflow as an exception.
