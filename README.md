@@ -119,17 +119,18 @@ The repository will grow along the same path a PMO ISSE follows. The authorizati
 2. **Categorization and control selection** ([docs/02-ccsd.md](docs/02-ccsd.md)): information types, impact values, overlays, and tailoring, in the CCSD.
 3. **SADD** ([docs/03-sadd/](docs/03-sadd/index.md)): which SABER outcomes apply, which drop out and why, and the design intent for each, one file per focus area.
 4. **Security Implementation Plan** ([docs/04-sip/](docs/04-sip/index.md)): the products chosen for each SADD outcome, the team that delivers it, and a four-phase rollout, with each record ready to load into Jira as a story and its sub-tasks.
-5. **Plan-type deliverables** (the [wiki](https://github.com/jessestarkey/Kestrel/wiki), standing in for KESTREL's Confluence, with page sources in `tools/github/wiki/`): KESTREL-specific instances of the SABER's governing plans, starting with the Account Management Plan, and the runbooks that carry them out.
+5. **SCTM** ([docs/05-sctm/](docs/05-sctm/index.md)): every control in the approved set, carried to its SADD outcomes, providers, and evidence, with the same rows in OSCAL.
+6. **Plan-type deliverables** (the [wiki](https://github.com/jessestarkey/Kestrel/wiki), standing in for KESTREL's Confluence, with page sources in `tools/github/wiki/`): KESTREL-specific instances of the SABER's governing plans and charters, and the runbooks that carry them out.
 
-The system description, CCSD, SADD, and Security Implementation Plan are written. The rest follow in order.
+The system description, CCSD, SADD, Security Implementation Plan, and SCTM are written, along with every governing plan and charter Phase 1 needs. The rest follow in order.
 
 Three more folders will hold the material that shows the design built, not just documented:
 
-- **`threat-models/`** holds threat models for KESTREL's components and data flows, along with any modeling tool files.
+- **`threat-models/`** holds threat models for KESTREL's components and data flows, as Threagile YAML.
 - **`iac/`** holds infrastructure as code, such as OpenTofu, Kubernetes manifests, and policy as code, that implements SABER outcomes.
 - **`src/`** holds code examples, such as pipeline security gates and model serving controls.
 
-Each folder appears when its first file does. A fourth folder, **`tools/`**, holds the scripts that generate parts of the documents, such as the [SADD build](tools/sadd/README.md).
+Each folder appears when its first file does. A fourth folder, **`tools/`**, holds the scripts that generate parts of the documents, such as the [SADD build](tools/sadd/README.md) and the [SCTM build](tools/sctm/README.md).
 
 ## Relationship to the SABER
 

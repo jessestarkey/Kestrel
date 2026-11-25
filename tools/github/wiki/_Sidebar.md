@@ -26,6 +26,7 @@
 - [CCSD](https://github.com/jessestarkey/Kestrel/blob/main/docs/02-ccsd.md)
 - [SADD](https://github.com/jessestarkey/Kestrel/blob/main/docs/03-sadd/index.md)
 - [Security Implementation Plan](https://github.com/jessestarkey/Kestrel/blob/main/docs/04-sip/index.md)
+- [SCTM](https://github.com/jessestarkey/Kestrel/blob/main/docs/05-sctm/index.md)
 
 **Work tracking**
 
