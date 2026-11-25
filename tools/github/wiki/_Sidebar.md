@@ -13,6 +13,7 @@
 **Charters**
 
 - [Governance Program Charter](Governance-Program-Charter)
+- [Risk Management Program Charter](Risk-Management-Program-Charter)
 
 **Runbooks**
 

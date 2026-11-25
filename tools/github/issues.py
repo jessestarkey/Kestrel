@@ -47,6 +47,7 @@ WIKI = {'ID-4.6': ('Break-Glass Account Retrieval runbook', 'Break-Glass-Account
         'DA-3.13': ('Key Management Plan', 'Key-Management-Plan'),
         'GV-1.1': ('Governance Program Charter', 'Governance-Program-Charter'),
         'DI-6.1': ('Configuration Management Plan', 'Configuration-Management-Plan'),
+        'RK-1.1': ('Risk Management Program Charter', 'Risk-Management-Program-Charter'),
         'RS-4.1': ('Incident Response Plan', 'Incident-Response-Plan')}
 TYPE_LABELS = {'initiative': ('type: initiative', '5319e7'), 'epic': ('type: epic', '1d76db'),
                'story': ('type: story', '0e8a16'), 'sub-task': ('type: sub-task', 'c5def5')}
