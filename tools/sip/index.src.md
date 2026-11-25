@@ -11,11 +11,11 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SIP Version | 0.4 |
+| SIP Version | 0.5 |
 | Date | 2026-11-25 |
 | Prepared By | KESTREL PMO ISSE, with the performer's team leads |
 | Approving Authority | KESTREL program manager, who controls the program's engineering staff, contracts, and budget |
-| Source SADD Version | 0.5, submitted for AO approval as 1.0 |
+| Source SADD Version | 0.8, submitted for AO approval as 1.0 |
 | Classification / Handling | CUI |
 
 ### Version History
@@ -26,12 +26,13 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | 0.2 | 2026-11-20 | KESTREL PMO ISSE | Phased every activity, applied the reviews of every focus area, and moved to SADD 0.4 and SABER v2.0, adding the coding agent |
 | 0.3 | 2026-11-24 | KESTREL PMO ISSE | Applied the Manage review, moving the interim ConMon plan, POA&M, PIA, and AI inventory into Phase 1 and the package into Phase 3, and wrote every Manage record from its intent |
 | 0.4 | 2026-11-25 | KESTREL PMO ISSE | Replaced OWASP Threat Dragon with the program's custom Threagile image and modular threat model repository, so each model is YAML in GitLab and the pipeline catches a stale one at merge |
+| 0.5 | 2026-11-25 | KESTREL PMO ISSE | Selected Agent Threat Rules and Splunk behavioral rules for AI detection, PyRIT and garak for AI emulation, and Defender for AI Services pending its Azure Government check |
 
 ---
 
 ## 1. Purpose and Source
 
-This plan carries KESTREL's SADD, version 0.5, into RMF Step 3. It records the products and services chosen for each of the SADD's {{NREC}} in-scope outcomes and the tailoring each choice needs across the cloud, the data center, the alternate site, and the fleet. It also names the team accountable for delivering each one and places it in a four-phase rollout built around KESTREL's funding, dependencies, and schedule. The SADD is still awaiting AO approval, so this plan is drafted against version 0.5 and is re-baselined when the SADD is approved as 1.0.
+This plan carries KESTREL's SADD, version 0.8, into RMF Step 3. It records the products and services chosen for each of the SADD's {{NREC}} in-scope outcomes and the tailoring each choice needs across the cloud, the data center, the alternate site, and the fleet. It also names the team accountable for delivering each one and places it in a four-phase rollout built around KESTREL's funding, dependencies, and schedule. The SADD is still awaiting AO approval, so this plan is drafted against version 0.8 and is re-baselined when the SADD is approved as 1.0.
 
 **Approving authority note:** the AO approves the SADD, but only the program manager commits the staff, contracts, and budget this plan assumes. The program manager therefore approves this plan.
 

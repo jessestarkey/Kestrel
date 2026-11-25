@@ -11,10 +11,10 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SADD Version | 0.7 |
+| SADD Version | 0.8 |
 | Date | 2026-11-17 |
 | Prepared By | KESTREL PMO ISSE |
-| Approved By | Pending. Version 0.7 is submitted to the KESTREL AO for approval as version 1.0. |
+| Approved By | Pending. Version 0.8 is submitted to the KESTREL AO for approval as version 1.0. |
 | Classification / Handling | CUI |
 | Security Categorization | Confidentiality High, Integrity High, Availability Moderate (see Section 2) |
 
@@ -29,6 +29,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | 0.5 | 2026-11-24 | KESTREL PMO ISSE | Separated model and use case governance, admitted platform models, and corrected the exception approval wording |
 | 0.6 | 2026-11-25 | KESTREL PMO ISSE | Recorded the SCTM's full selection check in the gap register, with the outcome holding each unclaimed control and the proposed system-wide owners |
 | 0.7 | 2026-11-25 | KESTREL PMO ISSE | Took up the 19 control claims SABER v2.0 added from the SCTM's findings, and closed their gap register rows |
+| 0.8 | 2026-11-25 | KESTREL PMO ISSE | Added detection rules and emulation for the AI models and agents, and ATLAS to the detection coverage review, under SABER v2.0 |
 
 ---
 
@@ -205,7 +206,7 @@ Each focus area file follows the SABER template's outcome block. Every in-scope 
 | Protect | [AP: Application](05-application.md) | 55 / 0 | 151 | Written |
 | Protect | [AI: Artificial Intelligence](06-artificial-intelligence.md) | 80 / 1 | 187 | Written |
 | Protect | [DA: Data](07-data.md) | 27 / 0 | 81 | Written |
-| Operate | [DE: Detection](08-detection.md) | 20 / 1 | 94 | Written |
+| Operate | [DE: Detection](08-detection.md) | 20 / 1 | 96 | Written |
 | Operate | [RS: Response](09-response.md) | 20 / 0 | 60 | Written |
 | Operate | [RC: Recovery](10-recovery.md) | 16 / 0 | 41 | Written |
 | Manage | [GV: Governance](11-governance.md) | 33 / 0 | 117 | Written |
@@ -325,7 +326,7 @@ SI-8 is not a gap. The AO removed it in CCSD tailoring action 1, and its one own
 
 ## 10. Approval and Periodic Review
 
-**Approved By:** Pending. Version 0.7 is submitted to the KESTREL AO for approval as version 1.0.
+**Approved By:** Pending. Version 0.8 is submitted to the KESTREL AO for approval as version 1.0.
 
 **Review Cadence:** Annually, and whenever a revision trigger below occurs.
 

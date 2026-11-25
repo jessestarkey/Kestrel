@@ -6,7 +6,7 @@
 
 ### DE-1.1: Platform-Native Threat Detection
 
-**Design Intent:** The cloud provider's native detection services are on for every subscription, cluster, database, storage service, and the tenant. The directory's own threat detection is on in the data center and at the alternate site. Each quarter, the Security Team reviews their coverage against MITRE ATT&CK and tunes noisy alerts through detection content in the pipeline. Gaps they find go to custom rules in the security monitoring platform. The CSSP's analysts read the native detection consoles directly through their host pool.
+**Design Intent:** The cloud provider's native detection services are on for every subscription, cluster, database, storage service, and the tenant. The directory's own threat detection is on in the data center and at the alternate site. Each quarter, the Security Team reviews their coverage against MITRE ATT&CK, and against MITRE ATLAS for the AI models and agents, and tunes noisy alerts through detection content in the pipeline. Gaps they find go to custom rules in the security monitoring platform. The provider's AI threat protection covers the foundation model deployment once it is confirmed at IL5 and works with the abuse monitoring exemption. The CSSP's analysts read the native detection consoles directly through their host pool.
 
 **NIST Control Mapping:**
 
@@ -44,7 +44,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the monitoring-objectives dimension of the outcome's SI-4 (partial) mapping. Assess coverage against one technique taxonomy the program keeps, so findings compare across cycles. Record which entries are asserted from documentation and which the Adversary Emulation and Detection Validation outcome has demonstrated.
+    - **Supplemental Guidance:** This activity carries the monitoring-objectives dimension of the outcome's SI-4 (partial) mapping. Assess coverage against one technique taxonomy per estate, namely MITRE ATT&CK, plus MITRE ATLAS for any AI models and agents the program fields, so findings compare across cycles. Record which entries are asserted from documentation and which the Adversary Emulation and Detection Validation outcome has demonstrated.
 
 - **DE-1.1.3: Addressing Detection Gaps**
     - **Description:** Assign an owner and a closure path to each uncovered technique the review identifies, choosing for each whether the gap is closed by a custom rule, an additional telemetry source, a new detection product, or a documented acceptance.
@@ -69,7 +69,7 @@
     - **Supplemental Guidance:** A queue analysts close without reading is no better than a detection never enabled, and this activity prevents that. Record suppressions in the CMP with a reason and an expiry. It is Level 1 because the mandatory detections depend on being read.
 
 - **DE-1.1.5: Detection Coverage/MITRE ATT&CK Mapping Visualization Dashboard**
-    - **Description:** Build the dashboard that renders the program's detection coverage against the MITRE ATT&CK matrix, showing per technique which detections exist, which have been validated by emulation, and which remain uncovered.
+    - **Description:** Build the dashboard that renders the program's detection coverage against the MITRE ATT&CK matrix, and against MITRE ATLAS where the program fields AI, showing per technique which detections exist, which have been validated by emulation, and which remain uncovered.
     - **Control Type:** Technical
     - **Cross-Cutting Discipline:** Visualize
     - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
@@ -81,7 +81,7 @@
 
 ### DE-1.2: Adversary Emulation and Detection Validation
 
-**Design Intent:** A breach and attack simulation platform runs known techniques against the cloud spokes, the data center, and identity each month, and confirms which ones the security monitoring platform caught. The Security Team and the CSSP run a purple team exercise each quarter. Once a year, an unannounced campaign emulates a named actor from the threat model under rules of engagement agreed with each owning team. A missed technique closes only when it is re-run and the detection fires. Fleet systems are emulated only on spares or the simulator.
+**Design Intent:** A breach and attack simulation platform runs known techniques against the cloud spokes, the data center, and identity each month, and confirms which ones the security monitoring platform caught. The Security Team and the CSSP run a purple team exercise each quarter. Once a year, an unannounced campaign emulates a named actor from the threat model under rules of engagement agreed with each owning team. A missed technique closes only when it is re-run and the detection fires. The exercises also run ATLAS techniques against the models and agents in stage, such as injected instructions in retrieved reports and tool misuse. Fleet systems are emulated only on spares or the simulator.
 
 **NIST Control Mapping:**
 
@@ -90,7 +90,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
-**Affected Components:** Compute, Device/Workstation, Identity Platform, Network Infrastructure, Application/API
+**Affected Components:** Compute, Device/Workstation, Identity Platform, Network Infrastructure, Application/API, AI Agent, AI Interface/Inference Endpoint
 
 **External Dependencies:** The CSSP, which joins each purple team exercise. The penetration testing provider, which runs the annual campaign.
 
@@ -142,9 +142,20 @@
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity carries the corrective-action dimension of the outcome's CA-8(2) (full) mapping. Close findings by re-executing the technique, since a new rule is untested until then. Results feed the Platform-Native Threat Detection outcome's coverage review and dashboard.
 
+- **DE-1.2.5: AI Technique Emulation Against Fielded Models and Agents**
+    - **Description:** Execute the MITRE ATLAS techniques the program's threat model names against its fielded models and agents, such as injected instructions in retrieved content, tool misuse, and extraction querying, and record which attempts produced a detection, carrying each miss into Detection Efficacy Findings and Remediation Tracking.
+    - **Control Type:** Process
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Periodic (Annual)
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Moderate; Recurring: Moderate
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries part of the outcome's CA-8(2) (full) mapping for the AI estate. Red Teaming and Operational Adversarial Re-Testing ask whether a model can be broken, while this activity asks whether the program would see the attempt. Run it against a production-equivalent instance wherever a live attempt could reach the mission. It applies only where the program fields AI models or agents.
+
 ### DE-1.3: Correlated Threat Detection and Analytics
 
-**Design Intent:** The security monitoring platform is the one place every telemetry source lands, and it correlates endpoint, identity, network, cloud, application, and ground segment events. Indicators from the CSSP arrive over F31, carry a confidence tier and an expiry, and age out unless renewed. Vetted indicators are pushed to the firewalls, the DNS filters, and EDR. Detection rules are written as code in the Security Team's repository and deployed through the pipeline over F35 after review.
+**Design Intent:** The security monitoring platform is the one place every telemetry source lands, and it correlates endpoint, identity, network, cloud, application, and ground segment events. Indicators from the CSSP arrive over F31, carry a confidence tier and an expiry, and age out unless renewed. Vetted indicators are pushed to the firewalls, the DNS filters, and EDR. Detection rules are written as code in the Security Team's repository and deployed through the pipeline over F35 after review. Rules for the AI estate read the agent action records, the serving layer's abuse findings, and logged prompts. They pair known-bad content patterns with behavioral rules, such as a secret read followed by egress, and each maps to its ATLAS technique.
 
 **NIST Control Mapping:**
 
@@ -155,7 +166,7 @@
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
-**Affected Components:** Compute, Storage/Database, Identity Platform, Device/Workstation, Network Infrastructure, Application/API, OT/ICS Device
+**Affected Components:** Compute, Storage/Database, Identity Platform, Device/Workstation, Network Infrastructure, Application/API, OT/ICS Device, AI Agent, AI Interface/Inference Endpoint
 
 **External Dependencies:** The CSSP, which receives forwarded telemetry and adds its own detection under its service agreement. It also supplies threat intelligence and indicator feeds.
 
@@ -228,6 +239,17 @@
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
     - **Supplemental Guidance:** This activity is tagged Automate as a named practice and the gate rule changes pass through. It carries no independent control citation. It lets the program explain why a detection stopped firing and revert a rule quickly. Backtest each rule against retained telemetry before promotion.
+
+- **DE-1.3.7: AI and Agent Detection Rule Authoring**
+    - **Description:** Author detection rules over the program's agent action records, model-serving abuse findings, and logged prompts and responses for the AI techniques its threat model names, such as injected instructions reaching a tool call, a tool call outside an agent's established pattern, delegation that widens scope, untrusted writes to agent memory, and data leaving through tool parameters, mapping each rule to its MITRE ATLAS technique.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Moderate; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries no independent control citation, since it extends Custom XDR/Platform-Native Detection Rule Creation to the AI estate and deploys through the same version-controlled pipeline. Open rule formats for agent threats, such as Agent Threat Rules, supply content-pattern rules, and trace analyzers apply data-flow policies across tool calls. Pattern rules miss rephrased attacks, so pair them with behavioral rules over the records Agentic AI Tool-Call and Action Logging produces. It applies only where the program fields AI models or agents.
 
 ### DE-1.4: Enterprise Threat Hunting Program
 

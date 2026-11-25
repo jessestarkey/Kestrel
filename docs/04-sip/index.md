@@ -11,11 +11,11 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SIP Version | 0.4 |
+| SIP Version | 0.5 |
 | Date | 2026-11-25 |
 | Prepared By | KESTREL PMO ISSE, with the performer's team leads |
 | Approving Authority | KESTREL program manager, who controls the program's engineering staff, contracts, and budget |
-| Source SADD Version | 0.5, submitted for AO approval as 1.0 |
+| Source SADD Version | 0.8, submitted for AO approval as 1.0 |
 | Classification / Handling | CUI |
 
 ### Version History
@@ -26,12 +26,13 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | 0.2 | 2026-11-20 | KESTREL PMO ISSE | Phased every activity, applied the reviews of every focus area, and moved to SADD 0.4 and SABER v2.0, adding the coding agent |
 | 0.3 | 2026-11-24 | KESTREL PMO ISSE | Applied the Manage review, moving the interim ConMon plan, POA&M, PIA, and AI inventory into Phase 1 and the package into Phase 3, and wrote every Manage record from its intent |
 | 0.4 | 2026-11-25 | KESTREL PMO ISSE | Replaced OWASP Threat Dragon with the program's custom Threagile image and modular threat model repository, so each model is YAML in GitLab and the pipeline catches a stale one at merge |
+| 0.5 | 2026-11-25 | KESTREL PMO ISSE | Selected Agent Threat Rules and Splunk behavioral rules for AI detection, PyRIT and garak for AI emulation, and Defender for AI Services pending its Azure Government check |
 
 ---
 
 ## 1. Purpose and Source
 
-This plan carries KESTREL's SADD, version 0.5, into RMF Step 3. It records the products and services chosen for each of the SADD's 364 in-scope outcomes and the tailoring each choice needs across the cloud, the data center, the alternate site, and the fleet. It also names the team accountable for delivering each one and places it in a four-phase rollout built around KESTREL's funding, dependencies, and schedule. The SADD is still awaiting AO approval, so this plan is drafted against version 0.5 and is re-baselined when the SADD is approved as 1.0.
+This plan carries KESTREL's SADD, version 0.8, into RMF Step 3. It records the products and services chosen for each of the SADD's 364 in-scope outcomes and the tailoring each choice needs across the cloud, the data center, the alternate site, and the fleet. It also names the team accountable for delivering each one and places it in a four-phase rollout built around KESTREL's funding, dependencies, and schedule. The SADD is still awaiting AO approval, so this plan is drafted against version 0.8 and is re-baselined when the SADD is approved as 1.0.
 
 **Approving authority note:** the AO approves the SADD, but only the program manager commits the staff, contracts, and budget this plan assumes. The program manager therefore approves this plan.
 
@@ -53,8 +54,8 @@ An interim authorization to test (`GV-5.7`) covers Phases 1 to 3. Integration du
 |---|---|---|---|---|
 | Phase 1, Foundation | 2027-01-01 to 2027-09-30 | Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, Tier 1 backups, an interim IRP, and the governance bodies and core plans. | Funded (FY27 base RDT&E and O&M) | 463 activities. 166 records start here: ID (24), DI (18), NE (17), AP (31), AI (3), DA (22), DE (10), RS (2), RC (7), GV (24), RK (5), CO (3) |
 | Phase 2, Protect and Operate | 2027-10-01 to 2028-03-31 | Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, and adds application security gates, data protection, the remaining backup tiers and recovery, detection content, and incident response. Stands up the data curation path and the training pipeline. | Funded (FY28 base RDT&E and O&M) | 510 activities. 135 records start here: ID (6), DI (9), NE (9), AP (22), AI (37), DA (5), DE (5), RS (18), RC (8), GV (8), RK (4), CO (4) |
-| Phase 3, Mission, AI, and Fleet | 2028-04-01 to 2028-09-30 | Needs Phase 2 gates and detection. Runs AI Cyber T&E and Certification to Field for the first models. Builds serving guardrails, retraining, and the fleet and ground segment controls. Ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M increment) | 171 activities. 59 records start here: ID (2), DI (2), NE (2), AP (1), AI (40), DE (2), RC (1), GV (1), RK (5), CO (3) |
-| Phase 4, Maturity | 2028-10-01 to 2029-03-31 | Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, and RASP. | Unfunded (FY29 request) | 28 activities. 4 records start here: AP (1), DE (3) |
+| Phase 3, Mission, AI, and Fleet | 2028-04-01 to 2028-09-30 | Needs Phase 2 gates and detection. Runs AI Cyber T&E and Certification to Field for the first models. Builds serving guardrails, retraining, and the fleet and ground segment controls. Ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M increment) | 172 activities. 59 records start here: ID (2), DI (2), NE (2), AP (1), AI (40), DE (2), RC (1), GV (1), RK (5), CO (3) |
+| Phase 4, Maturity | 2028-10-01 to 2029-03-31 | Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, and RASP. | Unfunded (FY29 request) | 29 activities. 4 records start here: AP (1), DE (3) |
 
 ---
 
@@ -76,13 +77,13 @@ Every record's status is Not Started, since the plan precedes Phase 1.
 | Protect | [AP: Application](05-application.md) | 55 | 151 |
 | Protect | [AI: Artificial Intelligence](06-artificial-intelligence.md) | 80 | 187 |
 | Protect | [DA: Data](07-data.md) | 27 | 81 |
-| Operate | [DE: Detection](08-detection.md) | 20 | 94 |
+| Operate | [DE: Detection](08-detection.md) | 20 | 96 |
 | Operate | [RS: Response](09-response.md) | 20 | 60 |
 | Operate | [RC: Recovery](10-recovery.md) | 16 | 41 |
 | Manage | [GV: Governance](11-governance.md) | 33 | 117 |
 | Manage | [RK: Risk](12-risk.md) | 14 | 44 |
 | Manage | [CO: Compliance](13-compliance.md) | 10 | 33 |
-| | **Total** | **364** | **1184** |
+| | **Total** | **364** | **1186** |
 
 ---
 
@@ -145,7 +146,7 @@ Each contract below groups the products bought under one vehicle. The Records co
 
 **Government-furnished, so no contract is needed:** CAC PIN reset workstations, DC3's DIB Cybersecurity program, DD Form 2930, DISA SCAP Compliance Checker and STIG Viewer, Iron Bank hardened images from Platform One, Joint Knowledge Online training, Tenable Security Center (ACAS), eMASS, the CSSP, the DISA Boundary Cloud Access Point, the DoD PPSM registry, the DoD Vulnerability Disclosure Program, the PSO's physical access control system, the Supplier Performance Risk System, the cross domain service provider's enterprise CDS.
 
-**Open source, adopted through the ASP's approved component catalog:** Adversarial Robustness Toolbox, cert-manager, ClamAV, cleanlab, compliance-trestle (OSCAL), CVAT, Flower federated learning, Fuzzing harnesses (libFuzzer, AFL++, Jazzer), garak, Gatekeeper and Conftest, Gitleaks pre-commit hooks, Great Expectations, JupyterHub on AKS, KServe, kube-bench, lakeFS, Microsoft Presidio, ModelScan, ONNX Runtime quantization, Open Policy Agent policy decision service, OpenHands, OpenTofu, ORAS offline bundles, OWASP Dependency-Track, PyRIT, Ratify, Self-hosted Evidently, Self-hosted LLM Guard, Self-hosted OpenMetadata, Semantic Kernel, Sigstore Cosign, SonarQube for IDE, Syft (CycloneDX), the Platform Team's landing zone modules derived from Mission Landing Zone, Threagile (the program's custom image, with IL5 and ATLAS risk rules), Trivy misconfiguration scanning.
+**Open source, adopted through the ASP's approved component catalog:** Adversarial Robustness Toolbox, Agent Threat Rules, cert-manager, ClamAV, cleanlab, compliance-trestle (OSCAL), CVAT, Flower federated learning, Fuzzing harnesses (libFuzzer, AFL++, Jazzer), garak, Gatekeeper and Conftest, Gitleaks pre-commit hooks, Great Expectations, JupyterHub on AKS, KServe, kube-bench, lakeFS, Microsoft Presidio, ModelScan, ONNX Runtime quantization, Open Policy Agent policy decision service, OpenHands, OpenTofu, ORAS offline bundles, OWASP Dependency-Track, PyRIT, Ratify, Self-hosted Evidently, Self-hosted LLM Guard, Self-hosted OpenMetadata, Semantic Kernel, Sigstore Cosign, SonarQube for IDE, Syft (CycloneDX), the Platform Team's landing zone modules derived from Mission Landing Zone, Threagile (the program's custom image, with IL5 and ATLAS risk rules), Trivy misconfiguration scanning.
 
 **Source-available, free to use under its license but not open source, so program legal counsel confirms the terms before adoption:** Packer.
 

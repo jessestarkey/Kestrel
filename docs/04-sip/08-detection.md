@@ -6,9 +6,9 @@
 
 ### DE-1.1: Platform-Native Threat Detection
 
-**Selected Tool / Product / Service:** Microsoft Defender for Cloud, Microsoft Defender for Identity, Microsoft Defender XDR
+**Selected Tool / Product / Service:** Microsoft Defender for Cloud, Microsoft Defender for Identity, Microsoft Defender XDR, Defender for AI Services
 
-**Environment-Specific Tailoring:** Defender for Cloud covers every subscription, cluster, and data service, and the tenant. Defender for Identity watches the domain controllers in the data center and at the alternate site. The CSSP reads the consoles through its host pool.
+**Environment-Specific Tailoring:** Defender for Cloud covers every subscription, cluster, and data service, and the tenant. Defender for Identity watches the domain controllers in the data center and at the alternate site. Defender for AI Services covers the Azure OpenAI deployment once Azure Government offers it at IL5 and GV-5.12 confirms it works with the abuse monitoring exemption. The CSSP reads the consoles through its host pool.
 
 **Accountable Team:** Security Team
 
@@ -36,9 +36,9 @@
 
 ### DE-1.2: Adversary Emulation and Detection Validation
 
-**Selected Tool / Product / Service:** AttackIQ Enterprise, Splunk Enterprise Security, the penetration testing provider
+**Selected Tool / Product / Service:** AttackIQ Enterprise, Splunk Enterprise Security, the penetration testing provider, PyRIT, garak
 
-**Environment-Specific Tailoring:** AttackIQ runs monthly against the cloud spokes, the data center, and identity. The penetration testing provider runs the annual campaign under agreed rules of engagement. Fleet systems are emulated only on spares or the simulator.
+**Environment-Specific Tailoring:** AttackIQ runs monthly against the cloud spokes, the data center, and identity. The penetration testing provider runs the annual campaign under agreed rules of engagement. PyRIT and garak run ATLAS techniques against the models and agents in stage, and each miss goes to DE-1.2.4. Fleet systems are emulated only on spares or the simulator.
 
 **Accountable Team:** Security Team
 
@@ -50,7 +50,7 @@
 
 **Target Date / Sprint:** 2029-03-31
 
-**Contracting / Procurement Reference:** [C18](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C28](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C18](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C28](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
 **Status:** Not Started
 
@@ -62,24 +62,25 @@
 | DE-1.2.2: Adversary Emulation Exercise Planning and Execution | 4 | Process | None | Level 2 | Periodic (Annual) | High | One-Time: High; Recurring: High | Medium-term (3–6 months) |
 | DE-1.2.3: Purple Team Exercise Coordination | 4 | Process | None | Level 3 | Periodic (Semi-Annual) | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
 | DE-1.2.4: Detection Efficacy Findings and Remediation Tracking | 4 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| DE-1.2.5: AI Technique Emulation Against Fielded Models and Agents | 4 | Process | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
 
 ### DE-1.3: Correlated Threat Detection and Analytics
 
-**Selected Tool / Product / Service:** Splunk Enterprise Security, Microsoft Defender XDR, GitLab Ultimate, Panorama with the PAN-OS provider for OpenTofu, Infoblox Threat Defense
+**Selected Tool / Product / Service:** Splunk Enterprise Security, Microsoft Defender XDR, GitLab Ultimate, Panorama with the PAN-OS provider for OpenTofu, Infoblox Threat Defense, Agent Threat Rules
 
-**Environment-Specific Tailoring:** Splunk Enterprise Security correlates every source, and detection rules are written as code in GitLab. Vetted CSSP indicators are pushed to Panorama, Infoblox Threat Defense, and Defender. Ground segment correlation starts in Phase 3, when those events arrive.
+**Environment-Specific Tailoring:** Splunk Enterprise Security correlates every source, and detection rules are written as code in GitLab. Vetted CSSP indicators are pushed to Panorama, Infoblox Threat Defense, and Defender. Ground segment correlation starts in Phase 3, when those events arrive. AI rules in Splunk read the agent action records, serving abuse findings, and logged prompts from Phase 3. Agent Threat Rules seeds the content-pattern rules, and the Security Team writes the behavioral ones, each mapped to ATLAS.
 
 **Accountable Team:** Security Team
 
 **Dependencies:** DE-2.1, DE-2.7, DE-3.1, RK-2.3, Cyber defense service provider
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
-**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C12](index.md#6-contracting-and-procurement-cross-references)
+**Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C12](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
 **Status:** Not Started
 
@@ -93,8 +94,9 @@
 | DE-1.3.4: Threat Intelligence Enrichment | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: High | Short-term (1–3 months) |
 | DE-1.3.5: Indicator of Compromise (IOC) Feed Management | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: High | Short-term (1–3 months) |
 | DE-1.3.6: Detection-Rule-as-Code / Version-Controlled Rule Deployment Pipeline | 2 (pinned) | Technical | Automate | Level 3 | Continuous | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| DE-1.3.7: AI and Agent Detection Rule Authoring | 3 (pinned) | Technical | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** DE-1.3.6: Detection content deploys through the pipeline from Phase 2, under the detection content role ID-4.1 defines.
+**Pinned:** DE-1.3.6: Detection content deploys through the pipeline from Phase 2, under the detection content role ID-4.1 defines. DE-1.3.7: The agents and their action records arrive in Phase 3, so the rules over them are written then.
 
 ### DE-1.4: Enterprise Threat Hunting Program
 
