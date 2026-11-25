@@ -107,7 +107,8 @@
      "Program Office (program manager), with the Security Team (ISSM)": "2fb9c100",
      "Program Office, with the parent organization's internal review office": "286b8d6d",
      "SCA, with the Security Team (ISSM) for access and evidence": "4dd6c830",
-     "Security Team, with the Platform Team for the storage": "30c8d15a"
+     "Security Team, with the Platform Team for the storage": "30c8d15a",
+     "Platform Team, with the Security Team for alerts": "0e6d46b2"
     }
    },
    "Control Type": {

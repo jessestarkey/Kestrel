@@ -1485,7 +1485,12 @@
   "DA-3.10<-ID-3.1",
   "DA-3.10<-ID-4.3",
   "DA-3.11<-NE-2.1",
-  "DA-3.12<-DA-3.10"
+  "DA-3.12<-DA-3.10",
+  "DA-1.4<-DE-3.1",
+  "DA-1.9<-GV-1.5",
+  "DA-2.2<-GV-5.12",
+  "DA-3.2<-GV-3.2",
+  "DA-3.13<-GV-1.5"
  ],
  "status": {
   "DA": "Ready",
@@ -1524,11 +1529,11 @@
   "DA-1.8.1": "Backlog",
   "DA-1.8.2": "Backlog",
   "DA-1.8.3": "Backlog",
-  "DA-1.9": "Ready",
-  "DA-1.9.1": "Ready",
-  "DA-1.9.2": "Ready",
-  "DA-1.9.3": "Ready",
-  "DA-1.9.4": "Ready",
+  "DA-1.9": "Backlog",
+  "DA-1.9.1": "Backlog",
+  "DA-1.9.2": "Backlog",
+  "DA-1.9.3": "Backlog",
+  "DA-1.9.4": "Backlog",
   "DA-1.9.5": "Backlog",
   "DA-2": "Ready",
   "DA-2.1": "Backlog",
@@ -1593,9 +1598,9 @@
   "DA-3.12": "Backlog",
   "DA-3.12.1": "Backlog",
   "DA-3.12.2": "Backlog",
-  "DA-3.13": "Ready",
-  "DA-3.13.1": "Ready",
-  "DA-3.13.2": "Ready",
+  "DA-3.13": "Backlog",
+  "DA-3.13.1": "Backlog",
+  "DA-3.13.2": "Backlog",
   "DA-3.13.3": "Backlog"
  }
 }

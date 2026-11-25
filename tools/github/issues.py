@@ -170,9 +170,10 @@ def build_plan(code):
                 body += ['', phase_line, '', '| Field | Value |', '|---|---|'] + [f'| {k} | {v} |' for k, v in meta.items()]
                 fields = {'Outcome ID': oid, **meta}
                 if row['phase']:
-                    # A story with its own later target, such as the SAR, carries it to its Phase 3 sub-tasks.
+                    # A story with its own later target inside Phase 3, such as the SAR, carries it to its
+                    # Phase 3 sub-tasks. A story that runs on into Phase 4 does not.
                     t = TARGET[row['phase']]; st = f.get('Target Date / Sprint', '')
-                    fields['Target Date'] = st if row['phase'] == 3 and st > t else t
+                    fields['Target Date'] = st if row['phase'] == 3 and t < st <= PHASES[3][1] else t
                 issues.append({'key': aid, 'type': 'sub-task', 'parent': oid, 'phase': row['phase'],
                                'state': 'open' if row['phase'] else 'closed',
                                'title': f'{aid}: {at}', 'body': '\n'.join(body) + '\n', 'fields': fields})

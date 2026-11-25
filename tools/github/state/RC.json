@@ -847,7 +847,11 @@
   "RC-3.4<-RC-3.1",
   "RC-3.4<-NE-2.1",
   "RC-3.5<-RC-3.1",
-  "RC-4.1<-RC-3.1"
+  "RC-4.1<-RC-3.1",
+  "RC-1.1<-RK-3.2",
+  "RC-3.1<-RK-3.2",
+  "RC-4.1<-GV-5.1",
+  "RC-4.1<-RK-3.2"
  ],
  "status": {
   "RC": "Ready",
@@ -888,8 +892,8 @@
   "RC-2.3.1": "Blocked",
   "RC-2.3.2": "Backlog",
   "RC-3": "Ready",
-  "RC-3.1": "Ready",
-  "RC-3.1.1": "Ready",
+  "RC-3.1": "Backlog",
+  "RC-3.1.1": "Backlog",
   "RC-3.1.2": "Backlog",
   "RC-3.2": "Backlog",
   "RC-3.2.1": "Backlog",
