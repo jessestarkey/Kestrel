@@ -15,7 +15,7 @@
         {
           "name": "source-sadd",
           "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-          "value": "0.5"
+          "value": "0.6"
         },
         {
           "name": "source-sip",

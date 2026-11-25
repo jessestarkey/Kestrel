@@ -11,10 +11,10 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SADD Version | 0.5 |
+| SADD Version | 0.6 |
 | Date | 2026-11-17 |
 | Prepared By | KESTREL PMO ISSE |
-| Approved By | Pending. Version 0.5 is submitted to the KESTREL AO for approval as version 1.0. |
+| Approved By | Pending. Version 0.6 is submitted to the KESTREL AO for approval as version 1.0. |
 | Classification / Handling | CUI |
 | Security Categorization | Confidentiality High, Integrity High, Availability Moderate (see Section 2) |
 
@@ -27,6 +27,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | 0.3 | 2026-11-17 | KESTREL PMO ISSE | Applied the independent reviews of every focus area. Brought privileged access workstations into scope and took classified endpoint monitoring out. Added flows F29 to F38, the Microsoft 365 DoD tenant, and a second data center circuit |
 | 0.4 | 2026-11-20 | KESTREL PMO ISSE | Moved to SABER v2.0 (in progress), adding agent memory and capability composition to the design and scoping multi-agent orchestration out. Added the developer coding agent and flow F39. |
 | 0.5 | 2026-11-24 | KESTREL PMO ISSE | Separated model and use case governance, admitted platform models, and corrected the exception approval wording |
+| 0.6 | 2026-11-25 | KESTREL PMO ISSE | Recorded the SCTM's full selection check in the gap register, with the outcome holding each unclaimed control and the proposed system-wide owners |
 
 ---
 
@@ -198,14 +199,20 @@ The coverage table is generated from every in-scope outcome's NIST Control Mappi
 | PE family | Only PE-2 and PE-3 are claimed, both partially, by physical and logical access correlation (`ID-1.10`). | Addressed outside the SABER's scope. The PSO owns physical security, the IL5 cloud segments inherit it from the cloud provider, and the alternate site inherits it from the parent organization's facility. | Closed |
 | PS family | Only PS-7 is claimed, partially, by vendor support access (`ID-4.7`). | Addressed outside the SABER's scope. The PSO owns personnel security. | Closed |
 | AC-19, AC-19(5) | Device Compliance (`DI-4.1`) is their only owner, and KESTREL has no mobile devices. | Not applicable. The SCTM records no mobile device in the boundary. | Closed |
-| CP-10(2) | No outcome claims transaction recovery. | Met by point-in-time restore of the cloud databases and the directory under each tier's recovery point (`RC-1.2`, `RC-3.1`). Recorded as SABER feedback. | Open |
-| IR-2(1), IR-2(2) | No outcome claims simulated events or automated training environments. | Met by Incident Response Team Structure and Training (`RS-1.2`), which runs simulated incidents in the exercise environment. Recorded as SABER feedback. | Open |
-| CA-3(6), SR-9(1), SA-9(2), SA-4(1), SA-4(2), SA-4(5), SA-16, SA-21 | Baseline controls no outcome claims. | Interconnection and supplier controls belong in the interconnection agreements (`GV-5.6`) and Contract Security Requirements (`GV-3.2`). Confirm each against the CNSSI 1253 selection. | Open |
-| PT-5, PT-5(2), PT-6 | The Privacy Overlay's notice and system of records controls have no owner. | The privacy officer issues the Privacy Act statement on the account request form, and the PIA names the DoD-wide SORN for user and service desk records (`CO-4.2`). | Open |
+| CP-10(2) | No outcome claims transaction recovery. | Met by point-in-time restore of the cloud databases and the directory under each tier's recovery point (`RC-1.2`, `RC-3.1`). Recorded as SABER feedback, and confirmed by the SCTM. | Open |
+| IR-2(1), IR-2(2) | No outcome claims simulated events or automated training environments. | Met by Incident Response Team Structure and Training (`RS-1.2`), which runs simulated incidents in the exercise environment. Recorded as SABER feedback, and confirmed by the SCTM. | Open |
+| CA-3(6), SR-9(1), SA-9(2), SA-4(1), SA-4(2), SA-4(5), SA-16, SA-21 | Selected controls no outcome claims. The SCTM confirms each is in the selection. | Interconnection and supplier controls belong in the interconnection agreements (`GV-5.6`), Contract Security Requirements (`GV-3.2`), and supplier assessments (`GV-3.4`). Confirm each clause exists. Recorded as SABER feedback. | Open |
+| PT-5, PT-5(2), PT-6 | The Privacy Overlay's notice and system of records controls have no owner. | The privacy officer issues the Privacy Act statement on the account request form (`CO-4.2`). PT-6 is inherited from the component's DoD-wide SORN, as the SCTM records. | Open |
 | PM-20, PM-21, PM-26, PM-27 | Department-level privacy controls declined at `CO-4.1`. | Inherited from the DoD component privacy office. | Closed |
 | SA-3(2), SI-7(17), SA-11(9) | Slices the SABER records as gaps: ML evaluation environments, browser-executed code integrity, and IAST for unsupported runtimes. | Held by `AI-7.3`, content security policy under `AP-2.9`, and DAST under `AP-3.2`. Recorded as SABER feedback. | Open |
-| Narrow sole owners | SI-7(5), SI-6, SC-4, CM-6(2), SA-5, and base AC-3 rest only on narrow AI outcomes, and MP-8 and SI-19(3) rest on activities that are not applicable today. | The SCTM must not read these as system-wide implementations. Each needs a system-wide owner named when the SCTM is built. | Open |
-| Full selection check | This register is checked against the claims in Section 7. The check against every control in the CNSSI 1253 selection waits for the SCTM's per-control list. | The SCTM is built from the CNSSI 1253 selection, its overlays, and the tailoring actions, not from Section 7, and each unclaimed row lands here. | Open |
+| Narrow sole owners | AC-3, CM-6(2), SA-5, SC-4, SI-6, and SI-7(5) rest only on narrow AI or device outcomes. MP-8 and SI-19(3) are outside the selection. | The SCTM flags each so it is not read as system-wide. The proposed system-wide owners are `ID-2.4`, `DI-4.4`, `GV-5.3`, `DI-3.2`, `DI-5.3`, and `DI-5.4`, in that order. They await the SABER v2.0 mapping review. | Open |
+| AC-4(4), SI-4(10) | Selected controls no outcome claims. | Met by Network Firewall (`NE-2.4`), whose hubs decrypt outbound TLS for inspection. Recorded as SABER feedback. | Open |
+| AU-3(1), AU-3(3), AU-5(2), AU-6(5), AU-6(6), SI-4(20) | Selected logging and monitoring controls no outcome claims. | Met by the logging outcomes (`DE-2.1`, `DE-2.4`), the SIEM (`DE-3.1`), user activity monitoring (`DE-1.9`), and access correlation (`ID-1.10`). Recorded as SABER feedback. | Open |
+| AC-2(11), CM-3(6), IR-8(1), MA-2(2), MA-4(3), MA-5(1), MP-6(3), PL-9, SI-5(1), SI-7(2) | Selected controls no outcome claims. | Met by `ID-2.5`, the KMP (`DA-3.13`), the IRP (`RS-4.1`), maintenance (`DI-2.4`), vendor access (`ID-4.7`), media intake (`DI-5.1`), policy as code (`NE-1.1`), indicator sharing (`RK-2.3`), and file integrity monitoring (`DI-5.4`). The SCTM names the holder of each. Recorded as SABER feedback. | Open |
+| AC-3(14), PT-7, PT-7(2), SA-8(33), SC-7(24), SI-18, SI-18(4) | Selected privacy controls no outcome claims. | Met by the PIA and privacy officer (`CO-4.2`), intelligence oversight (`CO-1.1`), privacy requirements (`AI-1.2`), and data loss prevention (`DA-1.5`). Recorded as SABER feedback. | Open |
+| AC-18(5) | No outcome holds antenna and transmission power limits, and the datalinks are wireless. | Fleet Operations confirms the manufacturer's datalink power and antenna settings and records them in the CMP. | Open |
+| AC-18(4), PT-7(1), PT-8 | Selected controls that do not apply. | Not applicable. KESTREL has no wireless LAN users can configure, collects no Social Security numbers, and runs no computer matching program. | Closed |
+| Full selection check | This register was checked only against the claims in Section 7 until the SCTM existed. | The SCTM checked every control in the selection, using NIST's High and privacy baselines as a stand-in for the CNSSI 1253 columns. Its gaps are recorded above. | Closed |
 
 SI-8 is not a gap. The AO removed it in CCSD tailoring action 1, and its one owning outcome dropped out with it.
 
@@ -213,7 +220,7 @@ SI-8 is not a gap. The AO removed it in CCSD tailoring action 1, and its one own
 
 ## 10. Approval and Periodic Review
 
-**Approved By:** Pending. Version 0.5 is submitted to the KESTREL AO for approval as version 1.0.
+**Approved By:** Pending. Version 0.6 is submitted to the KESTREL AO for approval as version 1.0.
 
 **Review Cadence:** Annually, and whenever a revision trigger below occurs.
 

@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dispositions import PROVIDERS, INHERITED, NOT_APPLICABLE, MET_UNCLAIMED, NARROW  # noqa: E402
 
 VERSION, DATE = '0.1', '2026-11-25'
-SOURCES = {'CCSD': '1.0, with 1.1 pending', 'SADD': '0.5', 'SIP': '0.4'}
+SOURCES = {'CCSD': '1.0, with 1.1 pending', 'SADD': '0.6', 'SIP': '0.4'}
 DATA = os.path.join(ROOT, 'tools', 'sctm', 'data')
 OUT = os.path.join(ROOT, 'docs', '05-sctm')
 BASE_URL = 'https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/'
