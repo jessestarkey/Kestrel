@@ -923,7 +923,7 @@ MANAGE = {
 'GV-2.1': dict(tools=['confluence', 'gitlab'], team='Security Team (ISSM)', deps='GV-1.1, GV-1.5',
     tailoring="Policies and plans are versioned in Confluence. The CCB approves standards and governing plans, except those the AO approves, and the ISSM approves runbooks. Machine-enforceable policy is written as code in GitLab, such as the admission and OPA policies."),
 'GV-2.2': dict(tools=['jsm', 'jira', 'confluence'], team='Security Team (ISSM)', deps='GV-1.1, RK-1.4',
-    tailoring="Exceptions are requested in Jira Service Management with an end date. Approval follows RK-1.4, so the PMO ISSE approves only Very Low ones, or Low ones outside CCSD rows 6, 8, 10, and 13. Expired exceptions become open findings."),
+    tailoring="Exceptions are requested in Jira Service Management with an end date. Approval follows RK-1.4, so the PMO ISSE may approve Very Low ones, and Low ones outside CCSD rows 6, 8, 10, and 13. Expired exceptions become open findings."),
 'GV-2.3': dict(tools=['jko', 'adds', 'ansible', 'jsm'], team='Security Team (ISSM), with IT Operations', deps="GV-1.1, ID-1.8, Parent organization's and performer's enterprise email",
     tailoring="Users complete DoD cyber awareness and CUI training on JKO before their account is created and each year after. Role-based courses cover operators, OT maintainers, and receiving staff. A lapsed course disables the account in Active Directory through Ansible, and the station accounts follow on their next sync. Phishing exercises are inherited from the parent organization's and performer's email."),
 'GV-2.4': dict(tools=['confluence', 'jsm', 'adds', 'ansible'], team='Security Team (ISSM), with IT Operations', deps='GV-1.1, ID-1.8',

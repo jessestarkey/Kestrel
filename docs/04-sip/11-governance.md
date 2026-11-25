@@ -213,7 +213,7 @@
 
 **Selected Tool / Product / Service:** Jira Service Management Data Center, Jira Software Data Center, Confluence Data Center
 
-**Environment-Specific Tailoring:** Exceptions are requested in Jira Service Management with an end date. Approval follows RK-1.4, so the PMO ISSE approves only Very Low ones, or Low ones outside CCSD rows 6, 8, 10, and 13. Expired exceptions become open findings.
+**Environment-Specific Tailoring:** Exceptions are requested in Jira Service Management with an end date. Approval follows RK-1.4, so the PMO ISSE may approve Very Low ones, and Low ones outside CCSD rows 6, 8, 10, and 13. Expired exceptions become open findings.
 
 **Accountable Team:** Security Team (ISSM)
 

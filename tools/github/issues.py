@@ -44,6 +44,7 @@ def note(kind):
 WIKI = {'ID-4.6': ('Break-Glass Account Retrieval runbook', 'Break-Glass-Account-Retrieval'),
         'ID-5.1': ('Account Management Plan', 'Account-Management-Plan'),
         'DA-3.13': ('Key Management Plan', 'Key-Management-Plan'),
+        'GV-1.1': ('Governance Program Charter', 'Governance-Program-Charter'),
         'DI-6.1': ('Configuration Management Plan', 'Configuration-Management-Plan'),
         'RS-4.1': ('Incident Response Plan', 'Incident-Response-Plan')}
 TYPE_LABELS = {'initiative': ('type: initiative', '5319e7'), 'epic': ('type: epic', '1d76db'),

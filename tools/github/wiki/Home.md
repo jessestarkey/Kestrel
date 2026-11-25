@@ -21,6 +21,14 @@ This space holds KESTREL's working documents, namely the governing plans and the
 | Contingency Plan (CP) | RC-4.1 | Not started |
 | Supply Chain Risk Management Plan (SCRM) | GV-3.5 | Not started |
 
+## Charters
+
+| Charter | SADD outcomes | Status |
+|---|---|---|
+| [Governance Program Charter](Governance-Program-Charter) | GV-1, GV-2 | Draft 0.1, sections pending their approvers |
+| Risk Management Program Charter | RK-1 to RK-3 | Not started |
+| AI/ML Governance Charter | GV-4 | Not started |
+
 ## Runbooks
 
 | Runbook | Executes | Owner |

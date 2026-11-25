@@ -9,6 +9,10 @@
 - [Incident Response Plan](Incident-Response-Plan)
 - [Key Management Plan](Key-Management-Plan)
 
+**Charters**
+
+- [Governance Program Charter](Governance-Program-Charter)
+
 **Runbooks**
 
 - [Break-Glass Account Retrieval](Break-Glass-Account-Retrieval)
