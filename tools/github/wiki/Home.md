@@ -16,7 +16,7 @@ This space holds KESTREL's working documents, namely the governing plans and the
 | Application Security Plan (ASP) | AP-6.1 | Not started |
 | AI/ML Security Plan (AISP) | AI-10.1 | Not started |
 | Data Management Plan (DMP) | DA-1.9 | Not started |
-| Key Management Plan (KMP) | DA-3.13 | Not started |
+| [Key Management Plan (KMP)](Key-Management-Plan) | DA-3.13 | Draft 0.1, in Configuration Control Board review |
 | [Incident Response Plan (IRP)](Incident-Response-Plan) | RS-4.1 | Draft 0.1, with the interim IRP due in Phase 1 |
 | Contingency Plan (CP) | RC-4.1 | Not started |
 | Supply Chain Risk Management Plan (SCRM) | GV-3.5 | Not started |
