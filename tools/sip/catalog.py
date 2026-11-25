@@ -215,7 +215,7 @@ PRODUCTS = {
     'gx': ('Great Expectations', OSS),
     'onnx': ('ONNX Runtime quantization', OSS),
     'oras': ('ORAS offline bundles', OSS),
-    'threatdragon': ('OWASP Threat Dragon with MITRE ATLAS', OSS),
+    'threagile': ("Threagile (the program's custom image, with IL5 and ATLAS risk rules)", OSS),
     'trestle': ('compliance-trestle (OSCAL)', OSS),
     'sonarlint': ('SonarQube for IDE', OSS),
     'certmanager': ('cert-manager', OSS),

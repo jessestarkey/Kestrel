@@ -12,6 +12,7 @@
 
 **Charters**
 
+- [AI/ML Governance Charter](AI-ML-Governance-Charter)
 - [Governance Program Charter](Governance-Program-Charter)
 - [Risk Management Program Charter](Risk-Management-Program-Charter)
 

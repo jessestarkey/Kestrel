@@ -477,9 +477,9 @@
 
 ### GV-4.2: Program-Level AI Threat Assessment
 
-**Selected Tool / Product / Service:** OWASP Threat Dragon with MITRE ATLAS, Confluence Data Center
+**Selected Tool / Product / Service:** Threagile (the program's custom image, with IL5 and ATLAS risk rules), Confluence Data Center
 
-**Environment-Specific Tailoring:** The PMO ISSE maps the AI estate's trust zones in Threat Dragon each year, including both agents and the foundation model's use cases. The ATLAS ranking goes to the review board and feeds each model's threat model.
+**Environment-Specific Tailoring:** The PMO ISSE maps the AI estate's trust zones in Threagile each year, including both agents and the foundation model's use cases. The ATLAS ranking goes to the review board and feeds each model's threat model.
 
 **Accountable Team:** Program Office (PMO ISSE)
 

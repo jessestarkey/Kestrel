@@ -177,9 +177,9 @@
 
 ### AI-1.7: AI Threat Modeling
 
-**Selected Tool / Product / Service:** OWASP Threat Dragon with MITRE ATLAS, Confluence Data Center
+**Selected Tool / Product / Service:** Threagile (the program's custom image, with IL5 and ATLAS risk rules), Confluence Data Center
 
-**Environment-Specific Tailoring:** The ML Team models every model and each mission team every use case in OWASP Threat Dragon with MITRE ATLAS. The models cover poisoning through feedback and federated updates, evasion, injection through retrieved reports, and capture of an aircraft's model. The PMO ISSE reviews each at the design gate.
+**Environment-Specific Tailoring:** The ML Team models every model and each mission team every use case in Threagile. The custom image's AI risk rules cite their MITRE ATLAS techniques. The models cover poisoning through feedback and federated updates, evasion, injection through retrieved reports, and capture of an aircraft's model. The PMO ISSE reviews each at the design gate.
 
 **Accountable Team:** ML Team, with the mission teams for their use cases
 

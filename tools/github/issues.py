@@ -46,6 +46,7 @@ WIKI = {'ID-4.6': ('Break-Glass Account Retrieval runbook', 'Break-Glass-Account
         'CO-2.1': ('Continuous Monitoring Plan', 'Continuous-Monitoring-Plan'),
         'DA-3.13': ('Key Management Plan', 'Key-Management-Plan'),
         'GV-1.1': ('Governance Program Charter', 'Governance-Program-Charter'),
+        'GV-4.1': ('AI/ML Governance Charter', 'AI-ML-Governance-Charter'),
         'DI-6.1': ('Configuration Management Plan', 'Configuration-Management-Plan'),
         'RK-1.1': ('Risk Management Program Charter', 'Risk-Management-Program-Charter'),
         'RS-4.1': ('Incident Response Plan', 'Incident-Response-Plan')}

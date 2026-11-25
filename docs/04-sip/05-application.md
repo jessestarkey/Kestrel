@@ -97,9 +97,9 @@
 
 ### AP-1.4: Application Threat Modeling
 
-**Selected Tool / Product / Service:** OWASP Threat Dragon with MITRE ATLAS, Confluence Data Center
+**Selected Tool / Product / Service:** Threagile (the program's custom image, with IL5 and ATLAS risk rules), Confluence Data Center
 
-**Environment-Specific Tailoring:** Each team models every application and AI use case in OWASP Threat Dragon before building, using one program methodology with MITRE ATLAS for AI. Anything partner-facing, internet-reachable, or able to act on aircraft gets the full model. The PMO ISSE reviews each at the design gate, starting with the Phase 1 platform services and their COTS integration boundaries.
+**Environment-Specific Tailoring:** Each team models every application and AI use case in Threagile before building. Models are YAML in a GitLab threat model repository, built from the program's modular templates and shared asset libraries. The program's custom Threagile image adds IL5 script rules and a custom risk engine, with MITRE ATLAS for AI. Anything partner-facing, internet-reachable, or able to act on aircraft gets the full model. The PMO ISSE reviews each at the design gate, starting with the Phase 1 platform services and their COTS integration boundaries.
 
 **Accountable Team:** Program Office (PMO ISSE), with each owning team
 
@@ -687,9 +687,9 @@
 
 ### AP-2.20: Threat Model Staleness Check
 
-**Selected Tool / Product / Service:** GitLab Ultimate, OWASP Threat Dragon with MITRE ATLAS
+**Selected Tool / Product / Service:** GitLab Ultimate, Threagile (the program's custom image, with IL5 and ATLAS risk rules)
 
-**Environment-Specific Tailoring:** A merge request that adds an interface, a data flow, an external connection, or an AI agent tool flags its threat model as stale. The owning team updates the model, and the PMO ISSE re-reviews it before the change reaches production. Every model is also re-reviewed each year.
+**Environment-Specific Tailoring:** A merge request that adds an interface, data flow, external connection, or agent tool flags its threat model as stale. The pipeline validates the model's YAML and runs the custom Threagile image on it. A change that skips the model is therefore caught at merge, and the image comes through Artifactory. The owning team updates the model, and the PMO ISSE re-reviews it before the change reaches production. Every model is also re-reviewed each year.
 
 **Accountable Team:** Program Office (PMO ISSE), with the Platform Team for change detection
 
