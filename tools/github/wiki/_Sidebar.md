@@ -6,6 +6,7 @@
 
 - [Account Management Plan](Account-Management-Plan)
 - [Configuration Management Plan](Configuration-Management-Plan)
+- [Continuous Monitoring Plan](Continuous-Monitoring-Plan)
 - [Incident Response Plan](Incident-Response-Plan)
 - [Key Management Plan](Key-Management-Plan)
 

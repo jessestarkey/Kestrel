@@ -20,6 +20,7 @@ This space holds KESTREL's working documents, namely the governing plans and the
 | [Incident Response Plan (IRP)](Incident-Response-Plan) | RS-4.1 | Draft 0.1, with the interim IRP due in Phase 1 |
 | Contingency Plan (CP) | RC-4.1 | Not started |
 | Supply Chain Risk Management Plan (SCRM) | GV-3.5 | Not started |
+| [Continuous Monitoring Plan (ConMon)](Continuous-Monitoring-Plan) | CO-2.1 | Draft 0.1, with the interim plan due for AO approval in Phase 1 |
 
 ## Charters
 
