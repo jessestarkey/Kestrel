@@ -5,6 +5,7 @@
 **Governing plans**
 
 - [Account Management Plan](Account-Management-Plan)
+- [Incident Response Plan](Incident-Response-Plan)
 
 **Runbooks**
 

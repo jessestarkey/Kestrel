@@ -17,8 +17,8 @@ This plan consolidates KESTREL's identity assurance levels, authentication and s
 | Date | 2026-11-11 |
 | Prepared By | KESTREL ISSM, with the Platform Team's Tier 0 administrators and IT Operations |
 | Approved By | Configuration Control Board, chaired by the chief engineer |
-| Source SADD Version | 0.2 |
-| Source SIP Version | 0.1 |
+| Source SADD Version | 0.4 |
+| Source SIP Version | 0.2 |
 | Classification / Handling | CUI |
 
 ### Version History
