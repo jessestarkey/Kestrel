@@ -27,7 +27,7 @@ This space holds KESTREL's working documents, namely the governing plans and the
 | Charter | SADD outcomes | Status |
 |---|---|---|
 | [Governance Program Charter](Governance-Program-Charter) | GV-1, GV-2 | Draft 0.1, sections pending their approvers |
-| [Risk Management Program Charter](Risk-Management-Program-Charter) | RK-1 to RK-3 | Draft 0.1, sections pending their approvers |
+| [Risk Management Program Charter](Risk-Management-Program-Charter) | RK-1 to RK-3 | Draft 0.2, sections pending their approvers |
 | [AI/ML Governance Charter](AI-ML-Governance-Charter) | GV-4 | Draft 0.1, with the inventory and board due in late Phase 1 |
 
 ## Runbooks

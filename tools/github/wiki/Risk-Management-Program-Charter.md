@@ -17,12 +17,12 @@ The risk register, the Security Assessment Plan, the SAR, the RAR, and the POA&M
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| Charter Version | 0.1 |
+| Charter Version | 0.2 |
 | Date | 2026-11-25 |
 | Prepared By | PMO ISSE, with the ISSM, the program manager, the intelligence mission leads, and Fleet Operations' operations lead |
 | Approved By | Each section's own authority, as listed under Approval |
 | Source SADD Version | 0.5 |
-| Source SIP Version | 0.3 |
+| Source SIP Version | 0.4 |
 | Classification / Handling | CUI |
 
 ### Version History
@@ -30,6 +30,7 @@ The risk register, the Security Assessment Plan, the SAR, the RAR, and the POA&M
 | Version | Date | Author | Description of Changes |
 |---|---|---|---|
 | 0.1 | 2026-11-25 | PMO ISSE | Initial draft |
+| 0.2 | 2026-11-25 | PMO ISSE | Kept threat model findings on the Threagile method's own severity, and re-scored under this charter's method when carried into the risk register |
 
 ---
 
@@ -45,7 +46,7 @@ This charter is the single reference for everyone who scores, accepts, or ranks 
 
 **NIST Control Mapping:** PM-9 (partial).
 
-**The model.** KESTREL uses one semi-quantitative method based on NIST SP 800-30. Likelihood and impact are each scored from 1 to 5, and their product gives the rating. Every team scores this way. Nobody keeps a private scale.
+**The model.** KESTREL uses one semi-quantitative method based on NIST SP 800-30. Likelihood and impact are each scored from 1 to 5, and their product gives the rating. Every risk in the risk register is scored this way, and nobody keeps a private scale for it.
 
 **Likelihood.**
 
@@ -88,6 +89,8 @@ A likely row 13 key exposure scores 4 × 5 = 20, so the top band is reachable.
 | A lost aircraft's datalink keys are not superseded | 2 × 5 = 10, Moderate | 2 × 5 = 10, Moderate | Impact is top band, but the fleet-wide supersession rule makes it unlikely |
 
 The second example is the one the training dwells on. Score the worst thing the component can do, not the thing it usually does.
+
+**Threat model findings.** Threat models built with the program's custom Threagile image rate each finding on that method's own scale, from Low to Critical. That severity stays in the threat model and its report, where it orders the owning team's work. A finding the PMO ISSE carries into the risk register is re-scored there under this method, from the evidence behind it. The register never holds a Threagile severity.
 
 **Training.** The Security Team, the ISSOs, and every team lead train on these examples before they score risk. The PMO ISSE runs the training.
 
