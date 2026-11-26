@@ -30,6 +30,12 @@ This space holds KESTREL's working documents, namely the governing plans and the
 | [Risk Management Program Charter](Risk-Management-Program-Charter) | RK-1 to RK-3 | Draft 0.2, sections pending their approvers |
 | [AI/ML Governance Charter](AI-ML-Governance-Charter) | GV-4 | Draft 0.2, with the inventory and board due in late Phase 1 |
 
+## Records
+
+| Record | Executes | Status |
+|---|---|---|
+| [SIA-2026-0001: Persistent Memory for the Coding Agent](SIA-2026-0001-Coding-Agent-Memory) | GV-5.11 | Not significant, verification pending in Phase 3 |
+
 ## Runbooks
 
 | Runbook | Executes | Owner |

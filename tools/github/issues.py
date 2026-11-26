@@ -55,7 +55,8 @@ WIKI = {'ID-4.6': ('Break-Glass Account Retrieval runbook', 'Break-Glass-Account
         'DI-7.1': ('Vulnerability and Patch Management Plan', 'Vulnerability-and-Patch-Management-Plan'),
         'GV-3.5': ('Supply Chain Risk Management Plan', 'Supply-Chain-Risk-Management-Plan'),
         'DA-1.9': ('Data Management Plan', 'Data-Management-Plan'),
-        'RC-4.1': ('Contingency Plan', 'Contingency-Plan')}
+        'RC-4.1': ('Contingency Plan', 'Contingency-Plan'),
+        'GV-5.11': ('SIA-2026-0001: Persistent Memory for the Coding Agent', 'SIA-2026-0001-Coding-Agent-Memory')}
 TYPE_LABELS = {'initiative': ('type: initiative', '5319e7'), 'epic': ('type: epic', '1d76db'),
                'story': ('type: story', '0e8a16'), 'sub-task': ('type: sub-task', 'c5def5')}
 

@@ -22,6 +22,10 @@
 - [Governance Program Charter](Governance-Program-Charter)
 - [Risk Management Program Charter](Risk-Management-Program-Charter)
 
+**Records**
+
+- [SIA-2026-0001: Coding Agent Memory](SIA-2026-0001-Coding-Agent-Memory)
+
 **Runbooks**
 
 - [Break-Glass Account Retrieval](Break-Glass-Account-Retrieval)
