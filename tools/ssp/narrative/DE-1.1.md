@@ -1,0 +1,3 @@
+From Phase 2, Defender for Cloud will cover every subscription, cluster, and data service, and the tenant itself. Defender for Identity watches the domain controllers in the data center and at the alternate site. The CSSP reads both consoles through its host pool, and their alerts reach Splunk.
+
+Defender for AI Services will cover the Azure OpenAI deployment too, with two conditions. Azure Government must first offer it at IL5, and the inherited control check must confirm that it works with the abuse monitoring exemption. The Security Team reviews coverage against MITRE ATT&CK, and against MITRE ATLAS for the models and agents, so gaps are found and closed.

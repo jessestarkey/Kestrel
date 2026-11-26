@@ -1,0 +1,1 @@
+From Phase 3, Splunk Enterprise Security will build behavior baselines for every person role, and for the pipeline, workload, and agent identities. The PSO, program counsel, and the privacy officer set the monitored population and the thresholds before profiling starts, and the DMP records that scope. Insider threat indicators go to the PSO's program.

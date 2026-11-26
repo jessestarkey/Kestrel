@@ -4,126 +4,140 @@
 
 ## DE-1: Intelligent Detection Systems
 
+KESTREL's detection will run in layers. The cloud's native threat detection watches each service, while network and OT sensors watch the traffic. Splunk Enterprise Security correlates everything into one view, with detection rules written as code. Identity and insider threat analytics sit on top of that, and later phases add threat hunting, deception, and adversary emulation that tests whether the detections work. The CSSP watches alongside the Security Team throughout.
+
 ### DE-1.1: Platform-Native Threat Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, Defender for Cloud will cover every subscription, cluster, and data service, and the tenant itself. Defender for Identity watches the domain controllers in the data center and at the alternate site. The CSSP reads both consoles through its host pool, and their alerts reach Splunk.
+
+Defender for AI Services will cover the Azure OpenAI deployment too, with two conditions. Azure Government must first offer it at IL5, and the inherited control check must confirm that it works with the abuse monitoring exemption. The Security Team reviews coverage against MITRE ATT&CK, and against MITRE ATLAS for the models and agents, so gaps are found and closed.
 
 <sub>**Planned.** Controls: SI-4, SI-4(2). SIP record: [DE-1.1](../04-sip/08-detection.md#de-11-platform-native-threat-detection).</sub>
 
 ### DE-1.2: Adversary Emulation and Detection Validation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 4, with a target of 2029-03-31.*
+From Phase 4, KESTREL will test whether its detections actually fire. AttackIQ runs emulated techniques each month against the cloud spokes, the data center, and identity. The penetration testing provider adds an annual campaign under agreed rules of engagement. For the AI estate, PyRIT and garak run ATLAS techniques against the models and agents in stage. Every technique that goes undetected becomes a finding with an owner. Fleet systems are emulated only on spares or the simulator.
 
 <sub>**Planned.** Controls: CA-8(2). SIP record: [DE-1.2](../04-sip/08-detection.md#de-12-adversary-emulation-and-detection-validation).</sub>
 
 ### DE-1.3: Correlated Threat Detection and Analytics
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Splunk Enterprise Security will correlate every telemetry source, from endpoints and identity to the network, the cloud, applications, and the ground segment. The Security Team writes detection rules as code in GitLab, and the pipeline deploys them after review. Indicators from the CSSP arrive with a confidence tier and an expiry, and vetted ones are pushed to Panorama, Infoblox Threat Defense, and Defender. The Platform Team builds the telemetry pipeline that feeds all of this.
+
+Some sources arrive later. Ground segment correlation starts in Phase 3, when those events reach Splunk. So do the AI rules, which read the agent action records, the model-serving abuse findings, and the logged prompts. Agent Threat Rules seeds the rules that match known attack content, and the Security Team writes the behavioral ones, each mapped to an ATLAS technique.
 
 <sub>**Planned.** Controls: SI-4(16), SI-4(24), SI-5. SIP record: [DE-1.3](../04-sip/08-detection.md#de-13-correlated-threat-detection-and-analytics).</sub>
 
 ### DE-1.4: Enterprise Threat Hunting Program
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 4, with a target of 2029-03-31.*
+From Phase 4, the Security Team will run threat hunts in Splunk across the cloud, the data center, and identity, looking for activity the rules missed. Hunts on the ground segment use the passive data from the Nozomi sensors, so they never touch fleet equipment. Each confirmed finding becomes a new detection rule.
 
 <sub>**Planned.** Controls: RA-10. SIP record: [DE-1.4](../04-sip/08-detection.md#de-14-enterprise-threat-hunting-program).</sub>
 
 ### DE-1.5: Deception Technology
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 4, with a target of 2029-03-31.*
+From Phase 4, the Security Team will design decoys in Acalvio ShadowPlus and receive their alerts. The Platform Team and the Tier 0 administrators place canary credentials in every spoke's Key Vault and in the directory. Decoy hosts sit in each data center segment, and a decoy dataset sits in each data lake zone. Backup jobs and the Data Team's pipelines are kept from touching them, so any access to a decoy is a real signal.
 
 <sub>**Planned.** Controls: SC-26. SIP record: [DE-1.5](../04-sip/08-detection.md#de-15-deception-technology).</sub>
 
 ### DE-1.6: User/Entity Behavior Analytics (UEBA) / Insider Threat Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, Splunk Enterprise Security will build behavior baselines for every person role, and for the pipeline, workload, and agent identities. The PSO, program counsel, and the privacy officer set the monitored population and the thresholds before profiling starts, and the DMP records that scope. Insider threat indicators go to the PSO's program.
 
 <sub>**Planned.** Controls: PM-12, AC-2(12). SIP record: [DE-1.6](../04-sip/08-detection.md#de-16-userentity-behavior-analytics-ueba--insider-threat-detection).</sub>
 
 ### DE-1.7: Network/OT Intrusion and Anomaly Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, Corelight sensors will watch network traffic in the data center and at the alternate site, and Palo Alto Threat Prevention will watch the hubs. When the fleet integrates in Phase 3, Nozomi sensors join them on each operating site's ground segment, watching passively so they cannot disturb a flight. Each anomaly alert goes to triage in Splunk.
 
 <sub>**Planned.** Controls: SI-4(11). SIP record: [DE-1.7](../04-sip/08-detection.md#de-17-networkot-intrusion-and-anomaly-detection). Details: the IRP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#2-incident-classification-severity-and-escalation-triggers).</sub>
 
 ### DE-1.8: Identity Threat Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, sign-in risk from Entra ID Protection and Defender for Identity will feed Splunk Enterprise Security, along with each performer laptop's compliance signal. Risky sign-ins include a partner connecting from an unexpected network, or a laptop that suddenly reports as non-compliant. GitGuardian and Tenable Attack Surface Management watch breach and leak sources for KESTREL credentials. In Phase 3, when the fleet's logs arrive, badge events are correlated with station sign-ins too.
 
 <sub>**Planned.** Controls: AU-2, AU-6, SI-4(5). SIP record: [DE-1.8](../04-sip/08-detection.md#de-18-identity-threat-detection).</sub>
 
 ## DE-2: Comprehensive Logging
 
+Detection depends on logs, so every KESTREL component will send its security events to Splunk. Each class of source has its own logging outcome, from infrastructure and identity to data services, containers, applications, hosts, the edge, the network, and the fleet. Logging is turned on when a resource is created, and a check flags any source that goes quiet.
+
 ### DE-2.1: Infrastructure and Identity Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Azure Monitor diagnostic settings will send every subscription's and the tenant's activity logs to Splunk over the circuits, from Phase 1. On premises, Splunk forwarders collect logs from the directory, the SDN controller, the hypervisors, the server controllers, and CyberArk. Azure Policy and a Splunk source check flag any source that is missing its logging.
 
 <sub>**Planned.** Controls: AU-12, AC-2(4), AU-1. SIP record: [DE-2.1](../04-sip/08-detection.md#de-21-infrastructure-and-identity-logging).</sub>
 
 ### DE-2.2: Data Service Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Data-plane logging will be enabled on every cloud database, storage service, Key Vault, and queue as the pipeline creates it, and Azure Policy flags any that lose it. StorageGRID audit logs cover every data lake zone. Splunk's own audit events are forwarded to the CSSP, so activity in the logging platform is visible outside it too.
 
 <sub>**Planned.** Controls: AU-12. SIP record: [DE-2.2](../04-sip/08-detection.md#de-22-data-service-logging).</sub>
 
 ### DE-2.3: Container and Orchestration Platform Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+AKS audit logs, Defender for Containers runtime events, and Artifactory registry events will go to Splunk. The landing zone modules enable them when a cluster is created, and Azure Policy flags any that lose them. Azure Machine Learning sends its compute logs through its own diagnostic settings.
 
 <sub>**Planned.** Controls: AU-12. SIP record: [DE-2.3](../04-sip/08-detection.md#de-23-container-and-orchestration-platform-logging).</sub>
 
 ### DE-2.4: Application/API Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 4, with a target of 2029-03-31.*
+From Phase 2, a shared logging library in each team's code will send authorization, data access, and release events to Splunk. API Management logs every request, each model endpoint logs its callers and quota decisions, and the feedback endpoints log every message they accept. COTS output is normalized at ingest.
+
+The agents arrive in Phase 3, and their actions are logged from the start. Semantic Kernel logs each of the mission-planning agent's tool calls with its parameters and approval, and the coding agent's OpenHands event stream goes to Splunk as well.
 
 <sub>**Planned.** Controls: AU-12, AU-3. SIP record: [DE-2.4](../04-sip/08-detection.md#de-24-applicationapi-logging).</sub>
 
 ### DE-2.5: Host and Endpoint Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+From Phase 1, Splunk universal forwarders and Defender for Endpoint will collect host logs from every server, privileged access workstation, and VDI desktop. That covers the cloud, the data center, and the alternate site.
 
 <sub>**Planned.** Controls: AU-12. SIP record: [DE-2.5](../04-sip/08-detection.md#de-25-host-and-endpoint-logging).</sub>
 
 ### DE-2.6: Edge-Attack-Surface Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Application Gateway WAF logs, and API Management's rate-limit and schema rejection events, will go to Splunk. There they are correlated per source and per partner, so a probing campaign stands out even when each request is blocked.
 
 <sub>**Planned.** Controls: AU-12. SIP record: [DE-2.6](../04-sip/08-detection.md#de-26-edge-attack-surface-logging).</sub>
 
 ### DE-2.7: Network Security Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+Flow logs from every network security group, ACI flow telemetry, and every Palo Alto firewall's logs will go to Splunk, the alternate site's included. Infoblox and Azure DNS query logs cover every resolver. The ground segment's firewalls and resolvers join through the IT/OT DMZ in Phase 3. Splunk stitches each connection together across the circuits, so a flow can be followed from end to end.
 
 <sub>**Planned.** Controls: AU-12. SIP record: [DE-2.7](../04-sip/08-detection.md#de-27-network-security-logging).</sub>
 
 ### DE-2.8: OT/Legacy Telemetry Ingestion and Normalization
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the Nozomi sensors at each operating site and the stations' own logs will be collected in the IT/OT DMZ and normalized for Splunk. The payload processing workstation's log would be translated as well, but only if the AO re-dates CCSD tailoring action 3 and it connects.
 
 <sub>**Planned.** Controls: AU-12. SIP record: [DE-2.8](../04-sip/08-detection.md#de-28-otlegacy-telemetry-ingestion-and-normalization).</sub>
 
 ## DE-3: SIEM Platform
 
+Splunk in the mission data center will be KESTREL's security monitoring platform. It keeps logs searchable for a year and archived for 30 months in all, in storage no one can alter. Every source shares one time reference, and automation in Splunk SOAR is limited to actions that cannot harm production.
+
 ### DE-3.1: SIEM Capabilities
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 4, with a target of 2029-03-31.*
+Splunk Enterprise and Enterprise Security will run in the data center, with a forwarding tier at the alternate site. Splunk SOAR automates only enrichment, ticketing, notification, and the isolation of non-production hosts, so no automated action can take down a production service. Correlation draws on vulnerability scans, performance data, and logs together.
+
+AI-assisted triage will summarize alerts using the Azure OpenAI deployment over F32, and it takes no action on its own. It goes live in Phase 4, after its model passes AI Cyber T&E and Certification to Field in Phase 3.
 
 <sub>**Planned.** Controls: AU-6, AU-6(1), AU-6(3), AU-6(5), AU-7, AU-7(1), AU-12(1), SI-4(12). SIP record: [DE-3.1](../04-sip/08-detection.md#de-31-siem-capabilities).</sub>
 
 ### DE-3.2: Log Retention Strategy
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Splunk will keep security logs searchable for 12 months, then roll them to StorageGRID for 18 more, for 30 months in all. Alert and investigation records are kept for 3 years, and longer where a case or POA&M item requires it. Each year, the Security Team restores an archived sample and searches it to prove the archive works. All telemetry is also forwarded to the CSSP, which keeps its own copy.
 
 <sub>**Planned.** Controls: AU-4, AU-4(1), AU-11, AU-11(1). SIP record: [DE-3.2](../04-sip/08-detection.md#de-32-log-retention-strategy). Details: the CMP, [Section 13](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#13-detection-and-alert-data-retention).</sub>
 
 ### DE-3.3: Audit Log Integrity Protection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Splunk will write each record to a StorageGRID bucket under S3 Object Lock in compliance mode, and hash each batch, so a change to any record is detectable. No role holds the capability to delete logs, and the logging administrator role sits only with named Security Team members. Break-glass access through CyberArk raises an alert.
 
 <sub>**Planned.** Controls: AU-5, AU-9, AU-9(2), AU-9(3), AU-9(4). SIP record: [DE-3.3](../04-sip/08-detection.md#de-33-audit-log-integrity-protection).</sub>
 
 ### DE-3.4: Time Synchronization
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+GNSS-disciplined SyncServer time servers in the data center will serve every on-premises host, checked against DoD's authoritative time service, with a secondary at the alternate site. Cloud workloads use the provider's time service, and Splunk alerts on drift between the two sides. Ground segment devices join in Phase 3, falling back to each site's holdover reference if GNSS is lost. Consistent time lets Splunk order events correctly across every location.
 
 <sub>**Planned.** Controls: AU-8, AU-12(1), SC-45, SC-45(2). SIP record: [DE-3.4](../04-sip/08-detection.md#de-34-time-synchronization).</sub>

@@ -1,0 +1,1 @@
+Splunk in the mission data center will be KESTREL's security monitoring platform. It keeps logs searchable for a year and archived for 30 months in all, in storage no one can alter. Every source shares one time reference, and automation in Splunk SOAR is limited to actions that cannot harm production.

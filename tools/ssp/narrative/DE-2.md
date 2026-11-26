@@ -1,0 +1,1 @@
+Detection depends on logs, so every KESTREL component will send its security events to Splunk. Each class of source has its own logging outcome, from infrastructure and identity to data services, containers, applications, hosts, the edge, the network, and the fleet. Logging is turned on when a resource is created, and a check flags any source that goes quiet.

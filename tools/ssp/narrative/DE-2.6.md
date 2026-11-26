@@ -1,0 +1,1 @@
+Application Gateway WAF logs, and API Management's rate-limit and schema rejection events, will go to Splunk. There they are correlated per source and per partner, so a probing campaign stands out even when each request is blocked.

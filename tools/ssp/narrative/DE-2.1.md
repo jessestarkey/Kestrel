@@ -1,0 +1,1 @@
+Azure Monitor diagnostic settings will send every subscription's and the tenant's activity logs to Splunk over the circuits, from Phase 1. On premises, Splunk forwarders collect logs from the directory, the SDN controller, the hypervisors, the server controllers, and CyberArk. Azure Policy and a Splunk source check flag any source that is missing its logging.

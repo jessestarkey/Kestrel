@@ -1,0 +1,1 @@
+From Phase 4, the Security Team will run threat hunts in Splunk across the cloud, the data center, and identity, looking for activity the rules missed. Hunts on the ground segment use the passive data from the Nozomi sensors, so they never touch fleet equipment. Each confirmed finding becomes a new detection rule.

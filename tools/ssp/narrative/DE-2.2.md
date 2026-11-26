@@ -1,0 +1,1 @@
+Data-plane logging will be enabled on every cloud database, storage service, Key Vault, and queue as the pipeline creates it, and Azure Policy flags any that lose it. StorageGRID audit logs cover every data lake zone. Splunk's own audit events are forwarded to the CSSP, so activity in the logging platform is visible outside it too.

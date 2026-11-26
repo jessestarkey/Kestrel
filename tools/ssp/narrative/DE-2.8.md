@@ -1,0 +1,1 @@
+From Phase 3, the Nozomi sensors at each operating site and the stations' own logs will be collected in the IT/OT DMZ and normalized for Splunk. The payload processing workstation's log would be translated as well, but only if the AO re-dates CCSD tailoring action 3 and it connects.

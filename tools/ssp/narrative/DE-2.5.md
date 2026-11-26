@@ -1,0 +1,1 @@
+From Phase 1, Splunk universal forwarders and Defender for Endpoint will collect host logs from every server, privileged access workstation, and VDI desktop. That covers the cloud, the data center, and the alternate site.

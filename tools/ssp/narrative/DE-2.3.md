@@ -1,0 +1,1 @@
+AKS audit logs, Defender for Containers runtime events, and Artifactory registry events will go to Splunk. The landing zone modules enable them when a cluster is created, and Azure Policy flags any that lose them. Azure Machine Learning sends its compute logs through its own diagnostic settings.

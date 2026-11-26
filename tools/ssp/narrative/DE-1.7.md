@@ -1,0 +1,1 @@
+From Phase 2, Corelight sensors will watch network traffic in the data center and at the alternate site, and Palo Alto Threat Prevention will watch the hubs. When the fleet integrates in Phase 3, Nozomi sensors join them on each operating site's ground segment, watching passively so they cannot disturb a flight. Each anomaly alert goes to triage in Splunk.

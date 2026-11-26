@@ -1,0 +1,1 @@
+Splunk will write each record to a StorageGRID bucket under S3 Object Lock in compliance mode, and hash each batch, so a change to any record is detectable. No role holds the capability to delete logs, and the logging administrator role sits only with named Security Team members. Break-glass access through CyberArk raises an alert.
