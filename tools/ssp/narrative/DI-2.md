@@ -1,0 +1,1 @@
+Every asset in KESTREL will move through a controlled lifecycle. Infrastructure as code builds it with secure defaults, and a reviewed change record covers every change to it. At the end, the same code or a sanitization process removes it. Maintenance runs under the same discipline, so no asset is touched outside a recorded change.

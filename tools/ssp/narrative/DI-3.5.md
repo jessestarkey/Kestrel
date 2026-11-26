@@ -1,0 +1,3 @@
+Fleet Operations will adopt each manufacturer's hardening guidance for the ground control stations, launch and recovery equipment, aircraft, and operating site services. Windows-based stations also take the DISA STIG unless the manufacturer documents a conflict, with allow-listing and anti-malware where the manufacturer supports them. Approved firmware for each model is recorded in Jira Service Management Assets.
+
+Fleet Operations proves each baseline on the spare stations and the simulator in Phase 2, and the fleet is built to them when it integrates. An asset that cannot reach a current baseline gets a compensating control baseline instead. Today that would apply only to the payload processing workstation, and only if its replacement slips.

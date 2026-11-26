@@ -1,0 +1,1 @@
+This capability checks each asset against its baseline and acts when one drifts. It enforces the permitted services on every host, checks each class of asset against its baseline continuously, and feeds the results into dashboards in Splunk. Patching runs on the VPMP's deadlines, and any asset that cannot be patched gets a fixed set of compensating controls.

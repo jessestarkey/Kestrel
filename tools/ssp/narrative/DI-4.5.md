@@ -1,0 +1,1 @@
+From Phase 2, Defender for Cloud CSPM and Azure Policy compliance will watch every cloud storage and database service. They look for public access, disabled logging, or a loosened resource firewall. The on-premises data lake zones are checked after every change by the Ansible job that guards their bucket policies. Findings from both feed a storage dashboard in Splunk.

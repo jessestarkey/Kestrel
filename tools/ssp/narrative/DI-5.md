@@ -1,0 +1,1 @@
+Every KESTREL-owned host will carry the same layered protection. Allow-listing decides what may run, anti-malware and EDR watch what does run, and exploit and tamper protection keep the agent itself from being switched off. The Security Team takes response actions on hosts under the IRP, with strict limits on what can be automated and no automated action on fleet equipment.

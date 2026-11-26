@@ -1,0 +1,3 @@
+From Phase 3, Fleet Operations will check the fleet against its manufacturer baselines. During maintenance windows, it exports each station's and launch system's configuration with the manufacturer's tools and compares it with the baseline. Between windows, Nozomi Networks Guardian captures firmware and protocol behavior from the traffic. Each aircraft's firmware and loaded model version are checked when it connects to a station or enters maintenance.
+
+Drift alerts reach Fleet Operations and the Security Team through Splunk. Nothing changes fleet equipment automatically, since an unplanned change to a station could affect a flight.

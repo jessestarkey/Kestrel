@@ -4,188 +4,250 @@
 
 ## DI-1: Asset Management
 
+KESTREL will keep one inventory of everything inside its boundary, held in Jira Service Management Assets. Each location feeds it from the tools already watching that location, so the inventory stays current without anyone typing in assets by hand. Required tags then give every asset an owner, an environment, and a criticality, which the Security Team reads but cannot change.
+
 ### DI-1.1: Asset Inventory and Discovery
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Jira Service Management Assets will be KESTREL's one asset inventory. Azure Resource Graph will feed it for every cloud spoke, and Defender for Endpoint's device inventory for every on-premises server and workstation. In the data center, the Cisco APIC will add the network devices. The alternate site has no SDN fabric, so its hosts arrive through their agents alone, and the fleet joins through the passive sensors described below.
+
+Every spoke is its own subscription under KESTREL's tenant, and a subscription created outside the landing zone raises an alert. License tracking covers every licensed product, including the foundation model's terms. Peer-to-peer file sharing software is prohibited. An inventory dashboard will show coverage and any unmanaged assets the feeds find.
 
 <sub>**Planned.** Controls: CM-8, CM-8(1), CM-8(2), CM-8(3), CM-10. SIP record: [DI-1.1](../04-sip/03-device-and-infrastructure.md#di-11-asset-inventory-and-discovery).</sub>
 
 ### DI-1.2: OT/Legacy Passive Protocol-Aware Discovery
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+The ground segment cannot be scanned the way an IT network can, since an active probe could disturb a station during a flight. Nozomi Networks Guardian sensors will instead fingerprint the ground control stations, launch and recovery equipment, and operating site services from their own traffic. The sensors parse the UAS command and telemetry protocols, and maintenance records fill in what they cannot see.
+
+Fleet Operations will deploy and tune the sensors on the spare stations and the simulator in Phase 2. They extend to each operating site when the fleet integrates in Phase 3. Coverage is checked after each change. Aircraft are inventoried by tail number from Fleet Operations' records and reconciled each time one connects to a station.
 
 <sub>**Planned.** Controls: CM-8, CM-8(3). SIP record: [DI-1.2](../04-sip/03-device-and-infrastructure.md#di-12-otlegacy-passive-protocol-aware-discovery).</sub>
 
 ### DI-1.3: Resource Tagging and Ownership Strategy
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every asset will carry required tags for its owning team, its spoke or data center segment, its environment, its data classification, its mission criticality, and its end-of-support date. Assets tied to a payload vendor's data rights also carry that vendor's tag, so the vendor split can be checked from the inventory alone.
+
+Tags are required from the first build. In Phase 1, Azure Policy and the pipeline's Conftest checks audit them, and from Phase 2 they block any untagged cloud resource at deployment. On-premises servers are tagged when they are built, and Fleet Operations tags fleet equipment when it is received.
 
 <sub>**Planned.** Controls: CM-8(4). SIP record: [DI-1.3](../04-sip/03-device-and-infrastructure.md#di-13-resource-tagging-and-ownership-strategy).</sub>
 
 ### DI-1.4: Security Team Visibility
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The Security Team will read the inventory in Jira Service Management Assets without the right to change it. That separation keeps the team that investigates assets from also editing the record of them.
+
+The same data reaches Splunk Enterprise Security as a lookup. Each alert there will carry its asset's owner, team, and criticality, and that is how the CSSP's analysts see the context too, from their host pool. The inventory also feeds vulnerability prioritization and incident response.
 
 <sub>**Planned.** Controls: AC-6(1). SIP record: [DI-1.4](../04-sip/03-device-and-infrastructure.md#di-14-security-team-visibility).</sub>
 
 ## DI-2: Asset Lifecycle
 
+Every asset in KESTREL will move through a controlled lifecycle. Infrastructure as code builds it with secure defaults, and a reviewed change record covers every change to it. At the end, the same code or a sanitization process removes it. Maintenance runs under the same discipline, so no asset is touched outside a recorded change.
+
 ### DI-2.1: Secure Resource Provisioning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Cloud resources will be built only by OpenTofu through GitLab, from the Platform Team's landing zone modules, which are derived from Mission Landing Zone. The modules set secure defaults, and Azure Policy and the pipeline's checks block any resource that departs from them. A second reviewer approves each infrastructure change, as with application code. Azure Policy denies creating resources in the portal, except under break-glass.
+
+On premises, every server in the data center and at the alternate site will be built from Ansible Automation Platform playbooks. The alternate site's equipment is placed under the facility agreement with the parent organization.
 
 <sub>**Planned.** Controls: CM-6(1). SIP record: [DI-2.1](../04-sip/03-device-and-infrastructure.md#di-21-secure-resource-provisioning). Details: the CMP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#1-provisioning-and-secure-defaults).</sub>
 
 ### DI-2.2: Asset Lifecycle Change Control
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Each change will have one record. For anything defined as code, the merged GitLab merge request is that record. Jira Service Management holds the record for everything else, including fleet changes. Each change carries a security impact note, which feeds Security Impact Analysis.
+
+Changes are tested before they reach production. Cloud changes go first to the owning team's stage cluster, while Tier 0 and data center changes go to the alternate site's standby or a lab. A post-change compliance scan closes the record. Changes to the shared rule base, the identity provider, or an interconnection go to the Configuration Control Board. An emergency change runs through CyberArk and is reviewed within two business days.
 
 <sub>**Planned.** Controls: CM-3, CM-3(2), CM-4, CM-4(1). SIP record: [DI-2.2](../04-sip/03-device-and-infrastructure.md#di-22-asset-lifecycle-change-control). Details: the CMP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#2-change-management).</sub>
 
 ### DI-2.3: Resource Decommissioning Governance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Removing an asset will be as controlled as building one. A cloud resource is destroyed by the OpenTofu that created it, which also revokes its workload identities and deletes its vault secrets and keys. In the data center and at the alternate site, drives are wiped on site with Blancco before they leave, and HSMs are zeroized. An aircraft or station leaving service has its keys zeroized, its storage wiped, and its device certificates revoked.
+
+Orphaned resources, whose owning team or tag no longer resolves, are found and retired. Refresh planning forecasts each asset's end of support early enough to replace it. The payload processing workstation is the current example. Payload Vendor A will field its replacement by 2027-09-30, before the fleet integrates, so the legacy workstation stays disconnected unless that date slips. If it does, the workstation connects only after the AO re-dates CCSD tailoring action 3.
 
 <sub>**Planned.** Controls: MP-6, MP-6(1), CM-8, SA-22. SIP record: [DI-2.3](../04-sip/03-device-and-infrastructure.md#di-23-resource-decommissioning-governance). Details: the CMP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#3-decommissioning-and-end-of-life).</sub>
 
 ### DI-2.4: Controlled Maintenance and Support
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Hardware maintenance in the data center and at the alternate site will be scheduled in Jira Service Management, escorted, and recorded. Failed drives stay on site for sanitization. Diagnostic tools and media are approved and scanned before use. The cloud provider maintains the cloud hardware.
+
+Fleet maintenance follows the same procedures, and from Phase 3 it runs only in each operating site's weekly maintenance window. Vendor sessions are brokered through CyberArk. Spares cover the mission's tolerance for downtime, and the HSMs, identity servers, and hub firewalls have support agreements with set replacement times. A spare used for penetration testing is reimaged and checked against its baseline before it returns to the pool.
 
 <sub>**Planned.** Controls: MA-1, MA-2, MA-3, MA-3(1), MA-3(2), MA-3(3), MA-6. SIP record: [DI-2.4](../04-sip/03-device-and-infrastructure.md#di-24-controlled-maintenance-and-support). Details: the CMP, [Section 14](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#14-maintenance).</sub>
 
 ## DI-3: Baseline Configuration Standards
 
+KESTREL's configuration baselines come from DISA STIGs and SRGs, with the Cloud Computing SRG's IL5 requirements in the cloud. The baselines are encoded rather than written down, as landing zone modules, Packer images, Azure Policy initiatives, and Ansible roles. Each class of asset therefore starts hardened and can be checked against the same code that built it. Fleet equipment follows its manufacturers' hardening guidance instead.
+
 ### DI-3.1: Secure Configurations
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+DISA STIGs and SRGs will set every baseline, with the Cloud Computing SRG's IL5 requirements in the cloud. The landing zone modules build the hub and ten spokes as subscriptions under one tenant, each guarded by its own Azure Policy assignments. A new spoke is therefore built the same way as the existing ones. Ansible roles carry the STIGs to the data center and the alternate site.
+
+Some components protect the boundary itself, and they are configured to fail closed. These are every firewall, the access proxy, the VDI brokers, and the cross domain transfer gateway. Each preserves its state so it can recover cleanly.
 
 <sub>**Planned.** Controls: CM-2, CM-2(2), SC-24. SIP record: [DI-3.1](../04-sip/03-device-and-infrastructure.md#di-31-secure-configurations). Details: the CMP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#4-hardening-baselines-and-frameworks).</sub>
 
 ### DI-3.2: Secure Compute Baselines
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Packer will build KESTREL's virtual machine images from the same STIG roles, for the cloud's VDI and servers and for the data center's servers. One VDI golden image serves every host pool, and each pool adds only its own tools. The IT/OT DMZ's staging servers use the data center server image.
+
+Container base images come from Iron Bank and are rebuilt rather than patched in place. Every AKS cluster shares one baseline, whether it runs dev, test, stage, prod, notebooks, or model serving, and kube-bench checks it. Every cloud virtual machine and node pool uses an isolated size, separating it from non-DoD tenants as IL5 requires. Ansible hardens the baseboard management controllers on every physical server.
 
 <sub>**Planned.** Controls: CM-2, CM-6, CM-7, IA-5. SIP record: [DI-3.2](../04-sip/03-device-and-infrastructure.md#di-32-secure-compute-baselines).</sub>
 
 ### DI-3.3: Secure Storage Baselines
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+In the cloud, Azure Policy will deny public access and require private endpoints on every storage and database service. Each service accepts connections only from its own spoke and sends its access logs to Splunk. On premises, Ansible applies the database STIGs, and self-hosted database and analytics engines drop their default accounts and turn on native audit.
+
+The data lake zones on StorageGRID need extra care because of the payload vendor split. Each zone's bucket policy admits only its own team's workloads, the Data Team, and the ML training zone, plus the catalog's read-only scan identity and the backup service. An Ansible job checks each policy after every change, so access that crosses the vendor split is caught. The array's exports, legacy protocols, and management interfaces are hardened, and the backup repository is reachable only from the backup service.
 
 <sub>**Planned.** Controls: CM-2. SIP record: [DI-3.3](../04-sip/03-device-and-infrastructure.md#di-33-secure-storage-baselines).</sub>
 
 ### DI-3.4: Secure Platform Services and Application Baselines
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Azure Policy initiatives will set the baseline for every managed service. Examples are the spoke Key Vaults, the queues and functions behind the feedback endpoints, and the database services. Each Azure OpenAI deployment must have a private endpoint and no local key authentication.
+
+Disabling the provider's abuse monitoring, which stores prompts, works differently. It is an exemption Microsoft approves rather than a setting KESTREL can turn off. The approval is therefore filed as the baseline's evidence and confirmed each year. COTS products, such as the service desk platform and the payload vendors' conversion software, follow their vendors' hardening guidance.
 
 <sub>**Planned.** Controls: CM-2, CM-7. SIP record: [DI-3.4](../04-sip/03-device-and-infrastructure.md#di-34-secure-platform-services-and-application-baselines).</sub>
 
 ### DI-3.5: Secure OT/Legacy Device Baselines
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Fleet Operations will adopt each manufacturer's hardening guidance for the ground control stations, launch and recovery equipment, aircraft, and operating site services. Windows-based stations also take the DISA STIG unless the manufacturer documents a conflict, with allow-listing and anti-malware where the manufacturer supports them. Approved firmware for each model is recorded in Jira Service Management Assets.
+
+Fleet Operations proves each baseline on the spare stations and the simulator in Phase 2, and the fleet is built to them when it integrates. An asset that cannot reach a current baseline gets a compensating control baseline instead. Today that would apply only to the payload processing workstation, and only if its replacement slips.
 
 <sub>**Planned.** Controls: CM-2. SIP record: [DI-3.5](../04-sip/03-device-and-infrastructure.md#di-35-secure-otlegacy-device-baselines). Details: the CMP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#4-hardening-baselines-and-frameworks) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#appendix-reference-data-and-configuration-baselines).</sub>
 
 ## DI-4: Configuration Policy Orchestration
 
+This capability checks each asset against its baseline and acts when one drifts. It enforces the permitted services on every host, checks each class of asset against its baseline continuously, and feeds the results into dashboards in Splunk. Patching runs on the VPMP's deadlines, and any asset that cannot be patched gets a fixed set of compensating controls.
+
 ### DI-4.1: Device Compliance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+KESTREL's only owned endpoints outside the VDI pools are its privileged access workstations. Configuration Manager in the Tier 0 enclave will enroll each one, scan it against its compliance policy, and remediate it. A workstation that falls out of compliance loses Tier 0 sign-in until it is fixed.
+
+Devices KESTREL does not own never join its network. Performer laptops reach KESTREL only through Pomerium and Azure Virtual Desktop, after a posture check. Parent organization devices use Pomerium alone, and vendor devices only the vendor host pool. The interconnection agreement, the performer's CMMC Level 2 attestation, and the CMP record those terms. KESTREL has no mobile devices, and its workstations never travel.
 
 <sub>**Planned.** Controls: AC-19, AC-19(5), AC-20, AC-20(3), AC-20(1), AC-20(2), CM-2(7), CM-6(1), CM-6(2). SIP record: [DI-4.1](../04-sip/03-device-and-infrastructure.md#di-41-device-compliance). Details: the CMP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#5-device-compliance).</sub>
 
 ### DI-4.2: Policy Service Restrictions
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the CMP's list of permitted services, ports, and protocols for each asset type will be enforced twice. On each host, Windows Defender Firewall applies it through Configuration Manager, and firewalld applies it through Ansible. On the network, the shared Panorama rule base applies it again. That covers every spoke, every on-premises host, the privileged access workstations, and the VDI desktops. Fleet equipment follows its manufacturer's service list.
 
 <sub>**Planned.** Controls: CM-7. SIP record: [DI-4.2](../04-sip/03-device-and-infrastructure.md#di-42-policy-service-restrictions). Details: the CMP, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#6-service-restriction-and-least-functionality).</sub>
 
 ### DI-4.3: Unapproved Service Usage Monitoring and Alerting
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, ACAS scans and Defender for Cloud CSPM will look for any service running outside the CMP's permitted list, in every location. A finding raises an alert in Splunk Enterprise Security and opens a Jira Service Management ticket to the asset's owning team. If the asset faces the DMZ or sits in Tier 0, the finding goes to the Security Team at once.
 
 <sub>**Planned.** Controls: CM-7(1). SIP record: [DI-4.3](../04-sip/03-device-and-infrastructure.md#di-43-unapproved-service-usage-monitoring-and-alerting). Details: the CMP, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#6-service-restriction-and-least-functionality).</sub>
 
 ### DI-4.4: Compute Configuration Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, every virtual machine, VDI desktop, and cluster will be compared against its baseline. In the cloud, Azure Machine Configuration and Defender for Cloud CSPM read each machine's configuration state. In the data center and at the alternate site, ACAS runs STIG audits. Inside the clusters, Gatekeeper rejects any workload that departs from the cluster baseline before it runs.
+
+Drift alerts go to the owning team and the Security Team. A Splunk dashboard shows compute posture by team and spoke for the Platform Team, the Security Team, the PMO ISSE, and the CSSP.
 
 <sub>**Planned.** Controls: CM-6(1). SIP record: [DI-4.4](../04-sip/03-device-and-infrastructure.md#di-44-compute-configuration-monitoring).</sub>
 
 ### DI-4.5: Storage Configuration Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, Defender for Cloud CSPM and Azure Policy compliance will watch every cloud storage and database service. They look for public access, disabled logging, or a loosened resource firewall. The on-premises data lake zones are checked after every change by the Ansible job that guards their bucket policies. Findings from both feed a storage dashboard in Splunk.
 
 <sub>**Planned.** Controls: CM-6(1). SIP record: [DI-4.5](../04-sip/03-device-and-infrastructure.md#di-45-storage-configuration-monitoring).</sub>
 
 ### DI-4.6: Platform Services and Application Configuration Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, Defender for Cloud CSPM and Azure Policy compliance will watch every managed service and every application's hosting against its baseline. The highest-priority finding is a public endpoint re-enabled on any foundation model deployment. Findings appear on a platform and application dashboard in Splunk.
+
+These checks cannot read whether the provider's abuse monitoring exemption is still in place. That exemption is therefore confirmed with Microsoft each year instead.
 
 <sub>**Planned.** Controls: CM-6(1). SIP record: [DI-4.6](../04-sip/03-device-and-infrastructure.md#di-46-platform-services-and-application-configuration-monitoring).</sub>
 
 ### DI-4.7: OT Baseline Configuration Drift Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, Fleet Operations will check the fleet against its manufacturer baselines. During maintenance windows, it exports each station's and launch system's configuration with the manufacturer's tools and compares it with the baseline. Between windows, Nozomi Networks Guardian captures firmware and protocol behavior from the traffic. Each aircraft's firmware and loaded model version are checked when it connects to a station or enters maintenance.
+
+Drift alerts reach Fleet Operations and the Security Team through Splunk. Nothing changes fleet equipment automatically, since an unplanned change to a station could affect a flight.
 
 <sub>**Planned.** Controls: CM-6. SIP record: [DI-4.7](../04-sip/03-device-and-infrastructure.md#di-47-ot-baseline-configuration-drift-detection).</sub>
 
 ### DI-4.8: Vulnerability and Patch Management
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+The VPMP will set KESTREL's remediation deadlines, with shorter ones for the DMZ, Tier 0, and the fleet. ACAS scans every host from Phase 1, so Tier 0 runs under those deadlines from the interim authorization to test.
+
+Patches reach production in stages. Each moves from dev to test to stage first, and Tier 0 and on-premises patches go to the alternate site's standby before production. Configuration Manager and Ansible patch servers in every location, one node of each redundant pair at a time. Container images are rebuilt rather than patched, and HSM and datalink crypto module firmware moves only to FIPS 140-3 validated versions. From Phase 3, fleet patches must be validated by the manufacturer, tried on a spare, and loaded in a maintenance window.
 
 <sub>**Planned.** Controls: SI-2, SI-2(2), SI-2(3), SI-5, RA-5, RA-7, CM-2(3). SIP record: [DI-4.8](../04-sip/03-device-and-infrastructure.md#di-48-vulnerability-and-patch-management). Details: the VPMP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan#1-remediation-timeframes-by-asset-class) and [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan#2-risk-based-prioritization) and [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan#3-patch-testing-staged-rollout-and-rollback) and [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan#4-otics-vendor-validated-remediation) and [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan#5-exception-and-risk-acceptance) and [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan#6-security-directive-intake-and-compliance-tracking).</sub>
 
 ### DI-4.9: Unpatchable/Legacy Asset Compensating Controls
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+Some assets cannot be patched, and they will get a fixed set of compensating controls instead. The asset sits in its own segment, the firewall at its only path applies virtual patches, and monitoring around it is tighter. If no such asset is fielded, Fleet Operations validates the pattern on a spare station in Phase 3.
+
+The payload processing workstation is the one candidate, and only if its replacement slips past 2027-09-30. It would then connect only after the AO re-dates CCSD tailoring action 3. In that case it would run in its own OT zone with Trellix Application Control. Its single conduit would cross the ground segment firewall, where Threat Prevention signatures shield its known flaws. Its recordings would reach Mission Team 1's zone under tighter Guardian and Splunk alert thresholds than the rest of the fleet.
 
 <sub>**Planned.** Controls: RA-7, SI-4. SIP record: [DI-4.9](../04-sip/03-device-and-infrastructure.md#di-49-unpatchablelegacy-asset-compensating-controls).</sub>
 
 ## DI-5: Endpoint Security
 
+Every KESTREL-owned host will carry the same layered protection. Allow-listing decides what may run, anti-malware and EDR watch what does run, and exploit and tamper protection keep the agent itself from being switched off. The Security Team takes response actions on hosts under the IRP, with strict limits on what can be automated and no automated action on fleet equipment.
+
 ### DI-5.1: Execution and Device Control
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+App Control for Business will run deny-by-default on the privileged access workstations, the VDI desktops, and Windows servers. On Red Hat Enterprise Linux servers, fapolicyd does the same in every location, including the IT/OT DMZ. Policies run in audit mode during Phase 2 and enforce by Phase 3, so the allow-lists can be tuned before they start blocking.
+
+Across the IT estate, removable media is blocked except at the media intake station, which reads only encrypted government media. Cameras and microphones are disabled on the privileged access workstations and in the VDI image. The ground segment's mission storage modules and key loaders follow the fleet baselines instead.
 
 <sub>**Planned.** Controls: CM-7(2), CM-7(5), MP-7, SC-41, CM-11, SC-18, SC-15. SIP record: [DI-5.1](../04-sip/03-device-and-infrastructure.md#di-51-execution-and-device-control). Details: the CMP, [Section 7](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#7-endpoint-security-controls).</sub>
 
 ### DI-5.2: Malicious Code Protection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Defender for Endpoint will run on every server, licensed through Defender for Servers. The data center, the alternate site, and the IT/OT DMZ connect to it through Azure Arc. KESTREL's Microsoft 365 DoD tenant licenses the same agent on the privileged access workstations and VDI desktops. Defender for Containers protects every AKS cluster, including the notebook and model-serving node pools.
+
+Training compute in Azure Machine Learning runs only images that the pipeline has already scanned. Web and network protection limit the VDI desktops to the management endpoints they need. Malicious domains are filtered at the DNS resolvers on both sides of the circuit.
 
 <sub>**Planned.** Controls: SI-3. SIP record: [DI-5.2](../04-sip/03-device-and-infrastructure.md#di-52-malicious-code-protection).</sub>
 
 ### DI-5.3: Host Hardening and Integrity Protection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Configuration Manager and Ansible will apply exploit protection and default-deny host firewalls to every privileged access workstation, VDI desktop, and server. On workstations, desktops, and Windows servers, virtualization-based security isolates the EDR agent and the credential stores from the rest of the operating system.
+
+The tamper protection policy sits outside the Platform Team's control. The Tier 0 administrators own it, and any change needs the Security Team's approval. As a result, no Platform Team administrator can switch off the agent that watches their own activity.
 
 <sub>**Planned.** Controls: SC-7(12), SI-7, SI-16, SC-3. SIP record: [DI-5.3](../04-sip/03-device-and-infrastructure.md#di-53-host-hardening-and-integrity-protection). Details: the CMP, [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#appendix-reference-data-and-configuration-baselines).</sub>
 
 ### DI-5.4: Endpoint Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 4, with a target of 2029-03-31.*
+Defender for Endpoint will be in every image from Phase 1, running in audit mode until blocking is turned on in Phase 2. Hosts running payload vendor software stay in audit mode until that software is profiled, so the agent does not break a vendor's conversion process. Alerts reach the Microsoft 365 DoD tenant's endpoint service, then Splunk Enterprise Security and the CSSP.
+
+ACAS runs authenticated vulnerability scans of every host in every location, on a continuously updated feed. Scan credentials for Tier 0 are vaulted in CyberArk and used only from a Tier 0 scanner. File integrity monitoring covers Tier 0 and CyberArk from Phase 1. Every physical server and workstation attests its boot integrity, and cloud virtual machines use Trusted Launch from creation. In the data center, the Cisco APIC reports any device it does not recognize.
 
 <sub>**Planned.** Controls: RA-5, RA-5(2), RA-5(5), RA-10, SI-4, SI-4(2), SI-4(5), SI-4(7), SI-4(24), SI-7(1), SI-7(2), SI-7(5), SI-7(7), SI-7(9), SI-7(10), SI-6. SIP record: [DI-5.4](../04-sip/03-device-and-infrastructure.md#di-54-endpoint-detection). Details: the CMP, [Section 7](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#7-endpoint-security-controls).</sub>
 
 ### DI-5.5: Endpoint Response
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 4, with a target of 2029-03-31.*
+From Phase 2, the Security Team will take endpoint response actions in Defender XDR under the IRP, namely isolation, file remediation, and live response. Live response sessions are recorded.
+
+Automation is deliberately limited. Tier 0 hosts sit in their own device group, where response actions can be taken only from the privileged access workstations. No CSSP playbook or automated isolation reaches them. Elsewhere, the CSSP may isolate a host only through a pre-approved Splunk SOAR playbook, which pages the Security Team. Automated response isolates only non-production hosts, and nothing in this capability acts on fleet equipment.
 
 <sub>**Planned.** Controls: IR-4, IR-4(1), IR-4(4), IR-4(5), IR-4(12). SIP record: [DI-5.5](../04-sip/03-device-and-infrastructure.md#di-55-endpoint-response). Details: the CMP, [Section 7](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#7-endpoint-security-controls).</sub>
 
 ## DI-6: Configuration Management Planning
 
+The Configuration Management Plan gathers this focus area's baselines, change rules, and hardening decisions in one document. The narratives above describe how they work, and the CMP holds the specifics.
+
 ### DI-6.1: Configuration Management Plan (CMP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+One Configuration Management Plan will cover the cloud, the data center, the alternate site, and the fleet. The Platform Team writes it, with Fleet Operations writing the OT and legacy sections and IT Operations the maintenance sections. The Security Team reviews it, and the Configuration Control Board approves it. It is revised each year and after any significant change, such as a new spoke or interconnection.
 
 <sub>**Planned.** Controls: CM-1, CM-9. SIP record: [DI-6.1](../04-sip/03-device-and-infrastructure.md#di-61-configuration-management-plan-cmp). Published as the [Configuration Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan).</sub>
 
 ## DI-7: Vulnerability and Patch Management Planning
 
+The Vulnerability and Patch Management Plan sets the deadlines that every vulnerability finding in KESTREL is measured against.
+
 ### DI-7.1: Vulnerability and Patch Management Plan (VPMP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+One Vulnerability and Patch Management Plan will cover every location. The Security Team writes it, since it owns the POA&M and continuous monitoring, with IT Operations writing the patch windows and Fleet Operations the fleet procedures. It is written in Phase 1, so Tier 0 runs under its deadlines from the interim authorization to test. The Configuration Control Board approves it, and risk acceptances under it go through the risk acceptance process. It is revised each year and whenever an exception such as CCSD tailoring action 3 changes.
 
 <sub>**Planned.** Controls: RA-1, SI-1. SIP record: [DI-7.1](../04-sip/03-device-and-infrastructure.md#di-71-vulnerability-and-patch-management-plan-vpmp). Published as the [Vulnerability and Patch Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan).</sub>

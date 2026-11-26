@@ -1,0 +1,3 @@
+Each change will have one record. For anything defined as code, the merged GitLab merge request is that record. Jira Service Management holds the record for everything else, including fleet changes. Each change carries a security impact note, which feeds Security Impact Analysis.
+
+Changes are tested before they reach production. Cloud changes go first to the owning team's stage cluster, while Tier 0 and data center changes go to the alternate site's standby or a lab. A post-change compliance scan closes the record. Changes to the shared rule base, the identity provider, or an interconnection go to the Configuration Control Board. An emergency change runs through CyberArk and is reviewed within two business days.

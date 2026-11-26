@@ -1,0 +1,3 @@
+The ground segment cannot be scanned the way an IT network can, since an active probe could disturb a station during a flight. Nozomi Networks Guardian sensors will instead fingerprint the ground control stations, launch and recovery equipment, and operating site services from their own traffic. The sensors parse the UAS command and telemetry protocols, and maintenance records fill in what they cannot see.
+
+Fleet Operations will deploy and tune the sensors on the spare stations and the simulator in Phase 2. They extend to each operating site when the fleet integrates in Phase 3. Coverage is checked after each change. Aircraft are inventoried by tail number from Fleet Operations' records and reconciled each time one connects to a station.

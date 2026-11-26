@@ -1,0 +1,3 @@
+App Control for Business will run deny-by-default on the privileged access workstations, the VDI desktops, and Windows servers. On Red Hat Enterprise Linux servers, fapolicyd does the same in every location, including the IT/OT DMZ. Policies run in audit mode during Phase 2 and enforce by Phase 3, so the allow-lists can be tuned before they start blocking.
+
+Across the IT estate, removable media is blocked except at the media intake station, which reads only encrypted government media. Cameras and microphones are disabled on the privileged access workstations and in the VDI image. The ground segment's mission storage modules and key loaders follow the fleet baselines instead.

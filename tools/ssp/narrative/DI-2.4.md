@@ -1,0 +1,3 @@
+Hardware maintenance in the data center and at the alternate site will be scheduled in Jira Service Management, escorted, and recorded. Failed drives stay on site for sanitization. Diagnostic tools and media are approved and scanned before use. The cloud provider maintains the cloud hardware.
+
+Fleet maintenance follows the same procedures, and from Phase 3 it runs only in each operating site's weekly maintenance window. Vendor sessions are brokered through CyberArk. Spares cover the mission's tolerance for downtime, and the HSMs, identity servers, and hub firewalls have support agreements with set replacement times. A spare used for penetration testing is reimaged and checked against its baseline before it returns to the pool.

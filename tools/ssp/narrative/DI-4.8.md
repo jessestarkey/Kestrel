@@ -1,0 +1,3 @@
+The VPMP will set KESTREL's remediation deadlines, with shorter ones for the DMZ, Tier 0, and the fleet. ACAS scans every host from Phase 1, so Tier 0 runs under those deadlines from the interim authorization to test.
+
+Patches reach production in stages. Each moves from dev to test to stage first, and Tier 0 and on-premises patches go to the alternate site's standby before production. Configuration Manager and Ansible patch servers in every location, one node of each redundant pair at a time. Container images are rebuilt rather than patched, and HSM and datalink crypto module firmware moves only to FIPS 140-3 validated versions. From Phase 3, fleet patches must be validated by the manufacturer, tried on a spare, and loaded in a maintenance window.

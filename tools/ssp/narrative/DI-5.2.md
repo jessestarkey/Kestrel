@@ -1,0 +1,3 @@
+Defender for Endpoint will run on every server, licensed through Defender for Servers. The data center, the alternate site, and the IT/OT DMZ connect to it through Azure Arc. KESTREL's Microsoft 365 DoD tenant licenses the same agent on the privileged access workstations and VDI desktops. Defender for Containers protects every AKS cluster, including the notebook and model-serving node pools.
+
+Training compute in Azure Machine Learning runs only images that the pipeline has already scanned. Web and network protection limit the VDI desktops to the management endpoints they need. Malicious domains are filtered at the DNS resolvers on both sides of the circuit.

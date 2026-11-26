@@ -1,0 +1,1 @@
+The Configuration Management Plan gathers this focus area's baselines, change rules, and hardening decisions in one document. The narratives above describe how they work, and the CMP holds the specifics.

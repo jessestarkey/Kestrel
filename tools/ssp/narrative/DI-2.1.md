@@ -1,0 +1,3 @@
+Cloud resources will be built only by OpenTofu through GitLab, from the Platform Team's landing zone modules, which are derived from Mission Landing Zone. The modules set secure defaults, and Azure Policy and the pipeline's checks block any resource that departs from them. A second reviewer approves each infrastructure change, as with application code. Azure Policy denies creating resources in the portal, except under break-glass.
+
+On premises, every server in the data center and at the alternate site will be built from Ansible Automation Platform playbooks. The alternate site's equipment is placed under the facility agreement with the parent organization.

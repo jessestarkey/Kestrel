@@ -1,0 +1,3 @@
+Packer will build KESTREL's virtual machine images from the same STIG roles, for the cloud's VDI and servers and for the data center's servers. One VDI golden image serves every host pool, and each pool adds only its own tools. The IT/OT DMZ's staging servers use the data center server image.
+
+Container base images come from Iron Bank and are rebuilt rather than patched in place. Every AKS cluster shares one baseline, whether it runs dev, test, stage, prod, notebooks, or model serving, and kube-bench checks it. Every cloud virtual machine and node pool uses an isolated size, separating it from non-DoD tenants as IL5 requires. Ansible hardens the baseboard management controllers on every physical server.

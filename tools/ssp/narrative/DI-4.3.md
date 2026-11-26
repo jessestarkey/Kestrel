@@ -1,0 +1,1 @@
+From Phase 2, ACAS scans and Defender for Cloud CSPM will look for any service running outside the CMP's permitted list, in every location. A finding raises an alert in Splunk Enterprise Security and opens a Jira Service Management ticket to the asset's owning team. If the asset faces the DMZ or sits in Tier 0, the finding goes to the Security Team at once.

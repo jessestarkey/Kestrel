@@ -1,0 +1,3 @@
+DISA STIGs and SRGs will set every baseline, with the Cloud Computing SRG's IL5 requirements in the cloud. The landing zone modules build the hub and ten spokes as subscriptions under one tenant, each guarded by its own Azure Policy assignments. A new spoke is therefore built the same way as the existing ones. Ansible roles carry the STIGs to the data center and the alternate site.
+
+Some components protect the boundary itself, and they are configured to fail closed. These are every firewall, the access proxy, the VDI brokers, and the cross domain transfer gateway. Each preserves its state so it can recover cleanly.

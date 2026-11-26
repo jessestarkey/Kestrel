@@ -1,0 +1,3 @@
+From Phase 2, the Security Team will take endpoint response actions in Defender XDR under the IRP, namely isolation, file remediation, and live response. Live response sessions are recorded.
+
+Automation is deliberately limited. Tier 0 hosts sit in their own device group, where response actions can be taken only from the privileged access workstations. No CSSP playbook or automated isolation reaches them. Elsewhere, the CSSP may isolate a host only through a pre-approved Splunk SOAR playbook, which pages the Security Team. Automated response isolates only non-production hosts, and nothing in this capability acts on fleet equipment.

@@ -1,0 +1,1 @@
+KESTREL will keep one inventory of everything inside its boundary, held in Jira Service Management Assets. Each location feeds it from the tools already watching that location, so the inventory stays current without anyone typing in assets by hand. Required tags then give every asset an owner, an environment, and a criticality, which the Security Team reads but cannot change.

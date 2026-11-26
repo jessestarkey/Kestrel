@@ -1,0 +1,3 @@
+KESTREL's only owned endpoints outside the VDI pools are its privileged access workstations. Configuration Manager in the Tier 0 enclave will enroll each one, scan it against its compliance policy, and remediate it. A workstation that falls out of compliance loses Tier 0 sign-in until it is fixed.
+
+Devices KESTREL does not own never join its network. Performer laptops reach KESTREL only through Pomerium and Azure Virtual Desktop, after a posture check. Parent organization devices use Pomerium alone, and vendor devices only the vendor host pool. The interconnection agreement, the performer's CMMC Level 2 attestation, and the CMP record those terms. KESTREL has no mobile devices, and its workstations never travel.

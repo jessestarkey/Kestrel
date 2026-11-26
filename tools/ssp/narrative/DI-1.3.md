@@ -1,0 +1,3 @@
+Every asset will carry required tags for its owning team, its spoke or data center segment, its environment, its data classification, its mission criticality, and its end-of-support date. Assets tied to a payload vendor's data rights also carry that vendor's tag, so the vendor split can be checked from the inventory alone.
+
+Tags are required from the first build. In Phase 1, Azure Policy and the pipeline's Conftest checks audit them, and from Phase 2 they block any untagged cloud resource at deployment. On-premises servers are tagged when they are built, and Fleet Operations tags fleet equipment when it is received.

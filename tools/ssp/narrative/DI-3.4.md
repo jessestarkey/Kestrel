@@ -1,0 +1,3 @@
+Azure Policy initiatives will set the baseline for every managed service. Examples are the spoke Key Vaults, the queues and functions behind the feedback endpoints, and the database services. Each Azure OpenAI deployment must have a private endpoint and no local key authentication.
+
+Disabling the provider's abuse monitoring, which stores prompts, works differently. It is an exemption Microsoft approves rather than a setting KESTREL can turn off. The approval is therefore filed as the baseline's evidence and confirmed each year. COTS products, such as the service desk platform and the payload vendors' conversion software, follow their vendors' hardening guidance.
