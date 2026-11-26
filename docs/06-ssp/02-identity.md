@@ -200,7 +200,7 @@ Administrative access gives an attacker the most leverage, so KESTREL will restr
 
 ### ID-4.1: Privileged Access Control
 
-Privileged roles will be defined for each administrative surface: the cloud hub, each spoke, the cluster control planes, the data center, the alternate site, the PKI and HSMs, and the ground segment. Entra Privileged Identity Management holds the cloud roles, and CyberArk holds the rest. No single role is allowed to span both the HSMs and the cloud tenants.
+Privileged roles will be defined for each administrative surface. The surfaces are the cloud hub, each spoke, the cluster control planes, the data center, the alternate site, the PKI and HSMs, and the ground segment. Entra Privileged Identity Management holds the cloud roles, and CyberArk holds the rest. No single role is allowed to span both the HSMs and the cloud tenants.
 
 Ownership follows the systems. Each team holds the roles for what it runs, so Fleet Operations administers the ground segment. A team gets cloud administrative roles only once it runs its own production spoke. Tier 0 roles go only to the named Tier 0 administrators. The Security Team and the CSSP mostly read and audit. Their few exceptions are spelled out, such as the detection content role, which deploys rules through the pipeline.
 

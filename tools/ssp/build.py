@@ -30,7 +30,7 @@ HERE = os.path.join(ROOT, 'tools', 'ssp')
 OUT = os.path.join(ROOT, 'docs', '06-ssp')
 WIKI_SRC = os.path.join(ROOT, 'tools', 'github', 'wiki')
 WIKI_URL = 'https://github.com/jessestarkey/Kestrel/wiki'
-VERSION, DATE = '0.1', '2026-11-26'
+VERSION, DATE = '0.2', '2026-11-26'
 STATUSES = ['Planned', 'Partially Does', 'Currently Does', 'Does Not']
 
 

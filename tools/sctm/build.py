@@ -29,7 +29,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dispositions import PROVIDERS, INHERITED, NOT_APPLICABLE, MET_UNCLAIMED, NARROW  # noqa: E402
 
-VERSION, DATE = '0.2', '2026-11-26'
+VERSION, DATE = '0.3', '2026-11-26'
 SOURCES = {'CCSD': '1.0, with 1.1 pending', 'SADD': '0.9', 'SIP': '0.8'}
 DATA = os.path.join(ROOT, 'tools', 'sctm', 'data')
 OUT = os.path.join(ROOT, 'docs', '05-sctm')
@@ -307,7 +307,8 @@ def main():
           '| Classification / Handling | CUI |', '', '### Version History', '',
           '| Version | Date | Author | Description of Changes |', '|---|---|---|---|',
           '| 0.1 | 2026-11-25 | KESTREL ISSM | Initial matrix, built against the SADD before SSP validation |',
-          f'| 0.2 | {DATE} | KESTREL ISSM | Recast as a checklist by control family, with control names, implementation status from the board, and a narrative per control. The OSCAL moved into the SSP. |', '',
+          f'| 0.2 | {DATE} | KESTREL ISSM | Recast as a checklist by control family, with control names, implementation status from the board, and a narrative per control. The OSCAL moved into the SSP. |',
+          f'| 0.3 | {DATE} | KESTREL ISSM | Wrote an implementation narrative for every control KESTREL implements in whole or in part |', '',
           '---', '', '## Control Set', '',
           f'The CCSD selects KESTREL\'s controls from the CNSSI 1253 columns for High confidentiality, High integrity, and Moderate availability. '
           f'This notional example does not reproduce those columns. It uses NIST\'s OSCAL [High baseline]({BASE_URL}{HIGH}) and [privacy baseline]({BASE_URL}{PRIVACY}) as a stand-in. '

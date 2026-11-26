@@ -13,7 +13,7 @@ This plan records what KESTREL actually does for each outcome its SADD selected,
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SSP Version | 0.1 |
+| SSP Version | 0.2 |
 | Date | 2026-11-26 |
 | Prepared By | KESTREL ISSM, with the PMO ISSE |
 | System Owner | KESTREL program manager |
@@ -28,12 +28,13 @@ This plan records what KESTREL actually does for each outcome its SADD selected,
 | Version | Date | Author | Description of Changes |
 |---|---|---|---|
 | 0.1 | 2026-11-26 | KESTREL ISSM | Initial generated SSP, before any outcome is built |
+| 0.2 | 2026-11-26 | KESTREL ISSM | Wrote a narrative for every in-scope outcome and an opening for every capability, describing the planned implementation |
 
 ---
 
 ## 1. Purpose and Source
 
-This SSP records how KESTREL has implemented the tailored control set that SADD version 0.9 designed, and that Security Implementation Plan version 0.8 selected products and sequencing for. KESTREL is not yet built. Every outcome is therefore planned, and each one points to the Security Implementation Plan record that schedules it. As work reaches Done on the board, its outcome's status changes here, and a narrative of what was actually built replaces the planned entry.
+This SSP records how KESTREL has implemented the tailored control set that SADD version 0.9 designed, and that Security Implementation Plan version 0.8 selected products and sequencing for. KESTREL is not yet built, so every outcome is planned. Each narrative describes the planned implementation in the future tense, and each one closes with the Security Implementation Plan record that schedules it. As work reaches Done on the board, its outcome's status changes here, and its narrative is rewritten in the present tense to describe what was actually built.
 
 An assessor can read this plan for orientation without the SADD or the Security Implementation Plan open beside it. Full traceability still runs back to both by outcome ID.
 
