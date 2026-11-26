@@ -1,0 +1,1 @@
+KESTREL holds little personal information, but what it holds will be managed under a privacy program. A Privacy Impact Assessment is approved before any personal information arrives. The privacy officer runs the program, handles correction requests, and approves the handling of each training set.

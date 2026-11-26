@@ -1,0 +1,1 @@
+From Phase 3, the SCA will conduct the annual security review under the Security Assessment Plan. It covers the cloud, the data center, the alternate site, and the fleet through the spares and the simulator, and it draws on the penetration test results. Determinations go into the SAR, and findings go to the POA&M in eMASS and to the risk register.

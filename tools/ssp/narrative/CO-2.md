@@ -1,0 +1,1 @@
+Authorization will not end at the ATO. The Continuous Monitoring Plan sets what is checked, how often, and who sees the result, and control assessments run on a set calendar. An annual security review by the SCA confirms that the system still matches what was authorized.

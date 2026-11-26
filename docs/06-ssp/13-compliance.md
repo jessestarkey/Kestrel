@@ -4,68 +4,76 @@
 
 ## CO-1: Regulatory and Framework Compliance
 
+KESTREL will know which rules bind it and prove that it follows them. The PMO ISSE maps every binding issuance to the outcomes that satisfy it, and automated scans check technical controls against their baselines. Every piece of evidence is filed in one immutable repository as it is produced.
+
 ### CO-1.1: Regulatory Compliance Mapping
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the PMO ISSE will inventory the issuances that bind KESTREL in Confluence and map each one to the outcomes that satisfy it. Gaps go to the requirement register with a named owner. The watch for new or revised issuances is checked each quarter, together with the AI regulatory mapping.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [CO-1.1](../04-sip/13-compliance.md#co-11-regulatory-compliance-mapping).</sub>
 
 ### CO-1.2: Automated Technical Control Compliance Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, the Platform Team will run authenticated ACAS scans with DISA SCAP content, using scan credentials it holds. Defender for Cloud will check the cloud and containers. The Security Team reads the results in Splunk and tracks each finding. Fleet equipment is checked against its manufacturer baseline only in maintenance windows, and nothing corrects it automatically.
 
 <sub>**Planned.** Controls: CA-7(6). SIP record: [CO-1.2](../04-sip/13-compliance.md#co-12-automated-technical-control-compliance-monitoring).</sub>
 
 ### CO-1.3: Compliance Evidence Collection and Retention
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+One evidence repository, in immutable Blob storage, will exist from Phase 1, so every story can file its evidence as the work is done. The Platform Team administers the storage account, while the Security Team holds only append and read roles, so no one can remove evidence once it is filed. Fleet and OT evidence is entered by hand after each maintenance window. From Phase 3, completeness checks and a Splunk dashboard show where evidence is missing, in time for the SCA's assessment.
 
 <sub>**Planned.** Controls: SI-12, PM-6. SIP record: [CO-1.3](../04-sip/13-compliance.md#co-13-compliance-evidence-collection-and-retention).</sub>
 
 ## CO-2: Continuous Monitoring Program
 
+Authorization will not end at the ATO. The Continuous Monitoring Plan sets what is checked, how often, and who sees the result, and control assessments run on a set calendar. An annual security review by the SCA confirms that the system still matches what was authorized.
+
 ### CO-2.1: Continuous Monitoring Plan (ConMon)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The ISSM will have an interim Continuous Monitoring Plan approved in Phase 1, for the interim authorization to test, and the full plan in Phase 2. Beyond its regular checks, it watches two dates: CCSD tailoring action 3's 2027-09-30 deadline and tailoring action 6's annual review. Status goes to the AO in summary each month and in full each quarter.
 
 <sub>**Planned.** Controls: CA-1, CA-7, CA-7(3), PM-31. SIP record: [CO-2.1](../04-sip/13-compliance.md#co-21-continuous-monitoring-plan-conmon). Published as the [Continuous Monitoring Plan](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan). Details: the ConMon, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#1-monitoring-strategy-and-metrics) and [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#2-monitoring-and-assessment-frequencies) and [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#3-security-status-reporting) and [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#4-monitoring-and-assessment-procedures) and [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#5-trend-analysis-and-cadence-adjustment) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#appendix-live-records).</sub>
 
 ### CO-2.2: Control Assessment Scheduling
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, a third of the control families will be assessed each year, so every family is covered in three years. The key, signing, and datalink controls are assessed each quarter, since they protect the High-integrity rows. The SCA runs the independent assessments, and the ISSOs self-assess between them in Jira. Inherited controls are accepted on each provider's current assessment.
 
 <sub>**Planned.** Controls: CA-2, CA-2(1), CA-2(3), CA-7(1). SIP record: [CO-2.2](../04-sip/13-compliance.md#co-22-control-assessment-scheduling).</sub>
 
 ### CO-2.3: Annual Security Review
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-08-31.*
+From Phase 3, the SCA will conduct the annual security review under the Security Assessment Plan. It covers the cloud, the data center, the alternate site, and the fleet through the spares and the simulator, and it draws on the penetration test results. Determinations go into the SAR, and findings go to the POA&M in eMASS and to the risk register.
 
 <sub>**Planned.** Controls: CA-2, CA-2(2), CA-7(5). SIP record: [CO-2.3](../04-sip/13-compliance.md#co-23-annual-security-review).</sub>
 
 ## CO-3: Audit Management
 
+Audits will check that KESTREL does what its plans say. The parent organization's internal review office audits the governing plans in rotation. The program manager coordinates any external audit or inspection, with evidence drawn from the same repository the SCA uses.
+
 ### CO-3.1: Internal Audit Program
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the parent organization's internal review office will audit whether KESTREL's plans are actually carried out, reaching every governing plan at least once every two years. Findings are tracked in Jira until their fix is verified.
 
 <sub>**Planned.** Controls: PM-14. SIP record: [CO-3.1](../04-sip/13-compliance.md#co-31-internal-audit-program).</sub>
 
 ### CO-3.2: External Audit Coordination
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the program manager will receive each audit or inspection request, and the ISSM will package evidence from the repository after a CUI and releasability review. DCMA and DIBCAC reviews cover the performer's laptops under CMMC. Findings go to the POA&M.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [CO-3.2](../04-sip/13-compliance.md#co-32-external-audit-coordination).</sub>
 
 ## CO-4: Privacy Compliance
 
+KESTREL holds little personal information, but what it holds will be managed under a privacy program. A Privacy Impact Assessment is approved before any personal information arrives. The privacy officer runs the program, handles correction requests, and approves the handling of each training set.
+
 ### CO-4.1: Privacy Program Management
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the privacy officer will run KESTREL's privacy program at the Privacy Overlay's Low tier, under the Privacy Program Charter and Policy. Users correct the attributes KESTREL holds about them through Jira Service Management, while CAC and partner attributes are corrected at their source. Analysts, Data Team stewards, and service desk staff take role-based privacy training on JKO.
 
 <sub>**Planned.** Controls: PT-1, PM-18, PM-19, PM-5(1), AT-3(5), PM-22. SIP record: [CO-4.1](../04-sip/13-compliance.md#co-41-privacy-program-management).</sub>
 
 ### CO-4.2: Privacy Impact Assessments (PIA)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The Privacy Impact Assessment, on DD Form 2930, will be approved in Phase 1, before user and service desk records and the prior collection imagery arrive. The component privacy office names the system of records notice for account and service desk records. A new collection, sensor, AI use case, or partner release triggers a reassessment. A change that touches personal information, such as the coding agent's persistent memory, is referred to the privacy officer to decide whether the PIA needs reassessing.
 
 <sub>**Planned.** Controls: RA-8, PT-2. SIP record: [CO-4.2](../04-sip/13-compliance.md#co-42-privacy-impact-assessments-pia).</sub>

@@ -1,0 +1,1 @@
+From Phase 2, the Platform Team will run authenticated ACAS scans with DISA SCAP content, using scan credentials it holds. Defender for Cloud will check the cloud and containers. The Security Team reads the results in Splunk and tracks each finding. Fleet equipment is checked against its manufacturer baseline only in maintenance windows, and nothing corrects it automatically.

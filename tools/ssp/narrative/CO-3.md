@@ -1,0 +1,1 @@
+Audits will check that KESTREL does what its plans say. The parent organization's internal review office audits the governing plans in rotation. The program manager coordinates any external audit or inspection, with evidence drawn from the same repository the SCA uses.

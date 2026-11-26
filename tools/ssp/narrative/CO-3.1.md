@@ -1,0 +1,1 @@
+From Phase 3, the parent organization's internal review office will audit whether KESTREL's plans are actually carried out, reaching every governing plan at least once every two years. Findings are tracked in Jira until their fix is verified.

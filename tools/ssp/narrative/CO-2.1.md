@@ -1,0 +1,1 @@
+The ISSM will have an interim Continuous Monitoring Plan approved in Phase 1, for the interim authorization to test, and the full plan in Phase 2. Beyond its regular checks, it watches two dates: CCSD tailoring action 3's 2027-09-30 deadline and tailoring action 6's annual review. Status goes to the AO in summary each month and in full each quarter.

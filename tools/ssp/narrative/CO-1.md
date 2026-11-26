@@ -1,0 +1,1 @@
+KESTREL will know which rules bind it and prove that it follows them. The PMO ISSE maps every binding issuance to the outcomes that satisfy it, and automated scans check technical controls against their baselines. Every piece of evidence is filed in one immutable repository as it is produced.

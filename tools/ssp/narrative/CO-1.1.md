@@ -1,0 +1,1 @@
+From Phase 2, the PMO ISSE will inventory the issuances that bind KESTREL in Confluence and map each one to the outcomes that satisfy it. Gaps go to the requirement register with a named owner. The watch for new or revised issuances is checked each quarter, together with the AI regulatory mapping.
