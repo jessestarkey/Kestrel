@@ -1,0 +1,1 @@
+Backups are a target in their own right, so KESTREL will protect them as carefully as production. Deleting a backup or shortening its retention needs two people, and every backup set is encrypted under its own key. Every copy is locked against change until its retention ends. Copies are kept at two separate sites.

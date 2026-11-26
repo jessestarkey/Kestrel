@@ -1,0 +1,1 @@
+A weekly job will compare Jira Service Management Assets with what Veeam and Azure Backup actually protect, at each tier's settings. A gap opens a ticket to the owning team, and gaps in fleet captures go to Fleet Operations.

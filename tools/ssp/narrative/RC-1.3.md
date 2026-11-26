@@ -1,0 +1,1 @@
+Some services cannot be backed up directly, so Ansible jobs will export them on their tier's schedule and Veeam will protect the exports. These include Jira Service Management, the ACI controller, the vault contents, and the network appliances. The foundation model deployments are defined as code, so they need no backup.

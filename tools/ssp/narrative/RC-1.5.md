@@ -1,0 +1,1 @@
+From Phase 2, Azure Policy and the OpenTofu modules will bind each cloud resource's Azure Backup policy from its criticality tag. The pipeline rejects any untagged resource. A resource therefore cannot be created without backup. Veeam's policies on premises follow the same tiers.

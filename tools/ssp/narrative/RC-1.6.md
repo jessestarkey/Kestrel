@@ -1,0 +1,1 @@
+Veeam and Azure Backup job results will go to Splunk, and a failed job alerts the Platform Team's backup operators. IT Operations runs the routine checks, a sample is test-restored each week, and a Splunk dashboard shows each tier's backup state.

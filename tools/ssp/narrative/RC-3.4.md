@@ -1,0 +1,3 @@
+The alternate site will be a parent organization facility, far enough from the data center that no regional event reaches both. It holds the warm standbys for Tier 1, the second nShield HSM, and a copy of every backup. If the data center is lost, Tier 2 services restore into recovery spokes in US Gov Arizona. The data lake comes first, with each mission team's zone in its own spoke.
+
+The data center's two circuits come from different carriers, on diverse paths to different meet-me points, and production traffic fails from one to the other each quarter. The alternate site has its own circuit to the cloud hub over DISN, which the yearly failover exercise proves.

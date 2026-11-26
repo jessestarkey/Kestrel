@@ -1,0 +1,1 @@
+If a region or the data center is lost, KESTREL will rebuild rather than wait. OpenTofu rebuilds the cloud spokes in US Gov Arizona once the repository and runners are restored there. If the data center is lost, the alternate site's standby directory, issuing authority, DNS, and CyberArk vault take over. A failover exercise runs each year to prove both paths.

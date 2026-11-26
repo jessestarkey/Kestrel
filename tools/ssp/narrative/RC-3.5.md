@@ -1,0 +1,3 @@
+The fleet will keep flying without the cloud or the data center. Operators fly from the ground control stations with local smart card sign-in, and aircraft keep their recordings on storage modules until the data lake returns. If the data center is lost, analysts work from the last delivered products, and mission planning reverts to manual if the planning agent is unavailable.
+
+The program manager authorizes entering and ending fallback. Every contingency role trains within a set period of assignment, after a system change, and each year. Fleet drills start when the fleet integrates in Phase 3.

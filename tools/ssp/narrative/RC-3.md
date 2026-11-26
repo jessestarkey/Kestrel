@@ -1,0 +1,1 @@
+KESTREL will know how fast it must recover, and will prove it can. Each tier has a recovery time and a recovery point, and quarterly restore tests measure the real result against them. The alternate site holds warm standbys for Tier 1, and the fleet can keep flying without the cloud or the data center.

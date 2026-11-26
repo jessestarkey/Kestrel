@@ -1,0 +1,1 @@
+From Phase 3, Fleet Operations will capture each station's configuration, the launch equipment's logic, and each aircraft's firmware with the manufacturers' offline tools, in maintenance windows only. The captures go to Veeam without any datalink key material. Restoring one outside a window, in an emergency, needs the operations lead's approval.

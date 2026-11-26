@@ -1,0 +1,1 @@
+Veeam will encrypt each backup set under its own key, rooted in the nShield HSMs. Azure Backup vaults use customer-managed keys in Key Vault Premium. Each mission team's data lake zone has its own backup key and vault, which keeps the payload vendor split intact in the backups too.

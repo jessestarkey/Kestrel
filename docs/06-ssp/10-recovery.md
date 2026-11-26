@@ -4,104 +4,122 @@
 
 ## RC-1: Backup Automation and Coverage
 
+Backup coverage will follow three criticality tiers, set from the business impact analysis and recorded as tags in the asset inventory. The pipeline binds each resource to its tier's backup policy, so nothing is created without one. Services that a backup product cannot protect directly are exported on a schedule, and fleet equipment is captured with the manufacturers' tools in maintenance windows.
+
 ### RC-1.1: Backup Coverage Strategy
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Each asset's backup tier will be a criticality tag in Jira Service Management Assets, set from the business impact analysis. Tier 1 holds every service whose loss stops identity, signing, release, or flight control, and Tier 1 assets are tagged in Phase 1 against provisional objectives. The tags are confirmed when the analysis completes in Phase 2.
+
+HSM key backups are handled separately. They go only to the alternate site's nShield HSM, wrapped, and never into Veeam.
 
 <sub>**Planned.** Controls: CP-9. SIP record: [RC-1.1](../04-sip/10-recovery.md#rc-11-backup-coverage-strategy). Details: the CP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#1-essential-functions-critical-assets-and-coverage-scope).</sub>
 
 ### RC-1.2: Automated Backup for Supported Services
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Azure Backup will protect cloud services in immutable vaults copied to US Gov Arizona. In the data center, Veeam protects each service, with copies going to the alternate site and to immutable Blob storage in the second region. Tier 1 services are protected from Phase 1 under provisional objectives, and the rest join in Phase 2. The pipeline and Ansible bind each resource to its tier's policy.
 
 <sub>**Planned.** Controls: CP-9, CP-10(2). SIP record: [RC-1.2](../04-sip/10-recovery.md#rc-12-automated-backup-for-supported-services).</sub>
 
 ### RC-1.3: Backup Unsupported Services
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Some services cannot be backed up directly, so Ansible jobs will export them on their tier's schedule and Veeam will protect the exports. These include Jira Service Management, the ACI controller, the vault contents, and the network appliances. The foundation model deployments are defined as code, so they need no backup.
 
 <sub>**Planned.** Controls: CP-9. SIP record: [RC-1.3](../04-sip/10-recovery.md#rc-13-backup-unsupported-services).</sub>
 
 ### RC-1.4: OT/Legacy Configuration and Engineering Backup
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, Fleet Operations will capture each station's configuration, the launch equipment's logic, and each aircraft's firmware with the manufacturers' offline tools, in maintenance windows only. The captures go to Veeam without any datalink key material. Restoring one outside a window, in an emergency, needs the operations lead's approval.
 
 <sub>**Planned.** Controls: CP-9, CM-2(3). SIP record: [RC-1.4](../04-sip/10-recovery.md#rc-14-otlegacy-configuration-and-engineering-backup).</sub>
 
 ### RC-1.5: Backup Policy Enforcement
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, Azure Policy and the OpenTofu modules will bind each cloud resource's Azure Backup policy from its criticality tag. The pipeline rejects any untagged resource. A resource therefore cannot be created without backup. Veeam's policies on premises follow the same tiers.
 
 <sub>**Planned.** Controls: CP-9. SIP record: [RC-1.5](../04-sip/10-recovery.md#rc-15-backup-policy-enforcement). Details: the CP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#4-backup-policy-retention-and-geographic-protection).</sub>
 
 ### RC-1.6: Backup Health and Operations Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Veeam and Azure Backup job results will go to Splunk, and a failed job alerts the Platform Team's backup operators. IT Operations runs the routine checks, a sample is test-restored each week, and a Splunk dashboard shows each tier's backup state.
 
 <sub>**Planned.** Controls: CP-9(1), CA-7. SIP record: [RC-1.6](../04-sip/10-recovery.md#rc-16-backup-health-and-operations-monitoring).</sub>
 
 ### RC-1.7: Backup Compliance and Coverage Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+A weekly job will compare Jira Service Management Assets with what Veeam and Azure Backup actually protect, at each tier's settings. A gap opens a ticket to the owning team, and gaps in fleet captures go to Fleet Operations.
 
 <sub>**Planned.** Controls: CP-9. SIP record: [RC-1.7](../04-sip/10-recovery.md#rc-17-backup-compliance-and-coverage-monitoring).</sub>
 
 ## RC-2: Backup Data Protection
 
+Backups are a target in their own right, so KESTREL will protect them as carefully as production. Deleting a backup or shortening its retention needs two people, and every backup set is encrypted under its own key. Every copy is locked against change until its retention ends. Copies are kept at two separate sites.
+
 ### RC-2.1: Backup Access and Operations Security
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Veeam's operators will be a named Platform Team group. Deleting backups or shortening their retention needs a second approver through CyberArk's dual control. In the cloud, Azure Backup's multi-user authorization uses a Resource Guard held by the Tier 0 administrators, so the backup operators cannot override it themselves. The Security Team audits every such action in Splunk.
 
 <sub>**Planned.** Controls: AC-6(1), CP-9(7). SIP record: [RC-2.1](../04-sip/10-recovery.md#rc-21-backup-access-and-operations-security).</sub>
 
 ### RC-2.2: Backup Data Encryption
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Veeam will encrypt each backup set under its own key, rooted in the nShield HSMs. Azure Backup vaults use customer-managed keys in Key Vault Premium. Each mission team's data lake zone has its own backup key and vault, which keeps the payload vendor split intact in the backups too.
 
 <sub>**Planned.** Controls: CP-9(8). SIP record: [RC-2.2](../04-sip/10-recovery.md#rc-22-backup-data-encryption).</sub>
 
 ### RC-2.3: Backup Immutability and Redundancy
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every backup copy will be locked against change or deletion until its retention expires, even by a fully privileged account. StorageGRID's S3 Object Lock and immutable Blob storage hold each one in compliance mode. Copies leave the data center on two paths, to the alternate site and to US Gov Arizona, so no single site or region holds them all.
+
+A spill caught in a locked copy cannot be edited out. It is sanitized instead by destroying that backup set's key, which leaves the copy unreadable.
 
 <sub>**Planned.** Controls: CP-9, CP-9(3), CP-9(5). SIP record: [RC-2.3](../04-sip/10-recovery.md#rc-23-backup-immutability-and-redundancy). Details: the CP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#4-backup-policy-retention-and-geographic-protection).</sub>
 
 ## RC-3: Recovery Readiness
 
+KESTREL will know how fast it must recover, and will prove it can. Each tier has a recovery time and a recovery point, and quarterly restore tests measure the real result against them. The alternate site holds warm standbys for Tier 1, and the fleet can keep flying without the cloud or the data center.
+
 ### RC-3.1: Recovery Objective Definition (RTO/RPO)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Tier 1 will have a recovery time objective of 4 hours and a recovery point of 15 minutes. Tier 2 has 24 hours for both, and Tier 3 has a recovery time of 7 days and a recovery point of 24 hours. The program manager approves the objectives from the business impact analysis, and provisional Tier 1 figures hold from Phase 1 until the analysis confirms them in Phase 2.
+
+Raw collection has an extra safeguard. Aircraft storage modules keep each recording until the backup that holds it completes. A tier that misses its objective in a test is raised to the AO.
 
 <sub>**Planned.** Controls: CP-2(3), CP-9. SIP record: [RC-3.1](../04-sip/10-recovery.md#rc-31-recovery-objective-definition-rtorpo). Details: the CP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#3-recovery-objectives-and-restoration-priorities).</sub>
 
 ### RC-3.2: Backup Recovery Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, the Platform Team will restore a sample from every tier each quarter, using only the written procedure, and measure the result against the tier's objectives. The identity provider and one mission team's production spoke are fully restored once a year. The registry restore re-verifies every model, signed release, and baseline against its signature. Fleet captures are restored to spares or the simulator from Phase 3, once captures exist.
 
 <sub>**Planned.** Controls: CP-9(2), CP-4. SIP record: [RC-3.2](../04-sip/10-recovery.md#rc-32-backup-recovery-testing). Details: the CP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#5-restoration-testing-and-manualdegraded-mode-fallback).</sub>
 
 ### RC-3.3: Disaster Recovery Capabilities
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+If a region or the data center is lost, KESTREL will rebuild rather than wait. OpenTofu rebuilds the cloud spokes in US Gov Arizona once the repository and runners are restored there. If the data center is lost, the alternate site's standby directory, issuing authority, DNS, and CyberArk vault take over. A failover exercise runs each year to prove both paths.
 
 <sub>**Planned.** Controls: CP-4, CP-4(1), CP-4(2), CP-9(6). SIP record: [RC-3.3](../04-sip/10-recovery.md#rc-33-disaster-recovery-capabilities).</sub>
 
 ### RC-3.4: Alternate Site and Telecommunications Readiness
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+The alternate site will be a parent organization facility, far enough from the data center that no regional event reaches both. It holds the warm standbys for Tier 1, the second nShield HSM, and a copy of every backup. If the data center is lost, Tier 2 services restore into recovery spokes in US Gov Arizona. The data lake comes first, with each mission team's zone in its own spoke.
+
+The data center's two circuits come from different carriers, on diverse paths to different meet-me points, and production traffic fails from one to the other each quarter. The alternate site has its own circuit to the cloud hub over DISN, which the yearly failover exercise proves.
 
 <sub>**Planned.** Controls: CP-2(2), CP-6, CP-6(1), CP-6(2), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-7(4), CP-8, CP-8(1), CP-8(2), CP-8(3), CP-8(4), CP-8(5). SIP record: [RC-3.4](../04-sip/10-recovery.md#rc-34-alternate-site-and-telecommunications-readiness). Details: the CP, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#6-alternate-site-and-telecommunications-arrangements).</sub>
 
 ### RC-3.5: Manual/Fail-Safe Operational Fallback Readiness
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+The fleet will keep flying without the cloud or the data center. Operators fly from the ground control stations with local smart card sign-in, and aircraft keep their recordings on storage modules until the data lake returns. If the data center is lost, analysts work from the last delivered products, and mission planning reverts to manual if the planning agent is unavailable.
+
+The program manager authorizes entering and ending fallback. Every contingency role trains within a set period of assignment, after a system change, and each year. Fleet drills start when the fleet integrates in Phase 3.
 
 <sub>**Planned.** Controls: CP-2(5), CP-3, CP-3(1). SIP record: [RC-3.5](../04-sip/10-recovery.md#rc-35-manualfail-safe-operational-fallback-readiness). Details: the CP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#5-restoration-testing-and-manualdegraded-mode-fallback).</sub>
 
 ## RC-4: Contingency Planning
 
+The Contingency Plan holds the recovery objectives, the roster, the restoration order, and the fallback procedures in one document, with a printed copy at each site.
+
 ### RC-4.1: Contingency Plan (CP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+The Platform Team will write the Contingency Plan in Phase 2. Fleet Operations writes the fleet and ground segment sections, and each team writes its own restoration order. The plan lives in Confluence, with a printed copy at each site, so it survives the loss of the identity provider. The ISSM reviews it, and the Configuration Control Board approves it. Activating the alternate site is an AO review trigger, and the plan is revised each year and after every exercise.
 
 <sub>**Planned.** Controls: CP-1, CP-2, CP-2(1), CP-2(6), CP-2(8), CP-7(6), CP-10. SIP record: [RC-4.1](../04-sip/10-recovery.md#rc-41-contingency-plan-cp). Published as the [Contingency Plan](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan). Details: the CP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#2-contingency-roster-and-contact-information) and [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#3-recovery-objectives-and-restoration-priorities) and [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#6-alternate-site-and-telecommunications-arrangements) and [Section 7](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#7-coordination-with-related-plans-and-information-sharing).</sub>

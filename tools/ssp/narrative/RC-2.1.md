@@ -1,0 +1,1 @@
+Veeam's operators will be a named Platform Team group. Deleting backups or shortening their retention needs a second approver through CyberArk's dual control. In the cloud, Azure Backup's multi-user authorization uses a Resource Guard held by the Tier 0 administrators, so the backup operators cannot override it themselves. The Security Team audits every such action in Splunk.
