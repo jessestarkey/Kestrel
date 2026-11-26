@@ -634,8 +634,9 @@ OUT = {
                  tailoring="Onboard models run in the aircraft's trusted execution environment, stored encrypted with keys in its crypto module. They are zeroized on tamper or loss, so a captured aircraft yields neither weights nor keys. This is built and proven on a spare aircraft in Phase 2 and applied across the fleet when it integrates in Phase 3."),
 'AI-8.13': dict(tools=['oras', 'cosign', 'nshield'], deps='AI-4.14, AP-2.13, AP-4.5, NE-2.10', through=3,
                  tailoring="Every model leaving for a disconnected destination travels as a signed ORAS package with its weights, digest, AI-BOM, and certification record. After Certification to Field, each edge package is counter-signed with AP-2.13's nShield fleet key. The Phase 2 spares package is a test model passed through AP-4.5's gate. From Phase 3 the transfer gateway verifies packages before IL6 staging."),
-'AI-8.15': dict(tools=['sk', 'openhands'], team='Mission Team 2, with the Platform Team for the coding agent', deps='ID-3.3',
-                 tailoring="Semantic Kernel holds the mission-planning agent's working memory in process for one session and discards it at session end. No persistent memory store is deployed, and the AISP records the one-session rule. OpenHands conversation storage is disabled, so the coding agent keeps nothing after a session ends."),
+'AI-8.15': dict(tools=['openhands', 'aisearch', 'opa', 'llmguard', 'kv', 'splunkes', 'sk'],
+                 team='Platform Team for the coding agent, with Mission Team 2 for the mission-planning agent', deps='ID-3.3, AI-8.7',
+                 tailoring="The coding agent keeps notes per repository and per developer in an Azure AI Search index with customer-managed keys. Only the OpenHands server's identity reaches it. A note is written only when a developer asks for one or approves the agent's proposed note. OPA authorizes each write through the custom OpenHands security analyzer. Each entry carries its source, author, time, and trust level, with a keyed hash from Key Vault checked on recall. LLM Guard screens each entry for injected instructions when it is stored and when it is recalled. A write attempted from processed content alone is blocked and alerts the Security Team in Splunk. Entries expire after 180 days unless a developer confirms them again. Semantic Kernel holds the mission-planning agent's working memory for one session only, since its drafts reach a station."),
 'AI-8.14': dict(tools=['kserve', 'glflags', 'oem', 'csspplay'], deps='AI-6.7',
                  tailoring='KServe serves from isolated-size node pools in ML Prod, and each endpoint can return to its previous certified version in minutes. The owning team operates each kill switch directly. The Security Team and the CSSP trigger one only through the containment playbook that suspends a workload or AI agent identity. Each aircraft keeps its prior certified edge model. An agent that misbehaves is first limited to read-only drafting, then suspended, and its session record is kept as evidence.'),
 'AI-9.1': dict(tools=['evidently', 'splunk'], deps='AI-6.7, DE-3.1',
@@ -1238,8 +1239,6 @@ PINS = {
 # Activities that do not apply to KESTREL, each with its reason. The SADD's
 # Section 5 records the same list.
 NA = {
-    'AI-8.15.2': 'No KESTREL agent writes persistent memory. The first that does is approved under AI-8.15.1 and brings this activity with it.',
-    'AI-8.15.3': 'No KESTREL agent writes persistent memory. The first that does is approved under AI-8.15.1 and brings this activity with it.',
     'DI-4.1.6': "KESTREL's privileged access workstations never travel, so no travel configuration is needed.",
     'DA-3.1.4': 'KESTREL protects no classified information. NSA-approved cryptography sits on the IL6 side, owned by the enclave and the cross domain service provider.',
     'DA-1.7.2': 'KESTREL releases no datasets outside the program. A first dataset release reopens re-identification testing.',

@@ -17,8 +17,8 @@ This matrix carries every control in KESTREL's approved set to the SADD outcomes
 | Date | 2026-11-25 |
 | Prepared By | KESTREL ISSM, with the PMO ISSE |
 | Source CCSD Version | 1.0, with 1.1 pending |
-| Source SADD Version | 0.8 |
-| Source SIP Version | 0.6 |
+| Source SADD Version | 0.9 |
+| Source SIP Version | 0.7 |
 | SSP Validation | Pending. The SSP is drafted in Phase 1, and the matrix is validated against it before each submission. |
 | Classification / Handling | CUI |
 

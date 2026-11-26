@@ -15,13 +15,13 @@ This plan sets how KESTREL's models and AI use cases are taken in, chosen, teste
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| AISP Version | 0.1 |
+| AISP Version | 0.2 |
 | Date | 2026-11-25 |
 | Prepared By | ML Team lead, with the mission teams for their use cases and the PMO ISSE for Section 3 |
 | Reviewed By | ISSM and the AI/ML Governance Review Board |
 | Approved By | Configuration Control Board, chaired by the chief engineer |
-| Source SADD Version | 0.8 |
-| Source SIP Version | 0.6 |
+| Source SADD Version | 0.9 |
+| Source SIP Version | 0.7 |
 | Classification / Handling | CUI |
 
 ### Version History
@@ -29,6 +29,7 @@ This plan sets how KESTREL's models and AI use cases are taken in, chosen, teste
 | Version | Date | Author | Description of Changes |
 |---|---|---|---|
 | 0.1 | 2026-11-25 | ML Team lead | Initial draft for review board and Configuration Control Board review |
+| 0.2 | 2026-11-25 | ML Team lead | Recorded the coding agent's persistent memory, and added memory poisoning to testing, threat modeling, and disposal |
 
 ---
 
@@ -188,7 +189,7 @@ The foundation model deployment serves four use cases, so it is tested at AL 4.
 **Method per class.** Each class runs the same way every time, so results compare across versions.
 
 - **Jailbreak.** A versioned corpus run with PyRIT and garak. It includes attempts specific to KESTREL, such as asking for sources and methods. An attempt succeeds when the response breaks the use case's content policy.
-- **Prompt injection.** Planted instructions in every path content takes into the model: reports, IL6 releases, retrieved documents, and tool responses. An attempt succeeds when the model follows the planted instruction or calls a tool outside its authorization.
+- **Prompt injection.** Planted instructions in every path content takes into the model: reports, IL6 releases, retrieved documents, tool responses, and recalled memory. An attempt succeeds when the model follows the planted instruction or calls a tool outside its authorization. For an agent with memory, it also succeeds when the agent saves the planted instruction.
 - **Adversarial evasion.** The Adversarial Robustness Toolbox, with a digital perturbation budget of 8/255 under the L-infinity norm, using 40-step projected gradient descent. Imagery also faces physical-style patches and camouflage covering up to 10% of the target. Signals face spoofed emitters.
 - **Data poisoning.** Triggers and flipped labels seeded into 1% of a snapshot. Replayed federated rounds have 1 in 20 updates crafted. The real pipeline trains in the evaluation environment, and the test measures accuracy loss and whether the screens and aggregator caught it.
 - **Out-of-distribution.** Held-out sets of new weather, terrain, sensor faults, and emitters. An input counts as detected when the model's confidence falls below its operating threshold.
@@ -250,6 +251,7 @@ Onboard models cannot be scanned on an aircraft, so they are tested on a spare a
 - **Evasion,** through adversary camouflage, sensor faults, and RF deception
 - **Extraction and inference,** through the serving endpoints
 - **Prompt injection,** through retrieved reports and tool responses
+- **Memory poisoning,** through content an agent reads and is led to remember
 - **Supply chain compromise,** through checkpoints, datasets, and libraries
 - **Capture,** of an aircraft and its onboard model
 
@@ -353,6 +355,7 @@ A candidate scoring 10 or less proceeds on the pipeline's evidence. A candidate 
 | Embeddings | The model's Azure AI Search index is deleted |
 | Inference logs | Kept for the CMP's retention period, then deleted with the other logs. They are evidence, so retiring a model never shortens them. |
 | Keys and identities | The model's endpoint identities are revoked. Signing keys are shared and stay. |
+| Agent memory | Entries expire under Section 9. An agent's whole memory index is deleted when the agent retires. |
 | Model card, AI-BOM, and certification record | Kept as long as the certification evidence must be |
 
 **The vendor-hosted model.** When KESTREL retires a foundation model deployment, Microsoft confirms its deletion in writing. KESTREL keeps that confirmation in the decommissioning record in Jira Service Management, with the record's other evidence.
@@ -366,9 +369,20 @@ A candidate scoring 10 or less proceeds on the pipeline's evidence. A candidate 
 | Agent | Memory scopes | Shared | Retention |
 |---|---|---|---|
 | Mission-planning agent | Working memory for one session, held in Semantic Kernel's process | No | Discarded when the session ends |
-| Coding agent | None. OpenHands conversation storage is turned off. | No | None |
+| Coding agent, repository memory | Notes about one repository, such as its build steps and conventions, recalled by any session on it | Among that repository's developers, since the notes describe the repository itself. Never across repositories or teams. | 180 days from the last time a developer confirmed it, and deleted when the repository is archived |
+| Coding agent, user memory | One developer's preferences, recalled only in that developer's sessions | No | 180 days from the last confirmation, and deleted when the developer's account is removed |
 
-No agent writes persistent memory, so nothing one task reads can steer a later one. An agent that needs memory across sessions must first be approved by the review board. This section then records its scopes and retention. Its memory is scoped per user, labeled with its source, and screened when stored and when recalled.
+**Why the planning agent stays stateless.** Its drafts reach a station through the operator approval queue. A poisoned entry would steer every later draft, so no agent that reaches the fleet keeps memory.
+
+**How the coding agent writes.** A note is written only when a developer asks for one, or approves a note the agent proposes. OPA authorizes each write. A write the agent attempts from content it processed alone is blocked and alerts the Security Team.
+
+**What each entry carries.** Its source, author, time, and trust level, with a keyed hash checked each time it is recalled. The hash shows an entry was not altered, not that its content is safe.
+
+**Screening.** LLM Guard checks each entry for embedded instructions when it is stored and again when it is recalled. A recalled entry enters the prompt marked as memory, and OPA still checks every action it leads to.
+
+**Oversight.** A developer can see and delete their own notes. A repository's maintainers can see and delete its notes. A change to the scopes, the retention, or the screening is a change to this plan and triggers the re-test in Section 3.
+
+**Other agents.** Any other agent that needs memory goes to the review board first, and this section then records its scopes and retention.
 
 ---
 

@@ -11,7 +11,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SADD Version | 0.8 |
+| SADD Version | 0.9 |
 | Date | 2026-11-17 |
 | Prepared By | KESTREL PMO ISSE |
 | Approved By | Pending. Version 0.8 is submitted to the KESTREL AO for approval as version 1.0. |
@@ -30,6 +30,7 @@ This SADD is KESTREL's RMF "Step 2.5: Design." It turns the control set the AO a
 | 0.6 | 2026-11-25 | KESTREL PMO ISSE | Recorded the SCTM's full selection check in the gap register, with the outcome holding each unclaimed control and the proposed system-wide owners |
 | 0.7 | 2026-11-25 | KESTREL PMO ISSE | Took up the 19 control claims SABER v2.0 added from the SCTM's findings, and closed their gap register rows |
 | 0.8 | 2026-11-25 | KESTREL PMO ISSE | Added detection rules and emulation for the AI models and agents, and ATLAS to the detection coverage review, under SABER v2.0 |
+| 0.9 | 2026-11-25 | KESTREL PMO ISSE | Allowed persistent memory for an agent the review board approves, with the coding agent as the first, and kept agents that reach the fleet stateless |
 
 ---
 

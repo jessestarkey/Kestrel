@@ -14,7 +14,7 @@ This space holds KESTREL's working documents, namely the governing plans and the
 | [Configuration Management Plan (CMP)](Configuration-Management-Plan) | DI-6.1 | Draft 0.1, in Configuration Control Board review |
 | Vulnerability and Patch Management Plan (VPMP) | DI-7.1 | Not started |
 | [Application Security Plan (ASP)](Application-Security-Plan) | AP-6.1 | Draft 0.1, in Configuration Control Board review |
-| [AI/ML Security Plan (AISP)](AI-ML-Security-Plan) | AI-10.1 | Draft 0.1, in review board and Configuration Control Board review |
+| [AI/ML Security Plan (AISP)](AI-ML-Security-Plan) | AI-10.1 | Draft 0.2, in review board and Configuration Control Board review |
 | Data Management Plan (DMP) | DA-1.9 | Not started |
 | [Key Management Plan (KMP)](Key-Management-Plan) | DA-3.13 | Draft 0.1, in Configuration Control Board review |
 | [Incident Response Plan (IRP)](Incident-Response-Plan) | RS-4.1 | Draft 0.1, with the interim IRP due in Phase 1 |
@@ -28,7 +28,7 @@ This space holds KESTREL's working documents, namely the governing plans and the
 |---|---|---|
 | [Governance Program Charter](Governance-Program-Charter) | GV-1, GV-2 | Draft 0.1, sections pending their approvers |
 | [Risk Management Program Charter](Risk-Management-Program-Charter) | RK-1 to RK-3 | Draft 0.2, sections pending their approvers |
-| [AI/ML Governance Charter](AI-ML-Governance-Charter) | GV-4 | Draft 0.1, with the inventory and board due in late Phase 1 |
+| [AI/ML Governance Charter](AI-ML-Governance-Charter) | GV-4 | Draft 0.2, with the inventory and board due in late Phase 1 |
 
 ## Runbooks
 

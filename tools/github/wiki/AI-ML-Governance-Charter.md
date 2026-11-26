@@ -17,12 +17,12 @@ This charter governs use cases. The AI/ML Security Plan (AISP) governs how model
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| Charter Version | 0.1 |
+| Charter Version | 0.2 |
 | Date | 2026-11-25 |
 | Prepared By | PMO ISSE, with the chief engineer as board chair, the privacy officer, program legal counsel, the ML Team lead, and the intelligence mission leads |
 | Approved By | Each section's own authority, as listed under Approval |
-| Source SADD Version | 0.5 |
-| Source SIP Version | 0.4 |
+| Source SADD Version | 0.9 |
+| Source SIP Version | 0.7 |
 | Classification / Handling | CUI |
 
 ### Version History
@@ -30,6 +30,7 @@ This charter governs use cases. The AI/ML Security Plan (AISP) governs how model
 | Version | Date | Author | Description of Changes |
 |---|---|---|---|
 | 0.1 | 2026-11-25 | PMO ISSE | Initial draft |
+| 0.2 | 2026-11-25 | PMO ISSE | Recorded the coding agent's persistent memory, which the board reviews again before the agent is fielded, and named each tier's assurance level as the AISP sets it |
 
 ---
 
@@ -61,9 +62,9 @@ Anything found that was never submitted goes through intake, or is switched off.
 
 | Tier | Criteria | Review | Testing | Reassessed |
 |---|---|---|---|---|
-| High | Can act, or can affect a flight, an aircraft, or a release to partners | Full board | AI Cyber T&E at the highest assurance level, red teaming, and the OT-adjacent assessment if it reaches the fleet | Every 6 months |
-| Moderate | Produces mission output a person reviews before it is used, or changes code a person reviews | Full board | AI Cyber T&E at the standard assurance level | Every year |
-| Low | Internal support with no mission effect and no ability to act | PMO ISSE desk review | AI Cyber T&E at the lowest assurance level | Every year |
+| High | Can act, or can affect a flight, an aircraft, or a release to partners | Full board | AI Cyber T&E at AL 4, red teaming, and the OT-adjacent assessment if it reaches the fleet | Every 6 months |
+| Moderate | Produces mission output a person reviews before it is used, or changes code a person reviews | Full board | AI Cyber T&E at AL 2 or AL 3, as the AISP sets | Every year |
+| Low | Internal support with no mission effect and no ability to act | PMO ISSE desk review | AI Cyber T&E at AL 1 | Every year |
 
 **Reassessment.** A use case is re-tiered when its purpose, data sources, autonomy, or users change, not only its model. A tier increase sends the use case back to the board for a new decision.
 
@@ -77,7 +78,7 @@ Anything found that was never submitted goes through intake, or is switched off.
 | LLM analyst assistant with report search | Mission Team 1's mission lead | Foundation model deployment, embedding model | No | Moderate |
 | Mission-planning agent | Mission Team 2's mission lead | Foundation model deployment | Yes, it drafts flight plans an operator approves | High |
 | AI-assisted alert triage | ISSM | Foundation model deployment | No, it summarizes and takes no action | Low |
-| Coding agent | Engineering lead | Foundation model deployment | Yes, it opens merge requests a developer approves | Moderate |
+| Coding agent | Engineering lead | Foundation model deployment | Yes, it opens merge requests a developer approves, and keeps notes per repository and developer | Moderate |
 
 **Platform models.** A model adopted before any use case is listed here with its sponsor, provisional tier, and removal review date. It is reached only from ML Dev/Test until a use case is certified on it. KESTREL has none today.
 

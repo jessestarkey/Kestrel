@@ -11,11 +11,11 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SIP Version | 0.6 |
+| SIP Version | 0.7 |
 | Date | 2026-11-25 |
 | Prepared By | KESTREL PMO ISSE, with the performer's team leads |
 | Approving Authority | KESTREL program manager, who controls the program's engineering staff, contracts, and budget |
-| Source SADD Version | 0.8, submitted for AO approval as 1.0 |
+| Source SADD Version | 0.9, submitted for AO approval as 1.0 |
 | Classification / Handling | CUI |
 
 ### Version History
@@ -28,12 +28,13 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | 0.4 | 2026-11-25 | KESTREL PMO ISSE | Replaced OWASP Threat Dragon with the program's custom Threagile image and modular threat model repository, so each model is YAML in GitLab and the pipeline catches a stale one at merge |
 | 0.5 | 2026-11-25 | KESTREL PMO ISSE | Selected Agent Threat Rules and Splunk behavioral rules for AI detection, PyRIT and garak for AI emulation, and Defender for AI Services pending its Azure Government check |
 | 0.6 | 2026-11-25 | KESTREL PMO ISSE | Selected promptfoo for canary prompt testing and as the regression gate for fixed jailbreak and injection findings, with its remote calls disabled |
+| 0.7 | 2026-11-25 | KESTREL PMO ISSE | Gave the coding agent persistent memory per repository and per developer, in Azure AI Search with OPA write authorization and LLM Guard screening, bringing back AI-8.15.2 and AI-8.15.3 |
 
 ---
 
 ## 1. Purpose and Source
 
-This plan carries KESTREL's SADD, version 0.8, into RMF Step 3. It records the products and services chosen for each of the SADD's 364 in-scope outcomes and the tailoring each choice needs across the cloud, the data center, the alternate site, and the fleet. It also names the team accountable for delivering each one and places it in a four-phase rollout built around KESTREL's funding, dependencies, and schedule. The SADD is still awaiting AO approval, so this plan is drafted against version 0.8 and is re-baselined when the SADD is approved as 1.0.
+This plan carries KESTREL's SADD, version 0.9, into RMF Step 3. It records the products and services chosen for each of the SADD's 364 in-scope outcomes and the tailoring each choice needs across the cloud, the data center, the alternate site, and the fleet. It also names the team accountable for delivering each one and places it in a four-phase rollout built around KESTREL's funding, dependencies, and schedule. The SADD is still awaiting AO approval, so this plan is drafted against version 0.9 and is re-baselined when the SADD is approved as 1.0.
 
 **Approving authority note:** the AO approves the SADD, but only the program manager commits the staff, contracts, and budget this plan assumes. The program manager therefore approves this plan.
 
@@ -55,7 +56,7 @@ An interim authorization to test (`GV-5.7`) covers Phases 1 to 3. Integration du
 |---|---|---|---|---|
 | Phase 1, Foundation | 2027-01-01 to 2027-09-30 | Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, Tier 1 backups, an interim IRP, and the governance bodies and core plans. | Funded (FY27 base RDT&E and O&M) | 463 activities. 166 records start here: ID (24), DI (18), NE (17), AP (31), AI (3), DA (22), DE (10), RS (2), RC (7), GV (24), RK (5), CO (3) |
 | Phase 2, Protect and Operate | 2027-10-01 to 2028-03-31 | Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, and adds application security gates, data protection, the remaining backup tiers and recovery, detection content, and incident response. Stands up the data curation path and the training pipeline. | Funded (FY28 base RDT&E and O&M) | 510 activities. 135 records start here: ID (6), DI (9), NE (9), AP (22), AI (37), DA (5), DE (5), RS (18), RC (8), GV (8), RK (4), CO (4) |
-| Phase 3, Mission, AI, and Fleet | 2028-04-01 to 2028-09-30 | Needs Phase 2 gates and detection. Runs AI Cyber T&E and Certification to Field for the first models. Builds serving guardrails, retraining, and the fleet and ground segment controls. Ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M increment) | 172 activities. 59 records start here: ID (2), DI (2), NE (2), AP (1), AI (40), DE (2), RC (1), GV (1), RK (5), CO (3) |
+| Phase 3, Mission, AI, and Fleet | 2028-04-01 to 2028-09-30 | Needs Phase 2 gates and detection. Runs AI Cyber T&E and Certification to Field for the first models. Builds serving guardrails, retraining, and the fleet and ground segment controls. Ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M increment) | 174 activities. 59 records start here: ID (2), DI (2), NE (2), AP (1), AI (40), DE (2), RC (1), GV (1), RK (5), CO (3) |
 | Phase 4, Maturity | 2028-10-01 to 2029-03-31 | Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, and RASP. | Unfunded (FY29 request) | 29 activities. 4 records start here: AP (1), DE (3) |
 
 ---
@@ -111,12 +112,12 @@ Each contract below groups the products bought under one vehicle. The Records co
 
 | Contract | Selected Product / Service | Required Contract Clause(s) | Source | Status | Records |
 |---|---|---|---|---|---|
-| C01 | Microsoft Azure Government (IL5) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, DFARS 252.239-7010 | Standard Security Clause Library | Open | 131 |
+| C01 | Microsoft Azure Government (IL5) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, DFARS 252.239-7010 | Standard Security Clause Library | Open | 132 |
 | C02 | Microsoft 365 DoD and Windows enterprise licensing | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, DFARS 252.239-7010 | Standard Security Clause Library | Open | 42 |
 | C03 | Atlassian Data Center (Jira Software, Jira Service Management, Confluence) | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 126 |
 | C04 | GitLab Ultimate, self-managed | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 54 |
 | C05 | JFrog Artifactory Enterprise+ with Xray, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 31 |
-| C06 | Splunk Enterprise, Enterprise Security, and SOAR, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 85 |
+| C06 | Splunk Enterprise, Enterprise Security, and SOAR, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 86 |
 | C07 | CyberArk Privileged Access Manager, self-hosted | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, SBOM delivery, vulnerability disclosure | Standard Security Clause Library | Open | 19 |
 | C08 | Palo Alto Networks VM-Series, PA-Series, and Panorama | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, SBOM delivery, firmware signing | Standard Security Clause Library | Open | 21 |
 | C09 | Cisco ACI, APIC, and Identity Services Engine | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, CNSA 2.0 support or an NSA-approved exception or AO waiver, SBOM delivery, firmware signing | Standard Security Clause Library | Open | 10 |

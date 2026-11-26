@@ -3142,7 +3142,7 @@
 
 ### AI-8.15: Agent Memory Security
 
-**Design Intent:** AI agents keep working memory for one session only, and it is discarded when the session ends. No agent writes persistent memory today, so nothing it reads in one task can steer a later one. An agent that needs memory across sessions must first be approved by the AI/ML Governance Review Board, with its scopes and retention recorded in the AISP. Its memory is then scoped per user, labeled with its source, and screened when stored and when recalled. Neither the mission-planning agent nor the coding agent keeps any.
+**Design Intent:** AI agents keep working memory for one session only, unless the AI/ML Governance Review Board approves persistent memory for one. The AISP then records its scopes and retention. An agent whose actions can reach the fleet never keeps persistent memory, since a poisoned entry would steer later drafts toward a station. The mission-planning agent is that case. An approved agent's memory is scoped per repository or per user, never shared across teams, and expires after a set period. Each write comes from an explicit user request or an entry the user approves. It carries a label naming its source, author, time, and trust level, with an integrity check verified on recall. Content is screened for embedded instructions when stored and when recalled. A write that comes from processed content alone is blocked and raises an alert. The coding agent is today's case, keeping notes per repository and per developer.
 
 **NIST Control Mapping:**
 

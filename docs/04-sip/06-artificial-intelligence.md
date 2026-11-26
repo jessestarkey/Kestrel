@@ -1917,13 +1917,13 @@
 
 ### AI-8.15: Agent Memory Security
 
-**Selected Tool / Product / Service:** Semantic Kernel, OpenHands
+**Selected Tool / Product / Service:** OpenHands, Azure AI Search, Open Policy Agent policy decision service, Self-hosted LLM Guard, Azure Key Vault Premium, Splunk Enterprise Security, Semantic Kernel
 
-**Environment-Specific Tailoring:** Semantic Kernel holds the mission-planning agent's working memory in process for one session and discards it at session end. No persistent memory store is deployed, and the AISP records the one-session rule. OpenHands conversation storage is disabled, so the coding agent keeps nothing after a session ends.
+**Environment-Specific Tailoring:** The coding agent keeps notes per repository and per developer in an Azure AI Search index with customer-managed keys. Only the OpenHands server's identity reaches it. A note is written only when a developer asks for one or approves the agent's proposed note. OPA authorizes each write through the custom OpenHands security analyzer. Each entry carries its source, author, time, and trust level, with a keyed hash from Key Vault checked on recall. LLM Guard screens each entry for injected instructions when it is stored and when it is recalled. A write attempted from processed content alone is blocked and alerts the Security Team in Splunk. Entries expire after 180 days unless a developer confirms them again. Semantic Kernel holds the mission-planning agent's working memory for one session only, since its drafts reach a station.
 
-**Accountable Team:** Mission Team 2, with the Platform Team for the coding agent
+**Accountable Team:** Platform Team for the coding agent, with Mission Team 2 for the mission-planning agent
 
-**Dependencies:** ID-3.3
+**Dependencies:** ID-3.3, AI-8.7
 
 **Funding Line:** FY28 RDT&E, mission and ML, with the Phase 3 share pending approval
 
@@ -1931,7 +1931,7 @@
 
 **Target Date / Sprint:** 2028-07-31
 
-**Contracting / Procurement Reference:** None. Open source, so no new contract is needed.
+**Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), plus open source components
 
 **Status:** Not Started
 
@@ -1940,10 +1940,8 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | AI-8.15.1: Agent Memory Scope and Retention Definition | 3 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| AI-8.15.2: Memory Write Authorization and Provenance Labeling | N/A | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
-| AI-8.15.3: Memory Content Screening and Poisoning Detection | N/A | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-
-**Not applicable:** AI-8.15.2: No KESTREL agent writes persistent memory. The first that does is approved under AI-8.15.1 and brings this activity with it. AI-8.15.3: No KESTREL agent writes persistent memory. The first that does is approved under AI-8.15.1 and brings this activity with it.
+| AI-8.15.2: Memory Write Authorization and Provenance Labeling | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| AI-8.15.3: Memory Content Screening and Poisoning Detection | 3 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 
 ## AI-9: Operations and Continuous Monitoring
 
