@@ -8,6 +8,7 @@ activity -> sub-task, joined as GitHub sub-issues.
 Usage (from the kestrel repo root):
     python tools/github/issues.py plan  ID    # write the local plan, create nothing
     python tools/github/issues.py apply ID    # create what the state file lacks
+    python tools/github/issues.py status      # snapshot board statuses for the SSP build
 
 `plan` writes tools/github/out/<code>-plan.json and prints a summary.
 `apply` creates labels, milestones, issues, sub-issue links, and project items,
@@ -687,7 +688,43 @@ def project(code, issues, st, save):
     print(f"project items {len(st['items'])}, with fields {len(st['fields_set'])}, with dates {len(done)}")
 
 
+def status_snapshot():
+    """Write each loaded item's board status to tools/ssp/status.json for the SSP build.
+
+    The SSP build reads this file rather than calling GitHub, so a build is repeatable
+    and every change to the SSP's status column traces to a committed snapshot.
+    """
+    sh = json.load(open(os.path.join(STATE, 'shared.json'), encoding='utf-8'))
+    by_item = {}
+    for c in loaded_codes():
+        st = json.load(open(os.path.join(STATE, f'{c}.json'), encoding='utf-8'))
+        by_item.update({item: key for key, item in st['items'].items()})
+    current, after = {}, None
+    while True:
+        page = graphql('query($p:ID!,$a:String){node(id:$p){... on ProjectV2{items(first:100,after:$a){pageInfo{hasNextPage endCursor} '
+                       'nodes{id fieldValueByName(name:"Status"){... on ProjectV2ItemFieldSingleSelectValue{name}}}}}}}',
+                       p=sh['project']['id'], a=after)
+        items = page['node']['items']
+        for n in items['nodes']:
+            if n['id'] in by_item:
+                current[by_item[n['id']]] = (n['fieldValueByName'] or {}).get('name') or 'Closed'
+        if not items['pageInfo']['hasNextPage']:
+            break
+        after = items['pageInfo']['endCursor']
+    out = os.path.join(REPO_ROOT, 'tools', 'ssp', 'status.json')
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    snap = {'taken': time.strftime('%Y-%m-%d'), 'status': dict(sorted(current.items()))}
+    json.dump(snap, open(out, 'w', encoding='utf-8', newline='\n'), indent=1)
+    counts = {}
+    for v in current.values():
+        counts[v] = counts.get(v, 0) + 1
+    print(f'status snapshot: {len(current)} items, {counts}, written to {os.path.relpath(out, REPO_ROOT)}')
+
+
 if __name__ == '__main__':
+    if sys.argv[1] == 'status':
+        status_snapshot()
+        sys.exit(0)
     mode, code = sys.argv[1], sys.argv[2].upper()
     issues = build_plan(code)
     os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)

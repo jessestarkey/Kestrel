@@ -1,0 +1,3 @@
+KESTREL will keep checking sessions after sign-in. Cloud and VDI sessions are re-evaluated as they run, under continuous access evaluation and the AMP's timeouts, and a session is revoked if its risk turns severe. Each account type also has a limit on concurrent sessions, tighter for privileged accounts, and going over it raises an alert.
+
+The ground control stations are the exception. A station locks after 15 minutes of inactivity, except while its aircraft is airborne, when it neither locks nor logs the operator out. CCSD tailoring action 2 records that decision. Both station rules take effect when the fleet integrates in Phase 3.

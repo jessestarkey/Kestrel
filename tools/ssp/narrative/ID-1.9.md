@@ -1,0 +1,3 @@
+From Phase 2, access will be recertified on the AMP's cadence. Operators, platform administrators, and partners will be reviewed more often than analysts, because their access carries more risk.
+
+The Security Team's ISSM owns the reviews, while the Platform Team runs the tools behind them. Entra ID Governance handles campaigns for cloud and directory access, and CyberArk's own reviews cover the vaulted privileged accounts. The people who know whether access is still needed take part directly. Each partner review includes its sponsor, and each operator review includes Fleet Operations' operations lead.

@@ -37,6 +37,7 @@
 - [SADD](https://github.com/jessestarkey/Kestrel/blob/main/docs/03-sadd/index.md)
 - [Security Implementation Plan](https://github.com/jessestarkey/Kestrel/blob/main/docs/04-sip/index.md)
 - [SCTM](https://github.com/jessestarkey/Kestrel/blob/main/docs/05-sctm/index.md)
+- [SSP](https://github.com/jessestarkey/Kestrel/blob/main/docs/06-ssp/index.md)
 
 **Work tracking**
 

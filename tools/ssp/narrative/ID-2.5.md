@@ -1,0 +1,3 @@
+Before granting access, Entra Conditional Access will weigh identity alongside device posture, network origin, and risk. In practice, a performer reaches the identity-aware proxy or a VDI pool only from a laptop that reports as compliant at that moment. Program office staff are held to the same test on the parent organization's managed devices.
+
+Network origin comes from the Boundary Cloud Access Point, and a partner call from outside that nation's expected networks is refused. Entra ID Protection feeds its risk signal into every decision. In Phase 3, badge correlation will join it as one more signal.

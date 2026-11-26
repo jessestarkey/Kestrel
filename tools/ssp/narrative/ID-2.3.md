@@ -1,0 +1,3 @@
+Analysts and operators will sign in once and reach the mission applications from there. In the cloud, applications from the analyst portal to the LLM analyst assistant federate with Entra ID. They use OIDC wherever possible, and SAML only where a COTS product offers nothing else. Data center applications federate with AD FS on the on-premises directory instead, so they keep working if the circuit fails.
+
+Administrative consoles are kept out of that shared session, and each one asks for fresh authentication. Partner systems sit outside single sign-on entirely, since they reach the partner API with mutual TLS, as Server and Services Authentication describes.

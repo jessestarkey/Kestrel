@@ -1,0 +1,3 @@
+Appliances ship with built-in administrative accounts that attackers commonly target. CyberArk will vault these accounts on the HSMs, network appliances, hypervisors, out-of-band controllers, database engines, and the ground segment. Every session that uses one is brokered and recorded, and a reviewer can watch it live or end it.
+
+A handful of actions are serious enough to need two people every time. They are HSM key ceremonies, fleet counter-signing, root CA operations, deleting audit records, and changing a cloud tenant's security settings. CyberArk's dual control enforces most of them, and the nShield card quorum enforces HSM key operations.

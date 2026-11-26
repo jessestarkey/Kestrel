@@ -1,0 +1,3 @@
+Before any fleet equipment is fielded, its vendor-default credentials will be removed from the aircraft, stations, launch and recovery equipment, and operating site services. Each aircraft and station then authenticates on the datalinks with a program PKI device identity, loaded with the manufacturer's tools, and those credentials rotate in maintenance windows.
+
+Some equipment cannot authenticate itself, such as launch and recovery gear with fixed controllers. That equipment is identified by where it sits in the zone and conduit design. Fleet Operations will prove the approach on the spares in Phase 2, then apply it across the fleet in Phase 3.

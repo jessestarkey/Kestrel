@@ -1,0 +1,3 @@
+Only one SaaS service will be admitted to KESTREL's identities, and that is its own Microsoft 365 DoD tenant. Even that goes through intake and needs an administrator's consent. User consent is switched off at the Entra tenant, so no individual can grant an application access to their account. The foundation model is a separate case. The cloud provider hosts it inside KESTREL's tenant and it receives no delegated user access, so it is not treated as a third-party application at all.
+
+Because KESTREL allows almost no general egress, finding any other service is mostly a matter of watching the egress allow-list. Defender for Cloud Apps will do that from the egress logs of both hubs and the alternate site's firewall, which covers every location.

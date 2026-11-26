@@ -1,0 +1,3 @@
+KESTREL's root certificate authority will stay offline and off the domain, with its key held in the nShield HSMs. It is used only in two-person ceremonies, which sign the issuing authorities and their revocation lists.
+
+Below the root, the issuing authorities, domain controllers, and directory sync servers are all treated as Tier 0, both in the data center and at the alternate site's standby. Synchronization to the cloud runs only over the dedicated circuit. Within Tier 0, the aim is that no system depends on a password someone could remember. Windows LAPS rotates the local administrator passwords for that reason, and group Managed Service Accounts run the directory's own services.

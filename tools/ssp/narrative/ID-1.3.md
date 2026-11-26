@@ -1,0 +1,3 @@
+KESTREL's identities will live in Active Directory in the mission data center, with a warm standby at the alternate site. Entra Connect Sync copies the directory into Entra ID, which then handles federation and access policy for everything in the cloud. Each team's identities sit in their own organizational unit, mirrored in Entra ID as an administrative unit, so one team's administrators cannot touch another's accounts.
+
+Putting the system of record on premises was a choice made with the fleet in mind. If the cloud becomes unreachable, directory logon still works, the stations still check CACs locally, and the break-glass accounts still open. Only cloud-federated sign-in has to wait for the circuit to come back.

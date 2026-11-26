@@ -1,0 +1,1 @@
+The narratives above explain how identity will work. The Account Management Plan (AMP) holds the specific values behind them, such as assurance levels, session limits, and review cadences. Keeping those values in one plan means a change is made once, and a monthly reconciliation will check that the live systems still match it.

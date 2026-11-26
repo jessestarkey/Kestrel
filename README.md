@@ -15,7 +15,7 @@ KESTREL's real tools would be self-hosted inside its authorization boundary. Her
 | [`docs/`](docs/) | Configuration-controlled documents | The system description, CCSD, SADD, and Security Implementation Plan |
 | [Project board](https://github.com/users/jessestarkey/projects/3) | Jira board | The Identity focus area's work, with each item's phase, team, dates, and activity metadata, moving through Backlog, Ready, In Progress, Blocked, In Review, and Done |
 | [Issues](https://github.com/jessestarkey/Kestrel/issues) | Jira issues | The same work as initiative, epics, stories, and sub-tasks, with blocked-by links between stories |
-| [Wiki](https://github.com/jessestarkey/Kestrel/wiki) | Confluence | The governing plans, starting with the Account Management Plan, and the runbooks that carry them out |
+| [Wiki](https://github.com/jessestarkey/Kestrel/wiki) | Confluence | The governing plans and charters, the runbooks that carry them out, and records such as Security Impact Analyses |
 
 The pinned issue [About this demonstration](https://github.com/jessestarkey/Kestrel/issues/179) explains the mapping in more detail. Only the Identity focus area is loaded on the board and in the issues so far.
 
@@ -119,10 +119,11 @@ The repository will grow along the same path a PMO ISSE follows. The authorizati
 2. **Categorization and control selection** ([docs/02-ccsd.md](docs/02-ccsd.md)): information types, impact values, overlays, and tailoring, in the CCSD.
 3. **SADD** ([docs/03-sadd/](docs/03-sadd/index.md)): which SABER outcomes apply, which drop out and why, and the design intent for each, one file per focus area.
 4. **Security Implementation Plan** ([docs/04-sip/](docs/04-sip/index.md)): the products chosen for each SADD outcome, the team that delivers it, and a four-phase rollout, with each record ready to load into Jira as a story and its sub-tasks.
-5. **SCTM** ([docs/05-sctm/](docs/05-sctm/index.md)): every control in the approved set, carried to its SADD outcomes, providers, and evidence, with the same rows in OSCAL.
-6. **Plan-type deliverables** (the [wiki](https://github.com/jessestarkey/Kestrel/wiki), standing in for KESTREL's Confluence, with page sources in `tools/github/wiki/`): KESTREL-specific instances of the SABER's governing plans and charters, and the runbooks that carry them out.
+5. **SCTM** ([docs/05-sctm/](docs/05-sctm/index.md)): every control in the approved set, carried to its SADD outcomes, providers, and evidence.
+6. **SSP** ([docs/06-ssp/](docs/06-ssp/index.md)): what KESTREL actually does for each SADD outcome, with its status taken from the project board, and the whole plan in OSCAL, including the SCTM's rows.
+7. **Plan-type deliverables** (the [wiki](https://github.com/jessestarkey/Kestrel/wiki), standing in for KESTREL's Confluence, with page sources in `tools/github/wiki/`): KESTREL-specific instances of the SABER's governing plans and charters, and the runbooks that carry them out.
 
-The system description, CCSD, SADD, Security Implementation Plan, and SCTM are written, along with every governing plan and charter Phase 1 needs. The rest follow in order.
+The system description, CCSD, SADD, Security Implementation Plan, SCTM, and SSP are written, along with every governing plan and charter the SABER names. The SSP lists every outcome as planned until its work is built. The rest follow in order.
 
 Three more folders will hold the material that shows the design built, not just documented:
 
@@ -130,7 +131,7 @@ Three more folders will hold the material that shows the design built, not just 
 - **`iac/`** holds infrastructure as code, such as OpenTofu, Kubernetes manifests, and policy as code, that implements SABER outcomes.
 - **`src/`** holds code examples, such as pipeline security gates and model serving controls.
 
-Each folder appears when its first file does. A fourth folder, **`tools/`**, holds the scripts that generate parts of the documents, such as the [SADD build](tools/sadd/README.md) and the [SCTM build](tools/sctm/README.md).
+Each folder appears when its first file does. A fourth folder, **`tools/`**, holds the scripts that generate parts of the documents, such as the [SADD build](tools/sadd/README.md), the [SCTM build](tools/sctm/README.md), and the [SSP build](tools/ssp/README.md).
 
 ## Relationship to the SABER
 

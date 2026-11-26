@@ -1,0 +1,3 @@
+KESTREL will connect where someone physically is with what they are signed in to. The PSO runs the physical access control systems at the data center and each operating site, and the parent organization's facility runs the one at the alternate site. KESTREL does not operate any of them. Instead, from Phase 2, its account lifecycle events will drive the PSO's badge provisioning and removal, so a departure removes a badge as well as an account.
+
+In Phase 3, when the fleet's logs arrive, Splunk Enterprise Security will compare badge events with sign-ins. An operator who is signed in at a station without having badged into that site will raise an alert.

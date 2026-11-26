@@ -1,0 +1,1 @@
+KESTREL will check that the live systems match the AMP. From Phase 2, a monthly reconciliation in Splunk will compare Entra ID, Active Directory, and CyberArk against the AMP. When the fleet integrates in Phase 3, the ground control stations' account settings join the comparison. Any drift goes to the ISSM, who tracks each finding in Jira and in eMASS until it closes.

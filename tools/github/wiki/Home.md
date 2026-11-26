@@ -49,3 +49,4 @@ This space holds KESTREL's working documents, namely the governing plans and the
 - [Security Architecture and Design Document (SADD)](https://github.com/jessestarkey/Kestrel/blob/main/docs/03-sadd/index.md)
 - [Security Implementation Plan](https://github.com/jessestarkey/Kestrel/blob/main/docs/04-sip/index.md)
 - [Security Controls Traceability Matrix (SCTM)](https://github.com/jessestarkey/Kestrel/blob/main/docs/05-sctm/index.md)
+- [System Security Plan (SSP)](https://github.com/jessestarkey/Kestrel/blob/main/docs/06-ssp/index.md)

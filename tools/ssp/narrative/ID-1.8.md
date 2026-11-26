@@ -1,0 +1,3 @@
+KESTREL will retire each account when the person no longer needs it. When someone leaves, IT Operations disables their Active Directory account and revokes their CAC binding, and the change flows through to Entra ID on its own. The ground control stations pick up the revocation at their daily refresh, and again before each flight. Partner accounts, meanwhile, expire along with their sponsor's agreement.
+
+Dormant accounts are handled separately. Each day Splunk will work out who has gone quiet, using Active Directory, Entra ID, and station sign-ins. Ansible Automation Platform then disables anyone dormant past the AMP's threshold. Break-glass accounts are excluded, since they are meant to stay unused.
