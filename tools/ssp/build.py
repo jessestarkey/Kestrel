@@ -130,10 +130,13 @@ for path in sorted(glob.glob(os.path.join(WIKI_SRC, '*.md'))):
 def config_detail(oid):
     """Where an outcome's specifics live, as a fragment for the citation line."""
     seen, out = set(), []
-    if oid in issues.WIKI:
-        t, page = issues.WIKI[oid]
-        out.append(f'Published as the [{t}]({WIKI_URL}/{page}).')
     hits = [h for i, hs in plans.items() if i == oid or i.startswith(oid + '.') for h in hs]
+    if oid in issues.WIKI:
+        # An outcome whose own work is the page, such as a plan, is "published as" it. An outcome
+        # that is one section of a compendium already gets its section links below instead.
+        t, page = issues.WIKI[oid]
+        if not any(h[2] == page for h in hits):
+            out.append(f'Published as the [{t}]({WIKI_URL}/{page}).')
     by_plan = OrderedDict()
     for short, title, page, heading, label in hits:
         key = (short, page, heading)

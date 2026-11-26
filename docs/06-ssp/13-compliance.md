@@ -10,7 +10,7 @@ KESTREL will know which rules bind it and prove that it follows them. The PMO IS
 
 From Phase 2, the PMO ISSE will inventory the issuances that bind KESTREL in Confluence and map each one to the outcomes that satisfy it. Gaps go to the requirement register with a named owner. The watch for new or revised issuances is checked each quarter, together with the AI regulatory mapping.
 
-<sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [CO-1.1](../04-sip/13-compliance.md#co-11-regulatory-compliance-mapping).</sub>
+<sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [CO-1.1](../04-sip/13-compliance.md#co-11-regulatory-compliance-mapping). Details: the Compliance Program Plan, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#1-regulatory-and-framework-requirement-mapping) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ### CO-1.2: Automated Technical Control Compliance Monitoring
 
@@ -32,19 +32,19 @@ Authorization will not end at the ATO. The Continuous Monitoring Plan sets what 
 
 The ISSM will have an interim Continuous Monitoring Plan approved in Phase 1, for the interim authorization to test, and the full plan in Phase 2. Beyond its regular checks, it watches two dates: CCSD tailoring action 3's 2027-09-30 deadline and tailoring action 6's annual review. Status goes to the AO in summary each month and in full each quarter.
 
-<sub>**Planned.** Controls: CA-1, CA-7, CA-7(3), PM-31. SIP record: [CO-2.1](../04-sip/13-compliance.md#co-21-continuous-monitoring-plan-conmon). Published as the [Continuous Monitoring Plan](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan). Details: the ConMon, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#1-monitoring-strategy-and-metrics) and [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#2-monitoring-and-assessment-frequencies) and [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#3-security-status-reporting) and [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#4-monitoring-and-assessment-procedures) and [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#5-trend-analysis-and-cadence-adjustment) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#appendix-live-records).</sub>
+<sub>**Planned.** Controls: CA-1, CA-7, CA-7(3), PM-31. SIP record: [CO-2.1](../04-sip/13-compliance.md#co-21-continuous-monitoring-plan-conmon). Details: the ConMon, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#1-monitoring-strategy-and-metrics) and [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#2-monitoring-and-assessment-frequencies) and [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#3-security-status-reporting) and [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#4-monitoring-and-assessment-procedures) and [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#5-trend-analysis-and-cadence-adjustment) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Continuous-Monitoring-Plan#appendix-live-records).</sub>
 
 ### CO-2.2: Control Assessment Scheduling
 
 From Phase 2, a third of the control families will be assessed each year, so every family is covered in three years. The key, signing, and datalink controls are assessed each quarter, since they protect the High-integrity rows. The SCA runs the independent assessments, and the ISSOs self-assess between them in Jira. Inherited controls are accepted on each provider's current assessment.
 
-<sub>**Planned.** Controls: CA-2, CA-2(1), CA-2(3), CA-7(1). SIP record: [CO-2.2](../04-sip/13-compliance.md#co-22-control-assessment-scheduling).</sub>
+<sub>**Planned.** Controls: CA-2, CA-2(1), CA-2(3), CA-7(1). SIP record: [CO-2.2](../04-sip/13-compliance.md#co-22-control-assessment-scheduling). Details: the Compliance Program Plan, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#2-control-assessment-scheduling-and-assessor-coordination) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ### CO-2.3: Annual Security Review
 
 From Phase 3, the SCA will conduct the annual security review under the Security Assessment Plan. It covers the cloud, the data center, the alternate site, and the fleet through the spares and the simulator, and it draws on the penetration test results. Determinations go into the SAR, and findings go to the POA&M in eMASS and to the risk register.
 
-<sub>**Planned.** Controls: CA-2, CA-2(2), CA-7(5). SIP record: [CO-2.3](../04-sip/13-compliance.md#co-23-annual-security-review).</sub>
+<sub>**Planned.** Controls: CA-2, CA-2(2), CA-7(5). SIP record: [CO-2.3](../04-sip/13-compliance.md#co-23-annual-security-review). Details: the Compliance Program Plan, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#3-annual-security-review-scope-and-methodology) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ## CO-3: Audit Management
 
@@ -54,13 +54,13 @@ Audits will check that KESTREL does what its plans say. The parent organization'
 
 From Phase 3, the parent organization's internal review office will audit whether KESTREL's plans are actually carried out, reaching every governing plan at least once every two years. Findings are tracked in Jira until their fix is verified.
 
-<sub>**Planned.** Controls: PM-14. SIP record: [CO-3.1](../04-sip/13-compliance.md#co-31-internal-audit-program).</sub>
+<sub>**Planned.** Controls: PM-14. SIP record: [CO-3.1](../04-sip/13-compliance.md#co-31-internal-audit-program). Details: the Compliance Program Plan, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#4-internal-audit-program) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ### CO-3.2: External Audit Coordination
 
 From Phase 3, the program manager will receive each audit or inspection request, and the ISSM will package evidence from the repository after a CUI and releasability review. DCMA and DIBCAC reviews cover the performer's laptops under CMMC. Findings go to the POA&M.
 
-<sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [CO-3.2](../04-sip/13-compliance.md#co-32-external-audit-coordination).</sub>
+<sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [CO-3.2](../04-sip/13-compliance.md#co-32-external-audit-coordination). Details: the Compliance Program Plan, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#5-external-audit-coordination) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Compliance-Program-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ## CO-4: Privacy Compliance
 
@@ -70,7 +70,7 @@ KESTREL holds little personal information, but what it holds will be managed und
 
 From Phase 2, the privacy officer will run KESTREL's privacy program at the Privacy Overlay's Low tier, under the Privacy Program Charter and Policy. Users correct the attributes KESTREL holds about them through Jira Service Management, while CAC and partner attributes are corrected at their source. Analysts, Data Team stewards, and service desk staff take role-based privacy training on JKO.
 
-<sub>**Planned.** Controls: PT-1, PM-18, PM-19, PM-5(1), AT-3(5), PM-22. SIP record: [CO-4.1](../04-sip/13-compliance.md#co-41-privacy-program-management). Published as the [Privacy Program Charter and Policy](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy). Details: the Privacy Program Charter and Policy, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#1-privacy-policy-and-program-charter) and [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#2-privacy-roles-and-responsibilities) and [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#3-pii-accuracy-and-correction-request-handling).</sub>
+<sub>**Planned.** Controls: PT-1, PM-18, PM-19, PM-5(1), AT-3(5), PM-22. SIP record: [CO-4.1](../04-sip/13-compliance.md#co-41-privacy-program-management). Details: the Privacy Program Charter and Policy, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#1-privacy-policy-and-program-charter) and [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#2-privacy-roles-and-responsibilities) and [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#3-pii-accuracy-and-correction-request-handling).</sub>
 
 ### CO-4.2: Privacy Impact Assessments (PIA)
 

@@ -10,7 +10,7 @@ KESTREL will assess every risk with one method, record it in one register, and a
 
 The PMO ISSE will define one risk assessment method for KESTREL, based on NIST SP 800-30, scoring likelihood and impact on five-point scales. Impact is anchored to the CCSD's categorization, to mission effects, and to privacy harm. The highest scores go to anything that could cost an aircraft or compromise the command link. The same applies to exposing the key material in CCSD row 13, or tampering with a certified model or signed release.
 
-<sub>**Planned.** Controls: PM-9. SIP record: [RK-1.1](../04-sip/12-risk.md#rk-11-risk-assessment-methodology). Published as the [Risk Management Program Charter](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter). Details: the Risk Management Program Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#1-risk-assessment-methodology).</sub>
+<sub>**Planned.** Controls: PM-9. SIP record: [RK-1.1](../04-sip/12-risk.md#rk-11-risk-assessment-methodology). Details: the Risk Management Program Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#1-risk-assessment-methodology).</sub>
 
 ### RK-1.2: Risk Appetite and Tolerance Definition
 

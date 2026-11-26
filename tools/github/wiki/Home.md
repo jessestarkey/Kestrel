@@ -21,6 +21,7 @@ This space holds KESTREL's working documents, namely the governing plans and the
 | [Contingency Plan (CP)](Contingency-Plan) | RC-4.1 | Draft 0.1, for Configuration Control Board review in Phase 2 |
 | [Supply Chain Risk Management Plan (SCRM)](Supply-Chain-Risk-Management-Plan) | GV-3.5 | Draft 0.1, for Configuration Control Board review in Phase 2 |
 | [Continuous Monitoring Plan (ConMon)](Continuous-Monitoring-Plan) | CO-2.1 | Draft 0.1, with the interim plan due for AO approval in Phase 1 |
+| [Compliance Program Plan](Compliance-Program-Plan) | CO-1.1, CO-2.2, CO-2.3, CO-3 | Draft 0.1, sections pending their approvers |
 
 ## Charters
 

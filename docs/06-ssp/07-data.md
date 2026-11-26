@@ -70,7 +70,7 @@ The second class is encrypted government media, which carries prior collection t
 
 The Data Team will write the Data Management Plan in late Phase 1, before prior collection arrives. It puts the retention schedule, the minimization rules, and the classification scheme in one document. The intelligence mission leads approve retention for their data, and the privacy officer approves the handling of personal information. The Configuration Control Board approves the plan, and it is revised each year and whenever a payload vendor or data type is added.
 
-<sub>**Planned.** Controls: SI-12, SI-12(1), SI-12(2). SIP record: [DA-1.9](../04-sip/07-data.md#da-19-data-management-plan-dmp). Published as the [Data Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan). Details: the DMP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#5-retention-minimization-and-encryption-requirements).</sub>
+<sub>**Planned.** Controls: SI-12, SI-12(1), SI-12(2). SIP record: [DA-1.9](../04-sip/07-data.md#da-19-data-management-plan-dmp). Details: the DMP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#5-retention-minimization-and-encryption-requirements).</sub>
 
 ## DA-2: Data Encryption
 

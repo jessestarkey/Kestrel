@@ -10,7 +10,7 @@ KESTREL's security will be governed from the program office. The program manager
 
 The program manager will issue one system security policy for KESTREL, beneath DoD issuances and the parent organization's policy. It names every governing plan as a standard, and maps each of its statements to the control families it addresses. Its scope covers the fleet and the ground segment, the alternate site, and the performer laptops that hold source code. Each governing plan supplies the procedures that carry the policy out.
 
-<sub>**Planned.** Controls: PM-1, AC-1, CM-1, RA-1, SC-1, MP-1, IR-1, CP-1, AT-1, MA-1. SIP record: [GV-1.1](../04-sip/11-governance.md#gv-11-security-policy-framework). Published as the [Governance Program Charter](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter). Details: the Governance Program Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#1-purpose-scope-and-policy-framework).</sub>
+<sub>**Planned.** Controls: PM-1, AC-1, CM-1, RA-1, SC-1, MP-1, IR-1, CP-1, AT-1, MA-1. SIP record: [GV-1.1](../04-sip/11-governance.md#gv-11-security-policy-framework). Details: the Governance Program Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#1-purpose-scope-and-policy-framework).</sub>
 
 ### GV-1.2: Security Roles and Responsibilities
 
@@ -108,7 +108,7 @@ Suspect parts are quarantined and reported to GIDEP. Firmware is accepted only w
 
 The supply chain lead will write the Supply Chain Risk Management Plan in Phase 2, with the SCRM team it names. The ISSM and the PMO ISSE review it, and the Configuration Control Board approves it. It is revised each year and whenever a Tier 1 supplier changes.
 
-<sub>**Planned.** Controls: PM-30, SR-1, SR-2, SR-2(1). SIP record: [GV-3.5](../04-sip/11-governance.md#gv-35-supply-chain-risk-management-plan-scrm). Published as the [Supply Chain Risk Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan). Details: the SCRM, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#1-scrm-team-and-roles).</sub>
+<sub>**Planned.** Controls: PM-30, SR-1, SR-2, SR-2(1). SIP record: [GV-3.5](../04-sip/11-governance.md#gv-35-supply-chain-risk-management-plan-scrm). Details: the SCRM, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#1-scrm-team-and-roles).</sub>
 
 ## GV-4: AI/ML Governance
 
@@ -118,7 +118,7 @@ AI will be governed as a program, not only as technology. An inventory registers
 
 The AI use case inventory will be a Jira project, open from Phase 1 so the review board can tier the first use cases. Each use case links to the Assets records of the model versions it runs on, so a change to one model resolves to every use case it affects. Platform models are listed with their sponsor and removal review date. A quarterly sweep reads Azure AI service usage and the procurement records, catching any AI that was never submitted.
 
-<sub>**Planned.** Controls: PM-5, PM-11, RA-3. SIP record: [GV-4.1](../04-sip/11-governance.md#gv-41-aiml-use-case-inventory). Published as the [AI/ML Governance Charter](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter). Details: the AI/ML Governance Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#1-aiml-use-case-inventory-and-risk-tiering) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#appendix-reference-data-and-live-registers).</sub>
+<sub>**Planned.** Controls: PM-5, PM-11, RA-3. SIP record: [GV-4.1](../04-sip/11-governance.md#gv-41-aiml-use-case-inventory). Details: the AI/ML Governance Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#1-aiml-use-case-inventory-and-risk-tiering) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-4.2: Program-Level AI Threat Assessment
 

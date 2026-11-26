@@ -58,6 +58,11 @@ WIKI = {'ID-4.6': ('Break-Glass Account Retrieval runbook', 'Break-Glass-Account
         'DA-1.9': ('Data Management Plan', 'Data-Management-Plan'),
         'RC-4.1': ('Contingency Plan', 'Contingency-Plan'),
         'GV-5.11': ('SIA-2026-0001: Persistent Memory for the Coding Agent', 'SIA-2026-0001-Coding-Agent-Memory'),
+        'CO-1.1': ('Compliance Program Plan', 'Compliance-Program-Plan'),
+        'CO-2.2': ('Compliance Program Plan', 'Compliance-Program-Plan'),
+        'CO-2.3': ('Compliance Program Plan', 'Compliance-Program-Plan'),
+        'CO-3.1': ('Compliance Program Plan', 'Compliance-Program-Plan'),
+        'CO-3.2': ('Compliance Program Plan', 'Compliance-Program-Plan'),
         'CO-4.1': ('Privacy Program Charter and Policy', 'Privacy-Program-Charter-and-Policy')}
 TYPE_LABELS = {'initiative': ('type: initiative', '5319e7'), 'epic': ('type: epic', '1d76db'),
                'story': ('type: story', '0e8a16'), 'sub-task': ('type: sub-task', 'c5def5')}
