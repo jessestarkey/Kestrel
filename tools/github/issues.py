@@ -418,6 +418,9 @@ def workflow(issues, st, save, others=()):
     for it in issues:
         item = st['items'][it['key']]; cur = current.get(item); want = starting_status(it, by_key, done, kids)
         moved_by_hand = cur not in (None, last.get(it['key']))
+        if cur == want and want is not None and last.get(it['key']) != want:
+            # Already where the plan wants it, such as an item reopened in its old column.
+            last[it['key']] = want; save()
         if moved_by_hand or cur == want:
             continue
         if want is None:
