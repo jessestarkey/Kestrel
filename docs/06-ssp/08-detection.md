@@ -86,7 +86,7 @@ From Phase 2, a shared logging library in each team's code will send authorizati
 
 The agents arrive in Phase 3, and their actions are logged from the start. Semantic Kernel logs each of the mission-planning agent's tool calls with its parameters and approval, and the coding agent's OpenHands event stream goes to Splunk as well.
 
-<sub>**Planned.** Controls: AU-12, AU-3. SIP record: [DE-2.4](../04-sip/08-detection.md#de-24-applicationapi-logging).</sub>
+<sub>**Planned.** Controls: AU-12, AU-3, AU-3(1). SIP record: [DE-2.4](../04-sip/08-detection.md#de-24-applicationapi-logging).</sub>
 
 ### DE-2.5: Host and Endpoint Logging
 

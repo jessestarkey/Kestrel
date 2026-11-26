@@ -29,8 +29,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dispositions import PROVIDERS, INHERITED, NOT_APPLICABLE, MET_UNCLAIMED, NARROW  # noqa: E402
 
-VERSION, DATE = '0.3', '2026-11-26'
-SOURCES = {'CCSD': '1.0, with 1.1 pending', 'SADD': '0.9', 'SIP': '0.8'}
+VERSION, DATE = '0.4', '2026-11-26'
+SOURCES = {'CCSD': '1.0, with 1.1 pending', 'SADD': '0.10', 'SIP': '0.9'}
 DATA = os.path.join(ROOT, 'tools', 'sctm', 'data')
 OUT = os.path.join(ROOT, 'docs', '05-sctm')
 BASE_URL = 'https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/'
@@ -308,7 +308,8 @@ def main():
           '| Version | Date | Author | Description of Changes |', '|---|---|---|---|',
           '| 0.1 | 2026-11-25 | KESTREL ISSM | Initial matrix, built against the SADD before SSP validation |',
           f'| 0.2 | {DATE} | KESTREL ISSM | Recast as a checklist by control family, with control names, implementation status from the board, and a narrative per control. The OSCAL moved into the SSP. |',
-          f'| 0.3 | {DATE} | KESTREL ISSM | Wrote an implementation narrative for every control KESTREL implements in whole or in part |', '',
+          f'| 0.3 | {DATE} | KESTREL ISSM | Wrote an implementation narrative for every control KESTREL implements in whole or in part |',
+          f'| 0.4 | {DATE} | KESTREL ISSM | Moved the 21 held-but-unclaimed controls to their new SABER v2.0 claims, and recorded MP-6(3) as not applicable |', '',
           '---', '', '## Control Set', '',
           f'The CCSD selects KESTREL\'s controls from the CNSSI 1253 columns for High confidentiality, High integrity, and Moderate availability. '
           f'This notional example does not reproduce those columns. It uses NIST\'s OSCAL [High baseline]({BASE_URL}{HIGH}) and [privacy baseline]({BASE_URL}{PRIVACY}) as a stand-in. '
@@ -328,10 +329,14 @@ def main():
           '---', '', '## Gaps for the SADD\'s Gap Register', '',
           'These rows go to the SADD\'s gap register (Section 9) for disposition.', '',
           f'**Held but unclaimed ({len(gaps_met)}).** An outcome already does this, or is where it belongs, but its mapping does not claim the control. Each needs a claim added to the outcome, or a recorded reason it stays unclaimed.', '',
-          '| Control | Held By | How |', '|---|---|---|']
+          ]
+    if gaps_met:
+        L += ['| Control | Held By | How |', '|---|---|---|']
     for r in gaps_met:
         o, why = MET_UNCLAIMED[r['control']]
         L.append(f"| {r['control']} | {o} | {cell(why)} |")
+    if not gaps_met:
+        L.append('- None')
     L += ['', f'**No owner ({len(gaps_open)}).** No outcome or provider holds these.', '']
     L += [f"- {r['control']}" for r in gaps_open] or ['- None']
     L += ['', f'**Narrow owners ({len(gaps_narrow)}).** These rest only on narrow outcomes. The SCTM does not read them as system-wide, and each still needs a system-wide owner named.', '']

@@ -239,10 +239,11 @@
 | DA-1.8.2: Removable Media Handling and Transport Controls | 1 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | DA-1.8.3: Media Sanitization and Destruction Procedures | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | DA-1.8.4: Media Downgrading Procedures | N/A | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| DA-1.8.5: Pre-Connection Portable Storage Sanitization | N/A | Process | None | Level 2 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
 **Pinned:** DA-1.8.1 and DA-1.8.2: Prior collection arrives over F28 for training in Phase 2, so the controls that act on it at ingest must exist first.
 
-**Not applicable:** DA-1.8.4: KESTREL holds no classified data, so no media is downgraded. Data reaches the IL6 enclave only through the cross domain solution.
+**Not applicable:** DA-1.8.4: KESTREL holds no classified data, so no media is downgraded. Data reaches the IL6 enclave only through the cross domain solution. DA-1.8.5: Portable storage never connects to KESTREL. Government media is read at the standalone intake station, where wiping it would destroy the collection it carries.
 
 ### DA-1.9: Data Management Plan (DMP)
 

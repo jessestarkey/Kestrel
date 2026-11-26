@@ -29,6 +29,7 @@ This plan records what KESTREL actually does for each outcome its SADD selected,
 |---|---|---|---|
 | 0.1 | 2026-11-26 | KESTREL ISSM | Initial generated SSP, before any outcome is built |
 | 0.2 | 2026-11-26 | KESTREL ISSM | Wrote a narrative for every in-scope outcome and an opening for every capability, describing the planned implementation |
+| 0.3 | 2026-11-26 | KESTREL ISSM | Described the Privacy Act statement, the coding agent's credential broker, and why intake media is never wiped, for the SABER v2.0 claims |
 
 ---
 

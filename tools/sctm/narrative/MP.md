@@ -32,10 +32,6 @@ Each sanitization will be reviewed, approved, tracked, documented, and verified.
 
 Sanitization equipment and procedures will be tested so they keep achieving the intended result. Blancco verifies each wipe as it completes, and the equipment is checked on a schedule.
 
-## MP-6(3)
-
-Media will be scanned at the media intake station before it is used on any KESTREL system, so nondestructive checks run before any media is connected.
-
 ## MP-7
 
 Removable storage will be blocked on every workstation, desktop, and server by device control policy. The one exception is the media intake station, which reads only encrypted government media. Mission storage modules are used only in aircraft and ground control stations.

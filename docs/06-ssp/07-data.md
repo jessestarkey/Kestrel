@@ -42,7 +42,7 @@ KESTREL's data will leave only by named paths, so data loss prevention sits on e
 
 From Phase 2, Splunk Enterprise Security correlations flag bulk reads across zones, and insider risk analytics watch user activity within the scope the DMP sets. A data security dashboard serves the Security Team, the PMO ISSE, and the data owners.
 
-<sub>**Planned.** Controls: AC-4, SI-4(18), AC-2(12). SIP record: [DA-1.5](../04-sip/07-data.md#da-15-data-loss-prevention-dlp-and-monitoring). Details: the DMP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#3-insider-risk-monitoring) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#appendix-reference-data).</sub>
+<sub>**Planned.** Controls: AC-4, SI-4(18), AC-2(12), SC-7(24). SIP record: [DA-1.5](../04-sip/07-data.md#da-15-data-loss-prevention-dlp-and-monitoring). Details: the DMP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#3-insider-risk-monitoring) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#appendix-reference-data).</sub>
 
 ### DA-1.6: Data Rights Management (DRM)
 
@@ -62,15 +62,15 @@ The PMO ISSE is the only person who may post public content, which is limited to
 
 Removable media will be prohibited except for three classes. The first is each aircraft's mission storage modules, encrypted under keys in the aircraft's crypto module and readable only at a ground control station and the IT/OT DMZ. They are marked CUI, logged when they leave an aircraft, carried by a named custodian in controlled containers, and kept in the station's locked store. This is proven on the spares before it applies across the fleet.
 
-The second class is encrypted government media, which carries prior collection to the media intake station for scanning. The third is the datalink key loaders, held under two-person custody. Failed drives and retired modules are sanitized on site with Blancco, and retired or repaired HSMs and datalink modules are zeroized. Cloud media sanitization is inherited from the provider.
+The second class is encrypted government media, which carries prior collection to the media intake station for scanning. That media is read at the intake station and never connected to a KESTREL system, so it is never wiped and reissued. The third is the datalink key loaders, held under two-person custody. Failed drives and retired modules are sanitized on site with Blancco, and retired or repaired HSMs and datalink modules are zeroized. Cloud media sanitization is inherited from the provider.
 
-<sub>**Planned.** Controls: MP-1, MP-3, MP-2, MP-7, MP-6, MP-6(2), MP-8, MP-8(1), MP-8(2), MP-8(3), MP-8(4), SI-12(3). SIP record: [DA-1.8](../04-sip/07-data.md#da-18-media-protection-policy-and-procedures).</sub>
+<sub>**Planned.** Controls: MP-1, MP-3, MP-2, MP-7, MP-6, MP-6(2), MP-8, MP-8(1), MP-8(2), MP-8(3), MP-8(4), SI-12(3), MP-6(3). SIP record: [DA-1.8](../04-sip/07-data.md#da-18-media-protection-policy-and-procedures).</sub>
 
 ### DA-1.9: Data Management Plan (DMP)
 
 The Data Team will write the Data Management Plan in late Phase 1, before prior collection arrives. It puts the retention schedule, the minimization rules, and the classification scheme in one document. The intelligence mission leads approve retention for their data, and the privacy officer approves the handling of personal information. The Configuration Control Board approves the plan, and it is revised each year and whenever a payload vendor or data type is added.
 
-<sub>**Planned.** Controls: SI-12, SI-12(1), SI-12(2). SIP record: [DA-1.9](../04-sip/07-data.md#da-19-data-management-plan-dmp). Details: the DMP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#5-retention-minimization-and-encryption-requirements).</sub>
+<sub>**Planned.** Controls: SI-12, SI-12(1), SI-12(2), SA-8(33). SIP record: [DA-1.9](../04-sip/07-data.md#da-19-data-management-plan-dmp). Details: the DMP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#5-retention-minimization-and-encryption-requirements).</sub>
 
 ## DA-2: Data Encryption
 
@@ -196,4 +196,4 @@ Every Key Vault will have soft delete and purge protection on. A deleted vault o
 
 The Tier 0 administrators will write the Key Management Plan, with Fleet Operations writing the datalink key procedures. It requires RSA-3072 or larger for customer-managed and imported keys, under CNSA. The PMO ISSE adds the CNSA 2.0 transition section once the transition plan is complete. The Security Team reviews the plan, and the Configuration Control Board approves it. It is revised each year and whenever an algorithm, a key tier, or a post-quantum milestone changes.
 
-<sub>**Planned.** Controls: SC-1. SIP record: [DA-3.13](../04-sip/07-data.md#da-313-key-management-plan-kmp). Published as the [Key Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan).</sub>
+<sub>**Planned.** Controls: SC-1, CM-3(6). SIP record: [DA-3.13](../04-sip/07-data.md#da-313-key-management-plan-kmp). Published as the [Key Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan).</sub>

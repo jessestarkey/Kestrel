@@ -72,7 +72,7 @@ Hardware maintenance in the data center and at the alternate site will be schedu
 
 Fleet maintenance follows the same procedures, and from Phase 3 it runs only in each operating site's weekly maintenance window. Vendor sessions are brokered through CyberArk. Spares cover the mission's tolerance for downtime, and the HSMs, identity servers, and hub firewalls have support agreements with set replacement times. A spare used for penetration testing is reimaged and checked against its baseline before it returns to the pool.
 
-<sub>**Planned.** Controls: MA-1, MA-2, MA-3, MA-3(1), MA-3(2), MA-3(3), MA-6. SIP record: [DI-2.4](../04-sip/03-device-and-infrastructure.md#di-24-controlled-maintenance-and-support). Details: the CMP, [Section 14](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#14-maintenance).</sub>
+<sub>**Planned.** Controls: MA-1, MA-2, MA-3, MA-3(1), MA-3(2), MA-3(3), MA-6, MA-2(2), MA-5(1). SIP record: [DI-2.4](../04-sip/03-device-and-infrastructure.md#di-24-controlled-maintenance-and-support). Details: the CMP, [Section 14](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#14-maintenance).</sub>
 
 ## DI-3: Baseline Configuration Standards
 

@@ -88,7 +88,7 @@ The clause library will hold every security clause KESTREL's contracts use, incl
 
 The supply chain lead verifies at award that each contract carries the clauses its tier requires and flows them down, then checks compliance each year. The performer laptops that hold source code fall under DFARS 252.204-7012 from Phase 1.
 
-<sub>**Planned.** Controls: SA-1, SA-4, SA-9, SR-3(3), SR-5, SR-8, PM-17, SA-4(9), SA-4(10), SA-4(1), SA-4(2), SA-4(5), SA-9(2), SA-15(3). SIP record: [GV-3.2](../04-sip/11-governance.md#gv-32-contract-security-requirements). Details: the SCRM, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#3-contract-security-requirements) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#appendix-reference-data-and-live-registers).</sub>
+<sub>**Planned.** Controls: SA-1, SA-4, SA-9, SR-3(3), SR-5, SR-8, PM-17, SA-4(9), SA-4(10), SA-4(1), SA-4(2), SA-4(5), SA-9(2), SA-15(3), SA-16, SA-21. SIP record: [GV-3.2](../04-sip/11-governance.md#gv-32-contract-security-requirements). Details: the SCRM, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#3-contract-security-requirements) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-3.3: Supply Chain Risk Assessment and Dependency Mapping
 
@@ -102,7 +102,7 @@ Aircraft, stations, and payloads will be bought only from their manufacturers, a
 
 Suspect parts are quarantined and reported to GIDEP. Firmware is accepted only with a valid manufacturer signature, or a published hash where it is unsigned, and each verified version is recorded in Assets. Retired drives are sanitized with Blancco.
 
-<sub>**Planned.** Controls: SI-7(15), SR-4, SR-5, SR-9, SR-10, SR-11, SR-11(1), SR-11(2), SR-11(3), SR-12. SIP record: [GV-3.4](../04-sip/11-governance.md#gv-34-hardware-and-firmware-provenance-verification). Details: the SCRM, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#5-sourcing-inspection-and-firmware-provenance) and [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#6-component-disposal-and-sanitization).</sub>
+<sub>**Planned.** Controls: SI-7(15), SR-4, SR-5, SR-9, SR-10, SR-11, SR-11(1), SR-11(2), SR-11(3), SR-12, SR-9(1). SIP record: [GV-3.4](../04-sip/11-governance.md#gv-34-hardware-and-firmware-provenance-verification). Details: the SCRM, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#5-sourcing-inspection-and-firmware-provenance) and [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#6-component-disposal-and-sanitization).</sub>
 
 ### GV-3.5: Supply Chain Risk Management Plan (SCRM)
 

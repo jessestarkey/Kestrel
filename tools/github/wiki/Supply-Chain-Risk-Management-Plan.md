@@ -15,7 +15,7 @@ This plan sets who KESTREL buys from, what it requires of them, and how it check
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SCRM Version | 0.1 |
+| SCRM Version | 0.2 |
 | Date | 2026-11-26 |
 | Prepared By | Supply chain lead, with the SCRM team |
 | Reviewed By | ISSM and PMO ISSE |
@@ -29,6 +29,7 @@ This plan sets who KESTREL buys from, what it requires of them, and how it check
 | Version | Date | Author | Description of Changes |
 |---|---|---|---|
 | 0.1 | 2026-11-26 | Supply chain lead | Initial draft for Configuration Control Board review |
+| 0.2 | 2026-11-26 | Supply chain lead | Added developer training and personnel screening clauses to the Tier 1 set |
 
 ---
 
@@ -113,7 +114,7 @@ A supplier moves up a tier when what it can reach grows. The AI/ML Governance Ch
 | Base | Every contract | DFARS 252.204-7012, FAR 52.204-25, FAR 52.204-30, and CNSA 2.0 support or an approved exception |
 | Software | Any software or software service | SBOM delivery, vulnerability disclosure, and notice of a compromise or a failed audit |
 | Hardware | Any hardware or firmware | Firmware signing, sourcing through authorized channels, and DFARS 252.246-7007 and 252.246-7008 for counterfeit parts |
-| Tier 1 | Every Tier 1 supplier | DFARS 252.204-7021, right to audit, personnel and data handling terms, and flow-down to subcontractors |
+| Tier 1 | Every Tier 1 supplier | DFARS 252.204-7021, right to audit, developer training on the security functions it delivers, screening of the personnel who work on KESTREL components, personnel and data handling terms, and flow-down to subcontractors |
 | Specific | One contract each | Payload vendor data rights, path diversity and priority restoration for circuits, onboard trusted execution support, AI red team scope, and the CSSP containment role |
 
 **Acquisition requirements.** Each acquisition also states the security functions the product must provide and the design information the supplier must deliver. It also states the supplier's configuration and supply chain duties. The PMO ISSE writes these from the SADD.

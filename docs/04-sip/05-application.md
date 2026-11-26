@@ -160,8 +160,9 @@
 | AP-2.1.2: AI-Powered Code Security Assistant Deployment | 4 | Technical | Automate | Level 3 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | AP-2.1.3: Developer Real-Time Finding Triage Workflow | 2 | Process | None | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | AP-2.1.4: AI Coding Agent Guardrails | 3 (pinned) | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| AP-2.1.5: AI Coding Agent Credential Provisioning | 3 (pinned) | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** AP-2.1.4: The coding agent arrives in Phase 3, once AI Agent Identities and Agentic Tool-Call/Action Output Validation can govern it.
+**Pinned:** AP-2.1.4: The coding agent arrives in Phase 3, once AI Agent Identities and Agentic Tool-Call/Action Output Validation can govern it. AP-2.1.5: The coding agent arrives in Phase 3 with its guardrails. Its broker holds every credential, so no developer key is provisioned.
 
 ### AP-2.2: Secure Coding Standards and Build Hardening
 

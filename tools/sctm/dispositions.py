@@ -69,52 +69,14 @@ NOT_APPLICABLE = {
     'AC-18(4)': 'KESTREL has no wireless LAN, and users cannot configure the datalinks.',
     'AC-19': 'KESTREL has no mobile devices, and its workstations never travel.',
     'AC-19(5)': 'KESTREL has no mobile devices, and its workstations never travel.',
+    'MP-6(3)': 'Portable storage never connects to KESTREL. Government media is read at the standalone intake station, where wiping it would destroy the collection it carries.',
     'PT-7(1)': 'KESTREL collects no Social Security numbers. Accounts key on the CAC DoD ID number.',
     'PT-8': 'KESTREL runs no computer matching program.',
 }
 
 # Unclaimed controls an outcome already meets. Each is a gap only in the SADD's mapping, and
 # goes to the SADD's gap register for a claim.
-MET_UNCLAIMED = {
-    'AC-2(11)': ('ID-2.5', 'Conditional access sets the usage conditions on each account.'),
-    'AC-3(14)': ('CO-4.2', 'The privacy officer handles individual access requests.'),
-    'AC-4(4)': ('NE-2.4', 'Both hubs decrypt outbound TLS for inspection.'),
-    'AU-3(1)': ('DE-2.1', 'Logging adds the detail each source class needs.'),
-    'AU-3(3)': ('DE-2.4', 'Application logs limit the personal information they record.'),
-    'AU-5(2)': ('DE-3.1', 'A silent log source alerts within the hour.'),
-    'AU-6(5)': ('DE-3.1', 'Splunk correlates scan, performance, and log data.'),
-    'AU-6(6)': ('ID-1.10', 'Physical and logical access events are correlated.'),
-    'CA-3(6)': ('GV-5.6', 'The interconnection agreements authorize each transfer, still to be confirmed.'),
-    'CM-3(6)': ('DA-3.13', 'Cryptographic changes go through the KMP and the Configuration Control Board.'),
-    'CP-10(2)': ('RC-1.2', 'Point-in-time restore recovers transactions within each tier\'s recovery point.'),
-    'IR-2(1)': ('RS-1.2', 'Responders train on simulated incidents.'),
-    'IR-2(2)': ('RS-1.2', 'Training runs in the exercise environment.'),
-    'IR-8(1)': ('RS-4.1', 'The IRP covers breaches of personal information.'),
-    'MA-2(2)': ('DI-2.4', 'Maintenance is scheduled and recorded in Jira Service Management.'),
-    'MA-4(3)': ('ID-4.7', 'Vendor sessions run from the vendor host pool, built to KESTREL\'s baseline.'),
-    'MA-5(1)': ('DI-2.4', 'Uncleared vendor engineers are escorted at all times.'),
-    'MP-6(3)': ('DI-5.1', 'The media intake station scans media before use.'),
-    'PL-9': ('NE-1.1', 'Policy as code is defined once and deployed everywhere.'),
-    'PT-5': ('CO-4.2', 'The account request form carries the Privacy Act statement.'),
-    'PT-5(2)': ('CO-4.2', 'The Privacy Act statement is given where data is collected.'),
-    'PT-7': ('CO-4.2', 'The PIA identifies any special category of personal information.'),
-    'PT-7(2)': ('CO-1.1', 'Intelligence oversight bars collection on First Amendment activity.'),
-    'SA-4(1)': ('GV-3.2', 'A contract clause requiring functional properties of security controls belongs in the contract security requirements, still to be confirmed.'),
-    'SA-4(2)': ('GV-3.2', 'A contract clause requiring design and implementation information belongs in the contract security requirements, still to be confirmed.'),
-    'SA-4(5)': ('GV-3.2', 'A contract clause requiring delivery in a secure configuration belongs in the contract security requirements, still to be confirmed.'),
-    'SA-8(33)': ('AI-1.2', 'Privacy requirements minimize personal data by design.'),
-    'SA-9(2)': ('GV-3.2', 'A contract clause requiring each external service to identify its functions, ports, and protocols belongs in the contract security requirements, still to be confirmed.'),
-    'SA-16': ('GV-3.2', 'A contract clause requiring developer-provided training belongs in the contract security requirements, still to be confirmed.'),
-    'SA-21': ('GV-3.2', 'A contract clause requiring screening of developers belongs in the contract security requirements, still to be confirmed.'),
-    'SC-7(24)': ('DA-1.5', 'Data loss prevention watches personal information at the boundary.'),
-    'SI-4(10)': ('NE-2.4', 'Both hubs decrypt outbound TLS for inspection.'),
-    'SI-4(20)': ('DE-1.9', 'User activity monitoring covers privileged users.'),
-    'SI-5(1)': ('RK-2.3', 'CSSP advisories arrive automatically as STIX over TAXII.'),
-    'SI-7(2)': ('DI-5.4', 'File integrity monitoring alerts on violations.'),
-    'SI-18': ('CO-4.2', 'The PIA sets how personal data accuracy is maintained.'),
-    'SI-18(4)': ('CO-4.2', 'The privacy officer handles correction requests.'),
-    'SR-9(1)': ('GV-3.4', 'Supplier assessments cover multiple stages of the supply chain, still to be confirmed.'),
-}
+MET_UNCLAIMED = {}
 
 # Controls whose only owners are narrow outcomes. The SADD's gap register asks the SCTM not to
 # read them as system-wide, so each row carries this note until a system-wide owner is named.

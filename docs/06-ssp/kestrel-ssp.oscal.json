@@ -4,7 +4,7 @@
     "metadata": {
       "title": "KESTREL System Security Plan",
       "last-modified": "2026-11-26T00:00:00Z",
-      "version": "0.2",
+      "version": "0.3",
       "oscal-version": "1.1.2",
       "props": [
         {
@@ -15,12 +15,12 @@
         {
           "name": "source-sadd",
           "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-          "value": "0.9"
+          "value": "0.10"
         },
         {
           "name": "source-sip",
           "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-          "value": "0.8"
+          "value": "0.9"
         },
         {
           "name": "board-snapshot",
@@ -2230,9 +2230,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "CO-4.1"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -2245,13 +2250,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "4f2f78a2-9edc-54bf-a0ab-2a8766a6339f",
-              "description": "Held by CO-4.2, which does not claim it. The privacy officer handles individual access requests.",
+              "description": "Implemented through CO-4.1 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by CO-4.2, which does not claim it. The privacy officer handles individual access requests."
+          ]
         },
         {
           "uuid": "ee8a5648-be72-57af-a210-3478f0679dc3",
@@ -3938,9 +3942,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DE-2.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -3953,13 +3962,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "b77c87f8-cb56-55c4-a5ee-10635b84b1d8",
-              "description": "Held by DE-2.1, which does not claim it. Logging adds the detail each source class needs.",
+              "description": "Implemented through DE-2.4 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DE-2.1, which does not claim it. Logging adds the detail each source class needs."
+          ]
         },
         {
           "uuid": "6a8acc23-06f0-53c4-8302-f47506a2ebf4",
@@ -3971,9 +3979,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DE-2.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -3986,13 +3999,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "ec117850-390f-5de6-bf35-2bca621cfa70",
-              "description": "Held by DE-2.4, which does not claim it. Application logs limit the personal information they record.",
+              "description": "Implemented through DE-2.4 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DE-2.4, which does not claim it. Application logs limit the personal information they record."
+          ]
         },
         {
           "uuid": "d1d5c335-272d-5124-b2ca-b850017c06b2",
@@ -4115,9 +4127,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DE-3.3"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -4130,13 +4147,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "4e186239-e527-5d3e-87e8-c5b83dc5675b",
-              "description": "Held by DE-3.1, which does not claim it. A silent log source alerts within the hour.",
+              "description": "Implemented through DE-3.3 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DE-3.1, which does not claim it. A silent log source alerts within the hour."
+          ]
         },
         {
           "uuid": "92c34ec5-8e96-512b-b35d-6d89dcba8c25",
@@ -5636,9 +5652,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DA-3.13"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -5651,13 +5672,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "eb75c6ae-d949-593a-84ba-211b52f29cea",
-              "description": "Held by DA-3.13, which does not claim it. Cryptographic changes go through the KMP and the Configuration Control Board.",
+              "description": "Implemented through DA-3.13 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DA-3.13, which does not claim it. Cryptographic changes go through the KMP and the Configuration Control Board."
+          ]
         },
         {
           "uuid": "50f6bb32-ba31-5ef0-a2af-0a29804ebbde",
@@ -8288,7 +8308,7 @@
             {
               "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "ID-3.6 ID-4.4 AP-2.25 AI-4.19 AI-8.3"
+              "value": "ID-3.6 ID-4.4 AP-2.1 AP-2.25 AI-4.19 AI-8.3"
             },
             {
               "name": "sadd-claim",
@@ -8306,7 +8326,7 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "22a62d2e-f921-5b22-81f0-2d26181c0d6f",
-              "description": "Implemented through ID-3.6 (Planned), ID-4.4 (Planned), AP-2.25 (Planned), AI-4.19 (Planned), AI-8.3 (Planned). Each outcome's entry in the SSP states what is built.",
+              "description": "Implemented through ID-3.6 (Planned), ID-4.4 (Planned), AP-2.1 (Planned), AP-2.25 (Planned), AI-4.19 (Planned), AI-8.3 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
@@ -9585,9 +9605,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DI-2.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -9600,13 +9625,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "4b63a452-dccd-5def-a0ab-b98ba6f33b01",
-              "description": "Held by DI-2.4, which does not claim it. Maintenance is scheduled and recorded in Jira Service Management.",
+              "description": "Implemented through DI-2.4 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DI-2.4, which does not claim it. Maintenance is scheduled and recorded in Jira Service Management."
+          ]
         },
         {
           "uuid": "26a56b53-06f6-52b6-984a-ae4fc8232d5d",
@@ -9811,9 +9835,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "ID-4.7"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -9826,13 +9855,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "8f74b818-edc3-5954-a5ca-717d9daed73d",
-              "description": "Held by ID-4.7, which does not claim it. Vendor sessions run from the vendor host pool, built to KESTREL's baseline.",
+              "description": "Implemented through ID-4.7 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by ID-4.7, which does not claim it. Vendor sessions run from the vendor host pool, built to KESTREL's baseline."
+          ]
         },
         {
           "uuid": "bb75fd98-352b-59ea-8320-eb337a5d2d08",
@@ -9889,9 +9917,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DI-2.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -9904,13 +9937,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "e59c2782-97e6-52a4-b49a-75df9602e325",
-              "description": "Held by DI-2.4, which does not claim it. Uncleared vendor engineers are escorted at all times.",
+              "description": "Implemented through DI-2.4 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DI-2.4, which does not claim it. Uncleared vendor engineers are escorted at all times."
+          ]
         },
         {
           "uuid": "c158bdee-bd29-5360-a89e-d468ab110cb8",
@@ -10268,12 +10300,17 @@
             {
               "name": "designation",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "system-specific"
+              "value": "not-applicable"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DA-1.8"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -10286,13 +10323,13 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "02a0688a-6085-5a9c-99dd-28f07a128c9c",
-              "description": "Held by DI-5.1, which does not claim it. The media intake station scans media before use.",
+              "description": "Portable storage never connects to KESTREL. Government media is read at the standalone intake station, where wiping it would destroy the collection it carries.",
               "implementation-status": {
-                "state": "planned"
+                "state": "not-applicable"
               }
             }
           ],
-          "remarks": "Held by DI-5.1, which does not claim it. The media intake station scans media before use."
+          "remarks": "Portable storage never connects to KESTREL. Government media is read at the standalone intake station, where wiping it would destroy the collection it carries."
         },
         {
           "uuid": "5d787546-b79b-52ba-9a0e-68a09ad5e469",
@@ -11472,9 +11509,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "AP-2.19"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -11487,13 +11529,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "4225d1e4-d532-5b99-a2e5-5ca0d6477c01",
-              "description": "Held by NE-1.1, which does not claim it. Policy as code is defined once and deployed everywhere.",
+              "description": "Implemented through AP-2.19 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by NE-1.1, which does not claim it. Policy as code is defined once and deployed everywhere."
+          ]
         },
         {
           "uuid": "f1387c7c-1535-5879-9cd4-3cc1dddd7859",
@@ -12793,9 +12834,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "CO-4.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -12808,13 +12854,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "9acb52b0-d141-5d88-aae0-4fd2b5950c91",
-              "description": "Held by CO-4.2, which does not claim it. The account request form carries the Privacy Act statement.",
+              "description": "Implemented through CO-4.2 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by CO-4.2, which does not claim it. The account request form carries the Privacy Act statement."
+          ]
         },
         {
           "uuid": "7b276ff7-9522-50e5-841b-25d11d56b0b5",
@@ -12826,9 +12871,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "CO-4.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -12841,13 +12891,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "d492ec12-9638-5982-acd9-e76a94baaa8f",
-              "description": "Held by CO-4.2, which does not claim it. The Privacy Act statement is given where data is collected.",
+              "description": "Implemented through CO-4.2 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by CO-4.2, which does not claim it. The Privacy Act statement is given where data is collected."
+          ]
         },
         {
           "uuid": "48f0e7cc-9929-5c53-903c-82dc343210df",
@@ -12940,9 +12989,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "CO-4.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -12955,13 +13009,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "7fcd850b-d56f-5aca-afa7-8d29a4bf47e4",
-              "description": "Held by CO-4.2, which does not claim it. The PIA identifies any special category of personal information.",
+              "description": "Implemented through CO-4.2 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by CO-4.2, which does not claim it. The PIA identifies any special category of personal information."
+          ]
         },
         {
           "uuid": "d9a93104-a388-59c9-a41a-511e76446077",
@@ -13001,9 +13054,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "CO-4.1"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -13016,13 +13074,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "1634bf36-af93-5698-813a-34eec2a0052d",
-              "description": "Held by CO-1.1, which does not claim it. Intelligence oversight bars collection on First Amendment activity.",
+              "description": "Implemented through CO-4.1 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by CO-1.1, which does not claim it. Intelligence oversight bars collection on First Amendment activity."
+          ]
         },
         {
           "uuid": "43638a09-5456-5a98-bd39-7f53c958a0ee",
@@ -13919,9 +13976,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DA-1.9"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -13934,13 +13996,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "d9a1b4b4-07af-55b0-800b-d23edb3c950b",
-              "description": "Held by AI-1.2, which does not claim it. Privacy requirements minimize personal data by design.",
+              "description": "Implemented through DA-1.9 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by AI-1.2, which does not claim it. Privacy requirements minimize personal data by design."
+          ]
         },
         {
           "uuid": "2cbc7f57-376e-5748-b8ea-5d6d06f77c88",
@@ -14216,9 +14277,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "GV-3.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -14231,13 +14297,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "390c398f-baa0-5369-9ccc-6843e7bd78d7",
-              "description": "Held by GV-3.2, which does not claim it. A contract clause requiring developer-provided training belongs in the contract security requirements, still to be confirmed.",
+              "description": "Implemented through GV-3.2 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by GV-3.2, which does not claim it. A contract clause requiring developer-provided training belongs in the contract security requirements, still to be confirmed."
+          ]
         },
         {
           "uuid": "a52bb34d-0de0-5de7-b743-1f57258aa0a9",
@@ -14286,9 +14351,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "GV-3.2"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -14301,13 +14371,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "72ce15fa-9026-5d8c-bfe8-39f9a223c816",
-              "description": "Held by GV-3.2, which does not claim it. A contract clause requiring screening of developers belongs in the contract security requirements, still to be confirmed.",
+              "description": "Implemented through GV-3.2 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by GV-3.2, which does not claim it. A contract clause requiring screening of developers belongs in the contract security requirements, still to be confirmed."
+          ]
         },
         {
           "uuid": "c781b756-6633-581a-9c18-9d5a654729a9",
@@ -14869,9 +14938,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "DA-1.5"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -14884,13 +14958,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "f9770ed6-940d-5e1a-b549-82fc95d0544a",
-              "description": "Held by DA-1.5, which does not claim it. Data loss prevention watches personal information at the boundary.",
+              "description": "Implemented through DA-1.5 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by DA-1.5, which does not claim it. Data loss prevention watches personal information at the boundary."
+          ]
         },
         {
           "uuid": "9c95c17a-389a-5166-84b6-17049d155731",
@@ -16070,9 +16143,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "RS-1.7"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -16085,13 +16163,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "5a8866c3-df7d-54f0-bac4-4147a06556d8",
-              "description": "Held by RK-2.3, which does not claim it. CSSP advisories arrive automatically as STIX over TAXII.",
+              "description": "Implemented through RS-1.7 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by RK-2.3, which does not claim it. CSSP advisories arrive automatically as STIX over TAXII."
+          ]
         },
         {
           "uuid": "12991985-1a77-5ff3-93e3-e77908bdc79d",
@@ -16621,9 +16698,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "CO-4.1"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -16636,13 +16718,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "1c3091df-8555-55d5-8550-c5a3dc9662c1",
-              "description": "Held by CO-4.2, which does not claim it. The PIA sets how personal data accuracy is maintained.",
+              "description": "Implemented through CO-4.1 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by CO-4.2, which does not claim it. The PIA sets how personal data accuracy is maintained."
+          ]
         },
         {
           "uuid": "b1b6c2fd-f8f9-54d2-a5ef-779f921521a9",
@@ -16654,9 +16735,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "CO-4.1"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "full"
             }
           ],
           "links": [
@@ -16669,13 +16755,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "3654b058-d32a-5ab1-ab08-0c63894ca927",
-              "description": "Held by CO-4.2, which does not claim it. The privacy officer handles correction requests.",
+              "description": "Implemented through CO-4.1 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by CO-4.2, which does not claim it. The privacy officer handles correction requests."
+          ]
         },
         {
           "uuid": "35ec39f5-4e21-5145-9def-0455796202d1",
@@ -17020,9 +17105,14 @@
               "value": "system-specific"
             },
             {
-              "name": "gap",
+              "name": "sadd-outcomes",
               "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
-              "value": "met"
+              "value": "GV-3.4"
+            },
+            {
+              "name": "sadd-claim",
+              "ns": "https://github.com/jessestarkey/Kestrel/ns/sctm",
+              "value": "partial"
             }
           ],
           "links": [
@@ -17035,13 +17125,12 @@
             {
               "component-uuid": "bb4544c9-9102-5aae-bdb9-8ef5181c5245",
               "uuid": "210efafc-8bf5-51b5-8c72-bce6e7c0a53e",
-              "description": "Held by GV-3.4, which does not claim it. Supplier assessments cover multiple stages of the supply chain, still to be confirmed.",
+              "description": "Implemented through GV-3.4 (Planned). Each outcome's entry in the SSP states what is built.",
               "implementation-status": {
                 "state": "planned"
               }
             }
-          ],
-          "remarks": "Held by GV-3.4, which does not claim it. Supplier assessments cover multiple stages of the supply chain, still to be confirmed."
+          ]
         },
         {
           "uuid": "90bbbe70-c3b4-5d79-a19a-c05d00c00c36",

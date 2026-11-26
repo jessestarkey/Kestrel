@@ -334,6 +334,7 @@
 - **IR-7 (full):** the only claim of the base control in the framework. The designated provider is the support resource offering advice and assistance the program's own team lacks.
 - **IR-7(2) (partial):** the direct cooperative relationship with the provider. The sibling Security Contact Information holds the contact record, and the two are tracked jointly.
 - **IR-7(1) (partial):** the automated push and pull of provider advisories and assistance into incident tracking. It is partial because it serves the response team, while the general user help resource is left to the focus area's Incident Response Plan (IRP) outcome.
+- **SI-5(1) (full):** Automated Provider Advisory and Assistance Access distributes the provider's security alerts and advisories through automated mechanisms, the only claim of the enhancement.
 - **Declined:** IR-6, IR-6(3), and IR-4(8) are held by Incident Reporting and External Communications. SI-4 stays with the Detection focus area and the boundary security stack, whose telemetry this outcome delivers.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
@@ -388,7 +389,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity also carries the outcome's IR-7(1) (partial) mapping. It qualifies as Automate because it removes the person who would copy advisories into the incident record or phone for help, covering both push and pull. In an isolated enclave the feed may be a scheduled transfer over the telemetry's approved path.
+    - **Supplemental Guidance:** This activity carries the outcome's IR-7(1) (partial) and SI-5(1) (full) mappings. It qualifies as Automate because it removes the person who would copy advisories into the incident record or phone for help, covering both push and pull. In an isolated enclave the feed may be a scheduled transfer over the telemetry's approved path.
 
 ## RS-2: Incident Detection, Analysis, and Investigation
 

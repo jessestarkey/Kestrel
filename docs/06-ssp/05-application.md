@@ -42,9 +42,9 @@ KESTREL's pipeline will carry most of its application security. Every change run
 
 Developers will get help catching problems as they write code. The performer installs SonarQube for IDE in standalone mode, with telemetry disabled, on the laptops its developers use for KESTREL work. The plugins never send KESTREL code outside the boundary, and the pipeline's scans remain the authoritative check.
 
-Developers who want AI help use KESTREL's own coding agent, a self-hosted OpenHands service in Platform Prod, reached only from the developer VDI pool. Each session runs in its own sandbox. A custom security analyzer sends every command and file action to Open Policy Agent, and blocks the action whenever OPA denies it or cannot be reached. The sandbox reaches only cached approved packages, so it has no path to the internet.
+Developers who want AI help use KESTREL's own coding agent, a self-hosted OpenHands service in Platform Prod, reached only from the developer VDI pool. Each session runs in its own sandbox. A custom security analyzer sends every command and file action to Open Policy Agent, and blocks the action whenever OPA denies it or cannot be reached. The sandbox reaches only cached approved packages, so it has no path to the internet. The sandbox also holds no credential. A broker outside it makes every model call and repository push with a short-lived token, so no developer keeps a model or tool key on a laptop.
 
-<sub>**Planned.** Controls: SA-11(1). SIP record: [AP-2.1](../04-sip/05-application.md#ap-21-ide-security-tools).</sub>
+<sub>**Planned.** Controls: SA-11(1), IA-5(6). SIP record: [AP-2.1](../04-sip/05-application.md#ap-21-ide-security-tools).</sub>
 
 ### AP-2.2: Secure Coding Standards and Build Hardening
 
@@ -156,7 +156,7 @@ Some repository paths control the pipeline itself, and GitLab code owners will m
 
 Open Policy Agent will evaluate the pipeline's gates through Conftest and every cluster's admission through Gatekeeper, with Ratify verifying signatures. The AKS Azure Policy add-on stays off, so the Platform Team runs open-source Gatekeeper and a pinned Ratify release itself. Defender for Containers loses the add-on's Kubernetes posture checks as a result, and Gatekeeper's audit reports replace them. Admission runs in deny mode in every production spoke, and in stage from the first deployment after bootstrap.
 
-<sub>**Planned.** Controls: CM-3(1), SA-15. SIP record: [AP-2.19](../04-sip/05-application.md#ap-219-policy-as-code-evaluation).</sub>
+<sub>**Planned.** Controls: CM-3(1), SA-15, PL-9. SIP record: [AP-2.19](../04-sip/05-application.md#ap-219-policy-as-code-evaluation).</sub>
 
 ### AP-2.20: Threat Model Staleness Check
 

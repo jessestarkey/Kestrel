@@ -11,11 +11,11 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SIP Version | 0.8 |
+| SIP Version | 0.9 |
 | Date | 2026-11-25 |
 | Prepared By | KESTREL PMO ISSE, with the performer's team leads |
 | Approving Authority | KESTREL program manager, who controls the program's engineering staff, contracts, and budget |
-| Source SADD Version | 0.9, submitted for AO approval as 1.0 |
+| Source SADD Version | 0.10, submitted for AO approval as 1.0 |
 | Classification / Handling | CUI |
 
 ### Version History
@@ -30,6 +30,7 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | 0.6 | 2026-11-25 | KESTREL PMO ISSE | Selected promptfoo for canary prompt testing and as the regression gate for fixed jailbreak and injection findings, with its remote calls disabled |
 | 0.7 | 2026-11-25 | KESTREL PMO ISSE | Gave the coding agent persistent memory per repository and per developer, in Azure AI Search with OPA write authorization and LLM Guard screening, bringing back AI-8.15.2 and AI-8.15.3 |
 | 0.8 | 2026-11-26 | KESTREL PMO ISSE | Moved 18 Level 2 Security Team activities from Phase 2 to Phase 3, taking the team from about 47 to 40 effort points a month in Phase 2 |
+| 0.9 | 2026-11-26 | KESTREL PMO ISSE | Added the three activities SABER v2.0 added. Pinned coding agent credentials to Phase 3 with the agent, and marked portable storage sanitization not applicable |
 
 ---
 
@@ -55,9 +56,9 @@ An interim authorization to test (`GV-5.7`) covers Phases 1 to 3. Integration du
 
 | Phase | Target Timeframe | Dependencies Satisfied / Rationale | Funding Status | Major Outcomes in This Phase |
 |---|---|---|---|---|
-| Phase 1, Foundation | 2027-01-01 to 2027-09-30 | Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, Tier 1 backups, an interim IRP, and the governance bodies and core plans. | Funded (FY27 base RDT&E and O&M) | 463 activities. 166 records start here: ID (24), DI (18), NE (17), AP (31), AI (3), DA (22), DE (10), RS (2), RC (7), GV (24), RK (5), CO (3) |
+| Phase 1, Foundation | 2027-01-01 to 2027-09-30 | Builds what everything else assumes, namely the landing zone and hubs, identity and privileged access, keys and PKI, the pipeline, logging into the security monitoring platform, Tier 1 backups, an interim IRP, and the governance bodies and core plans. | Funded (FY27 base RDT&E and O&M) | 464 activities. 166 records start here: ID (24), DI (18), NE (17), AP (31), AI (3), DA (22), DE (10), RS (2), RC (7), GV (24), RK (5), CO (3) |
 | Phase 2, Protect and Operate | 2027-10-01 to 2028-03-31 | Needs Phase 1 identity, keys, pipeline, and logging. Hardens and watches the estate, and adds application security gates, data protection, the remaining backup tiers and recovery, detection content, and incident response. Stands up the data curation path and the training pipeline. | Funded (FY28 base RDT&E and O&M) | 492 activities. 135 records start here: ID (6), DI (9), NE (9), AP (22), AI (37), DA (5), DE (5), RS (18), RC (8), GV (8), RK (4), CO (4) |
-| Phase 3, Mission, AI, and Fleet | 2028-04-01 to 2028-09-30 | Needs Phase 2 gates and detection. Runs AI Cyber T&E and Certification to Field for the first models. Builds serving guardrails, retraining, and the fleet and ground segment controls. Ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M increment) | 192 activities. 59 records start here: ID (2), DI (2), NE (2), AP (1), AI (40), DE (2), RC (1), GV (1), RK (5), CO (3) |
+| Phase 3, Mission, AI, and Fleet | 2028-04-01 to 2028-09-30 | Needs Phase 2 gates and detection. Runs AI Cyber T&E and Certification to Field for the first models. Builds serving guardrails, retraining, and the fleet and ground segment controls. Ends with the SCA assessment and the ATO decision. | Pending approval (FY28 RDT&E and O&M increment) | 193 activities. 59 records start here: ID (2), DI (2), NE (2), AP (1), AI (40), DE (2), RC (1), GV (1), RK (5), CO (3) |
 | Phase 4, Maturity | 2028-10-01 to 2029-03-31 | Needs a fielded system to tune against. Adds the Level 3 maturity outcomes, such as deception, breach and attack simulation, and RASP. | Unfunded (FY29 request) | 29 activities. 4 records start here: AP (1), DE (3) |
 
 ---
@@ -77,16 +78,16 @@ Every record's status is Not Started, since the plan precedes Phase 1.
 | Protect | [ID: Identity](02-identity.md) | 32 | 141 |
 | Protect | [DI: Device and Infrastructure](03-device-and-infrastructure.md) | 29 | 111 |
 | Protect | [NE: Network and Environment](04-network-and-environment.md) | 28 | 124 |
-| Protect | [AP: Application](05-application.md) | 55 | 151 |
+| Protect | [AP: Application](05-application.md) | 55 | 152 |
 | Protect | [AI: Artificial Intelligence](06-artificial-intelligence.md) | 80 | 187 |
-| Protect | [DA: Data](07-data.md) | 27 | 81 |
+| Protect | [DA: Data](07-data.md) | 27 | 82 |
 | Operate | [DE: Detection](08-detection.md) | 20 | 96 |
 | Operate | [RS: Response](09-response.md) | 20 | 60 |
 | Operate | [RC: Recovery](10-recovery.md) | 16 | 41 |
 | Manage | [GV: Governance](11-governance.md) | 33 | 117 |
 | Manage | [RK: Risk](12-risk.md) | 14 | 44 |
-| Manage | [CO: Compliance](13-compliance.md) | 10 | 33 |
-| | **Total** | **364** | **1186** |
+| Manage | [CO: Compliance](13-compliance.md) | 10 | 34 |
+| | **Total** | **364** | **1189** |
 
 ---
 

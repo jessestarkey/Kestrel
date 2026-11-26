@@ -46,7 +46,7 @@ Reporting duties will be split by audience. The ISSM notifies the AO, and the CS
 
 The CSSP will monitor KESTREL around the clock from Phase 1, triage alerts, and run the pre-approved containment playbooks from its Azure Virtual Desktop host pool. Splunk forwards all telemetry to it, and a stalled feed raises an alert. The ISSM tracks each CSSP directive to completion in Jira Service Management. The CSSP's provider advisories also reach KESTREL automatically.
 
-<sub>**Planned.** Controls: IR-7, IR-7(2), IR-7(1). SIP record: [RS-1.7](../04-sip/09-response.md#rs-17-cyber-defense-service-provider-alignment). Details: the IRP, [Section 8](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#8-cyber-defense-service-provider-coordination).</sub>
+<sub>**Planned.** Controls: IR-7, IR-7(2), IR-7(1), SI-5(1). SIP record: [RS-1.7](../04-sip/09-response.md#rs-17-cyber-defense-service-provider-alignment). Details: the IRP, [Section 8](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#8-cyber-defense-service-provider-coordination).</sub>
 
 ## RS-2: Incident Detection, Analysis, and Investigation
 

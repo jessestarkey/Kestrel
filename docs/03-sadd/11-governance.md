@@ -672,6 +672,8 @@
 - **SA-4(5) (full):** the clause library requires delivery in a secure, documented configuration.
 - **SA-9(2) (full):** the clause library requires each external service provider to identify the functions, ports, protocols, and services it uses. The program-side CM-7 decision stays with Platform Service Network Integration.
 - **SA-15(3) (full):** claimed here because only a contract clause can oblige the developer to perform criticality analysis. Supply Chain Risk Assessment and Dependency Mapping reads the results.
+- **SA-16 (full):** the clause library requires the developer to provide training on the security functions it delivers.
+- **SA-21 (full):** the clause library requires the developer to screen the personnel who work on the program's components.
 - **Declined:** SR-5(1) is unheld, and SR-5(2) belongs to Dependency Review and Model Selection and Justification. PS-7 belongs to the PSO, apart from the Identity focus area's access-granting slice.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
@@ -685,7 +687,7 @@
 **Activities:**
 
 - **GV-3.2.1: Standard Security Clause Library**
-    - **Description:** Build and maintain the library of reusable security clauses acquisitions draw from, covering the security functional and assurance requirements, control design and secure delivered configuration, provider disclosure of ports and services, documentation and its protection, allocation of responsibility for security, privacy, and supply chain risk management, acceptance criteria, right-to-audit and assessment access, compromise and audit-result notification obligations, personnel and data handling terms, and the obligation to flow the same clauses down to subcontractors, and record the clause library in the SCRM.
+    - **Description:** Build and maintain the library of reusable security clauses acquisitions draw from, covering the security functional and assurance requirements, control design and secure delivered configuration, provider disclosure of ports and services, documentation and its protection, allocation of responsibility for security, privacy, and supply chain risk management, acceptance criteria, right-to-audit and assessment access, compromise and audit-result notification obligations, developer security training and personnel screening, personnel and data handling terms, and the obligation to flow the same clauses down to subcontractors, and record the clause library in the SCRM.
     - **Control Type:** Documentation
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -693,7 +695,7 @@
     - **Level of Effort:** High
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SA-4 (partial), SA-9 (partial), SR-5 (partial), and SR-8 (full) mappings, plus its SA-4(1), SA-4(2), SA-4(5), SA-4(9), SA-4(10), SA-9(2), and SA-15(3) (full) mappings. Include a right-to-assess clause, and draft clauses with contracting and legal counsel. Tier the library so a clause set matches the acquisition.
+    - **Supplemental Guidance:** This activity carries the outcome's SA-4 (partial), SA-9 (partial), SR-5 (partial), and SR-8 (full) mappings, plus its SA-4(1), SA-4(2), SA-4(5), SA-4(9), SA-4(10), SA-9(2), SA-15(3), SA-16, and SA-21 (full) mappings. Include a right-to-assess clause, and draft clauses with contracting and legal counsel. Tier the library so a clause set matches the acquisition.
 
 - **GV-3.2.2: Contract Security Requirement Flow-Down Verification**
     - **Description:** Verify before award, and at each modification, that the executed contract carries the clause set its acquisition tier requires, and that the prime contractor has flowed the same obligations down into its subcontracts.
@@ -798,7 +800,8 @@
 - **SR-11(2) (partial):** claimed for inspecting serviced components before return, while the Configuration Management Plan (CMP) holds the custody records.
 - **SR-11(3) (full):** carried by Periodic Counterfeit Component Rescan. It is in no baseline, so carry it where the AO or an overlay requires it.
 - **SR-12 (partial):** claimed for physically dispositioning retired hardware and firmware, including OT devices, so components cannot be harvested or exploited. Resource Decommissioning Governance holds data sanitization, and Model Decommissioning and Disposal holds the model slice.
-- **Declined:** SR-9(1) is developmental anti-tamper engineering no outcome performs, recorded as a gap. PE-3 and the physical protection family belong to the PSO.
+- **SR-9(1) (partial):** applies tamper detection at receipt, on return from service, and in periodic rescans. Partial because anti-tamper engineering during development stays with the supplier.
+- **Declined:** PE-3 and the physical protection family belong to the PSO.
 
 **Deployment Type:** On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
@@ -830,7 +833,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Moderate
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SR-10 (full), SR-11(2) (partial), and SR-11(1) (full) mappings, the detection and reporting elements of SR-11 (full), and the receipt and in-service portion of SR-9 (partial). Inspect before the component enters service and before packaging is discarded, and train the logistics staff who do it. Inspect equipment returning from service, repair, or travel, and quarantine a detected counterfeit rather than returning it.
+    - **Supplemental Guidance:** This activity carries the outcome's SR-10 (full), SR-11(2) (partial), SR-11(1) (full), and SR-9(1) (partial) mappings, the detection and reporting elements of SR-11 (full), and the receipt and in-service portion of SR-9 (partial). Inspect before the component enters service and before packaging is discarded, and train the logistics staff who do it. Inspect equipment returning from service, repair, or travel, and quarantine a detected counterfeit rather than returning it.
 
 - **GV-3.4.3: Periodic Counterfeit Component Rescan**
     - **Description:** Rescan the program's fielded hardware and firmware inventory against the defined counterfeit and tamper indicator set on a fixed, standing frequency, independent of the receipt and in-service indication triggers that drive Counterfeit and Tamper Detection at Receipt, and record each rescan's results and disposition in the device inventory.

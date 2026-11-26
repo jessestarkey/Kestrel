@@ -836,7 +836,8 @@
 
 - **AU-12 (partial):** the fourth of this capability's eight source-class slices, scoped to application, API, serverless, workflow, and agentic tool-call events and disjoint from the other slices, on the basis set out under Infrastructure and Identity Logging.
 - **AU-3 (partial):** claimed for Structured Application Logging as the framework's only AU-3 claim. It is partial because provider-emitted source classes fix their own record content, which the coverage-enforcement activities verify.
-- **Declined:** AU-3(1) adds detail beyond the required set, AU-3(2) is withdrawn in Rev 5, and AU-3(3) limits personally identifiable information, so the AU-3 base is cited.
+- **AU-3(1) (partial), AU-3(3) (partial):** claimed on the same basis as AU-3, since Structured Application Logging adds the detail each event class needs and limits the personal information each record carries.
+- **Declined:** AU-3(2) is withdrawn in Rev 5.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
@@ -901,7 +902,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's AU-3 (partial) mapping, fixing the event type, time, location, source, outcome, and identity elements. Require a correlation identifier from the start. Enforce conformance through the shared logging library rather than per-application review.
+    - **Supplemental Guidance:** This activity carries the outcome's AU-3 (partial), AU-3(1) (partial), and AU-3(3) (partial) mappings, fixing the event type, time, location, source, outcome, and identity elements. Require a correlation identifier from the start. Enforce conformance through the shared logging library rather than per-application review.
 
 - **DE-2.4.6: APM Telemetry**
     - **Description:** Collect the application performance telemetry the program's services produce, including distributed traces, dependency calls, error rates, and latency distributions, and carry the same request identifiers on it that the security records use.
@@ -1343,12 +1344,12 @@
 
 **NIST Control Mapping:**
 
-- **AU-5 (full), AU-5(1) (full):** carried by Audit Processing Failure and Silent-Source Alerting, which adds the silent-source watch the Consistent Logging Coverage Enforcement activities deferred here.
+- **AU-5 (full), AU-5(1) (full), AU-5(2) (full):** carried by Audit Processing Failure and Silent-Source Alerting, which adds the silent-source watch the Consistent Logging Coverage Enforcement activities deferred here.
 - **AU-9 (partial):** scoped to the centralized destination and its logging tooling, as Log Storage Operations deferred. Two Protect pillar outcomes hold their source-side stores, and the set is tracked jointly.
 - **AU-9(2) (full):** the repository sits on a system separate from those audited.
 - **AU-9(3) (partial):** cryptographic protection of centrally held records for the general source population. Approver and Reviewer Audit Log, Training Job Audit Logging, and Data Provenance and Lineage Verification hold the other slices.
 - **AU-9(4) (full):** only a subset of privileged users may manage audit logging.
-- **Declined:** AU-9(6) governs read access rather than administration, and would map onto the same activity if tailored in. AU-5(2) is covered by the alerting timeframe the AO sets on the base.
+- **Declined:** AU-9(6) governs read access rather than administration, and would map onto the same activity if tailored in.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
@@ -1391,7 +1392,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's AU-5 (full) and AU-5(1) (full) mappings. Build a per-source arrival expectation, since a silent source raises no error. Decide in advance whether a full log overwrites or halts, and record that in the CMP. Watch every connection Data Source Connections establishes.
+    - **Supplemental Guidance:** This activity carries the outcome's AU-5 (full), AU-5(1) (full), and AU-5(2) (full) mappings, AU-5(2) through the real-time silent-source alert. Build a per-source arrival expectation, since a silent source raises no error. Decide in advance whether a full log overwrites or halts, and record that in the CMP. Watch every connection Data Source Connections establishes.
 
 ### DE-3.4: Time Synchronization
 

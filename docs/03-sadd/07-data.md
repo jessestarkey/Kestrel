@@ -257,6 +257,7 @@
 - **AC-4 (partial):** enforces flow authorizations by the content's classification, a partial slice disjoint from the Network and Environment focus area's position-based flow slices. The base is cited because the filter enhancements address cross-domain transfer.
 - **SI-4(18) (partial):** analyzes outbound content at egress points, a partial slice alongside DNS Advanced Protection's covert-channel claim.
 - **AC-2(12) (partial):** monitors accounts for atypical data access to feed insider risk scoring, a partial slice alongside the Identity focus area's Emergency Access.
+- **SC-7(24) (partial):** applies processing rules to personal information at each outbound interface and documents the exceptions, the boundary slice of the enhancement.
 - **Declined:** PM-12 belongs to the Operate pillar's User/Entity Behavior Analytics (UEBA) / Insider Threat Detection, which this outcome complements.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
@@ -300,7 +301,7 @@
     - **Level of Effort:** High
     - **Cost:** One-Time: High; Recurring: Moderate
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's AC-4 and SI-4(18) mappings and is tagged Automate for inline inspection and blocking. Start each rule in monitor mode and promote it to block once its false-positive rate is known. The endpoint agent enforces the same policy on the peripheral path, complementing the Device and Infrastructure focus area's Device Control.
+    - **Supplemental Guidance:** This activity carries the outcome's AC-4, SI-4(18), and SC-7(24) mappings and is tagged Automate for inline inspection and blocking. Start each rule in monitor mode and promote it to block once its false-positive rate is known. The endpoint agent enforces the same policy on the peripheral path, complementing the Device and Infrastructure focus area's Device Control.
 
 - **DA-1.5.4: Data Security Posture Dashboard**
     - **Description:** Build a dashboard presenting classification coverage across the program's stores, DLP incident volume and disposition, and encryption compliance as one posture view for the PMO ISSE and data owners.
@@ -423,7 +424,7 @@
 
 ### DA-1.8: Media Protection Policy and Procedures
 
-**Design Intent:** Removable media is prohibited except for three classes. The aircraft's mission storage modules are encrypted under keys in the aircraft's crypto module, readable only at the ground control station and the IT/OT DMZ. They are marked CUI, logged when they leave an aircraft, carried by a named custodian in controlled containers, and stored in the station's locked store. Encrypted government media carries prior collection to the media intake station. Datalink key loaders are held under two-person custody. Failed drives and retired modules are sanitized on site, retired or repaired HSMs and datalink modules are zeroized, and cloud media sanitization is inherited from the provider.
+**Design Intent:** Removable media is prohibited except for three classes. The aircraft's mission storage modules are encrypted under keys in the aircraft's crypto module, readable only at the ground control station and the IT/OT DMZ. They are marked CUI, logged when they leave an aircraft, carried by a named custodian in controlled containers, and stored in the station's locked store. Encrypted government media carries prior collection to the media intake station. Datalink key loaders are held under two-person custody. No portable storage is wiped and reissued, since government media is read at the intake station, never connected to the system. Failed drives and retired modules are sanitized on site, retired or repaired HSMs and datalink modules are zeroized, and cloud media sanitization is inherited from the provider.
 
 **NIST Control Mapping:**
 
@@ -439,6 +440,7 @@
 - **MP-8(3) (partial):** the controlled unclassified information case, met when media leaves an IL5 environment.
 - **MP-8(4) (partial):** the classified-information case, the usual driver on a multi-enclave program.
 - **SI-12(3) (partial):** disposal techniques applied to information itself, which other focus areas' registry hygiene outcomes declined and left to the Data focus area.
+- **MP-6(3) (full):** Pre-Connection Portable Storage Sanitization applies nondestructive sanitization to portable storage before it connects, under the circumstances it defines.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
@@ -494,6 +496,17 @@
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity carries the outcome's MP-8, MP-8(1), MP-8(2), MP-8(3), and MP-8(4) mappings. Downgrading returns media to service at a lower level, such as moving from a SAP-unique enclave to collateral SECRET, unlike sanitization, which ends its life. MP-8(2) shares the MP-6(2) equipment testing, extended to any dedicated downgrading equipment. Mirror MP-6(1)'s approval and verification discipline, since a failed downgrade is a disclosure.
 
+- **DA-1.8.5: Pre-Connection Portable Storage Sanitization**
+    - **Description:** Define the circumstances under which a portable storage device must be sanitized with a nondestructive technique before it connects to the system, such as a newly purchased device or one returning from outside a controlled area, and apply and record that sanitization each time.
+    - **Control Type:** Process
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Low
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries the outcome's MP-6(3) (full) mapping, which is in the High baseline only, so it is mandatory where the baseline is High. Nondestructive sanitization overwrites or reformats a device so it can be reissued. It does not fit media whose contents must be imported, which goes to a scanning station instead. A program that bars portable storage entirely records this activity as not applicable, with that reason.
+
 ### DA-1.9: Data Management Plan (DMP)
 
 **Design Intent:** The Data Team authors KESTREL's DMP, with the retention schedule, minimization rules, and classification scheme in one document. The intelligence mission leads approve retention for their data, and the privacy officer approves the handling of personal information. The Configuration Control Board approves the DMP, and it is revised each year and whenever a new payload vendor or data type is added.
@@ -503,6 +516,7 @@
 - **SI-12 (partial):** retention and disposition of the program's data holdings. Program-wide records management stays with the Manage pillar, and other focus areas hold build and model artifact retention.
 - **SI-12(1) (partial):** the deciding half of limiting retained personal information, tracked with Inference-Time PII Handling, which holds the applying half.
 - **SI-12(2) (partial):** minimizes personal information in test, training, and research data, which the Artificial Intelligence focus area's Privacy Requirements Definition defers to this outcome.
+- **SA-8(33) (full):** Data Minimization Requirement Definition applies the minimization principle, as the framework's single holder of the minimization determination.
 - **Declined:** SI-12(3) is held by Media Sanitization and Destruction Procedures.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
@@ -546,7 +560,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SI-12(1) and SI-12(2) mappings and is the framework's single holder of the data minimization determination. Watch test and training copies, where production extracts land with weaker controls. State what may be collected and kept for a purpose, rather than what must be deleted later.
+    - **Supplemental Guidance:** This activity carries the outcome's SI-12(1), SI-12(2), and SA-8(33) mappings and is the framework's single holder of the data minimization determination. Watch test and training copies, where production extracts land with weaker controls. State what may be collected and kept for a purpose, rather than what must be deleted later.
 
 - **DA-1.9.4: DMP Review and Approval**
     - **Description:** Route the drafted DMP through stakeholder review and secure formal approval from the accountable authority before it takes effect.
@@ -1404,6 +1418,7 @@
 **NIST Control Mapping:**
 
 - **SC-1 (partial):** the cryptographic and key management slice of SC policy and procedures, with the rest held by Network and Environment and governance outcomes. SC-1 has no enhancements.
+- **CM-3(6) (full):** KMP Periodic Review and Revision places every change to cryptographic mechanisms under configuration control, since each algorithm or key-tier change revises this plan through the configuration control process.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
@@ -1445,4 +1460,4 @@
     - **Level of Effort:** Low
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity supersedes the One-Time issuance produced by KMP Development and Authoring. Add an event-driven trigger on any change to the approved algorithm baseline or a post-quantum transition milestone.
+    - **Supplemental Guidance:** This activity carries the outcome's CM-3(6) (full) mapping and supersedes the One-Time issuance produced by KMP Development and Authoring. Add an event-driven trigger on any change to the approved algorithm baseline or a post-quantum transition milestone.

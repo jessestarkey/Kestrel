@@ -294,3 +294,4 @@
 | CO-4.2.1: PIA Trigger Criteria and Intake Process | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | CO-4.2.2: PIA Execution and Documentation | 1 | Documentation | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | CO-4.2.3: PIA Periodic Review/Reassessment on System Change | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| CO-4.2.4: Privacy Notice and Privacy Act Statement Provision | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |

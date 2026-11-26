@@ -252,7 +252,7 @@ Vendor access will run through a single controlled path. A vendor engineer conne
 
 Fleet vendors face one more limit, which is the maintenance window. Within it, they either work on site under escort or connect through the same brokered path.
 
-<sub>**Planned.** Controls: MA-4, MA-4(1), AC-2(2), PS-7, AC-17(1). SIP record: [ID-4.7](../04-sip/02-identity.md#id-47-access-process-for-third-party-support). Details: the AMP, [Section 12](https://github.com/jessestarkey/Kestrel/wiki/Account-Management-Plan#12-third-party-and-vendor-access).</sub>
+<sub>**Planned.** Controls: MA-4, MA-4(1), AC-2(2), PS-7, AC-17(1), MA-4(3). SIP record: [ID-4.7](../04-sip/02-identity.md#id-47-access-process-for-third-party-support). Details: the AMP, [Section 12](https://github.com/jessestarkey/Kestrel/wiki/Account-Management-Plan#12-third-party-and-vendor-access).</sub>
 
 ## ID-5: Account Management Planning
 

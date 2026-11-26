@@ -309,11 +309,12 @@
 
 ### AP-2.1: IDE Security Tools
 
-**Design Intent:** The performer agreement requires security plugins in the development environments its developers use for KESTREL work. The plugins flag vulnerable patterns and secrets as code is written, and they never send KESTREL code outside the boundary. Developers who want AI help use KESTREL's own coding agent, reached only from the developer VDI pool. Each session runs in its own sandbox. A policy check outside the agent rules on every command and file action, and denies any it cannot decide. The sandbox reaches only cached approved packages, so it has no path to the internet, and it holds no credential. A broker outside the sandbox clones and pushes for the developer with a short-lived token, and makes every model call. It pushes only to unprotected branches. Pipelines on those branches run without the team's pipeline identity until a reviewer approves the change. A repository's agent instructions and setup scripts take effect only after the developer approves them, and destructive git operations are blocked. Its notebook kernel, browsing helper, and saved conversations are disabled. The plugins aid the developer, while the pipeline's scans remain the authoritative check.
+**Design Intent:** The performer agreement requires security plugins in the development environments its developers use for KESTREL work. The plugins flag vulnerable patterns and secrets as code is written, and they never send KESTREL code outside the boundary. Developers who want AI help use KESTREL's own coding agent, reached only from the developer VDI pool. Each session runs in its own sandbox. A policy check outside the agent rules on every command and file action, and denies any it cannot decide. The sandbox reaches only cached approved packages, so it has no path to the internet, and it holds no credential. A broker outside the sandbox clones and pushes for the developer with a short-lived token, and makes every model call, so no developer holds a model or tool key on a workstation. It pushes only to unprotected branches. Pipelines on those branches run without the team's pipeline identity until a reviewer approves the change. A repository's agent instructions and setup scripts take effect only after the developer approves them, and destructive git operations are blocked. Its notebook kernel, browsing helper, and saved conversations are disabled. The plugins aid the developer, while the pipeline's scans remain the authoritative check.
 
 **NIST Control Mapping:**
 
 - **SA-11(1) (partial):** claimed partial for editor-resident analysis, with SAST holding the pipeline half that produces retained results. Editor findings are advisory, since a dismissible analysis cannot carry an assessment obligation.
+- **IA-5(6) (partial):** AI Coding Agent Credential Provisioning protects the credentials a coding agent uses to reach its model provider and tools. Secrets and Credentials Protection and other focus areas hold the other credential classes.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
@@ -368,6 +369,17 @@
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
     - **Supplemental Guidance:** This activity carries no independent citation, since it applies AI Agent Identities and Agentic Tool-Call/Action Output Validation to the developer workstation. A coding agent reads untrusted repositories, holds source and credentials, and reaches the network, so Capability Composition Review applies. Treat repository-supplied agent instructions and tool configurations as untrusted, block force pushes and hard resets, and cap sub-agents and worktrees at their parent's permissions. Give a browser- or desktop-driving agent its own session with screen redaction, and use an accredited in-enclave model where isolated.
+
+- **AP-2.1.5: AI Coding Agent Credential Provisioning**
+    - **Description:** Provision the credentials an AI coding agent uses to reach its model provider and tools through a gateway that issues short-lived tokens after the developer signs in, store any key that must persist in the operating system's credential store rather than in configuration files or environment variables, keep that store outside the agent's own command and file access, and revoke each credential at offboarding.
+    - **Control Type:** Technical
+    - **Cross-Cutting Discipline:** Automate
+    - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
+    - **ConMon Activity:** Continuous
+    - **Level of Effort:** Moderate
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries the outcome's IA-5(6) (partial) mapping for the coding agent's own credentials. A plaintext key in an agent's configuration is readable by the agent's own tools, so an injected instruction can send it out. Scope each credential to one developer and one purpose, rotate it on a cadence and at once on suspected exposure, and cover its file paths in secret scanning. It applies only where agents run on developer workstations, since a server-hosted agent authenticates with workload identity instead.
 
 ### AP-2.2: Secure Coding Standards and Build Hardening
 
@@ -1223,6 +1235,7 @@
 
 - **CM-3(1) (partial):** claimed for automatically blocking non-compliant deployments and recording exceptions, shared with Pre-Merge Sensitive Repo File Change Detection's repository slice.
 - **SA-15 (partial):** claimed for documenting and controlling changes to tool configuration through version-controlled policy rules, one subject slice alongside Application Threat Modeling and others.
+- **PL-9 (partial):** claimed for managing machine-enforceable controls centrally, since each policy rule is written once in version control and enforced at every gate and admission point. Policy Lifecycle Management holds the written policies.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
 
@@ -1254,7 +1267,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Moderate; Recurring: Low
     - **Time Estimation:** Medium-term (3–6 months)
-    - **Supplemental Guidance:** This activity carries the outcome's SA-15 (partial) mapping. It is tagged Automate as the named policy-as-code practice. Test each rule against inputs it should reject as well as permit, and put rule files on the sensitive path list.
+    - **Supplemental Guidance:** This activity carries the outcome's SA-15 (partial) and PL-9 (partial) mappings. It is tagged Automate as the named policy-as-code practice. Test each rule against inputs it should reject as well as permit, and put rule files on the sensitive path list.
 
 - **AP-2.19.3: Policy Violation Blocking and Exception Workflow**
     - **Description:** Configure the engine to block anything that violates policy, and define the exception path by which a documented, time-limited, approved waiver permits a specific violation without weakening the rule for everyone else.

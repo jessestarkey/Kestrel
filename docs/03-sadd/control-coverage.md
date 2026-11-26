@@ -28,6 +28,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | AC-3(11) | Partial | AI-2.3 | Protect / Artificial Intelligence |
 | AC-3(12) | Partial | ID-1.6 | Protect / Identity |
 | AC-3(13) | Partial | ID-2.5, DA-1.2 | Protect / Identity, Protect / Data |
+| AC-3(14) | Full | CO-4.1 | Manage / Compliance |
 | AC-4 | Partial | NE-1.5, NE-1.6, AP-2.17, AI-8.7, DA-1.5 | Protect / Network and Environment, Protect / Application, Protect / Artificial Intelligence, Protect / Data |
 | AC-4(1) | Partial | DA-1.2 | Protect / Data |
 | AC-4(4) | Partial | NE-2.4 | Protect / Network and Environment |
@@ -90,10 +91,13 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | AU-1 | Partial | DE-2.1, GV-1.1 | Operate / Detection, Manage / Governance |
 | AU-2 | Partial | DE-1.8 | Operate / Detection |
 | AU-3 | Partial | DE-2.4 | Operate / Detection |
+| AU-3(1) | Partial | DE-2.4 | Operate / Detection |
+| AU-3(3) | Partial | DE-2.4 | Operate / Detection |
 | AU-4 | Full | DE-3.2 | Operate / Detection |
 | AU-4(1) | Full | DE-3.2 | Operate / Detection |
 | AU-5 | Full | DE-3.3 | Operate / Detection |
 | AU-5(1) | Full | DE-3.3 | Operate / Detection |
+| AU-5(2) | Full | DE-3.3 | Operate / Detection |
 | AU-6 | Partial | DE-1.8, DE-3.1 | Operate / Detection |
 | AU-6(1) | Full | DE-3.1 | Operate / Detection |
 | AU-6(3) | Full | DE-3.1 | Operate / Detection |
@@ -149,6 +153,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | CM-3(1) | Partial | AP-2.18, AP-2.19, AI-4.17 | Protect / Application, Protect / Artificial Intelligence |
 | CM-3(2) | Full | DI-2.2 | Protect / Device and Infrastructure |
 | CM-3(4) | Partial | AP-2.18, AI-4.17 | Protect / Application, Protect / Artificial Intelligence |
+| CM-3(6) | Full | DA-3.13 | Protect / Data |
 | CM-4 | Partial | DI-2.2, AI-8.10, GV-5.11 | Protect / Device and Infrastructure, Protect / Artificial Intelligence, Manage / Governance |
 | CM-4(1) | Partial | DI-2.2 | Protect / Device and Infrastructure |
 | CM-4(2) | Full | GV-5.11 | Manage / Governance |
@@ -233,7 +238,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | IA-5 | Partial | ID-1.5, ID-2.2, ID-3.7, DI-3.2, RS-3.4 | Protect / Identity, Protect / Device and Infrastructure, Operate / Response |
 | IA-5(1) | Partial | ID-2.1 | Protect / Identity |
 | IA-5(2) | Partial | ID-1.2, ID-2.2, ID-3.2 | Protect / Identity |
-| IA-5(6) | Partial | ID-3.6, ID-4.4, AP-2.25, AI-4.19, AI-8.3 | Protect / Identity, Protect / Application, Protect / Artificial Intelligence |
+| IA-5(6) | Partial | ID-3.6, ID-4.4, AP-2.1, AP-2.25, AI-4.19, AI-8.3 | Protect / Identity, Protect / Application, Protect / Artificial Intelligence |
 | IA-5(7) | Partial | ID-3.1, ID-3.5, ID-3.6, AP-2.4, AP-2.25, AP-5.8, AI-4.5, AI-4.19, AI-8.3 | Protect / Identity, Protect / Application, Protect / Artificial Intelligence |
 | IA-6 | Full | ID-2.1 | Protect / Identity |
 | IA-7 | Partial | DA-3.4 | Protect / Data |
@@ -283,13 +288,16 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | IR-9(4) | Partial | RS-3.5 | Operate / Response |
 | MA-1 | Partial | DI-2.4, GV-1.1 | Protect / Device and Infrastructure, Manage / Governance |
 | MA-2 | Partial | ID-4.5, DI-2.4 | Protect / Identity, Protect / Device and Infrastructure |
+| MA-2(2) | Partial | DI-2.4 | Protect / Device and Infrastructure |
 | MA-3 | Full | DI-2.4 | Protect / Device and Infrastructure |
 | MA-3(1) | Partial | ID-4.5, DI-2.4 | Protect / Identity, Protect / Device and Infrastructure |
 | MA-3(2) | Partial | ID-4.5, DI-2.4 | Protect / Identity, Protect / Device and Infrastructure |
 | MA-3(3) | Full | DI-2.4 | Protect / Device and Infrastructure |
 | MA-4 | Partial | ID-4.7 | Protect / Identity |
 | MA-4(1) | Partial | ID-4.7 | Protect / Identity |
+| MA-4(3) | Full | ID-4.7 | Protect / Identity |
 | MA-5 | Partial | ID-4.5 | Protect / Identity |
+| MA-5(1) | Partial | DI-2.4 | Protect / Device and Infrastructure |
 | MA-6 | Full | DI-2.4 | Protect / Device and Infrastructure |
 | MP-1 | Partial | DA-1.8, GV-1.1 | Protect / Data, Manage / Governance |
 | MP-2 | Partial | DA-1.8 | Protect / Data |
@@ -300,6 +308,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | MP-6 | Partial | DI-2.3, DA-1.8 | Protect / Device and Infrastructure, Protect / Data |
 | MP-6(1) | Partial | DI-2.3, DA-1.8 | Protect / Device and Infrastructure, Protect / Data |
 | MP-6(2) | Partial | DA-1.8 | Protect / Data |
+| MP-6(3) | Full | DA-1.8 | Protect / Data |
 | MP-7 | Partial | DI-5.1, DA-1.8 | Protect / Device and Infrastructure, Protect / Data |
 | MP-8 | Partial | DA-1.8 | Protect / Data |
 | MP-8(1) | Partial | DA-1.8 | Protect / Data |
@@ -315,6 +324,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | PL-7 | Partial | GV-5.3 | Manage / Governance |
 | PL-8 | Full | GV-5.1 | Manage / Governance |
 | PL-8(1) | Full | GV-5.1 | Manage / Governance |
+| PL-9 | Partial | AP-2.19 | Protect / Application |
 | PL-10 | Partial | GV-5.5 | Manage / Governance |
 | PL-11 | Partial | GV-5.4 | Manage / Governance |
 | PM-1 | Partial | GV-1.1, GV-1.2, GV-2.1 | Manage / Governance |
@@ -345,6 +355,10 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | PT-1 | Full | CO-4.1 | Manage / Compliance |
 | PT-2 | Partial | AI-1.2, CO-4.2 | Protect / Artificial Intelligence, Manage / Compliance |
 | PT-3 | Partial | AI-1.2, CO-4.2 | Protect / Artificial Intelligence, Manage / Compliance |
+| PT-5 | Full | CO-4.2 | Manage / Compliance |
+| PT-5(2) | Full | CO-4.2 | Manage / Compliance |
+| PT-7 | Full | CO-4.2 | Manage / Compliance |
+| PT-7(2) | Full | CO-4.1 | Manage / Compliance |
 | RA-1 | Partial | DI-7.1, GV-1.1 | Protect / Device and Infrastructure, Manage / Governance |
 | RA-2 | Partial | GV-5.4, GV-5.5 | Manage / Governance |
 | RA-3 | Partial | AP-4.5, AI-6.5, GV-4.1, GV-4.2, RK-1.3, RK-1.7 | Protect / Application, Protect / Artificial Intelligence, Manage / Governance, Manage / Risk |
@@ -374,6 +388,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | SA-4(10) | Full | GV-3.2 | Manage / Governance |
 | SA-5 | Partial | AI-5.8, AI-6.2 | Protect / Artificial Intelligence |
 | SA-8 | Partial | AP-1.3 | Protect / Application |
+| SA-8(33) | Full | DA-1.9 | Protect / Data |
 | SA-9 | Partial | ID-3.3, AP-2.9, AI-8.3, GV-3.2, GV-5.12 | Protect / Identity, Protect / Application, Protect / Artificial Intelligence, Manage / Governance |
 | SA-9(2) | Full | GV-3.2 | Manage / Governance |
 | SA-9(5) | Partial | AP-2.9, AI-8.3 | Protect / Application, Protect / Artificial Intelligence |
@@ -394,7 +409,9 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | SA-15(3) | Full | GV-3.2 | Manage / Governance |
 | SA-15(7) | Partial | AP-2.3, AI-4.4 | Protect / Application, Protect / Artificial Intelligence |
 | SA-15(8) | Partial | AP-1.4 | Protect / Application |
+| SA-16 | Full | GV-3.2 | Manage / Governance |
 | SA-17 | Partial | AP-1.3 | Protect / Application |
+| SA-21 | Full | GV-3.2 | Manage / Governance |
 | SA-22 | Partial | DI-2.3 | Protect / Device and Infrastructure |
 | SC-1 | Partial | DA-3.13, GV-1.1 | Protect / Data, Manage / Governance |
 | SC-2 | Partial | ID-4.2, NE-2.13 | Protect / Identity, Protect / Network and Environment |
@@ -419,6 +436,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | SC-7(20) | Partial | NE-1.7 | Protect / Network and Environment |
 | SC-7(21) | Partial | NE-1.4, NE-1.6, DA-3.11 | Protect / Network and Environment, Protect / Data |
 | SC-7(22) | Partial | NE-2.10 | Protect / Network and Environment |
+| SC-7(24) | Partial | DA-1.5 | Protect / Data |
 | SC-8 | Partial | NE-2.8, DA-2.2, DA-2.3 | Protect / Network and Environment, Protect / Data |
 | SC-8(1) | Partial | NE-2.8, DA-2.2, DA-2.3 | Protect / Network and Environment, Protect / Data |
 | SC-10 | Full | NE-2.7 | Protect / Network and Environment |
@@ -473,6 +491,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | SI-4(22) | Partial | NE-2.12 | Protect / Network and Environment |
 | SI-4(24) | Partial | DI-5.4, DE-1.3 | Protect / Device and Infrastructure, Operate / Detection |
 | SI-5 | Partial | DI-4.8, DE-1.3 | Protect / Device and Infrastructure, Operate / Detection |
+| SI-5(1) | Full | RS-1.7 | Operate / Response |
 | SI-6 | Partial | DI-5.4, AI-9.5 | Protect / Device and Infrastructure, Protect / Artificial Intelligence |
 | SI-7 | Partial | DI-5.3, AP-2.9 | Protect / Device and Infrastructure, Protect / Application |
 | SI-7(1) | Partial | DI-5.4, AI-2.1, AI-4.13, AI-7.2, AI-8.4, AI-8.15, AI-9.3 | Protect / Device and Infrastructure, Protect / Artificial Intelligence |
@@ -494,6 +513,8 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | SI-12(3) | Partial | DA-1.8 | Protect / Data |
 | SI-15 | Partial | AI-8.6, AI-8.7, AI-8.9 | Protect / Artificial Intelligence |
 | SI-16 | Partial | DI-5.3, AP-2.2 | Protect / Device and Infrastructure, Protect / Application |
+| SI-18 | Full | CO-4.1 | Manage / Compliance |
+| SI-18(4) | Full | CO-4.1 | Manage / Compliance |
 | SI-19 | Partial | AI-1.2, AI-2.3, AI-8.8, DA-1.7 | Protect / Artificial Intelligence, Protect / Data |
 | SI-19(3) | Partial | DA-1.7 | Protect / Data |
 | SI-19(4) | Partial | AI-1.2, AI-2.3, AI-8.8, DA-1.7 | Protect / Artificial Intelligence, Protect / Data |
@@ -514,6 +535,7 @@ Each row is one control or enhancement claimed by at least one in-scope outcome.
 | SR-6 | Partial | AI-1.3, AI-2.2, AI-8.3, GV-3.1 | Protect / Artificial Intelligence, Manage / Governance |
 | SR-8 | Full | GV-3.2 | Manage / Governance |
 | SR-9 | Partial | GV-3.4 | Manage / Governance |
+| SR-9(1) | Partial | GV-3.4 | Manage / Governance |
 | SR-10 | Full | GV-3.4 | Manage / Governance |
 | SR-11 | Full | GV-3.4 | Manage / Governance |
 | SR-11(1) | Full | GV-3.4 | Manage / Governance |

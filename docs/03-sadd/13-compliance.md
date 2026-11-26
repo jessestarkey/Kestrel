@@ -467,6 +467,8 @@
 - **PM-5(1) (full):** claimed by prior reservation from AI/ML Use Case Inventory, which holds PM-5 partial for AI/ML and left the inventory of systems processing personal information to this outcome. The charter activity establishes the register, PIA Trigger Criteria and Intake Process populates it, and the review activity updates it. The base PM-5 is not reopened.
 - **AT-3(5) (full):** claimed by prior reservation from Security Awareness and Training Program, which holds AT-3 full. This outcome names the personnel who process personal information and the content they need, while Role-Based Specialized Training delivers it. Neither AT-2 nor the AT-3 base is reopened.
 - **PM-22 (full):** claimed for the process to correct or amend inaccurate personal information and propagate the correction to the system of record and every downstream recipient. PII Accuracy and Correction Request Handling runs both clauses, reading recipients from the charter's inventory. It is full because PM-22 has no enhancements in SP 800-53 Rev 5 and no other outcome corrects a value once found wrong.
+- **AC-3(14) (full), SI-18 (full), SI-18(4) (full):** PII Accuracy and Correction Request Handling gives individuals access to their personal information, keeps it accurate, and corrects it on request.
+- **PT-7(2) (full):** the privacy policy bars processing that describes how anyone exercises their First Amendment rights, unless a statute or the individual authorizes it.
 - **Declined:** None of these controls has an activity here. PM-20, PM-21, PM-26, and PM-27 cover a public privacy webpage, disclosure accounting, redress, and oversight reporting. Like PM-20, they are department-level Privacy Act obligations outside SABER scope. PM-21 also sits on the Privacy Act boundary left unclaimed under PT-6. PM-24 applies only to a matching program under PT-8, which nothing establishes. PM-23 needs a data governance body, which no outcome charters. PM-25 stays with Data Minimization Requirement Definition, the single holder of minimization under SI-12(2). PT-4, PT-5, PT-6, PT-7, and PT-8 describe instruments no outcome issues, and Model Card Generation already declined PT-5.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
@@ -488,7 +490,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's PT-1 (full) policy and procedures clause and the substance of its PM-18 (full) mapping. It also establishes the register the PM-5(1) (full) claim rests on and states the instruction content AT-3(5) (full) requires. Write the procedures with the policy, saying who decides collection and against what criteria. Draft with counsel and mission owners, since the policy mainly constrains what the mission may collect. Version it through Policy Lifecycle Management, and grant departures only through Policy Exception Management.
+    - **Supplemental Guidance:** This activity carries the outcome's PT-1 (full) policy and procedures clause, the substance of its PM-18 (full) mapping, and its PT-7(2) (full) mapping. It also establishes the register the PM-5(1) (full) claim rests on and states the instruction content AT-3(5) (full) requires. Write the procedures with the policy, saying who decides collection and against what criteria. Draft with counsel and mission owners, since the policy mainly constrains what the mission may collect. Version it through Policy Lifecycle Management, and grant departures only through Policy Exception Management.
 
 - **CO-4.1.2: Privacy Roles and Responsibilities Definition**
     - **Description:** Appoint the official accountable for the program's privacy position with the authority and resources to carry it, name the data steward responsible for each system that processes personal information, and identify the personnel whose work involves that processing so their required instruction can be scoped.
@@ -502,7 +504,7 @@
     - **Supplemental Guidance:** This activity carries the outcome's PM-19 (full) mapping, the designation clause of its PT-1 (full) mapping, the roles clause of its PM-18 (full) mapping, and the personnel determination behind AT-3(5) (full). Give the official real authority and time, since a title held alongside a full engineering workload is a privacy position on paper only. Bind a data steward position to each system on the inventory, reconciled against Role Assignment and RACI/Responsibility-Matrix Documentation. The recurring cost is staffing, and cutting it to collateral duty makes the capability nominal.
 
 - **CO-4.1.3: PII Accuracy and Correction Request Handling**
-    - **Description:** Establish a process for an individual, or the data steward acting for them, to request correction or amendment of inaccurate personally identifiable information, and propagate each approved correction to the authoritative system of record and to every downstream system or recipient the personally identifiable information inventory shows received the uncorrected value.
+    - **Description:** Establish a process for an individual, or the data steward acting for them, to request access to their personally identifiable information or correction or amendment of inaccurate personally identifiable information, and propagate each approved correction to the authoritative system of record and to every downstream system or recipient the personally identifiable information inventory shows received the uncorrected value.
     - **Control Type:** Process
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 2 (Recommended, strengthens ATO posture)
@@ -510,7 +512,7 @@
     - **Level of Effort:** Low
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's PM-22 (full) mapping. Read the systems to notify from the charter activity's inventory rather than rebuilding a recipient list per request. Route disputed corrections, or ones beyond the steward's authority, to the privacy official for adjudication. Log every request, disposition, and notified system, declines included. A request that questions whether the program should hold the data routes to PIA Trigger Criteria and Intake Process.
+    - **Supplemental Guidance:** This activity carries the outcome's PM-22 (full), AC-3(14) (full), SI-18 (full), and SI-18(4) (full) mappings. Read the systems to notify from the charter activity's inventory rather than rebuilding a recipient list per request. Route disputed corrections, or ones beyond the steward's authority, to the privacy official for adjudication. Log every request, disposition, and notified system, declines included. A request that questions whether the program should hold the data routes to PIA Trigger Criteria and Intake Process.
 
 - **CO-4.1.4: Privacy Program Periodic Review**
     - **Description:** Review the charter, the privacy policy and procedures, the role and steward assignments, and the personally identifiable information inventory on the program's defined cadence and after any change in what the program collects or the authority it collects under, correcting whatever no longer matches how the program operates.
@@ -525,13 +527,15 @@
 
 ### CO-4.2: Privacy Impact Assessments (PIA)
 
-**Design Intent:** KESTREL maintains a privacy impact assessment on DD Form 2930. It is reassessed whenever a new collection, sensor, AI use case, or partner release would process personal information. Incidental imagery is never retrieved by personal identifier, so it forms no system of records. User account and service desk records are retrieved by identifier and fall under the DoD-wide SORN the component privacy office names in the PIA. Privacy Requirements Definition (`AI-1.2`) bars training any model to identify individuals. Lifting that bar needs the AI/ML Governance Review Board, a revised PIA, and a CCSD revision. Any change that would retrieve imagery by person, or raise the overlay tier, also triggers CCSD revision.
+**Design Intent:** KESTREL maintains a privacy impact assessment on DD Form 2930. It is reassessed whenever a new collection, sensor, AI use case, or partner release would process personal information. Incidental imagery is never retrieved by personal identifier, so it forms no system of records. User account and service desk records are retrieved by identifier and fall under the DoD-wide SORN the component privacy office names in the PIA. The account request form carries a Privacy Act statement drawn from the PIA. Privacy Requirements Definition (`AI-1.2`) bars training any model to identify individuals. Lifting that bar needs the AI/ML Governance Review Board, a revised PIA, and a CCSD revision. Any change that would retrieve imagery by person, or raise the overlay tier, also triggers CCSD revision.
 
 **NIST Control Mapping:**
 
 - **RA-8 (partial):** claimed for assessments before developing or procuring IT that processes personal information, or starting a new collection, across the program's non-ML systems. Privacy Requirements Definition holds the ML slice, and ML use cases keep flowing through AI Use Case Intake and Onboarding. RA-8 has no enhancements in SP 800-53 Rev 5, so the population split lives in this rationale.
 - **PT-2 (partial), PT-3 (partial):** claimed on the same population basis for PT-2a and PT-3a, which determine the authority for processing and the purposes it is limited to. PT-2b and PT-3c are enforcement, run by Data Discovery, Labeling, and Classification and Attribute-Based Data and Application Access Enforcement (ABAC). PT-3d, monitoring processing changes, is held by the reassessment activity. Privacy Requirements Definition keeps the ML slice of PT-2, PT-3, and RA-8, as Responsible AI Policy and Principles recorded.
-- **Declined:** PT-2(1), PT-2(2), PT-3(1), and PT-3(2) cover tagging and automation, which sit on the enforcement side. PT-3b is PT-5's subject, which Model Card Generation declined, and is recorded as a gap since no outcome issues a privacy notice. RA-3 is less specific than RA-8, and RA-3 is already split across Deployment Risk Threshold Evaluation and two other outcomes. RA-2 is Security Categorization's. SI-12(1) and SI-12(2) stay with Data Minimization Requirement Definition and Data Retention and Disposition Schedule Definition.
+- **PT-7 (full):** PIA Execution and Documentation identifies any specific category of personal information processed and the conditions that apply to it.
+- **PT-5 (full), PT-5(2) (full):** Privacy Notice and Privacy Act Statement Provision gives notice at each point of collection, with a Privacy Act statement where records are retrieved by identifier.
+- **Declined:** PT-2(1), PT-2(2), PT-3(1), and PT-3(2) cover tagging and automation, which sit on the enforcement side. PT-3b's notice is issued by Privacy Notice and Privacy Act Statement Provision. RA-3 is less specific than RA-8, and RA-3 is already split across Deployment Risk Threshold Evaluation and two other outcomes. RA-2 is Security Categorization's. SI-12(1) and SI-12(2) stay with Data Minimization Requirement Definition and Data Retention and Disposition Schedule Definition.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
@@ -563,7 +567,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Moderate
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's PT-2 (partial) and PT-3 (partial) mappings and the substance of its RA-8 (partial) mapping. Run the assessment before fielding, since one run afterward documents a decision rather than informing it. Get the authority finding in writing from counsel, because possession is not permission. Read retention and minimization values from the Data Management Plan (DMP) and Data Minimization Requirement Definition. Accept unmitigated risks through the Risk Acceptance Process and open POA&M items for planned mitigations.
+    - **Supplemental Guidance:** This activity carries the outcome's PT-2 (partial), PT-3 (partial), and PT-7 (full) mappings and the substance of its RA-8 (partial) mapping. Run the assessment before fielding, since one run afterward documents a decision rather than informing it. Get the authority finding in writing from counsel, because possession is not permission. Read retention and minimization values from the Data Management Plan (DMP) and Data Minimization Requirement Definition. Accept unmitigated risks through the Risk Acceptance Process and open POA&M items for planned mitigations.
 
 - **CO-4.2.3: PIA Periodic Review/Reassessment on System Change**
     - **Description:** Reassess an existing assessment whenever the system takes on a new data element, source, recipient, or purpose, or a changed retention period, and work through the assessed population on the program's cadence so no assessment omits processing the system has started or describes processing it has stopped.
@@ -575,3 +579,14 @@
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Immediate (less than one sprint)
     - **Supplemental Guidance:** This activity carries PT-3d and the update dimension of the outcome's RA-8 (partial) mapping. Privacy-relevant changes rarely arrive labeled as such, so wire reassessment to the Security Impact Analysis (SIA) performed before each change. A change of purpose that no longer fits the original authority returns through PIA Trigger Criteria and Intake Process as a new determination rather than an update.
+
+- **CO-4.2.4: Privacy Notice and Privacy Act Statement Provision**
+    - **Description:** Give individuals notice at each point where the program collects their personally identifiable information, stating the authority, the purpose, the routine uses, and whether disclosure is voluntary, and include a Privacy Act statement wherever the information is retrieved from a system of records.
+    - **Control Type:** Process
+    - **Cross-Cutting Discipline:** None
+    - **Maturity Model:** Level 1 (Mandatory, required for ATO)
+    - **ConMon Activity:** Periodic (Event-Driven)
+    - **Level of Effort:** Low
+    - **Cost:** One-Time: Low; Recurring: Low
+    - **Time Estimation:** Short-term (1–3 months)
+    - **Supplemental Guidance:** This activity carries the outcome's PT-5 (full) and PT-5(2) (full) mappings. Draw the notice's content from the assessment's own findings, so the notice and the assessment cannot disagree. Place the statement on the form or screen where the information is entered, such as the account request, rather than in a separate document. A new point of collection found by reassessment gets its notice before it goes live.

@@ -2080,6 +2080,7 @@
 - **AC-2(2) (partial):** Vendor Engagement Automatic Deactivation disables the engagement's temporary access at its approved bound. Emergency Access and OT/Legacy Scheduled Maintenance-Window Access hold the other populations.
 - **PS-7 (partial):** This outcome sets and monitors per-engagement access requirements for vendor personnel. The PSO holds the broader external-personnel program.
 - **AC-17(1) (partial):** Vendor Support Access Monitoring and Audit Logging monitors and controls vendor remote sessions. Virtual Desktop Monitoring and Alerting holds general remote sessions as a separate partial.
+- **MA-4(3) (full):** Vendor Support Approval Workflows admit each approved session only from a program-controlled host built to the program's own baseline, so nonlocal maintenance runs from a system of comparable security.
 - **Declined:** AC-6(6) prohibits privileged access by non-organizational users, while this outcome grants it under AO tailoring. Its per-case approval, bounded scope, and recorded session are the compensating design that tailoring rests on.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid
@@ -2104,7 +2105,7 @@
     - **Supplemental Guidance:** This activity carries the per-engagement half of the outcome's PS-7 (partial) mapping and the approval obligation of its MA-4 (partial) mapping. An authorized local sponsor accepts accountability for each case. Unlike External User Sponsorship and Local Identity Binding, it authorizes one time-bound engagement rather than a standing identity.
 
 - **ID-4.7.2: Vendor Support Approval Workflows**
-    - **Description:** Configure the approval-routing workflow that carries a vendor support request through the required reviewers and any escalation path, and that fixes the access scope and duration each level of approval is permitted to grant.
+    - **Description:** Configure the approval-routing workflow that carries a vendor support request through the required reviewers and any escalation path, and that fixes the access scope and duration each level of approval is permitted to grant, admitting each approved session only from a program-controlled host built to the program's own baseline.
     - **Control Type:** Process
     - **Cross-Cutting Discipline:** None
     - **Maturity Model:** Level 1 (Mandatory, required for ATO)
@@ -2112,7 +2113,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Low
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity routes requests to the approvers and bounds what they may grant, paralleling Window-Bound Access Request and Approval. It contributes to the outcome's PS-7 (partial) and MA-4 (partial) mappings by making this path the only way vendor access is granted.
+    - **Supplemental Guidance:** This activity routes requests to the approvers and bounds what they may grant, paralleling Window-Bound Access Request and Approval. It contributes to the outcome's PS-7 (partial) and MA-4 (partial) mappings by making this path the only way vendor access is granted. It also carries the outcome's MA-4(3) (full) mapping, since the vendor's own device never touches the system.
 
 - **ID-4.7.3: Vendor Support Access Monitoring and Audit Logging**
     - **Description:** Monitor and record the vendor's session activity for the duration of the engagement and retain an audit trail of the access that was granted and the actions taken under it, so external support activity inside the environment is observable while active and reviewable afterward.

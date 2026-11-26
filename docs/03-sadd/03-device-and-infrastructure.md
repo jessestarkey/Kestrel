@@ -423,7 +423,9 @@
 - **MA-3(2) (partial):** checking diagnostic media for malicious code before use on IT assets.
 - **MA-3(3) (full):** preventing removal of maintenance equipment holding program information without sanitization, destruction, or exemption, for every asset class.
 - **MA-6 (full):** obtaining maintenance support and spare parts within a defined time of failure.
-- **Declined:** MA-4 is held by Access Process for Third-Party Support, and MA-5 by OT/Legacy Scheduled Maintenance-Window Access, while escort of uncleared maintainers is the PSO's.
+- **MA-2(2) (partial):** Controlled Maintenance Scheduling, Approval, and Records schedules, conducts, and records maintenance through the service platform, on the same IT-estate basis as MA-2.
+- **MA-5(1) (partial):** the system-side half, removing or sanitizing storage before uncleared maintainers work on a component and recording it. The physical escort the enhancement requires is the PSO's.
+- **Declined:** MA-4 is held by Access Process for Third-Party Support, and MA-5 by OT/Legacy Scheduled Maintenance-Window Access.
 
 **Deployment Type:** Cloud, On-Premises, Hybrid, Cyber-Physical System (OT/ICS)
 
@@ -455,7 +457,7 @@
     - **Level of Effort:** Moderate
     - **Cost:** One-Time: Low; Recurring: Moderate
     - **Time Estimation:** Short-term (1–3 months)
-    - **Supplemental Guidance:** This activity carries the outcome's MA-2 (partial) mapping. Sanitize removed media under the Data focus area's Media Protection Policy and Procedures, and destroy failed storage locally in classified environments. Maintenance that changes configuration goes through Security Impact Analysis (SIA) and its Post-Change Control Verification.
+    - **Supplemental Guidance:** This activity carries the outcome's MA-2 (partial), MA-2(2) (partial), and MA-5(1) (partial) mappings. Sanitize removed media under the Data focus area's Media Protection Policy and Procedures, and destroy failed storage locally in classified environments. Maintenance that changes configuration goes through Security Impact Analysis (SIA) and its Post-Change Control Verification.
 
 - **DI-2.4.3: Support Agreements and Spare Parts**
     - **Description:** Identify the components whose failure the mission cannot absorb, and hold support agreements and spare parts that restore each within a defined time of failure derived from the program's recovery objectives.

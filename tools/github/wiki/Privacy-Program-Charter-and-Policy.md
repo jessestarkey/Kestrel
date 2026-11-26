@@ -4,7 +4,7 @@
 
 This charter establishes KESTREL's privacy program and states its privacy policy. It covers what personal information KESTREL holds, why, how long, who answers for it, and how a person can have it corrected. The program runs under DoDI 5400.11 and the DoD component privacy program. KESTREL inherits from the component the parts a single system cannot run, such as the system of records notices and breach reporting to OMB. It carries out the design decisions in the [Compliance](https://github.com/jessestarkey/Kestrel/blob/main/docs/03-sadd/13-compliance.md) section of the SADD.
 
-**NIST Control Mapping:** PT-1 (full), PM-18 (full), PM-19 (full), PM-5(1) (full), AT-3(5) (full), and PM-22 (full), held through CO-4.1.
+**NIST Control Mapping:** PT-1 (full), PM-18 (full), PM-19 (full), PM-5(1) (full), AT-3(5) (full), PM-22 (full), AC-3(14) (full), SI-18 (full), SI-18(4) (full), and PT-7(2) (full), held through CO-4.1.
 
 > **Phasing.** The Privacy Impact Assessment is approved in Phase 1, before any personal information arrives. This charter is approved in Phase 2. Until then, the PIA and the DMP's minimization and retention rules govern how personal information is handled.
 
@@ -15,7 +15,7 @@ This charter establishes KESTREL's privacy program and states its privacy policy
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| Charter Version | 0.1 |
+| Charter Version | 0.2 |
 | Date | 2026-11-26 |
 | Prepared By | Privacy officer, with program legal counsel and the intelligence mission leads |
 | Approved By | Configuration Control Board, chaired by the chief engineer, with the program manager as the official accountable for KESTREL's privacy risk |
@@ -28,6 +28,7 @@ This charter establishes KESTREL's privacy program and states its privacy policy
 | Version | Date | Author | Description of Changes |
 |---|---|---|---|
 | 0.1 | 2026-11-26 | Privacy officer | Initial draft for review |
+| 0.2 | 2026-11-26 | Privacy officer | Added access requests to Section 3, and the four controls the charter now holds |
 
 ---
 
@@ -65,7 +66,7 @@ This charter covers every collection, use, retention, disclosure, and disposal o
 - **Collection.** KESTREL collects personal information only for the purposes in the table above. It collects no Social Security numbers, and accounts key on the CAC DoD ID number. It never collects information about how anyone exercises their First Amendment rights.
 - **Use.** Personal information is used only for the purpose it was collected for. No model is trained to identify, track, or re-identify individuals. Lifting that bar would need the AI/ML Governance Review Board, a revised PIA, and a CCSD revision.
 - **Imagery of people.** Imagery is never indexed or retrieved by person, so it forms no system of records. It is kept in training data only where a detection task needs it, and the privacy officer approves each new training set's handling. People are blurred or cropped before imagery reaches dev/test data or a partner release.
-- **Notice.** The account request form carries a Privacy Act statement.
+- **Notice.** The account request form carries a Privacy Act statement, drawn from the PIA.
 - **Disclosure.** Records retrieved by identifier are disclosed only under the routine uses of the DoD-wide system of records notice the component privacy office names. No partner release includes personal information.
 - **Retention and disposal.** Each kind is kept for the period the DMP sets, then disposed of by the DMP's method.
 - **Breaches.** A breach of personal information is an incident under the IRP. The privacy officer reports it through the component privacy office.
@@ -113,7 +114,7 @@ This charter covers every collection, use, retention, disclosure, and disposal o
 
 *Traces to CO-4.1.3.*
 
-**Making a request.** A person who believes KESTREL holds inaccurate information about them asks through Jira Service Management, or through their data steward. The request is acknowledged within 10 working days, as the Privacy Act requires.
+**Making a request.** A person who wants to see the information KESTREL holds about them, or believes it is inaccurate, asks through Jira Service Management, or through their data steward. The request is acknowledged within 10 working days, as the Privacy Act requires.
 
 **Where a correction is made.** KESTREL corrects the attributes it holds itself, such as a user's team, role, or contact details. CAC attributes are corrected at their source in DoD's records, and partner attributes by the partner's sponsor. In those cases, the steward tells the person where to go, and KESTREL takes the corrected value at its next synchronization.
 
