@@ -204,6 +204,7 @@ PRODUCTS = {
     'pyrit': ('PyRIT', OSS),
     'atr': ('Agent Threat Rules', OSS),
     'garak': ('garak', OSS),
+    'promptfoo': ('promptfoo', OSS),
     'art': ('Adversarial Robustness Toolbox', OSS),
     'presidio': ('Microsoft Presidio', OSS),
     'sk': ('Semantic Kernel', OSS),

@@ -972,9 +972,9 @@
 
 ### AI-5.1: Jailbreak Testing
 
-**Selected Tool / Product / Service:** PyRIT, garak
+**Selected Tool / Product / Service:** PyRIT, garak, promptfoo
 
-**Environment-Specific Tailoring:** The mission teams test every language model use case against a versioned jailbreak corpus before Certification to Field, and fix what it finds. The PMO ISSE sets the corpus and thresholds as AI Cyber T&E director. The corpus adds program-specific attempts, such as asking for sources and methods.
+**Environment-Specific Tailoring:** The mission teams test every language model use case against a versioned jailbreak corpus before Certification to Field, and fix what it finds. The PMO ISSE sets the corpus and thresholds as AI Cyber T&E director. The corpus adds program-specific attempts, such as asking for sources and methods. Each fixed finding joins a promptfoo suite that reruns on every model, system prompt, or guardrail change. Promptfoo's remote generation and telemetry stay turned off.
 
 **Accountable Team:** ML Team and mission teams, directed by the PMO ISSE
 
@@ -999,9 +999,9 @@
 
 ### AI-5.2: Prompt Injection Testing
 
-**Selected Tool / Product / Service:** PyRIT, garak
+**Selected Tool / Product / Service:** PyRIT, garak, promptfoo
 
-**Environment-Specific Tailoring:** PyRIT and garak test every path content takes into a language model use case, and the owning mission team fixes what they find. For the analyst assistant, that includes reports and IL6 releases. For the mission-planning agent, it includes injected tool responses.
+**Environment-Specific Tailoring:** PyRIT and garak test every path content takes into a language model use case, and the owning mission team fixes what they find. For the analyst assistant, that includes reports and IL6 releases. For the mission-planning agent, it includes injected tool responses. Each fixed injection joins the same promptfoo regression suite.
 
 **Accountable Team:** ML Team and mission teams, directed by the PMO ISSE
 
@@ -2058,9 +2058,9 @@
 
 ### AI-9.5: Canary Prompt Testing
 
-**Selected Tool / Product / Service:** PyRIT, GitLab Ultimate
+**Selected Tool / Product / Service:** promptfoo, GitLab Ultimate
 
-**Environment-Specific Tailoring:** A versioned set of canary images and prompts with known answers runs daily against every fielded model and use case. A changed answer alerts the owning team, catching a silent model or prompt change.
+**Environment-Specific Tailoring:** A versioned set of canary images and prompts with known answers runs daily against every fielded model and use case. A scheduled GitLab pipeline runs the promptfoo suite, with its remote calls turned off, and a failed assertion fails the job. A changed answer alerts the owning team, catching a silent model or prompt change. Image canaries run from a small script, since promptfoo tests images only against models that accept them.
 
 **Accountable Team:** ML Team
 
