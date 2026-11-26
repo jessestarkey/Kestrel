@@ -13,7 +13,7 @@ This space holds KESTREL's working documents, namely the governing plans and the
 | [Account Management Plan (AMP)](Account-Management-Plan) | ID-5.1 | Draft 0.5, in Configuration Control Board review |
 | [Configuration Management Plan (CMP)](Configuration-Management-Plan) | DI-6.1 | Draft 0.1, in Configuration Control Board review |
 | Vulnerability and Patch Management Plan (VPMP) | DI-7.1 | Not started |
-| Application Security Plan (ASP) | AP-6.1 | Not started |
+| [Application Security Plan (ASP)](Application-Security-Plan) | AP-6.1 | Draft 0.1, in Configuration Control Board review |
 | AI/ML Security Plan (AISP) | AI-10.1 | Not started |
 | Data Management Plan (DMP) | DA-1.9 | Not started |
 | [Key Management Plan (KMP)](Key-Management-Plan) | DA-3.13 | Draft 0.1, in Configuration Control Board review |
