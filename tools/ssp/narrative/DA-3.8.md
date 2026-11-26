@@ -1,0 +1,1 @@
+cert-manager will renew workload and service certificates ahead of expiry, through Keyfactor's issuer for Active Directory Certificate Services, and rebind each one to its service without an operator. The Istio mesh's certificates come from istiod, with its plug-in CA kept in Key Vault. Aircraft and station certificates renew during maintenance windows.

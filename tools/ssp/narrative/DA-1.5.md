@@ -1,0 +1,3 @@
+KESTREL's data will leave only by named paths, so data loss prevention sits on each one. The partner API and the cross domain transfer gateway check every release against its markings and block anything not releasable. Pushes to GitLab are scanned for mission data and secrets before they reach a branch that performer laptops can clone. The VDI desktops block downloads and the clipboard.
+
+From Phase 2, Splunk Enterprise Security correlations flag bulk reads across zones, and insider risk analytics watch user activity within the scope the DMP sets. A data security dashboard serves the Security Team, the PMO ISSE, and the data owners.

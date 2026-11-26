@@ -1,0 +1,1 @@
+Each spoke's Key Vault will grant each workload identity only the secrets it needs. People hold no standing vault access. An administrator activates access just in time through Entra Privileged Identity Management, inside an administrative VDI session.

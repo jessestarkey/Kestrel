@@ -1,0 +1,1 @@
+KESTREL will know what data it holds, where it sits, and who may reach it. Every record is labeled at ingest and cataloged, one attribute-based policy decides access, and every record's origin is kept in a tamper-evident ledger. Data leaves only by named paths, each watched by data loss prevention, and the Data Management Plan (DMP) sets how long each kind of data is kept.

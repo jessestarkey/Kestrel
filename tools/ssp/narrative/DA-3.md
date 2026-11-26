@@ -1,0 +1,1 @@
+KESTREL's cryptography will rest on hardware it controls. The nShield HSMs in the data center hold the root keys, with a standby at the alternate site, and Key Vault Premium holds the cloud's keys under them. Keys and certificates rotate and renew automatically, key administration is separated from key use, and the program is preparing now for the move to CNSA 2.0.

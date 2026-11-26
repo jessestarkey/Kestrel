@@ -1,0 +1,3 @@
+Every endpoint KESTREL terminates will accept only TLS 1.2 or later, with TLS 1.3 preferred and CNSA cipher suites. That covers Application Gateway, the Istio service mesh, and the Palo Alto firewalls. Service-to-service connections use mutual TLS with program PKI certificates, and user-facing edge services present DoD PKI server certificates.
+
+Provider-managed endpoints present the provider's certificates, and Azure Policy enforces their minimum TLS version. On premises, Corelight flags any plaintext connection attempt. Before Phase 1 ends, the inherited control check confirms that the Istio add-on is available in Azure Government.

@@ -4,168 +4,196 @@
 
 ## DA-1: Data Awareness and Classification
 
+KESTREL will know what data it holds, where it sits, and who may reach it. Every record is labeled at ingest and cataloged, one attribute-based policy decides access, and every record's origin is kept in a tamper-evident ledger. Data leaves only by named paths, each watched by data loss prevention, and the Data Management Plan (DMP) sets how long each kind of data is kept.
+
 ### DA-1.1: Data Discovery, Labeling, and Classification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+KESTREL's labels will combine four things: the CUI category, dissemination markings such as releasability to partner nations, the owning mission team, and the payload vendor whose terms apply. The Data Team labels every record at ingest, including prior collection arriving over F28, and writes the labels as object metadata.
+
+Self-hosted OpenMetadata catalogs every store over F36 and classifies databases and structured files by their content. Imagery and recordings are checked by their labels instead. Discovery covers every store, from the data lake zones and the model registry to the service desk, the security monitoring platform, backups, and the fleet's storage modules. Each result is checked against the CCSD's information types, and a store or type with no row there is a finding.
 
 <sub>**Planned.** Controls: CM-12, CM-12(1), AC-16, AC-16(1). SIP record: [DA-1.1](../04-sip/07-data.md#da-11-data-discovery-labeling-and-classification).</sub>
 
 ### DA-1.2: Attribute-Based Data and Application Access Enforcement (ABAC)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+One policy will decide data access, from the user's team, role, payload vendor rights, and partner nation, and from each record's labels. An OPA policy decision service makes those decisions, with a replica on each side of the circuit that fails closed. Applications, the partner API, and the report index call it directly, and StorageGRID enforces bucket policies generated from the same policy, one set per data lake zone.
+
+The payload vendor split is enforced like a compartment, and flows between zones are allowed only where F18 permits. Every policy change is tested against a fixed set of access cases before it deploys, so a change cannot quietly widen access.
 
 <sub>**Planned.** Controls: AC-3(13), AC-3(3), AC-4(1), AC-16(7), AC-16(10), AC-24, AC-21. SIP record: [DA-1.2](../04-sip/07-data.md#da-12-attribute-based-data-and-application-access-enforcement-abac). Details: the DMP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#1-data-classification-and-access-attributes).</sub>
 
 ### DA-1.3: Data Provenance and Lineage Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every feed will be tagged with its origin at ingest, and ingest rejects any feed missing from the Data Team's source register. Feeds include aircraft recordings, federated updates, analyst corrections, IL6 releases, and prior collection. Provenance goes to an append-only ledger in immutable storage, whose entries are hash-chained and signed, so an edit by any administrator is detectable.
+
+From Phase 2, training snapshots and partner releases verify a record's provenance before they use it. Data of unknown origin therefore never trains a model or reaches a partner.
 
 <sub>**Planned.** Controls: SR-4, SR-4(2), SR-4(3), AU-9(3). SIP record: [DA-1.3](../04-sip/07-data.md#da-13-data-provenance-and-lineage-verification). Details: the DMP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#2-provenance-and-anomaly-detection).</sub>
 
 ### DA-1.4: Database and Storage Threat Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, Defender for SQL and Defender for Storage will watch every cloud database and storage service. Splunk Enterprise Security analytics cover StorageGRID's audit logs and the report index's logs on premises. Alerts cover unusual reads, bulk exports, and access from a spoke that has never reached the data before. The CSSP triages each alert, the zone's mission lead joins the investigation, and the IRP sets when an alert becomes an incident.
 
 <sub>**Planned.** Controls: SI-4, SI-4(2), SI-4(5). SIP record: [DA-1.4](../04-sip/07-data.md#da-14-database-and-storage-threat-detection). Details: the DMP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#2-provenance-and-anomaly-detection).</sub>
 
 ### DA-1.5: Data Loss Prevention (DLP) and Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+KESTREL's data will leave only by named paths, so data loss prevention sits on each one. The partner API and the cross domain transfer gateway check every release against its markings and block anything not releasable. Pushes to GitLab are scanned for mission data and secrets before they reach a branch that performer laptops can clone. The VDI desktops block downloads and the clipboard.
+
+From Phase 2, Splunk Enterprise Security correlations flag bulk reads across zones, and insider risk analytics watch user activity within the scope the DMP sets. A data security dashboard serves the Security Team, the PMO ISSE, and the data owners.
 
 <sub>**Planned.** Controls: AC-4, SI-4(18), AC-2(12). SIP record: [DA-1.5](../04-sip/07-data.md#da-15-data-loss-prevention-dlp-and-monitoring). Details: the DMP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#3-insider-risk-monitoring) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#appendix-reference-data).</sub>
 
 ### DA-1.6: Data Rights Management (DRM)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Reports released to partner nations will be wrapped with Purview Information Protection from KESTREL's Microsoft 365 DoD tenant. Each wrapped report is limited to the receiving nation and expires on the foreign disclosure officer's terms. Wrapped reports travel through the partner API, and each partner's cross-cloud configuration is a term of its memorandum of agreement, set up as partners onboard in Phase 3. Machine-readable detections are not wrapped, since partner systems consume them directly under the release review.
 
 <sub>**Planned.** Controls: AC-3(8), SC-28(1). SIP record: [DA-1.6](../04-sip/07-data.md#da-16-data-rights-management-drm). Details: the DMP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#4-rights-management-and-release-review).</sub>
 
 ### DA-1.7: Dataset De-Identification and Disclosure Review
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+KESTREL will release no datasets outside the program, so re-identification testing waits for a first release. Partner products and IL6 baselines are released under their own reviews, not as datasets. The privacy officer approves the de-identification techniques that already apply to training and test data, with Presidio for identifying text and the person-detection model for people.
+
+The PMO ISSE is the only person who may post public content, which is limited to the vulnerability disclosure listing. Anything posted passes OPSEC and foreign disclosure review first, and is rechecked each year.
 
 <sub>**Planned.** Controls: SI-19, SI-19(3), SI-19(4), SI-19(8), AC-22. SIP record: [DA-1.7](../04-sip/07-data.md#da-17-dataset-de-identification-and-disclosure-review). Details: the DMP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#4-rights-management-and-release-review).</sub>
 
 ### DA-1.8: Media Protection Policy and Procedures
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+Removable media will be prohibited except for three classes. The first is each aircraft's mission storage modules, encrypted under keys in the aircraft's crypto module and readable only at a ground control station and the IT/OT DMZ. They are marked CUI, logged when they leave an aircraft, carried by a named custodian in controlled containers, and kept in the station's locked store. This is proven on the spares before it applies across the fleet.
+
+The second class is encrypted government media, which carries prior collection to the media intake station for scanning. The third is the datalink key loaders, held under two-person custody. Failed drives and retired modules are sanitized on site with Blancco, and retired or repaired HSMs and datalink modules are zeroized. Cloud media sanitization is inherited from the provider.
 
 <sub>**Planned.** Controls: MP-1, MP-3, MP-2, MP-7, MP-6, MP-6(2), MP-8, MP-8(1), MP-8(2), MP-8(3), MP-8(4), SI-12(3). SIP record: [DA-1.8](../04-sip/07-data.md#da-18-media-protection-policy-and-procedures).</sub>
 
 ### DA-1.9: Data Management Plan (DMP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The Data Team will write the Data Management Plan in late Phase 1, before prior collection arrives. It puts the retention schedule, the minimization rules, and the classification scheme in one document. The intelligence mission leads approve retention for their data, and the privacy officer approves the handling of personal information. The Configuration Control Board approves the plan, and it is revised each year and whenever a payload vendor or data type is added.
 
 <sub>**Planned.** Controls: SI-12, SI-12(1), SI-12(2). SIP record: [DA-1.9](../04-sip/07-data.md#da-19-data-management-plan-dmp). Published as the [Data Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan). Details: the DMP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#5-retention-minimization-and-encryption-requirements).</sub>
 
 ## DA-2: Data Encryption
 
+Every piece of KESTREL's data will be encrypted, in transit and at rest, under keys KESTREL controls. Connections use TLS 1.2 or later with CNSA cipher suites, files move only over encrypted protocols, and every store is encrypted by default. Labels add a further layer, giving each team's or vendor's data its own key.
+
 ### DA-2.1: Classification-Tied Document/Field-Level Encryption
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, each data lake zone will encrypt under its own key on StorageGRID, selected by the record's label. The ingest pipelines supply the key on each request. A workload that escapes the network controls still cannot read another team's or vendor's data. Azure SQL column encryption protects personal fields in KESTREL-built databases. The service desk database uses transparent encryption under a customer-managed key instead, since column encryption would break its queries. Scans confirm that every labeled record sits under the key its label requires.
 
 <sub>**Planned.** Controls: SC-28(1). SIP record: [DA-2.1](../04-sip/07-data.md#da-21-classification-tied-documentfield-level-encryption). Details: the DMP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Data-Management-Plan#5-retention-minimization-and-encryption-requirements).</sub>
 
 ### DA-2.2: TLS Encryption Enforcement
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every endpoint KESTREL terminates will accept only TLS 1.2 or later, with TLS 1.3 preferred and CNSA cipher suites. That covers Application Gateway, the Istio service mesh, and the Palo Alto firewalls. Service-to-service connections use mutual TLS with program PKI certificates, and user-facing edge services present DoD PKI server certificates.
+
+Provider-managed endpoints present the provider's certificates, and Azure Policy enforces their minimum TLS version. On premises, Corelight flags any plaintext connection attempt. Before Phase 1 ends, the inherited control check confirms that the Istio add-on is available in Azure Government.
 
 <sub>**Planned.** Controls: SC-8, SC-8(1). SIP record: [DA-2.2](../04-sip/07-data.md#da-22-tls-encryption-enforcement). Details: the KMP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#1-tls-and-algorithm-baselines).</sub>
 
 ### DA-2.3: Secure File Transfer and Management Protocols
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Files will move only over HTTPS or SFTP, including the recordings that cross the ground segment conduit. Administrative SSH and RDP run only through CyberArk or a VDI session, never directly. Every transfer is logged to Splunk. The one possible exception is the payload processing workstation's transfer, and only if its replacement slips and the AO re-dates CCSD tailoring action 3.
 
 <sub>**Planned.** Controls: SC-8, AC-17(2), AU-12. SIP record: [DA-2.3](../04-sip/07-data.md#da-23-secure-file-transfer-and-management-protocols).</sub>
 
 ### DA-2.4: Default Data at Rest Encryption
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+At-rest encryption will be on by default for every disk, storage service, database, and backup, and Azure Policy blocks any cloud resource without it. On premises, StorageGRID and Veeam encrypt under keys from the HSMs. Confidential computing is not required today, so data in use is protected by the column encryption described above. It is the first option to consider if a workload ever needs mission data protected while in use.
 
 <sub>**Planned.** Controls: SC-28, SC-28(1), SC-39(1). SIP record: [DA-2.4](../04-sip/07-data.md#da-24-default-data-at-rest-encryption).</sub>
 
 ### DA-2.5: Encryption Key Ownership and Control
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+KESTREL will own and control the keys for every store that holds mission data, models, or backups. Cloud keys are customer-managed in Key Vault Premium, imported from the nShield HSMs, and on-premises stores draw their keys from the HSMs directly. Platform-managed keys are allowed only for synthetic or sanitized dev/test data, and never in ML Dev/Test. The KMP maps each data class to its key tier.
 
 <sub>**Planned.** Controls: SC-12. SIP record: [DA-2.5](../04-sip/07-data.md#da-25-encryption-key-ownership-and-control). Details: the KMP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#2-key-ownership-and-vault-infrastructure).</sub>
 
 ## DA-3: Cryptographic Management
 
+KESTREL's cryptography will rest on hardware it controls. The nShield HSMs in the data center hold the root keys, with a standby at the alternate site, and Key Vault Premium holds the cloud's keys under them. Keys and certificates rotate and renew automatically, key administration is separated from key use, and the program is preparing now for the move to CNSA 2.0.
+
 ### DA-3.1: FIPS 140 / Approved Cryptographic Module Baseline
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+KESTREL will use only FIPS 140-3 validated cryptographic modules. The HSMs and the datalink crypto modules, which protect the key material in CCSD row 13, are validated at Level 3. As a national security system, it uses the CNSA algorithms CNSSP 15 requires, and the KMP lists the approved algorithms, key lengths, and protocols. Scans of code, configuration, and traffic flag anything else. KESTREL protects no classified information, so NSA-approved Type 1 cryptography sits on the IL6 side, inherited from the cross domain service provider.
 
 <sub>**Planned.** Controls: SC-13. SIP record: [DA-3.1](../04-sip/07-data.md#da-31-fips-140--approved-cryptographic-module-baseline). Details: the KMP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#1-tls-and-algorithm-baselines) and [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#2-key-ownership-and-vault-infrastructure).</sub>
 
 ### DA-3.2: Post-Quantum Cryptography Readiness
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+CNSSP 15 requires CNSA 2.0 for new national security system acquisitions from 2027-01-01. Every KESTREL contract will therefore require CNSA 2.0 support, or an NSA-approved exception or AO waiver. The cryptographic inventory starts in Phase 1. It records every place KESTREL relies on quantum-vulnerable public-key cryptography, beginning with the program PKI, the datalinks, and code signing.
+
+The transition plan follows in Phase 2, on the CNSA 2.0 timelines. Code signing must use CNSA 2.0 exclusively by 2030, which affects the Key Vault signing keys and the fleet key. Every new design must let its algorithms change without a redesign.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [DA-3.2](../04-sip/07-data.md#da-32-post-quantum-cryptography-readiness). Details: the KMP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#1-tls-and-algorithm-baselines).</sub>
 
 ### DA-3.3: Key Management Policies and Infrastructure
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Cloud workloads in every spoke that holds mission data, ML Dev/Test included, will draw keys only from Key Vault Premium. It also holds the pipeline's release and dev/test signing keys. The nShield HSMs hold the root keys, the program PKI, the fleet signing key, and the datalink keys, with a standby HSM at the alternate site. One key policy covers both tiers, managed by the Tier 0 administrators.
 
 <sub>**Planned.** Controls: SC-12. SIP record: [DA-3.3](../04-sip/07-data.md#da-33-key-management-policies-and-infrastructure). Details: the KMP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#2-key-ownership-and-vault-infrastructure).</sub>
 
 ### DA-3.4: HSM and Hardware Root-of-Trust Management
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The nShield HSMs in the data center will generate and hold KESTREL's most consequential keys: the root certificate authority, the fleet signing key, and the datalink key material. Their backups reach the standby HSM at the alternate site over F19, only as blobs wrapped under the HSMs' security world, which are useless outside an HSM.
+
+Outside the HSMs, these keys exist only inside a datalink crypto module or a key loader in transit, and each loader is zeroized after every fill. HSM administration needs two people, and every HSM operation is logged to Splunk.
 
 <sub>**Planned.** Controls: SC-28(3), SC-12(2), SC-12(6), IA-7. SIP record: [DA-3.4](../04-sip/07-data.md#da-34-hsm-and-hardware-root-of-trust-management).</sub>
 
 ### DA-3.5: Key Lifecycle Automation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Keys that Key Vault generates will rotate automatically on the KMP's cadence. Imported keys cannot rotate in place, so an approaching expiry triggers an nShield job that generates, wraps, and imports the replacement. Datalink keys rotate on Fleet Operations' schedule. Every cloud key is also available in the second IL5 region, so recovery never waits on one.
+
+Keys whose loss would destroy data, such as backup keys, are escrowed in the alternate site's HSM under split knowledge. Recovering an escrowed key needs approval from both the ISSM and a Tier 0 administrator.
 
 <sub>**Planned.** Controls: SC-12, SC-12(1). SIP record: [DA-3.5](../04-sip/07-data.md#da-35-key-lifecycle-automation). Details: the KMP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#3-key-lifecycle-management).</sub>
 
 ### DA-3.6: Key Access Separation of Duties
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Managing keys, using them, and auditing them will be separate roles. The Tier 0 administrators manage keys. Workload identities and Fleet Operations' key loading staff use them, and the Security Team audits them. No identity holds two of these roles. Changing a key's access policy needs a second Tier 0 approver and alerts the Security Team, and a key operation by any other identity raises an alert too.
 
 <sub>**Planned.** Controls: AC-5, AC-6(9). SIP record: [DA-3.6](../04-sip/07-data.md#da-36-key-access-separation-of-duties).</sub>
 
 ### DA-3.7: Certificate Policies and Integration
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Active Directory Certificate Services will issue KESTREL's device, workload, and code-signing certificates from issuing authorities under the root held in the HSMs, and Keyfactor Command distributes them. The PMO ISSE confirms the root's approval under DoDI 8520.02. User, partner, and edge server certificates come from DoD PKI and the External Certificate Authorities, whose trust anchors the identity provider holds.
 
 <sub>**Planned.** Controls: SC-17. SIP record: [DA-3.7](../04-sip/07-data.md#da-37-certificate-policies-and-integration). Details: the KMP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#4-certificate-management).</sub>
 
 ### DA-3.8: Automated Certificate Renewal
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+cert-manager will renew workload and service certificates ahead of expiry, through Keyfactor's issuer for Active Directory Certificate Services, and rebind each one to its service without an operator. The Istio mesh's certificates come from istiod, with its plug-in CA kept in Key Vault. Aircraft and station certificates renew during maintenance windows.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [DA-3.8](../04-sip/07-data.md#da-38-automated-certificate-renewal).</sub>
 
 ### DA-3.9: Certificate Lifecycle and Revocation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Keyfactor's inventory will track every certificate KESTREL issues or trusts, and Splunk will alert on an approaching expiry or on issuance nobody requested. A Tier 0 administrator authorizes each revocation, and the revocation list and status responses publish within an hour.
+
+An aircraft declared lost is the most serious case. Its device certificates are revoked at once, and the datalink keys it shared are superseded across the whole fleet, loaded from the nShield HSMs by key loader.
 
 <sub>**Planned.** Controls: SC-17. SIP record: [DA-3.9](../04-sip/07-data.md#da-39-certificate-lifecycle-and-revocation). Details: the KMP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#4-certificate-management).</sub>
 
 ### DA-3.10: Secrets Vault Access Controls
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Each spoke's Key Vault will grant each workload identity only the secrets it needs. People hold no standing vault access. An administrator activates access just in time through Entra Privileged Identity Management, inside an administrative VDI session.
 
 <sub>**Planned.** Controls: AC-6(1). SIP record: [DA-3.10](../04-sip/07-data.md#da-310-secrets-vault-access-controls). Details: the KMP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan#5-secrets-vault-access).</sub>
 
 ### DA-3.11: Secrets Vault Network Security Hardening
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every Key Vault will be reached only through a private endpoint in its own spoke, with public network access disabled. Its firewall admits only that spoke's workloads, and Azure Policy denies any change that would open it.
 
 <sub>**Planned.** Controls: SC-7(21). SIP record: [DA-3.11](../04-sip/07-data.md#da-311-secrets-vault-network-security-hardening).</sub>
 
 ### DA-3.12: Secrets Vault Protection and Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every Key Vault will have soft delete and purge protection on. A deleted vault or key can then be recovered within the retention window, and no single person can purge one. Vault operations and Defender for Key Vault alerts go to Splunk.
 
 <sub>**Planned.** Controls: SI-4. SIP record: [DA-3.12](../04-sip/07-data.md#da-312-secrets-vault-protection-and-monitoring).</sub>
 
 ### DA-3.13: Key Management Plan (KMP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The Tier 0 administrators will write the Key Management Plan, with Fleet Operations writing the datalink key procedures. It requires RSA-3072 or larger for customer-managed and imported keys, under CNSA. The PMO ISSE adds the CNSA 2.0 transition section once the transition plan is complete. The Security Team reviews the plan, and the Configuration Control Board approves it. It is revised each year and whenever an algorithm, a key tier, or a post-quantum milestone changes.
 
 <sub>**Planned.** Controls: SC-1. SIP record: [DA-3.13](../04-sip/07-data.md#da-313-key-management-plan-kmp). Published as the [Key Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Key-Management-Plan).</sub>

@@ -1,0 +1,1 @@
+Every Key Vault will have soft delete and purge protection on. A deleted vault or key can then be recovered within the retention window, and no single person can purge one. Vault operations and Defender for Key Vault alerts go to Splunk.

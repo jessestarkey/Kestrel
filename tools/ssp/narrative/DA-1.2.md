@@ -1,0 +1,3 @@
+One policy will decide data access, from the user's team, role, payload vendor rights, and partner nation, and from each record's labels. An OPA policy decision service makes those decisions, with a replica on each side of the circuit that fails closed. Applications, the partner API, and the report index call it directly, and StorageGRID enforces bucket policies generated from the same policy, one set per data lake zone.
+
+The payload vendor split is enforced like a compartment, and flows between zones are allowed only where F18 permits. Every policy change is tested against a fixed set of access cases before it deploys, so a change cannot quietly widen access.

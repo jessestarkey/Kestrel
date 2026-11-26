@@ -1,0 +1,1 @@
+Every Key Vault will be reached only through a private endpoint in its own spoke, with public network access disabled. Its firewall admits only that spoke's workloads, and Azure Policy denies any change that would open it.

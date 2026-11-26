@@ -1,0 +1,3 @@
+CNSSP 15 requires CNSA 2.0 for new national security system acquisitions from 2027-01-01. Every KESTREL contract will therefore require CNSA 2.0 support, or an NSA-approved exception or AO waiver. The cryptographic inventory starts in Phase 1. It records every place KESTREL relies on quantum-vulnerable public-key cryptography, beginning with the program PKI, the datalinks, and code signing.
+
+The transition plan follows in Phase 2, on the CNSA 2.0 timelines. Code signing must use CNSA 2.0 exclusively by 2030, which affects the Key Vault signing keys and the fleet key. Every new design must let its algorithms change without a redesign.

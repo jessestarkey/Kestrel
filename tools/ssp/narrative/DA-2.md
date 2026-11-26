@@ -1,0 +1,1 @@
+Every piece of KESTREL's data will be encrypted, in transit and at rest, under keys KESTREL controls. Connections use TLS 1.2 or later with CNSA cipher suites, files move only over encrypted protocols, and every store is encrypted by default. Labels add a further layer, giving each team's or vendor's data its own key.
