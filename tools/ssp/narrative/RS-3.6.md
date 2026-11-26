@@ -1,0 +1,1 @@
+Owning teams will restore only from Veeam copies and Artifactory versions older than the earliest confirmed attacker activity. The Security Team checks each source for the incident's indicators first. If no clean source exists, systems are rebuilt from OpenTofu and the Packer golden images. Splunk then watches the recovered system closely for 30 days.

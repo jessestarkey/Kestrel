@@ -1,0 +1,1 @@
+Splunk SOAR will run the response playbooks and update the incident's Jira Service Management record at each step. Its service identity can take only the actions the playbooks list. The CSSP runs the containment playbooks from its host pool, and each run pages the Security Team.

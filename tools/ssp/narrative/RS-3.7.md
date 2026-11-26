@@ -1,0 +1,1 @@
+Every incident of severity 2 or higher will end with a lessons-learned review in Confluence. Each finding becomes a Jira item with an owner, tracked until it closes, and design findings go to the PMO ISSE.

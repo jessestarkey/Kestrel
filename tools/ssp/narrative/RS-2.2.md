@@ -1,0 +1,1 @@
+From Phase 2, analysts will investigate in Splunk Enterprise Security and save their queries and findings with the incident's Jira Service Management record. Owning teams raise their logging within an hour of a request. On fleet equipment, logging changes go only through the vendor's engineering path, with Fleet Operations' agreement.

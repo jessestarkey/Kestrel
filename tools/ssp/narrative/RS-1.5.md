@@ -1,0 +1,1 @@
+A declared incident will page the on-call analyst through Jira Service Management and notify the CSSP's operations center. Severe incidents also page the ISSM and the affected team's lead. If the service desk or the circuits are down, Splunk pages directly over F29, with only an incident ID and severity in the message.

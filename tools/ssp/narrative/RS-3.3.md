@@ -1,0 +1,1 @@
+Containment on the fleet will always be manual, run by Fleet Operations. The IRP's fleet section sets the rules. Nothing is contained on an aircraft while it is airborne, and the operations lead approves each action. Cutting a site's conduit also has a time limit, so a site is never isolated longer than its operations can bear.

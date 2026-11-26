@@ -1,0 +1,1 @@
+Defender for Cloud's security contact on every subscription and on the tenant will be the Security Team's monitored address and the CSSP's operations center. The Security Team checks those contacts each quarter.

@@ -1,0 +1,1 @@
+The ISSM will have an interim IRP approved in Phase 1, for the interim authorization to test. It covers declaring an incident, reporting to the CSSP, and who acts. The full IRP, with its runbooks, follows in Phase 2, and it is revised each year and after each exercise.

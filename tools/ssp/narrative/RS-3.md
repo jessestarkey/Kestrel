@@ -1,0 +1,1 @@
+Containment, eradication, and recovery will follow the IRP, with automation where it is safe and people in the loop where it is not. Splunk SOAR runs playbooks that can take only listed actions, and nothing automated touches the fleet. Recovery restores only from sources older than the attack, and every serious incident ends with a review whose findings are tracked to closure.

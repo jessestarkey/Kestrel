@@ -1,0 +1,1 @@
+KESTREL will be ready to respond before an incident starts. The Incident Response Plan (IRP) and its runbooks say who acts and how, and the team trains and exercises against them. Notification and reporting paths are set in advance. The ISSM leads every incident, and the CSSP monitors around the clock and contains what cannot wait.

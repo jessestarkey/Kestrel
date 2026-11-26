@@ -1,0 +1,1 @@
+The CSSP will monitor KESTREL around the clock from Phase 1, triage alerts, and run the pre-approved containment playbooks from its Azure Virtual Desktop host pool. Splunk forwards all telemetry to it, and a stalled feed raises an alert. The ISSM tracks each CSSP directive to completion in Jira Service Management. The CSSP's provider advisories also reach KESTREL automatically.

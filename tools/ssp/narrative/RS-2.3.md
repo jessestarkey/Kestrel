@@ -1,0 +1,3 @@
+Evidence will be collected under the IRP from Phase 2. Defender XDR live response collects memory and files under the EDR responder role, and a playbook takes cloud disk snapshots. Evidence goes to a StorageGRID bucket under retention lock that only the Security Team can read, and it is excluded from replication. Automated collection follows in Phase 3, once the playbooks have run by hand.
+
+Analysts examine copies, never originals, on an isolated forensic workstation that cannot reach production. Fleet equipment is imaged only in a maintenance window or after landing. Crypto modules and HSMs are never imaged.

@@ -1,0 +1,1 @@
+When something goes wrong, KESTREL will turn alerts into incidents quickly and investigate them with full context. Correlated alerts open incident records automatically, enriched with each asset's owner and criticality. Evidence is collected and kept in locked storage, and severity is scored from what the incident could affect, including any effect on an aircraft.

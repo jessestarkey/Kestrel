@@ -4,128 +4,140 @@
 
 ## RS-1: Incident Preparation
 
+KESTREL will be ready to respond before an incident starts. The Incident Response Plan (IRP) and its runbooks say who acts and how, and the team trains and exercises against them. Notification and reporting paths are set in advance. The ISSM leads every incident, and the CSSP monitors around the clock and contains what cannot wait.
+
 ### RS-1.1: Incident Response Development
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the ISSM will maintain KESTREL's incident response runbooks in Confluence, with response steps automated in Splunk SOAR where that is safe. Cloud runbooks use the provider's native response actions. Fleet runbooks are written with Fleet Operations and follow the airborne rule, so no response step acts on an aircraft in flight. AI incidents have runbooks of their own, and a lost aircraft's datalink keys are superseded across the fleet.
 
 <sub>**Planned.** Controls: IR-4. SIP record: [RS-1.1](../04-sip/09-response.md#rs-11-incident-response-development). Details: the IRP, [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#appendix-referenced-companion-documents).</sub>
 
 ### RS-1.2: Incident Response Team Structure and Training
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+The ISSM will lead every incident in Jira Service Management. The CSSP contains what cannot wait, through its pre-approved playbooks. The Platform Team, IT Operations, the Data Team, and Fleet Operations each act on their own systems at the ISSM's direction. An AI incident also brings in the model's owner. Responders train on KESTREL's runbooks in the exercise environment each year, including on simulated incidents.
 
 <sub>**Planned.** Controls: IR-2, IR-4(11), IR-2(1), IR-2(2). SIP record: [RS-1.2](../04-sip/09-response.md#rs-12-incident-response-team-structure-and-training). Details: the IRP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#1-team-structure-authorities-and-resourcing).</sub>
 
 ### RS-1.3: Incident Response Plan Testing and Exercises
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, a tabletop exercise will run twice a year, one with an aircraft or ground segment scenario and one with an AI scenario. A functional exercise follows in Phase 3, once the fleet and agents exist. It then runs each year with the real tools, the CSSP, and the Contingency Plan's owners. Fleet systems join only by simulator or discussion. Each exercise's findings become tracked items, and the IRP is updated from them.
 
 <sub>**Planned.** Controls: IR-3, IR-3(2), IR-3(3). SIP record: [RS-1.3](../04-sip/09-response.md#rs-13-incident-response-plan-testing-and-exercises).</sub>
 
 ### RS-1.4: Security Contact Information
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Defender for Cloud's security contact on every subscription and on the tenant will be the Security Team's monitored address and the CSSP's operations center. The Security Team checks those contacts each quarter.
 
 <sub>**Planned.** Controls: IR-7(2). SIP record: [RS-1.4](../04-sip/09-response.md#rs-14-security-contact-information).</sub>
 
 ### RS-1.5: Automated Notification Workflows
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+A declared incident will page the on-call analyst through Jira Service Management and notify the CSSP's operations center. Severe incidents also page the ISSM and the affected team's lead. If the service desk or the circuits are down, Splunk pages directly over F29, with only an incident ID and severity in the message.
 
 <sub>**Planned.** Controls: IR-6, IR-6(1). SIP record: [RS-1.5](../04-sip/09-response.md#rs-15-automated-notification-workflows).</sub>
 
 ### RS-1.6: Incident Reporting and External Communications
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Reporting duties will be split by audience. The ISSM notifies the AO, and the CSSP reports up the DoD chain. The foreign disclosure officer notifies partner nations, and the privacy officer reports breaches of personal information. The performer reports incidents on its own laptops to DC3. The IRP sets the time limit for each. Sharing incident information with other organizations, such as an ISAC, starts in Phase 3.
 
 <sub>**Planned.** Controls: IR-6, IR-6(3), IR-4(10), IR-4(8). SIP record: [RS-1.6](../04-sip/09-response.md#rs-16-incident-reporting-and-external-communications). Details: the IRP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#3-reporting-notification-and-external-communications).</sub>
 
 ### RS-1.7: Cyber Defense Service Provider Alignment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The CSSP will monitor KESTREL around the clock from Phase 1, triage alerts, and run the pre-approved containment playbooks from its Azure Virtual Desktop host pool. Splunk forwards all telemetry to it, and a stalled feed raises an alert. The ISSM tracks each CSSP directive to completion in Jira Service Management. The CSSP's provider advisories also reach KESTREL automatically.
 
 <sub>**Planned.** Controls: IR-7, IR-7(2), IR-7(1). SIP record: [RS-1.7](../04-sip/09-response.md#rs-17-cyber-defense-service-provider-alignment). Details: the IRP, [Section 8](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#8-cyber-defense-service-provider-coordination).</sub>
 
 ## RS-2: Incident Detection, Analysis, and Investigation
 
+When something goes wrong, KESTREL will turn alerts into incidents quickly and investigate them with full context. Correlated alerts open incident records automatically, enriched with each asset's owner and criticality. Evidence is collected and kept in locked storage, and severity is scored from what the incident could affect, including any effect on an aircraft.
+
 ### RS-2.1: Automated Incident Creation and Enrichment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, correlated Splunk Enterprise Security alerts above the declaration threshold will open an incident in Jira Service Management automatically. Each record carries the affected asset's owner, team, criticality, and recent changes, pulled from Jira Service Management Assets.
 
 <sub>**Planned.** Controls: IR-5, IR-5(1). SIP record: [RS-2.1](../04-sip/09-response.md#rs-21-automated-incident-creation-and-enrichment).</sub>
 
 ### RS-2.2: Incident-Scoped Log Analysis and Investigation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, analysts will investigate in Splunk Enterprise Security and save their queries and findings with the incident's Jira Service Management record. Owning teams raise their logging within an hour of a request. On fleet equipment, logging changes go only through the vendor's engineering path, with Fleet Operations' agreement.
 
 <sub>**Planned.** Controls: IR-4, AU-12(3). SIP record: [RS-2.2](../04-sip/09-response.md#rs-22-incident-scoped-log-analysis-and-investigation).</sub>
 
 ### RS-2.3: Evidence Preservation and Forensic Capabilities
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Evidence will be collected under the IRP from Phase 2. Defender XDR live response collects memory and files under the EDR responder role, and a playbook takes cloud disk snapshots. Evidence goes to a StorageGRID bucket under retention lock that only the Security Team can read, and it is excluded from replication. Automated collection follows in Phase 3, once the playbooks have run by hand.
+
+Analysts examine copies, never originals, on an isolated forensic workstation that cannot reach production. Fleet equipment is imaged only in a maintenance window or after landing. Crypto modules and HSMs are never imaged.
 
 <sub>**Planned.** Controls: IR-4(12), AU-10. SIP record: [RS-2.3](../04-sip/09-response.md#rs-23-evidence-preservation-and-forensic-capabilities). Details: the IRP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#4-evidence-handling-and-legal-and-compliance-requirements).</sub>
 
 ### RS-2.4: Asset Criticality and Business Impact Assessment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Each asset's criticality will come from its tags in Jira Service Management Assets and from the business impact analysis. The command link, the stations, the identity provider, the HSMs and PKI, and the signing and registry path rank highest. Criticality feeds incident severity in Splunk Enterprise Security. Once the business impact analysis completes, its scores feed prioritization directly, from Phase 3.
 
 <sub>**Planned.** Controls: RA-9. SIP record: [RS-2.4](../04-sip/09-response.md#rs-24-asset-criticality-and-business-impact-assessment). Details: the IRP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#2-incident-classification-severity-and-escalation-triggers).</sub>
 
 ### RS-2.5: Automated Severity Scoring and Escalation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Severity will be computed from the asset's criticality, the data's sensitivity, the incident's scope, and any effect on an aircraft. AI incidents have their own taxonomy, covering poisoning, prompt injection, model theft, agent misuse, and a tampered edge model. Each severity has its own paging route. From Phase 3, a Splunk dashboard tracks the time to triage, contain, and recover.
 
 <sub>**Planned.** Controls: IR-4. SIP record: [RS-2.5](../04-sip/09-response.md#rs-25-automated-severity-scoring-and-escalation). Details: the IRP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#2-incident-classification-severity-and-escalation-triggers) and [Section 7](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#7-response-performance-metrics-and-continuous-improvement).</sub>
 
 ## RS-3: Incident Containment, Recovery, and Lessons Learned
 
+Containment, eradication, and recovery will follow the IRP, with automation where it is safe and people in the loop where it is not. Splunk SOAR runs playbooks that can take only listed actions, and nothing automated touches the fleet. Recovery restores only from sources older than the attack, and every serious incident ends with a review whose findings are tracked to closure.
+
 ### RS-3.1: SOAR Capabilities
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Splunk SOAR will run the response playbooks and update the incident's Jira Service Management record at each step. Its service identity can take only the actions the playbooks list. The CSSP runs the containment playbooks from its host pool, and each run pages the Security Team.
 
 <sub>**Planned.** Controls: IR-4(1). SIP record: [RS-3.1](../04-sip/09-response.md#rs-31-soar-capabilities). Details: the IRP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#5-containment-authorities).</sub>
 
 ### RS-3.2: Automated Containment and Isolation Procedures
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Containment will use the tools that already enforce each boundary. Entra ID and Defender XDR disable accounts and revoke sessions automatically from Phase 2. Network isolation is done by hand in Phase 2 and automated in Phase 3. Panorama moves a cloud workload into a quarantine policy, and ACI moves a data center host into a quarantine endpoint group.
+
+The Security Team approves before a playbook touches production. The exception is a CSSP run when an incident cannot wait. No playbook touches fleet systems or the operating sites' admission control.
 
 <sub>**Planned.** Controls: IR-4, IR-4(2), AC-2(3), AC-2(13). SIP record: [RS-3.2](../04-sip/09-response.md#rs-32-automated-containment-and-isolation-procedures).</sub>
 
 ### RS-3.3: Human-in-the-Loop Containment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Containment on the fleet will always be manual, run by Fleet Operations. The IRP's fleet section sets the rules. Nothing is contained on an aircraft while it is airborne, and the operations lead approves each action. Cutting a site's conduit also has a time limit, so a site is never isolated longer than its operations can bear.
 
 <sub>**Planned.** Controls: IR-4(3). SIP record: [RS-3.3](../04-sip/09-response.md#rs-33-human-in-the-loop-containment). Details: the IRP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#5-containment-authorities) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#appendix-referenced-companion-documents).</sub>
 
 ### RS-3.4: Eradication and Threat Removal
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Owning teams will eradicate a threat at the ISSM's direction, rotating every credential it touched through Key Vault and CyberArk. Fleet Operations eradicates only in a maintenance window or after landing. Artifactory blocks a withdrawn model version from being served again. A compromised signing key is revoked and every package signed with it is re-signed, and a lost aircraft's datalink keys are superseded across the fleet.
 
 <sub>**Planned.** Controls: IR-4, IA-5. SIP record: [RS-3.4](../04-sip/09-response.md#rs-34-eradication-and-threat-removal).</sub>
 
 ### RS-3.5: Classified Data Spillage Response
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+A spill of classified information onto KESTREL will be handled as its own kind of incident. The ISSM traces every copy, using OpenMetadata and Splunk. Owning teams sanitize their copies, and a copy caught in a locked backup is sanitized by destroying that backup set's key. Affected copies stay held until the PSO and the AO release them, and the spill is reported to the authorities the IRP names.
 
 <sub>**Planned.** Controls: IR-9, IR-9(3), IR-9(4). SIP record: [RS-3.5](../04-sip/09-response.md#rs-35-classified-data-spillage-response). Details: the IRP, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#6-classified-data-spillage-notification).</sub>
 
 ### RS-3.6: Recovery and Return-to-Operations Validation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Owning teams will restore only from Veeam copies and Artifactory versions older than the earliest confirmed attacker activity. The Security Team checks each source for the incident's indicators first. If no clean source exists, systems are rebuilt from OpenTofu and the Packer golden images. Splunk then watches the recovered system closely for 30 days.
 
 <sub>**Planned.** Controls: IR-4, SI-4. SIP record: [RS-3.6](../04-sip/09-response.md#rs-36-recovery-and-return-to-operations-validation).</sub>
 
 ### RS-3.7: Systemic Lessons Learned Process
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Every incident of severity 2 or higher will end with a lessons-learned review in Confluence. Each finding becomes a Jira item with an owner, tracked until it closes, and design findings go to the PMO ISSE.
 
 <sub>**Planned.** Controls: IR-4. SIP record: [RS-3.7](../04-sip/09-response.md#rs-37-systemic-lessons-learned-process). Details: the IRP, [Section 7](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan#7-response-performance-metrics-and-continuous-improvement).</sub>
 
 ## RS-4: Incident Response Planning
 
+The Incident Response Plan holds the procedures this focus area follows, from declaring an incident to reporting it and closing it out.
+
 ### RS-4.1: Incident Response Plan (IRP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The ISSM will have an interim IRP approved in Phase 1, for the interim authorization to test. It covers declaring an incident, reporting to the CSSP, and who acts. The full IRP, with its runbooks, follows in Phase 2, and it is revised each year and after each exercise.
 
 <sub>**Planned.** Controls: IR-1, IR-8, IR-8(1). SIP record: [RS-4.1](../04-sip/09-response.md#rs-41-incident-response-plan-irp). Published as the [Incident Response Plan](https://github.com/jessestarkey/Kestrel/wiki/Incident-Response-Plan).</sub>

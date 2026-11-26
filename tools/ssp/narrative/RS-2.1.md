@@ -1,0 +1,1 @@
+From Phase 2, correlated Splunk Enterprise Security alerts above the declaration threshold will open an incident in Jira Service Management automatically. Each record carries the affected asset's owner, team, criticality, and recent changes, pulled from Jira Service Management Assets.
