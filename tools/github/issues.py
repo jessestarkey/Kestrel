@@ -43,6 +43,7 @@ def note(kind):
 # Stories whose work lives in a wiki page, the stand-in for Confluence.
 WIKI = {'ID-4.6': ('Break-Glass Account Retrieval runbook', 'Break-Glass-Account-Retrieval'),
         'ID-5.1': ('Account Management Plan', 'Account-Management-Plan'),
+        'AI-10.1': ('AI/ML Security Plan', 'AI-ML-Security-Plan'),
         'AP-6.1': ('Application Security Plan', 'Application-Security-Plan'),
         'CO-2.1': ('Continuous Monitoring Plan', 'Continuous-Monitoring-Plan'),
         'DA-3.13': ('Key Management Plan', 'Key-Management-Plan'),

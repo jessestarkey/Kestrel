@@ -5,6 +5,7 @@
 **Governing plans**
 
 - [Account Management Plan](Account-Management-Plan)
+- [AI/ML Security Plan](AI-ML-Security-Plan)
 - [Application Security Plan](Application-Security-Plan)
 - [Configuration Management Plan](Configuration-Management-Plan)
 - [Continuous Monitoring Plan](Continuous-Monitoring-Plan)
