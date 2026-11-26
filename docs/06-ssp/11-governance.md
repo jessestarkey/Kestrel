@@ -4,208 +4,230 @@
 
 ## GV-1: Security Governance Structure
 
+KESTREL's security will be governed from the program office. The program manager issues one system security policy and chairs the steering committee, and the chief engineer chairs the Configuration Control Board that approves changes and plans. Roles are written down and formally appointed, and the PMO ISSE measures the program against the DoW zero trust pillars each year.
+
 ### GV-1.1: Security Policy Framework
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The program manager will issue one system security policy for KESTREL, beneath DoD issuances and the parent organization's policy. It names every governing plan as a standard, and maps each of its statements to the control families it addresses. Its scope covers the fleet and the ground segment, the alternate site, and the performer laptops that hold source code. Each governing plan supplies the procedures that carry the policy out.
 
 <sub>**Planned.** Controls: PM-1, AC-1, CM-1, RA-1, SC-1, MP-1, IR-1, CP-1, AT-1, MA-1. SIP record: [GV-1.1](../04-sip/11-governance.md#gv-11-security-policy-framework). Published as the [Governance Program Charter](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter). Details: the Governance Program Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#1-purpose-scope-and-policy-framework).</sub>
 
 ### GV-1.2: Security Roles and Responsibilities
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The responsibility matrix will live in the SSP. It names the program manager, the PMO ISSE, the ISSM, the ISSOs, the SCA, the PSO, and each team lead, with what each is responsible for. It also records that the Security Team and the CSSP hold no administrative roles beyond a few stated exceptions. The matrix is reviewed each year and whenever a role holder changes.
 
 <sub>**Planned.** Controls: PM-1, PM-2. SIP record: [GV-1.2](../04-sip/11-governance.md#gv-12-security-roles-and-responsibilities). Details: the Governance Program Charter, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#2-governance-roles-responsibilities-and-appointments).</sub>
 
 ### GV-1.3: ISSO/ISSM Appointment Letters
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The program manager will sign the ISSM's appointment letter, and the ISSM will sign each ISSO's. Each letter names the KESTREL boundary and the authority it confers. The letters are tracked in Jira and reissued whenever a role holder or the boundary changes.
 
 <sub>**Planned.** Controls: PM-2. SIP record: [GV-1.3](../04-sip/11-governance.md#gv-13-issoissm-appointment-letters). Details: the Governance Program Charter, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#2-governance-roles-responsibilities-and-appointments).</sub>
 
 ### GV-1.4: Security Governance and Steering Committee
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, a steering committee chaired by the program manager will meet each month. Its decisions and actions are tracked in Jira Service Management, and a Splunk dashboard gives it the month's security posture. The AI/ML Governance Review Board and the risk program report to it.
 
 <sub>**Planned.** Controls: PM-29, PM-6. SIP record: [GV-1.4](../04-sip/11-governance.md#gv-14-security-governance-and-steering-committee). Details: the Governance Program Charter, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#3-security-governance-and-steering-committee) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-1.5: Configuration Control Board
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The chief engineer will chair the Configuration Control Board each week, with Fleet Operations' operations lead as a standing member alongside the PMO ISSE and the ISSM. The board approves changes to the hubs' rule base, the identity provider, and interconnections, and approves the governing plans the AO does not. Its decision log runs from Phase 1, since it approves the first rule base and the first plans.
 
 <sub>**Planned.** Controls: CM-3. SIP record: [GV-1.5](../04-sip/11-governance.md#gv-15-configuration-control-board). Details: the Governance Program Charter, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#4-configuration-control-board) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-1.6: Zero Trust Maturity Assessment and Roadmap
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the PMO ISSE will score KESTREL against the DoW zero trust pillars each year. The score covers the cloud, the data center, the alternate site, and the ground segment. Each gap the score finds becomes a record in the Security Implementation Plan, and progress goes to the steering committee each quarter.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [GV-1.6](../04-sip/11-governance.md#gv-16-zero-trust-maturity-assessment-and-roadmap). Details: the Governance Program Charter, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#6-zero-trust-maturity-and-roadmap).</sub>
 
 ## GV-2: Policy and Awareness
 
+Policies and plans will be versioned, approved, and reviewed on a defined cycle, and exceptions to them will be requested, approved, and tracked to an end date. Every user completes awareness training and signs the rules of behavior before getting an account, and a lapse disables the account automatically.
+
 ### GV-2.1: Policy Lifecycle Management
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+Policies and plans will be versioned in Confluence. The Configuration Control Board approves standards and governing plans, except those the AO approves, and the ISSM approves runbooks. Where a policy can be enforced by a machine, it is written as code in GitLab, such as the admission and OPA policies. Turning more written policy into code follows in Phase 3.
 
 <sub>**Planned.** Controls: PM-1. SIP record: [GV-2.1](../04-sip/11-governance.md#gv-21-policy-lifecycle-management). Details: the Governance Program Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#1-purpose-scope-and-policy-framework).</sub>
 
 ### GV-2.2: Policy Exception Management
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+Exceptions to policy will be requested in Jira Service Management, each with an end date. Approval follows the risk charter, so the PMO ISSE may approve Very Low exceptions anywhere, and Low ones outside CCSD rows 6, 8, 10, and 13. The AO approves the rest. An exception that expires becomes an open finding. From Phase 3, trend reports show where exceptions cluster.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [GV-2.2](../04-sip/11-governance.md#gv-22-policy-exception-management). Details: the Governance Program Charter, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#5-policy-exception-authority) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-2.3: Security Awareness and Training Program
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every user will complete DoD cyber awareness and CUI training on JKO before their account is created, and each year after. Role-based courses cover operators, OT maintainers, and the staff who receive hardware. A lapsed course disables the account in Active Directory through Ansible, and the station accounts follow at their next sync. Phishing exercises are inherited from the parent organization's and the performer's email programs.
 
 <sub>**Planned.** Controls: AT-2, AT-2(1), AT-2(2), AT-2(3), AT-2(4), AT-3, AT-4, AT-1. SIP record: [GV-2.3](../04-sip/11-governance.md#gv-23-security-awareness-and-training-program).</sub>
 
 ### GV-2.4: Rules of Behavior and Acceptable Use Policy
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every user will sign the rules of behavior through a Jira Service Management form before their account is created, and each year after. A lapsed acknowledgment disables the account in Active Directory through Ansible. The ISSM refers violations to the PSO.
 
 <sub>**Planned.** Controls: PL-4, PL-4(1). SIP record: [GV-2.4](../04-sip/11-governance.md#gv-24-rules-of-behavior-and-acceptable-use-policy). Details: the Governance Program Charter, [Section 7](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#7-rules-of-behavior-and-acceptable-use) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Governance-Program-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ## GV-3: Third-Party and Supply Chain Governance
 
+KESTREL will manage the risk that comes from its suppliers. Every commercial supplier is assessed and tiered before award, and contracts carry security clauses matched to each supplier's risk. Hardware is bought only through trusted channels and inspected when it arrives. The Supply Chain Risk Management Plan holds the rules.
+
 ### GV-3.1: Vendor Security Risk Assessment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Commercial suppliers will answer KESTREL's security questionnaire before contract award, including for the Phase 1 awards. The supply chain lead also checks each supplier's score in the Supplier Performance Risk System. DoD and provider services, such as the IL5 cloud and the CSSP, are relied on through their own authorizations instead.
+
+Suppliers are tiered by what they can reach. Tier 1 covers anyone touching the fleet, mission data, or keys, and is reassessed every year, while the rest are reassessed every three years. Findings are tracked to closure, and one a supplier will not close goes to the steering committee. Each self-hosted third-party product is registered in Jira Service Management Assets once its assessment passes.
 
 <sub>**Planned.** Controls: PM-30(1), SR-6, CM-8. SIP record: [GV-3.1](../04-sip/11-governance.md#gv-31-vendor-security-risk-assessment). Details: the SCRM, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#2-vendor-assessment-and-risk-tiering) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-3.2: Contract Security Requirements
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The clause library will hold every security clause KESTREL's contracts use, including the clauses the contracting table marks as new, written before the Phase 1 awards. They include DFARS 252.204-7012 and the CMMC clauses, SBOM delivery, vulnerability disclosure, incident reporting, CNSA 2.0 support, and each payload vendor's data rights terms.
+
+The supply chain lead verifies at award that each contract carries the clauses its tier requires and flows them down, then checks compliance each year. The performer laptops that hold source code fall under DFARS 252.204-7012 from Phase 1.
 
 <sub>**Planned.** Controls: SA-1, SA-4, SA-9, SR-3(3), SR-5, SR-8, PM-17, SA-4(9), SA-4(10), SA-4(1), SA-4(2), SA-4(5), SA-9(2), SA-15(3). SIP record: [GV-3.2](../04-sip/11-governance.md#gv-32-contract-security-requirements). Details: the SCRM, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#3-contract-security-requirements) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-3.3: Supply Chain Risk Assessment and Dependency Mapping
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the supply chain lead will assess KESTREL's software and hardware supply chain each year and map the dependencies the mission rests on. These include the aircraft manufacturer, both payload vendors, the cloud provider, the foundation model's publisher, and the HSM vendor. Single points of supply and countries of origin are recorded in Confluence, and findings are tracked in Jira.
 
 <sub>**Planned.** Controls: PM-30(1), RA-3(1), SR-3. SIP record: [GV-3.3](../04-sip/11-governance.md#gv-33-supply-chain-risk-assessment-and-dependency-mapping). Details: the SCRM, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#4-supply-chain-risk-assessment-and-dependency-mapping) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-3.4: Hardware and Firmware Provenance Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+Aircraft, stations, and payloads will be bought only from their manufacturers, and data center hardware and HSMs only from authorized resellers. The Platform Team inspects data center hardware for tampering and counterfeit parts at receipt from Phase 1, and Fleet Operations inspects fleet equipment from Phase 3. Stations and aircraft avionics are also rescanned each year, under CCSD tailoring action 4.
+
+Suspect parts are quarantined and reported to GIDEP. Firmware is accepted only with a valid manufacturer signature, or a published hash where it is unsigned, and each verified version is recorded in Assets. Retired drives are sanitized with Blancco.
 
 <sub>**Planned.** Controls: SI-7(15), SR-4, SR-5, SR-9, SR-10, SR-11, SR-11(1), SR-11(2), SR-11(3), SR-12. SIP record: [GV-3.4](../04-sip/11-governance.md#gv-34-hardware-and-firmware-provenance-verification). Details: the SCRM, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#5-sourcing-inspection-and-firmware-provenance) and [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#6-component-disposal-and-sanitization).</sub>
 
 ### GV-3.5: Supply Chain Risk Management Plan (SCRM)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+The supply chain lead will write the Supply Chain Risk Management Plan in Phase 2, with the SCRM team it names. The ISSM and the PMO ISSE review it, and the Configuration Control Board approves it. It is revised each year and whenever a Tier 1 supplier changes.
 
 <sub>**Planned.** Controls: PM-30, SR-1, SR-2, SR-2(1). SIP record: [GV-3.5](../04-sip/11-governance.md#gv-35-supply-chain-risk-management-plan-scrm). Published as the [Supply Chain Risk Management Plan](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan). Details: the SCRM, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Supply-Chain-Risk-Management-Plan#1-scrm-team-and-roles).</sub>
 
 ## GV-4: AI/ML Governance
 
+AI will be governed as a program, not only as technology. An inventory registers every use case, a review board approves each one before work starts, and a responsible AI policy sets the commitments every design is tested against. The program also maps its AI obligations, assesses AI suppliers, and ranks the AI threats across the whole estate. The AI/ML Governance Charter holds these decisions.
+
 ### GV-4.1: AI/ML Use Case Inventory
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The AI use case inventory will be a Jira project, open from Phase 1 so the review board can tier the first use cases. Each use case links to the Assets records of the model versions it runs on, so a change to one model resolves to every use case it affects. Platform models are listed with their sponsor and removal review date. A quarterly sweep reads Azure AI service usage and the procurement records, catching any AI that was never submitted.
 
 <sub>**Planned.** Controls: PM-5, PM-11, RA-3. SIP record: [GV-4.1](../04-sip/11-governance.md#gv-41-aiml-use-case-inventory). Published as the [AI/ML Governance Charter](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter). Details: the AI/ML Governance Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#1-aiml-use-case-inventory-and-risk-tiering) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-4.2: Program-Level AI Threat Assessment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the PMO ISSE will map the AI estate's trust zones in Threagile each year, including both agents and every use case on the foundation model. A ranking of the MITRE ATLAS techniques that matter most across that map goes to the review board, and it feeds each model's own threat model.
 
 <sub>**Planned.** Controls: RA-3. SIP record: [GV-4.2](../04-sip/11-governance.md#gv-42-program-level-ai-threat-assessment). Details: the AI/ML Governance Charter, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#2-program-level-ai-threat-assessment) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-4.3: Responsible AI Policy and Principles
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the responsible AI policy will set KESTREL's commitments. The first are that no model commands an aircraft, and that a person approves every agent action affecting a flight. Each principle maps to the AI outcomes that enforce it, so a reviewer can test a design against it. The policy is part of every user's training.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [GV-4.3](../04-sip/11-governance.md#gv-43-responsible-ai-policy-and-principles). Details: the AI/ML Governance Charter, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#3-responsible-ai-policy-and-principles).</sub>
 
 ### GV-4.4: AI/ML Governance Review Board
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The program office will charter the AI/ML Governance Review Board in late Phase 1, so it can approve the first use cases before training starts. The chief engineer chairs it. Every use case gets one of three recorded decisions before any corpus is assembled: approved, approved with conditions, or rejected. Until the threat assessment and the responsible AI policy arrive in Phase 2, the board judges use cases against the AISP.
+
+The board admits a platform model for experimentation only. If no use case is certified on it by its recorded date, the board reviews it for removal.
 
 <sub>**Planned.** Controls: PM-11, PM-6. SIP record: [GV-4.4](../04-sip/11-governance.md#gv-44-aiml-governance-review-board). Details: the AI/ML Governance Charter, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#4-aiml-governance-review-board) and [Section 7](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#7-aiml-governance-posture-report) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### GV-4.5: AI/ML Regulatory Mapping (NIST AI RMF, DoD RAI)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the PMO ISSE will map each use case in Confluence against two frameworks. These are the DoD AI Cybersecurity Risk Management Tailoring Guide and the NIST AI Risk Management Framework. A new AI directive is assessed within a quarter of being issued.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [GV-4.5](../04-sip/11-governance.md#gv-45-aiml-regulatory-mapping-nist-ai-rmf-dod-rai). Details: the AI/ML Governance Charter, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#5-aiml-regulatory-and-framework-mapping).</sub>
 
 ### GV-4.6: AI/ML Vendor/Model Risk Assessment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the review board will decide how to treat each AI supplier finding, and any supplier risk KESTREL accepts goes through the risk acceptance process. Azure OpenAI is registered in Assets once its risk is treated, and each use case certified on it is linked to it, including the coding agent.
 
 <sub>**Planned.** Controls: RA-7, CM-8. SIP record: [GV-4.6](../04-sip/11-governance.md#gv-46-aiml-vendormodel-risk-assessment). Details: the AI/ML Governance Charter, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#6-aiml-vendormodel-risk-tiering) and [Section 7](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#7-aiml-governance-posture-report) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ## GV-5: Authorization Management
 
+This capability carries KESTREL through authorization. It produces the design and planning documents, from the CCSD and the SADD to the Security Implementation Plan, the SSP, and the SCTM. It also manages the interim authorization to test and the ATO. After authorization, it keeps the authorization current through ongoing monitoring, impact analysis of every change, and checks on each inherited service.
+
 ### GV-5.1: Security Architecture and Design Document (SADD)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The SADD will be built from the CCSD and the SABER in GitLab, with each outcome's design intent written by hand. The AO approves it as KESTREL's design basis. It is rebuilt whenever the CCSD, the system description, or the SABER version changes.
 
 <sub>**Planned.** Controls: PL-8, PL-8(1), PM-7. SIP record: [GV-5.1](../04-sip/11-governance.md#gv-51-security-architecture-and-design-document-sadd).</sub>
 
 ### GV-5.2: Security Implementation Plan
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The Security Implementation Plan will be built from the SADD in GitLab, and its records load into Jira as stories and sub-tasks. The program manager approves each revision, since only the program manager commits the staff, contracts, and budget it assumes. It is revised each quarter from Phase 1.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [GV-5.2](../04-sip/11-governance.md#gv-52-security-implementation-plan).</sub>
 
 ### GV-5.3: System Security Plan (SSP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The ISSM will keep the SSP in OSCAL from its first version, with compliance-trestle, and publish it to eMASS. The SSP is generated from the same sources as the SCTM, so the two agree by construction. The AO approves an initial SSP before the interim authorization to test, and the full SSP with the authorization package.
 
 <sub>**Planned.** Controls: PL-2, PL-1, PL-7. SIP record: [GV-5.3](../04-sip/11-governance.md#gv-53-system-security-plan-ssp).</sub>
 
 ### GV-5.4: Categorization and Control Selection Document (CCSD)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The CCSD will record KESTREL's 18 information types, their impact values, and its tailoring actions. Version 1.0 is approved, and version 1.1 is in SCA review. It is revised whenever an information type, an interconnection, or the boundary changes, including a slip of tailoring action 3.
 
 <sub>**Planned.** Controls: RA-2, PL-11. SIP record: [GV-5.4](../04-sip/11-governance.md#gv-54-categorization-and-control-selection-document-ccsd).</sub>
 
 ### GV-5.5: Security Categorization
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+KESTREL's categorization will be High for confidentiality and integrity, and Moderate for availability, by CNSSI 1253's high-water mark over the CCSD's information types. The AO concurred in it on 2026-08-28. It is reassessed with every CCSD revision.
 
 <sub>**Planned.** Controls: RA-2, PL-10. SIP record: [GV-5.5](../04-sip/11-governance.md#gv-55-security-categorization).</sub>
 
 ### GV-5.6: System Interconnection Agreements (ISA/MOU/MOA)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Each interconnection will rest on a signed agreement, stored in Confluence and recorded in eMASS. The CSSP and access point agreements are signed in Phase 1, for the interim authorization to test. Partner nation agreements follow before each partner's first release. Each agreement is reviewed every year and whenever its connection changes.
 
 <sub>**Planned.** Controls: CA-3, CA-3(7). SIP record: [GV-5.6](../04-sip/11-governance.md#gv-56-system-interconnection-agreements-isamoumoa).</sub>
 
 ### GV-5.7: Authorization to Operate (ATO) Process
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-09-30.*
+The interim authorization to test will cover the spare aircraft and the simulator, the access point and CSSP connections, and the prior collection admitted over F28. Its conditions are tracked to closure in the POA&M from Phase 1. The ISSM then submits the full package in eMASS for the ATO decision, due on 2028-09-30.
 
 <sub>**Planned.** Controls: CA-6, PM-10. SIP record: [GV-5.7](../04-sip/11-governance.md#gv-57-authorization-to-operate-ato-process).</sub>
 
 ### GV-5.8: Authorization Package Compilation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-09-15.*
+From Phase 3, the ISSM will compile the authorization package in eMASS once the SAR and the RAR arrive, with the SSP and SCTM exported from OSCAL. A model evidence annex comes from each model's AI Cyber T&E record. The PMO ISSE then attests that the package matches what was actually built.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [GV-5.8](../04-sip/11-governance.md#gv-58-authorization-package-compilation).</sub>
 
 ### GV-5.9: Security Controls Traceability Matrix (SCTM)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The SCTM will be kept in OSCAL from its first version, generated from the CCSD, the SADD, and the program's dispositions. Each row carries its control to the SADD outcomes that implement it, its inheritance, its implementation status, and its evidence location. It is checked against the SSP before each submission.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [GV-5.9](../04-sip/11-governance.md#gv-59-security-controls-traceability-matrix-sctm).</sub>
 
 ### GV-5.10: Ongoing Authorization
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+The triggers for AO review will be agreed in advance, for the interim authorization to test. They include a new interconnection, partner nation, spoke, payload vendor, or foundation model, and any change to the CCSD's information types. Activating the alternate site is one too, and so is a slip of the payload processing workstation's replacement past 2027-09-30, or tailoring action 6's annual review.
+
+Continuous monitoring results feed the ISSM's view of the authorization's posture, with Splunk feeding it from Phase 3. The ISSM reports authorization status to the AO each quarter.
 
 <sub>**Planned.** Controls: CA-6. SIP record: [GV-5.10](../04-sip/11-governance.md#gv-510-ongoing-authorization).</sub>
 
 ### GV-5.11: Security Impact Analysis (SIA)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every change process will feed one Security Impact Analysis intake in Jira Service Management, including fleet maintenance changes. Pipeline releases and retraining within an approved envelope are classified automatically from GitLab, under a standing classification. Everything else goes to the ISSM, who asks whether the change alters anything the authorization was granted against.
+
+A significant change goes to the SCA and the AO before it is made. Each analysis flags the SSP, SCTM, and CCSD updates it needs, and the change's affected controls are verified afterward. SIA-2026-0001, for the coding agent's persistent memory, is the first record.
 
 <sub>**Planned.** Controls: CM-4, CM-4(2). SIP record: [GV-5.11](../04-sip/11-governance.md#gv-511-security-impact-analysis-sia). Published as the [SIA-2026-0001: Persistent Memory for the Coding Agent](https://github.com/jessestarkey/Kestrel/wiki/SIA-2026-0001-Coding-Agent-Memory).</sub>
 
 ### GV-5.12: Inherited Control Validation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The ISSM will confirm that each provider's authorization is current before KESTREL inherits from it, and check its status each quarter from Phase 1. Azure services are checked against Azure Government's IL5 audit scope in both US Gov regions. That includes specific needs, such as Application Gateway's private deployment and the isolated GPU size and its quota. The Microsoft 365 DoD tenant, the access point, DoD PKI, the CSSP, the cross domain provider, and the alternate site's facility are each checked against their own authorizations. Microsoft's decision on modified content filtering is tracked here too.
 
 <sub>**Planned.** Controls: SA-9, CA-6(2). SIP record: [GV-5.12](../04-sip/11-governance.md#gv-512-inherited-control-validation).</sub>

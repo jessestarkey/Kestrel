@@ -1,0 +1,1 @@
+The Security Implementation Plan will be built from the SADD in GitLab, and its records load into Jira as stories and sub-tasks. The program manager approves each revision, since only the program manager commits the staff, contracts, and budget it assumes. It is revised each quarter from Phase 1.

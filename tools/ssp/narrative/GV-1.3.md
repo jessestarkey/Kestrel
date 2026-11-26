@@ -1,0 +1,1 @@
+The program manager will sign the ISSM's appointment letter, and the ISSM will sign each ISSO's. Each letter names the KESTREL boundary and the authority it confers. The letters are tracked in Jira and reissued whenever a role holder or the boundary changes.

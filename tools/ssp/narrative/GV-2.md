@@ -1,0 +1,1 @@
+Policies and plans will be versioned, approved, and reviewed on a defined cycle, and exceptions to them will be requested, approved, and tracked to an end date. Every user completes awareness training and signs the rules of behavior before getting an account, and a lapse disables the account automatically.

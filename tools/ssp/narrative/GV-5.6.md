@@ -1,0 +1,1 @@
+Each interconnection will rest on a signed agreement, stored in Confluence and recorded in eMASS. The CSSP and access point agreements are signed in Phase 1, for the interim authorization to test. Partner nation agreements follow before each partner's first release. Each agreement is reviewed every year and whenever its connection changes.

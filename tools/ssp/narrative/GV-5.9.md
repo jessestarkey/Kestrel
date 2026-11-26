@@ -1,0 +1,1 @@
+The SCTM will be kept in OSCAL from its first version, generated from the CCSD, the SADD, and the program's dispositions. Each row carries its control to the SADD outcomes that implement it, its inheritance, its implementation status, and its evidence location. It is checked against the SSP before each submission.

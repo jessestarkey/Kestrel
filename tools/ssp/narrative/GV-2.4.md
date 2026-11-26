@@ -1,0 +1,1 @@
+Every user will sign the rules of behavior through a Jira Service Management form before their account is created, and each year after. A lapsed acknowledgment disables the account in Active Directory through Ansible. The ISSM refers violations to the PSO.

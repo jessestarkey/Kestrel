@@ -1,0 +1,1 @@
+The CCSD will record KESTREL's 18 information types, their impact values, and its tailoring actions. Version 1.0 is approved, and version 1.1 is in SCA review. It is revised whenever an information type, an interconnection, or the boundary changes, including a slip of tailoring action 3.

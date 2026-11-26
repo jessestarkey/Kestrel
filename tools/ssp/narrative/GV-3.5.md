@@ -1,0 +1,1 @@
+The supply chain lead will write the Supply Chain Risk Management Plan in Phase 2, with the SCRM team it names. The ISSM and the PMO ISSE review it, and the Configuration Control Board approves it. It is revised each year and whenever a Tier 1 supplier changes.

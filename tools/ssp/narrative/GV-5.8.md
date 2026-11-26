@@ -1,0 +1,1 @@
+From Phase 3, the ISSM will compile the authorization package in eMASS once the SAR and the RAR arrive, with the SSP and SCTM exported from OSCAL. A model evidence annex comes from each model's AI Cyber T&E record. The PMO ISSE then attests that the package matches what was actually built.

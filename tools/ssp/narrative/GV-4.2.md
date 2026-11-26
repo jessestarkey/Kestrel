@@ -1,0 +1,1 @@
+From Phase 2, the PMO ISSE will map the AI estate's trust zones in Threagile each year, including both agents and every use case on the foundation model. A ranking of the MITRE ATLAS techniques that matter most across that map goes to the review board, and it feeds each model's own threat model.

@@ -1,0 +1,3 @@
+Aircraft, stations, and payloads will be bought only from their manufacturers, and data center hardware and HSMs only from authorized resellers. The Platform Team inspects data center hardware for tampering and counterfeit parts at receipt from Phase 1, and Fleet Operations inspects fleet equipment from Phase 3. Stations and aircraft avionics are also rescanned each year, under CCSD tailoring action 4.
+
+Suspect parts are quarantined and reported to GIDEP. Firmware is accepted only with a valid manufacturer signature, or a published hash where it is unsigned, and each verified version is recorded in Assets. Retired drives are sanitized with Blancco.

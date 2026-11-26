@@ -1,0 +1,1 @@
+From Phase 2, the PMO ISSE will map each use case in Confluence against two frameworks. These are the DoD AI Cybersecurity Risk Management Tailoring Guide and the NIST AI Risk Management Framework. A new AI directive is assessed within a quarter of being issued.

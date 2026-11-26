@@ -1,0 +1,1 @@
+The interim authorization to test will cover the spare aircraft and the simulator, the access point and CSSP connections, and the prior collection admitted over F28. Its conditions are tracked to closure in the POA&M from Phase 1. The ISSM then submits the full package in eMASS for the ATO decision, due on 2028-09-30.

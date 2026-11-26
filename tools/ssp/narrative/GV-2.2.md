@@ -1,0 +1,1 @@
+Exceptions to policy will be requested in Jira Service Management, each with an end date. Approval follows the risk charter, so the PMO ISSE may approve Very Low exceptions anywhere, and Low ones outside CCSD rows 6, 8, 10, and 13. The AO approves the rest. An exception that expires becomes an open finding. From Phase 3, trend reports show where exceptions cluster.

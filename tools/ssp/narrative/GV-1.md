@@ -1,0 +1,1 @@
+KESTREL's security will be governed from the program office. The program manager issues one system security policy and chairs the steering committee, and the chief engineer chairs the Configuration Control Board that approves changes and plans. Roles are written down and formally appointed, and the PMO ISSE measures the program against the DoW zero trust pillars each year.

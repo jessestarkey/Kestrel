@@ -1,0 +1,1 @@
+The responsibility matrix will live in the SSP. It names the program manager, the PMO ISSE, the ISSM, the ISSOs, the SCA, the PSO, and each team lead, with what each is responsible for. It also records that the Security Team and the CSSP hold no administrative roles beyond a few stated exceptions. The matrix is reviewed each year and whenever a role holder changes.

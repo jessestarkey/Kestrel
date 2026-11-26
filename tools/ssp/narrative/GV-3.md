@@ -1,0 +1,1 @@
+KESTREL will manage the risk that comes from its suppliers. Every commercial supplier is assessed and tiered before award, and contracts carry security clauses matched to each supplier's risk. Hardware is bought only through trusted channels and inspected when it arrives. The Supply Chain Risk Management Plan holds the rules.

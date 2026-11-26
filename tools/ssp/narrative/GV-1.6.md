@@ -1,0 +1,1 @@
+From Phase 2, the PMO ISSE will score KESTREL against the DoW zero trust pillars each year. The score covers the cloud, the data center, the alternate site, and the ground segment. Each gap the score finds becomes a record in the Security Implementation Plan, and progress goes to the steering committee each quarter.

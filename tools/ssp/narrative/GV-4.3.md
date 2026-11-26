@@ -1,0 +1,1 @@
+From Phase 2, the responsible AI policy will set KESTREL's commitments. The first are that no model commands an aircraft, and that a person approves every agent action affecting a flight. Each principle maps to the AI outcomes that enforce it, so a reviewer can test a design against it. The policy is part of every user's training.

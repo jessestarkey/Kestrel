@@ -1,0 +1,1 @@
+From Phase 2, the review board will decide how to treat each AI supplier finding, and any supplier risk KESTREL accepts goes through the risk acceptance process. Azure OpenAI is registered in Assets once its risk is treated, and each use case certified on it is linked to it, including the coding agent.

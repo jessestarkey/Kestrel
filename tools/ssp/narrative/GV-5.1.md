@@ -1,0 +1,1 @@
+The SADD will be built from the CCSD and the SABER in GitLab, with each outcome's design intent written by hand. The AO approves it as KESTREL's design basis. It is rebuilt whenever the CCSD, the system description, or the SABER version changes.

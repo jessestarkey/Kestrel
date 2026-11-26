@@ -1,0 +1,1 @@
+The ISSM will keep the SSP in OSCAL from its first version, with compliance-trestle, and publish it to eMASS. The SSP is generated from the same sources as the SCTM, so the two agree by construction. The AO approves an initial SSP before the interim authorization to test, and the full SSP with the authorization package.

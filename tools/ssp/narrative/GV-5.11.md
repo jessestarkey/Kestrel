@@ -1,0 +1,3 @@
+Every change process will feed one Security Impact Analysis intake in Jira Service Management, including fleet maintenance changes. Pipeline releases and retraining within an approved envelope are classified automatically from GitLab, under a standing classification. Everything else goes to the ISSM, who asks whether the change alters anything the authorization was granted against.
+
+A significant change goes to the SCA and the AO before it is made. Each analysis flags the SSP, SCTM, and CCSD updates it needs, and the change's affected controls are verified afterward. SIA-2026-0001, for the coding agent's persistent memory, is the first record.

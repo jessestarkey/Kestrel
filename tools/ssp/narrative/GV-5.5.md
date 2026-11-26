@@ -1,0 +1,1 @@
+KESTREL's categorization will be High for confidentiality and integrity, and Moderate for availability, by CNSSI 1253's high-water mark over the CCSD's information types. The AO concurred in it on 2026-08-28. It is reassessed with every CCSD revision.

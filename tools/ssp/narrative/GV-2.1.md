@@ -1,0 +1,1 @@
+Policies and plans will be versioned in Confluence. The Configuration Control Board approves standards and governing plans, except those the AO approves, and the ISSM approves runbooks. Where a policy can be enforced by a machine, it is written as code in GitLab, such as the admission and OPA policies. Turning more written policy into code follows in Phase 3.

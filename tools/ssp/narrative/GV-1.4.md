@@ -1,0 +1,1 @@
+From Phase 2, a steering committee chaired by the program manager will meet each month. Its decisions and actions are tracked in Jira Service Management, and a Splunk dashboard gives it the month's security posture. The AI/ML Governance Review Board and the risk program report to it.

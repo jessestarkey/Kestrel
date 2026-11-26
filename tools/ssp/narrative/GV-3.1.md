@@ -1,0 +1,3 @@
+Commercial suppliers will answer KESTREL's security questionnaire before contract award, including for the Phase 1 awards. The supply chain lead also checks each supplier's score in the Supplier Performance Risk System. DoD and provider services, such as the IL5 cloud and the CSSP, are relied on through their own authorizations instead.
+
+Suppliers are tiered by what they can reach. Tier 1 covers anyone touching the fleet, mission data, or keys, and is reassessed every year, while the rest are reassessed every three years. Findings are tracked to closure, and one a supplier will not close goes to the steering committee. Each self-hosted third-party product is registered in Jira Service Management Assets once its assessment passes.
