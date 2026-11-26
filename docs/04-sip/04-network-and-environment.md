@@ -255,7 +255,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-3.1, NE-3.4, DA-3.7
+**Dependencies:** DI-3.1, NE-3.4.1, NE-3.4.2, DA-3.7
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -449,7 +449,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** NE-2.6, NE-2.13, ID-4.4, GV-5.6
+**Dependencies:** NE-2.6.1, NE-2.6.2, NE-2.6.3, NE-2.6.4, NE-2.13, ID-4.4, GV-5.6
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -607,7 +607,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** NE-2.4, NE-2.12, GV-5.6, GV-5.7, RS-1.7
+**Dependencies:** NE-2.4, NE-2.12, GV-5.6, GV-5.7.3, GV-5.7.4, RS-1.7.1, RS-1.7.2, RS-1.7.3
 
 **Funding Line:** FY27 O&M, platform and security operations
 
@@ -638,7 +638,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** NE-2.4, DE-3.1, RS-1.7
+**Dependencies:** NE-2.4, DE-3.1, RS-1.7.1, RS-1.7.2, RS-1.7.3
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 

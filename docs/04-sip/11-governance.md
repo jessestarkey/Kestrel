@@ -896,7 +896,7 @@
 
 **Accountable Team:** Security Team (ISSM)
 
-**Dependencies:** GV-5.7, CO-2.1
+**Dependencies:** GV-5.7.3, GV-5.7.4, CO-2.1
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 

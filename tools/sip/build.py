@@ -95,7 +95,7 @@ ACT_COLS = ['Control Type', 'Cross-Cutting Discipline', 'Maturity Model', 'ConMo
 os.makedirs(DOCS, exist_ok=True)
 inherited = collections.defaultdict(list)
 used_na = set(); used_pins = set(); act_count = collections.Counter()
-starts = {}; dep_refs = {}; l1_last = {}
+starts = {}; dep_refs = {}; l1_last = {}; act_phase = {}
 stats = []; contract_use = collections.defaultdict(list); phase_count = collections.Counter()
 phase_fa = collections.defaultdict(collections.Counter); warnings = []
 for fname in sorted(os.listdir(S.FW)):
@@ -138,13 +138,13 @@ for fname in sorted(os.listdir(S.FW)):
                     p = PINS[aid][0]; used_pins.add(aid)
                 if lv == 1 and p > 3:
                     sys.exit(f'{aid} is Maturity Level 1, required for ATO, but lands in Phase {p}')
-                aph[aid] = p
+                aph[aid] = p; act_phase[aid] = p
                 act_count[p] += 1
                 # A yearly review pinned past the first build doesn't hold up dependents.
                 if lv == 1 and PINS.get(aid, (0, ''))[1] != REVIEW:
                     l1_last[oid] = max(l1_last.get(oid, 0), p)
             phase = min(aph.values())
-            starts[oid] = phase; dep_refs[oid] = re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+)?)\b', sel['deps'])
+            starts[oid] = phase; dep_refs[oid] = re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+){0,2})\b', sel['deps'])
             recs.append((o, oid, ot, sel, phase, aph))
         if not recs:
             continue
@@ -244,10 +244,17 @@ if unused:
     print('Contracts no record uses:', unused)
 
 # Every dependency must start no later than the outcome that relies on it. A
-# reference to a capability, such as AI-5, means every in-scope outcome in it.
+# reference to a capability, such as AI-5, means every in-scope outcome in it. A reference
+# to an activity, such as GV-5.7.4, means the dependent needs only that activity.
 late, missing, uneven = [], [], []
 for oid, refs in dep_refs.items():
     for r in refs:
+        if r.count('.') == 2:
+            if r not in act_phase:
+                missing.append(f'{oid} -> {r}')
+            elif act_phase[r] > starts[oid]:
+                late.append(f'{oid} (Phase {starts[oid]}) depends on {r} (Phase {act_phase[r]})')
+            continue
         targets = [r] if r in starts else [o for o in starts if o.startswith(r + '.')]
         if not targets:
             missing.append(f'{oid} -> {r}')

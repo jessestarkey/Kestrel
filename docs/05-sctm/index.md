@@ -18,7 +18,7 @@ This matrix carries every control in KESTREL's approved set to the SADD outcomes
 | Prepared By | KESTREL ISSM, with the PMO ISSE |
 | Source CCSD Version | 1.0, with 1.1 pending |
 | Source SADD Version | 0.10 |
-| Source SIP Version | 0.9 |
+| Source SIP Version | 0.10 |
 | SSP Validation | Built from the same sources as the SSP, so the two agree by construction. Each submission still checks them against each other. |
 | Classification / Handling | CUI |
 

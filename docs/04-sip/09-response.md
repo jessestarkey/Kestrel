@@ -584,6 +584,6 @@
 |---|---|---|---|---|---|---|---|---|
 | RS-4.1.1: IRP Development and Authoring | 1 (pinned) | Documentation | None | Level 1 | One-Time | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | RS-4.1.2: IRP Review and Approval | 1 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| RS-4.1.3: IRP Periodic Review and Revision | 2 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RS-4.1.3: IRP Periodic Review and Revision | 2 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** RS-4.1.1 and RS-4.1.2: The interim authorization to test needs an interim IRP, since the system reports incidents to the CSSP from Phase 1.
+**Pinned:** RS-4.1.1 and RS-4.1.2: The interim authorization to test needs an interim IRP, since the system reports incidents to the CSSP from Phase 1. RS-4.1.3: Its first review cannot fall in Phase 1, since the document it reviews is approved there.

@@ -219,7 +219,7 @@
 
 **Accountable Team:** Fleet Operations, with IT Operations for drive sanitization
 
-**Dependencies:** DI-2.3
+**Dependencies:** None. Its sanitization activity uses the decommissioning procedures, and both land in Phase 2.
 
 **Funding Line:** FY27 and FY28 RDT&E, fleet integration, with the Phase 3 share pending approval
 
@@ -273,9 +273,9 @@
 | DA-1.9.2: Data Retention and Disposition Schedule Definition | 1 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
 | DA-1.9.3: Data Minimization Requirement Definition | 1 (pinned) | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | DA-1.9.4: DMP Review and Approval | 1 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| DA-1.9.5: DMP Periodic Review and Revision | 2 | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| DA-1.9.5: DMP Periodic Review and Revision | 2 (pinned) | Documentation | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** DA-1.9.1, DA-1.9.2, DA-1.9.3, and DA-1.9.4: KESTREL's design depends on it from the first build, since prior collection enters for training in Phase 2 under the DMP.
+**Pinned:** DA-1.9.1, DA-1.9.2, DA-1.9.3, and DA-1.9.4: KESTREL's design depends on it from the first build, since prior collection enters for training in Phase 2 under the DMP. DA-1.9.5: Its first review cannot fall in Phase 1, since the document it reviews is approved there.
 
 ## DA-2: Data Encryption
 

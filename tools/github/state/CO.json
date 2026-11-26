@@ -239,6 +239,11 @@
    "number": 1611,
    "id": 6594477541,
    "node": "I_kwDOVqDm9M8AAAABiQ-95Q"
+  },
+  "CO-4.2.4": {
+   "number": 1621,
+   "id": 6631629385,
+   "node": "I_kwDOVqDm9M8AAAABi0aiSQ"
   }
  },
  "links": [
@@ -288,7 +293,8 @@
   "CO-4.2",
   "CO-4.2.1",
   "CO-4.2.2",
-  "CO-4.2.3"
+  "CO-4.2.3",
+  "CO-4.2.4"
  ],
  "items": {
   "CO": "PVTI_lAHOCZ5vBc4BrOtizhLob8Q",
@@ -338,7 +344,8 @@
   "CO-4.2": "PVTI_lAHOCZ5vBc4BrOtizhLocGU",
   "CO-4.2.1": "PVTI_lAHOCZ5vBc4BrOtizhLocLg",
   "CO-4.2.2": "PVTI_lAHOCZ5vBc4BrOtizhLocME",
-  "CO-4.2.3": "PVTI_lAHOCZ5vBc4BrOtizhLocMc"
+  "CO-4.2.3": "PVTI_lAHOCZ5vBc4BrOtizhLocMc",
+  "CO-4.2.4": "PVTI_lAHOCZ5vBc4BrOtizhMK94I"
  },
  "fields_set": [
   "CO",
@@ -388,7 +395,8 @@
   "CO-4.2.2",
   "CO-4.2.3",
   "CO-1.3.3",
-  "CO-1.3.4"
+  "CO-1.3.4",
+  "CO-4.2.4"
  ],
  "dates_set": [
   "CO",
@@ -438,7 +446,8 @@
   "CO-4.2.2",
   "CO-4.2.3",
   "CO-1.3.3",
-  "CO-1.3.4"
+  "CO-1.3.4",
+  "CO-4.2.4"
  ],
  "date_values": {
   "CO": [
@@ -632,6 +641,10 @@
   "CO-4.2.3": [
    "2027-01-01",
    "2027-09-30"
+  ],
+  "CO-4.2.4": [
+   "2027-01-01",
+   "2027-09-30"
   ]
  },
  "deps": [
@@ -701,6 +714,7 @@
   "CO-4.2.1": "Blocked",
   "CO-4.2.2": "Blocked",
   "CO-4.2.3": "Blocked",
-  "CO-2.2": "Backlog"
+  "CO-2.2": "Backlog",
+  "CO-4.2.4": "Blocked"
  }
 }

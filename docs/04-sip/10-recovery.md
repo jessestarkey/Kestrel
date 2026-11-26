@@ -12,7 +12,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-1.3, RK-3.2, RC-3.1
+**Dependencies:** DI-1.3, RK-3.2.1, RC-3.1.1
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -42,7 +42,7 @@
 
 **Accountable Team:** Platform Team
 
-**Dependencies:** DI-1.3, DA-3.5, RC-3.1, IL5 cloud provider
+**Dependencies:** DI-1.3, DA-3.5, RC-3.1.1, IL5 cloud provider
 
 **Funding Line:** FY27 and FY28 O&M, platform and security operations
 
@@ -302,7 +302,7 @@
 
 **Accountable Team:** Program Office (program manager)
 
-**Dependencies:** RK-3.2
+**Dependencies:** RK-3.2.1
 
 **Funding Line:** FY27 and FY28 program management
 

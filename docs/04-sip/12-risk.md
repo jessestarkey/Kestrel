@@ -40,7 +40,7 @@
 
 **Accountable Team:** Program Office (program manager)
 
-**Dependencies:** RK-1.1, GV-5.7
+**Dependencies:** RK-1.1, GV-5.7.3
 
 **Funding Line:** FY27 program management
 

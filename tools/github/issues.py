@@ -168,7 +168,7 @@ def build_plan(code):
             if r['pinned']:
                 lines += ['', f"**Pinned activities:** {r['pinned']}"]
             issues.append({'key': oid, 'type': 'story', 'parent': cid, 'phase': phase, 'last': last,
-                           'deps': re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+)?)\b', f.get('Dependencies', '')),
+                           'deps': re.findall(r'\b([A-Z]{2}-\d+(?:\.\d+){0,2})\b', f.get('Dependencies', '')),
                            'external': external(f.get('Dependencies', '')),
                            'title': f'{oid}: {ot}', 'body': '\n'.join(lines) + '\n',
                            'fields': {'Outcome ID': oid, 'Team': f.get('Accountable Team', ''),
@@ -329,7 +329,7 @@ def external(deps):
     if deps.strip().startswith('None'):
         return out
     for part in [x.strip() for x in deps.split(',')]:
-        if not part or part.startswith(('None', "The SADD's")) or re.fullmatch(r'[A-Z]{2}-\d+(?:\.\d+)?', part):
+        if not part or part.startswith(('None', "The SADD's")) or re.fullmatch(r'[A-Z]{2}-\d+(?:\.\d+){0,2}', part):
             continue
         out.append(part)
     return out

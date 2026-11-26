@@ -372,7 +372,7 @@
 
 **Accountable Team:** Fleet Operations
 
-**Dependencies:** DI-1.2, NE-1.6
+**Dependencies:** DI-1.2.1, DI-1.2.2, NE-1.6
 
 **Funding Line:** FY28 RDT&E, fleet integration
 
