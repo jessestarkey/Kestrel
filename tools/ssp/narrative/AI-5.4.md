@@ -1,0 +1,1 @@
+From Phase 3, poisoning tests will seed a controlled fraction of a data snapshot with triggers and flipped labels, and replay federated rounds with crafted updates. The real pipeline then trains in the evaluation environment, and the test measures what the data screens and the aggregator catch.

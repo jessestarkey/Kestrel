@@ -1,0 +1,1 @@
+Model artifacts will be encrypted at rest under Key Vault keys in the registry and on serving nodes. Edge models are encrypted under a key rooted in the nShield HSMs and loaded into each aircraft during maintenance. Watermarking edge models follows in Phase 4.

@@ -78,7 +78,7 @@ Every asset will run only the services its function needs. Images are built mini
 
 ## CM-7(1)
 
-What runs will be reviewed against what is allowed. ACAS scans and Defender for Cloud CSPM look for services outside the CMP's list. Network flows and firewall rules are reviewed against the approved flow map, and API Management reports any API endpoint that answers but was never registered.
+Running services will be reviewed against the permitted list. ACAS scans and Defender for Cloud CSPM look for services outside the CMP's list. Network flows and firewall rules are reviewed against the approved flow map, and API Management reports any API endpoint that answers but was never registered.
 
 ## CM-7(2)
 

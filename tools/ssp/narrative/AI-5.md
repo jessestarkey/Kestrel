@@ -1,0 +1,1 @@
+Before a model can be certified, it will be tested against the attacks its threat model names. Language model use cases are tested for jailbreaks and prompt injection, detection models for evasion, poisoning, and unfamiliar inputs, and models trained on people for privacy attacks. An independent AI red team attacks each new use case, and every certified version gets a model card.

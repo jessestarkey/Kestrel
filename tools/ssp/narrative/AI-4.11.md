@@ -1,0 +1,1 @@
+From Phase 2, abuse cases drawn from each model's threat model will run against the training pipeline in ML Dev/Test, with the Security Team. Examples include a crafted federated update meant to plant a backdoor, a flood of corrections from one account, and a run that tries to read another run's snapshot. The AISP lists the scenarios.

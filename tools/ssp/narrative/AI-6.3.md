@@ -1,0 +1,1 @@
+Every red team finding above the AISP's must-fix severity will need a validated fix or a risk acceptance before certification. The PMO ISSE signs off on each closure, and any acceptance above Very Low goes to the AO.

@@ -1,0 +1,1 @@
+From Phase 2, changes to the training platform's role assignments, managed identities, storage policies, compute policies, and gate thresholds will alert the Security Team. A change with no approved request behind it is investigated as an incident.

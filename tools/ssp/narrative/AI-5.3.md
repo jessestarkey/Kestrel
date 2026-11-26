@@ -1,0 +1,1 @@
+From Phase 3, the ML Team will test each detection model against evasion within its robustness budget, using the Adversarial Robustness Toolbox. Tests include adversarial patches and camouflage for imagery, and spoofed emitters for signals. Results are measured against the AISP's thresholds.

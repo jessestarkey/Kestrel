@@ -1,0 +1,1 @@
+From Phase 3, API Management will check every request against its endpoint's schema, types, and size limits, such as image formats and prompt length. A self-hosted LLM Guard then screens prompts for injected instructions before they reach a model. LLM Guard's own models pass the component catalog and the artifact scanning like any other.

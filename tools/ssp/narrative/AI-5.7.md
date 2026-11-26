@@ -1,0 +1,1 @@
+The penetration testing contract will include an AI red team, independent of the performer and scoped by the PMO ISSE. It attacks each new use case and each foundation model change in combination, rather than one model at a time. One example is a planted report that steers the analyst assistant into misusing an agent's tool.

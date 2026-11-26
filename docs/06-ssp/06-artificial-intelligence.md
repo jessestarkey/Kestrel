@@ -4,500 +4,530 @@
 
 ## AI-1: Scoping, Requirements, and Design
 
+Every AI use case will be scoped, justified, and threat-modeled before any data is gathered for it. Use cases enter through the application intake with an AI section, and the AI/ML Governance Review Board approves them. Models and components come only from an approved catalog, with verified provenance. The AISP turns each use case's risks into measurable robustness requirements, and no model may command an aircraft.
+
 ### AI-1.1: AI Use Case Intake and Onboarding
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every AI use case and new model will enter through the application intake request, with an AI section added. That section names the sponsor, the data needed, any action the use case can take, and a proposed risk tier. The path opens in late Phase 1, so the first use cases are approved before training starts. The AI/ML Governance Review Board decides each one before any corpus is assembled.
+
+A model adopted before any use case exists is recorded as a platform model, with its sponsor, provisional tier, and removal review date. It can be reached only from ML Dev/Test until a use case is certified on it.
 
 <sub>**Planned.** Controls: SA-3. SIP record: [AI-1.1](../04-sip/06-artificial-intelligence.md#ai-11-ai-use-case-intake-and-onboarding). Details: the AISP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#1-use-case-intake-and-privacy-requirements).</sub>
 
 ### AI-1.2: Privacy Requirements Definition
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the privacy officer will approve each new training set's handling before training starts. Incidental imagery of people is the only personal information in KESTREL's collection, and no model is trained to identify individuals. The AISP records that removing a person's record later means retraining the model without it, rather than editing the weights.
 
 <sub>**Planned.** Controls: PT-2, PT-3, RA-8, SI-19, SI-19(4), SI-19(6). SIP record: [AI-1.2](../04-sip/06-artificial-intelligence.md#ai-12-privacy-requirements-definition). Details: the AISP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#1-use-case-intake-and-privacy-requirements).</sub>
 
 ### AI-1.3: Model Selection and Justification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Each model choice will be recorded in Confluence against its publisher's security practice, its licensing, its serialization format, and its fit for the mission. The record also states the risks KESTREL accepted in choosing it. Foundation models come only from the Azure OpenAI catalog inside the IL5 authorization. Detection and embedding models start from an approved pretrained checkpoint, or are trained from scratch.
 
 <sub>**Planned.** Controls: RA-3(1), SA-4, SR-5(2), SR-6. SIP record: [AI-1.3](../04-sip/06-artificial-intelligence.md#ai-13-model-selection-and-justification). Details: the AISP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#2-model-selection-component-vetting-and-third-party-api-governance).</sub>
 
 ### AI-1.4: Approved AI Component Catalog
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+One approved AI component catalog will list the model families, checkpoints, frameworks, guardrail models, and registries KESTREL may use. The ML Team curates it, and the review board approves each addition. Artifactory's package mirror and model registry accept only what the catalog lists, so an unapproved component cannot reach a build. The ML Team lead can suspend an item at once, and the ISSO confirms the suspension within 24 hours.
 
 <sub>**Planned.** Controls: SA-15. SIP record: [AI-1.4](../04-sip/06-artificial-intelligence.md#ai-14-approved-ai-component-catalog). Details: the AISP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#2-model-selection-component-vetting-and-third-party-api-governance).</sub>
 
 ### AI-1.5: Model Provenance and Integrity Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, every pretrained checkpoint will be checked against its publisher's signature or published digest as it enters Artifactory, and refused if the check fails. On the hosted side, each Azure OpenAI deployment records the exact model version it serves, and an unapproved version alerts the ML Team.
 
 <sub>**Planned.** Controls: SI-7(15), SR-4, SR-4(3). SIP record: [AI-1.5](../04-sip/06-artificial-intelligence.md#ai-15-model-provenance-and-integrity-verification).</sub>
 
 ### AI-1.6: Robustness Requirements Definition
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Each model's robustness requirements will come from its threat model and from how much the mission relies on its output. Detection models must hold their detection rates under weather, sensor faults, camouflage, and RF deception. Language model use cases must resist jailbreaks and injected instructions. The AISP states each requirement as a measurable threshold that validation tests against.
 
 <sub>**Planned.** Controls: RA-9, SA-15(1). SIP record: [AI-1.6](../04-sip/06-artificial-intelligence.md#ai-16-robustness-requirements-definition). Details: the AISP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#3-robustness-requirements-and-cyber-te-methodology).</sub>
 
 ### AI-1.7: AI Threat Modeling
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the ML Team will threat-model every model in Threagile, and each mission team will model every use case built on one. The custom image's AI risk rules cite their MITRE ATLAS techniques. The models cover poisoning through feedback and federated updates, evasion, instructions injected through retrieved reports, and capture of an aircraft's onboard model. The PMO ISSE reviews each one at the design gate.
 
 <sub>**Planned.** Controls: SA-11(2), SA-15, SA-15(2). SIP record: [AI-1.7](../04-sip/06-artificial-intelligence.md#ai-17-ai-threat-modeling). Details: the AISP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#4-ai-threat-modeling-and-abuse-scenarios).</sub>
 
 ### AI-1.8: OT and Safety-Critical AI Governance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+No KESTREL model will be able to command an aircraft, its flight controls, or its payload. Onboard models only cue the operator, and the mission-planning agent's drafts take effect only after an operator approves them in the planning queue. Mission Team 2 builds that approval gate, and Fleet Operations keeps the boundary between AI and the fleet at the stations.
+
+Before an onboard model or the agent is fielded, and each year after, it gets an OT-adjacent AI risk assessment. The assessment combines its threat model, its robustness results, and a safety-impact determination from the program's airworthiness and systems-safety authority. High findings go to the review board and the ISSO.
 
 <sub>**Planned.** Controls: AC-3(2). SIP record: [AI-1.8](../04-sip/06-artificial-intelligence.md#ai-18-ot-and-safety-critical-ai-governance). Details: the AI/ML Governance Charter, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#4-aiml-governance-review-board); and the AISP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#5-ot-and-safety-critical-ai-risk-assessment-and-architecture).</sub>
 
 ## AI-2: Data Engineering
 
+A model is only as trustworthy as the data it learns from. This capability screens every training batch for poisoning, checks labels for integrity, strips personal information from training records, and keeps every dataset as an immutable, traceable snapshot. Before the ATO, training uses government-furnished prior collection and synthetic data. KESTREL's own collection joins after.
+
 ### AI-2.1: Data Poisoning Prevention and Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Before the ATO, training will use government-furnished prior collection that the AO admits under the interim authorization, received over F28, plus synthetic and simulator data. KESTREL's own collection, analyst corrections, federated updates, and IL6 releases join after the ATO. From Phase 2, Great Expectations and cleanlab screen every batch for anomalies and suspect labels before it enters the ML training zone.
 
 <sub>**Planned.** Controls: SI-7(1), SI-7(5), SI-10(5). SIP record: [AI-2.1](../04-sip/06-artificial-intelligence.md#ai-21-data-poisoning-prevention-and-detection).</sub>
 
 ### AI-2.2: Label Integrity Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, labels will come only from the Data Team's cleared annotators, analyst corrections, and model corrections released from the IL6 enclave. Each mission team's zone has its own CVAT instance, so the payload vendor split holds. A sample of every batch is labeled twice to catch disagreement, and each correction is bound to the analyst or IL6 release record behind it.
 
 <sub>**Planned.** Controls: SI-10, SR-6. SIP record: [AI-2.2](../04-sip/06-artificial-intelligence.md#ai-22-label-integrity-verification).</sub>
 
 ### AI-2.3: Training Data Privacy Controls
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, Presidio will remove personal fields from training records. People in imagery need more care. The ML Team builds a person-detection model in Phase 2, certifies it in Phase 3, and delivers it to each zone. Until then, a Data Team reviewer blurs or crops people by hand before frames enter the training zone. Each record's provenance notes the technique applied.
 
 <sub>**Planned.** Controls: AC-3(11), SI-19, SI-19(4), SI-19(6). SIP record: [AI-2.3](../04-sip/06-artificial-intelligence.md#ai-23-training-data-privacy-controls).</sub>
 
 ### AI-2.4: Dataset Lineage and Version Control
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, every training run will read an immutable lakeFS snapshot on StorageGRID in the ML training zone, identified by its content hash. Each snapshot's provenance names its source zones, its release approvals, and its payload vendor terms. Any model can therefore be traced back to its exact data and the permissions that came with it.
 
 <sub>**Planned.** Controls: AU-10(1), AU-10(2). SIP record: [AI-2.4](../04-sip/06-artificial-intelligence.md#ai-24-dataset-lineage-and-version-control).</sub>
 
 ## AI-3: Experimentation
 
+Data scientists will experiment inside the boundary, in isolated workspaces that keep mission data from leaving. Every run is tracked well enough to reproduce, reference models are signed before they can seed training, and training code is protected like any other source.
+
 ### AI-3.1: Secure Experimentation Environment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, JupyterHub will give each data scientist an individual notebook server on an isolated-size node pool in ML Dev/Test. It is reached only from the ML host pool in Azure Virtual Desktop, so notebook output stays inside the session. Each server sees only its user's approved datasets, and downloads are disabled.
 
 <sub>**Planned.** Controls: SA-3(1), SC-39, AC-6. SIP record: [AI-3.1](../04-sip/06-artificial-intelligence.md#ai-31-secure-experimentation-environment).</sub>
 
 ### AI-3.2: Experiment Tracking and Reproducibility
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 4, with a target of 2029-03-31.*
+From Phase 2, Azure Machine Learning's tracking will record every run's code revision, dependencies, environment, hyperparameters, dataset snapshot, and metrics. A checkpoint without a complete run record cannot be promoted. Sampled reproduction of past runs starts in Phase 4.
 
 <sub>**Planned.** Controls: CM-2(2), SA-15. SIP record: [AI-3.2](../04-sip/06-artificial-intelligence.md#ai-32-experiment-tracking-and-reproducibility).</sub>
 
 ### AI-3.3: Signed/Hashed Reference Models
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+A checkpoint chosen as a reference model will be signed with the pipeline's dev/test key and bound to its run record. The training pipeline accepts only signed reference models as starting points, so an altered checkpoint cannot seed a new model.
 
 <sub>**Planned.** Controls: CM-14, SI-7(15). SIP record: [AI-3.3](../04-sip/06-artificial-intelligence.md#ai-33-signedhashed-reference-models).</sub>
 
 ### AI-3.4: Training Script and Feature-Engineering IP Protection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Training scripts and feature-engineering code will live in ML Team repositories that only its members can read. Clones on performer laptops fall under the same performer controls as other source code. Mission data is worked on only inside the workspaces, never on a laptop.
 
 <sub>**Planned.** Controls: AC-3, SI-4. SIP record: [AI-3.4](../04-sip/06-artificial-intelligence.md#ai-34-training-script-and-feature-engineering-ip-protection).</sub>
 
 ## AI-4: Development and Continuous Integration
 
+Training runs will be built and checked like any other software. Each runs in an ephemeral, isolated environment under a least-privilege identity, with egress limited to the registry and the mirror. Its code, dependencies, artifacts, and infrastructure are scanned, its definition is signed, and its output is signed and described in an AI-BOM before it reaches the registry.
+
 ### AI-4.1: Ephemeral, Containerized Training Environments
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, training will run on Azure Machine Learning compute clusters of an isolated GPU size, injected into ML Dev/Test, with customer-managed keys. Each run gets its own containers, and its scratch storage is destroyed when it ends, so nothing carries over to the next job. Before Phase 2, the inherited control check confirms that GPU size and its quota in both US Gov regions. If either falls short, a security impact analysis and the Configuration Control Board move training to on-premises GPU servers.
 
 <sub>**Planned.** Controls: SA-3(1), SC-4, SC-39. SIP record: [AI-4.1](../04-sip/06-artificial-intelligence.md#ai-41-ephemeral-containerized-training-environments).</sub>
 
 ### AI-4.2: Least-Privilege Training Infrastructure Access
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Each training identity will read only the snapshots its run declares and write only to its run's output, which the release runners then collect. ML engineers hold no privileged roles on the training cluster. The Platform Team performs privileged operations for them from its administrative VDI host pool, and those grants are reviewed twice a year.
 
 <sub>**Planned.** Controls: AC-6, CM-5, CM-5(5). SIP record: [AI-4.2](../04-sip/06-artificial-intelligence.md#ai-42-least-privilege-training-infrastructure-access).</sub>
 
 ### AI-4.3: Training Cluster Network Segmentation and Egress Control
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+The cloud hub will keep ML Dev/Test apart from every production spoke, except the shared services in F25. Training pulls images and approved checkpoints from the registry and the mirror, and reads the ML training zone across the circuit. Trained artifacts leave only when Platform Prod's runners collect them over F24.
 
 <sub>**Planned.** Controls: SC-7(5), SC-7(10). SIP record: [AI-4.3](../04-sip/06-artificial-intelligence.md#ai-43-training-cluster-network-segmentation-and-egress-control).</sub>
 
 ### AI-4.4: Training Code Static Analysis
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, training scripts and data loaders will go through the shared pipeline's SAST, with rules for the ML frameworks KESTREL uses. The rules include checks for unsafe deserialization and shell execution, two of the commonest flaws in ML code.
 
 <sub>**Planned.** Controls: SA-11(1), SA-15(7). SIP record: [AI-4.4](../04-sip/06-artificial-intelligence.md#ai-44-training-code-static-analysis).</sub>
 
 ### AI-4.5: Training Code Secret Scanning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Training repositories will get the same secret scanning as every other repository, with Gitleaks hooks and GitLab push protection. Training jobs hold no static secret to leak, since they authenticate with workload identity.
 
 <sub>**Planned.** Controls: IA-5(7). SIP record: [AI-4.5](../04-sip/06-artificial-intelligence.md#ai-45-training-code-secret-scanning).</sub>
 
 ### AI-4.6: AI Dependency Vulnerability Scanning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the resolved dependencies of every training and serving image will be scanned on each build and daily afterward. A vulnerable pin is remediated on the VPMP's clock for its severity. Frameworks, tokenizers, and accelerator toolkits come only through Artifactory.
 
 <sub>**Planned.** Controls: RA-5. SIP record: [AI-4.6](../04-sip/06-artificial-intelligence.md#ai-46-ai-dependency-vulnerability-scanning). Details: the VPMP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan#1-remediation-timeframes-by-asset-class).</sub>
 
 ### AI-4.7: Model Artifact Malware/Unsafe-Deserialization Scanning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+A model file can carry code that runs when it loads, so every artifact will be scanned before use. ModelScan checks each pretrained checkpoint and model artifact as it enters Artifactory, and the pipeline blocks any that fails from reaching training or serving.
 
 <sub>**Planned.** Controls: SI-3, SI-10(5). SIP record: [AI-4.7](../04-sip/06-artificial-intelligence.md#ai-47-model-artifact-malwareunsafe-deserialization-scanning).</sub>
 
 ### AI-4.8: Training Infrastructure IaC Scanning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the infrastructure as code for the training cluster, its snapshots, and the model registry will be scanned with GitLab IaC Scanning and Conftest. The checks apply the same policy as all other infrastructure code, plus the AISP's training baseline.
 
 <sub>**Planned.** Controls: CM-6(1). SIP record: [AI-4.8](../04-sip/06-artificial-intelligence.md#ai-48-training-infrastructure-iac-scanning). Details: the AISP, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#6-training-infrastructure-configuration).</sub>
 
 ### AI-4.9: Training Pipeline Fuzz Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, libFuzzer, AFL++, and Jazzer will fuzz the data loaders for each payload vendor's raw formats, for federated updates, and for IL6 releases on each change. These are the inputs the pipeline did not produce itself, so they get the closest testing.
 
 <sub>**Planned.** Controls: SA-11(8). SIP record: [AI-4.9](../04-sip/06-artificial-intelligence.md#ai-49-training-pipeline-fuzz-testing).</sub>
 
 ### AI-4.10: Training Pipeline API/Interface Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, GitLab API Fuzzing will test the training platform's job, dataset, and registry interfaces for authorization flaws. One check confirms that a training identity cannot mount another run's snapshot or write to another run's output.
 
 <sub>**Planned.** Controls: SA-11(6). SIP record: [AI-4.10](../04-sip/06-artificial-intelligence.md#ai-410-training-pipeline-apiinterface-testing).</sub>
 
 ### AI-4.11: Training Pipeline Misuse/Abuse Case Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, abuse cases drawn from each model's threat model will run against the training pipeline in ML Dev/Test, with the Security Team. Examples include a crafted federated update meant to plant a backdoor, a flood of corrections from one account, and a run that tries to read another run's snapshot. The AISP lists the scenarios.
 
 <sub>**Planned.** Controls: SA-11(2). SIP record: [AI-4.11](../04-sip/06-artificial-intelligence.md#ai-411-training-pipeline-misuseabuse-case-testing). Details: the AISP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#4-ai-threat-modeling-and-abuse-scenarios).</sub>
 
 ### AI-4.12: Signed/Verified Training Pipeline Definitions
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, training pipeline definitions will extend the Platform Team's signed templates and be verified before each run. A definition changed outside an approved merge stops the run.
 
 <sub>**Planned.** Controls: CM-14, SA-10. SIP record: [AI-4.12](../04-sip/06-artificial-intelligence.md#ai-412-signedverified-training-pipeline-definitions).</sub>
 
 ### AI-4.13: Reproducibility Controls
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Every training environment will pin its dependency versions and image digest. Each run hashes its assembled environment at start, compares it with the approved baseline, and halts if they differ. The verified hash goes into the run record and the AI-BOM.
 
 <sub>**Planned.** Controls: CM-2(2), SI-7(1). SIP record: [AI-4.13](../04-sip/06-artificial-intelligence.md#ai-413-reproducibility-controls).</sub>
 
 ### AI-4.14: Training Artifact Signing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Platform Prod's runners will collect each trained artifact, sign it with the pipeline's dev/test key, and publish it to the model registry. The signature binds the artifact to its run record and its data snapshot.
 
 <sub>**Planned.** Controls: CM-14, SI-7(15). SIP record: [AI-4.14](../04-sip/06-artificial-intelligence.md#ai-414-training-artifact-signing).</sub>
 
 ### AI-4.15: AI-BOM Generation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Every model version will get a CycloneDX AI-BOM listing its data snapshots, base checkpoint, hyperparameters, frameworks, and payload vendor terms. It is stored in the model registry beside the artifact it describes.
 
 <sub>**Planned.** Controls: SR-4, SR-4(1). SIP record: [AI-4.15](../04-sip/06-artificial-intelligence.md#ai-415-ai-bom-generation).</sub>
 
 ### AI-4.16: Training Job Audit Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, every training job's submission, configuration, data access, and output will be logged to Splunk, where the training platform's administrators cannot change the record. The ISSO reviews the logs each week.
 
 <sub>**Planned.** Controls: AU-9(3), AU-12. SIP record: [AI-4.16](../04-sip/06-artificial-intelligence.md#ai-416-training-job-audit-logging).</sub>
 
 ### AI-4.17: Privileged Config Change Alerting
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, changes to the training platform's role assignments, managed identities, storage policies, compute policies, and gate thresholds will alert the Security Team. A change with no approved request behind it is investigated as an incident.
 
 <sub>**Planned.** Controls: CM-3(1), CM-3(4). SIP record: [AI-4.17](../04-sip/06-artificial-intelligence.md#ai-417-privileged-config-change-alerting).</sub>
 
 ### AI-4.18: Hyperparameter Change Alerting
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Run tracking will compare each run's hyperparameters with the envelope its certification approved. A run outside that envelope alerts the ML Team and the PMO ISSE, and the resulting model needs full Certification to Field. Envelopes exist once the first models are certified in Phase 3.
 
 <sub>**Planned.** Controls: CM-6(1), CM-6(2). SIP record: [AI-4.18](../04-sip/06-artificial-intelligence.md#ai-418-hyperparameter-change-alerting).</sub>
 
 ### AI-4.19: Training Credential Secrets Management
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, training jobs will reach the data snapshots and the model registry with short-lived workload identity tokens. Any secret a job still needs comes from ML Dev/Test's Key Vault at run time, so none is stored in code or configuration.
 
 <sub>**Planned.** Controls: IA-5(6), IA-5(7). SIP record: [AI-4.19](../04-sip/06-artificial-intelligence.md#ai-419-training-credential-secrets-management).</sub>
 
 ## AI-5: Validation and Continuous Delivery
 
+Before a model can be certified, it will be tested against the attacks its threat model names. Language model use cases are tested for jailbreaks and prompt injection, detection models for evasion, poisoning, and unfamiliar inputs, and models trained on people for privacy attacks. An independent AI red team attacks each new use case, and every certified version gets a model card.
+
 ### AI-5.1: Jailbreak Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the mission teams will test every language model use case against a versioned jailbreak corpus before Certification to Field, and fix what it finds. The PMO ISSE sets the corpus and the thresholds as the AI Cyber T&E director. The corpus includes attempts specific to KESTREL, such as asking for sources and methods. PyRIT and garak run the tests. Each fixed finding then joins a promptfoo suite that reruns on every model, system prompt, or guardrail change, with promptfoo's remote generation and telemetry turned off.
 
 <sub>**Planned.** Controls: SA-11. SIP record: [AI-5.1](../04-sip/06-artificial-intelligence.md#ai-51-jailbreak-testing).</sub>
 
 ### AI-5.2: Prompt Injection Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, PyRIT and garak will test every path content takes into a language model use case, and the owning mission team will fix what they find. For the analyst assistant, that includes reports and IL6 releases. For the mission-planning agent, it includes injected tool responses. Each fixed injection joins the same promptfoo regression suite.
 
 <sub>**Planned.** Controls: SA-11. SIP record: [AI-5.2](../04-sip/06-artificial-intelligence.md#ai-52-prompt-injection-testing).</sub>
 
 ### AI-5.3: Adversarial Evasion Robustness Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the ML Team will test each detection model against evasion within its robustness budget, using the Adversarial Robustness Toolbox. Tests include adversarial patches and camouflage for imagery, and spoofed emitters for signals. Results are measured against the AISP's thresholds.
 
 <sub>**Planned.** Controls: SA-11, RA-9. SIP record: [AI-5.3](../04-sip/06-artificial-intelligence.md#ai-53-adversarial-evasion-robustness-testing).</sub>
 
 ### AI-5.4: Data Poisoning Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 3, running through Phase 4, with a target of 2029-03-31.*
+From Phase 3, poisoning tests will seed a controlled fraction of a data snapshot with triggers and flipped labels, and replay federated rounds with crafted updates. The real pipeline then trains in the evaluation environment, and the test measures what the data screens and the aggregator catch.
 
 <sub>**Planned.** Controls: SA-11. SIP record: [AI-5.4](../04-sip/06-artificial-intelligence.md#ai-54-data-poisoning-testing).</sub>
 
 ### AI-5.5: Out-of-Distribution Robustness Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, each detection model will be tested on inputs unlike its training data, such as new weather, terrain, sensor faults, and emitters. The test checks that the model lowers its confidence rather than giving a wrong answer with high confidence.
 
 <sub>**Planned.** Controls: SA-11. SIP record: [AI-5.5](../04-sip/06-artificial-intelligence.md#ai-55-out-of-distribution-robustness-testing).</sub>
 
 ### AI-5.6: Privacy-Attack Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, membership inference and model inversion tests will run against each model trained on imagery that includes people, and against any model fine-tuned on reports. The tests show whether a specific training record can be recovered from the model.
 
 <sub>**Planned.** Controls: SI-19(8). SIP record: [AI-5.6](../04-sip/06-artificial-intelligence.md#ai-56-privacy-attack-testing).</sub>
 
 ### AI-5.7: Red Teaming
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+The penetration testing contract will include an AI red team, independent of the performer and scoped by the PMO ISSE. It attacks each new use case and each foundation model change in combination, rather than one model at a time. One example is a planted report that steers the analyst assistant into misusing an agent's tool.
 
 <sub>**Planned.** Controls: SA-11(5). SIP record: [AI-5.7](../04-sip/06-artificial-intelligence.md#ai-57-red-teaming).</sub>
 
 ### AI-5.8: Model Card Generation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the pipeline will generate a model card for each certified version from its validation results, published in Confluence. The card states the model's intended use, tested limits, known failure modes, and retraining envelope.
 
 <sub>**Planned.** Controls: SA-5. SIP record: [AI-5.8](../04-sip/06-artificial-intelligence.md#ai-58-model-card-generation).</sub>
 
 ## AI-6: Certification to Field (CtF)
 
+Certification to Field for models is the gate between validation and production. The PMO ISSE reviews each candidate's validation report and model card, and red team findings must be closed or accepted. The pipeline then scores the model against its use case's thresholds. Rollback is rehearsed before fielding, and every certified version is registered.
+
 ### AI-6.1: Validation Report Review
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the PMO ISSE will review each candidate's validation report against the test classes and thresholds the AISP sets for its assurance level. Missing coverage counts as a failure, not a pass.
 
 <sub>**Planned.** Controls: SA-11(3), SA-11(7). SIP record: [AI-6.1](../04-sip/06-artificial-intelligence.md#ai-61-validation-report-review).</sub>
 
 ### AI-6.2: Model Card Review
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the PMO ISSE will check each model card against its evidence before certification. A card with vague limits, or one missing a known failure mode, is sent back.
 
 <sub>**Planned.** Controls: SA-5. SIP record: [AI-6.2](../04-sip/06-artificial-intelligence.md#ai-62-model-card-review).</sub>
 
 ### AI-6.3: Red-Team Findings Sign-Off
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+Every red team finding above the AISP's must-fix severity will need a validated fix or a risk acceptance before certification. The PMO ISSE signs off on each closure, and any acceptance above Very Low goes to the AO.
 
 <sub>**Planned.** Controls: SA-11(5). SIP record: [AI-6.3](../04-sip/06-artificial-intelligence.md#ai-63-red-team-findings-sign-off).</sub>
 
 ### AI-6.4: Risk Acceptance and Approval Log
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+Every AI risk acceptance will go through the risk acceptance process. Anything above Very Low goes to the AO, since every gate acceptance touches CCSD row 8 or 10. Each is logged in eMASS with its rationale, approver, compensating measures, and expiry.
 
 <sub>**Planned.** Controls: RA-7, AU-12. SIP record: [AI-6.4](../04-sip/06-artificial-intelligence.md#ai-64-risk-acceptance-and-approval-log).</sub>
 
 ### AI-6.5: Model Deployment Risk Threshold Evaluation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the pipeline will combine each model's test results into one score against its assurance level's thresholds, extending the application release gate. A retrained model within its approved envelope passes on that score alone. Edge models are the exception and always take full Certification to Field, as does anything outside the envelope. A model certified on prior and synthetic data is certified again once live collection arrives after the ATO.
 
 <sub>**Planned.** Controls: RA-3, RA-7. SIP record: [AI-6.5](../04-sip/06-artificial-intelligence.md#ai-65-model-deployment-risk-threshold-evaluation). Details: the AISP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#3-robustness-requirements-and-cyber-te-methodology) and [Section 7](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#7-deployment-risk-and-optimization-governance).</sub>
 
 ### AI-6.6: Rollback/Kill-Switch Readiness Check
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, each model's rollback and kill switch will be rehearsed in stage before certification. Edge rollback is rehearsed on a spare aircraft, which falls back to its stored prior model or turns onboard detection off. The cutover times are recorded as evidence.
 
 <sub>**Planned.** Controls: CP-10(4), CP-12. SIP record: [AI-6.6](../04-sip/06-artificial-intelligence.md#ai-66-rollbackkill-switch-readiness-check).</sub>
 
 ### AI-6.7: Model Registration and Inventory Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+Every certified model version will be registered in Artifactory and in Jira Service Management Assets. Each record lists its owner, its certification record, the use cases it is certified for, where it serves, and which aircraft carry it.
 
 <sub>**Planned.** Controls: CM-8, CM-8(1). SIP record: [AI-6.7](../04-sip/06-artificial-intelligence.md#ai-67-model-registration-and-inventory-logging). Details: the AI/ML Governance Charter, [Section 7](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Governance-Charter#7-aiml-governance-posture-report).</sub>
 
 ### AI-6.8: Model Optimization Governance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, edge models will be quantized or pruned from the cloud detection models, using ONNX Runtime or the manufacturer's tools. Each optimized artifact is certified as a version in its own right and re-tested for accuracy and robustness, never through the retraining fast path. The AISP lists the approved methods, and an unlisted one needs the ISSO's and the review board's approval.
 
 <sub>**Planned.** Controls: SA-15. SIP record: [AI-6.8](../04-sip/06-artificial-intelligence.md#ai-68-model-optimization-governance). Details: the AISP, [Section 7](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#7-deployment-risk-and-optimization-governance) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#appendix-reference-catalogs).</sub>
 
 ## AI-7: Continuous Training
 
+Models will keep learning from mission data, so the retraining path needs the same care as the first training run. Its infrastructure is patched on schedule, and every retraining record is checked and tied to an authenticated source. Candidates are evaluated in a disposable environment before they can be certified.
+
 ### AI-7.1: Automated Retraining Pipeline Security Assessments and Patching
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+The retraining pipeline's images, cluster, and platform components will be scanned and patched on the VPMP's schedule, even when no model change is pending.
 
 <sub>**Planned.** Controls: RA-5, SI-2(5). SIP record: [AI-7.1](../04-sip/06-artificial-intelligence.md#ai-71-automated-retraining-pipeline-security-assessments-and-patching).</sub>
 
 ### AI-7.2: Retraining Data Integrity Checks
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+Great Expectations will validate every retraining record's schema, ranges, and labels, and check each submitter's correction rate for floods. Federated updates arrive from the aircraft in batches over F3 and F18. Flower's robust aggregation strategies combine them as replayed rounds, so no single aircraft can dominate the result.
 
 <sub>**Planned.** Controls: SI-7(1), SI-10. SIP record: [AI-7.2](../04-sip/06-artificial-intelligence.md#ai-72-retraining-data-integrity-checks).</sub>
 
 ### AI-7.3: Secure Model Evaluation Environment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+Candidate models will be evaluated in a disposable environment in ML Dev/Test, with no route to any production spoke beyond the shared services in F25. The held-out evaluation data is readable only by the evaluation pipeline, so a model cannot be tuned against its own test.
 
 <sub>**Planned.** Controls: SA-3(1), SC-39, AC-6. SIP record: [AI-7.3](../04-sip/06-artificial-intelligence.md#ai-73-secure-model-evaluation-environment).</sub>
 
 ### AI-7.4: Continuous Authentication of Feedback/Retraining Data
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+Analyst corrections will be bound to the analyst's identity and the session they correct. When the fleet integrates, federated updates are authenticated by each aircraft's device certificate. IL6 releases are treated as untrusted input and pass the same checks.
 
 <sub>**Planned.** Controls: SI-10(5), SI-4. SIP record: [AI-7.4](../04-sip/06-artificial-intelligence.md#ai-74-continuous-authentication-of-feedbackretraining-data).</sub>
 
 ## AI-8: Model Serving
 
+Model serving is where KESTREL's models meet users, agents, and adversaries. Every endpoint will validate what goes in and what comes out, limit how fast each caller can query it, and watch for extraction. The foundation model is a private deployment in KESTREL's own tenant, and agents' tool calls are checked against what each task authorized. Every model can be rolled back in minutes.
+
 ### AI-8.1: Extraction Abuse Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, API Management will admit only approved mission team workloads to the model endpoints, and Splunk will baseline each caller's query pattern. A sweep of queries that looks like extraction alerts the ML Team and the Security Team. Each partner's query volume through the partner API is watched the same way.
 
 <sub>**Planned.** Controls: SI-4, SI-4(7). SIP record: [AI-8.1](../04-sip/06-artificial-intelligence.md#ai-81-extraction-abuse-monitoring).</sub>
 
 ### AI-8.2: API Abuse Protection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, API Management will enforce rate limits and quotas per calling workload, and per user for language model use cases. A runaway caller therefore cannot exhaust GPU capacity or the foundation model's quota.
 
 <sub>**Planned.** Controls: SC-5. SIP record: [AI-8.2](../04-sip/06-artificial-intelligence.md#ai-82-api-abuse-protection).</sub>
 
 ### AI-8.3: Third-Party/Foundation Model API Dependency Governance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Each foundation model will be an Azure OpenAI deployment in KESTREL's own tenant, with customer-managed keys, reached only by private endpoint and workload identity. Prompts carry report excerpts but never raw collection. Azure Government stores no prompts for abuse monitoring, which the ISSM confirms with the provider each year.
+
+A dev/test deployment in ML Dev/Test pins the same model version and is reached from stage over F27. When the provider changes or retires a version, the new one is re-tested before any use case moves to it.
 
 <sub>**Planned.** Controls: IA-5(6), SA-9, SA-9(5), SR-6. SIP record: [AI-8.3](../04-sip/06-artificial-intelligence.md#ai-83-third-partyfoundation-model-api-dependency-governance). Details: the AISP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#2-model-selection-component-vetting-and-third-party-api-governance).</sub>
 
 ### AI-8.4: Retrieval-Augmented Generation (RAG) and Vector Store Security
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 3, running through Phase 4, with a target of 2029-03-31.*
+From Phase 3, Azure AI Search will index only the shared report zone for the LLM analyst assistant, under customer-managed keys. It tags each document by source and release markings. Retrieval enforces the requesting user's entitlements, so a report restricted from a partner never reaches that user's context. IL6 releases are marked in the prompt as untrusted content.
 
 <sub>**Planned.** Controls: AC-3, AC-16(3), SI-7(1). SIP record: [AI-8.4](../04-sip/06-artificial-intelligence.md#ai-84-retrieval-augmented-generation-rag-and-vector-store-security).</sub>
 
 ### AI-8.5: Input Validation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, API Management will check every request against its endpoint's schema, types, and size limits, such as image formats and prompt length. A self-hosted LLM Guard then screens prompts for injected instructions before they reach a model. LLM Guard's own models pass the component catalog and the artifact scanning like any other.
 
 <sub>**Planned.** Controls: SI-10. SIP record: [AI-8.5](../04-sip/06-artificial-intelligence.md#ai-85-input-validation).</sub>
 
 ### AI-8.6: Output Validation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, detection outputs will be checked against their schema before they are stored. Language model responses render as plain text with required citations, so a response cannot carry active content into the analyst's browser. LLM Guard blocks any response that echoes a system prompt or a credential.
 
 <sub>**Planned.** Controls: SI-15. SIP record: [AI-8.6](../04-sip/06-artificial-intelligence.md#ai-86-output-validation).</sub>
 
 ### AI-8.7: Agentic Tool-Call/Action Output Validation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, Open Policy Agent will check every tool call the mission-planning agent makes against the tools and parameters its task authorized. Each tool runs in its own Container Instances group in Mission Team 2 Prod, with hypervisor isolation and customer-managed keys. The agent's tools read only shared reports and collection requests, and write drafts only to an operator's approval queue.
+
+The coding agent's commands and file actions reach OPA the same way, through a custom OpenHands security analyzer. Its sandbox can reach only Artifactory, read-only, and the OpenHands server handles cloning, pushing, and calls to Azure OpenAI.
 
 <sub>**Planned.** Controls: SI-15, AC-4, AC-3(2), SC-39, AC-25. SIP record: [AI-8.7](../04-sip/06-artificial-intelligence.md#ai-87-agentic-tool-callaction-output-validation).</sub>
 
 ### AI-8.8: Inference-Time PII Handling
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, Presidio will scan prompts and inference logs for personal information and redact it from the logs. Inference logs follow the privacy officer's retention schedule, and the provider keeps nothing.
 
 <sub>**Planned.** Controls: SI-12(1), SI-19. SIP record: [AI-8.8](../04-sip/06-artificial-intelligence.md#ai-88-inference-time-pii-handling).</sub>
 
 ### AI-8.9: Content Filtering
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, Azure OpenAI's content filters and LLM Guard will check every language model input and output against KESTREL's use policy. ISR content trips the default violence filter, so the program applies to Microsoft for modified filtering. If Microsoft declines, refused requests are queued for an analyst to review. A custom check also catches classification markings above what KESTREL may hold, blocking the content and reporting a possible spill at once.
 
 <sub>**Planned.** Controls: SI-15. SIP record: [AI-8.9](../04-sip/06-artificial-intelligence.md#ai-89-content-filtering).</sub>
 
 ### AI-8.10: System Prompt Governance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Every system prompt will live in its use case's GitLab repository and be versioned with the release. Changes are reviewed like code and deployed only through the pipeline. A change to a prompt's role or limits triggers jailbreak and injection re-testing.
 
 <sub>**Planned.** Controls: CM-3, CM-2(2), CM-4. SIP record: [AI-8.10](../04-sip/06-artificial-intelligence.md#ai-810-system-prompt-governance).</sub>
 
 ### AI-8.11: Model Artifact Encryption and Watermarking
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 3, running through Phase 4, with a target of 2029-03-31.*
+Model artifacts will be encrypted at rest under Key Vault keys in the registry and on serving nodes. Edge models are encrypted under a key rooted in the nShield HSMs and loaded into each aircraft during maintenance. Watermarking edge models follows in Phase 4.
 
 <sub>**Planned.** Controls: SC-28(1). SIP record: [AI-8.11](../04-sip/06-artificial-intelligence.md#ai-811-model-artifact-encryption-and-watermarking).</sub>
 
 ### AI-8.12: On-Device Extraction Resistance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Onboard models will run in each aircraft's trusted execution environment, stored encrypted with keys held in its crypto module. They are zeroized on tamper or loss, so a captured aircraft yields neither weights nor keys. Fleet Operations builds and proves this on a spare aircraft in Phase 2, and applies it across the fleet in Phase 3.
 
 <sub>**Planned.** Controls: SC-39(1). SIP record: [AI-8.12](../04-sip/06-artificial-intelligence.md#ai-812-on-device-extraction-resistance).</sub>
 
 ### AI-8.13: Offline/Air-Gapped Model Integrity Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Every model leaving for a disconnected destination will travel as a signed ORAS package with its weights, digest, AI-BOM, and certification record. After Certification to Field, each edge package is counter-signed with the fleet signing key in the HSMs. From Phase 3, the transfer gateway verifies packages before staging them for the IL6 enclave.
 
 <sub>**Planned.** Controls: SI-7(6). SIP record: [AI-8.13](../04-sip/06-artificial-intelligence.md#ai-813-offlineair-gapped-model-integrity-verification).</sub>
 
 ### AI-8.14: Rollback/Kill-Switch Mechanism
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+KServe will serve models from isolated-size node pools in ML Prod, and each endpoint can return to its previous certified version in minutes. The owning team operates each kill switch directly, while the Security Team and the CSSP trigger one only through the containment playbook. Each aircraft keeps its prior certified edge model. An agent that misbehaves is first limited to read-only drafting, then suspended, and its session record is kept as evidence.
 
 <sub>**Planned.** Controls: CP-10(4), CP-12. SIP record: [AI-8.14](../04-sip/06-artificial-intelligence.md#ai-814-rollbackkill-switch-mechanism).</sub>
 
 ### AI-8.15: Agent Memory Security
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+The coding agent will keep notes per repository and per developer in an Azure AI Search index with customer-managed keys, which only the OpenHands server's identity can reach. A note is written only when a developer asks for one or approves one the agent proposes, and OPA authorizes each write. Each entry carries its source, author, time, and trust level, with a keyed hash checked on every recall. LLM Guard screens entries when they are stored and when they are recalled, and a write attempted from processed content alone is blocked and alerts the Security Team.
+
+Entries expire after 180 days unless a developer confirms them again. The mission-planning agent keeps working memory for one session only, since its drafts reach a station.
 
 <sub>**Planned.** Controls: AC-3, SI-7(1), SI-12. SIP record: [AI-8.15](../04-sip/06-artificial-intelligence.md#ai-815-agent-memory-security). Details: the AISP, [Section 9](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#9-agent-memory-scopes-and-retention).</sub>
 
 ## AI-9: Operations and Continuous Monitoring
 
+Once a model is fielded, KESTREL will keep checking that it still behaves as certified. Drift monitoring compares outputs and inputs with what the model was trained on, and canary prompts probe the live endpoints daily. The registry is checked against what is actually loaded. Models are re-tested against new attacks on a schedule, and retired models are disposed of completely.
+
 ### AI-9.1: Model Drift Detection and Alerting
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, a self-hosted Evidently job will track each fielded model's output distribution, confidence, and accuracy against returning analyst corrections, reporting to Splunk. Drift past the model card's limits alerts the ML Team and the owning mission team.
 
 <sub>**Planned.** Controls: SI-4, CA-7. SIP record: [AI-9.1](../04-sip/06-artificial-intelligence.md#ai-91-model-drift-detection-and-alerting).</sub>
 
 ### AI-9.2: Data Drift Detection and Alerting
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the same Evidently job will compare each model's production inputs with its training distribution, such as new terrain, season, sensor state, or emitters. Drift alerts the ML Team before accuracy visibly drops.
 
 <sub>**Planned.** Controls: SI-4. SIP record: [AI-9.2](../04-sip/06-artificial-intelligence.md#ai-92-data-drift-detection-and-alerting).</sub>
 
 ### AI-9.3: Retraining Pipeline Integrity Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the fielded retraining pipeline's definition, schedule, data sources, and identities will be compared with the certified versions each week. A difference stops retraining until it is explained.
 
 <sub>**Planned.** Controls: SI-7(1), CM-6(2). SIP record: [AI-9.3](../04-sip/06-artificial-intelligence.md#ai-93-retraining-pipeline-integrity-verification).</sub>
 
 ### AI-9.4: Production Abuse Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, extraction alerts, quota hits, content filter blocks, and rejected inputs from every endpoint will come together in Splunk Enterprise Security. The Security Team and the CSSP can then see a campaign that spreads across several endpoints.
 
 <sub>**Planned.** Controls: SI-4(12), SI-4(16). SIP record: [AI-9.4](../04-sip/06-artificial-intelligence.md#ai-94-production-abuse-monitoring).</sub>
 
 ### AI-9.5: Canary Prompt Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, a versioned set of canary images and prompts with known answers will run daily against every fielded model and use case. A scheduled GitLab pipeline runs the promptfoo suite, with its remote calls turned off, and a failed assertion fails the job. A changed answer alerts the owning team, catching a silent change to a model or a prompt. Image canaries run from a small script, since promptfoo tests images only against models that accept them.
 
 <sub>**Planned.** Controls: SI-6. SIP record: [AI-9.5](../04-sip/06-artificial-intelligence.md#ai-95-canary-prompt-testing).</sub>
 
 ### AI-9.6: Trusted Model Registry Source Validation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, models will be packaged as OCI artifacts in KServe's modelcar format, so Ratify can verify them. Each day, every serving platform's loaded models are resolved to their digests and compared with Artifactory. A model loaded from anywhere else alerts the Security Team.
 
 <sub>**Planned.** Controls: SR-4, CM-8(3). SIP record: [AI-9.6](../04-sip/06-artificial-intelligence.md#ai-96-trusted-model-registry-source-validation).</sub>
 
 ### AI-9.7: Model Registry Hygiene Report
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, model versions with no deployment, rollback role, open evaluation, or IL6 baseline will expire on the AISP's schedule. A monthly report shows what the registry holds against those rules.
 
 <sub>**Planned.** Controls: CM-8(2), CM-2(3). SIP record: [AI-9.7](../04-sip/06-artificial-intelligence.md#ai-97-model-registry-hygiene-report).</sub>
 
 ### AI-9.8: Model Decommissioning and Disposal
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, retiring a model will delete its weights and the embeddings derived from it, revoke its endpoint identities, and remove it from every aircraft. The IL6 enclave's owner is told of any retired baseline, and the provider confirms deletion of any hosted copy. The model's record is kept as long as its certification evidence must be.
 
 <sub>**Planned.** Controls: SR-12. SIP record: [AI-9.8](../04-sip/06-artificial-intelligence.md#ai-98-model-decommissioning-and-disposal). Details: the AISP, [Section 8](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#8-model-disposal).</sub>
 
 ### AI-9.9: Operational Adversarial Re-Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, each fielded model and use case will be re-tested each quarter against new jailbreak, injection, and evasion techniques, and the mission-planning agent each month. A re-test also runs whenever the provider changes a foundation model underneath a use case, or an agent's tools, memory, or input trust change. Results go to the PMO ISSE, and a failure reopens certification.
 
 <sub>**Planned.** Controls: CA-7, RA-5. SIP record: [AI-9.9](../04-sip/06-artificial-intelligence.md#ai-99-operational-adversarial-re-testing). Details: the AISP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan#3-robustness-requirements-and-cyber-te-methodology).</sub>
 
 ## AI-10: AI/ML Security Planning
 
+The AI/ML Security Plan holds the standards behind this focus area, such as the assurance levels, the test thresholds, and the agent memory rules.
+
 ### AI-10.1: AI/ML Security Plan (AISP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The ML Team will write the AI/ML Security Plan in late Phase 1. Each mission team writes the sections for its own use cases, and the PMO ISSE writes the test and evaluation method. The plan follows the DoD AI Cybersecurity Risk Management Tailoring Guide that the CCSD applies. The review board and the ISSM review it, and the Configuration Control Board approves it. It is revised each year and whenever a threshold, the component catalog, or a foundation model changes.
 
 <sub>**Planned.** Controls: SA-15. SIP record: [AI-10.1](../04-sip/06-artificial-intelligence.md#ai-101-aiml-security-plan-aisp). Published as the [AI/ML Security Plan](https://github.com/jessestarkey/Kestrel/wiki/AI-ML-Security-Plan).</sub>

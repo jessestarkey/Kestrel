@@ -1,0 +1,1 @@
+Training repositories will get the same secret scanning as every other repository, with Gitleaks hooks and GitLab push protection. Training jobs hold no static secret to leak, since they authenticate with workload identity.

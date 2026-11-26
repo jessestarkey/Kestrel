@@ -1,0 +1,1 @@
+Each training identity will read only the snapshots its run declares and write only to its run's output, which the release runners then collect. ML engineers hold no privileged roles on the training cluster. The Platform Team performs privileged operations for them from its administrative VDI host pool, and those grants are reviewed twice a year.

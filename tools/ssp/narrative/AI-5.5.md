@@ -1,0 +1,1 @@
+From Phase 3, each detection model will be tested on inputs unlike its training data, such as new weather, terrain, sensor faults, and emitters. The test checks that the model lowers its confidence rather than giving a wrong answer with high confidence.

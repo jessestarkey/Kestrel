@@ -1,0 +1,1 @@
+Every training environment will pin its dependency versions and image digest. Each run hashes its assembled environment at start, compares it with the approved baseline, and halts if they differ. The verified hash goes into the run record and the AI-BOM.

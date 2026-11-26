@@ -1,0 +1,1 @@
+From Phase 2, every training run will read an immutable lakeFS snapshot on StorageGRID in the ML training zone, identified by its content hash. Each snapshot's provenance names its source zones, its release approvals, and its payload vendor terms. Any model can therefore be traced back to its exact data and the permissions that came with it.

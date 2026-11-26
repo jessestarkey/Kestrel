@@ -1,0 +1,1 @@
+Run tracking will compare each run's hyperparameters with the envelope its certification approved. A run outside that envelope alerts the ML Team and the PMO ISSE, and the resulting model needs full Certification to Field. Envelopes exist once the first models are certified in Phase 3.

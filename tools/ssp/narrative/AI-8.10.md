@@ -1,0 +1,1 @@
+Every system prompt will live in its use case's GitLab repository and be versioned with the release. Changes are reviewed like code and deployed only through the pipeline. A change to a prompt's role or limits triggers jailbreak and injection re-testing.

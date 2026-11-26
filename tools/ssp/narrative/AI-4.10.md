@@ -1,0 +1,1 @@
+From Phase 2, GitLab API Fuzzing will test the training platform's job, dataset, and registry interfaces for authorization flaws. One check confirms that a training identity cannot mount another run's snapshot or write to another run's output.

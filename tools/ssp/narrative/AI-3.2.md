@@ -1,0 +1,1 @@
+From Phase 2, Azure Machine Learning's tracking will record every run's code revision, dependencies, environment, hyperparameters, dataset snapshot, and metrics. A checkpoint without a complete run record cannot be promoted. Sampled reproduction of past runs starts in Phase 4.

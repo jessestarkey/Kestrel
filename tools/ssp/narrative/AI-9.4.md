@@ -1,0 +1,1 @@
+From Phase 3, extraction alerts, quota hits, content filter blocks, and rejected inputs from every endpoint will come together in Splunk Enterprise Security. The Security Team and the CSSP can then see a campaign that spreads across several endpoints.

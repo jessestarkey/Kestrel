@@ -1,0 +1,1 @@
+From Phase 3, API Management will admit only approved mission team workloads to the model endpoints, and Splunk will baseline each caller's query pattern. A sweep of queries that looks like extraction alerts the ML Team and the Security Team. Each partner's query volume through the partner API is watched the same way.

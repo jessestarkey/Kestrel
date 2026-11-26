@@ -1,0 +1,1 @@
+From Phase 2, the resolved dependencies of every training and serving image will be scanned on each build and daily afterward. A vulnerable pin is remediated on the VPMP's clock for its severity. Frameworks, tokenizers, and accelerator toolkits come only through Artifactory.

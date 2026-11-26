@@ -1,0 +1,1 @@
+From Phase 3, Azure AI Search will index only the shared report zone for the LLM analyst assistant, under customer-managed keys. It tags each document by source and release markings. Retrieval enforces the requesting user's entitlements, so a report restricted from a partner never reaches that user's context. IL6 releases are marked in the prompt as untrusted content.

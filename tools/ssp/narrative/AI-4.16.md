@@ -1,0 +1,1 @@
+From Phase 2, every training job's submission, configuration, data access, and output will be logged to Splunk, where the training platform's administrators cannot change the record. The ISSO reviews the logs each week.

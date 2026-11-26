@@ -1,0 +1,1 @@
+Platform Prod's runners will collect each trained artifact, sign it with the pipeline's dev/test key, and publish it to the model registry. The signature binds the artifact to its run record and its data snapshot.

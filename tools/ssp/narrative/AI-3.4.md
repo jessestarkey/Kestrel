@@ -1,0 +1,1 @@
+Training scripts and feature-engineering code will live in ML Team repositories that only its members can read. Clones on performer laptops fall under the same performer controls as other source code. Mission data is worked on only inside the workspaces, never on a laptop.

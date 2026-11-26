@@ -1,0 +1,1 @@
+The cloud hub will keep ML Dev/Test apart from every production spoke, except the shared services in F25. Training pulls images and approved checkpoints from the registry and the mirror, and reads the ML training zone across the circuit. Trained artifacts leave only when Platform Prod's runners collect them over F24.

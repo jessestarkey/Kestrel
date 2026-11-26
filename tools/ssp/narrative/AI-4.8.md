@@ -1,0 +1,1 @@
+From Phase 2, the infrastructure as code for the training cluster, its snapshots, and the model registry will be scanned with GitLab IaC Scanning and Conftest. The checks apply the same policy as all other infrastructure code, plus the AISP's training baseline.

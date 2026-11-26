@@ -1,0 +1,1 @@
+From Phase 3, the same Evidently job will compare each model's production inputs with its training distribution, such as new terrain, season, sensor state, or emitters. Drift alerts the ML Team before accuracy visibly drops.

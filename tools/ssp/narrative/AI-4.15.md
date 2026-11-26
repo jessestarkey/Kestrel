@@ -1,0 +1,1 @@
+Every model version will get a CycloneDX AI-BOM listing its data snapshots, base checkpoint, hyperparameters, frameworks, and payload vendor terms. It is stored in the model registry beside the artifact it describes.

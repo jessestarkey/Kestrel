@@ -1,0 +1,1 @@
+From Phase 3, the PMO ISSE will review each candidate's validation report against the test classes and thresholds the AISP sets for its assurance level. Missing coverage counts as a failure, not a pass.

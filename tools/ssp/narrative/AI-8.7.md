@@ -1,0 +1,3 @@
+From Phase 3, Open Policy Agent will check every tool call the mission-planning agent makes against the tools and parameters its task authorized. Each tool runs in its own Container Instances group in Mission Team 2 Prod, with hypervisor isolation and customer-managed keys. The agent's tools read only shared reports and collection requests, and write drafts only to an operator's approval queue.
+
+The coding agent's commands and file actions reach OPA the same way, through a custom OpenHands security analyzer. Its sandbox can reach only Artifactory, read-only, and the OpenHands server handles cloning, pushing, and calls to Azure OpenAI.

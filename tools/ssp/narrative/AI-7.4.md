@@ -1,0 +1,1 @@
+Analyst corrections will be bound to the analyst's identity and the session they correct. When the fleet integrates, federated updates are authenticated by each aircraft's device certificate. IL6 releases are treated as untrusted input and pass the same checks.

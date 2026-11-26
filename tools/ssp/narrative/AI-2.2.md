@@ -1,0 +1,1 @@
+From Phase 2, labels will come only from the Data Team's cleared annotators, analyst corrections, and model corrections released from the IL6 enclave. Each mission team's zone has its own CVAT instance, so the payload vendor split holds. A sample of every batch is labeled twice to catch disagreement, and each correction is bound to the analyst or IL6 release record behind it.

@@ -10,7 +10,7 @@ Every person will be uniquely identified and authenticated before reaching anyth
 
 ## IA-2(1)
 
-Privileged accounts will authenticate with a CAC, which combines the card with its PIN. Administrators will sign in with the card first, through Entra certificate-based authentication or Active Directory smart card logon, before CyberArk or Entra Privileged Identity Management grants any privileged role. The directory and station break-glass accounts are the one exception. They use console-only passwords under a compensating control, held by two custodians and changed after every use.
+Privileged accounts will authenticate with a CAC, which combines the card with its PIN. Administrators will sign in with the card first, through Entra certificate-based authentication or Active Directory smart card logon. Only then does CyberArk or Entra Privileged Identity Management grant a privileged role. The directory and station break-glass accounts are the one exception. They use console-only passwords under a compensating control, held by two custodians and changed after every use.
 
 ## IA-2(2)
 
@@ -30,7 +30,7 @@ KESTREL will accept DoD CACs as PIV credentials. Entra certificate-based authent
 
 ## IA-3
 
-Devices will be authenticated before they connect. In the data center and at the alternate site, Cisco ISE will require 802.1X with EAP-TLS on every wired port, using device certificates from the program PKI, and the operating sites will follow in Phase 3. Each aircraft and ground control station will authenticate on the datalinks with its own program PKI device identity. Equipment that cannot hold a certificate will be admitted by its registered hardware address, and only to its own zone.
+Devices will be authenticated before they connect. In the data center and at the alternate site, Cisco ISE will require 802.1X with EAP-TLS on every wired port, using device certificates from the program PKI. The operating sites follow in Phase 3. Each aircraft and ground control station will authenticate on the datalinks with its own program PKI device identity. Equipment that cannot hold a certificate will be admitted by its registered hardware address, and only to its own zone.
 
 ## IA-4
 
@@ -42,7 +42,7 @@ Each identifier will show the user's status. CAC affiliation will mark contracto
 
 ## IA-5
 
-KESTREL will manage every authenticator it uses through a defined lifecycle. DoD issues and revokes the CACs, while the program PKI will issue, renew, and revoke device and workload certificates, with its keys in the nShield HSMs and its certificates tracked in Keyfactor Command. Windows LAPS and group Managed Service Accounts will rotate local administrator and service passwords. Vendor-default credentials will be replaced before any server controller or fleet device is fielded. After a confirmed compromise, every affected authenticator will be reset.
+KESTREL will manage every authenticator it uses through a defined lifecycle. DoD issues and revokes the CACs. The program PKI will issue, renew, and revoke device and workload certificates, with its keys in the nShield HSMs and its certificates tracked in Keyfactor Command. Windows LAPS and group Managed Service Accounts will rotate local administrator and service passwords. Vendor-default credentials will be replaced before any server controller or fleet device is fielded. After a confirmed compromise, every affected authenticator will be reset.
 
 ## IA-5(1)
 

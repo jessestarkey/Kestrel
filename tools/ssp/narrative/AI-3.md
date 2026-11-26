@@ -1,0 +1,1 @@
+Data scientists will experiment inside the boundary, in isolated workspaces that keep mission data from leaving. Every run is tracked well enough to reproduce, reference models are signed before they can seed training, and training code is protected like any other source.

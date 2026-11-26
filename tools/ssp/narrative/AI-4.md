@@ -1,0 +1,1 @@
+Training runs will be built and checked like any other software. Each runs in an ephemeral, isolated environment under a least-privilege identity, with egress limited to the registry and the mirror. Its code, dependencies, artifacts, and infrastructure are scanned, its definition is signed, and its output is signed and described in an AI-BOM before it reaches the registry.

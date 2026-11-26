@@ -1,0 +1,1 @@
+From Phase 2, training scripts and data loaders will go through the shared pipeline's SAST, with rules for the ML frameworks KESTREL uses. The rules include checks for unsafe deserialization and shell execution, two of the commonest flaws in ML code.

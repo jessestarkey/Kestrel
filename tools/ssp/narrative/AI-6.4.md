@@ -1,0 +1,1 @@
+Every AI risk acceptance will go through the risk acceptance process. Anything above Very Low goes to the AO, since every gate acceptance touches CCSD row 8 or 10. Each is logged in eMASS with its rationale, approver, compensating measures, and expiry.

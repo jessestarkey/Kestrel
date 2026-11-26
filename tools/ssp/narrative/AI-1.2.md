@@ -1,0 +1,1 @@
+From Phase 2, the privacy officer will approve each new training set's handling before training starts. Incidental imagery of people is the only personal information in KESTREL's collection, and no model is trained to identify individuals. The AISP records that removing a person's record later means retraining the model without it, rather than editing the weights.

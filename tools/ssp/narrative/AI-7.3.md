@@ -1,0 +1,1 @@
+Candidate models will be evaluated in a disposable environment in ML Dev/Test, with no route to any production spoke beyond the shared services in F25. The held-out evaluation data is readable only by the evaluation pipeline, so a model cannot be tuned against its own test.

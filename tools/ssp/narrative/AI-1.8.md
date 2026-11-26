@@ -1,0 +1,3 @@
+No KESTREL model will be able to command an aircraft, its flight controls, or its payload. Onboard models only cue the operator, and the mission-planning agent's drafts take effect only after an operator approves them in the planning queue. Mission Team 2 builds that approval gate, and Fleet Operations keeps the boundary between AI and the fleet at the stations.
+
+Before an onboard model or the agent is fielded, and each year after, it gets an OT-adjacent AI risk assessment. The assessment combines its threat model, its robustness results, and a safety-impact determination from the program's airworthiness and systems-safety authority. High findings go to the review board and the ISSO.

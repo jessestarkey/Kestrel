@@ -1,0 +1,1 @@
+From Phase 3, Presidio will scan prompts and inference logs for personal information and redact it from the logs. Inference logs follow the privacy officer's retention schedule, and the provider keeps nothing.

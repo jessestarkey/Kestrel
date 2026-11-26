@@ -1,0 +1,1 @@
+A model file can carry code that runs when it loads, so every artifact will be scanned before use. ModelScan checks each pretrained checkpoint and model artifact as it enters Artifactory, and the pipeline blocks any that fails from reaching training or serving.

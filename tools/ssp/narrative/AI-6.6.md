@@ -1,0 +1,1 @@
+From Phase 3, each model's rollback and kill switch will be rehearsed in stage before certification. Edge rollback is rehearsed on a spare aircraft, which falls back to its stored prior model or turns onboard detection off. The cutover times are recorded as evidence.

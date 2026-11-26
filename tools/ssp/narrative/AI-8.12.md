@@ -1,0 +1,1 @@
+Onboard models will run in each aircraft's trusted execution environment, stored encrypted with keys held in its crypto module. They are zeroized on tamper or loss, so a captured aircraft yields neither weights nor keys. Fleet Operations builds and proves this on a spare aircraft in Phase 2, and applies it across the fleet in Phase 3.

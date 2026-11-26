@@ -1,0 +1,1 @@
+From Phase 3, membership inference and model inversion tests will run against each model trained on imagery that includes people, and against any model fine-tuned on reports. The tests show whether a specific training record can be recovered from the model.

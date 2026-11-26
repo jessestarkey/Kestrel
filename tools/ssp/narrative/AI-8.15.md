@@ -1,0 +1,3 @@
+The coding agent will keep notes per repository and per developer in an Azure AI Search index with customer-managed keys, which only the OpenHands server's identity can reach. A note is written only when a developer asks for one or approves one the agent proposes, and OPA authorizes each write. Each entry carries its source, author, time, and trust level, with a keyed hash checked on every recall. LLM Guard screens entries when they are stored and when they are recalled, and a write attempted from processed content alone is blocked and alerts the Security Team.
+
+Entries expire after 180 days unless a developer confirms them again. The mission-planning agent keeps working memory for one session only, since its drafts reach a station.

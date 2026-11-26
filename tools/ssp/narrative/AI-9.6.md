@@ -1,0 +1,1 @@
+From Phase 3, models will be packaged as OCI artifacts in KServe's modelcar format, so Ratify can verify them. Each day, every serving platform's loaded models are resolved to their digests and compared with Artifactory. A model loaded from anywhere else alerts the Security Team.

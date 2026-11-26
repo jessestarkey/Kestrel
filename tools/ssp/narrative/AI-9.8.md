@@ -1,0 +1,1 @@
+From Phase 3, retiring a model will delete its weights and the embeddings derived from it, revoke its endpoint identities, and remove it from every aircraft. The IL6 enclave's owner is told of any retired baseline, and the provider confirms deletion of any hosted copy. The model's record is kept as long as its certification evidence must be.

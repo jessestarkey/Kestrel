@@ -1,0 +1,1 @@
+Every model leaving for a disconnected destination will travel as a signed ORAS package with its weights, digest, AI-BOM, and certification record. After Certification to Field, each edge package is counter-signed with the fleet signing key in the HSMs. From Phase 3, the transfer gateway verifies packages before staging them for the IL6 enclave.

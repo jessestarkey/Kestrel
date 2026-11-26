@@ -1,0 +1,1 @@
+From Phase 3, API Management will enforce rate limits and quotas per calling workload, and per user for language model use cases. A runaway caller therefore cannot exhaust GPU capacity or the foundation model's quota.

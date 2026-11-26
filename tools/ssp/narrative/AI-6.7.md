@@ -1,0 +1,1 @@
+Every certified model version will be registered in Artifactory and in Jira Service Management Assets. Each record lists its owner, its certification record, the use cases it is certified for, where it serves, and which aircraft carry it.

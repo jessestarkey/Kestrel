@@ -1,0 +1,1 @@
+A checkpoint chosen as a reference model will be signed with the pipeline's dev/test key and bound to its run record. The training pipeline accepts only signed reference models as starting points, so an altered checkpoint cannot seed a new model.

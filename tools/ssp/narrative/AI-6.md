@@ -1,0 +1,1 @@
+Certification to Field for models is the gate between validation and production. The PMO ISSE reviews each candidate's validation report and model card, and red team findings must be closed or accepted. The pipeline then scores the model against its use case's thresholds. Rollback is rehearsed before fielding, and every certified version is registered.

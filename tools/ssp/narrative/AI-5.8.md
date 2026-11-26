@@ -1,0 +1,1 @@
+From Phase 3, the pipeline will generate a model card for each certified version from its validation results, published in Confluence. The card states the model's intended use, tested limits, known failure modes, and retraining envelope.

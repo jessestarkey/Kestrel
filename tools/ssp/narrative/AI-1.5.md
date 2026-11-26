@@ -1,0 +1,1 @@
+From Phase 2, every pretrained checkpoint will be checked against its publisher's signature or published digest as it enters Artifactory, and refused if the check fails. On the hosted side, each Azure OpenAI deployment records the exact model version it serves, and an unapproved version alerts the ML Team.

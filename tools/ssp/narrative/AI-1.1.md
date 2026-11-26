@@ -1,0 +1,3 @@
+Every AI use case and new model will enter through the application intake request, with an AI section added. That section names the sponsor, the data needed, any action the use case can take, and a proposed risk tier. The path opens in late Phase 1, so the first use cases are approved before training starts. The AI/ML Governance Review Board decides each one before any corpus is assembled.
+
+A model adopted before any use case exists is recorded as a platform model, with its sponsor, provisional tier, and removal review date. It can be reached only from ML Dev/Test until a use case is certified on it.

@@ -1,0 +1,1 @@
+From Phase 3, detection outputs will be checked against their schema before they are stored. Language model responses render as plain text with required citations, so a response cannot carry active content into the analyst's browser. LLM Guard blocks any response that echoes a system prompt or a credential.

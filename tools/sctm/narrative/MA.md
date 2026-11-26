@@ -42,7 +42,7 @@ Only authorized people will perform maintenance. KESTREL's own staff do most of 
 
 ## MA-5(1)
 
-Vendor engineers without KESTREL access will be escorted at all times by an authorized KESTREL staff member while on site, and will work only on the equipment in their case.
+Vendor engineers without KESTREL access will be escorted on site at all times by an authorized KESTREL staff member. They work only on the equipment in their case.
 
 ## MA-6
 

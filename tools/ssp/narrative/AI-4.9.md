@@ -1,0 +1,1 @@
+From Phase 2, libFuzzer, AFL++, and Jazzer will fuzz the data loaders for each payload vendor's raw formats, for federated updates, and for IL6 releases on each change. These are the inputs the pipeline did not produce itself, so they get the closest testing.

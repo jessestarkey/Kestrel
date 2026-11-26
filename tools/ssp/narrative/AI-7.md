@@ -1,0 +1,1 @@
+Models will keep learning from mission data, so the retraining path needs the same care as the first training run. Its infrastructure is patched on schedule, and every retraining record is checked and tied to an authenticated source. Candidates are evaluated in a disposable environment before they can be certified.

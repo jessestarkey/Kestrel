@@ -1,0 +1,1 @@
+From Phase 3, PyRIT and garak will test every path content takes into a language model use case, and the owning mission team will fix what they find. For the analyst assistant, that includes reports and IL6 releases. For the mission-planning agent, it includes injected tool responses. Each fixed injection joins the same promptfoo regression suite.

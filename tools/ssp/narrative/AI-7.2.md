@@ -1,0 +1,1 @@
+Great Expectations will validate every retraining record's schema, ranges, and labels, and check each submitter's correction rate for floods. Federated updates arrive from the aircraft in batches over F3 and F18. Flower's robust aggregation strategies combine them as replayed rounds, so no single aircraft can dominate the result.

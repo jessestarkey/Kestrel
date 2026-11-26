@@ -1,0 +1,1 @@
+From Phase 3, a self-hosted Evidently job will track each fielded model's output distribution, confidence, and accuracy against returning analyst corrections, reporting to Splunk. Drift past the model card's limits alerts the ML Team and the owning mission team.

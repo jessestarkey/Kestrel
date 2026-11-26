@@ -1,0 +1,1 @@
+From Phase 2, training jobs will reach the data snapshots and the model registry with short-lived workload identity tokens. Any secret a job still needs comes from ML Dev/Test's Key Vault at run time, so none is stored in code or configuration.

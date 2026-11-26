@@ -1,0 +1,1 @@
+From Phase 2, Presidio will remove personal fields from training records. People in imagery need more care. The ML Team builds a person-detection model in Phase 2, certifies it in Phase 3, and delivers it to each zone. Until then, a Data Team reviewer blurs or crops people by hand before frames enter the training zone. Each record's provenance notes the technique applied.

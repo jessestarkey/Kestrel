@@ -1,0 +1,1 @@
+From Phase 2, JupyterHub will give each data scientist an individual notebook server on an isolated-size node pool in ML Dev/Test. It is reached only from the ML host pool in Azure Virtual Desktop, so notebook output stays inside the session. Each server sees only its user's approved datasets, and downloads are disabled.

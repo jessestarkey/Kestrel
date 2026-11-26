@@ -1,0 +1,1 @@
+From Phase 3, the fielded retraining pipeline's definition, schedule, data sources, and identities will be compared with the certified versions each week. A difference stops retraining until it is explained.

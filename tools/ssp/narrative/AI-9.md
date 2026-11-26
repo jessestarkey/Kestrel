@@ -1,0 +1,1 @@
+Once a model is fielded, KESTREL will keep checking that it still behaves as certified. Drift monitoring compares outputs and inputs with what the model was trained on, and canary prompts probe the live endpoints daily. The registry is checked against what is actually loaded. Models are re-tested against new attacks on a schedule, and retired models are disposed of completely.
