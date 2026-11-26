@@ -1,0 +1,1 @@
+Remediation will be ordered across the whole program by risk, not by which team found the problem. One ranking in Jira puts directive deadlines and known exploited flaws on critical assets first. A business impact analysis sets each asset's criticality, which drives both the ranking and the recovery tiers.

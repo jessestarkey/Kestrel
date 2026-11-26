@@ -1,0 +1,1 @@
+From Phase 3, the SCA will write the Security Assessment Plan in eMASS from the SCTM. It covers the cloud, the data center, the alternate site, the fleet through the spares and the simulator, and each model through its evidence annex. Inherited controls are assessed by reviewing each provider's own authorization package.

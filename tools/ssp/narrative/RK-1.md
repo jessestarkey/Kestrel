@@ -1,0 +1,1 @@
+KESTREL will assess every risk with one method, record it in one register, and accept it only through a defined chain of authority. The AO accepts every risk, and a standing delegation lets the PMO ISSE accept the lowest bands. The SCA plans and runs the assessment, its findings become POA&M items, and new technologies are assessed before they enter the system.

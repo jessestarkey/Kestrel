@@ -1,0 +1,1 @@
+The SCA will write the Risk Assessment Report from the Security Assessment Report, the open risk register, and the monthly threat brief. It is reviewed with the risk owners and delivered to the AO with the SAR, before the ATO decision.

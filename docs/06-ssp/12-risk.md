@@ -4,90 +4,98 @@
 
 ## RK-1: Risk Assessment and Treatment
 
+KESTREL will assess every risk with one method, record it in one register, and accept it only through a defined chain of authority. The AO accepts every risk, and a standing delegation lets the PMO ISSE accept the lowest bands. The SCA plans and runs the assessment, its findings become POA&M items, and new technologies are assessed before they enter the system.
+
 ### RK-1.1: Risk Assessment Methodology
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The PMO ISSE will define one risk assessment method for KESTREL, based on NIST SP 800-30, scoring likelihood and impact on five-point scales. Impact is anchored to the CCSD's categorization, to mission effects, and to privacy harm. The highest scores go to anything that could cost an aircraft or compromise the command link. The same applies to exposing the key material in CCSD row 13, or tampering with a certified model or signed release.
 
 <sub>**Planned.** Controls: PM-9. SIP record: [RK-1.1](../04-sip/12-risk.md#rk-11-risk-assessment-methodology). Published as the [Risk Management Program Charter](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter). Details: the Risk Management Program Charter, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#1-risk-assessment-methodology).</sub>
 
 ### RK-1.2: Risk Appetite and Tolerance Definition
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The program manager will draft KESTREL's risk appetite statement, and the AO will approve it. Appetite is lowest where a failure could reach an aircraft or a key, and moderate for analytic availability and development.
+
+The AO accepts every risk. A standing delegation, recorded in the interim authorization to test and carried forward by the ATO decision, extends that authority. It lets the PMO ISSE accept Very Low risks anywhere, and Low risks outside the flight safety and key material rows. Everything else, including any risk above Very Low to flight safety, the command link, keys, or the High-integrity models and releases, goes to the AO.
 
 <sub>**Planned.** Controls: PM-28, PM-9. SIP record: [RK-1.2](../04-sip/12-risk.md#rk-12-risk-appetite-and-tolerance-definition). Details: the Risk Management Program Charter, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#2-risk-appetite-tolerance-and-acceptance-authority-tiering) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### RK-1.3: Risk Register and Tracking
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, the risk register will be a Jira project, linked to eMASS POA&M items by record ID. Each risk names an owner, a score, a treatment, and a review date. The steering committee reviews the register each month. From Phase 3, its integration with the POA&M and the SCTM is automated, and a Splunk dashboard shows the program's risk posture to leadership.
 
 <sub>**Planned.** Controls: RA-3, PM-6. SIP record: [RK-1.3](../04-sip/12-risk.md#rk-13-risk-register-and-tracking).</sub>
 
 ### RK-1.4: Risk Acceptance Process
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Risk acceptances will be requested in Jira Service Management and recorded in eMASS. A Very Low risk, or a Low risk outside CCSD rows 6, 8, 10, and 13, goes to the PMO ISSE under the AO's delegation. Everything else goes to the AO. The team whose delivery a risk blocks never accepts that risk itself. Every acceptance carries an expiry and is re-reviewed each quarter. The AO's acceptances of the two agents' capability combinations expire after one year, like any other.
 
 <sub>**Planned.** Controls: RA-7. SIP record: [RK-1.4](../04-sip/12-risk.md#rk-14-risk-acceptance-process).</sub>
 
 ### RK-1.5: Security Assessment Plan
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the SCA will write the Security Assessment Plan in eMASS from the SCTM. It covers the cloud, the data center, the alternate site, the fleet through the spares and the simulator, and each model through its evidence annex. Inherited controls are assessed by reviewing each provider's own authorization package.
 
 <sub>**Planned.** Controls: CA-2. SIP record: [RK-1.5](../04-sip/12-risk.md#rk-15-security-assessment-plan).</sub>
 
 ### RK-1.6: Security Assessment Report (SAR)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-08-31.*
+The SCA will write the Security Assessment Report in eMASS after the assessment, which starts on 2028-07-31. The ISSM checks it for factual accuracy without changing any determination. It is handled as CUI and goes only to the AO, the program manager, the ISSM, and the PMO ISSE.
 
 <sub>**Planned.** Controls: CA-2. SIP record: [RK-1.6](../04-sip/12-risk.md#rk-16-security-assessment-report-sar).</sub>
 
 ### RK-1.7: Risk Assessment Report (RAR)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-09-09.*
+The SCA will write the Risk Assessment Report from the Security Assessment Report, the open risk register, and the monthly threat brief. It is reviewed with the risk owners and delivered to the AO with the SAR, before the ATO decision.
 
 <sub>**Planned.** Controls: RA-3. SIP record: [RK-1.7](../04-sip/12-risk.md#rk-17-risk-assessment-report-rar).</sub>
 
 ### RK-1.8: Plan of Action and Milestones (POA&M)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+POA&M items will live in eMASS from Phase 1, starting with the conditions of the interim authorization to test and the first findings. Milestones are reviewed each month and reported to the AO each quarter. An ISSO closes an item only after verifying the fix, with the evidence filed in the evidence repository.
 
 <sub>**Planned.** Controls: CA-5, PM-4. SIP record: [RK-1.8](../04-sip/12-risk.md#rk-18-plan-of-action-and-milestones-poam).</sub>
 
 ### RK-1.9: Emerging Technology Risk Assessment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 3, running through Phase 4, with a target of 2029-03-31.*
+From Phase 3, the chief engineer and the PMO ISSE will scan for new technologies KESTREL might adopt. Examples are new foundation models, agent frameworks, payload sensors, and datalinks. AI candidates go through the AI/ML Governance Review Board, and everything else through Security Impact Analysis. The post-quantum transition is handled separately, under the cryptography outcomes.
 
 <sub>**Planned.** Controls: none, as the SADD declines a mapping. SIP record: [RK-1.9](../04-sip/12-risk.md#rk-19-emerging-technology-risk-assessment).</sub>
 
 ## RK-2: Threat Intelligence
 
+KESTREL will run its own threat intelligence, on top of what the CSSP provides. A named analyst vets incoming indicators before detection uses them, maps new techniques against KESTREL's detections, and briefs the steering committee each month. Classified intelligence reaches KESTREL only as sanitized releases.
+
 ### RK-2.1: Threat Intelligence Program
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 4, with a target of 2029-03-31.*
+The Security Team will name its threat intelligence analyst in Phase 2, before indicator vetting starts. Classified products reach KESTREL only as sanitized releases, through a cleared government point of contact and the CSSP.
 
 <sub>**Planned.** Controls: PM-16. SIP record: [RK-2.1](../04-sip/12-risk.md#rk-21-threat-intelligence-program). Details: the Risk Management Program Charter, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#3-threat-intelligence-program-charter).</sub>
 
 ### RK-2.2: Threat Landscape Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, the analyst will map each new technique against the detections in Splunk Enterprise Security, including datalink jamming and MITRE ATLAS techniques against the AI estate. A monthly threat brief goes to the steering committee and feeds the risk register.
 
 <sub>**Planned.** Controls: RA-3(3), PM-15. SIP record: [RK-2.2](../04-sip/12-risk.md#rk-22-threat-landscape-monitoring). Details: the Risk Management Program Charter, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#4-threat-landscape-monitoring-and-reporting) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#appendix-reference-data-and-live-registers).</sub>
 
 ### RK-2.3: Indicator Sharing and Enrichment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, indicators will arrive from the CSSP as STIX over TAXII over F31. They wait for the analyst's vetting before detection uses them, and vetted indicators are handed to the detection team's feed management. KESTREL shares indicators outward only through the CSSP, after the ISSM's release determination, starting in Phase 3. DC3's DIB Cybersecurity indicators cover only the performer's own systems.
 
 <sub>**Planned.** Controls: PM-16, PM-16(1), PM-15. SIP record: [RK-2.3](../04-sip/12-risk.md#rk-23-indicator-sharing-and-enrichment).</sub>
 
 ## RK-3: Enterprise Risk Prioritization
 
+Remediation will be ordered across the whole program by risk, not by which team found the problem. One ranking in Jira puts directive deadlines and known exploited flaws on critical assets first. A business impact analysis sets each asset's criticality, which drives both the ranking and the recovery tiers.
+
 ### RK-3.1: Risk-Based Remediation Prioritization
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, one ranking in Jira will order remediation across every team. Fixed deadlines from IAVM directives and CYBERCOM orders come first, then known exploited flaws on DMZ, Tier 0, or fleet assets, then everything else by priority score. OT maintenance windows constrain when fleet work can happen. The model is recalibrated each quarter against a log of where the ranking was overridden.
 
 <sub>**Planned.** Controls: PM-4. SIP record: [RK-3.1](../04-sip/12-risk.md#rk-31-risk-based-remediation-prioritization). Details: the Risk Management Program Charter, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#5-enterprise-remediation-ranking-model).</sub>
 
 ### RK-3.2: Business Impact Analysis (BIA)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The program manager will own the business impact analysis, which covers every mission process, from flying the aircraft to collecting, analyzing, releasing, and retraining. The intelligence mission leads and Fleet Operations' operations lead set how long each process can be lost. The tiering method exists in Phase 1, so Tier 1 backups can start on provisional objectives, and the full analysis confirms them in Phase 2. Results are recorded as Assets tags that set the recovery tiers and incident severity.
 
 <sub>**Planned.** Controls: PM-11. SIP record: [RK-3.2](../04-sip/12-risk.md#rk-32-business-impact-analysis-bia). Details: the CP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Contingency-Plan#1-essential-functions-critical-assets-and-coverage-scope); and the Risk Management Program Charter, [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#appendix-reference-data-and-live-registers) and [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Risk-Management-Program-Charter#6-business-impact-analysis-methodology-and-criticality-tiering).</sub>

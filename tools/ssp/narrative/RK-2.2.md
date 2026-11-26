@@ -1,0 +1,1 @@
+From Phase 3, the analyst will map each new technique against the detections in Splunk Enterprise Security, including datalink jamming and MITRE ATLAS techniques against the AI estate. A monthly threat brief goes to the steering committee and feeds the risk register.

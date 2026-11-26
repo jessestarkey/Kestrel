@@ -1,0 +1,1 @@
+KESTREL will run its own threat intelligence, on top of what the CSSP provides. A named analyst vets incoming indicators before detection uses them, maps new techniques against KESTREL's detections, and briefs the steering committee each month. Classified intelligence reaches KESTREL only as sanitized releases.

@@ -1,0 +1,1 @@
+The Security Team will name its threat intelligence analyst in Phase 2, before indicator vetting starts. Classified products reach KESTREL only as sanitized releases, through a cleared government point of contact and the CSSP.

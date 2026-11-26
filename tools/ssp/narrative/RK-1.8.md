@@ -1,0 +1,1 @@
+POA&M items will live in eMASS from Phase 1, starting with the conditions of the interim authorization to test and the first findings. Milestones are reviewed each month and reported to the AO each quarter. An ISSO closes an item only after verifying the fix, with the evidence filed in the evidence repository.

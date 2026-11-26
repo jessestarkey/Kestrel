@@ -1,0 +1,1 @@
+From Phase 2, the risk register will be a Jira project, linked to eMASS POA&M items by record ID. Each risk names an owner, a score, a treatment, and a review date. The steering committee reviews the register each month. From Phase 3, its integration with the POA&M and the SCTM is automated, and a Splunk dashboard shows the program's risk posture to leadership.

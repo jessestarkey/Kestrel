@@ -1,0 +1,3 @@
+The program manager will draft KESTREL's risk appetite statement, and the AO will approve it. Appetite is lowest where a failure could reach an aircraft or a key, and moderate for analytic availability and development.
+
+The AO accepts every risk. A standing delegation, recorded in the interim authorization to test and carried forward by the ATO decision, extends that authority. It lets the PMO ISSE accept Very Low risks anywhere, and Low risks outside the flight safety and key material rows. Everything else, including any risk above Very Low to flight safety, the command link, keys, or the High-integrity models and releases, goes to the AO.

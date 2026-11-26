@@ -1,0 +1,1 @@
+The SCA will write the Security Assessment Report in eMASS after the assessment, which starts on 2028-07-31. The ISSM checks it for factual accuracy without changing any determination. It is handled as CUI and goes only to the AO, the program manager, the ISSM, and the PMO ISSE.
