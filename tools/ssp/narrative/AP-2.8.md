@@ -1,0 +1,1 @@
+GitLab Dependency Scanning and Xray will review every merge request that changes a dependency manifest. They check each component for known vulnerabilities, license terms, and package health. A component that fails the ASP's criteria cannot merge without an exception approved through the risk acceptance process.

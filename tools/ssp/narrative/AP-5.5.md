@@ -1,0 +1,1 @@
+A deployment inventory will read the versions actually running in every production spoke and on every on-premises target, and compare them with what Certification to Field approved. Anything running that was never certified is flagged. The edge model versions each aircraft reports join the inventory on the spares in Phase 2, and across the fleet when it integrates.

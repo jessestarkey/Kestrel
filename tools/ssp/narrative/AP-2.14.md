@@ -1,0 +1,1 @@
+Base images will be the Platform Team's hardened images, built on Iron Bank and served from Artifactory. Every build records its base image and digest from Phase 1. In Phase 2, a lineage report and staleness alerts follow, and a base image past its end of life fails the build.

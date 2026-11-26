@@ -1,0 +1,1 @@
+Trivy will check every image and its Kubernetes manifest against the container hardening benchmark before release. The checks require a non-root user, a read-only filesystem, dropped capabilities, and resource limits. An image that fails cannot reach the release namespace, and each waiver is tracked to its expiry date.

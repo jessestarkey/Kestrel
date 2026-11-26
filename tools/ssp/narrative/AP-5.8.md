@@ -1,0 +1,1 @@
+From Phase 2, the secrets present in every deployed environment will be listed and reconciled against what each spoke's Key Vault issued. Defender for Key Vault alerts on unusual access. A secret nobody issued, or one nothing has used since its last rotation, is flagged for removal.

@@ -1,0 +1,1 @@
+One Splunk dashboard will combine every scanner's and tester's findings for each application, deduplicated and ranked by risk. The owning teams, the Security Team, and the PMO ISSE work from it, and the CSSP's analysts read it through their host pool.

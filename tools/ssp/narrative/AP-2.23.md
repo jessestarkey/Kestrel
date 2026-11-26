@@ -1,0 +1,1 @@
+Every team's pipeline will extend the Platform Team's templates. From Phase 1, an unapproved change to a pipeline definition stops the run and alerts the Platform Team and the Security Team. In Phase 2, the templates are signed with Cosign and verified before each job runs.

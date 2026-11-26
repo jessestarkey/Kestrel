@@ -1,0 +1,1 @@
+Protected branches will require a second reviewer, passing checks, and signed commits, with no administrator bypass, from the first commit. From Phase 1, a daily scan reports any repository that has drifted from that and opens a ticket to its owning team. The full compliance report follows in Phase 2 and becomes part of Certification to Field's evidence.

@@ -4,342 +4,368 @@
 
 ## AP-1: Planning, Requirements, and Design
 
+Security work on an application will start before any code is written. Every application, service, or COTS product enters through one intake request, the PMO ISSE turns the CCSD's controls into testable requirements, and each team threat-models what it builds. The Application Security Plan (ASP) sets the standards for all three.
+
 ### AP-1.1: Capability Gap Identification and Planning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, once the mission teams are building, the PMO ISSE will measure each team's application security practice against the SADD's Application outcomes. Each gap gets an owning team and a target date in the Security Implementation Plan. The program managers fund closing them from a dedicated application security budget line. The gap list is reviewed every time the ASP's Certification to Field thresholds are reviewed.
 
 <sub>**Planned.** Controls: SA-2, SA-3. SIP record: [AP-1.1](../04-sip/05-application.md#ap-11-capability-gap-identification-and-planning).</sub>
 
 ### AP-1.2: Application Intake and Onboarding
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every application, service, or COTS product will enter KESTREL through one intake request in Jira, before design starts or a purchase is made. That applies from the first platform services in Phase 1. The request names the owning team and product owner, and the data the application handles. It also names any payload vendor terms it falls under, and the spoke or host it will run on.
+
+The PMO ISSE approves each request before work starts. An approved request opens the threat model and the security impact analysis, and nothing deploys without a completed intake record.
 
 <sub>**Planned.** Controls: SA-3. SIP record: [AP-1.2](../04-sip/05-application.md#ap-12-application-intake-and-onboarding). Details: the ASP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#1-application-intake-and-onboarding).</sub>
 
 ### AP-1.3: Security Requirements Definition
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+The PMO ISSE will turn the CCSD's control set into security requirements for applications, kept in Confluence. Examples are sign-in through the identity provider, authorization scoped to the user's team, and the audit events each application must record. Each requirement enters the team backlogs in Jira as an acceptance criterion with a test that proves it. A product owner accepts no story until its security requirements pass.
 
 <sub>**Planned.** Controls: SA-2, SA-4, SA-8, SA-17. SIP record: [AP-1.3](../04-sip/05-application.md#ap-13-security-requirements-definition). Details: the ASP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#2-security-requirements-and-threat-modeling).</sub>
 
 ### AP-1.4: Application Threat Modeling
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 4, with a target of 2029-03-31.*
+Each team will model every application and AI use case it owns in Threagile before building. The models are YAML in a GitLab threat model repository, built from the program's modular templates and shared asset libraries. The program's custom Threagile image adds IL5 rules and a risk engine that cites MITRE ATLAS for AI.
+
+How deep a model goes depends on the application. Anything partner-facing, internet-reachable, or able to act on aircraft gets the full model. The PMO ISSE reviews each model at the design gate, starting with the Phase 1 platform services and their COTS integration boundaries.
 
 <sub>**Planned.** Controls: SA-11(2), SA-15, SA-15(2), SA-15(8). SIP record: [AP-1.4](../04-sip/05-application.md#ap-14-application-threat-modeling). Details: the ASP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#2-security-requirements-and-threat-modeling).</sub>
 
 ## AP-2: Development and Continuous Integration
 
+KESTREL's pipeline will carry most of its application security. Every change runs through GitLab, where scanners check the code, its dependencies, its secrets, its containers, and its infrastructure as code before it can merge. Builds run on isolated runners under least-privilege identities, and every artifact is signed with provenance that admission control verifies before production.
+
 ### AP-2.1: IDE Security Tools
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 4, with a target of 2029-03-31.*
+Developers will get help catching problems as they write code. The performer installs SonarQube for IDE in standalone mode, with telemetry disabled, on the laptops its developers use for KESTREL work. The plugins never send KESTREL code outside the boundary, and the pipeline's scans remain the authoritative check.
+
+Developers who want AI help use KESTREL's own coding agent, a self-hosted OpenHands service in Platform Prod, reached only from the developer VDI pool. Each session runs in its own sandbox. A custom security analyzer sends every command and file action to Open Policy Agent, and blocks the action whenever OPA denies it or cannot be reached. The sandbox reaches only cached approved packages, so it has no path to the internet.
 
 <sub>**Planned.** Controls: SA-11(1). SIP record: [AP-2.1](../04-sip/05-application.md#ap-21-ide-security-tools).</sub>
 
 ### AP-2.2: Secure Coding Standards and Build Hardening
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The ASP's coding standard will name the approved languages and frameworks and prefer memory-safe languages for new services. It also lists the functions and patterns developers may not use. The pipeline templates apply the standard's compiler and packaging hardening settings, and a build that drops them fails. Applications show users a generic error and send diagnostic detail only to logs that authorized staff can read.
+
+The platform services are COTS, so in Phase 1 the standard first applies to the Platform Team's own automation. It applies to the mission teams' code as they start building in Phase 2.
 
 <sub>**Planned.** Controls: SA-15, SI-16, SI-11. SIP record: [AP-2.2](../04-sip/05-application.md#ap-22-secure-coding-standards-and-build-hardening). Details: the ASP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#3-secure-coding-and-dependency-standards) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#appendix-reference-catalogs-and-configuration-baselines).</sub>
 
 ### AP-2.3: SAST
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+GitLab SAST will scan every merge request and merge from the first commit, with rules tuned to each team's languages. A finding at or above the ASP's threshold blocks the merge. Any exception the PMO ISSE approves is recorded against the finding it covers.
 
 <sub>**Planned.** Controls: SA-11(1), SA-15(7). SIP record: [AP-2.3](../04-sip/05-application.md#ap-23-sast).</sub>
 
 ### AP-2.4: Secret Scanning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Gitleaks will run as a pre-commit hook on performer laptops. A developer can skip a hook on a laptop KESTREL does not manage, though, so GitLab's push protection is the control that actually enforces it. GitLab also scans every build and, on a schedule, the full repository history. A secret found in history is rotated first and removed second.
 
 <sub>**Planned.** Controls: IA-5(7). SIP record: [AP-2.4](../04-sip/05-application.md#ap-24-secret-scanning).</sub>
 
 ### AP-2.5: Container Scanning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+GitLab Container Scanning will check every image before it is pushed, and JFrog Xray will rescan stored images as new vulnerability data arrives. An image above the ASP's severity threshold cannot be pushed or deployed.
 
 <sub>**Planned.** Controls: RA-5. SIP record: [AP-2.5](../04-sip/05-application.md#ap-25-container-scanning).</sub>
 
 ### AP-2.6: Malware Scanning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+ClamAV will scan every package and base image the mirror fetches, and every build artifact before release, while Xray flags known malicious packages. Vendor deliveries, such as payload vendor software and COTS updates, are scanned at intake before anyone installs them. The media intake station scans every government medium before its contents are imported.
 
 <sub>**Planned.** Controls: SI-3, SI-3(10). SIP record: [AP-2.6](../04-sip/05-application.md#ap-26-malware-scanning).</sub>
 
 ### AP-2.7: Trusted Internal Package Repository
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+JFrog Artifactory in Platform Prod will be the only source builds resolve packages from, and the cloud hub blocks every other route to public package indexes. Each ecosystem's remote repository draws only from its approved upstream. KESTREL's internal package names are reserved, so a public package with the same name cannot replace one of them.
 
 <sub>**Planned.** Controls: SR-3, SR-4(3). SIP record: [AP-2.7](../04-sip/05-application.md#ap-27-trusted-internal-package-repository).</sub>
 
 ### AP-2.8: Dependency Review
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+GitLab Dependency Scanning and Xray will review every merge request that changes a dependency manifest. They check each component for known vulnerabilities, license terms, and package health. A component that fails the ASP's criteria cannot merge without an exception approved through the risk acceptance process.
 
 <sub>**Planned.** Controls: RA-5, SR-3, SR-5(2). SIP record: [AP-2.8](../04-sip/05-application.md#ap-28-dependency-review). Details: the ASP, [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#3-secure-coding-and-dependency-standards).</sub>
 
 ### AP-2.9: External Runtime Service and Client-Side Code Governance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+The analyst portal and the signals workbench will serve all of their own client code, with no third-party scripts, fonts, or analytics. Content security policies set at Application Gateway block anything else. Applications call only provider services inside the boundary, plus Purview Information Protection in the Microsoft 365 DoD tenant. Any new external service has to go through intake first.
 
 <sub>**Planned.** Controls: SA-9, SA-9(5), SI-7. SIP record: [AP-2.9](../04-sip/05-application.md#ap-29-external-runtime-service-and-client-side-code-governance).</sub>
 
 ### AP-2.10: Adversarial Code Review
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 4, with a target of 2029-03-31.*
+From Phase 2, a Security Team reviewer from outside the authoring team will read each high-risk change as an attacker would. High-risk means authentication, cryptography, partner release logic, the code that keeps payload vendor data apart, and any tool an AI agent can call. The reviewer's approval is a required check on the merge. Any AI-assisted analysis the reviewer uses runs on a model hosted in ML Prod.
 
 <sub>**Planned.** Controls: SA-11(4). SIP record: [AP-2.10](../04-sip/05-application.md#ap-210-adversarial-code-review). Details: the ASP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#4-adversarial-code-review).</sub>
 
 ### AP-2.11: SBOM Generation and Enrichment
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Syft will produce a CycloneDX SBOM for every build, stored in Artifactory beside the artifact it describes. OWASP Dependency-Track matches the SBOMs continuously against new vulnerability data, so a newly disclosed flaw can be traced to every release that contains it.
 
 <sub>**Planned.** Controls: SR-4, SR-4(1). SIP record: [AP-2.11](../04-sip/05-application.md#ap-211-sbom-generation-and-enrichment).</sub>
 
 ### AP-2.12: Vendor SBOM Intake
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Every software supplier's contract will require an SBOM with each delivery and update, including the payload vendors, the service desk vendor, and the ground equipment manufacturers. The supply chain lead checks each SBOM, loads it into Dependency-Track, and records it against its product in the inventory. A supplier that cannot provide one is recorded, and monitoring of that product is tightened.
 
 <sub>**Planned.** Controls: SR-3, SR-4(4). SIP record: [AP-2.12](../04-sip/05-application.md#ap-212-vendor-sbom-intake).</sub>
 
 ### AP-2.13: Image Signing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+Cosign will sign every release image and package in the pipeline, using a Key Vault Premium key backed by the HSMs. A separate key signs dev/test artifacts. Ratify and Gatekeeper admit to production only images that carry the release signature and a Certification to Field attestation. Vendor images are signed again once the mirror has scanned them.
+
+The fleet signing key never leaves the nShield HSMs in the data center. Before it signs anything for the fleet, the signing host checks the cloud signature, the build provenance, and the Certification to Field approval.
 
 <sub>**Planned.** Controls: CM-14, SI-7(15). SIP record: [AP-2.13](../04-sip/05-application.md#ap-213-image-signing).</sub>
 
 ### AP-2.14: Base Image Lineage Report
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Base images will be the Platform Team's hardened images, built on Iron Bank and served from Artifactory. Every build records its base image and digest from Phase 1. In Phase 2, a lineage report and staleness alerts follow, and a base image past its end of life fails the build.
 
 <sub>**Planned.** Controls: SR-4, SR-4(2). SIP record: [AP-2.14](../04-sip/05-application.md#ap-214-base-image-lineage-report).</sub>
 
 ### AP-2.15: IaC Scanning
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+GitLab IaC Scanning and Conftest will check every OpenTofu change against the same policy that the landing zone's Azure Policy guardrails enforce. That covers the landing zone modules, each team's infrastructure, and the hubs' rule base. The bootstrap landing zone is rescanned and rebuilt through the pipeline once the pipeline exists.
 
 <sub>**Planned.** Controls: CM-6(1). SIP record: [AP-2.15](../04-sip/05-application.md#ap-215-iac-scanning).</sub>
 
 ### AP-2.16: Container Hardening Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Trivy will check every image and its Kubernetes manifest against the container hardening benchmark before release. The checks require a non-root user, a read-only filesystem, dropped capabilities, and resource limits. An image that fails cannot reach the release namespace, and each waiver is tracked to its expiry date.
 
 <sub>**Planned.** Controls: CM-6, CM-6(1). SIP record: [AP-2.16](../04-sip/05-application.md#ap-216-container-hardening-verification).</sub>
 
 ### AP-2.17: Network Policy Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every workload will ship with a deny-by-default Cilium network policy that permits only its team's mapped flows. Conftest checks the policy against the approved flow map in the pipeline, and Gatekeeper refuses any workload whose policy is missing or loosened.
 
 <sub>**Planned.** Controls: AC-4. SIP record: [AP-2.17](../04-sip/05-application.md#ap-217-network-policy-verification).</sub>
 
 ### AP-2.18: Pre-Merge Sensitive Repo File Change Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Some repository paths control the pipeline itself, and GitLab code owners will mark them as sensitive. They include pipeline definitions, infrastructure as code, admission policy, dependency manifests, AI agent instruction and tool configuration files, and the hubs' rule base. A change to one needs the Platform Team's and the Security Team's approval, beyond the team's own reviewer, and each such change raises an alert in Splunk.
 
 <sub>**Planned.** Controls: CM-3(1), CM-3(4). SIP record: [AP-2.18](../04-sip/05-application.md#ap-218-pre-merge-sensitive-repo-file-change-detection).</sub>
 
 ### AP-2.19: Policy-as-Code Evaluation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Open Policy Agent will evaluate the pipeline's gates through Conftest and every cluster's admission through Gatekeeper, with Ratify verifying signatures. The AKS Azure Policy add-on stays off, so the Platform Team runs open-source Gatekeeper and a pinned Ratify release itself. Defender for Containers loses the add-on's Kubernetes posture checks as a result, and Gatekeeper's audit reports replace them. Admission runs in deny mode in every production spoke, and in stage from the first deployment after bootstrap.
 
 <sub>**Planned.** Controls: CM-3(1), SA-15. SIP record: [AP-2.19](../04-sip/05-application.md#ap-219-policy-as-code-evaluation).</sub>
 
 ### AP-2.20: Threat Model Staleness Check
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+A merge request that adds an interface, a data flow, an external connection, or an agent tool will mark its threat model as stale. The pipeline validates the model's YAML and runs the custom Threagile image on it, pulled through Artifactory, so a change that skips the model is caught at merge. The owning team updates the model, and the PMO ISSE reviews it again before the change reaches production. Every model is also re-reviewed each year.
 
 <sub>**Planned.** Controls: SA-11(2). SIP record: [AP-2.20](../04-sip/05-application.md#ap-220-threat-model-staleness-check).</sub>
 
 ### AP-2.21: Ephemeral/Isolated Build Environments
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every pipeline job will run on a fresh GitLab Runner pod in Platform Prod's AKS cluster, isolated from other jobs and destroyed when it ends. No build runs on a performer laptop or a long-lived host.
 
 <sub>**Planned.** Controls: CM-2(6), SA-3(1), SC-39. SIP record: [AP-2.21](../04-sip/05-application.md#ap-221-ephemeralisolated-build-environments).</sub>
 
 ### AP-2.22: Least-Privilege CI/Build Infrastructure Access
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Each team's pipeline identity will reach only its own repositories, registry namespace, and dev/test spoke. Only the release identity can deploy to a release target, which means the production spokes, the edge release path, the IL6 transfer gateway, and the on-premises targets. That identity runs on a separate protected runner, unlocked only by Certification to Field's approval.
 
 <sub>**Planned.** Controls: AC-6, CM-5, CM-5(5), SA-3(1). SIP record: [AP-2.22](../04-sip/05-application.md#ap-222-least-privilege-cibuild-infrastructure-access).</sub>
 
 ### AP-2.23: Signed/Verified Pipeline Definitions
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every team's pipeline will extend the Platform Team's templates. From Phase 1, an unapproved change to a pipeline definition stops the run and alerts the Platform Team and the Security Team. In Phase 2, the templates are signed with Cosign and verified before each job runs.
 
 <sub>**Planned.** Controls: CM-14, SA-10. SIP record: [AP-2.23](../04-sip/05-application.md#ap-223-signedverified-pipeline-definitions).</sub>
 
 ### AP-2.24: Build Provenance and Attestation (SLSA)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every build will emit signed provenance that names its source revision, runner, pipeline definition, and inputs. Gatekeeper and Certification to Field both verify it. Because the runners are ephemeral and run inside the cloud, SLSA Build Level 3 is within reach.
 
 <sub>**Planned.** Controls: SR-4, SR-4(3). SIP record: [AP-2.24](../04-sip/05-application.md#ap-224-build-provenance-and-attestation-slsa).</sub>
 
 ### AP-2.25: CI Credential and Secrets Management
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Each team's jobs will run under that team's own runner service account, federated to Entra ID through AKS workload identity, with short-lived tokens scoped to the team. Any secret a job still needs is fetched at run time from the Key Vault of the spoke the job targets. No long-lived credential sits in a pipeline variable or a repository.
 
 <sub>**Planned.** Controls: IA-5(6), IA-5(7), SA-3(1). SIP record: [AP-2.25](../04-sip/05-application.md#ap-225-ci-credential-and-secrets-management).</sub>
 
 ## AP-3: Testing and Continuous Delivery
 
+Before a release reaches production, it will be tested against the running application, not only its code. DAST, API fuzzing, ASD STIG checks, and fuzzing exercise each candidate in stage, using synthetic or sanitized data. Independent penetration testers test the whole system each year.
+
 ### AP-3.1: Test Data Management and Preproduction Data Controls
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+The mission teams' dev, test, and stage clusters will run on synthetic or sanitized data, never live mission data. Each set is sanitized inside its own team's zone, so the payload vendor split holds, and then reaches that team's dev/test spoke over F23. Presidio removes identifying text.
+
+People in imagery need more care. Until the person-detection model is certified in Phase 3, a Data Team reviewer blurs or crops people by hand. After that, the model runs as a batch job in each zone's sanitizing pipeline.
 
 <sub>**Planned.** Controls: SA-3(2). SIP record: [AP-3.1](../04-sip/05-application.md#ap-31-test-data-management-and-preproduction-data-controls).</sub>
 
 ### AP-3.2: DAST
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 4, with a target of 2029-03-31.*
+GitLab DAST will scan every candidate build in stage. That covers the analyst portal, the signals workbench, the partner API, the LLM analyst assistant's front end, and the service desk. Each scan runs unauthenticated and then with a test account for each role, so it sees what each kind of user can reach. Contrast Assess adds interactive testing in stage from Phase 4. A finding above the ASP's threshold blocks Certification to Field.
 
 <sub>**Planned.** Controls: SA-11, SA-11(8), SA-11(9), RA-5. SIP record: [AP-3.2](../04-sip/05-application.md#ap-32-dast).</sub>
 
 ### AP-3.3: Application Security and Development (ASD) STIG Compliance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Every first-party application will be evaluated against the Application Security and Development STIG before Certification to Field, including the Data Team's ingest code and the Platform Team's automation. The SCAP Compliance Checker has no content for this STIG, so the automated checks come from SAST and DAST findings mapped to the STIG's IDs. The remaining checks are reviewed by hand in STIG Viewer, and open findings carry into STIG risk tracking.
 
 <sub>**Planned.** Controls: CM-6, CM-6(1). SIP record: [AP-3.3](../04-sip/05-application.md#ap-33-application-security-and-development-asd-stig-compliance).</sub>
 
 ### AP-3.4: API Security Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, GitLab API Fuzzing will test every API that has a published schema, from that schema, in stage. The tests include authorization checks for each role and each partner. Today those APIs are the partner API, the feedback endpoints, and the model endpoints the mission teams call.
 
 <sub>**Planned.** Controls: SA-11(2), SA-11(6), SI-10, SI-10(6). SIP record: [AP-3.4](../04-sip/05-application.md#ap-34-api-security-testing).</sub>
 
 ### AP-3.5: Penetration Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Independent penetration testers will test all of KESTREL each year, and the paths reachable from outside every six months, starting in Phase 2. They also test after a major change, such as a new spoke, interconnection, or external API. The ISSM scopes each test, so the people who designed a control do not scope its check. Fleet systems are tested on spares or the simulator, and each finding becomes a POA&M item that is retested before it closes.
 
 <sub>**Planned.** Controls: CA-8, CA-8(1), SA-11(5). SIP record: [AP-3.5](../04-sip/05-application.md#ap-35-penetration-testing).</sub>
 
 ### AP-3.6: Fuzz Testing
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, libFuzzer, AFL++, and Jazzer will run as GitLab CI jobs against every parser of untrusted input. The IL6 feedback endpoints are fuzzed before the first high-to-low transfer, and the partner API and the payload ingest code are fuzzed on each change. Parsers for the payload vendors' formats are fuzzed in Platform Dev/Test from synthetic samples.
 
 <sub>**Planned.** Controls: SA-11(8). SIP record: [AP-3.6](../04-sip/05-application.md#ap-36-fuzz-testing).</sub>
 
 ## AP-4: Certification to Field (CtF)
 
+Certification to Field is the gate every release passes before production. It checks that branch protection held, that the release bundle is intact, that its approvals were valid, and that it runs to its baseline in stage. The pipeline then combines the release's findings into one risk score against the ASP's thresholds.
+
 ### AP-4.1: Branch Protection Policy Report
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Protected branches will require a second reviewer, passing checks, and signed commits, with no administrator bypass, from the first commit. From Phase 1, a daily scan reports any repository that has drifted from that and opens a ticket to its owning team. The full compliance report follows in Phase 2 and becomes part of Certification to Field's evidence.
 
 <sub>**Planned.** Controls: CM-5, CM-5(1). SIP record: [AP-4.1](../04-sip/05-application.md#ap-41-branch-protection-policy-report).</sub>
 
 ### AP-4.2: Artifact Bundle Integrity Verification
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+The digest of every member of a release bundle will be recorded when the bundle is assembled. Each digest is checked again at deployment to a production spoke or an on-premises target. A bundle that fails the check is stopped and reported to the Security Team. The check extends to staging for the IL6 transfer in Phase 3. It is proven at a spare station in Phase 2 and runs at every station once the fleet integrates.
 
 <sub>**Planned.** Controls: SI-7(6), CM-14. SIP record: [AP-4.2](../04-sip/05-application.md#ap-42-artifact-bundle-integrity-verification).</sub>
 
 ### AP-4.3: Approver and Reviewer Audit Log
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+GitLab audit event streaming will forward every review, approval, dismissal, and override to Splunk, where Platform Team administrators cannot change it. Each batch is hashed, so any alteration is detectable. Each approval is checked against the approver's entitlement in Entra ID Governance at the time, and a merge whose approver is also its author is refused.
 
 <sub>**Planned.** Controls: AC-5, CM-5(4), AU-12, AU-9(3). SIP record: [AP-4.3](../04-sip/05-application.md#ap-43-approver-and-reviewer-audit-log).</sub>
 
 ### AP-4.4: Runtime Security Baseline
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Each release will carry a versioned runtime baseline covering its workload identity, privileges, filesystem, resource limits, and exposed interfaces. Stage runs the release against that baseline before Certification to Field, with Gatekeeper and Conftest checking it. A release that would run differently in production is therefore caught before it gets there.
 
 <sub>**Planned.** Controls: CM-2, CM-6(1). SIP record: [AP-4.4](../04-sip/05-application.md#ap-44-runtime-security-baseline). Details: the ASP, [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#appendix-reference-catalogs-and-configuration-baselines).</sub>
 
 ### AP-4.5: Deployment Risk Threshold Evaluation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Certification to Field will gate every release, starting with the first platform services in Phase 1. The pipeline combines each release's findings into one risk score against the ASP's thresholds. A release within them proceeds on the pipeline's evidence.
+
+A release outside them goes to the PMO ISSE, who approves it, sends it back, or routes it to the risk acceptance process. Releases are CCSD row 10, signed releases and baselines, so any residual risk above Very Low goes to the AO.
 
 <sub>**Planned.** Controls: RA-3, RA-7. SIP record: [AP-4.5](../04-sip/05-application.md#ap-45-deployment-risk-threshold-evaluation). Details: the ASP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#5-release-risk-and-registry-hygiene).</sub>
 
 ### AP-4.6: Application Rollback, Progressive Delivery, and Feature Flag Governance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Every production spoke will keep the previous certified release ready to roll back to. A new release reaches a small share of traffic first and widens only if security and health signals stay clean. Feature flags are GitLab configuration, so changing one is a reviewed change like any other.
 
 <sub>**Planned.** Controls: CP-10(4), CM-5, CM-5(1). SIP record: [AP-4.6](../04-sip/05-application.md#ap-46-application-rollback-progressive-delivery-and-feature-flag-governance).</sub>
 
 ### AP-4.7: Application Registration and Inventory Logging
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+A deployment to any release target will fail unless its application is registered in Jira Service Management Assets. Each record names the owning team, product owner, data handled, and version. Registration happens at intake, and the pipeline updates the version with each release.
 
 <sub>**Planned.** Controls: CM-8, CM-8(1). SIP record: [AP-4.7](../04-sip/05-application.md#ap-47-application-registration-and-inventory-logging).</sub>
 
 ## AP-5: Operations and Continuous Monitoring
 
+Once an application is fielded, KESTREL will keep watching it. Reports compare what is running with what was certified, a single dashboard ranks every finding for each application, and fielded dependencies are rechecked daily against new disclosures. The pipeline files every piece of evidence as it is produced, so assessors draw from one store.
+
 ### AP-5.1: Architecture Risk Tracking
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Design risks that a threat model identified and that were accepted will go into one architecture risk register in Jira. The AO accepts them, or the PMO ISSE does under the AO's standing delegation. Each entry carries its owner, rationale, compensating measures, and review date. The register feeds the program's risk register, so the AO sees every accepted design risk.
 
 <sub>**Planned.** Controls: RA-7, CA-7(4). SIP record: [AP-5.1](../04-sip/05-application.md#ap-51-architecture-risk-tracking).</sub>
 
 ### AP-5.2: STIG Risk Tracking
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Each open Application Security and Development STIG finding against a fielded application will be tied to a POA&M item in eMASS with a remediation milestone. The Security Team reports the open findings with each continuous monitoring cycle.
 
 <sub>**Planned.** Controls: CA-5, CA-7(3). SIP record: [AP-5.2](../04-sip/05-application.md#ap-52-stig-risk-tracking).</sub>
 
 ### AP-5.3: Trusted Registry ConMon Report
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+Gatekeeper will let a cluster pull images only from Artifactory. A continuous check confirms that every running workload resolves to Artifactory, and an image from anywhere else alerts the Security Team in Splunk.
 
 <sub>**Planned.** Controls: SR-4. SIP record: [AP-5.3](../04-sip/05-application.md#ap-53-trusted-registry-conmon-report).</sub>
 
 ### AP-5.4: Registry Hygiene Report
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, Artifactory's retention rules will keep every fielded release, the certified release before it, and every release baselined to the IL6 enclave. Other images expire on the ASP's schedule. A monthly report shows anywhere the registry departs from those rules.
 
 <sub>**Planned.** Controls: CM-2(3), SI-12. SIP record: [AP-5.4](../04-sip/05-application.md#ap-54-registry-hygiene-report). Details: the ASP, [Section 5](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#5-release-risk-and-registry-hygiene).</sub>
 
 ### AP-5.5: Deployment Inventory Report
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+A deployment inventory will read the versions actually running in every production spoke and on every on-premises target, and compare them with what Certification to Field approved. Anything running that was never certified is flagged. The edge model versions each aircraft reports join the inventory on the spares in Phase 2, and across the fleet when it integrates.
 
 <sub>**Planned.** Controls: CM-8(2), CM-8(3). SIP record: [AP-5.5](../04-sip/05-application.md#ap-55-deployment-inventory-report).</sub>
 
 ### AP-5.6: Unified Vulnerability Dashboard
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+One Splunk dashboard will combine every scanner's and tester's findings for each application, deduplicated and ranked by risk. The owning teams, the Security Team, and the PMO ISSE work from it, and the CSSP's analysts read it through their host pool.
 
 <sub>**Planned.** Controls: RA-5(6), RA-5(10), CA-7. SIP record: [AP-5.6](../04-sip/05-application.md#ap-56-unified-vulnerability-dashboard).</sub>
 
 ### AP-5.7: Runtime API Inventory and Governance
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, API Management, Application Gateway, and the cloud hub's traffic logs will report every API endpoint that is actually answering requests to Splunk, including east-west calls. Each is compared with the schemas registered at intake. An undocumented route, or a retired version still answering, is flagged to its owning team.
 
 <sub>**Planned.** Controls: SA-11(6), CM-7(1). SIP record: [AP-5.7](../04-sip/05-application.md#ap-57-runtime-api-inventory-and-governance).</sub>
 
 ### AP-5.8: Secrets Management Audit
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, the secrets present in every deployed environment will be listed and reconciled against what each spoke's Key Vault issued. Defender for Key Vault alerts on unusual access. A secret nobody issued, or one nothing has used since its last rotation, is flagged for removal.
 
 <sub>**Planned.** Controls: IA-5(7). SIP record: [AP-5.8](../04-sip/05-application.md#ap-58-secrets-management-audit).</sub>
 
 ### AP-5.9: Runtime Application Self-Protection (RASP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 4, with a target of 2029-03-31.*
+From Phase 4, Contrast Protect will instrument every internet-reachable application, namely the analyst portal, the signals workbench, the partner API, and the LLM analyst assistant's front end. Each starts in monitor mode and moves to blocking once its rules are tuned, as the ASP sets out. Its events go to Splunk.
 
 <sub>**Planned.** Controls: SI-7(17). SIP record: [AP-5.9](../04-sip/05-application.md#ap-59-runtime-application-self-protection-rasp). Details: the ASP, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#6-runtime-protection-and-vulnerability-disclosure).</sub>
 
 ### AP-5.10: Vulnerability Disclosure Program
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, KESTREL's internet-reachable endpoints will be enrolled in the DoD Vulnerability Disclosure Program, which DC3 runs. Every role needs a CAC or ECA credential, so researchers may test only the edge, up to the sign-in page. DC3 handles acknowledgment and disclosure timing. The Security Team triages each report DC3 relays and tracks it to closure like a penetration test finding.
 
 <sub>**Planned.** Controls: RA-5(11). SIP record: [AP-5.10](../04-sip/05-application.md#ap-510-vulnerability-disclosure-program). Details: the ASP, [Section 6](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan#6-runtime-protection-and-vulnerability-disclosure).</sub>
 
 ### AP-5.11: Compliance Evidence Collection Automation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+The pipeline will file every scan result, gate decision, approval, attestation, and conformance report in immutable Blob Storage as it is produced. Each is tagged to its outcome and control. Certification to Field and the SCA both draw their evidence from that store, rather than asking teams to gather it.
 
 <sub>**Planned.** Controls: CA-7(6). SIP record: [AP-5.11](../04-sip/05-application.md#ap-511-compliance-evidence-collection-automation).</sub>
 
 ### AP-5.12: Fielded Dependency Vulnerability Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Dependency-Track will match every fielded release's SBOM daily against new vulnerability disclosures. A newly vulnerable dependency opens a Jira Service Management ticket to the owning team, carrying the VPMP's deadline. The fix ships as a rebuilt release through the normal pipeline.
 
 <sub>**Planned.** Controls: SI-2, RA-5. SIP record: [AP-5.12](../04-sip/05-application.md#ap-512-fielded-dependency-vulnerability-monitoring). Details: the VPMP, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Vulnerability-and-Patch-Management-Plan#1-remediation-timeframes-by-asset-class).</sub>
 
 ## AP-6: Application Security Planning
 
+The Application Security Plan holds the standards and thresholds this focus area relies on, such as the coding standard, the release risk model, and the RASP policy.
+
 ### AP-6.1: Application Security Plan (ASP)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The PMO ISSE will write the Application Security Plan in Phase 1, since its thresholds gate the first releases, and the Platform Team will write its pipeline sections. The Security Team reviews it, and the Configuration Control Board approves it. It is revised each year and whenever a threshold or the coding standard changes.
 
 <sub>**Planned.** Controls: SA-15. SIP record: [AP-6.1](../04-sip/05-application.md#ap-61-application-security-plan-asp). Published as the [Application Security Plan](https://github.com/jessestarkey/Kestrel/wiki/Application-Security-Plan).</sub>

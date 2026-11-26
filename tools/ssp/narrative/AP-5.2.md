@@ -1,0 +1,1 @@
+Each open Application Security and Development STIG finding against a fielded application will be tied to a POA&M item in eMASS with a remediation milestone. The Security Team reports the open findings with each continuous monitoring cycle.

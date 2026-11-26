@@ -1,0 +1,1 @@
+A deployment to any release target will fail unless its application is registered in Jira Service Management Assets. Each record names the owning team, product owner, data handled, and version. Registration happens at intake, and the pipeline updates the version with each release.

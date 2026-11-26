@@ -1,0 +1,1 @@
+GitLab SAST will scan every merge request and merge from the first commit, with rules tuned to each team's languages. A finding at or above the ASP's threshold blocks the merge. Any exception the PMO ISSE approves is recorded against the finding it covers.

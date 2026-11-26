@@ -1,0 +1,1 @@
+The pipeline will file every scan result, gate decision, approval, attestation, and conformance report in immutable Blob Storage as it is produced. Each is tagged to its outcome and control. Certification to Field and the SCA both draw their evidence from that store, rather than asking teams to gather it.

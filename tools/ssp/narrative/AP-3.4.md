@@ -1,0 +1,1 @@
+From Phase 2, GitLab API Fuzzing will test every API that has a published schema, from that schema, in stage. The tests include authorization checks for each role and each partner. Today those APIs are the partner API, the feedback endpoints, and the model endpoints the mission teams call.

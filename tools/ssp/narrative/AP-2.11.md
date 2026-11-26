@@ -1,0 +1,1 @@
+Syft will produce a CycloneDX SBOM for every build, stored in Artifactory beside the artifact it describes. OWASP Dependency-Track matches the SBOMs continuously against new vulnerability data, so a newly disclosed flaw can be traced to every release that contains it.

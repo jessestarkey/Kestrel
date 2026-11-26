@@ -1,0 +1,1 @@
+The PMO ISSE will write the Application Security Plan in Phase 1, since its thresholds gate the first releases, and the Platform Team will write its pipeline sections. The Security Team reviews it, and the Configuration Control Board approves it. It is revised each year and whenever a threshold or the coding standard changes.

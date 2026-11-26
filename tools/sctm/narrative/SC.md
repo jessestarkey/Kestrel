@@ -22,11 +22,11 @@ Network-layer floods will be absorbed upstream by DISA's internet access points 
 
 ## SC-7
 
-KESTREL's external boundary will be the Boundary Cloud Access Point and the cloud hub, with the data center hub as the managed interface for its own external links. Internal boundaries divide the cloud's ten spokes, the data center's SDN segments, and the ground segment's IEC 62443 zones, each joined to the IT network only through its conduit. Platform services add their own resource firewalls, admitting only their spoke's private endpoint.
+KESTREL's external boundary will be the Boundary Cloud Access Point and the cloud hub, with the data center hub as the managed interface for its own external links. Internal boundaries divide the cloud's ten spokes, the data center's SDN segments, and the ground segment's IEC 62443 zones. Each ground segment zone joins the IT network only through its conduit. Platform services add their own resource firewalls, admitting only their spoke's private endpoint.
 
 ## SC-7(3)
 
-External connections will be limited to a small set of managed access points. All user traffic arrives through the Boundary Cloud Access Point and the cloud hub. Outbound traffic leaves only through the hubs, and only for an allow-list of named classes: package sources, PKI revocation, the time reference, the threat feed, the Microsoft 365 DoD tenant, and the paging service.
+External connections will be limited to a small set of managed access points. All user traffic arrives through the Boundary Cloud Access Point and the cloud hub. Outbound traffic leaves only through the hubs, and only for an allow-list of named classes. These are package sources, PKI revocation, the time reference, the threat feed, the Microsoft 365 DoD tenant, and the paging service.
 
 ## SC-7(4)
 
@@ -46,7 +46,7 @@ Outbound traffic will pass through the hubs' firewalls, which decrypt and inspec
 
 ## SC-7(18)
 
-Boundary devices will fail to a safe state. The firewalls, the access proxy, the VDI brokers, and the cross domain transfer gateway fail closed. On the ground segment, a deep packet inspection fault falls back to a fixed allow-list of each station's approved commands, so launch and recovery keep working while nothing new is allowed.
+Boundary devices will fail to a safe state. The firewalls, the access proxy, the VDI brokers, and the cross domain transfer gateway fail closed. On the ground segment, a deep packet inspection fault falls back to a fixed allow-list of each station's approved commands. Launch and recovery keep working, and nothing new is allowed.
 
 ## SC-7(21)
 

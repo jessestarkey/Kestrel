@@ -1,0 +1,1 @@
+Each team's pipeline identity will reach only its own repositories, registry namespace, and dev/test spoke. Only the release identity can deploy to a release target, which means the production spokes, the edge release path, the IL6 transfer gateway, and the on-premises targets. That identity runs on a separate protected runner, unlocked only by Certification to Field's approval.

@@ -1,0 +1,1 @@
+Certification to Field is the gate every release passes before production. It checks that branch protection held, that the release bundle is intact, that its approvals were valid, and that it runs to its baseline in stage. The pipeline then combines the release's findings into one risk score against the ASP's thresholds.

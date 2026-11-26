@@ -1,0 +1,1 @@
+Every workload will ship with a deny-by-default Cilium network policy that permits only its team's mapped flows. Conftest checks the policy against the approved flow map in the pipeline, and Gatekeeper refuses any workload whose policy is missing or loosened.

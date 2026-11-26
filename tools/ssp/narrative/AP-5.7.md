@@ -1,0 +1,1 @@
+From Phase 2, API Management, Application Gateway, and the cloud hub's traffic logs will report every API endpoint that is actually answering requests to Splunk, including east-west calls. Each is compared with the schemas registered at intake. An undocumented route, or a retired version still answering, is flagged to its owning team.

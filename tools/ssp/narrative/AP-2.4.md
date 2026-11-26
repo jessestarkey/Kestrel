@@ -1,0 +1,1 @@
+Gitleaks will run as a pre-commit hook on performer laptops. A developer can skip a hook on a laptop KESTREL does not manage, though, so GitLab's push protection is the control that actually enforces it. GitLab also scans every build and, on a schedule, the full repository history. A secret found in history is rotated first and removed second.

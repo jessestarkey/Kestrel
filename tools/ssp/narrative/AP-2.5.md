@@ -1,0 +1,1 @@
+GitLab Container Scanning will check every image before it is pushed, and JFrog Xray will rescan stored images as new vulnerability data arrives. An image above the ASP's severity threshold cannot be pushed or deployed.

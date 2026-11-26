@@ -1,0 +1,1 @@
+Each release will carry a versioned runtime baseline covering its workload identity, privileges, filesystem, resource limits, and exposed interfaces. Stage runs the release against that baseline before Certification to Field, with Gatekeeper and Conftest checking it. A release that would run differently in production is therefore caught before it gets there.

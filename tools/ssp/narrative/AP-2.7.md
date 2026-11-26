@@ -1,0 +1,1 @@
+JFrog Artifactory in Platform Prod will be the only source builds resolve packages from, and the cloud hub blocks every other route to public package indexes. Each ecosystem's remote repository draws only from its approved upstream. KESTREL's internal package names are reserved, so a public package with the same name cannot replace one of them.

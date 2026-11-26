@@ -1,0 +1,1 @@
+Dependency-Track will match every fielded release's SBOM daily against new vulnerability disclosures. A newly vulnerable dependency opens a Jira Service Management ticket to the owning team, carrying the VPMP's deadline. The fix ships as a rebuilt release through the normal pipeline.

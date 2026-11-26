@@ -1,0 +1,1 @@
+Every build will emit signed provenance that names its source revision, runner, pipeline definition, and inputs. Gatekeeper and Certification to Field both verify it. Because the runners are ephemeral and run inside the cloud, SLSA Build Level 3 is within reach.

@@ -1,0 +1,1 @@
+From Phase 4, Contrast Protect will instrument every internet-reachable application, namely the analyst portal, the signals workbench, the partner API, and the LLM analyst assistant's front end. Each starts in monitor mode and moves to blocking once its rules are tuned, as the ASP sets out. Its events go to Splunk.

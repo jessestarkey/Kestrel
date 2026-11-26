@@ -1,0 +1,1 @@
+Gatekeeper will let a cluster pull images only from Artifactory. A continuous check confirms that every running workload resolves to Artifactory, and an image from anywhere else alerts the Security Team in Splunk.

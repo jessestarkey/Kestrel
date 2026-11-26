@@ -1,0 +1,1 @@
+Before a release reaches production, it will be tested against the running application, not only its code. DAST, API fuzzing, ASD STIG checks, and fuzzing exercise each candidate in stage, using synthetic or sanitized data. Independent penetration testers test the whole system each year.

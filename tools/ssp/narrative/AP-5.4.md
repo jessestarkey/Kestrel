@@ -1,0 +1,1 @@
+From Phase 2, Artifactory's retention rules will keep every fielded release, the certified release before it, and every release baselined to the IL6 enclave. Other images expire on the ASP's schedule. A monthly report shows anywhere the registry departs from those rules.

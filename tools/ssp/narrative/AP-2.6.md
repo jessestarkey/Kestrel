@@ -1,0 +1,1 @@
+ClamAV will scan every package and base image the mirror fetches, and every build artifact before release, while Xray flags known malicious packages. Vendor deliveries, such as payload vendor software and COTS updates, are scanned at intake before anyone installs them. The media intake station scans every government medium before its contents are imported.

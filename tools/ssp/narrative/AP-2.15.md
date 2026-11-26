@@ -1,0 +1,1 @@
+GitLab IaC Scanning and Conftest will check every OpenTofu change against the same policy that the landing zone's Azure Policy guardrails enforce. That covers the landing zone modules, each team's infrastructure, and the hubs' rule base. The bootstrap landing zone is rescanned and rebuilt through the pipeline once the pipeline exists.

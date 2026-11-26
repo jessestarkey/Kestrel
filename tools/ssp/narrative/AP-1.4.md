@@ -1,0 +1,3 @@
+Each team will model every application and AI use case it owns in Threagile before building. The models are YAML in a GitLab threat model repository, built from the program's modular templates and shared asset libraries. The program's custom Threagile image adds IL5 rules and a risk engine that cites MITRE ATLAS for AI.
+
+How deep a model goes depends on the application. Anything partner-facing, internet-reachable, or able to act on aircraft gets the full model. The PMO ISSE reviews each model at the design gate, starting with the Phase 1 platform services and their COTS integration boundaries.

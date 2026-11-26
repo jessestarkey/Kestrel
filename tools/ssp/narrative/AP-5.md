@@ -1,0 +1,1 @@
+Once an application is fielded, KESTREL will keep watching it. Reports compare what is running with what was certified, a single dashboard ranks every finding for each application, and fielded dependencies are rechecked daily against new disclosures. The pipeline files every piece of evidence as it is produced, so assessors draw from one store.

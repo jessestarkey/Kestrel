@@ -1,0 +1,1 @@
+Security work on an application will start before any code is written. Every application, service, or COTS product enters through one intake request, the PMO ISSE turns the CCSD's controls into testable requirements, and each team threat-models what it builds. The Application Security Plan (ASP) sets the standards for all three.

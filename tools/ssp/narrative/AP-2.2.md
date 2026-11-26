@@ -1,0 +1,3 @@
+The ASP's coding standard will name the approved languages and frameworks and prefer memory-safe languages for new services. It also lists the functions and patterns developers may not use. The pipeline templates apply the standard's compiler and packaging hardening settings, and a build that drops them fails. Applications show users a generic error and send diagnostic detail only to logs that authorized staff can read.
+
+The platform services are COTS, so in Phase 1 the standard first applies to the Platform Team's own automation. It applies to the mission teams' code as they start building in Phase 2.

@@ -1,0 +1,1 @@
+Design risks that a threat model identified and that were accepted will go into one architecture risk register in Jira. The AO accepts them, or the PMO ISSE does under the AO's standing delegation. Each entry carries its owner, rationale, compensating measures, and review date. The register feeds the program's risk register, so the AO sees every accepted design risk.

@@ -1,0 +1,1 @@
+GitLab audit event streaming will forward every review, approval, dismissal, and override to Splunk, where Platform Team administrators cannot change it. Each batch is hashed, so any alteration is detectable. Each approval is checked against the approver's entitlement in Entra ID Governance at the time, and a merge whose approver is also its author is refused.

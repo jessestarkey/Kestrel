@@ -1,0 +1,1 @@
+Every production spoke will keep the previous certified release ready to roll back to. A new release reaches a small share of traffic first and widens only if security and health signals stay clean. Feature flags are GitLab configuration, so changing one is a reviewed change like any other.

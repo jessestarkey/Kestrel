@@ -1,0 +1,1 @@
+From Phase 3, libFuzzer, AFL++, and Jazzer will run as GitLab CI jobs against every parser of untrusted input. The IL6 feedback endpoints are fuzzed before the first high-to-low transfer, and the partner API and the payload ingest code are fuzzed on each change. Parsers for the payload vendors' formats are fuzzed in Platform Dev/Test from synthetic samples.

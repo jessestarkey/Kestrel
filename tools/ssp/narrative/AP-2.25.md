@@ -1,0 +1,1 @@
+Each team's jobs will run under that team's own runner service account, federated to Entra ID through AKS workload identity, with short-lived tokens scoped to the team. Any secret a job still needs is fetched at run time from the Key Vault of the spoke the job targets. No long-lived credential sits in a pipeline variable or a repository.
