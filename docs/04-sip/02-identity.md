@@ -307,11 +307,11 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | ID-1.10.1: PACS-to-Identity Platform Integration | 2 | Technical | None | Level 2 | One-Time | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
-| ID-1.10.2: Physical Access Provisioning and Deprovisioning | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| ID-1.10.2: Physical Access Provisioning and Deprovisioning | 3 (pinned) | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | ID-1.10.3: Physical-Logical Access Correlation | 3 (pinned) | Technical | Automate | Level 3 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-| ID-1.10.4: Physical Access Reconciliation and Audit | 2 | Process | None | Level 2 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| ID-1.10.4: Physical Access Reconciliation and Audit | 3 (pinned) | Process | None | Level 2 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 
-**Pinned:** ID-1.10.3: The AMP alerts on an operator signed in at a station without a badge-in, so the correlation must run before the ATO decision.
+**Pinned:** ID-1.10.2: Moved later to even out the Security Team, which carries most of Phase 2. Provisioning badges from identity follows the Phase 2 integration that identity threat detection needs. ID-1.10.3: The AMP alerts on an operator signed in at a station without a badge-in, so the correlation must run before the ATO decision. ID-1.10.4: Moved later to even out the Security Team, which carries most of Phase 2. Reconciliation follows the Phase 2 integration and needs records to reconcile.
 
 ## ID-2: User Identity Protection
 

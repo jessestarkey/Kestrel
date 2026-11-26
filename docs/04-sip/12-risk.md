@@ -70,11 +70,11 @@
 
 **Dependencies:** RK-1.1, RK-1.8
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -87,8 +87,10 @@
 | RK-1.3.1: Risk Register Structure and Intake Process | 2 | Process | None | Level 1 | One-Time | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RK-1.3.2: Risk Owner Assignment and Status Tracking | 2 | Process | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RK-1.3.3: Risk Register Periodic Review and Reporting | 2 | Process | None | Level 1 | Periodic (Monthly) (re-rated) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
-| RK-1.3.4: Risk Register Automation/Integration with POA&M and SCTM | 2 | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
-| RK-1.3.5: Enterprise Risk Posture Dashboard | 2 | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| RK-1.3.4: Risk Register Automation/Integration with POA&M and SCTM | 3 (pinned) | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| RK-1.3.5: Enterprise Risk Posture Dashboard | 3 (pinned) | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RK-1.3.4: Moved later to even out the Security Team, which carries most of Phase 2. Risk register automation fits the run-up to the package, alongside the POA&M and the SCTM. RK-1.3.5: Moved later to even out the Security Team, which carries most of Phase 2. The risk posture dashboard fits the run-up to the package, alongside the POA&M and the SCTM.
 
 **Re-rated:** RK-1.3.3: The SADD's RK-1.3 design intent has the steering committee review the register each month.
 
@@ -332,11 +334,11 @@
 
 **Dependencies:** DE-3.1, RK-2.1, Cyber defense service provider, DoD intelligence producers and DC3's DIB Cybersecurity program
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -346,9 +348,11 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RK-2.3.1: Inter-Org/ISAC Indicator Sharing Participation | 2 | Process | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| RK-2.3.1: Inter-Org/ISAC Indicator Sharing Participation | 3 (pinned) | Process | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | RK-2.3.2: Strategic Indicator Curation and Quality Vetting | 2 | Process | None | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | RK-2.3.3: Indicator Hand-Off to Operate Pillar's IOC Feed Management | 2 | Technical | Automate | Level 2 | Continuous | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RK-2.3.1: Moved later to even out the Security Team, which carries most of Phase 2. Joining outside sharing communities follows a working internal intelligence feed, while curation and hand-off start in Phase 2.
 
 ## RK-3: Enterprise Risk Prioritization
 

@@ -71,11 +71,11 @@
 
 **Dependencies:** RS-4.1, RC-4.1, Cyber defense service provider
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -86,8 +86,10 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | RS-1.3.1: Tabletop Exercise Planning and Facilitation | 2 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| RS-1.3.2: Functional Incident Response Exercise Execution | 2 | Process | None | Level 2 | Periodic (Annual) | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| RS-1.3.2: Functional Incident Response Exercise Execution | 3 (pinned) | Process | None | Level 2 | Periodic (Annual) | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | RS-1.3.3: Exercise Findings and Plan Update Tracking | 2 | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RS-1.3.2: Moved later to even out the Security Team, which carries most of Phase 2. The functional exercise waits until the fleet and agents exist to rehearse against. The Phase 2 tabletop stays.
 
 ### RS-1.4: Security Contact Information
 
@@ -153,11 +155,11 @@
 
 **Dependencies:** DE-3.1, Cyber defense service provider, Partner nations, DoD component privacy office, DoD intelligence producers and DC3's DIB Cybersecurity program, Performer laptops and device management
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), plus government-furnished components
 
@@ -170,7 +172,9 @@
 | RS-1.6.1: Regulatory/AO Incident Reporting Workflow and Timelines | 2 | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RS-1.6.2: External Stakeholder and Authority Notification Procedures | 2 | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RS-1.6.3: Vendor and Supply Chain Incident-Handling Coordination | 2 | Process | None | Level 2 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| RS-1.6.4: Cross-Organization Correlation and Incident Information Sharing | 2 | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RS-1.6.4: Cross-Organization Correlation and Incident Information Sharing | 3 (pinned) | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RS-1.6.4: Moved later to even out the Security Team, which carries most of Phase 2. Sharing with other organizations follows a working internal intelligence feed.
 
 ### RS-1.7: Cyber Defense Service Provider Alignment
 
@@ -271,11 +275,11 @@
 
 **Dependencies:** DE-3.1, DI-1.3, DI-5.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C16](index.md#6-contracting-and-procurement-cross-references)
 
@@ -285,10 +289,12 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RS-2.3.1: Evidence Collection Automation | 2 | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| RS-2.3.1: Evidence Collection Automation | 3 (pinned) | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 | RS-2.3.2: Forensic Analysis Tools Integration | 2 | Technical | None | Level 2 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
 | RS-2.3.3: Immutable Evidence Storage | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
 | RS-2.3.4: Compliance and Legal Requirements | 2 | Documentation | None | Level 2 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RS-2.3.1: Moved later to even out the Security Team, which carries most of Phase 2. Phase 2 collects evidence by hand under the IRP, and automation follows once the playbooks have run.
 
 ### RS-2.4: Asset Criticality and Business Impact Assessment
 
@@ -300,11 +306,11 @@
 
 **Dependencies:** DE-3.1, DI-1.3, RK-3.2
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -315,7 +321,9 @@
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
 | RS-2.4.1: Business Impact Classifications | 2 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| RS-2.4.2: Business Impact Scoring Integration into Incident Prioritization | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| RS-2.4.2: Business Impact Scoring Integration into Incident Prioritization | 3 (pinned) | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RS-2.4.2: Moved later to even out the Security Team, which carries most of Phase 2. The business impact analysis completes in Phase 2, so its scores feed prioritization after that.
 
 ### RS-2.5: Automated Severity Scoring and Escalation
 
@@ -327,11 +335,11 @@
 
 **Dependencies:** DE-3.1, RS-2.4, Paging service
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C33](index.md#6-contracting-and-procurement-cross-references)
 
@@ -344,7 +352,9 @@
 | RS-2.5.1: Severity Scoring Model Definition | 2 | Process | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RS-2.5.2: AI Incident Type Taxonomy and Severity Mapping | 2 | Documentation | None | Level 1 | Periodic (Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | RS-2.5.3: Automated Escalation Routing and Paging | 2 | Technical | Automate | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
-| RS-2.5.4: Incident Response Metrics Dashboard | 2 | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| RS-2.5.4: Incident Response Metrics Dashboard | 3 (pinned) | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RS-2.5.4: Moved later to even out the Security Team, which carries most of Phase 2. The metrics dashboard needs incident history to show anything.
 
 ## RS-3: Incident Containment, Recovery, and Lessons Learned
 
@@ -388,11 +398,11 @@
 
 **Dependencies:** RS-3.1, DI-5.5
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C06](index.md#6-contracting-and-procurement-cross-references), [C31](index.md#6-contracting-and-procurement-cross-references), [C08](index.md#6-contracting-and-procurement-cross-references), [C09](index.md#6-contracting-and-procurement-cross-references), [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -402,8 +412,10 @@
 
 | Activity | Phase | Control Type | Cross-Cutting Discipline | Maturity Model | ConMon Activity | Level of Effort | Cost | Time Estimation |
 |---|---|---|---|---|---|---|---|---|
-| RS-3.2.1: Network Isolation Automation | 2 | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| RS-3.2.1: Network Isolation Automation | 3 (pinned) | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | RS-3.2.2: Account and Access Control Automation | 2 | Technical | Automate | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** RS-3.2.1: Moved later to even out the Security Team, which carries most of Phase 2. Phase 2 isolates networks by hand, with device isolation and account automation in place, and network automation follows once the playbooks have run.
 
 ### RS-3.3: Human-in-the-Loop Containment
 

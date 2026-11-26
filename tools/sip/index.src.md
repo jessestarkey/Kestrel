@@ -11,7 +11,7 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | Field | Value |
 |---|---|
 | Program / System Name | KESTREL |
-| SIP Version | 0.7 |
+| SIP Version | 0.8 |
 | Date | 2026-11-25 |
 | Prepared By | KESTREL PMO ISSE, with the performer's team leads |
 | Approving Authority | KESTREL program manager, who controls the program's engineering staff, contracts, and budget |
@@ -29,6 +29,7 @@ This plan carries KESTREL's SADD into RMF Step 3. It names the products that imp
 | 0.5 | 2026-11-25 | KESTREL PMO ISSE | Selected Agent Threat Rules and Splunk behavioral rules for AI detection, PyRIT and garak for AI emulation, and Defender for AI Services pending its Azure Government check |
 | 0.6 | 2026-11-25 | KESTREL PMO ISSE | Selected promptfoo for canary prompt testing and as the regression gate for fixed jailbreak and injection findings, with its remote calls disabled |
 | 0.7 | 2026-11-25 | KESTREL PMO ISSE | Gave the coding agent persistent memory per repository and per developer, in Azure AI Search with OPA write authorization and LLM Guard screening, bringing back AI-8.15.2 and AI-8.15.3 |
+| 0.8 | 2026-11-26 | KESTREL PMO ISSE | Moved 18 Level 2 Security Team activities from Phase 2 to Phase 3, taking the team from about 47 to 40 effort points a month in Phase 2 |
 
 ---
 

@@ -187,11 +187,11 @@
 
 **Dependencies:** GV-1.1, GV-1.5
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references)
 
@@ -205,9 +205,9 @@
 | GV-2.1.2: Policy Review and Approval Cadence | 1 | Process | None | Level 1 | Periodic (Annual) | Low | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-2.1.3: Policy Retirement/Supersession Process | 2 (pinned) | Process | None | Level 1 | Periodic (Event-Driven) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
 | GV-2.1.4: Policy Publication and Version Control | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-2.1.5: Policy-as-Code Implementation for Machine-Enforceable Policies Where Applicable | 2 | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
+| GV-2.1.5: Policy-as-Code Implementation for Machine-Enforceable Policies Where Applicable | 3 (pinned) | Technical | Automate | Level 2 | Continuous | High | One-Time: Moderate; Recurring: Moderate | Medium-term (3–6 months) |
 
-**Pinned:** GV-2.1.3: Nothing is retired from KESTREL during the first build.
+**Pinned:** GV-2.1.3: Nothing is retired from KESTREL during the first build. GV-2.1.5: Moved later to even out the Security Team, which carries most of Phase 2. Policy as code follows the Phase 2 policies it encodes.
 
 ### GV-2.2: Policy Exception Management
 
@@ -219,11 +219,11 @@
 
 **Dependencies:** GV-1.1, RK-1.4
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C03](index.md#6-contracting-and-procurement-cross-references)
 
@@ -235,7 +235,9 @@
 |---|---|---|---|---|---|---|---|---|
 | GV-2.2.1: Exception Request and Risk-Based Approval Workflow | 1 | Process | None | Level 1 | Periodic (Event-Driven) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | GV-2.2.2: Exception Tracking and Expiration Enforcement | 1 | Process | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| GV-2.2.3: Exception Trend Reporting | 2 | Process | None | Level 2 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+| GV-2.2.3: Exception Trend Reporting | 3 (pinned) | Process | None | Level 2 | Periodic (Quarterly) | Low | One-Time: Low; Recurring: Low | Immediate (less than one sprint) |
+
+**Pinned:** GV-2.2.3: Moved later to even out the Security Team, which carries most of Phase 2. Exception trends need exceptions on record first.
 
 ### GV-2.3: Security Awareness and Training Program
 

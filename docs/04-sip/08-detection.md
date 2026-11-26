@@ -14,11 +14,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, Cyber defense service provider, IL5 cloud provider
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references)
 
@@ -30,9 +30,11 @@
 |---|---|---|---|---|---|---|---|---|
 | DE-1.1.1: Platform-Native Detection Service Enablement and Tuning | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | DE-1.1.2: Detection Capability Review | 2 | Process | None | Level 2 | Periodic (Semi-Annual) | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| DE-1.1.3: Addressing Detection Gaps | 2 | Process | None | Level 2 | Periodic (Event-Driven) | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
+| DE-1.1.3: Addressing Detection Gaps | 3 (pinned) | Process | None | Level 2 | Periodic (Event-Driven) | High | One-Time: Moderate; Recurring: Low | Medium-term (3–6 months) |
 | DE-1.1.4: Alert Quality Optimization | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
-| DE-1.1.5: Detection Coverage/MITRE ATT&CK Mapping Visualization Dashboard | 2 | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+| DE-1.1.5: Detection Coverage/MITRE ATT&CK Mapping Visualization Dashboard | 3 (pinned) | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** DE-1.1.3: Moved later to even out the Security Team, which carries most of Phase 2. Gap work follows the Phase 2 coverage review that finds the gaps. DE-1.1.5: Moved later to even out the Security Team, which carries most of Phase 2. The coverage dashboard follows the Phase 2 coverage review it draws on.
 
 ### DE-1.2: Adversary Emulation and Detection Validation
 
@@ -222,11 +224,11 @@
 
 **Dependencies:** DE-2.1, DE-2.5, DE-2.7, DE-3.1, ID-1.10, Cyber defense service provider, Exposure and leak monitoring service, Performer laptops and device management
 
-**Funding Line:** FY28 O&M, platform and security operations
+**Funding Line:** FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 2, Protect and Operate
+**Rollout Phase:** Phase 2, Protect and Operate, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C02](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references), [C29](index.md#6-contracting-and-procurement-cross-references)
 
@@ -242,7 +244,9 @@
 | DE-1.8.4: Compromised Account Identification | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
 | DE-1.8.5: SIEM Platform Integration | 2 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Low; Recurring: Low | Short-term (1–3 months) |
 | DE-1.8.6: Cloud Infrastructure Identity Threat Monitoring | 2 | Technical | None | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
-| DE-1.8.7: Identity Security Posture Scoring | 2 | Technical | Visualize | Level 2 | Periodic (Monthly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| DE-1.8.7: Identity Security Posture Scoring | 3 (pinned) | Technical | Visualize | Level 2 | Periodic (Monthly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+
+**Pinned:** DE-1.8.7: Moved later to even out the Security Team, which carries most of Phase 2. Posture scoring builds on the Phase 2 identity detections.
 
 ## DE-2: Comprehensive Logging
 

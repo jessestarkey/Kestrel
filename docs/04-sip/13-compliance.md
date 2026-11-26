@@ -70,11 +70,11 @@
 
 **Dependencies:** GV-5.9
 
-**Funding Line:** FY27 and FY28 O&M, platform and security operations
+**Funding Line:** FY27 and FY28 O&M, platform and security operations, with the Phase 3 share pending approval
 
-**Rollout Phase:** Phase 1, Foundation, with work through Phase 2
+**Rollout Phase:** Phase 1, Foundation, with work through Phase 3
 
-**Target Date / Sprint:** 2028-03-31
+**Target Date / Sprint:** 2028-07-31
 
 **Contracting / Procurement Reference:** [C01](index.md#6-contracting-and-procurement-cross-references), [C03](index.md#6-contracting-and-procurement-cross-references), [C04](index.md#6-contracting-and-procurement-cross-references), [C06](index.md#6-contracting-and-procurement-cross-references)
 
@@ -86,8 +86,10 @@
 |---|---|---|---|---|---|---|---|---|
 | CO-1.3.1: Evidence Collection Automation (per control/assessment cycle) | 1 | Technical | Automate | Level 1 | Continuous | High | One-Time: High; Recurring: Moderate | Medium-term (3–6 months) |
 | CO-1.3.2: Evidence Repository Management and Retention Policy Enforcement | 1 | Technical | None | Level 1 | Continuous | Moderate | One-Time: Moderate; Recurring: Moderate | Short-term (1–3 months) |
-| CO-1.3.3: Evidence Completeness/Quality Validation | 2 | Process | None | Level 2 | Periodic (Quarterly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
-| CO-1.3.4: Compliance Posture Dashboard | 2 | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+| CO-1.3.3: Evidence Completeness/Quality Validation | 3 (pinned) | Process | None | Level 2 | Periodic (Quarterly) | Moderate | One-Time: Low; Recurring: Moderate | Short-term (1–3 months) |
+| CO-1.3.4: Compliance Posture Dashboard | 3 (pinned) | Technical | Visualize | Level 2 | Continuous | Moderate | One-Time: Moderate; Recurring: Low | Short-term (1–3 months) |
+
+**Pinned:** CO-1.3.3: Moved later to even out the Security Team, which carries most of Phase 2. Evidence validation is most useful just before the SCA's assessment. CO-1.3.4: Moved later to even out the Security Team, which carries most of Phase 2. The compliance dashboard is most useful just before the SCA's assessment.
 
 ## CO-2: Continuous Monitoring Program
 
