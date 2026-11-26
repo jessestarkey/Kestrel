@@ -20,6 +20,7 @@
 
 - [AI/ML Governance Charter](AI-ML-Governance-Charter)
 - [Governance Program Charter](Governance-Program-Charter)
+- [Privacy Program Charter and Policy](Privacy-Program-Charter-and-Policy)
 - [Risk Management Program Charter](Risk-Management-Program-Charter)
 
 **Records**

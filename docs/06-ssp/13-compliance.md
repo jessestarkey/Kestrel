@@ -70,7 +70,7 @@ KESTREL holds little personal information, but what it holds will be managed und
 
 From Phase 2, the privacy officer will run KESTREL's privacy program at the Privacy Overlay's Low tier, under the Privacy Program Charter and Policy. Users correct the attributes KESTREL holds about them through Jira Service Management, while CAC and partner attributes are corrected at their source. Analysts, Data Team stewards, and service desk staff take role-based privacy training on JKO.
 
-<sub>**Planned.** Controls: PT-1, PM-18, PM-19, PM-5(1), AT-3(5), PM-22. SIP record: [CO-4.1](../04-sip/13-compliance.md#co-41-privacy-program-management).</sub>
+<sub>**Planned.** Controls: PT-1, PM-18, PM-19, PM-5(1), AT-3(5), PM-22. SIP record: [CO-4.1](../04-sip/13-compliance.md#co-41-privacy-program-management). Published as the [Privacy Program Charter and Policy](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy). Details: the Privacy Program Charter and Policy, [Section 1](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#1-privacy-policy-and-program-charter) and [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#2-privacy-roles-and-responsibilities) and [Section 3](https://github.com/jessestarkey/Kestrel/wiki/Privacy-Program-Charter-and-Policy#3-pii-accuracy-and-correction-request-handling).</sub>
 
 ### CO-4.2: Privacy Impact Assessments (PIA)
 
