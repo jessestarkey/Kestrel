@@ -1,0 +1,3 @@
+Application Gateway WAF v2 will front every user-facing application in blocking mode, with managed rules plus custom rules for each application. It protects the identity-aware proxy from Phase 1, and the analyst portal, the signals workbench, and the partner API from Phase 2. The service desk and the LLM analyst assistant's front end sit behind it too.
+
+API Management adds a second check for partner calls. It validates each call against the API's published schema, admits only routes in the runtime API inventory, and limits each partner's request rate. On-premises web consoles are reachable only from the VDI pools and the privileged access workstations, so no on-premises WAF is needed.

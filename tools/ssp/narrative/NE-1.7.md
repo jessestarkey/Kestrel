@@ -1,0 +1,3 @@
+From Phase 2, Cisco ISE will require 802.1X with EAP-TLS on every wired port in the data center and at the alternate site. Devices present certificates from the program PKI. Privileged access workstations and servers must also pass a posture check before they are admitted.
+
+Some ground control stations and launch equipment cannot run a supplicant. They are admitted by registered hardware address, and only to their own zone. The approach is proven on the spares, then applied at each operating site in Phase 3. Each site runs its own ISE policy node, so admission keeps working while the site is cut off from the data center. A device that fails is quarantined, and the Security Team is alerted.

@@ -1,0 +1,1 @@
+KESTREL will watch its network from end to end. Flow logs, firewall logs, and sensors in every location report to Splunk, where intrusion prevention, DNS analytics, and passive monitoring of the ground segment add their own detections. The Platform Team, the Security Team, and the CSSP all read the same network posture dashboard.

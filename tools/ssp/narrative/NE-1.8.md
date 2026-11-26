@@ -1,0 +1,3 @@
+The command and payload datalinks will be KESTREL's only authorized wireless, protected by the authenticated encryption described under the datalink outcome. No wireless LAN exists anywhere in KESTREL, so WPA2/3-Enterprise has nothing to authenticate, though any future wireless LAN would have to use it. Embedded radios are disabled on every server, workstation, and station, apart from the station datalink radios.
+
+From Phase 2, Bastille sensors look for rogue access points and unauthorized radios at the data center and the alternate site. They extend to each operating site when the fleet integrates, and their alerts reach the Security Team through Splunk.

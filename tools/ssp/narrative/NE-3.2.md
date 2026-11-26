@@ -1,0 +1,3 @@
+Palo Alto Threat Prevention will run on both hubs and the alternate site firewall from Phase 1, blocking at the DMZ's inbound paths and the circuits. The ground segment conduit is covered once the IT/OT DMZ is built in Phase 2, and signatures update through Panorama. Behind the data center hub, Corelight sensors fed by the fabric's mirrored traffic add detection.
+
+East-west rules between spokes start in alert mode and move to blocking as the Security Team tunes them. The rule sets cover the exposure KESTREL actually has, namely web applications, the partner API, identity services, and the protocols crossing the conduits.

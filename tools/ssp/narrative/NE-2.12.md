@@ -1,0 +1,3 @@
+The Security Team will register every port, protocol, and service crossing KESTREL's boundary in the DoD PPSM registry before the access point connection is approved. These include the access point flows, the outbound service classes, the circuits, the CSSP feed, the cross domain transfers, and the partner API. The DMZ's internet-facing services are also registered for DISA's internet access points.
+
+The approved baseline is kept as a separate record with each entry's justification and approver. From Phase 2, the pipeline compares the Panorama rule base and observed reachability with it on every change. The Security Team recertifies the registration each year.

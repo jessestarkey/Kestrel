@@ -1,0 +1,3 @@
+Inside each segment, only the flows a team has mapped will be allowed. Those flows become allow rules on workload security groups in each spoke and on ACI contracts in the data center, and everything else is denied. AKS clusters use Cilium network policy that denies traffic between namespaces from the moment a cluster is created, and Gatekeeper rejects any namespace that lacks a policy.
+
+Flow logs go to Splunk, which flags any rule nothing has used for 90 days so it can be removed. In each annual test, the penetration testers try to cross the payload vendor split and the deny between dev/test and production.

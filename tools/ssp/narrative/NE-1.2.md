@@ -1,0 +1,3 @@
+Every network device will be hardened to its DISA STIG. That covers the cloud hub's VM-Series firewalls, the data center hub's PA-Series pair, and the alternate site firewall. It also covers the ACI switches and APIC, which the SCAP Compliance Checker checks. Ground segment switches are hardened on the spares in Phase 2 and at each operating site when the fleet integrates.
+
+Management interfaces sit only on the out-of-band network and accept only sessions brokered through CyberArk. The cloud and data center run dual-stack, with every rule written for both address families. The ground segment disables IPv6 and drops it at its conduit.

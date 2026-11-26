@@ -1,0 +1,3 @@
+KESTREL will look for cleartext and obsolete protocols and turn them off, such as Telnet, FTP, SMBv1, unsigned LDAP, and TLS below 1.2. From Phase 1, the hubs' traffic logs and ACAS scans find them, and Corelight sensors on the data center's span ports join in Phase 2. Each one found is disabled through the change process. On the ground segment, passive sensors find them without probing, and any protocol a manufacturer requires gets compensating controls.
+
+One exception is possible. If the payload processing workstation's replacement slips past 2027-09-30, the AO must re-date CCSD tailoring action 3 before it connects. Its transfer to the data lake would then be the single registered exception, confined to its conduit.

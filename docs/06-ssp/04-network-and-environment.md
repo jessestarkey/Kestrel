@@ -4,174 +4,232 @@
 
 ## NE-1: Network Management and Segmentation
 
+KESTREL's network will be managed from one place and divided into segments that match its teams and its risk. A single Panorama rule base, held as code, drives the firewalls at both hubs and the alternate site. The cloud's ten spokes and the data center's SDN segments give each team its own space, and the ground segment follows the IEC 62443 zone and conduit model. Devices must authenticate before they connect, and the only wireless KESTREL allows is the aircraft datalinks.
+
 ### NE-1.1: Network Centralization and Standardization
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+KESTREL's firewall rules will come from one shared rule base in Panorama, held as OpenTofu in GitLab. The pipeline deploys it over F35 to both hubs and the alternate site firewall, and the Cisco APIC takes the data center fabric's policy from the same repository. A rule change is a merge request with a second reviewer, and any change to the shared rule base goes to the Configuration Control Board.
+
+Each operating site's ground segment firewall is the exception, since its conduit is a separate boundary. Fleet Operations keeps that rule set in its own repository and loads it from a maintenance console in a window. Across all of them, the pipeline compares each firewall's running policy with its repository and alerts on any difference.
 
 <sub>**Planned.** Controls: CM-2, CM-3, CM-6(1). SIP record: [NE-1.1](../04-sip/04-network-and-environment.md#ne-11-network-centralization-and-standardization). Details: the CMP, [Section 2](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#2-change-management) and [Section 8](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#8-network-architecture-and-segmentation).</sub>
 
 ### NE-1.2: Network Infrastructure Device Hardening
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+Every network device will be hardened to its DISA STIG. That covers the cloud hub's VM-Series firewalls, the data center hub's PA-Series pair, and the alternate site firewall. It also covers the ACI switches and APIC, which the SCAP Compliance Checker checks. Ground segment switches are hardened on the spares in Phase 2 and at each operating site when the fleet integrates.
+
+Management interfaces sit only on the out-of-band network and accept only sessions brokered through CyberArk. The cloud and data center run dual-stack, with every rule written for both address families. The ground segment disables IPv6 and drops it at its conduit.
 
 <sub>**Planned.** Controls: CM-6. SIP record: [NE-1.2](../04-sip/04-network-and-environment.md#ne-12-network-infrastructure-device-hardening). Details: the CMP, [Section 4](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#4-hardening-baselines-and-frameworks).</sub>
 
 ### NE-1.3: Insecure Services and Protocols
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+KESTREL will look for cleartext and obsolete protocols and turn them off, such as Telnet, FTP, SMBv1, unsigned LDAP, and TLS below 1.2. From Phase 1, the hubs' traffic logs and ACAS scans find them, and Corelight sensors on the data center's span ports join in Phase 2. Each one found is disabled through the change process. On the ground segment, passive sensors find them without probing, and any protocol a manufacturer requires gets compensating controls.
+
+One exception is possible. If the payload processing workstation's replacement slips past 2027-09-30, the AO must re-date CCSD tailoring action 3 before it connects. Its transfer to the data lake would then be the single registered exception, confined to its conduit.
 
 <sub>**Planned.** Controls: CM-7(1). SIP record: [NE-1.3](../04-sip/04-network-and-environment.md#ne-13-insecure-services-and-protocols).</sub>
 
 ### NE-1.4: Network Macro Segmentation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+KESTREL's macro segments will follow its teams. The landing zone modules create the cloud's ten spokes, and ACI endpoint groups give each mission team's data lake zone its own segment in the data center. Each zone is reachable only from its own team's spokes and the ML training zone, which keeps the payload vendor split at the network layer too. The alternate site, the IT/OT DMZ, and the ground segment's OT zones are segments of their own.
+
+Three classes carry the most risk and are each isolated: the DMZ, the VDI spoke, and Tier 0. Management interfaces at every site sit on an out-of-band network reached only through CyberArk's session hosts. Cloud control planes are reached the same way, over the circuit through a private link.
 
 <sub>**Planned.** Controls: SC-7, SC-7(13), SC-7(21). SIP record: [NE-1.4](../04-sip/04-network-and-environment.md#ne-14-network-macro-segmentation). Details: the CMP, [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#appendix-reference-data-and-configuration-baselines).</sub>
 
 ### NE-1.5: Network Micro Segmentation
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Inside each segment, only the flows a team has mapped will be allowed. Those flows become allow rules on workload security groups in each spoke and on ACI contracts in the data center, and everything else is denied. AKS clusters use Cilium network policy that denies traffic between namespaces from the moment a cluster is created, and Gatekeeper rejects any namespace that lacks a policy.
+
+Flow logs go to Splunk, which flags any rule nothing has used for 90 days so it can be removed. In each annual test, the penetration testers try to cross the payload vendor split and the deny between dev/test and production.
 
 <sub>**Planned.** Controls: AC-4, SC-7(5). SIP record: [NE-1.5](../04-sip/04-network-and-environment.md#ne-15-network-micro-segmentation). Details: the CMP, [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#appendix-reference-data-and-configuration-baselines).</sub>
 
 ### NE-1.6: IT/OT Zone and Conduit Segmentation (IEC 62443)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+The ground segment at each operating site will be divided into five zones under IEC 62443. These are the aircraft and datalinks, the ground control stations, launch and recovery, the operating site services, and a reserved zone for the payload processing workstation. The station, aircraft, and launch zones carry security level target 3, and the other two carry 2. That reserved zone stays empty unless the AO re-dates CCSD tailoring action 3.
+
+Each site has its own conduit, which ends on its ground segment firewall. An encrypted tunnel over DISN carries it to the IT/OT DMZ behind the data center hub. The DMZ carries security level target 3. Recordings and host logs leave through its staging servers, and certified model packages enter the same way, so no session ever spans IT and OT. Fleet Operations designs and validates the zones on the spare stations and the simulator in Phase 2. The conduit allow-lists apply at each site when the fleet integrates.
 
 <sub>**Planned.** Controls: SC-7, SC-7(21), AC-4, SC-7(5). SIP record: [NE-1.6](../04-sip/04-network-and-environment.md#ne-16-itot-zone-and-conduit-segmentation-iec-62443). Details: the CMP, [Section 8](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#8-network-architecture-and-segmentation).</sub>
 
 ### NE-1.7: Network Access Control (NAC/802.1X)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+From Phase 2, Cisco ISE will require 802.1X with EAP-TLS on every wired port in the data center and at the alternate site. Devices present certificates from the program PKI. Privileged access workstations and servers must also pass a posture check before they are admitted.
+
+Some ground control stations and launch equipment cannot run a supplicant. They are admitted by registered hardware address, and only to their own zone. The approach is proven on the spares, then applied at each operating site in Phase 3. Each site runs its own ISE policy node, so admission keeps working while the site is cut off from the data center. A device that fails is quarantined, and the Security Team is alerted.
 
 <sub>**Planned.** Controls: IA-3, SC-7(20). SIP record: [NE-1.7](../04-sip/04-network-and-environment.md#ne-17-network-access-control-nac8021x). Details: the CMP, [Section 9](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#9-network-access-control).</sub>
 
 ### NE-1.8: Wireless Network Access Control
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+The command and payload datalinks will be KESTREL's only authorized wireless, protected by the authenticated encryption described under the datalink outcome. No wireless LAN exists anywhere in KESTREL, so WPA2/3-Enterprise has nothing to authenticate, though any future wireless LAN would have to use it. Embedded radios are disabled on every server, workstation, and station, apart from the station datalink radios.
+
+From Phase 2, Bastille sensors look for rogue access points and unauthorized radios at the data center and the alternate site. They extend to each operating site when the fleet integrates, and their alerts reach the Security Team through Splunk.
 
 <sub>**Planned.** Controls: AC-18, AC-18(1), AC-18(3), SI-4(14). SIP record: [NE-1.8](../04-sip/04-network-and-environment.md#ne-18-wireless-network-access-control). Details: the CMP, [Section 9](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#9-network-access-control).</sub>
 
 ## NE-2: Network Boundary Security
 
+This capability governs every path into and out of KESTREL and between its parts. Cloud services are reached only privately, the hubs inspect and filter what crosses them, and every remote user arrives through a named path that offers no network tunnel. The aircraft datalinks, the cross domain transfers, and the conduits to the ground segment each get protection suited to what they carry.
+
 ### NE-2.1: Private Connectivity
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every provider-managed service will be reached only through a private endpoint in its own spoke, with public network access disabled. That includes the foundation model, the spoke Key Vaults, and the portal database. Azure Policy denies public access, and configuration checks alert if it ever returns.
+
+Three dedicated circuits connect the sites to the cloud hub, all riding DISN through the Boundary Cloud Access Point. The data center has two, from different carriers on diverse paths to different meet-me points, and the alternate site has one. ExpressRoute private peering is not encrypted, so IPsec tunnels in FIPS-CC mode run between the firewalls inside each circuit. The cloud hub terminates them on an active/passive VM-Series pair sized for the bulk flows. BGP sessions are authenticated, and prefix filters accept only KESTREL's own address ranges.
 
 <sub>**Planned.** Controls: SC-7(4). SIP record: [NE-2.1](../04-sip/04-network-and-environment.md#ne-21-private-connectivity).</sub>
 
 ### NE-2.2: Platform Service Network Integration
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Managed services that support it will be injected into their spoke's subnets, so their traffic follows the hub's routes and inspection. AKS, Azure Machine Learning, Container Instances, and API Management all run this way. Application Gateway runs as a private deployment with no public IP, and its listeners exist only in the DMZ. Before the first gateway is built, the inherited control check confirms that private deployment is available in Azure Government.
+
+Mission team services publish only internal listeners, which the DMZ's edge services reach through the cloud hub. Each quarter, the Platform Team reviews internal connections and removes any that no longer match a documented flow.
 
 <sub>**Planned.** Controls: CA-9, CM-7. SIP record: [NE-2.2](../04-sip/04-network-and-environment.md#ne-22-platform-service-network-integration).</sub>
 
 ### NE-2.3: Service Native Firewall Configurations
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Each platform service will have its own resource firewall turned on, as a second layer behind private connectivity. That covers Key Vault, Azure SQL, the queues behind the feedback endpoints, and each foundation model deployment. Each admits only its own spoke's private endpoint and the workloads that need it, and Azure Policy denies any change that opens one further. No platform service is reachable over a public address, so no public allow-list exists.
 
 <sub>**Planned.** Controls: SC-7, SC-7(11). SIP record: [NE-2.3](../04-sip/04-network-and-environment.md#ne-23-service-native-firewall-configurations).</sub>
 
 ### NE-2.4: Network Firewall
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+VM-Series firewalls will form the cloud hub, running as a highly available pair. Every spoke peers only with the hub, and user-defined routes send all spoke traffic through it. The hub's rules deny traffic from any dev/test spoke to any production spoke, apart from the shared services in F25, and between the two mission teams' spokes. A PA-Series pair fronts the data center's ACI fabric, and every site perimeter is a redundant pair.
+
+Outbound traffic is limited to a short allow-list of named classes over F29 and F30. These are package sources through the mirror, PKI revocation, the time reference, the threat feed, the Microsoft 365 DoD tenant, and the paging service. From Phase 2, both hubs decrypt and inspect outbound TLS. Mutual TLS between workload identities is exempt, since decrypting it would break the identity it carries.
 
 <sub>**Planned.** Controls: SC-7(3), SC-7(8), SC-7(10), AC-4(4), SI-4(10). SIP record: [NE-2.4](../04-sip/04-network-and-environment.md#ne-24-network-firewall). Details: the CMP, [Section 8](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#8-network-architecture-and-segmentation) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#appendix-reference-data-and-configuration-baselines).</sub>
 
 ### NE-2.5: DDoS Protection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+The DMZ will hold no Azure public IP resources, so Azure DDoS Network Protection would have nothing to cover. Its DoD-registered addresses are reached only through DISA's internet access points and the Boundary Cloud Access Point, which absorb network-layer floods upstream.
+
+KESTREL adds protection at the application and spoke level from Phase 2. Application Gateway limits the request rate to each user-facing application, and DoS protection policies on the cloud hub limit what any one spoke can send. A runaway workload therefore cannot flood the hub or the model endpoints. Flood alerts go to Splunk.
 
 <sub>**Planned.** Controls: SC-5, SC-5(1), SC-5(2), SC-5(3). SIP record: [NE-2.5](../04-sip/04-network-and-environment.md#ne-25-ddos-protection).</sub>
 
 ### NE-2.6: Web Application Firewall
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Application Gateway WAF v2 will front every user-facing application in blocking mode, with managed rules plus custom rules for each application. It protects the identity-aware proxy from Phase 1, and the analyst portal, the signals workbench, and the partner API from Phase 2. The service desk and the LLM analyst assistant's front end sit behind it too.
+
+API Management adds a second check for partner calls. It validates each call against the API's published schema, admits only routes in the runtime API inventory, and limits each partner's request rate. On-premises web consoles are reachable only from the VDI pools and the privileged access workstations, so no on-premises WAF is needed.
 
 <sub>**Planned.** Controls: SI-10, SI-10(5), SI-10(6), SC-5, CM-7(1). SIP record: [NE-2.6](../04-sip/04-network-and-environment.md#ne-26-web-application-firewall). Details: the CMP, [Section 10](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#10-boundary-and-api-protection) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#appendix-reference-data-and-configuration-baselines).</sub>
 
 ### NE-2.7: Secure Remote Access
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Every remote population will reach KESTREL through a named path, and neither path offers a network tunnel. Developers use Pomerium to reach GitLab and CI, and program office staff use it over F38 to reach approvals, both behind the DMZ's WAF. Operators, data scientists, developers using the coding agent, vendors over F37, and CSSP analysts use their own host pools in Azure Virtual Desktop, through private endpoints. Penetration testers get time-bound accounts on the same paths.
+
+Management ports are opened more narrowly still. Defender for Servers opens a cloud management port only for a just-in-time window, and on-premises ports accept only CyberArk's session hosts. Sessions end after 15 idle minutes, and the Security Team can end any session at once. Session keys and certificates are managed under the KMP.
 
 <sub>**Planned.** Controls: AC-17, AC-17(1), AC-17(2), AC-17(3), AC-17(9), SC-7(7), CM-7, SC-10. SIP record: [NE-2.7](../04-sip/04-network-and-environment.md#ne-27-secure-remote-access). Details: the CMP, [Section 10](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#10-boundary-and-api-protection).</sub>
 
 ### NE-2.8: Telemetry, Tracking, and Command (TT&C) Link Security
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+The aircraft datalinks will be KESTREL's command and telemetry links, so the space-link standard CCSDS SDLS does not apply. FIPS 140-3 validated datalink crypto modules provide the protection instead. The command uplink is authenticated, encrypted, and protected against replay, so an aircraft executes only fresh commands from a KESTREL station. The telemetry and payload downlink is encrypted and integrity-protected.
+
+The links use CNSA algorithms under CNSSP 15. Their keys are generated in the nShield HSMs and loaded with a key loader. Fleet Operations tests authentication and encryption on spare aircraft and the simulator in Phase 2, before any aircraft carries mission data. Every operational aircraft and station is keyed when the fleet integrates. Stations alert operators to link anomalies and jamming indicators, and those alerts reach the Security Team too.
 
 <sub>**Planned.** Controls: IA-3(1), SC-8, SC-5(3), SC-40. SIP record: [NE-2.8](../04-sip/04-network-and-environment.md#ne-28-telemetry-tracking-and-command-ttc-link-security).</sub>
 
 ### NE-2.10: Cross Domain Solution (CDS) Transfer Procedures
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+KESTREL will use the enterprise cross domain solution that a DoD cross domain service provider operates. The provider selects, operates, and accredits it, so KESTREL inherits the guard's filtering and confirms the solution's Baseline List entry and reaccreditation. Onboarding starts in Phase 2, and the first transfers run in Phase 3.
+
+KESTREL's transfer gateway sits alone in a DMZ subnet that reaches only the solution's low side and the feedback endpoints. Low-to-high baselines are staged only after Certification to Field approves them, and the guard releases each by verified type. High-to-low products pass the IL6 enclave's release review first, then KESTREL's malware scan, format and schema validation, and marking check. They reach the feedback endpoints as untrusted input. Both sides' logs go to Splunk, and manual media transfer between the domains is prohibited.
 
 <sub>**Planned.** Controls: SC-46, SC-7(22), AC-4(8), AC-4(12), AC-4(15), AC-4(17), AC-4(26), AC-4(31), CA-3(6). SIP record: [NE-2.10](../04-sip/04-network-and-environment.md#ne-210-cross-domain-solution-cds-transfer-procedures).</sub>
 
 ### NE-2.11: Industrial Protocol Filtering (DPI)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 2, running through Phase 3, with a target of 2028-07-31.*
+Each operating site's ground segment firewall will parse the command and control protocol between the stations and the launch and recovery equipment. Custom App-ID signatures, built from the manufacturer's protocol documentation, let it allow only the commands each station is approved to send. Fleet Operations builds and tests them on the spares in Phase 2, and applies them at each site when the fleet integrates.
+
+If deep packet inspection faults on that path, the firewall falls back to a fixed allow-list of the same commands rather than blocking. Launch and recovery are therefore never cut off, and the fault raises an alert. Command and control traffic never crosses the conduit to the data center, so any seen there is blocked and alerted. Fleet Operations and the Security Team tune the rules after each maintenance window.
 
 <sub>**Planned.** Controls: SC-7(17), SC-7(18), SI-4(4). SIP record: [NE-2.11](../04-sip/04-network-and-environment.md#ne-211-industrial-protocol-filtering-dpi). Details: the CMP, [Section 11](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#11-traffic-inspection-tuning) and [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#appendix-reference-data-and-configuration-baselines).</sub>
 
 ### NE-2.12: Ports, Protocols, and Services Matrix (PPSM)
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+The Security Team will register every port, protocol, and service crossing KESTREL's boundary in the DoD PPSM registry before the access point connection is approved. These include the access point flows, the outbound service classes, the circuits, the CSSP feed, the cross domain transfers, and the partner API. The DMZ's internet-facing services are also registered for DISA's internet access points.
+
+The approved baseline is kept as a separate record with each entry's justification and approver. From Phase 2, the pipeline compares the Panorama rule base and observed reachability with it on every change. The Security Team recertifies the registration each year.
 
 <sub>**Planned.** Controls: CM-7(3), SI-4(22). SIP record: [NE-2.12](../04-sip/04-network-and-environment.md#ne-212-ports-protocols-and-services-matrix-ppsm). Details: the CMP, [its appendix](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#appendix-reference-data-and-configuration-baselines).</sub>
 
 ### NE-2.13: Authorized Cloud Access Point Integration
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Every flow to or from outside KESTREL's own sites will cross a named managed interface, as the Cloud Computing SRG requires at IL5. For the cloud, that path runs through DISA's internet access points, the Boundary Cloud Access Point, and then the cloud hub. The dedicated circuits reach the hub over DISN through the same access point. Azure Policy denies Azure public IP resources in every spoke, so no other way in exists. For the data center, the data center hub is the managed interface for the CSSP feed and its DISN egress.
+
+Behind the access point, the mission-owner stack is the VM-Series hub with Threat Prevention and outbound URL filtering, followed by the DMZ's WAF. The VDI brokers have their own listener and subnet, and IL6 products arrive through the cross domain solution instead. DISA approves the connection before the DMZ accepts any traffic.
 
 <sub>**Planned.** Controls: SC-7(4), SC-7(8), AC-17(3), SC-2. SIP record: [NE-2.13](../04-sip/04-network-and-environment.md#ne-213-authorized-cloud-access-point-integration).</sub>
 
 ## NE-3: Network Visibility
 
+KESTREL will watch its network from end to end. Flow logs, firewall logs, and sensors in every location report to Splunk, where intrusion prevention, DNS analytics, and passive monitoring of the ground segment add their own detections. The Platform Team, the Security Team, and the CSSP all read the same network posture dashboard.
+
 ### NE-3.1: Network Telemetry and Security Posture Visualization
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+From Phase 1, VNet flow logs, the hubs' traffic and threat logs, and ACI flow telemetry will reach Splunk. The CSSP can therefore watch the network from the interim authorization to test. Corelight sensors on the data center's span ports join in Phase 2, and the ground segment's Guardian sensors when the fleet integrates. One network posture dashboard shows segmentation coverage, rule health, and DDoS and WAF alerts to the Platform Team, the Security Team, and the CSSP alike.
 
 <sub>**Planned.** Controls: SI-4. SIP record: [NE-3.1](../04-sip/04-network-and-environment.md#ne-31-network-telemetry-and-security-posture-visualization).</sub>
 
 ### NE-3.2: IDPS
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 2, with a target of 2028-03-31.*
+Palo Alto Threat Prevention will run on both hubs and the alternate site firewall from Phase 1, blocking at the DMZ's inbound paths and the circuits. The ground segment conduit is covered once the IT/OT DMZ is built in Phase 2, and signatures update through Panorama. Behind the data center hub, Corelight sensors fed by the fabric's mirrored traffic add detection.
+
+East-west rules between spokes start in alert mode and move to blocking as the Security Team tunes them. The rule sets cover the exposure KESTREL actually has, namely web applications, the partner API, identity services, and the protocols crossing the conduits.
 
 <sub>**Planned.** Controls: SI-4(1), SI-4(7). SIP record: [NE-3.2](../04-sip/04-network-and-environment.md#ne-32-idps). Details: the CMP, [Section 11](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#11-traffic-inspection-tuning).</sub>
 
 ### NE-3.3: Trusted DNS Service
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 1, with a target of 2027-09-30.*
+Infoblox NIOS appliances will resolve names for the data center and the alternate site, and NIOS virtual appliances in Platform Prod will resolve for the cloud. Hosts may use no other resolver, and the hubs block outbound DNS to anywhere else. Every resolver validates DNSSEC, and resolver traffic across the circuits stays inside their IPsec tunnels.
+
+KESTREL's public names sit signed under the program's DoD parent zone and point only at the access point's published addresses, with DoD publishing their delegation records. Azure DNS holds only the private zones.
 
 <sub>**Planned.** Controls: SC-20, SC-21, SC-22. SIP record: [NE-3.3](../04-sip/04-network-and-environment.md#ne-33-trusted-dns-service). Details: the CMP, [Section 12](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#12-dns-and-email-authentication-architecture).</sub>
 
 ### NE-3.4: Private DNS Service
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome from Phase 1, running through Phase 3, with a target of 2028-07-31.*
+Inside KESTREL, Azure DNS private zones will resolve each managed service to its private endpoint, and each spoke's names will sit in a zone of their own. The cloud and data center resolvers forward each other's names across the circuit, so a circuit outage leaves local resolution working. If the data center is lost, the alternate site's standby DNS takes over its names.
+
+Each operating site gets its own resolver pair, which answers only its own names and the IT/OT DMZ. A lost conduit therefore leaves the site's resolution working. Fleet Operations builds the pair on the spares in Phase 2 and at each operating site when the fleet integrates.
 
 <sub>**Planned.** Controls: SC-20(2), SC-22. SIP record: [NE-3.4](../04-sip/04-network-and-environment.md#ne-34-private-dns-service). Details: the CMP, [Section 12](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#12-dns-and-email-authentication-architecture).</sub>
 
 ### NE-3.5: DNS Advanced Protection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, Infoblox Threat Defense will block known-malicious, newly registered, and algorithmically generated domains at every resolver. Its feeds arrive as response policy zones, pulled by zone transfer through the hub, and no query data is sent to Infoblox. The CSSP's indicators load as a local response policy zone.
+
+Query logs go to Splunk, where analytics look for tunneling, beaconing, and exfiltration. DNS records are also checked continuously against the asset inventory. A record left pointing at a removed resource is caught before anyone else can claim the address.
 
 <sub>**Planned.** Controls: SI-4, SI-4(18). SIP record: [NE-3.5](../04-sip/04-network-and-environment.md#ne-35-dns-advanced-protection). Details: the CMP, [Section 12](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#12-dns-and-email-authentication-architecture).</sub>
 
 ### NE-3.7: External Attack Surface Management
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 2, with a target of 2028-03-31.*
+From Phase 2, Tenable Attack Surface Management will watch KESTREL's public names and services continuously from outside. The Security Team reviews its findings against the inventory each month. A tenant-level check finds any cloud subscription or resource created outside KESTREL's management group, and a deny policy blocks new ones.
+
+Source code lives on performer laptops, so the Security Team also uses GitGuardian to watch public code hosting and paste sites for KESTREL's code, secrets, and credentials. Each finding opens a Jira Service Management ticket to the owning team.
 
 <sub>**Planned.** Controls: RA-5(4), AU-13. SIP record: [NE-3.7](../04-sip/04-network-and-environment.md#ne-37-external-attack-surface-management).</sub>
 
 ### NE-3.8: OT/Legacy Passive Monitoring
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, Nozomi Networks Guardian sensors will build a profile of normal traffic for each ground segment zone, after their tuning on the spares. Deviations alert Fleet Operations and the Security Team. The sensors never act on traffic or devices, so they cannot interfere with a flight.
+
+Each maintenance window that changes equipment ends with a re-profiling, so the new configuration becomes the baseline. A re-profiling may not absorb a deviation the Security Team has not explained.
 
 <sub>**Planned.** Controls: SI-4(13), SI-4(5). SIP record: [NE-3.8](../04-sip/04-network-and-environment.md#ne-38-otlegacy-passive-monitoring). Details: the CMP, [Section 11](https://github.com/jessestarkey/Kestrel/wiki/Configuration-Management-Plan#11-traffic-inspection-tuning).</sub>
 
 ### NE-3.9: GNSS/PNT Spoofing and Jamming Detection
 
-*This narrative is not yet written. The Security Implementation Plan schedules the outcome in Phase 3, with a target of 2028-07-31.*
+From Phase 3, each aircraft's GNSS signal and solution quality will be profiled and compared with its inertial navigation. A spoofed position then stands out against the aircraft's own motion. On the ground, each operating site has its own SyncServer as a holdover time reference. Each station compares its GNSS timing with that reference, and with the data center's SyncServer whenever the conduit is up.
+
+Indicators of spoofing or jamming alert the operator at the station during flight. They also reach the Security Team through Splunk.
 
 <sub>**Planned.** Controls: SI-4(13), SI-4(5). SIP record: [NE-3.9](../04-sip/04-network-and-environment.md#ne-39-gnsspnt-spoofing-and-jamming-detection).</sub>

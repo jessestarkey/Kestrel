@@ -1,0 +1,3 @@
+The DMZ will hold no Azure public IP resources, so Azure DDoS Network Protection would have nothing to cover. Its DoD-registered addresses are reached only through DISA's internet access points and the Boundary Cloud Access Point, which absorb network-layer floods upstream.
+
+KESTREL adds protection at the application and spoke level from Phase 2. Application Gateway limits the request rate to each user-facing application, and DoS protection policies on the cloud hub limit what any one spoke can send. A runaway workload therefore cannot flood the hub or the model endpoints. Flood alerts go to Splunk.

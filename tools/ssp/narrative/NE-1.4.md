@@ -1,0 +1,3 @@
+KESTREL's macro segments will follow its teams. The landing zone modules create the cloud's ten spokes, and ACI endpoint groups give each mission team's data lake zone its own segment in the data center. Each zone is reachable only from its own team's spokes and the ML training zone, which keeps the payload vendor split at the network layer too. The alternate site, the IT/OT DMZ, and the ground segment's OT zones are segments of their own.
+
+Three classes carry the most risk and are each isolated: the DMZ, the VDI spoke, and Tier 0. Management interfaces at every site sit on an out-of-band network reached only through CyberArk's session hosts. Cloud control planes are reached the same way, over the circuit through a private link.

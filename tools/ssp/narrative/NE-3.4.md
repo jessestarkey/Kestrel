@@ -1,0 +1,3 @@
+Inside KESTREL, Azure DNS private zones will resolve each managed service to its private endpoint, and each spoke's names will sit in a zone of their own. The cloud and data center resolvers forward each other's names across the circuit, so a circuit outage leaves local resolution working. If the data center is lost, the alternate site's standby DNS takes over its names.
+
+Each operating site gets its own resolver pair, which answers only its own names and the IT/OT DMZ. A lost conduit therefore leaves the site's resolution working. Fleet Operations builds the pair on the spares in Phase 2 and at each operating site when the fleet integrates.

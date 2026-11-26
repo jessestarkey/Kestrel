@@ -1,0 +1,3 @@
+KESTREL's firewall rules will come from one shared rule base in Panorama, held as OpenTofu in GitLab. The pipeline deploys it over F35 to both hubs and the alternate site firewall, and the Cisco APIC takes the data center fabric's policy from the same repository. A rule change is a merge request with a second reviewer, and any change to the shared rule base goes to the Configuration Control Board.
+
+Each operating site's ground segment firewall is the exception, since its conduit is a separate boundary. Fleet Operations keeps that rule set in its own repository and loads it from a maintenance console in a window. Across all of them, the pipeline compares each firewall's running policy with its repository and alerts on any difference.

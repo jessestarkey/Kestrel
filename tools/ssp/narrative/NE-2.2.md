@@ -1,0 +1,3 @@
+Managed services that support it will be injected into their spoke's subnets, so their traffic follows the hub's routes and inspection. AKS, Azure Machine Learning, Container Instances, and API Management all run this way. Application Gateway runs as a private deployment with no public IP, and its listeners exist only in the DMZ. Before the first gateway is built, the inherited control check confirms that private deployment is available in Azure Government.
+
+Mission team services publish only internal listeners, which the DMZ's edge services reach through the cloud hub. Each quarter, the Platform Team reviews internal connections and removes any that no longer match a documented flow.
