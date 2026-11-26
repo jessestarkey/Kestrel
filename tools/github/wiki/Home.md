@@ -12,14 +12,14 @@ This space holds KESTREL's working documents, namely the governing plans and the
 |---|---|---|
 | [Account Management Plan (AMP)](Account-Management-Plan) | ID-5.1 | Draft 0.5, in Configuration Control Board review |
 | [Configuration Management Plan (CMP)](Configuration-Management-Plan) | DI-6.1 | Draft 0.1, in Configuration Control Board review |
-| Vulnerability and Patch Management Plan (VPMP) | DI-7.1 | Not started |
+| [Vulnerability and Patch Management Plan (VPMP)](Vulnerability-and-Patch-Management-Plan) | DI-7.1 | Draft 0.1, in Configuration Control Board review |
 | [Application Security Plan (ASP)](Application-Security-Plan) | AP-6.1 | Draft 0.1, in Configuration Control Board review |
 | [AI/ML Security Plan (AISP)](AI-ML-Security-Plan) | AI-10.1 | Draft 0.2, in review board and Configuration Control Board review |
-| Data Management Plan (DMP) | DA-1.9 | Not started |
+| [Data Management Plan (DMP)](Data-Management-Plan) | DA-1.9 | Draft 0.1, in Configuration Control Board review |
 | [Key Management Plan (KMP)](Key-Management-Plan) | DA-3.13 | Draft 0.1, in Configuration Control Board review |
 | [Incident Response Plan (IRP)](Incident-Response-Plan) | RS-4.1 | Draft 0.1, with the interim IRP due in Phase 1 |
-| Contingency Plan (CP) | RC-4.1 | Not started |
-| Supply Chain Risk Management Plan (SCRM) | GV-3.5 | Not started |
+| [Contingency Plan (CP)](Contingency-Plan) | RC-4.1 | Draft 0.1, for Configuration Control Board review in Phase 2 |
+| [Supply Chain Risk Management Plan (SCRM)](Supply-Chain-Risk-Management-Plan) | GV-3.5 | Draft 0.1, for Configuration Control Board review in Phase 2 |
 | [Continuous Monitoring Plan (ConMon)](Continuous-Monitoring-Plan) | CO-2.1 | Draft 0.1, with the interim plan due for AO approval in Phase 1 |
 
 ## Charters

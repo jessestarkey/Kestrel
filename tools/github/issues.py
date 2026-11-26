@@ -51,7 +51,11 @@ WIKI = {'ID-4.6': ('Break-Glass Account Retrieval runbook', 'Break-Glass-Account
         'GV-4.1': ('AI/ML Governance Charter', 'AI-ML-Governance-Charter'),
         'DI-6.1': ('Configuration Management Plan', 'Configuration-Management-Plan'),
         'RK-1.1': ('Risk Management Program Charter', 'Risk-Management-Program-Charter'),
-        'RS-4.1': ('Incident Response Plan', 'Incident-Response-Plan')}
+        'RS-4.1': ('Incident Response Plan', 'Incident-Response-Plan'),
+        'DI-7.1': ('Vulnerability and Patch Management Plan', 'Vulnerability-and-Patch-Management-Plan'),
+        'GV-3.5': ('Supply Chain Risk Management Plan', 'Supply-Chain-Risk-Management-Plan'),
+        'DA-1.9': ('Data Management Plan', 'Data-Management-Plan'),
+        'RC-4.1': ('Contingency Plan', 'Contingency-Plan')}
 TYPE_LABELS = {'initiative': ('type: initiative', '5319e7'), 'epic': ('type: epic', '1d76db'),
                'story': ('type: story', '0e8a16'), 'sub-task': ('type: sub-task', 'c5def5')}
 

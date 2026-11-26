@@ -8,9 +8,13 @@
 - [AI/ML Security Plan](AI-ML-Security-Plan)
 - [Application Security Plan](Application-Security-Plan)
 - [Configuration Management Plan](Configuration-Management-Plan)
+- [Contingency Plan](Contingency-Plan)
 - [Continuous Monitoring Plan](Continuous-Monitoring-Plan)
+- [Data Management Plan](Data-Management-Plan)
 - [Incident Response Plan](Incident-Response-Plan)
 - [Key Management Plan](Key-Management-Plan)
+- [Supply Chain Risk Management Plan](Supply-Chain-Risk-Management-Plan)
+- [Vulnerability and Patch Management Plan](Vulnerability-and-Patch-Management-Plan)
 
 **Charters**
 
