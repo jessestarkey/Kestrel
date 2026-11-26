@@ -72,7 +72,7 @@
 
 **Environment-Specific Tailoring:** Splunk Enterprise Security correlates every source, and detection rules are written as code in GitLab. Vetted CSSP indicators are pushed to Panorama, Infoblox Threat Defense, and Defender. Ground segment correlation starts in Phase 3, when those events arrive. AI rules in Splunk read the agent action records, serving abuse findings, and logged prompts from Phase 3. Agent Threat Rules seeds the content-pattern rules, and the Security Team writes the behavioral ones, each mapped to ATLAS.
 
-**Accountable Team:** Security Team
+**Accountable Team:** Security Team, with the Platform Team for the telemetry pipeline
 
 **Dependencies:** DE-2.1, DE-2.7, DE-3.1, RK-2.3, Cyber defense service provider
 

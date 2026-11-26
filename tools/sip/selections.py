@@ -729,6 +729,7 @@ OUT = {
                 deps='DE-2.1, DE-2.5, DE-2.7, DE-3.1, Cyber defense service provider, Penetration testing provider',
                 tailoring='AttackIQ runs monthly against the cloud spokes, the data center, and identity. The penetration testing provider runs the annual campaign under agreed rules of engagement. PyRIT and garak run ATLAS techniques against the models and agents in stage, and each miss goes to DE-1.2.4. Fleet systems are emulated only on spares or the simulator.'),
 'DE-1.3': dict(tools=['splunkes', 'mdxdr', 'gitlab', 'panorama', 'infobloxtd', 'atr'],
+                team='Security Team, with the Platform Team for the telemetry pipeline',
                 deps='DE-2.1, DE-2.7, DE-3.1, RK-2.3, Cyber defense service provider',
                 tailoring='Splunk Enterprise Security correlates every source, and detection rules are written as code in GitLab. Vetted CSSP indicators are pushed to Panorama, Infoblox Threat Defense, and Defender. Ground segment correlation starts in Phase 3, when those events arrive. AI rules in Splunk read the agent action records, serving abuse findings, and logged prompts from Phase 3. Agent Threat Rules seeds the content-pattern rules, and the Security Team writes the behavioral ones, each mapped to ATLAS.'),
 'DE-1.4': dict(tools=['splunkes', 'mdxdr'],
